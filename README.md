@@ -1,37 +1,44 @@
 # ICARUS
 
-ICARUS Terminal is a second screen UI for the game Elite Dangerous.
+ICARUS Terminal is a second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/).
 
-It is Windows (Win32) application, build with Node.js, Go and a custom 
-Edge/WebView2 abstraction library in C/C++.
+ICARUS is a Windows (Win32) application built with Node.js and Go that uses a fork of custom Edge/WebView2 abstraction written in C/C++.
 
-This inital public release is focused on application scaffolding.
+This inital public release is focused on application scaffolding, following development of an early proof of concept in Electron.
+
+In comparison to the prototype developed in Electron, this implementation has a smaller memory footprint and a much smaller package size (~20 MB vs ~200 MB). The primary trade offs are additional complexity in the build process and a custom launcher.
+
+The intention is to port the existing functionality that has been developed over to this codebase and to publish a public beta when there is minimum viable level of functionality.
+
+## Getting Started
 
 _This documentation is intended for developers._
 
-## Requirements
+### Requirements
 
-To build the application you will need:
+To build this application you need to be running Microsoft Windows and have the following dependencies installed:
 
-* Go https://golang.org/
-* Node.js https://nodejs.org/en/download/
-* NSIS https://nsis.sourceforge.io/ / `winget install NSIS.NSIS`
-* Visual Studio 2019 (or MS Build Tools with "Desktop development with C++")
+* [Go Lang](https://golang.org/) for the Win32 UI
+* [Node.js](https://nodejs.org/en/download/) for the backend socket service
+* [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/) to build the Windows installer (e.g. `winget install NSIS.NSIS`)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) or MS Build Tools with "Desktop development with C++"
 
-To run the application, you will also need the Microsoft Edge Runtime:
-https://developer.microsoft.com/en-us/microsoft-edge/webview2/
+To run the application you need to have the [Microsoft Edge Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2/) installed. 
 
-Note: A version of runtime installer will be likely be bundled for release.
+Notes:
+
+* The Edge Runtime is the only runtime dependancy.
+* A dependancy check and loader for the Edge Runtime installer will likely be bundled with the installer for release, so that it works on all Windows systems (Windows 7 and above).
 
 ### Building
 
-With these installed, you can build the application in a single step:
+With the dependencies above installed, you can build the application in a single step:
 
 * `npm run build`
 
-This will output an working installer in `dist/`.
+This will output a standalone installer "ICARUS Setup.exe" in `dist/` directory.
 
-Intermediate builds can be found in `build/`.
+Intermediate builds can be found in `build/` directory. See `build/bin` for the final binaries, these can be run in place without having to run the installer. If you run "ICARUS Terminal.exe" it will start the "ICARUS Service.exe" automatically in the background (and shut it down again when the main Terminal window is closed).
 
 You can also run each build step independently:
 
@@ -40,3 +47,10 @@ You can also run each build step independently:
 * `npm run build:assets` builds only the assets
 * `npm run build:package` builds only the Windows installer
 * `npm run build:clean` resets the build environment
+
+You can enable/disable debugging and skip build optimization using constants defined in `scripts/lib/build-options.js`.
+
+Notes:
+
+* "ICARUS Terminal.exe" depends on "ICARUS Service.exe" being in the same directory to run, or it will exit on startup with a message indicating unable to start the ICARUS Terminal Service.
+* For development purposes, you can also run the service in development mode with `npm run dev` and start the Terminal in headless mode with `ICARUS Terminal.exe -terminal -port 3300`.
