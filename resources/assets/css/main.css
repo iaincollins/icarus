@@ -1,0 +1,118 @@
+@import "variables.css";
+
+@import "loader.css";
+@import "overlay.css";
+@import "buttons.css";
+
+@font-face {
+  font-family: 'Jura';
+  src: url('../fonts/Jura-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+  cursor: url('../images/cursor.png'), crosshair;
+}
+
+::selection { 
+  background: var(--dark-secondary-color);
+  color: var(--secondary-color);
+  text-shadow: 0 0 5px var(--secondary-color);
+}
+
+html {
+  zoom: 100%;
+}
+
+html,
+.scrollable {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+.scrollable::-webkit-scrollbar {
+  width: 0px;
+}
+
+.scrollable {
+  scrollbar-width: none;
+  overflow: auto !important;
+  overflow-x: hidden !important;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 16px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  min-height: 4rem;
+  box-shadow: 0 0 10px var(--dark-primary-color);
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background-image: linear-gradient(90deg, transparent 41.67%, var(--primary-color) 41.67%, var(--primary-color) 50%, transparent 50%, transparent 91.67%, var(--primary-color) 91.67%, var(--primary-color) 100%);
+  background-size: 48.00px 48.00px;
+  background-position-x: 10px;
+}
+
+.not-selectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.05));
+  z-index: -1;
+  background-size: 100% 10px;
+  pointer-events: none;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: "Jura", sans-serif;
+  font-size: 1.5rem;
+  padding: .5rem;
+  margin: 0;
+  text-align: center;
+}
+
+html, body {
+  -ms-content-zooming: none;
+}
+
+#background {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: ' ';
+  background: radial-gradient(circle, var(--background-color) 0%, rgba(0,0,0,1) 100%);
+  z-index: -1;
+  opacity: 0.8;
+}
+
+#main {
+  transition: .25s ease-in-out;
+  z-index: 10;
+}
+
+h1 {
+  margin: .25rem 0;
+}
+
+p {
+  margin: 1rem 0;
+}

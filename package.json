@@ -1,0 +1,32 @@
+{
+  "name": "icarus",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run build:app && npm run build:service && npm run build:assets && npm run build:package",
+    "build:app": "node scripts/build-app.js",
+    "build:service": "node scripts/build-service.js",
+    "build:assets": "node scripts/build-assets.js",
+    "build:package": "node scripts/build-package.js",
+    "build:clean": "node scripts/build-clean.js",
+    "dev": "nodemon src/service/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@erhhung/node-resource-hacker": "^1.0.1",
+    "changeexe": "^1.0.2",
+    "fs-extra": "^10.0.0",
+    "makensis": "^1.1.1",
+    "nodemon": "^2.0.15",
+    "upx": "^1.0.6"
+  },
+  "dependencies": {
+    "connect": "^3.7.0",
+    "nexe": "^4.0.0-beta.19",
+    "serve-static": "^1.14.1",
+    "ws": "^8.2.3",
+    "yargs": "^17.2.1"
+  }
+}

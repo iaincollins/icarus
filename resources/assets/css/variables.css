@@ -1,0 +1,43 @@
+:root {
+  --primary-color: rgb(235, 125, 0);
+  --dark-primary-color: rgb(58, 12, 0);
+
+  --secondary-color: rgb(163, 229, 255);
+  --dark-secondary-color: rgb(9, 26, 40);
+
+  /* advanced theming options */
+  --primary-text-color: var(--primary-color);
+  --secondary-text-color: var(--secondary-color);
+  
+  --background-color: var(--dark-primary-color);
+  --panel-background-color: rgba(58, 12, 0, .2);
+
+  --button-active-color: var(--primary-color);
+  --button-hover-color: var(--dark-secondary-color);
+  --button-hover-text-color: var(--secondary-color);
+  
+  --text-shift-left-color: rgba(0, 128, 0, .5);
+  --text-shift-right-color: rgba(255, 0, 0, .5);
+
+  --danger-color: red;
+  --success-color: lime;
+  --info-color: white;
+
+  --planet-atmosphere: #00b3f7;
+  --planet-not-landable-filter: grayscale(0%);
+
+  --icon-color: var(--info-color);
+  --icon-focus-color: var(--secondary-color);
+
+  --text-shadow: 0 0 20px;
+}
+
+/*
+Light Blue #00b3f7
+Medium Blue #0a8bd6
+Green #029e4c
+Red #ff0000
+Game Orange #ff7100
+Website Orange ffb000
+Yellow #ffb000
+*/

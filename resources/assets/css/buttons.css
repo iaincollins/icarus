@@ -1,0 +1,26 @@
+button {
+  background: var(--dark-primary-color);
+  color: var(--primary-color);
+  border: 0;
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-family: "Jura", sans-serif;
+  font-weight: 900;
+  min-width: 20rem;
+  text-transform: uppercase;
+}
+
+button:disabled {
+  opacity: 0.25;
+}
+
+button:not(:disabled):hover {
+  background: var(--primary-color);
+  color: var(--dark-primary-color);
+}
+
+button:not(:disabled):active {
+  background: var(--secondary-color);
+  color: var(--dark-secondary-color);
+}

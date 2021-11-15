@@ -1,0 +1,17 @@
+github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf h1:FPsprx82rdrX2jiKyS17BH6IrTmUBYqZa/CXT4uvb+I=
+github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf/go.mod h1:peYoMncQljjNS6tZwI9WVyQB3qZS6u79/N3mBOcnd3I=
+github.com/jchv/go-webview2 v0.0.0-20211023023319-977d8719321f h1:wF7bbDOcRcRlamAwWMNagyFVQubISAlisj6Ix8O8Hn0=
+github.com/jchv/go-webview2 v0.0.0-20211023023319-977d8719321f/go.mod h1:7Q5nFip7HvzGJDYVfa22s/pb9T2X+XhEjLhylNf5dV8=
+github.com/jchv/go-winloader v0.0.0-20200815041850-dec1ee9a7fd5 h1:pdFFlHXY9tZXmJz+tRSm1DzYEH4ebha7cffmm607bMU=
+github.com/jchv/go-winloader v0.0.0-20200815041850-dec1ee9a7fd5/go.mod h1:alcuEEnZsY1WQsagKhZDsoPCRoOijYqhZvPwLG0kzVs=
+github.com/nvsoft/win v0.0.0-20160111051136-23d143e32c41 h1:s0qXnW0MxcRPYZpqbrITRo3tAbAdlQBPUCKf/akNMKg=
+github.com/nvsoft/win v0.0.0-20160111051136-23d143e32c41/go.mod h1:bI2vvx1dagFt7tydvy947C0q6ET6k5MfIvWmmpLelpw=
+github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2 h1:JhzVVoYvbOACxoUmOs6V/G4D5nPVUW73rKvXxP4XUJc=
+github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2/go.mod h1:iIss55rKnNBTvrwdmkUpLnDpZoAHvWaiq5+iMmen4AE=
+github.com/sqweek/dialog v0.0.0-20211002065838-9a201b55ab91 h1:Ap4SC7+bIAFzh81vREQSElqYUtuxPgknVl1ol5rOf9w=
+github.com/sqweek/dialog v0.0.0-20211002065838-9a201b55ab91/go.mod h1:/qNPSY91qTz/8TgHEMioAUc6q7+3SOybeKczHMXFcXw=
+github.com/webview/webview v0.0.0-20210330151455-f540d88dde4e h1:z780M7mCrdt6KiICeW9SGirvQjxDlrVU+n99FO93nbI=
+github.com/webview/webview v0.0.0-20210330151455-f540d88dde4e/go.mod h1:rpXAuuHgyEJb6kXcXldlkOjU6y4x+YcASKKXJNUhh0Y=
+golang.org/x/sys v0.0.0-20200810151505-1b9f1253b3ed/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20200814200057-3d37ad5750ed h1:J22ig1FUekjjkmZUM7pTKixYm8DvrYsvrBZdunYeIuQ=
+golang.org/x/sys v0.0.0-20200814200057-3d37ad5750ed/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
