@@ -17,6 +17,7 @@ import (
 )
 
 // Window title declared here as to identify if the app is aleady running
+const ICON = "icon.ico"
 const LAUNCHER_WINDOW_TITLE = "ICARUS Terminal Launcher"
 const TERMINAL_WINDOW_TITLE = "ICARUS Terminal"
 const LPSZ_CLASS_NAME = "IcarusTerminalWindowClass"
@@ -127,8 +128,8 @@ func main() {
 	time.Sleep(0 * time.Second)
 
 	// Open main window (block rest of main until closed)
-	//openLauncherWindow(LAUNCHER_WINDOW_TITLE, launcherUrl, defaultLauncherWindowWidth, defaultLauncherWindowHeight)
-	openTerminalWindow(LAUNCHER_WINDOW_TITLE, launcherUrl, defaultLauncherWindowWidth, defaultLauncherWindowHeight)
+	openLauncherWindow(LAUNCHER_WINDOW_TITLE, launcherUrl, defaultLauncherWindowWidth, defaultLauncherWindowHeight)
+	//openTerminalWindow(LAUNCHER_WINDOW_TITLE, launcherUrl, defaultLauncherWindowWidth, defaultLauncherWindowHeight)
 
 	// Ensure we terminate all processes cleanly when window closes
 	exitApplication(0)
@@ -317,10 +318,10 @@ func RegisterClass(hInstance win.HINSTANCE) (atom win.ATOM) {
 	// FIXME Set application window icon (specifically, the titlebar icon)
 	// wc.HIconSm = win.LoadIcon(hInstance, win.MAKEINTRESOURCE(win.IDI_APPLICATION))
 	// wc.HIcon = win.LoadIcon(hInstance, win.MAKEINTRESOURCE(win.IDI_APPLICATION))
-	// wc.HIconSm = win.LoadIcon(hInstance, (*uint16)(unsafe.Pointer(uintptr(0))))
-	// wc.HIcon = win.LoadIcon(hInstance, (*uint16)(unsafe.Pointer(uintptr(0))))
-	// wc.HIconSm = win.HICON(win.LoadImage(hInstance, syscall.StringToUTF16Ptr("icon.ico"), win.IMAGE_ICON, 32, 32, win.LR_LOADFROMFILE | win.LR_SHARED | win.LR_LOADTRANSPARENT))
-	// wc.HIcon = win.HICON(win.LoadImage(hInstance, syscall.StringToUTF16Ptr("icon.ico"), win.IMAGE_ICON, 32, 32, win.LR_LOADFROMFILE | win.LR_SHARED | win.LR_LOADTRANSPARENT))
+	wc.HIconSm = win.LoadIcon(hInstance, (*uint16)(unsafe.Pointer(uintptr(1))))
+	wc.HIcon = win.LoadIcon(hInstance, (*uint16)(unsafe.Pointer(uintptr(1))))
+	wc.HIconSm = win.HICON(win.LoadImage(hInstance, syscall.StringToUTF16Ptr(ICON), win.IMAGE_ICON, 32, 32, win.LR_LOADFROMFILE|win.LR_SHARED|win.LR_LOADTRANSPARENT))
+	wc.HIcon = win.HICON(win.LoadImage(hInstance, syscall.StringToUTF16Ptr(ICON), win.IMAGE_ICON, 128, 128, win.LR_LOADFROMFILE|win.LR_SHARED|win.LR_LOADTRANSPARENT))
 	wc.HCursor = win.LoadCursor(0, win.MAKEINTRESOURCE(win.IDC_ARROW))
 	return win.RegisterClassEx(&wc)
 }

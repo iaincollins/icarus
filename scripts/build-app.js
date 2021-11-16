@@ -32,7 +32,6 @@ function clean () {
 }
 
 async function build () {
-  // return new Promise((resolve, reject) => {
   if (DEBUG_CONSOLE) {
     // Build that opens console output to a terminal
     execSync(`cd src/app && go build -o "${APP_UNOPTIMIZED_BUILD}"`)
@@ -54,12 +53,11 @@ async function build () {
     console.log('Optimization', optimisationStats)
     fs.copyFileSync(APP_OPTIMIZED_BUILD, APP_FINAL_BUILD)
   }
-
-  //   return resolve()
-  // })
 }
 
 function copy () {
+  // Resources required by the app
   fs.copyFileSync(path.join(RESOURCES_DIR, 'dll', 'webview.dll'), path.join(BIN_DIR, 'webview.dll'))
   fs.copyFileSync(path.join(RESOURCES_DIR, 'dll', 'WebView2Loader.dll'), path.join(BIN_DIR, 'WebView2Loader.dll'))
+  fs.copyFileSync(APP_ICON, path.join(BIN_DIR, 'icon.ico'))
 }
