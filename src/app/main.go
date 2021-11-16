@@ -83,7 +83,7 @@ func main() {
 	launcherUrl := fmt.Sprintf("http://localhost:%d/launcher.html", *portPtr)
 
 	if *terminalMode {
-		openTerminalWindow(TERMINAL_WINDOW_TITLE, url, defaultWindowWidth, defaultWindowHeight)
+		createWindow(TERMINAL_WINDOW_TITLE, url, defaultWindowWidth, defaultWindowHeight, webview.HintMin)
 		return
 	}
 
@@ -128,65 +128,37 @@ func main() {
 	time.Sleep(0 * time.Second)
 
 	// Open main window (block rest of main until closed)
-	openLauncherWindow(LAUNCHER_WINDOW_TITLE, launcherUrl, defaultLauncherWindowWidth, defaultLauncherWindowHeight)
-	//openTerminalWindow(LAUNCHER_WINDOW_TITLE, launcherUrl, defaultLauncherWindowWidth, defaultLauncherWindowHeight)
+	createNativeWindow(LAUNCHER_WINDOW_TITLE, launcherUrl, defaultLauncherWindowWidth, defaultLauncherWindowHeight)
 
 	// Ensure we terminate all processes cleanly when window closes
 	exitApplication(0)
 }
 
-func openLauncherWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, height int32) {
-	// Instance of this executable
-	hInstance := win.GetModuleHandle(nil)
-	if hInstance == 0 {
-		fmt.Println("GetModuleHandle failed:", win.GetLastError())
-	}
-
-	// Register window class
-	atom := RegisterClass(hInstance)
-	if atom == 0 {
-		fmt.Println("RegisterClass failed:", win.GetLastError())
-	}
-
-	// Create our own window
-	// We do this manually and pass it to webview so that we can set the window
-	// location (i.e. centered), style, etc before it is displayed.
-	hwndPtr := CreateWindow(hInstance, LAUNCHER_WINDOW_TITLE, width, height)
-	if hwndPtr == 0 {
-		fmt.Println("CreateWindow failed:", win.GetLastError())
-	}
-
-	// Center window
-	screenWidth := int32(win.GetSystemMetrics(win.SM_CXSCREEN))
-	screenHeight := int32(win.GetSystemMetrics(win.SM_CYSCREEN))
-	windowX := int32((screenWidth / 2) - (width / 2))
-	windowY := int32((screenHeight / 2) - (height / 2))
-	win.MoveWindow(win.HWND(hwndPtr), windowX, windowY, width, height, true)
-
-	// Pass the pointer to the window as an unsafe reference
-	webViewInstance = webview.NewWindow(DEBUGGER, unsafe.Pointer(&hwndPtr))
-	defer webViewInstance.Destroy()
-	bindFunctionsToWebView(webViewInstance)
-	webViewInstance.Navigate(url)
-	webViewInstance.Run()
-}
-
-func openTerminalWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, height int32) {
+func createWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, height int32, hint webview.Hint) {
 	// Passes the pointer to the window as an unsafe reference
 	w := webview.New(DEBUGGER)
 	defer w.Destroy()
-	w.SetTitle(LAUNCHER_WINDOW_TITLE)
-	w.SetSize(int(width), int(height), webview.HintMin)
 
-	// Center window
 	hwndPtr := w.Window()
+	hwnd := win.HWND(hwndPtr)
+
+	// Center window and force it to redraw
 	screenWidth := int32(win.GetSystemMetrics(win.SM_CXSCREEN))
 	screenHeight := int32(win.GetSystemMetrics(win.SM_CYSCREEN))
 	windowX := int32((screenWidth / 2) - (width / 2))
 	windowY := int32((screenHeight / 2) - (height / 2))
-	win.MoveWindow(win.HWND(hwndPtr), windowX, windowY, width, height, true)
+	win.MoveWindow(hwnd, windowX, windowY, width, height, false)
+
+	// Set window icon
+	hIconSm := win.HICON(win.LoadImage(0, syscall.StringToUTF16Ptr(ICON), win.IMAGE_ICON, 32, 32, win.LR_LOADFROMFILE|win.LR_SHARED|win.LR_LOADTRANSPARENT))
+	hIcon := win.HICON(win.LoadImage(0, syscall.StringToUTF16Ptr(ICON), win.IMAGE_ICON, 64, 64, win.LR_LOADFROMFILE|win.LR_SHARED|win.LR_LOADTRANSPARENT))
+	win.SendMessage(hwnd, win.WM_SETICON, 0, uintptr(hIconSm))
+	win.SendMessage(hwnd, win.WM_SETICON, 1, uintptr(hIcon))
 
 	bindFunctionsToWebView(w)
+
+	w.SetTitle(LAUNCHER_WINDOW_TITLE)
+	w.SetSize(int(width), int(height), hint)
 	w.Navigate(url)
 	w.Run()
 }
@@ -275,7 +247,43 @@ func checkProcessAlreadyExists(windowTitle string) bool {
 	return !bytes.Contains(result, []byte("No tasks are running"))
 }
 
-func WndProc(hwnd win.HWND, msg uint32, wParam, lParam uintptr) uintptr {
+func createNativeWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, height int32) {
+	// Instance of this executable
+	hInstance := win.GetModuleHandle(nil)
+	if hInstance == 0 {
+		fmt.Println("GetModuleHandle failed:", win.GetLastError())
+	}
+
+	// Register window class
+	atom := registerWindowClass(hInstance)
+	if atom == 0 {
+		fmt.Println("registerWindowClass failed:", win.GetLastError())
+	}
+
+	// Create our own window
+	// We do this manually and pass it to webview so that we can set the window
+	// location (i.e. centered), style, etc before it is displayed.
+	hwndPtr := createWin32Window(hInstance, LAUNCHER_WINDOW_TITLE, width, height)
+	if hwndPtr == 0 {
+		fmt.Println("createWin32Window failed:", win.GetLastError())
+	}
+
+	// Center window
+	screenWidth := int32(win.GetSystemMetrics(win.SM_CXSCREEN))
+	screenHeight := int32(win.GetSystemMetrics(win.SM_CYSCREEN))
+	windowX := int32((screenWidth / 2) - (width / 2))
+	windowY := int32((screenHeight / 2) - (height / 2))
+	win.MoveWindow(win.HWND(hwndPtr), windowX, windowY, width, height, false)
+
+	// Pass the pointer to the window as an unsafe reference
+	webViewInstance = webview.NewWindow(DEBUGGER, unsafe.Pointer(&hwndPtr))
+	defer webViewInstance.Destroy()
+	bindFunctionsToWebView(webViewInstance)
+	webViewInstance.Navigate(url)
+	webViewInstance.Run()
+}
+
+func wndProc(hwnd win.HWND, msg uint32, wParam, lParam uintptr) uintptr {
 	// windowPtr := unsafe.Pointer(win.GetWindowLongPtr(hwnd, win.GWLP_USERDATA))
 	// w, _ := GetWindowContext(hwnd).(webViewInstance);
 	switch msg {
@@ -304,29 +312,24 @@ func WndProc(hwnd win.HWND, msg uint32, wParam, lParam uintptr) uintptr {
 // 	windowContextSync sync.RWMutex
 // )
 
-func RegisterClass(hInstance win.HINSTANCE) (atom win.ATOM) {
+func registerWindowClass(hInstance win.HINSTANCE) (atom win.ATOM) {
 	var wc win.WNDCLASSEX
 	wc.CbSize = uint32(unsafe.Sizeof(wc))
 	wc.Style = win.CS_HREDRAW | win.CS_VREDRAW | win.CS_OWNDC
-	wc.LpfnWndProc = syscall.NewCallback(WndProc)
+	wc.LpfnWndProc = syscall.NewCallback(wndProc)
 	wc.CbClsExtra = 0
 	wc.CbWndExtra = 0
 	wc.HInstance = hInstance
 	wc.HbrBackground = win.GetSysColorBrush(win.COLOR_WINDOWFRAME)
 	wc.LpszMenuName = syscall.StringToUTF16Ptr("")
 	wc.LpszClassName = syscall.StringToUTF16Ptr(LPSZ_CLASS_NAME)
-	// FIXME Set application window icon (specifically, the titlebar icon)
-	// wc.HIconSm = win.LoadIcon(hInstance, win.MAKEINTRESOURCE(win.IDI_APPLICATION))
-	// wc.HIcon = win.LoadIcon(hInstance, win.MAKEINTRESOURCE(win.IDI_APPLICATION))
-	wc.HIconSm = win.LoadIcon(hInstance, (*uint16)(unsafe.Pointer(uintptr(1))))
-	wc.HIcon = win.LoadIcon(hInstance, (*uint16)(unsafe.Pointer(uintptr(1))))
 	wc.HIconSm = win.HICON(win.LoadImage(hInstance, syscall.StringToUTF16Ptr(ICON), win.IMAGE_ICON, 32, 32, win.LR_LOADFROMFILE|win.LR_SHARED|win.LR_LOADTRANSPARENT))
-	wc.HIcon = win.HICON(win.LoadImage(hInstance, syscall.StringToUTF16Ptr(ICON), win.IMAGE_ICON, 128, 128, win.LR_LOADFROMFILE|win.LR_SHARED|win.LR_LOADTRANSPARENT))
+	wc.HIcon = win.HICON(win.LoadImage(hInstance, syscall.StringToUTF16Ptr(ICON), win.IMAGE_ICON, 64, 64, win.LR_LOADFROMFILE|win.LR_SHARED|win.LR_LOADTRANSPARENT))
 	wc.HCursor = win.LoadCursor(0, win.MAKEINTRESOURCE(win.IDC_ARROW))
 	return win.RegisterClassEx(&wc)
 }
 
-func CreateWindow(hInstance win.HINSTANCE, LAUNCHER_WINDOW_TITLE string, width int32, height int32) (hwnd win.HWND) {
+func createWin32Window(hInstance win.HINSTANCE, LAUNCHER_WINDOW_TITLE string, width int32, height int32) (hwnd win.HWND) {
 	// Center window
 	// https://docs.microsoft.com/en-us/windows/win32/api/winuser/
 	screenWidth := int32(win.GetSystemMetrics(win.SM_CXSCREEN))
@@ -338,7 +341,7 @@ func CreateWindow(hInstance win.HINSTANCE, LAUNCHER_WINDOW_TITLE string, width i
 		win.WS_EX_APPWINDOW,
 		syscall.StringToUTF16Ptr(LPSZ_CLASS_NAME),
 		syscall.StringToUTF16Ptr(LAUNCHER_WINDOW_TITLE),
-		win.WS_OVERLAPPED | win.WS_SYSMENU | win.WS_MINIMIZEBOX,
+		win.WS_OVERLAPPED|win.WS_SYSMENU|win.WS_MINIMIZEBOX,
 		//win.WS_OVERLAPPEDWINDOW, // A normal window
 		windowX,
 		windowY,
