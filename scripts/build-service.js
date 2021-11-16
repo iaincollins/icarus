@@ -9,7 +9,6 @@ const {
   DEBUG_CONSOLE,
   BUILD_DIR,
   BIN_DIR,
-  RESOURCES_DIR,
   SERVICE_UNOPTIMIZED_BUILD,
   SERVICE_OPTIMIZED_BUILD,
   SERVICE_FINAL_BUILD,
@@ -35,11 +34,11 @@ function clean () {
 async function build () {
   await compile({
     name: 'ICARUS Service',
-    ico: path.join(RESOURCES_DIR, 'icon.ico'),
+    ico: SERVICE_ICON,
     input: ENTRY_POINT,
     output: SERVICE_UNOPTIMIZED_BUILD,
     target: 'windows-x86-14.15.3', // from https://github.com/nexe/nexe/releases/tag/v3.3.3
-    resources: ['resources/assets/**'],
+    resources: [path.join(BUILD_DIR, 'web')],
     debug: DEBUG_CONSOLE,
     build: false,
     bundle: true,

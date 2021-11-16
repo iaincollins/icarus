@@ -46,6 +46,7 @@ You can also run each build step independently:
 * `npm run build:app` builds only the GUI app (ICARUS Terminal)
 * `npm run build:service` builds only the service (ICARUS Terminal Service)
 * `npm run build:package` builds only the Windows installer
+* `npm run build:web` builds only the web interface
 * `npm run build:clean` resets the build environment
 
 You can enable/disable debugging and skip build optimization using constants defined in `scripts/lib/build-options.js`.

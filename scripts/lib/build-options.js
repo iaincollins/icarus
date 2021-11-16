@@ -11,7 +11,7 @@ const BIN_DIR = path.join(BUILD_DIR, 'bin') // For final binary build
 const DIST_DIR = path.join(ROOT_DIR, 'dist') // For distributable build
 const RESOURCES_DIR = path.join(ROOT_DIR, 'resources')
 const ASSETS_SRC_DIR = path.join(RESOURCES_DIR, 'assets')
-const ASSETS_DEST_DIR = path.join(BIN_DIR, 'assets')
+const ASSETS_BUILD_DIR = path.join(BUILD_DIR, 'assets')
 
 const INSTALLER_NSI = path.join(RESOURCES_DIR, 'installer.nsi') // Installer config
 const INSTALLER_EXE = path.join(DIST_DIR, 'ICARUS Setup.exe') // Should match INSTALLER_NAME in .nsi
@@ -66,7 +66,7 @@ module.exports = {
   DIST_DIR,
   RESOURCES_DIR,
   ASSETS_SRC_DIR,
-  ASSETS_DEST_DIR,
+  ASSETS_BUILD_DIR,
   APP_UNOPTIMIZED_BUILD,
   APP_OPTIMIZED_BUILD,
   APP_FINAL_BUILD,

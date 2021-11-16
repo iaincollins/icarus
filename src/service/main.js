@@ -7,7 +7,7 @@ const yargs = require('yargs')
 
 const commandLineArgs = yargs.argv
 const PORT = commandLineArgs.port || process.env.PORT || 3300
-const WEBROOT = 'resources/assets'
+const WEBROOT = process.env.WEBROOT || 'build/web'
 
 // Start simple HTTP server and add WebSocket server
 const webServer = connect().use(serveStatic(WEBROOT))
