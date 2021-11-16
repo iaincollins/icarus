@@ -6,7 +6,7 @@ ICARUS is a Windows (Win32) application built with Node.js and Go that uses a fo
 
 This inital public release is focused on application scaffolding, following development of an early proof of concept in Electron.
 
-In comparison to the prototype developed in Electron, this implementation has a smaller memory footprint and a much smaller package size (~20 MB vs ~200 MB). The primary trade offs are additional complexity in the build process and a custom launcher.
+In comparison to the prototype developed in Electron, this implementation has a smaller memory footprint and a much smaller package size (~20 MB vs ~200 MB). The primary trade offs are additional complexity in the build process and the development of custom launcher.
 
 The intention is to port the existing functionality that has been developed over to this codebase and to publish a public beta when there is minimum viable level of functionality.
 
@@ -27,12 +27,13 @@ To run the application you need to have the [Microsoft Edge Runtime](https://dev
 
 Notes:
 
+* Run `npm install` to install/update dependencies before building.
 * The Edge Runtime is the only runtime dependancy.
-* A dependancy check and loader for the Edge Runtime installer will likely be bundled with the installer for release, so that it works on all Windows systems (Windows 7 and above).
+* A dependancy check and loader for the Edge Runtime installer will likely be bundled with the installer for release.
 
 ### Building
 
-With the dependencies above installed, you can build the application in a single step:
+With dependencies installed, you can build the application in a single step:
 
 * `npm run build`
 
@@ -44,7 +45,6 @@ You can also run each build step independently:
 
 * `npm run build:app` builds only the GUI app (ICARUS Terminal)
 * `npm run build:service` builds only the service (ICARUS Terminal Service)
-* `npm run build:assets` builds only the assets
 * `npm run build:package` builds only the Windows installer
 * `npm run build:clean` resets the build environment
 

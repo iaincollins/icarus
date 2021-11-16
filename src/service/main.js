@@ -1,5 +1,3 @@
-const fs = require('fs')
-const path = require('path')
 const connect = require('connect')
 const serveStatic = require('serve-static')
 const http = require('http')
@@ -24,8 +22,8 @@ webSocketServer.on('connection', socket => {
     console.log('WebSocket message received', name)
     if (eventHandlers[name]) {
       try {
-        const data =  await eventHandlers[name](message)
-        socket.send(JSON.stringify({name, message: data }))
+        const data = await eventHandlers[name](message)
+        socket.send(JSON.stringify({ name, message: data }))
       } catch (e) {
         console.error('ERROR_SOCKET_NO_EVENT_HANDLER', name, e)
       }
@@ -34,14 +32,15 @@ webSocketServer.on('connection', socket => {
 })
 
 // A function for broadcasting events to all connected clients
-function broadcastMessage(name, data) {
+/*
+function broadcastMessage (name, data) {
   // Use try/catch here to suppress errors caused when main window is
   // closed and app is in process of shutting down
   console.log('WebSocket broadcast message sent')
   try {
     if (!webSocketServer) return
     webSocketServer.clients.forEach(client => {
-      if (client && client !== socketServer && client.readyState === WebSocket.OPEN) {
+      if (client && client !== webSocketServer && client.readyState === WebSocket.OPEN) {
         client.send(JSON.stringify({ name, message: data }))
       }
     })
@@ -49,6 +48,7 @@ function broadcastMessage(name, data) {
     console.error('ERROR_SOCKET_BROADCAST_MESSAGE_FAILED', name, data, e)
   }
 }
+*/
 
 webSocketServer.on('error', function (error) {
   if (error.code && error.code === 'EADDRINUSE') {
@@ -57,6 +57,6 @@ webSocketServer.on('error', function (error) {
   }
 })
 
-console.log(`ICARUS Terminal Service v0.0.0.1 (c) ICARUS`)
+console.log('ICARUS Terminal Service v0.0.0.1 (c) ICARUS')
 httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}`)

@@ -21,40 +21,40 @@ const PRODUCT_VERSION = '0.0.0.1'
 const APP_BINARY_NAME = 'ICARUS Terminal.exe'
 const APP_UNOPTIMIZED_BUILD = path.join(BUILD_DIR, `~UNOPT_${safeBinaryName(APP_BINARY_NAME)}`)
 const APP_OPTIMIZED_BUILD = path.join(BUILD_DIR, `~OPT_${safeBinaryName(APP_BINARY_NAME)}`)
-const APP_FINAL_BUILD =  path.join(BIN_DIR, APP_BINARY_NAME)
-const APP_ICON =  path.join(RESOURCES_DIR, 'icon.ico')
+const APP_FINAL_BUILD = path.join(BIN_DIR, APP_BINARY_NAME)
+const APP_ICON = path.join(RESOURCES_DIR, 'icon.ico')
 
 const APP_VERSION_INFO = {
-  CompanyName: "ICARUS",
-  ProductName: "ICARUS Terminal",
-  FileDescription: "ICARUS Terminal",
+  CompanyName: 'ICARUS',
+  ProductName: 'ICARUS Terminal',
+  FileDescription: 'ICARUS Terminal',
   FileVersion: '0.0.0.1',
   ProductVersion: PRODUCT_VERSION,
-  OriginalFilename: "ICARUS Terminal.exe",
-  InternalName: "ICARUS Terminal",
-  LegalCopyright: "ICARUS"
+  OriginalFilename: 'ICARUS Terminal.exe',
+  InternalName: 'ICARUS Terminal',
+  LegalCopyright: 'ICARUS'
 }
 
 const SERVICE_BINARY_NAME = 'ICARUS Service.exe'
 const SERVICE_UNOPTIMIZED_BUILD = path.join(BUILD_DIR, `~UNOPT_${safeBinaryName(SERVICE_BINARY_NAME)}`)
 const SERVICE_OPTIMIZED_BUILD = path.join(BUILD_DIR, `~OPT_${safeBinaryName(SERVICE_BINARY_NAME)}`)
-const SERVICE_FINAL_BUILD =  path.join(BIN_DIR, SERVICE_BINARY_NAME)
-const SERVICE_ICON =  path.join(RESOURCES_DIR, 'icon.ico')
+const SERVICE_FINAL_BUILD = path.join(BIN_DIR, SERVICE_BINARY_NAME)
+const SERVICE_ICON = path.join(RESOURCES_DIR, 'icon.ico')
 
 const SERVICE_VERSION_INFO = {
-  CompanyName: "ICARUS",
-  ProductName: "ICARUS Terminal Service",
-  FileDescription: "ICARUS Terminal Service",
+  CompanyName: 'ICARUS',
+  ProductName: 'ICARUS Terminal Service',
+  FileDescription: 'ICARUS Terminal Service',
   FileVersion: '0.0.0.1',
   ProductVersion: PRODUCT_VERSION,
-  OriginalFilename: "ICARUS Service.exe",
-  InternalName: "ICARUS Service",
-  LegalCopyright: "ICARUS"
+  OriginalFilename: 'ICARUS Service.exe',
+  InternalName: 'ICARUS Service',
+  LegalCopyright: 'ICARUS'
 }
 
 // Some of the third party libraries used in buildings choke on characters
 // like spaces in filenames; to work around this they are replaced during build
-function safeBinaryName(binaryName) {
+function safeBinaryName (binaryName) {
   return binaryName.replace(/ /g, '_')
 }
 

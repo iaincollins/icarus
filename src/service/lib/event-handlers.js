@@ -1,7 +1,7 @@
 const eventHandlers = {
   debug: (message) => {
     console.log('debug', message)
-    return "Debug message received"
+    return 'Debug message received'
   },
   exit: () => {
     console.log('Exit message received')

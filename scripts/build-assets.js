@@ -1,6 +1,8 @@
+// This step is not required currently as assets are now bundled into the
+// service executable, but it may be used again in future.
+/*
 const fs = require('fs')
 const fse = require('fs-extra')
-const path = require('path')
 
 const {
   BIN_DIR,
@@ -13,13 +15,12 @@ const {
   copy()
 })()
 
-function clean() {
+function clean () {
   if (!fs.existsSync(BIN_DIR)) fs.mkdirSync(BIN_DIR, { recursive: true })
   if (fs.existsSync(ASSETS_DEST_DIR)) fs.rmdirSync(ASSETS_DEST_DIR, { recursive: true })
 }
 
-function copy() {
-  // Note: Assets are now bundled inside the service executable so for now
-  // we no longer need to copy them or include them explicitly (but may change)
-  //fse.copySync(ASSETS_SRC_DIR, ASSETS_DEST_DIR, { recursive: true })
+function copy () {
+  fse.copySync(ASSETS_SRC_DIR, ASSETS_DEST_DIR, { recursive: true })
 }
+*/

@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "npm run build:app && npm run build:service && npm run build:assets && npm run build:package",
+    "build": "npm run build:app && npm run build:service && npm run build:package",
     "build:app": "node scripts/build-app.js",
     "build:service": "node scripts/build-service.js",
-    "build:assets": "node scripts/build-assets.js",
     "build:package": "node scripts/build-package.js",
     "build:clean": "node scripts/build-clean.js",
-    "dev": "nodemon src/service/main.js"
+    "dev": "nodemon src/service/main.js",
+    "lint": "npm run lint:go && npm run lint:javascript",
+    "lint:go": "go fmt src\\app\\main.go",
+    "lint:javascript": "npx standard --fix"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
     "fs-extra": "^10.0.0",
     "makensis": "^1.1.1",
     "nodemon": "^2.0.15",
+    "standard": "^16.0.4",
     "upx": "^1.0.6"
   },
   "dependencies": {

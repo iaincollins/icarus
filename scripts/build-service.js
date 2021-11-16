@@ -24,7 +24,7 @@ const ENTRY_POINT = path.join(__dirname, '..', 'src', 'service', 'main.js')
   await build()
 })()
 
-function clean() {
+function clean () {
   if (!fs.existsSync(BUILD_DIR)) fs.mkdirSync(BUILD_DIR, { recursive: true })
   if (!fs.existsSync(BIN_DIR)) fs.mkdirSync(BIN_DIR, { recursive: true })
   if (fs.existsSync(SERVICE_UNOPTIMIZED_BUILD)) fs.unlinkSync(SERVICE_UNOPTIMIZED_BUILD)
@@ -32,7 +32,7 @@ function clean() {
   if (fs.existsSync(SERVICE_FINAL_BUILD)) fs.unlinkSync(SERVICE_FINAL_BUILD)
 }
 
-function build() {
+function build () {
   return new Promise((resolve, reject) => {
     compile({
       name: 'ICARUS Service',
@@ -40,17 +40,16 @@ function build() {
       input: ENTRY_POINT,
       output: SERVICE_UNOPTIMIZED_BUILD,
       target: 'windows-x86-14.15.3', // from https://github.com/nexe/nexe/releases/tag/v3.3.3
-      resources: [ 'resources/assets/**' ],
+      resources: ['resources/assets/**'],
       debug: DEBUG_CONSOLE,
       build: false,
       bundle: true,
       runtime: {
-        nodeConfigureOpts: [ '--fully-static' ]
+        nodeConfigureOpts: ['--fully-static']
       },
       // https://github.com/nodejs/node/blob/master/src/res/node.rc
       rc: SERVICE_VERSION_INFO
     }).then(async () => {
-
       await changeExe.icon(SERVICE_UNOPTIMIZED_BUILD, SERVICE_ICON)
       await changeExe.versionInfo(SERVICE_UNOPTIMIZED_BUILD, SERVICE_VERSION_INFO)
 

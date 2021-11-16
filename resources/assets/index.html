@@ -2,11 +2,10 @@
   <head>
     <meta name="viewport" content= "width=device-width, user-scalable=no">
     <script>
-      async function newWindow() {
-        const appUrl = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`
-        window.open(appUrl, new Date().getTime(), "directories=0,titlebar=0,toolbar=0,location=0,status=0,menubar=0,scrollbars=1,resizable=1,width=800,height=600")
-      }
       function toggleFullScreen() {
+        if (window.app_toggleFullScreen)
+          return window.app_toggleFullScreen()
+
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen()
         } else {
@@ -16,6 +15,8 @@
         }
       }
       function closeWindow() {
+        if (window.app_quit)
+          return window.app_quit()
         window.close()
       }
       setTimeout(() => {
@@ -65,20 +66,10 @@
     <div id="main" style="opacity: 0;">
       <h3>ICARUS Terminal</h3>
       <p>
-        <button onClick="window.app_toggleFullScreen()">Toggle Fullscreen</button>
+        <button onClick="toggleFullScreen()">Toggle Fullscreen</button>
       </p>
-      <!--
       <p>
-        <button onClick="window.app_newWindow()">New Terminal</button>
-      </p>
-      -->
-      <!--
-      <p>
-        <button onClick="window.app_closeWindow()">Close Terminal</button>
-      </p>
-      -->
-      <p>
-        <button onClick="window.app_quit()">Close Terminal</button>
+        <button onClick="closeWindow()">Close Terminal</button>
       </p>
     </div>
   </body>
