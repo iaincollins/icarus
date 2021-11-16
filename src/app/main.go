@@ -8,6 +8,7 @@ import (
 	"github.com/phayes/freeport"
 	"github.com/sqweek/dialog"
 	"github.com/webview/webview"
+	"golang.org/x/sys/windows"
 	"os"
 	"os/exec"
 	"syscall"
@@ -28,9 +29,8 @@ const defaultLauncherWindowHeight = int32(480)
 const defaultWindowWidth = int32(1024)
 const defaultWindowHeight = int32(768)
 
-var defaultPort = 0              // Set to 0 to be assigned a free high numbered port
-var port int                     // Actual port we are running on
-var serviceCmdInstance *exec.Cmd // Global to allow clean exits
+var defaultPort = 0 // Set to 0 to be assigned a free high numbered port
+var port int        // Actual port we are running on
 var webViewInstance webview.WebView
 
 // Track main window size when switching to/from fullscreen
@@ -38,9 +38,26 @@ var windowWidth = defaultWindowWidth
 var windowHeight = defaultWindowHeight
 var url = fmt.Sprintf("http://localhost:%d", defaultPort)
 
+type process struct {
+	Pid    int
+	Handle uintptr
+}
+
+type ProcessExitGroup windows.Handle
+
+var processGroup ProcessExitGroup
+
 func main() {
 	startTime := time.Now()
 
+	_processGroup, err := NewProcessExitGroup()
+	if err != nil {
+		panic(err)
+	}
+	defer _processGroup.Dispose()
+	processGroup = _processGroup
+
+	// Set default port to be random high port
 	if defaultPort == 0 {
 		randomPort, portErr := freeport.GetFreePort()
 		if portErr != nil {
@@ -77,7 +94,7 @@ func main() {
 
 	// Run service
 	cmdArg0 := fmt.Sprintf("%s%d", "--port=", *portPtr)
-	serviceCmdInstance = exec.Command(SERVICE_EXECUTABLE, cmdArg0)
+	serviceCmdInstance := exec.Command(SERVICE_EXECUTABLE, cmdArg0)
 	serviceCmdInstance.SysProcAttr = &syscall.SysProcAttr{CreationFlags: 0x08000000, HideWindow: true} // Don't create a visible window for the service process
 	serviceCmdErr := serviceCmdInstance.Start()
 
@@ -87,6 +104,9 @@ func main() {
 		dialog.Message("%s", "Failed to start ICARUS Terminal Service.").Title("Error").Error()
 		exitApplication(1)
 	}
+
+	// Add service to process group so gets shutdown when main process ends
+	processGroup.AddProcess(serviceCmdInstance.Process)
 
 	// Exit if service stops running
 	go func() {
@@ -214,6 +234,9 @@ func bindFunctionsToWebView(w webview.WebView) {
 			fmt.Println("Opening new terminal failed", terminalCmdErr.Error())
 		}
 
+		// Add process to process group so all windows close when main process ends
+		processGroup.AddProcess(terminalCmdInstance.Process)
+
 		go func() {
 			terminalCmdInstance.Wait()
 			// Code here will execute when window closes
@@ -237,10 +260,7 @@ func bindFunctionsToWebView(w webview.WebView) {
 }
 
 func exitApplication(exitCode int) {
-	// Ensure service is stopped on exit (if running)
-	if serviceCmdInstance != nil {
-		serviceCmdInstance.Process.Kill()
-	}
+	// Placeholder for future logic
 	os.Exit(exitCode)
 }
 
@@ -256,7 +276,7 @@ func checkProcessAlreadyExists(windowTitle string) bool {
 
 func WndProc(hwnd win.HWND, msg uint32, wParam, lParam uintptr) uintptr {
 	// windowPtr := unsafe.Pointer(win.GetWindowLongPtr(hwnd, win.GWLP_USERDATA))
-	// w, _ := getWindowContext(hwnd).(webViewInstance);
+	// w, _ := GetWindowContext(hwnd).(webViewInstance);
 	switch msg {
 	case win.WM_SIZE:
 		// TODO Handle weview resizing on custom windows
@@ -265,17 +285,14 @@ func WndProc(hwnd win.HWND, msg uint32, wParam, lParam uintptr) uintptr {
 		break
 	case win.WM_DESTROY:
 		win.PostQuitMessage(0)
-		if serviceCmdInstance != nil {
-			serviceCmdInstance.Process.Kill()
-		}
-		os.Exit(1)
+		exitApplication(0)
 	default:
 		return win.DefWindowProc(hwnd, msg, wParam, lParam)
 	}
 	return 0
 }
 
-// func getWindowContext(wnd win.HWND) interface{} {
+// func GetWindowContext(wnd win.HWND) interface{} {
 // 	windowContextSync.RLock()
 // 	defer windowContextSync.RUnlock()
 // 	return windowContext[wnd]
@@ -298,7 +315,6 @@ func RegisterClass(hInstance win.HINSTANCE) (atom win.ATOM) {
 	wc.LpszMenuName = syscall.StringToUTF16Ptr("")
 	wc.LpszClassName = syscall.StringToUTF16Ptr(LPSZ_CLASS_NAME)
 	// FIXME Set application window icon (specifically, the titlebar icon)
-	// I've tried several approaches (more than just these) but no success so far.
 	// wc.HIconSm = win.LoadIcon(hInstance, win.MAKEINTRESOURCE(win.IDI_APPLICATION))
 	// wc.HIcon = win.LoadIcon(hInstance, win.MAKEINTRESOURCE(win.IDI_APPLICATION))
 	// wc.HIconSm = win.LoadIcon(hInstance, (*uint16)(unsafe.Pointer(uintptr(0))))
@@ -331,4 +347,36 @@ func CreateWindow(hInstance win.HINSTANCE, LAUNCHER_WINDOW_TITLE string, width i
 		0,
 		hInstance,
 		nil)
+}
+
+func NewProcessExitGroup() (ProcessExitGroup, error) {
+	handle, err := windows.CreateJobObject(nil, nil)
+	if err != nil {
+		return 0, err
+	}
+
+	info := windows.JOBOBJECT_EXTENDED_LIMIT_INFORMATION{
+		BasicLimitInformation: windows.JOBOBJECT_BASIC_LIMIT_INFORMATION{
+			LimitFlags: windows.JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE,
+		},
+	}
+	if _, err := windows.SetInformationJobObject(
+		handle,
+		windows.JobObjectExtendedLimitInformation,
+		uintptr(unsafe.Pointer(&info)),
+		uint32(unsafe.Sizeof(info))); err != nil {
+		return 0, err
+	}
+
+	return ProcessExitGroup(handle), nil
+}
+
+func (g ProcessExitGroup) Dispose() error {
+	return windows.CloseHandle(windows.Handle(g))
+}
+
+func (g ProcessExitGroup) AddProcess(p *os.Process) error {
+	return windows.AssignProcessToJobObject(
+		windows.Handle(g),
+		windows.Handle((*process)(unsafe.Pointer(p)).Handle))
 }
