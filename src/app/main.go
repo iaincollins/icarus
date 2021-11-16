@@ -338,8 +338,8 @@ func CreateWindow(hInstance win.HINSTANCE, LAUNCHER_WINDOW_TITLE string, width i
 		win.WS_EX_APPWINDOW,
 		syscall.StringToUTF16Ptr(LPSZ_CLASS_NAME),
 		syscall.StringToUTF16Ptr(LAUNCHER_WINDOW_TITLE),
-		// win.WS_OVERLAPPED|win.WS_SYSMENU|win.WS_MINIMIZEBOX|win.WS_MAXIMIZEBOX,
-		win.WS_OVERLAPPEDWINDOW, // A normal window
+		win.WS_OVERLAPPED | win.WS_SYSMENU | win.WS_MINIMIZEBOX,
+		//win.WS_OVERLAPPEDWINDOW, // A normal window
 		windowX,
 		windowY,
 		width,
