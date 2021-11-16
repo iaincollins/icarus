@@ -14,6 +14,20 @@ This release does not currently include the logic or assests developed for the p
 
 _This documentation is intended for developers._
 
+The codebase is split up into three parts:
+
+* `src/app` — "ICARUS Terminal.exe", a Win32 application written in Go
+* `src/service` — "ICARUS Service.exe", a Win32 application written in Node.js
+* `src/web` — A web based interface developed in Next.js/React
+
+"ICARUS Terminal.exe" serves as both a launcher and a shell to render the graphical interface. It creates new terminal windows by spawing itself with the `-terminal` and `-port` flags). All terminal processes exit when the launcher terminates. 
+
+"ICARUS Terminal.exe" uses [a fork of a webview wrapper for Go/C++](https://github.com/iaincollins/webview) which uses the Microsoft Edge/Chromium engine to render the interface. This library has been manually bundled with this project in `resources/dll`, along with a suitable loader from Microsoft.
+
+There can be multiple instances of "ICARUS Terminal.exe" running - this allows you to pin multiple windows to a single screen, or run multiple windows across different screens, - but only one instance will be designated as the "launcher" window. The launcher will have a different interface to the terminal windows and is responsible for starting and stopping the background service.
+
+"ICARUS Service.exe" is a self contained service, websocket server and a static webserver. All terminals connect to the service. There should only ever one instance of "ICARUS Service.exe" running at a time. The service interfaces with the game, broadcasts events to terminals and allows the graphical interface to be accessed remotely. It is invoked automatically by "ICARUS Terminal.exe" and stops when "ICARUS Terminal.exe" terminates. The web interface is written in Next.js/React and is statically exported and the assets bundled inside "ICARUS Service.exe", making it self contained.
+
 ### Requirements
 
 To build this application you need to be running Microsoft Windows and have the following dependencies installed:
@@ -54,4 +68,18 @@ You can enable/disable debugging and skip build optimization using constants def
 Notes:
 
 * "ICARUS Terminal.exe" depends on "ICARUS Service.exe" being in the same directory to run, or it will exit on startup with a message indicating unable to start the ICARUS Terminal Service.
-* For development purposes, you can also run the service in development mode with `npm run dev` and start the Terminal in headless mode with `ICARUS Terminal.exe -terminal -port 3300`.
+* For development purposes, you can also run the service in development mode with `npm run dev` and start a Terminal that connects to it without running the launcher by invoking it with `ICARUS Terminal.exe -terminal -port 3300`. You can also directly invoke "ICARUS Service.exe" and run it standalone.
+
+## Contributing
+
+I'm not currently taking code contributions (please do not raise pull requests).
+
+You can fork this codebase! See the LICENSE file for details.
+
+## Credits
+
+The name ICARUS was suggested by [SpaceNinjaBear](https://www.reddit.com/user/SpaceNinjaBear).
+
+I'd like to express appreciation to [Serge Zaitsev](https://github.com/zserge) for his work on the WebView library.
+
+Thank you to all those who have written libraries on which this software depends.
