@@ -8,7 +8,6 @@ import (
 	"github.com/phayes/freeport"
 	"github.com/sqweek/dialog"
 	"github.com/webview/webview"
-	"golang.org/x/sys/windows"
 	"os"
 	"os/exec"
 	"syscall"
@@ -44,14 +43,12 @@ type process struct {
 	Handle uintptr
 }
 
-type ProcessExitGroup windows.Handle
-
-var processGroup ProcessExitGroup
+var processGroup ProcessGroup
 
 func main() {
 	startTime := time.Now()
 
-	_processGroup, err := NewProcessExitGroup()
+	_processGroup, err := NewProcessGroup()
 	if err != nil {
 		panic(err)
 	}
@@ -134,6 +131,7 @@ func main() {
 	exitApplication(0)
 }
 
+// createWindow() lets the webview library create a managed window for us
 func createWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, height int32, hint webview.Hint) {
 	// Passes the pointer to the window as an unsafe reference
 	w := webview.New(DEBUGGER)
@@ -161,6 +159,44 @@ func createWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, height 
 	w.SetSize(int(width), int(height), hint)
 	w.Navigate(url)
 	w.Run()
+}
+
+// createNativeWindow() explicitly creates a native window and passes the handle
+// for it to the webview, this allows for greater customisation
+func createNativeWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, height int32) {
+	// Instance of this executable
+	hInstance := win.GetModuleHandle(nil)
+	if hInstance == 0 {
+		fmt.Println("GetModuleHandle failed:", win.GetLastError())
+	}
+
+	// Register window class
+	atom := RegisterClass(hInstance)
+	if atom == 0 {
+		fmt.Println("RegisterClass failed:", win.GetLastError())
+	}
+
+	// Create our own window
+	// We do this manually and pass it to webview so that we can set the window
+	// location (i.e. centered), style, etc before it is displayed.
+	hwndPtr := CreateWin32Window(hInstance, LAUNCHER_WINDOW_TITLE, width, height)
+	if hwndPtr == 0 {
+		fmt.Println("CreateWin32Window failed:", win.GetLastError())
+	}
+
+	// Center window
+	screenWidth := int32(win.GetSystemMetrics(win.SM_CXSCREEN))
+	screenHeight := int32(win.GetSystemMetrics(win.SM_CYSCREEN))
+	windowX := int32((screenWidth / 2) - (width / 2))
+	windowY := int32((screenHeight / 2) - (height / 2))
+	win.MoveWindow(win.HWND(hwndPtr), windowX, windowY, width, height, false)
+
+	// Pass the pointer to the window as an unsafe reference
+	webViewInstance = webview.NewWindow(DEBUGGER, unsafe.Pointer(&hwndPtr))
+	defer webViewInstance.Destroy()
+	bindFunctionsToWebView(webViewInstance)
+	webViewInstance.Navigate(url)
+	webViewInstance.Run()
 }
 
 func bindFunctionsToWebView(w webview.WebView) {
@@ -245,142 +281,4 @@ func checkProcessAlreadyExists(windowTitle string) bool {
 		return false
 	}
 	return !bytes.Contains(result, []byte("No tasks are running"))
-}
-
-func createNativeWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, height int32) {
-	// Instance of this executable
-	hInstance := win.GetModuleHandle(nil)
-	if hInstance == 0 {
-		fmt.Println("GetModuleHandle failed:", win.GetLastError())
-	}
-
-	// Register window class
-	atom := registerWindowClass(hInstance)
-	if atom == 0 {
-		fmt.Println("registerWindowClass failed:", win.GetLastError())
-	}
-
-	// Create our own window
-	// We do this manually and pass it to webview so that we can set the window
-	// location (i.e. centered), style, etc before it is displayed.
-	hwndPtr := createWin32Window(hInstance, LAUNCHER_WINDOW_TITLE, width, height)
-	if hwndPtr == 0 {
-		fmt.Println("createWin32Window failed:", win.GetLastError())
-	}
-
-	// Center window
-	screenWidth := int32(win.GetSystemMetrics(win.SM_CXSCREEN))
-	screenHeight := int32(win.GetSystemMetrics(win.SM_CYSCREEN))
-	windowX := int32((screenWidth / 2) - (width / 2))
-	windowY := int32((screenHeight / 2) - (height / 2))
-	win.MoveWindow(win.HWND(hwndPtr), windowX, windowY, width, height, false)
-
-	// Pass the pointer to the window as an unsafe reference
-	webViewInstance = webview.NewWindow(DEBUGGER, unsafe.Pointer(&hwndPtr))
-	defer webViewInstance.Destroy()
-	bindFunctionsToWebView(webViewInstance)
-	webViewInstance.Navigate(url)
-	webViewInstance.Run()
-}
-
-func wndProc(hwnd win.HWND, msg uint32, wParam, lParam uintptr) uintptr {
-	// windowPtr := unsafe.Pointer(win.GetWindowLongPtr(hwnd, win.GWLP_USERDATA))
-	// w, _ := GetWindowContext(hwnd).(webViewInstance);
-	switch msg {
-	case win.WM_SIZE:
-		// TODO Handle weview resizing on custom windows
-		// Would be great if could access w.m_browser.resize(hwnd) here
-		// w.m_browser.resize(hwnd);
-		break
-	case win.WM_DESTROY:
-		win.PostQuitMessage(0)
-		exitApplication(0)
-	default:
-		return win.DefWindowProc(hwnd, msg, wParam, lParam)
-	}
-	return 0
-}
-
-// func GetWindowContext(wnd win.HWND) interface{} {
-// 	windowContextSync.RLock()
-// 	defer windowContextSync.RUnlock()
-// 	return windowContext[wnd]
-// }
-
-// var (
-// 	windowContext     = map[uintptr]interface{}{}
-// 	windowContextSync sync.RWMutex
-// )
-
-func registerWindowClass(hInstance win.HINSTANCE) (atom win.ATOM) {
-	var wc win.WNDCLASSEX
-	wc.CbSize = uint32(unsafe.Sizeof(wc))
-	wc.Style = win.CS_HREDRAW | win.CS_VREDRAW | win.CS_OWNDC
-	wc.LpfnWndProc = syscall.NewCallback(wndProc)
-	wc.CbClsExtra = 0
-	wc.CbWndExtra = 0
-	wc.HInstance = hInstance
-	wc.HbrBackground = win.GetSysColorBrush(win.COLOR_WINDOWFRAME)
-	wc.LpszMenuName = syscall.StringToUTF16Ptr("")
-	wc.LpszClassName = syscall.StringToUTF16Ptr(LPSZ_CLASS_NAME)
-	wc.HIconSm = win.HICON(win.LoadImage(hInstance, syscall.StringToUTF16Ptr(ICON), win.IMAGE_ICON, 32, 32, win.LR_LOADFROMFILE|win.LR_SHARED|win.LR_LOADTRANSPARENT))
-	wc.HIcon = win.HICON(win.LoadImage(hInstance, syscall.StringToUTF16Ptr(ICON), win.IMAGE_ICON, 64, 64, win.LR_LOADFROMFILE|win.LR_SHARED|win.LR_LOADTRANSPARENT))
-	wc.HCursor = win.LoadCursor(0, win.MAKEINTRESOURCE(win.IDC_ARROW))
-	return win.RegisterClassEx(&wc)
-}
-
-func createWin32Window(hInstance win.HINSTANCE, LAUNCHER_WINDOW_TITLE string, width int32, height int32) (hwnd win.HWND) {
-	// Center window
-	// https://docs.microsoft.com/en-us/windows/win32/api/winuser/
-	screenWidth := int32(win.GetSystemMetrics(win.SM_CXSCREEN))
-	screenHeight := int32(win.GetSystemMetrics(win.SM_CYSCREEN))
-	windowX := int32((screenWidth / 2) - (width / 2))
-	windowY := int32((screenHeight / 2) - (height / 2))
-
-	return win.CreateWindowEx(
-		win.WS_EX_APPWINDOW,
-		syscall.StringToUTF16Ptr(LPSZ_CLASS_NAME),
-		syscall.StringToUTF16Ptr(LAUNCHER_WINDOW_TITLE),
-		win.WS_OVERLAPPED|win.WS_SYSMENU|win.WS_MINIMIZEBOX,
-		//win.WS_OVERLAPPEDWINDOW, // A normal window
-		windowX,
-		windowY,
-		width,
-		height,
-		0,
-		0,
-		hInstance,
-		nil)
-}
-
-func NewProcessExitGroup() (ProcessExitGroup, error) {
-	handle, err := windows.CreateJobObject(nil, nil)
-	if err != nil {
-		return 0, err
-	}
-
-	info := windows.JOBOBJECT_EXTENDED_LIMIT_INFORMATION{
-		BasicLimitInformation: windows.JOBOBJECT_BASIC_LIMIT_INFORMATION{
-			LimitFlags: windows.JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE,
-		},
-	}
-	if _, err := windows.SetInformationJobObject(
-		handle,
-		windows.JobObjectExtendedLimitInformation,
-		uintptr(unsafe.Pointer(&info)),
-		uint32(unsafe.Sizeof(info))); err != nil {
-		return 0, err
-	}
-
-	return ProcessExitGroup(handle), nil
-}
-
-func (g ProcessExitGroup) Dispose() error {
-	return windows.CloseHandle(windows.Handle(g))
-}
-
-func (g ProcessExitGroup) AddProcess(p *os.Process) error {
-	return windows.AssignProcessToJobObject(
-		windows.Handle(g),
-		windows.Handle((*process)(unsafe.Pointer(p)).Handle))
 }
