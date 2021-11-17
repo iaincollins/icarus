@@ -48,8 +48,6 @@ var processGroup ProcessGroup
 func main() {
 	startTime := time.Now()
 
-	CheckForUpdate()
-
 	_processGroup, err := NewProcessGroup()
 	if err != nil {
 		panic(err)
@@ -85,6 +83,8 @@ func main() {
 		createWindow(TERMINAL_WINDOW_TITLE, url, defaultWindowWidth, defaultWindowHeight, webview.HintMin)
 		return
 	}
+
+	CheckForUpdate()
 
 	// Check not already running
 	if checkProcessAlreadyExists(LAUNCHER_WINDOW_TITLE) {
