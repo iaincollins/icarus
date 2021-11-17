@@ -92,6 +92,9 @@ func main() {
 		exitApplication(1)
 	}
 
+	// Check for update before doing anything else
+	CheckForUpdate()
+
 	// Run service
 	cmdArg0 := fmt.Sprintf("%s%d", "--port=", *portPtr)
 	serviceCmdInstance := exec.Command(SERVICE_EXECUTABLE, cmdArg0)
