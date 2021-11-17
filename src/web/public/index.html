@@ -3,7 +3,7 @@
     <meta name="viewport" content= "width=device-width, user-scalable=no">
     <script>
       function toggleFullScreen() {
-        if (window.app_toggleFullScreen)
+        if (typeof window.app_toggleFullScreen === "function")
           return window.app_toggleFullScreen()
 
         if (!document.fullscreenElement) {
@@ -15,8 +15,9 @@
         }
       }
       function closeWindow() {
-        if (window.app_quit)
+        if (typeof window.app_quit === "function")
           return window.app_quit()
+
         window.close()
       }
       setTimeout(() => {
