@@ -1,9 +1,13 @@
 github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf h1:FPsprx82rdrX2jiKyS17BH6IrTmUBYqZa/CXT4uvb+I=
 github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf/go.mod h1:peYoMncQljjNS6tZwI9WVyQB3qZS6u79/N3mBOcnd3I=
+github.com/gonutz/w32/v2 v2.2.2 h1:y6Y337TpuCXjYdFTq5p5NmcujEdAQiTB43kisovMk+0=
+github.com/gonutz/w32/v2 v2.2.2/go.mod h1:MgtHx0AScDVNKyB+kjyPder4xIi3XAcHS6LDDU2DmdE=
 github.com/jchv/go-webview2 v0.0.0-20211023023319-977d8719321f h1:wF7bbDOcRcRlamAwWMNagyFVQubISAlisj6Ix8O8Hn0=
 github.com/jchv/go-webview2 v0.0.0-20211023023319-977d8719321f/go.mod h1:7Q5nFip7HvzGJDYVfa22s/pb9T2X+XhEjLhylNf5dV8=
 github.com/jchv/go-winloader v0.0.0-20200815041850-dec1ee9a7fd5 h1:pdFFlHXY9tZXmJz+tRSm1DzYEH4ebha7cffmm607bMU=
 github.com/jchv/go-winloader v0.0.0-20200815041850-dec1ee9a7fd5/go.mod h1:alcuEEnZsY1WQsagKhZDsoPCRoOijYqhZvPwLG0kzVs=
+github.com/jmoiron/jsonq v0.0.0-20150511023944-e874b168d07e h1:ZZCvgaRDZg1gC9/1xrsgaJzQUCQgniKtw0xjWywWAOE=
+github.com/jmoiron/jsonq v0.0.0-20150511023944-e874b168d07e/go.mod h1:+rHyWac2R9oAZwFe1wGY2HBzFJJy++RHBg1cU23NkD8=
 github.com/nvsoft/win v0.0.0-20160111051136-23d143e32c41 h1:s0qXnW0MxcRPYZpqbrITRo3tAbAdlQBPUCKf/akNMKg=
 github.com/nvsoft/win v0.0.0-20160111051136-23d143e32c41/go.mod h1:bI2vvx1dagFt7tydvy947C0q6ET6k5MfIvWmmpLelpw=
 github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2 h1:JhzVVoYvbOACxoUmOs6V/G4D5nPVUW73rKvXxP4XUJc=

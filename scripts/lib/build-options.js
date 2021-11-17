@@ -1,11 +1,14 @@
 const path = require('path')
 
-const ROOT_DIR = path.join(__dirname, '..', '..')
+const PRODUCT_VERSION = '0.1.1.0'
+const APP_FILE_VERSION = PRODUCT_VERSION
+const SERVICE_FILE_VERSION = PRODUCT_VERSION
 
 // Development builds are faster, larger and can contain debug routines
 const DEVELOPMENT_BUILD = process.env.DEVELOPMENT || false
 const DEBUG_CONSOLE = DEVELOPMENT_BUILD
 
+const ROOT_DIR = path.join(__dirname, '..', '..')
 const BUILD_DIR = path.join(ROOT_DIR, 'build') // For intermediate build steps
 const BIN_DIR = path.join(BUILD_DIR, 'bin') // For final binary build
 const DIST_DIR = path.join(ROOT_DIR, 'dist') // For distributable build
@@ -15,8 +18,6 @@ const ASSETS_BUILD_DIR = path.join(BUILD_DIR, 'assets')
 
 const INSTALLER_NSI = path.join(RESOURCES_DIR, 'installer.nsi') // Installer config
 const INSTALLER_EXE = path.join(DIST_DIR, 'ICARUS Setup.exe') // Should match INSTALLER_NAME in .nsi
-
-const PRODUCT_VERSION = '0.0.0.1'
 
 const APP_BINARY_NAME = 'ICARUS Terminal.exe'
 const APP_UNOPTIMIZED_BUILD = path.join(BUILD_DIR, `~UNOPT_${safeBinaryName(APP_BINARY_NAME)}`)
@@ -28,7 +29,7 @@ const APP_VERSION_INFO = {
   CompanyName: 'ICARUS',
   ProductName: 'ICARUS Terminal',
   FileDescription: 'ICARUS Terminal',
-  FileVersion: '0.0.0.1',
+  FileVersion: APP_FILE_VERSION,
   ProductVersion: PRODUCT_VERSION,
   OriginalFilename: 'ICARUS Terminal.exe',
   InternalName: 'ICARUS Terminal',
@@ -45,7 +46,7 @@ const SERVICE_VERSION_INFO = {
   CompanyName: 'ICARUS',
   ProductName: 'ICARUS Terminal Service',
   FileDescription: 'ICARUS Terminal Service',
-  FileVersion: '0.0.0.1',
+  FileVersion: SERVICE_FILE_VERSION,
   ProductVersion: PRODUCT_VERSION,
   OriginalFilename: 'ICARUS Service.exe',
   InternalName: 'ICARUS Service',
