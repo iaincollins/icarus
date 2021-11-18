@@ -79,12 +79,13 @@ func main() {
 	url = fmt.Sprintf("http://localhost:%d", *portPtr)
 	launcherUrl := fmt.Sprintf("http://localhost:%d/launcher.html", *portPtr)
 
+	// Check if we are starting in headless mode
 	if *terminalMode {
 		createWindow(TERMINAL_WINDOW_TITLE, url, defaultWindowWidth, defaultWindowHeight, webview.HintMin)
 		return
 	}
 
-	CheckForUpdate()
+	// If we get this far, we start in Launcher mode
 
 	// Check not already running
 	if checkProcessAlreadyExists(LAUNCHER_WINDOW_TITLE) {
@@ -92,7 +93,7 @@ func main() {
 		exitApplication(1)
 	}
 
-	// Check for update before doing anything else
+	// Check for an update before running main launcher code
 	CheckForUpdate()
 
 	// Run service
