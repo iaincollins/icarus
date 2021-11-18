@@ -24,9 +24,11 @@ The codebase is split up into three parts:
 
 "ICARUS Terminal.exe" uses [a fork of a webview wrapper for Go/C++](https://github.com/iaincollins/webview) which uses the Microsoft Edge/Chromium engine to render the interface. This library has been manually bundled with this project in `resources/dll`, along with a suitable loader from Microsoft.
 
-There can be multiple instances of "ICARUS Terminal.exe" running - this allows you to pin multiple windows to a single screen, or run multiple windows across different screens, - but only one instance will be designated as the "launcher" window. The launcher will have a different interface to the terminal windows and is responsible for starting and stopping the background service.
+There can be multiple instances of "ICARUS Terminal.exe" running. It designed to allow you to pin multiple windows to a single screen, or run multiple windows across different screens. The first instance will be designated as the "launcher" window. The launcher will have a different interface to the terminal windows and is responsible for starting and stopping the background service.
 
-"ICARUS Service.exe" is a self contained service, websocket server and a static webserver. All terminals connect to the service. There should only ever one instance of "ICARUS Service.exe" running at a time. The service interfaces with the game, broadcasts events to terminals and allows the graphical interface to be accessed remotely. It is invoked automatically by "ICARUS Terminal.exe" and stops when "ICARUS Terminal.exe" terminates. The web interface is written in Next.js/React and is statically exported and the assets bundled inside "ICARUS Service.exe", making it self contained.
+"ICARUS Service.exe" is a self contained service, websocket server and a static webserver. The service interfaces with the game, broadcasts events to terminals and allows the graphical interface to be accessed remotely. It is invoked automatically by "ICARUS Terminal.exe" and stops when "ICARUS Terminal.exe" terminates. The web interface is written in Next.js/React and is statically exported and the assets bundled inside "ICARUS Service.exe", making it self contained.
+
+All terminals (and any web clients) connect to the same single instance of service which receives and broadcasts messages to all of them using a websocket interface, there should only ever one instance of "ICARUS Service.exe" running at a time
 
 ### Requirements
 

@@ -6,7 +6,7 @@
 
 !define APP_NAME "ICARUS Terminal"
 !define COMP_NAME "ICARUS"
-!define VERSION "0.1.2.0"
+!define VERSION "0.1.3.0"
 !define COPYRIGHT "ICARUS"
 !define DESCRIPTION "Application"
 !define INSTALLER_NAME "..\dist\ICARUS Setup.exe"
@@ -39,6 +39,9 @@ InstallDir "$PROGRAMFILES\ICARUS Terminal"
 ######################################################################
 
 !include "MUI.nsh"
+!include "webview2.nsh"
+
+!addplugindir "./"
 
 !define MUI_ABORTWARNING
 !define MUI_UNABORTWARNING
@@ -82,6 +85,7 @@ File "..\build\bin\ICARUS Terminal.exe"
 File "..\build\bin\webview.dll"
 File "..\build\bin\WebView2Loader.dll"
 File "..\build\bin\icon.ico"
+Call installWebView2
 SectionEnd
 
 ######################################################################
@@ -164,6 +168,10 @@ RmDir "$SMPROGRAMS\ICARUS Terminal"
 DeleteRegKey ${REG_ROOT} "${REG_APP_PATH}"
 DeleteRegKey ${REG_ROOT} "${UNINSTALL_PATH}"
 SectionEnd
+
+Function .onInit
+
+FunctionEnd
 
 ######################################################################
 
