@@ -1,6 +1,6 @@
 {
   "name": "icarus",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "scripts": {
     "build": "npm run build:web && npm run build:app && npm run build:service && npm run build:package",

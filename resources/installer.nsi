@@ -6,7 +6,7 @@
 
 !define APP_NAME "ICARUS Terminal"
 !define COMP_NAME "ICARUS"
-!define VERSION "0.1.3.0"
+!define VERSION "${PRODUCT_VERSION}"
 !define COPYRIGHT "ICARUS"
 !define DESCRIPTION "Application"
 !define INSTALLER_NAME "..\dist\ICARUS Setup.exe"

@@ -5,7 +5,8 @@ const {
   BUILD_DIR,
   DIST_DIR,
   INSTALLER_NSI,
-  INSTALLER_EXE
+  INSTALLER_EXE,
+  PRODUCT_VERSION
 } = require('./lib/build-options')
 
 ;(async () => {
@@ -24,7 +25,8 @@ async function build () {
     pathToMakensis: 'C:\\Program Files (x86)\\NSIS\\makensis.exe',
     verbose: 4,
     define: {
-      SPECIAL_BUILD: false
+      SPECIAL_BUILD: false,
+      PRODUCT_VERSION
     }
   })
   console.log(installerOutput)
