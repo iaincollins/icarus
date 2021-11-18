@@ -84,4 +84,8 @@ The name ICARUS was suggested by [SpaceNinjaBear](https://www.reddit.com/user/Sp
 
 I'd like to express appreciation to [Serge Zaitsev](https://github.com/zserge) for his work on the WebView library.
 
+The loading animation is by James Panter (http://codepen.io/jpanter/pen/PWWQXK).
+
 Thank you to all those who have written libraries on which this software depends.
+
+A full list of credits will be in place before the release of v1.0.0.
