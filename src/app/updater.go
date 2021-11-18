@@ -10,10 +10,12 @@ import (
 	"net/http"
 	"time"
 	"regexp"
-	"os/exec"
 	"errors"
 	"io"
 	"os"
+	"syscall"
+	"golang.org/x/sys/windows"
+	"path/filepath"
 )
 
 const LATEST_RELEASE_URL = "https://api.github.com/repos/iaincollins/icarus/releases/latest"
@@ -37,26 +39,8 @@ func CheckForUpdate() {
 
 	ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nWould you like to download the update?").Title("New version available").YesNo()
 	if (ok) {
-		downloadUrl := release.downloadUrl // In future may redirect to webpage instead 
-		exec.Command("rundll32", "url.dll,FileProtocolHandler", downloadUrl).Start()
-		
-		// This is disabled as we can't actually run the current installer this way
-		// because it requires escalated privilages. This could be addressed by
-		// using a different type of installer.
-		/*
-		downloadedFile, downloadErr := DownloadRelease(release)
-		if downloadErr != nil {
-			fmt.Println("Error downloading update", downloadErr.Error())
-		}
-
-		installerCmdInstance := exec.Command(downloadedFile)
-		installerCmdErr := installerCmdInstance.Start()
-		if installerCmdErr != nil {
-			fmt.Println("Error installing update", installerCmdErr.Error())
-		}
-		*/
-
-		// If user chooses to install update, exit after starting download
+		pathToFile, _ := DownloadUpdate(release.downloadUrl)
+		runElevated(pathToFile)
 		os.Exit(0)
 	}
 
@@ -165,18 +149,19 @@ func GetLatestRelease(releasesUrl string) (Release, error) {
 	return release, nil
 }
 
-func DownloadRelease(release Release) (string, error) {
-	pathToDownloadedFile := "ICARUS Update.exe"
+func DownloadUpdate(downloadUrl string) (string, error) {
+	tmpDir, _ := ioutil.TempDir("", "*")
+	tmpfile := filepath.Join(tmpDir, "ICARUS Update.exe")
 
 	// Get file to download
-	resp, err := http.Get(release.downloadUrl)
+	resp, err := http.Get(downloadUrl)
 	if err != nil {
 		return "", err
 	}
 	defer resp.Body.Close()
 
 	// Create file
-	out, err := os.Create(pathToDownloadedFile)
+	out, err := os.Create(tmpfile)
 	if err != nil {
 		return "", err
 	}
@@ -185,5 +170,18 @@ func DownloadRelease(release Release) (string, error) {
 	// Write to file
 	_, err = io.Copy(out, resp.Body)
 
-	return pathToDownloadedFile, nil
+	return tmpfile, nil
+}
+
+func runElevated(pathToExe string) {
+	cwd, _ := os.Getwd()
+	verbPtr, _ := syscall.UTF16PtrFromString("runas")
+	exePtr, _ := syscall.UTF16PtrFromString(pathToExe)
+	cwdPtr, _ := syscall.UTF16PtrFromString(cwd)
+	argPtr, _ := syscall.UTF16PtrFromString("")
+	
+	windows.ShellExecute(0, verbPtr, exePtr, argPtr, cwdPtr, int32(1))
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
 }
