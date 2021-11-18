@@ -1,6 +1,6 @@
 const path = require('path')
 
-const PRODUCT_VERSION = '0.1.2.0'
+const PRODUCT_VERSION = '0.1.3.0'
 const APP_FILE_VERSION = PRODUCT_VERSION
 const SERVICE_FILE_VERSION = PRODUCT_VERSION
 

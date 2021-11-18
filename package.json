@@ -9,7 +9,8 @@
     "build:service": "node scripts/build-service.js",
     "build:package": "node scripts/build-package.js",
     "build:clean": "node scripts/build-clean.js",
-    "dev": "nodemon src/service/main.js",
+    "dev:web": "next src\\web",
+    "dev:service": "nodemon src/service/main.js",
     "lint": "npm run lint:go && npm run lint:javascript",
     "lint:go": "go fmt src\\app\\main.go",
     "lint:javascript": "npx standard --fix"
@@ -21,6 +22,7 @@
     "changeexe": "^1.0.2",
     "fs-extra": "^10.0.0",
     "makensis": "^1.1.1",
+    "nexe": "^4.0.0-beta.19",
     "next": "^12.0.4",
     "nodemon": "^2.0.15",
     "react": "^17.0.2",
@@ -30,7 +32,6 @@
   },
   "dependencies": {
     "connect": "^3.7.0",
-    "nexe": "^4.0.0-beta.19",
     "serve-static": "^1.14.1",
     "ws": "^8.2.3",
     "yargs": "^17.2.1"
