@@ -21,12 +21,12 @@ function clean () {
   if (fs.existsSync(ASSETS_BUILD_DIR)) fs.rmdirSync(ASSETS_BUILD_DIR, { recursive: true })
 }
 
-async function build() {
+async function build () {
   // TODO Refactor build steps for icon (NB: should be 256x256 image)
-  const files = [ fs.readFileSync(path.join(RESOURCES_DIR, 'icon.png')) ]
+  const files = [fs.readFileSync(path.join(RESOURCES_DIR, 'icon.png'))]
   const buf = await toIco(files)
-  fs.writeFileSync(path.join(RESOURCES_DIR,'icon.ico'), buf)
-  fse.copySync(path.join(RESOURCES_DIR,'icon.ico'), 'src/web/public/favicon.ico', { recursive: true })
+  fs.writeFileSync(path.join(RESOURCES_DIR, 'icon.ico'), buf)
+  fse.copySync(path.join(RESOURCES_DIR, 'icon.ico'), 'src/web/public/favicon.ico', { recursive: true })
 }
 
 function copy () {
