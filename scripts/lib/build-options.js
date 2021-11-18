@@ -1,6 +1,7 @@
 const path = require('path')
+const package = require('../../package.json')
 
-const PRODUCT_VERSION = '0.1.3.0'
+const PRODUCT_VERSION = `${package.version}.0`
 const APP_FILE_VERSION = PRODUCT_VERSION
 const SERVICE_FILE_VERSION = PRODUCT_VERSION
 

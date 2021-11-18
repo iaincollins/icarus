@@ -1,6 +1,6 @@
 {
   "name": "icarus",
-  "version": "1.0.0",
+  "version": "0.1.4",
   "description": "",
   "scripts": {
     "build": "npm run build:web && npm run build:app && npm run build:service && npm run build:package",
@@ -9,6 +9,7 @@
     "build:service": "node scripts/build-service.js",
     "build:package": "node scripts/build-package.js",
     "build:clean": "node scripts/build-clean.js",
+    "build:assets": "node scripts/build-assets.js",
     "dev:web": "next src\\web",
     "dev:service": "nodemon src/service/main.js",
     "lint": "npm run lint:go && npm run lint:javascript",
@@ -28,6 +29,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "standard": "^16.0.4",
+    "to-ico": "^1.1.5",
     "upx": "^1.0.6"
   },
   "dependencies": {
