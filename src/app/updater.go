@@ -55,6 +55,9 @@ func CheckForUpdate() {
 			fmt.Println("Error installing update", installerCmdErr.Error())
 		}
 		*/
+
+		// If user chooses to install update, exit after starting download
+		os.Exit(0)
 	}
 
 	return
