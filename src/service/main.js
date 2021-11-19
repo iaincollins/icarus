@@ -4,21 +4,35 @@ const http = require('http')
 const httpProxy = require('http-proxy')
 const proxy = httpProxy.createProxyServer({})
 const WebSocket = require('ws')
-const eventHandlers = require('./lib/event-handlers')
+const os = require('os')
+const path = require('path')
 const yargs = require('yargs')
-
 const commandLineArgs = yargs.argv
-const PORT = commandLineArgs.port || process.env.PORT || 3300
-const WEBROOT = process.env.WEBROOT || 'build/web'
-const PROXY = commandLineArgs.proxy || false
 
-// Start simple HTTP server and add WebSocket server
-const webServer = connect().use(serveStatic(WEBROOT))
-console.log('PROXY', PROXY)
-// Proxy requests if PROXY specified (i.e. in development)
-const httpServer = PROXY
-  ? http.createServer((req, res) => proxy.web(req, res, { target: PROXY }))
-  : http.createServer(webServer)
+const eventHandlers = require('./lib/event-handlers')
+const EliteJson = require('./lib/elite-json')
+const EliteLog = require('./lib/elite-log')
+
+const PORT = commandLineArgs.port || 3300 // Port to listen on
+const HTTP_SERVER = commandLineArgs['http-server'] || false // URL of server
+const DATA_DIR = process.env.DATA_DIR
+   ? process.env.DATA_DIR.startsWith('/') ? process.env.DATA_DIR : path.join(__dirname, process.env.DATA_DIR)
+   : path.join(os.homedir(), 'Saved Games', 'Frontier Developments', 'Elite Dangerous')
+const WEBROOT = 'build/web'
+
+let httpServer
+if (HTTP_SERVER) {
+  // If HTTP_SERVER is specified (i.e. in development) then HTTP requests
+  // other than web socket requests will be forwarded to it. This is useful
+  // for inteface development, to allow hot reloading of the UI.
+  httpServer = http.createServer((req, res) => proxy.web(req, res, { target: HTTP_SERVER }))
+} else {
+  // The default behaviour (i.e. production) to serve static assets. When the
+  // application is compiled to a native executable these assets will be bundled
+  // with the executable in a virtual file system.
+  const webServer = connect().use(serveStatic(WEBROOT))
+  httpServer = http.createServer(webServer)
+}
 
 const webSocketServer = new WebSocket.Server({ server: httpServer })
 
@@ -68,3 +82,18 @@ webSocketServer.on('error', function (error) {
 console.log('ICARUS Terminal Service v0.0.0.1 (c) ICARUS')
 httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}`)
+loadData()
+
+async function loadData() {
+  console.log('Loading data...')
+  
+  // Load logs and watch for changes
+  const eliteLog = new EliteLog(DATA_DIR)
+  const logsLoaded = (await eliteLog.load()).length
+  console.log('loaded logs: ', logsLoaded)
+
+  // Load data and watch for changes
+  const eliteJson = new EliteJson(DATA_DIR)
+  const jsonLoaded = (await eliteJson.load()).length
+  console.log('loaded json files: ', jsonLoaded)
+}
