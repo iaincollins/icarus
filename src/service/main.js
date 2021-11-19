@@ -1,6 +1,8 @@
 const connect = require('connect')
 const serveStatic = require('serve-static')
 const http = require('http')
+const httpProxy = require('http-proxy')
+const proxy = httpProxy.createProxyServer({})
 const WebSocket = require('ws')
 const eventHandlers = require('./lib/event-handlers')
 const yargs = require('yargs')
@@ -8,10 +10,16 @@ const yargs = require('yargs')
 const commandLineArgs = yargs.argv
 const PORT = commandLineArgs.port || process.env.PORT || 3300
 const WEBROOT = process.env.WEBROOT || 'build/web'
+const PROXY = commandLineArgs.proxy || false
 
 // Start simple HTTP server and add WebSocket server
 const webServer = connect().use(serveStatic(WEBROOT))
-const httpServer = http.createServer(webServer)
+console.log('PROXY', PROXY)
+// Proxy requests if PROXY specified (i.e. in development)
+const httpServer = PROXY
+  ? http.createServer((req, res) => proxy.web(req, res, { target: PROXY }))
+  : http.createServer(webServer)
+
 const webSocketServer = new WebSocket.Server({ server: httpServer })
 
 // Bind message event handler to WebSocket server before starting server

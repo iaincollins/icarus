@@ -1,11 +1,10 @@
-import '../public/css/main.css'
-import Loader from 'components/loader'
+import '../css/main.css'
+import { Socket } from 'components/socket'
 
 export default function MyApp ({ Component, pageProps }) {
   return (
-    <>
-      <Loader />
+    <Socket>
       <Component {...pageProps} />
-    </>
+    </Socket>
   )
 }

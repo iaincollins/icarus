@@ -6,11 +6,11 @@
 
 @font-face {
   font-family: 'Jura';
-  src: url('../fonts/Jura-VariableFont_wght.ttf') format('truetype');
+  src: url('../public/fonts/Jura-VariableFont_wght.ttf') format('truetype');
 }
 
 * {
-  cursor: url('../images/cursor.png'), crosshair;
+  cursor: url('../public/images/cursor.png'), crosshair;
 }
 
 ::selection { 
@@ -105,8 +105,12 @@ html, body {
 }
 
 #main {
-  transition: .25s ease-in-out;
   z-index: 10;
+}
+
+.panel {
+  transition: .25s ease-in-out;
+  opacity: 0;
 }
 
 h1 {
