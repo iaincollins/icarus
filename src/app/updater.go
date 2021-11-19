@@ -37,7 +37,7 @@ func CheckForUpdate() {
 		return
 	}
 
-	ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nWould you like to download the update?").Title("New version available").YesNo()
+	ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nWould you like to install the update?").Title("New version available").YesNo()
 	if (ok) {
 		pathToFile, _ := DownloadUpdate(release.downloadUrl)
 		runElevated(pathToFile)
