@@ -3,10 +3,12 @@ const path = require('path')
 const { compile } = require('nexe')
 const changeExe = require('changeexe')
 const UPX = require('upx')({ brute: false }) // Brute on service seems to hang
+const yargs = require('yargs')
+const commandLineArgs = yargs.argv
 
 const {
-  DEVELOPMENT_BUILD,
-  DEBUG_CONSOLE,
+  DEVELOPMENT_BUILD: DEVELOPMENT_BUILD_DEFAULT,
+  DEBUG_CONSOLE: DEBUG_CONSOLE_DEFAULT,
   BUILD_DIR,
   BIN_DIR,
   SERVICE_UNOPTIMIZED_BUILD,
@@ -16,6 +18,8 @@ const {
   SERVICE_VERSION_INFO
 } = require('./lib/build-options')
 
+const DEVELOPMENT_BUILD = commandLineArgs.debug || DEVELOPMENT_BUILD_DEFAULT
+const DEBUG_CONSOLE = commandLineArgs.debug || DEBUG_CONSOLE_DEFAULT
 const ENTRY_POINT = path.join(__dirname, '..', 'src', 'service', 'main.js')
 
 ;(async () => {

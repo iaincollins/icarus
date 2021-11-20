@@ -3,10 +3,12 @@ const path = require('path')
 const { execSync } = require('child_process')
 const changeExe = require('changeexe')
 const UPX = require('upx')({ brute: true })
+const yargs = require('yargs')
+const commandLineArgs = yargs.argv
 
 const {
-  DEVELOPMENT_BUILD,
-  DEBUG_CONSOLE,
+  DEVELOPMENT_BUILD: DEVELOPMENT_BUILD_DEFAULT,
+  DEBUG_CONSOLE: DEBUG_CONSOLE_DEFAULT,
   BUILD_DIR,
   BIN_DIR,
   RESOURCES_DIR,
@@ -16,6 +18,9 @@ const {
   APP_ICON,
   APP_VERSION_INFO
 } = require('./lib/build-options')
+
+const DEVELOPMENT_BUILD = commandLineArgs.debug || DEVELOPMENT_BUILD_DEFAULT
+const DEBUG_CONSOLE = commandLineArgs.debug || DEBUG_CONSOLE_DEFAULT
 
 ;(async () => {
   clean()
