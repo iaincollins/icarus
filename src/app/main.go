@@ -24,7 +24,7 @@ const SERVICE_EXECUTABLE = "ICARUS Service.exe"
 const TERMINAL_EXECUTABLE = "ICARUS Terminal.exe"
 const DEBUGGER = true
 
-const defaultLauncherWindowWidth = int32(640)
+const defaultLauncherWindowWidth = int32(960)
 const defaultLauncherWindowHeight = int32(480)
 const defaultWindowWidth = int32(1024)
 const defaultWindowHeight = int32(768)
@@ -163,7 +163,7 @@ func createWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, height 
 
 	w.SetTitle(LAUNCHER_WINDOW_TITLE)
 	w.SetSize(int(width), int(height), hint)
-	w.Navigate(url)
+	w.Navigate(LoadUrl(url))
 	w.Run()
 }
 
@@ -191,17 +191,18 @@ func createNativeWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, h
 	}
 
 	// Center window
+	hwnd := win.HWND(hwndPtr)
 	screenWidth := int32(win.GetSystemMetrics(win.SM_CXSCREEN))
 	screenHeight := int32(win.GetSystemMetrics(win.SM_CYSCREEN))
 	windowX := int32((screenWidth / 2) - (width / 2))
 	windowY := int32((screenHeight / 2) - (height / 2))
-	win.MoveWindow(win.HWND(hwndPtr), windowX, windowY, width, height, false)
-
+	win.MoveWindow(hwnd, windowX, windowY, width, height, false)
+	
 	// Pass the pointer to the window as an unsafe reference
 	webViewInstance = webview.NewWindow(DEBUGGER, unsafe.Pointer(&hwndPtr))
 	defer webViewInstance.Destroy()
 	bindFunctionsToWebView(webViewInstance)
-	webViewInstance.Navigate(url)
+	webViewInstance.Navigate(LoadUrl(url))
 	webViewInstance.Run()
 }
 
