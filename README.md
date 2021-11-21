@@ -38,7 +38,7 @@ To build the entire application you need to be running Microsoft Windows and hav
 * [Node.js](https://nodejs.org/en/download/) for the socket service (ICARUS Service) and React UI
 * [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/) to build the Windows installer (e.g. `winget install NSIS.NSIS`)
 
-If you are only working on the service and/or the Next.js/React UI then you only need Node.js
+If you are only working on the service and/or the Next.js/React UI then you may only need Node.js installed, and allowing for cross platform development on Windows/Mac/Linux. Elite Dangerous is only offically supported on Windows (and consoles) and there are not native Mac or Linux versions of this app, though the codebase is highly portable and is technically possible, with some modification the Window and process handling routines.
 
 You may also need the following (depending on the build steps, e.g. if you are building assets):
 
@@ -59,11 +59,11 @@ Intermediate builds can be found in `build/` directory. See `build/bin` for the 
 
 You can also run each build step independently:
 
-* `npm run build:app` builds only the GUI app (ICARUS Terminal)
-* `npm run build:service` builds only the service (ICARUS Terminal Service)
-* `npm run build:package` builds only the Windows installer
-* `npm run build:web` builds only the web interface
-* `npm run build:assets` builds assets (icons, fonts, etc)
+* `npm run build:app` builds only the GUI app (ICARUS Terminal.exe)
+* `npm run build:service` builds only the service (ICARUS Service.exe)
+* `npm run build:package` builds only the Windows installer (ICARUS Setup.exe)
+* `npm run build:web` builds only the web interface; required to build the service as is an embedded resource
+* `npm run build:assets` builds assets (icons, fonts, etc); assets are commited the repository and only rebuilt when this is expicitly run
 * `npm run build:clean` resets the build environment
 
 You can do a fast, unoptimized builds without an installer:
