@@ -1,5 +1,9 @@
 const os = require('os')
 
+const EliteJson = require('./elite-json')
+const EliteLog = require('./elite-log')
+let dataLoaded = false
+
 const eventHandlers = {
   debug: (message) => {
     console.log('debug', message)
@@ -13,6 +17,20 @@ const eventHandlers = {
     return {
       urls
     }
+  },
+  loadData: async (forceReload = false) => {
+    // Only load data if (a) we haven't already or (b) force reload requested
+    if (forceReload === true || dataLoaded === false) {
+      // Load logs and watch for changes
+      const eliteLog = new EliteLog(global.DATA_DIR)
+      const logEntries = (await eliteLog.load()).length
+
+      // Load data and watch for changes
+      const eliteJson = new EliteJson(global.DATA_DIR)
+      const jsonFiles = (await eliteJson.load()).map(file => file.label)
+      dataLoaded = { logEntries, jsonFiles }
+    }
+    return dataLoaded
   }
 }
 

@@ -9,9 +9,8 @@ const path = require('path')
 const yargs = require('yargs')
 const commandLineArgs = yargs.argv
 
+const packageJson = require('../../package.json')
 const eventHandlers = require('./lib/event-handlers')
-const EliteJson = require('./lib/elite-json')
-const EliteLog = require('./lib/elite-log')
 
 const PORT = commandLineArgs.port || 3300 // Port to listen on
 const HTTP_SERVER = commandLineArgs['http-server'] || false // URL of server
@@ -21,6 +20,7 @@ const DATA_DIR = process.env.DATA_DIR
 const WEBROOT = 'build/web'
 
 global.PORT = PORT
+global.DATA_DIR = DATA_DIR
 
 let httpServer
 if (HTTP_SERVER) {
@@ -56,11 +56,9 @@ webSocketServer.on('connection', socket => {
 })
 
 // A function for broadcasting events to all connected clients
-/*
 function broadcastMessage (name, data) {
   // Use try/catch here to suppress errors caused when main window is
   // closed and app is in process of shutting down
-  console.log('WebSocket broadcast message sent')
   try {
     if (!webSocketServer) return
     webSocketServer.clients.forEach(client => {
@@ -72,7 +70,6 @@ function broadcastMessage (name, data) {
     console.error('ERROR_SOCKET_BROADCAST_MESSAGE_FAILED', name, data, e)
   }
 }
-*/
 
 webSocketServer.on('error', function (error) {
   if (error.code && error.code === 'EADDRINUSE') {
@@ -81,21 +78,7 @@ webSocketServer.on('error', function (error) {
   }
 })
 
-console.log('ICARUS Terminal Service v0.0.0.1 (c) ICARUS')
+// Start server
+console.log(`ICARUS Terminal Service ${packageJson.version}`)
 httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}`)
-loadData()
-
-async function loadData () {
-  console.log('Loading data...')
-
-  // Load logs and watch for changes
-  const eliteLog = new EliteLog(DATA_DIR)
-  const logsLoaded = (await eliteLog.load()).length
-  console.log('loaded logs: ', logsLoaded)
-
-  // Load data and watch for changes
-  const eliteJson = new EliteJson(DATA_DIR)
-  const jsonLoaded = (await eliteJson.load()).length
-  console.log('loaded json files: ', jsonLoaded)
-}

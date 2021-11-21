@@ -1,21 +1,26 @@
-/* global WebSocket */
+/* global WebSocket, CustomEvent */
 import { createContext, useState, useContext } from 'react'
 
-let socket
-const callbacks = {}
-const eventQueue = []
+let socket // Store socket connection
+const callbackHandlers = {} // Store callbacks waiting to be executed (pending response from server)
+const deferredEventQueue = [] // Store events waiting to be sent (used when server is not ready yet or offline)
 
 const defaultSocketState = {
-  connected: false,
-  sendEvent
+  connected: false, // Boolean to indicate current connection status
+  sendEvent // An async function components can call to send an event
 }
 
 function connect (socketState, setSocketState) {
   socket = new WebSocket('ws://' + window.location.host)
   socket.onmessage = (event) => {
-    const { requestId } = JSON.parse(event.data)
-    if (callbacks[requestId]) callbacks[requestId](event)
-    console.log('Message received from socket server', requestId)
+    const { requestId, name, message } = JSON.parse(event.data)
+    // Invoke callback to handler (if there is one)
+    if (callbackHandlers[requestId]) { callbackHandlers[requestId](event) }
+    // Broadcast event to anything that is listening for an event with this name
+    if (name) {
+      window.dispatchEvent(new CustomEvent(`socket.${name}`, { detail: message }))
+    }
+    console.log('Message received from socket server', requestId, name, message)
   }
   socket.onopen = (e) => {
     console.log('Connected to socket server')
@@ -24,8 +29,8 @@ function connect (socketState, setSocketState) {
       connected: true
     })
 
-    for (let i = 0; i < eventQueue.length; i++) {
-      const { requestId, name, message } = eventQueue.shift()
+    while (deferredEventQueue.length > 0) {
+      const { requestId, name, message } = deferredEventQueue.shift()
       socket.send(JSON.stringify({ requestId, name, message }))
       console.log('Queued message sent to socket server', requestId, name, message)
     }
@@ -42,16 +47,16 @@ function connect (socketState, setSocketState) {
 function sendEvent (name, message = null) {
   return new Promise((resolve, reject) => {
     const requestId = generateUuid()
-    callbacks[requestId] = (event) => {
+    callbackHandlers[requestId] = (event) => {
       const { message } = JSON.parse(event.data)
-      delete callbacks[requestId]
+      delete callbackHandlers[requestId]
       resolve(message)
     }
     if (socket && socket.readyState === WebSocket.OPEN) {
       socket.send(JSON.stringify({ requestId, name, message }))
       console.log('Message sent to socket server', requestId, name, message)
     } else {
-      eventQueue.push({ requestId, name, message })
+      deferredEventQueue.push({ requestId, name, message })
       console.log('Message queued', requestId, name, message)
     }
   })
