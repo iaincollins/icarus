@@ -84,7 +84,7 @@ File "..\build\bin\ICARUS Service.exe"
 File "..\build\bin\ICARUS Terminal.exe"
 File "..\build\bin\webview.dll"
 File "..\build\bin\WebView2Loader.dll"
-File "..\assets\icon.ico"
+File ".\assets\icon.ico"
 Call installWebView2
 SectionEnd
 
