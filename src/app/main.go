@@ -30,7 +30,7 @@ const defaultWindowWidth = int32(1024)
 const defaultWindowHeight = int32(768)
 
 var defaultPort = 3300 // Set to 0 to be assigned a free high numbered port
-var port int        	 // Actual port we are running on
+var port int           // Actual port we are running on
 var webViewInstance webview.WebView
 
 // Track main window size when switching to/from fullscreen
