@@ -9,7 +9,7 @@
 !define VERSION "${PRODUCT_VERSION}"
 !define COPYRIGHT "ICARUS"
 !define DESCRIPTION "Application"
-!define INSTALLER_NAME "..\dist\ICARUS Setup.exe"
+!define INSTALLER_NAME "../../dist/ICARUS Setup.exe"
 !define MAIN_APP_EXE "ICARUS Terminal.exe"
 !define INSTALL_TYPE "SetShellVarContext current"
 !define REG_ROOT "HKCU"
@@ -46,6 +46,11 @@ InstallDir "$PROGRAMFILES\ICARUS Terminal"
 !define MUI_ABORTWARNING
 !define MUI_UNABORTWARNING
 
+!define MUI_WELCOMEFINISHPAGE_BITMAP "panel.bmp"  # 164x314px
+!define MUI_HEADERIMAGE 
+!define MUI_HEADERIMAGE_RIGHT
+!define MUI_HEADERIMAGE_BITMAP "header.bmp" # 150x57px 
+
 !insertmacro MUI_PAGE_WELCOME
 
 !ifdef LICENSE_TXT
@@ -80,11 +85,11 @@ Section -MainProgram
 ${INSTALL_TYPE}
 SetOverwrite ifnewer
 SetOutPath "$INSTDIR"
-File "..\build\bin\ICARUS Service.exe"
-File "..\build\bin\ICARUS Terminal.exe"
-File "..\build\bin\webview.dll"
-File "..\build\bin\WebView2Loader.dll"
-File ".\assets\icon.ico"
+File "..\..\build\bin\ICARUS Service.exe"
+File "..\..\build\bin\ICARUS Terminal.exe"
+File "..\..\build\bin\webview.dll"
+File "..\..\build\bin\WebView2Loader.dll"
+File "..\assets\icon.ico"
 Call installWebView2
 SectionEnd
 

@@ -16,7 +16,7 @@ const DIST_DIR = path.join(ROOT_DIR, 'dist') // For distributable build
 const RESOURCES_DIR = path.join(ROOT_DIR, 'resources')
 const ASSETS_DIR = path.join(RESOURCES_DIR, 'assets')
 
-const INSTALLER_NSI = path.join(RESOURCES_DIR, 'installer.nsi') // Installer config
+const INSTALLER_NSI = path.join(RESOURCES_DIR, 'installer', 'installer.nsi') // Installer config
 const INSTALLER_EXE = path.join(DIST_DIR, 'ICARUS Setup.exe') // Should match INSTALLER_NAME in .nsi
 const ICON = path.join(ASSETS_DIR, 'icon.ico')
 

@@ -26,7 +26,8 @@ async function build () {
     verbose: 4,
     define: {
       SPECIAL_BUILD: false,
-      PRODUCT_VERSION
+      PRODUCT_VERSION,
+      INSTALLER_EXE
     }
   })
   console.log(installerOutput)
