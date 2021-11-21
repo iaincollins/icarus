@@ -1,0 +1,4 @@
+.panel {
+  transition: .25s ease-in-out;
+  opacity: 0;
+}

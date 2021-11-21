@@ -24,13 +24,13 @@ const SERVICE_EXECUTABLE = "ICARUS Service.exe"
 const TERMINAL_EXECUTABLE = "ICARUS Terminal.exe"
 const DEBUGGER = true
 
-const defaultLauncherWindowWidth = int32(960)
-const defaultLauncherWindowHeight = int32(480)
+const defaultLauncherWindowWidth = int32(900)
+const defaultLauncherWindowHeight = int32(500)
 const defaultWindowWidth = int32(1024)
 const defaultWindowHeight = int32(768)
 
-var defaultPort = 0 // Set to 0 to be assigned a free high numbered port
-var port int        // Actual port we are running on
+var defaultPort = 3300 // Set to 0 to be assigned a free high numbered port
+var port int        	 // Actual port we are running on
 var webViewInstance webview.WebView
 
 // Track main window size when switching to/from fullscreen
@@ -197,7 +197,7 @@ func createNativeWindow(LAUNCHER_WINDOW_TITLE string, url string, width int32, h
 	windowX := int32((screenWidth / 2) - (width / 2))
 	windowY := int32((screenHeight / 2) - (height / 2))
 	win.MoveWindow(hwnd, windowX, windowY, width, height, false)
-	
+
 	// Pass the pointer to the window as an unsafe reference
 	webViewInstance = webview.NewWindow(DEBUGGER, unsafe.Pointer(&hwndPtr))
 	defer webViewInstance.Destroy()

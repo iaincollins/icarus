@@ -16,9 +16,11 @@ const EliteLog = require('./lib/elite-log')
 const PORT = commandLineArgs.port || 3300 // Port to listen on
 const HTTP_SERVER = commandLineArgs['http-server'] || false // URL of server
 const DATA_DIR = process.env.DATA_DIR
-   ? process.env.DATA_DIR.startsWith('/') ? process.env.DATA_DIR : path.join(__dirname, process.env.DATA_DIR)
-   : path.join(os.homedir(), 'Saved Games', 'Frontier Developments', 'Elite Dangerous')
+  ? process.env.DATA_DIR.startsWith('/') ? process.env.DATA_DIR : path.join(__dirname, process.env.DATA_DIR)
+  : path.join(os.homedir(), 'Saved Games', 'Frontier Developments', 'Elite Dangerous')
 const WEBROOT = 'build/web'
+
+global.PORT = PORT
 
 let httpServer
 if (HTTP_SERVER) {
@@ -40,12 +42,12 @@ const webSocketServer = new WebSocket.Server({ server: httpServer })
 webSocketServer.on('connection', socket => {
   console.log('WebSocket connection open')
   socket.on('message', async (event) => {
-    const { name, message } = JSON.parse(event)
-    console.log('WebSocket message received', name)
+    const { requestId, name, message } = JSON.parse(event)
+    console.log('WebSocket message received', name, event.toString())
     if (eventHandlers[name]) {
       try {
         const data = await eventHandlers[name](message)
-        socket.send(JSON.stringify({ name, message: data }))
+        socket.send(JSON.stringify({ requestId, name, message: data }))
       } catch (e) {
         console.error('ERROR_SOCKET_NO_EVENT_HANDLER', name, e)
       }
@@ -84,9 +86,9 @@ httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}`)
 loadData()
 
-async function loadData() {
+async function loadData () {
   console.log('Loading data...')
-  
+
   // Load logs and watch for changes
   const eliteLog = new EliteLog(DATA_DIR)
   const logsLoaded = (await eliteLog.load()).length

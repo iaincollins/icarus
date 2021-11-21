@@ -3,6 +3,8 @@
 @import "loader.css";
 @import "overlay.css";
 @import "buttons.css";
+@import "text.css";
+@import "panels.css";
 
 @font-face {
   font-family: 'Jura';
@@ -64,6 +66,15 @@ html::-webkit-scrollbar,
   user-select: none;
 }
 
+.selectable {
+  -webkit-touch-callout: text !important;
+  -webkit-user-select: text !important;
+  -khtml-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+
 html::after {
   content: " ";
   display: block;
@@ -78,18 +89,57 @@ html::after {
   pointer-events: none;
 }
 
+html, body {
+  -ms-content-zooming: none;
+}
+
 body {
   background: black;
   color: white;
   font-family: "Jura", sans-serif;
-  font-size: 1.5rem;
-  padding: .5rem;
+  font-size: 1.25rem;
+  padding: .5rem 1rem;
   margin: 0;
-  text-align: center;
 }
 
-html, body {
-  -ms-content-zooming: none;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 4rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+p {
+  margin: .5rem 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover:not(.active):not([disabled]),
+a:active:not(.active):not([disabled]),
+a:focus:not(.active):not([disabled]) {
+  outline: none;
+  outline-color: var(--secondary-color);
+  --icon-color: var(--secondary-color);
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 1.25rem;
+  margin: 0;
 }
 
 #background {
@@ -106,17 +156,4 @@ html, body {
 
 #main {
   z-index: 10;
-}
-
-.panel {
-  transition: .25s ease-in-out;
-  opacity: 0;
-}
-
-h1 {
-  margin: .25rem 0;
-}
-
-p {
-  margin: 1rem 0;
 }

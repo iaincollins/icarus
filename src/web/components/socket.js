@@ -2,22 +2,20 @@
 import { createContext, useState, useContext } from 'react'
 
 let socket
+const callbacks = {}
+const eventQueue = []
 
 const defaultSocketState = {
-  connected: false
+  connected: false,
+  sendEvent
 }
-
-// function sendEvent (name, message = null) {
-//   if (socket) {
-//     socket.send(JSON.stringify({ name, message }))
-//   }
-// }
 
 function connect (socketState, setSocketState) {
   socket = new WebSocket('ws://' + window.location.host)
   socket.onmessage = (event) => {
-    const { name, message } = JSON.parse(event.data)
-    console.log('message received', name, message)
+    const { requestId } = JSON.parse(event.data)
+    if (callbacks[requestId]) callbacks[requestId](event)
+    console.log('Message received from socket server', requestId)
   }
   socket.onopen = (e) => {
     console.log('Connected to socket server')
@@ -25,6 +23,14 @@ function connect (socketState, setSocketState) {
       ...socketState,
       connected: true
     })
+
+
+    for (let i = 0; i < eventQueue.length; i++) {
+      const { requestId, name, message } = eventQueue.shift()
+      socket.send(JSON.stringify({ requestId, name, message }))
+      console.log('Queued message sent to socket server', requestId, name, message)
+    }
+
   }
   socket.onclose = (e) => {
     console.log('Disconnected from socket server')
@@ -33,6 +39,28 @@ function connect (socketState, setSocketState) {
       connected: false
     })
   }
+}
+
+function sendEvent (name, message = null) {
+  return new Promise((resolve, reject) => {
+    const requestId = generateUuid()
+    callbacks[requestId] = (event) => {
+      const { message } = JSON.parse(event.data)
+      delete callbacks[requestId]
+      resolve(message)
+    }
+    if (socket && socket.readyState === WebSocket.OPEN)  {
+      socket.send(JSON.stringify({ requestId, name, message }))
+      console.log('Message sent to socket server', requestId, name, message)
+    } else {
+      eventQueue.push({ requestId, name, message })
+      console.log('Message queued', requestId, name, message)
+    }
+  })
+}
+
+function generateUuid () {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
 const SocketContext = createContext()

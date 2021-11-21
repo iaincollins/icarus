@@ -10,8 +10,7 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head />
-        <body onContextMenu='return false;' className='not-selectable scrollable'>
-          <div id='overlay' />
+        <body onContextMenu={() => false} className='not-selectable'>
           <div id='background' />
           <div id='main'>
             <Main />

@@ -1,0 +1,39 @@
+.text-muted {
+  opacity: 0.5 !important;
+  text-shadow: var(--text-shadow);
+}
+
+.text-primary {
+  color: var(--primary-text-color);
+  text-shadow: var(--text-shadow);
+}
+
+.text-primary-dark {
+  color: var(--dark-primary-color);
+  text-shadow: var(--text-shadow);
+}
+
+.text-secondary {
+  color: var(--secondary-text-color);
+  text-shadow: var(--text-shadow);
+}
+
+.text-secondary-dark {
+  color: var(--dark-secondary-color);
+  text-shadow: var(--text-shadow);
+}
+
+.text-danger {
+  color: var(--danger-color);
+  text-shadow: var(--text-shadow);
+}
+
+.text-success {
+  color: var(--success-color);
+  text-shadow: var(--text-shadow);
+}
+
+.text-info {
+  color: var(--info-color);
+  text-shadow: var(--text-shadow);
+}

@@ -13,9 +13,6 @@ export default function IndexPage () {
         <p>
           <button onClick={toggleFullScreen}>Toggle Fullscreen</button>
         </p>
-        <p>
-          <button onClick={closeWindow}>Close Terminal</button>
-        </p>
       </Panel>
     </>
   )
