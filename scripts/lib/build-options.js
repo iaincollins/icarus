@@ -14,17 +14,17 @@ const BUILD_DIR = path.join(ROOT_DIR, 'build') // For intermediate build steps
 const BIN_DIR = path.join(BUILD_DIR, 'bin') // For final binary build
 const DIST_DIR = path.join(ROOT_DIR, 'dist') // For distributable build
 const RESOURCES_DIR = path.join(ROOT_DIR, 'resources')
-const ASSETS_SRC_DIR = path.join(RESOURCES_DIR, 'assets')
-const ASSETS_BUILD_DIR = path.join(BUILD_DIR, 'assets')
+const ASSETS_DIR = path.join(RESOURCES_DIR, 'assets')
 
 const INSTALLER_NSI = path.join(RESOURCES_DIR, 'installer.nsi') // Installer config
 const INSTALLER_EXE = path.join(DIST_DIR, 'ICARUS Setup.exe') // Should match INSTALLER_NAME in .nsi
+const ICON = path.join(ASSETS_DIR, 'icon.ico')
 
 const APP_BINARY_NAME = 'ICARUS Terminal.exe'
 const APP_UNOPTIMIZED_BUILD = path.join(BUILD_DIR, `~UNOPT_${safeBinaryName(APP_BINARY_NAME)}`)
 const APP_OPTIMIZED_BUILD = path.join(BUILD_DIR, `~OPT_${safeBinaryName(APP_BINARY_NAME)}`)
 const APP_FINAL_BUILD = path.join(BIN_DIR, APP_BINARY_NAME)
-const APP_ICON = path.join(RESOURCES_DIR, 'icon.ico')
+const APP_ICON = ICON
 
 const APP_VERSION_INFO = {
   CompanyName: 'ICARUS',
@@ -41,7 +41,7 @@ const SERVICE_BINARY_NAME = 'ICARUS Service.exe'
 const SERVICE_UNOPTIMIZED_BUILD = path.join(BUILD_DIR, `~UNOPT_${safeBinaryName(SERVICE_BINARY_NAME)}`)
 const SERVICE_OPTIMIZED_BUILD = path.join(BUILD_DIR, `~OPT_${safeBinaryName(SERVICE_BINARY_NAME)}`)
 const SERVICE_FINAL_BUILD = path.join(BIN_DIR, SERVICE_BINARY_NAME)
-const SERVICE_ICON = path.join(RESOURCES_DIR, 'icon.ico')
+const SERVICE_ICON = ICON
 
 const SERVICE_VERSION_INFO = {
   CompanyName: 'ICARUS',
@@ -67,8 +67,7 @@ module.exports = {
   BUILD_DIR,
   DIST_DIR,
   RESOURCES_DIR,
-  ASSETS_SRC_DIR,
-  ASSETS_BUILD_DIR,
+  ASSETS_DIR,
   APP_UNOPTIMIZED_BUILD,
   APP_OPTIMIZED_BUILD,
   APP_FINAL_BUILD,

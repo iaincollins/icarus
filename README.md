@@ -2,6 +2,8 @@
 
 ICARUS Terminal is a second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/).
 
+_This documentation is intended for developers._
+
 <img src="https://user-images.githubusercontent.com/595695/137490706-4772ba94-904e-47f4-8bf0-759d3ca51287.png">
 
 ICARUS is a Windows (Win32) application built primarily in JavaScript, using Node.js + WebSockets and Go with a fork of custom [Edge/WebView2 abstraction in C/C++](https://github.com/iaincollins/webview).
@@ -11,8 +13,6 @@ This inital public release is focused on sharing the application scaffolding, fo
 This release does not currently include the logic or assests developed for the prototype. The intention is to port the existing functionality that has been developed over to this codebase and to publish a public beta when there is minimum viable level of functionality. The first thing to be ported willl be the event handling logic.
 
 ## Getting Started
-
-_This documentation is intended for developers._
 
 The codebase is split up into three parts:
 
@@ -32,20 +32,20 @@ All terminals (and any web clients) connect to the same single instance of servi
 
 ### Requirements
 
-To build this application you need to be running Microsoft Windows and have the following dependencies installed:
+To build the entire application you need to be running Microsoft Windows and have the following dependencies installed:
 
-* [Go Lang](https://golang.org/) for the Win32 UI
-* [Node.js](https://nodejs.org/en/download/) for the backend socket service
+* [Go Lang](https://golang.org/) for the Win32 app (ICARUS Terminal)
+* [Node.js](https://nodejs.org/en/download/) for the socket service (ICARUS Service) and React UI
 * [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/) to build the Windows installer (e.g. `winget install NSIS.NSIS`)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/) or MS Build Tools with "Desktop development with C++"
 
-To run the application you need to have the [Microsoft Edge Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2/) installed. 
+If you are only working on the service and/or the Next.js/React UI then you only need Node.js
 
-Notes:
+You may also need the following (depending on the build steps, e.g. if you are building assets):
 
-* Run `npm install` to install/update dependencies before building.
-* The Edge Runtime is the only runtime dependancy.
-* A dependancy check and loader for the Edge Runtime installer will likely be bundled with the installer for release.
+* [Python 3](https://www.python.org/downloads/) for building assets and binaries
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/) or MS Build Tools with "Desktop development with C++" for working with Windows APIs
+
+There are no dependancies required to install and use the application.
 
 ### Building
 
@@ -63,9 +63,16 @@ You can also run each build step independently:
 * `npm run build:service` builds only the service (ICARUS Terminal Service)
 * `npm run build:package` builds only the Windows installer
 * `npm run build:web` builds only the web interface
+* `npm run build:assets` builds assets (icons, fonts, etc)
 * `npm run build:clean` resets the build environment
 
-You can enable/disable debugging and skip build optimization using constants defined in `scripts/lib/build-options.js`.
+You can do a fast, unoptimized builds without an installer:
+
+* `npm run build:debug` build ICARUS Terminal.exe and ICARUS Service.exe with debug output and no optimization
+* `npm run build:debug:app` build ICARUS Terminal.exe with debug output and no optimization
+* `npm run build:debug:service` build ICARUS Service.exe with debug output and no optimization
+
+A debug build displays debug information on the console and builds very quickly (1-2 seconds); binary sizes are significantly larger.
 
 Notes:
 
