@@ -4,6 +4,10 @@ ICARUS Terminal is a second screen interface for the game [Elite Dangerous](http
 
 _This documentation is intended for developers. This is pre-release software and not yet ready for general release._
 
+[You can download the latest release here.](https://github.com/iaincollins/icarus/releases/latest)
+
+_There is no pre-release channel, pre-releases are being published as full releases (and this will remain the case until the release of 1.0)._
+
 <img src="https://user-images.githubusercontent.com/595695/137490706-4772ba94-904e-47f4-8bf0-759d3ca51287.png">
 
 ICARUS is a Windows (Win32) application built primarily in JavaScript, using Node.js + WebSockets and Go with a fork of custom [Edge/WebView2 abstraction in C/C++](https://github.com/iaincollins/webview).
