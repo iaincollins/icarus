@@ -24,9 +24,9 @@ export default function IndexPage () {
         <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
           <p className='text-muted'>Connect remotely:</p>
           <ul>
-            {hostInfo && hostInfo.urls.map(url =>
-              <li key={url} className="selectable">{url}</li>
-            )}
+            {hostInfo && hostInfo.urls.map((url, i) => {
+              return (i === 0) ? <li key={url} className='selectable'>{url}</li> : null
+            })}
           </ul>
         </div>
       </Panel>
