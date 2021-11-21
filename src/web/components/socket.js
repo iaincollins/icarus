@@ -24,13 +24,11 @@ function connect (socketState, setSocketState) {
       connected: true
     })
 
-
     for (let i = 0; i < eventQueue.length; i++) {
       const { requestId, name, message } = eventQueue.shift()
       socket.send(JSON.stringify({ requestId, name, message }))
       console.log('Queued message sent to socket server', requestId, name, message)
     }
-
   }
   socket.onclose = (e) => {
     console.log('Disconnected from socket server')
@@ -49,7 +47,7 @@ function sendEvent (name, message = null) {
       delete callbacks[requestId]
       resolve(message)
     }
-    if (socket && socket.readyState === WebSocket.OPEN)  {
+    if (socket && socket.readyState === WebSocket.OPEN) {
       socket.send(JSON.stringify({ requestId, name, message }))
       console.log('Message sent to socket server', requestId, name, message)
     } else {

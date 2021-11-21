@@ -26,14 +26,13 @@ function clean () {
 }
 
 async function build () {
-
   // Convert icon.png to icon.ico (used for windows app icon)
   // TODO Refactor build steps for icon (NB: should be 256x256 bitmap)
   const files = [fs.readFileSync(path.join(RESOURCES_DIR, 'icon.png'))]
   const buf = await toIco(files)
   fs.writeFileSync(path.join(ASSETS_DIR, 'icon.ico'), buf)
   fse.copySync(path.join(ASSETS_DIR, 'icon.ico'), 'src/web/public/favicon.ico', { recursive: true })
-   
+
   // Build icon font
   svgtofont({
     src: path.join(RESOURCES_DIR, 'icons'),
@@ -48,15 +47,15 @@ async function build () {
       normalize: true
     },
     website: {
-      title: "ICARUS Terminal Font",
+      title: 'ICARUS Terminal Font',
       logo: false,
-      version: packageJson.version,
+      version: packageJson.version
     }
   }).then(() => {
-    console.log('done!');
-  });
+    console.log('done!')
+  })
 }
 
 function copy () {
-  
+
 }

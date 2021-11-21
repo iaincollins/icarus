@@ -1,4 +1,4 @@
-import { toggleFullScreen, closeWindow } from 'lib/window'
+import { toggleFullScreen } from 'lib/window'
 import { useSocket } from 'components/socket'
 import Loader from 'components/loader'
 import Panel from 'components/panel'
