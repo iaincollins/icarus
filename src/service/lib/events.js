@@ -1,5 +1,4 @@
 const os = require('os')
-const path = require('path')
 const throttle = require('lodash.throttle')
 
 const {
@@ -18,30 +17,36 @@ const eliteJson = new EliteJson(DATA_DIR)
 const eliteLog = new EliteLog(DATA_DIR)
 
 // Track initial file load
-let loadingComplete = false
 let loadingInProgress = false
 let numberOfLogEntries = 0 // Count of log entries loaded
-const filesLoaded = [] // List of file names loaded
+const filesLoaded = [] // List of files loaded
+const eventTypesLoaded = {} // List of event types seen
 
-// The loadingUpdate event will be fired during initial load *and* when data
-// is loaded while the app is running (ie while the game is active)
+// The gameStateChange event is fired for each event during initial load *and*
+// in response to new events logged anytime game is running.
 //
 // These events are throttled to avoid sending excessive updates to clients
 // (eg during initial import of thousands - or millions! - of log entries)
-const loadingUpdateEvent = throttle(() => broadcastEvent('loadingUpdate', loadingStats()), 100, { leading: true, trailing: true })
+const gameStateChangeEvent = throttle(() => broadcastEvent('gameStateChange', stats()), 100, { leading: true, trailing: true })
 
 // Callback to be invoked when a file is loaded
 // Fires every time a file is loaded or reloaded
 const loadFileCallback = (file) => {
   if (!filesLoaded.includes(file.name)) filesLoaded.push(file.name)
-  loadingUpdateEvent()
+  gameStateChangeEvent()
 }
 
 // Callback when a log entry is loaded
 // Fires once for each log entry, duplicate entries won't fire multiple events
-const loadLogEntryCallback = () => {
+const loadLogEntryCallback = (log) => {
   numberOfLogEntries++
-  loadingUpdateEvent()
+
+  // Keep track of all event types seen (and how many of each type)
+  const eventName = log.event
+  if (!eventTypesLoaded[eventName]) eventTypesLoaded[eventName] = 0
+  eventTypesLoaded[eventName]++
+
+  gameStateChangeEvent()
 }
 
 // Callbacks are bound here so we can track data being parsed
@@ -59,21 +64,7 @@ const eventHandlers = {
       urls
     }
   },
-  loadGameData: async () => {
-    // Try to avoid running more than once concurrently
-    if (loadingComplete === false && loadingInProgress === false) {
-      loadGameData()
-    }
-
-    // Idle without blocking while data is loading
-    while (loadingComplete === false) {
-      await new Promise(resolve => {
-        setTimeout(() => resolve(), 100)
-      })
-    }
-
-    return loadingStats()
-  },
+  gameState: () => stats(),
   commander: async () => {
     const [LoadGame] = await Promise.all([eliteLog.getEvent('LoadGame')])
     return {
@@ -83,10 +74,8 @@ const eventHandlers = {
   }
 }
 
-async function loadGameData () {
-  loadingInProgress = true
-  // The loadingStarted event indicates initial loading of game data has started
-  broadcastEvent('loadingStarted')
+async function loadData () {
+  loadingInProgress = true // Track that loading is in progress
 
   // Load JSON files and watch for changes
   await eliteJson.load()
@@ -96,20 +85,19 @@ async function loadGameData () {
   await eliteLog.load()
   eliteLog.watch() // @TODO Pass a callback to handle messages
 
-  loadingComplete = true
-  loadingInProgress = false
-
-  // The loadingComplete event indicates initial loading is complete, although
-  // a loadingUpdate events will continue to fire as new data is loaded when
-  // the game is active
-  broadcastEvent('loadingComplete', loadingStats())
+  loadingInProgress = false // Track that loading is complete
 }
 
-function loadingStats () {
-  return { numberOfFiles: filesLoaded.length, numberOfLogEntries }
+function stats () {
+  return {
+    loadingInProgress,
+    numberOfFiles: filesLoaded.length,
+    numberOfLogEntries,
+    eventTypesLoaded
+  }
 }
 
 module.exports = {
   eventHandlers,
-  loadGameData
+  loadData
 }
