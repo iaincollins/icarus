@@ -1,0 +1,139 @@
+table {
+  position: relative;
+  top: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  --icon-color: var(--primary-color);
+  padding-right: .25rem;
+}
+
+table thead tr th {
+  position: sticky !important;
+  top: 0;
+  z-index: 2;
+  text-shadow: var(--text-shadow);
+  text-transform: uppercase;
+  color: var(--primary-color);
+  background: var(--dark-primary-color);
+  box-shadow: 0 -10px 0 var(--dark-primary-color);
+  padding: 0.4rem 1rem 0.6rem 1rem;
+  font-weight: bold;
+  text-align: left;
+  user-select: none;
+}
+
+table td {
+  padding: 0.5rem 1rem;
+  overflow: hidden;
+  text-shadow: var(--text-shadow);
+  font-weight: bold;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+
+table tbody tr {
+  outline: 0 !important;
+  animation: fade-in-animation .25s ease;
+  background-color: var(--panel-background-color);
+  border-bottom: .25rem solid transparent;
+}
+
+table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td,
+table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td span {
+  color: var(--dark-primary-color);
+  background: var(--button-active-color);
+  font-weight: bold;
+  transition: all .1s ease;
+  --icon-color: var(--dark-primary-color);
+}
+
+table:not(.table__inline) tbody tr:focus:not([disabled="disabled"]) td,
+table:not(.table__inline) tbody tr:focus:not([disabled="disabled"]) td span {
+  color: var(--dark-primary-color);
+  background: var(--button-active-color);
+  --icon-color: var(--dark-primary-color);
+  font-weight: bold;
+}
+
+table tbody td {
+  color: var(--primary-color);
+  background: var(--system-object-background-color);
+}
+
+table td.wrap:last-child {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+table ul {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+table.table__bordered {
+  border: 0;
+  padding-right: 0;
+}
+
+table.table__bordered tbody tr {
+  border-bottom: 0;
+  background-color: transparent !important;
+}
+
+table.table__bordered tbody tr td {
+  animation: flash-in-animation .1s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  opacity: 0;
+  background-color: var(--panel-background-color);
+  border: .2rem solid var(--dark-primary-color);
+}
+
+table.table__bordered tbody tr:nth-child(1) td {
+  animation-delay: 0s;
+}
+table.table__bordered tbody tr:nth-child(2) td {
+  animation-delay: .1s;
+}
+table.table__bordered tbody tr:nth-child(3) td {
+  animation-delay: .2s;
+}
+table.table__bordered tbody tr:nth-child(4) td {
+  animation-delay: .3s;
+}
+table.table__bordered tbody tr:nth-child(5) td {
+  animation-delay: .4s;
+}
+table.table__bordered tbody tr:nth-child(6) td {
+  animation-delay: .5s;
+}
+table.table__bordered tbody tr:nth-child(7) td {
+  animation-delay: .6s;
+}
+table.table__bordered tbody tr:nth-child(8) td {
+  animation-delay: .7s;
+}
+table.table__bordered tbody tr:nth-child(9) td {
+  animation-delay: .8s;
+}
+table.table__bordered tbody tr:nth-child(10) td {
+  animation-delay: .9s;
+}
+
+table.table__inline {
+  display: inline-block;
+  font-size: 1.25rem;
+}
+
+table.table__inline tbody tr td {
+  padding: .125rem 1.5rem .125rem 0;
+}
+table.table__inline tbody tr {
+  border-spacing: 0;
+  border-bottom: 0;
+  background-color: transparent;
+}

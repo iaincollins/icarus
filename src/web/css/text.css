@@ -37,3 +37,7 @@
   color: var(--info-color);
   text-shadow: var(--text-shadow);
 }
+
+.text-right {
+  text-align: right;
+}
