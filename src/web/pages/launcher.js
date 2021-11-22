@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react'
-import { useSocket } from 'components/socket'
+import { useSocket, useEventListener } from 'components/socket'
 import Loader from 'components/loader'
 import Panel from 'components/panel'
 import packageJson from '../../../package.json'
+
+const defaultLoadingProgress = {
+  numberOfFiles: 0,
+  numberOfLogEntries: 0
+}
 
 export default function IndexPage () {
   const { connected, sendEvent } = useSocket()
   const [hostInfo, setHostInfo] = useState()
   const [loadingComplete, setLoadingComplete] = useState(false)
-  const [logEntriesLoaded, setLogEntriesLoaded] = useState()
-  const [filesLoaded, setFilesLoaded] = useState()
+  const [loadingProgress, setLoadingProgress] = useState(defaultLoadingProgress)
 
   // Display URL (IP address/port) to connect from a browser
   useEffect(async () => {
@@ -18,22 +22,39 @@ export default function IndexPage () {
 
   useEffect(async () => {
     setLoadingComplete(false)
-    setFilesLoaded(null)
-    setLogEntriesLoaded(null)
-    const loadData = await sendEvent('loadData')
-    setFilesLoaded(loadData.filesLoaded)
-    setLogEntriesLoaded(loadData.logEntriesLoaded)
+    const { numberOfFiles, numberOfLogEntries } = await sendEvent('loadGameData')
+    setLoadingProgress({
+      numberOfFiles,
+      numberOfLogEntries
+    })
     setLoadingComplete(true)
-  }, [])
+  }, [connected])
 
-  useEffect(() => {
-    const eventHandler = (e) => {
-      setFilesLoaded(e.detail.filesLoaded)
-      setLogEntriesLoaded(e.detail.logEntriesLoaded)
-    }
-    window.addEventListener('socket.loading', eventHandler)
-    return () => window.removeEventListener('socket.loading', eventHandler)
-  }, [])
+  // These event listeners caters for the edge case of multiple windows
+  // triggering a data import at the same time. It ensures that all windows
+  // reflect the correct state, even though only one loading event is actually
+  // triggered on the service.
+  useEffect(() => useEventListener('loadingStarted', () => {
+    setLoadingComplete(false)
+    setLoadingProgress(defaultLoadingProgress)
+  }), [])
+
+  // The loadingUpdate event will be fired during initial load *and* when data
+  // is loaded while the app is running (ie while the game is active)
+  useEffect(() => useEventListener('loadingUpdate', (message) => {
+    setLoadingProgress({
+      numberOfFiles: message.numberOfFiles,
+      numberOfLogEntries: message.numberOfLogEntries
+    })
+  }), [])
+
+  useEffect(() => useEventListener('loadingComplete', (message) => {
+    setLoadingProgress({
+      numberOfFiles: message.numberOfFiles,
+      numberOfLogEntries: message.numberOfLogEntries
+    })
+    setLoadingComplete(true)
+  }), [])
 
   return (
     <>
@@ -41,34 +62,35 @@ export default function IndexPage () {
       <Panel visible={connected}>
         <h1>ICARUS</h1>
         <h3 className='text-primary'>Version {packageJson.version}</h3>
+        <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
+          <p className='text-muted'>Connect remotely:</p>
+          <ul className={!loadingComplete ? 'text-muted' : ''}>
+            {hostInfo && hostInfo.urls.map((url, i) => {
+              return (i === 0) ? <li key={url} className='selectable'>{url}</li> : null
+            })}
+          </ul>
+        </div>
         <div
           className='scrollable' style={{
             position: 'absolute',
-            top: '0.5rem',
+            top: '1rem',
             right: '1rem',
             bottom: '5rem',
             width: '19rem',
             background: 'var(--panel-background-color)',
             fontSize: '1.15rem',
-            padding: '0 .5rem'
+            padding: '0 .5rem',
+            textAlign: 'right'
           }}
         >
-          {!filesLoaded &&
-            <p>Loading game data...</p>}
-          {filesLoaded ? <p>Loaded {filesLoaded.length} files</p> : ''}
-          {logEntriesLoaded ? <p>Loaded {logEntriesLoaded} log entries</p> : ''}
-          {loadingComplete && <p>Loading complete.</p>}
+          <div className={loadingComplete ? 'text-muted' : ''}>
+            {loadingProgress.numberOfFiles > 0 ? <p>{loadingProgress.numberOfFiles.toLocaleString()} files</p> : ''}
+            {loadingProgress.numberOfLogEntries > 0 ? <p>{loadingProgress.numberOfLogEntries.toLocaleString()} log entries</p> : ''}
+          </div>
+          {loadingComplete ? <p>READY CMDR</p> : <p>Loading...</p>}
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
           <button disabled={!loadingComplete} onClick={() => window.app_newWindow()}>New Terminal</button>
-        </div>
-        <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
-          <p className='text-muted'>Connect remotely:</p>
-          <ul>
-            {hostInfo && hostInfo.urls.map((url, i) => {
-              return (i === 0) ? <li key={url} className='selectable'>{url}</li> : null
-            })}
-          </ul>
         </div>
       </Panel>
     </>

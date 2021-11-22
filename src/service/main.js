@@ -9,9 +9,7 @@ const path = require('path')
 const yargs = require('yargs')
 const commandLineArgs = yargs.argv
 
-const packageJson = require('../../package.json')
-const eventHandlers = require('./lib/event-handlers')
-
+// Parse command line arguments
 const PORT = commandLineArgs.port || 3300 // Port to listen on
 const HTTP_SERVER = commandLineArgs['http-server'] || false // URL of server
 const DATA_DIR = process.env.DATA_DIR
@@ -19,9 +17,13 @@ const DATA_DIR = process.env.DATA_DIR
   : path.join(os.homedir(), 'Saved Games', 'Frontier Developments', 'Elite Dangerous')
 const WEBROOT = 'build/web'
 
+// Export globals BEFORE loading libraries that use them
 global.PORT = PORT
 global.DATA_DIR = DATA_DIR
 global.BROADCAST_EVENT = broadcastEvent
+
+const packageJson = require('../../package.json')
+const { eventHandlers, loadGameData } = require('./lib/events')
 
 let httpServer
 if (HTTP_SERVER) {
@@ -83,3 +85,6 @@ webSocketServer.on('error', function (error) {
 console.log(`ICARUS Terminal Service ${packageJson.version}`)
 httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}`)
+
+// Load game data
+loadGameData()

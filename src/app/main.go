@@ -79,7 +79,7 @@ func main() {
 	url = fmt.Sprintf("http://localhost:%d", *portPtr)
 	launcherUrl := fmt.Sprintf("http://localhost:%d/launcher.html", *portPtr)
 
-	// Check if we are starting in headless mode
+	// Check if we are starting in Terminal mode
 	if *terminalMode {
 		createWindow(TERMINAL_WINDOW_TITLE, url, defaultWindowWidth, defaultWindowHeight, webview.HintMin)
 		return
@@ -117,9 +117,17 @@ func main() {
 		serviceCmdInstance.Wait()
 		currentTime := time.Now()
 		diff := currentTime.Sub(startTime)
+
+		// If Window is visible, hide it to avoid showing a Window in a broken state
+		if webViewInstance != nil {
+			hwndPtr := webViewInstance.Window()
+			hwnd := win.HWND(hwndPtr)
+			win.ShowWindow(hwnd, win.SW_HIDE)
+		}
+
 		if diff.Seconds() < 10 {
 			// Show alternate dialog message if fails within X seconds of startup
-			dialog.Message("%s", "ICARUS Terminal Service failed to start.\n\nAntiVirus or Firewall software may have prevented it from starting.").Title("Error").Error()
+			dialog.Message("%s", "ICARUS Terminal Service failed to start.\n\nAntiVirus or Firewall software may have prevented it from starting or it may be conflicting with another application.").Title("Error").Error()
 		} else {
 			fmt.Println("Service stopped unexpectedly.")
 			dialog.Message("%s", "ICARUS Terminal Service stopped unexpectedly.").Title("Error").Error()
@@ -242,7 +250,7 @@ func bindFunctionsToWebView(w webview.WebView) {
 	})
 
 	w.Bind("app_newWindow", func() int {
-		terminalCmdInstance := exec.Command(TERMINAL_EXECUTABLE, "-terminal=true", fmt.Sprintf("--port=%d", port))
+		terminalCmdInstance := exec.Command(TERMINAL_EXECUTABLE, "--terminal=true", fmt.Sprintf("--port=%d", port))
 		terminalCmdErr := terminalCmdInstance.Start()
 
 		// Exit if service fails to start

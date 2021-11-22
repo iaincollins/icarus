@@ -11,7 +11,8 @@ class EliteLog {
     this.dir = dir || null
     this.files = {} // All log files found
     this.activeLog = null // Most recently written logfile
-
+    this.loadFileCallback = null
+    this.loadLogEntryCallback = null
     return this
   }
 
@@ -20,7 +21,7 @@ class EliteLog {
   }
 
   // Get all log entries
-  load({ timestamp = null, file = null, loadFileCallback = null, loadLogEntryCallback = null } = {}) {
+  load({ timestamp = null, file = null } = {}) {
     return new Promise(async (resolve) => {
       let logs = []
       // If file specified, load logs from that file, otherwise load all files
@@ -33,14 +34,14 @@ class EliteLog {
         // backoff and while single failures are quite common more than one
         // retry is extremely rare.
 
-        if (loadFileCallback) loadFileCallback(file.name)
-        
         await retry(async bail => {
           const rawLog = fs.readFileSync(file.name).toString()
           const parsedLog = this.#parse(rawLog)
 
           // Add new log data to existing log data 
           logs = logs.concat(parsedLog)
+
+          if (this.loadFileCallback) this.loadFileCallback(file)
         }, {
           retries: 10
         })
@@ -51,13 +52,14 @@ class EliteLog {
         logs = logs.filter(log => (log.timestamp > timestamp))
       }
 
-      // Option 1 – Bulk insert, fast but may result in duplicates
+      // Option 1: Bulk insert is fast but results in duplicates in the database
       // await db.insert(log)
 
-      // Option 2 - Enforce unique message constraint
-      // This makes initial loadtimes a bit slower, but makes it easier to
-      // make the app more performant, without introducing errors.
-      // Require unique timestamp constraint for entries
+      // Option 2 : Enforces unique database entry constraint using checksum
+      // This makes initial load times slower, but makes it easier to make the
+      // app more performant once the initial import is complete.
+      //
+      // Ensure unique _checksum constraint for every entry
       await db.ensureIndex({ fieldName: '_checksum', unique: true })
       
       const uniqueLogs = []
@@ -68,12 +70,12 @@ class EliteLog {
         log._checksum = this.#checksum(JSON.stringify(log))
 
         // Insert each message one by one, as using bulk import with constraint
-        // will almost certainly fail because logs do contain duplicates.
+        // (which is faster) tends to fail because logs contain duplicates.
         const isUnique = await this.#insertUnique(log)
 
         if (isUnique === true) {
           uniqueLogs.push(log)
-          if (loadLogEntryCallback) loadLogEntryCallback(log)
+          if (this.loadLogEntryCallback) this.loadLogEntryCallback(log)
         }
       }
 
@@ -133,7 +135,7 @@ class EliteLog {
 
       // Get currently active log file (mostly recently modified)
       const activeLogFile = files.sort((a, b) => b.lastModified - a.lastModified)[0]
-      
+
       // Get all log files
       for (const file of files) {
         if (!this.files[file.name])
@@ -144,12 +146,12 @@ class EliteLog {
           this.files[file.name].watch = this.#watchFile(file, callback)
       }
 
-      // Remove any previously listeners from other files
+      // Remove any previously bound listeners from other files
       for (const file in this.files) {
         if (file.watch && file.name !== activeLogFile.name) {
           // Check for any logs we might have missed during log rotation
           const logs = await this.load({file})
-          try { logs.map(log => callback(log)) } catch (e) { console.error(e) }
+          if (callback) logs.map(log => callback(log))
           // Remove watch from file
           fs.unwatchFile(file.name, file.watch)
           file.watch = false
@@ -179,7 +181,7 @@ class EliteLog {
         const logs = await this.load({file})
         try {
           // Trigger callback for each log entry loaded
-          logs.map(log => callback(log))
+          if (callback) logs.map(log => callback(log))
         } catch (e) {
           console.error(e)
         }

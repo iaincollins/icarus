@@ -85,3 +85,11 @@ export function Socket ({ children }) {
 export function useSocket () {
   return useContext(SocketContext)
 }
+
+export function useEventListener (eventName, callback) {
+  const eventHandler = (e) => {
+    callback(e.detail)
+  }
+  window.addEventListener(`socket.${eventName}`, eventHandler)
+  return () => window.removeEventListener(`socket.${eventName}`, eventHandler)
+}

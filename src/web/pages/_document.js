@@ -10,7 +10,13 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head />
-        <body onContextMenu={() => false} className='not-selectable'>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+          document.oncontextmenu = (e) => e.preventDefault()
+        `
+        }}
+        />
+        <body className='not-selectable'>
           <div id='background' />
           <div id='main'>
             <Main />

@@ -7,21 +7,22 @@ class EliteJson {
   constructor(dir) {
     this.dir = dir || null
     this.files = {}
+    this.loadFileCallback = null
     return this
   }
 
-  load({ file = null, loadFileCallback = null } = {}) {
+  load({ file = null } = {}) {
     return new Promise(async (resolve) => {
       // If file specified, load that file, otherwise load all files
       const files = file ? [file] : await this.#getFiles()
       for (const file of files) {
-        if (loadFileCallback) loadFileCallback(file.name)
-
         await retry(async bail => {
           // Load file contents as JSON
           file.contents = JSON.parse(fs.readFileSync(file.name).toString())
           // Track file if not already being tracked
           if (!this.files[file.name]) this.files[file.name] = file
+
+          if (this.loadFileCallback) this.loadFileCallback(file)
         }, {
           retries: 10
         })
@@ -72,7 +73,7 @@ class EliteJson {
         debounce = setTimeout(() => { debounce = false }, 100)
         this.files[file.name] = await this.load({file})
         // Send data for all files in the callback
-        callback(await this.json())
+        if (callback) callback(await this.json())
       } catch (e) {
         console.error("watcher error", file)
       }
