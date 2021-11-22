@@ -20,18 +20,21 @@ class EliteLog {
   }
 
   // Get all log entries
-  load({ timestamp = null, file = null } = {}) {
+  load({ timestamp = null, file = null, loadFileCallback = null, loadLogEntryCallback = null } = {}) {
     return new Promise(async (resolve) => {
       let logs = []
       // If file specified, load logs from that file, otherwise load all files
       const files = file ? [file] : await this.#getFiles()
       for (const file of files) {
-        // If any step fails (e.g .if trying read and parse while being written)
+        // If any step fails (e.g if trying read and parse while being written)
         // then is automatically retried with this function.
         //
         // There is no error handling here, but the function has exponential
         // backoff and while single failures are quite common more than one
         // retry is extremely rare.
+
+        if (loadFileCallback) loadFileCallback(file.name)
+        
         await retry(async bail => {
           const rawLog = fs.readFileSync(file.name).toString()
           const parsedLog = this.#parse(rawLog)
@@ -68,7 +71,10 @@ class EliteLog {
         // will almost certainly fail because logs do contain duplicates.
         const isUnique = await this.#insertUnique(log)
 
-        if (isUnique === true) uniqueLogs.push(log)
+        if (isUnique === true) {
+          uniqueLogs.push(log)
+          if (loadLogEntryCallback) loadLogEntryCallback(log)
+        }
       }
 
       resolve(uniqueLogs)

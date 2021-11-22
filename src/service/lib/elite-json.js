@@ -10,11 +10,13 @@ class EliteJson {
     return this
   }
 
-  load({ file = null } = {}) {
+  load({ file = null, loadFileCallback = null } = {}) {
     return new Promise(async (resolve) => {
       // If file specified, load that file, otherwise load all files
       const files = file ? [file] : await this.#getFiles()
       for (const file of files) {
+        if (loadFileCallback) loadFileCallback(file.name)
+
         await retry(async bail => {
           // Load file contents as JSON
           file.contents = JSON.parse(fs.readFileSync(file.name).toString())

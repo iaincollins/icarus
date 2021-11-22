@@ -21,6 +21,7 @@ const WEBROOT = 'build/web'
 
 global.PORT = PORT
 global.DATA_DIR = DATA_DIR
+global.BROADCAST_EVENT = broadcastEvent
 
 let httpServer
 if (HTTP_SERVER) {
@@ -56,18 +57,18 @@ webSocketServer.on('connection', socket => {
 })
 
 // A function for broadcasting events to all connected clients
-function broadcastMessage (name, data) {
+function broadcastEvent (name, message) {
   // Use try/catch here to suppress errors caused when main window is
   // closed and app is in process of shutting down
   try {
     if (!webSocketServer) return
     webSocketServer.clients.forEach(client => {
       if (client && client !== webSocketServer && client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify({ name, message: data }))
+        client.send(JSON.stringify({ name, message }))
       }
     })
   } catch (e) {
-    console.error('ERROR_SOCKET_BROADCAST_MESSAGE_FAILED', name, data, e)
+    console.error('ERROR_SOCKET_BROADCAST_EVENT_FAILED', name, message, e)
   }
 }
 
