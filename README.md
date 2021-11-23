@@ -1,12 +1,19 @@
 # <img src="https://user-images.githubusercontent.com/595695/142777841-975d2279-eb6f-47fc-99c2-f024d949268a.png" width="50" align="left"> ICARUS Terminal
 
-ICARUS Terminal is a second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/).
+ICARUS Terminal is an immersive, context-sensitive second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/).
 
 _This documentation is intended for developers. This is pre-release software and not yet ready for general release._
 
-[You can download the latest release here.](https://github.com/iaincollins/icarus/releases/latest)
+[If you want to try it out, can download the latest preview release.](https://github.com/iaincollins/icarus/releases/latest)
 
-_There is no pre-release channel, pre-releases are being published as full releases (and this will remain the case until the release of 1.0)._
+Notes: 
+
+* ICARUS Terminal checks for new releases at startup, these are opt-in updates.
+* Current functionality is extremely limited and does not yet include functionality seen in the initial prototype.
+* You do not need to register to use this application and your information is not shared with third parties.
+* Future updates will include integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/).
+* Builds are not currently signed with a code signing certificate.
+----
 
 <img src="https://user-images.githubusercontent.com/595695/137490706-4772ba94-904e-47f4-8bf0-759d3ca51287.png">
 
