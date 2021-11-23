@@ -12,7 +12,9 @@ _There is no pre-release channel, pre-releases are being published as full relea
 
 ICARUS is a Windows (Win32) application built primarily in JavaScript, using Node.js + WebSockets and Go with a fork of custom [Edge/WebView2 abstraction in C/C++](https://github.com/iaincollins/webview).
 
-This inital public release is focused on sharing the application scaffolding, following development of an early proof of concept in Electron. In comparison to the Electron prototype, this implementation has a smaller memory footprint and a much smaller package size (~20 MB vs ~200 MB) while still being able to leverage an existing codebase (and third party libraries) developed in JavaScript. The trade off for this includes additional complexity in the build process and the development of custom launcher / application shell in Go/C++.
+This inital public release is focused on sharing the application scaffolding, following development of an earlier (unreleased) proof of concept created in Electron. In comparison to the Electron version, this implementation has a smaller memory footprint and a much smaller package size (~20 MB vs ~200 MB).
+
+This approach means the functionality from the previous version can be ported into this version and that it is easier to leverage existing third party libraries. The trade off is includes additional complexity in the build process and that it required development of custom launcher / application shell in Go/C++ and custom software update mechaism (using NSIS and GitHub Releases).
 
 This release does not currently include the logic or assests developed for the prototype. The intention is to port the existing functionality that has been developed over to this codebase and to publish a public beta when there is minimum viable level of functionality. The first thing to be ported willl be the event handling logic.
 

@@ -17,6 +17,7 @@ const eliteJson = new EliteJson(DATA_DIR)
 const eliteLog = new EliteLog(DATA_DIR)
 
 // Track initial file load
+let loadingComplete = false
 let loadingInProgress = false
 let numberOfLogEntries = 0 // Count of log entries loaded
 const filesLoaded = [] // List of files loaded
@@ -74,22 +75,28 @@ const eventHandlers = {
   }
 }
 
-async function loadData () {
-  loadingInProgress = true // Track that loading is in progress
+async function init () {
+  if (loadingComplete) return stats() // If already run, don't run again
 
-  // Load JSON files and watch for changes
-  await eliteJson.load()
+  // @TODO If in progress, wait until loadingInProgress is false
+  
+  loadingInProgress = true // Track that loading is in progress
+ 
+  await eliteJson.load() // Load JSON files then watch for changes
   eliteJson.watch() // @TODO Pass a callback to handle new messages
 
-  // Load logs and watch for changes
-  await eliteLog.load()
+  await eliteLog.load()  // Load logs then watch for changes
   eliteLog.watch() // @TODO Pass a callback to handle new messages
 
   loadingInProgress = false // Track that loading is complete
+  loadingComplete = true // Set to true if data has been loaded at least once
+
+  return stats()
 }
 
 function stats () {
   return {
+    loadingComplete,
     loadingInProgress,
     numberOfFiles: filesLoaded.length,
     numberOfLogEntries,
@@ -99,5 +106,5 @@ function stats () {
 
 module.exports = {
   eventHandlers,
-  loadData
+  init
 }

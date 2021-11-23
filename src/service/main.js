@@ -23,7 +23,7 @@ global.DATA_DIR = DATA_DIR
 global.BROADCAST_EVENT = broadcastEvent
 
 const packageJson = require('../../package.json')
-const { eventHandlers, loadData } = require('./lib/events')
+const { eventHandlers, init } = require('./lib/events')
 
 let httpServer
 if (HTTP_SERVER) {
@@ -86,7 +86,7 @@ console.log(`ICARUS Terminal Service ${packageJson.version}`)
 httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}`)
 
-// Start loading data from game files
+// Initalalize app, start parsing data and watching for game state changes
 // A short grace period makes for a slightly snappier app startup without
 // depending on a trigger from the UI to start loading.
-setTimeout(() => loadData(), 500)
+setTimeout(() => init(), 500)

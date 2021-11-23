@@ -5,6 +5,7 @@ import Panel from 'components/panel'
 import packageJson from '../../../package.json'
 
 const defaultGameState = {
+  loadingComplete: false,
   loadingInProgress: false,
   numberOfFiles: 0,
   numberOfLogEntries: 0
@@ -13,23 +14,20 @@ const defaultGameState = {
 export default function IndexPage () {
   const { connected, sendEvent } = useSocket()
   const [hostInfo, setHostInfo] = useState()
-  const [loadingComplete, setLoadingComplete] = useState(false)
   const [gameState, setGameState] = useState(defaultGameState)
 
   // Display URL (IP address/port) to connect from a browser
-  useEffect(async () => {
-    setHostInfo(await sendEvent('hostInfo'))
-  }, [])
+  useEffect(async () => setHostInfo(await sendEvent('hostInfo')), [])
 
+  // Handle game state change on load
   useEffect(async () => {
     const message = await sendEvent('gameState')
     setGameState(message)
-    setLoadingComplete(!message.loadingInProgress)
   }, [connected])
 
+  // Handle game state changes events from server
   useEffect(() => useEventListener('gameStateChange', (message) => {
     setGameState(message)
-    setLoadingComplete(!message.loadingInProgress)
   }), [])
 
   return (
@@ -58,12 +56,12 @@ export default function IndexPage () {
             padding: '0 .5rem'
           }}
         >
-          {loadingComplete === false ? <p>LOADING...</p> : ''}
-          <div className={loadingComplete ? 'text-muted' : ''}>
-            {gameState.numberOfFiles > 0 ? <p>{gameState.numberOfFiles.toLocaleString()} files</p> : ''}
-            {gameState.numberOfLogEntries > 0 ? <p>{gameState.numberOfLogEntries.toLocaleString()} log entries</p> : ''}
+          <div className={gameState.loadingComplete ? 'text-muted' : ''}>
+            {gameState.loadingComplete === false ? <p>LOADING...</p> : <p>LOADED</p>}
+            {gameState.numberOfFiles > 0 ? <p>{gameState.numberOfFiles.toLocaleString()} FILES</p> : ''}
+            {gameState.numberOfLogEntries > 0 ? <p>{gameState.numberOfLogEntries.toLocaleString()} EVENTS</p> : ''}
           </div>
-          {loadingComplete === true && gameState.numberOfFiles > 0 ? <p>READY CMDR</p> : ''}
+          {gameState.loadingComplete === true ? <p>READY CMDR</p> : '' }
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
           <button onClick={() => window.app_newWindow()}>New Terminal</button>
