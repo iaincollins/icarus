@@ -6,13 +6,28 @@ const retry = require('async-retry')
 const Datastore = require('nedb-promises')
 const db = new Datastore()
 
+// Do not fire log events for these event types
+const INGORED_EVENT_TYPES = [
+  'Music'
+]
+
+// These events will be persisted to the database
+// (for all other events, only the most recent copy will be retained in memory)
+const PERSISTED_EVENT_TYPES = [
+  'FSSBodySignals',
+  'FSSDiscoveryScan',
+  'FSSSignalDiscovered'
+]
+
 class EliteLog {
   constructor(dir) {
     this.dir = dir || null
     this.files = {} // All log files found
     this.activeLog = null // Most recently written logfile
+    this.mostRecentTimestamp = null
     this.loadFileCallback = null
     this.loadLogEntryCallback = null
+    this.singleInstanceEvents = {}
     return this
   }
 
@@ -21,7 +36,7 @@ class EliteLog {
   }
 
   // Get all log entries
-  load({ timestamp = null, file = null } = {}) {
+  load({ file = null } = {}) {
     return new Promise(async (resolve) => {
       let logs = []
       // If file specified, load logs from that file, otherwise load all files
@@ -47,45 +62,70 @@ class EliteLog {
         })
       }
 
-      // If timestamp given, only try to load records newer than the timestamp
-      if (timestamp) {
-        logs = logs.filter(log => (log.timestamp > timestamp))
+      // If timestamp specified, only load log entries that are more recent.
+      // Reduces time wasted parsing log entries we have previously ingested.
+      if (this.mostRecentTimestamp) {
+        logs = logs.filter(log => (Date.parse(log.timestamp) > Date.parse(this.mostRecentTimestamp)))
       }
 
-      // Option 1: Bulk insert is fast but results in duplicates in the database
-      // await db.insert(log)
-
-      // Option 2 : Enforces unique database entry constraint using checksum
+      // Enforces unique database entry constraint using checksum.
       // This makes initial load times slower, but makes it easier to make the
-      // app more performant once the initial import is complete.
-      //
-      // Ensure unique _checksum constraint for every entry
+      // app more performant once the initial import is complete. To optimise
+      // for performance and memory usage we only persist events to the database
+      // where it makes sense to do so, otherwise we just keep the most recent 
+      // copy of each event type in memory.
       await db.ensureIndex({ fieldName: '_checksum', unique: true })
       
-      const uniqueLogs = []
+      const logsIngested = []
       for (const log of logs) {
-        // Generate unique checksum for each message to avoid duplicates
-        // Timestamp would probably be sufficent, but checksum is more robust
-        // and performance difference and overhead are inconsequential.
-        log._checksum = this.#checksum(JSON.stringify(log))
+        if (this.loadLogEntryCallback) this.loadLogEntryCallback(log)
+        
+        const eventName = log.event
+        const eventTimestamp = log.timestamp
 
-        // Insert each message one by one, as using bulk import with constraint
-        // (which is faster) tends to fail because logs contain duplicates.
-        const isUnique = await this.#insertUnique(log)
+        // Keep track of the most recent timestamp seen
+        if (!this.mostRecentTimestamp)
+          this.mostRecentTimestamp = eventTimestamp
+        
+        if (Date.parse(eventTimestamp) > Date.parse(this.mostRecentTimestamp))
+          this.mostRecentTimestamp = eventTimestamp
 
-        if (isUnique === true) {
-          uniqueLogs.push(log)
-          if (this.loadLogEntryCallback) this.loadLogEntryCallback(log)
+        // Skip ignored event types (e.g. Music)
+        if (INGORED_EVENT_TYPES.includes(eventName)) continue
+
+        // Only persist supported event types in the databases
+        if (PERSISTED_EVENT_TYPES.includes(eventName)) {
+          // Generate unique checksum for each message to avoid duplicates
+          // Timestamp would probably be sufficent, but checksum is more robust
+          // and performance difference and overhead are inconsequential.
+          log._checksum = this.#checksum(JSON.stringify(log))
+
+          // Insert each message one by one, as using bulk import with constraint
+          // (which is faster) tends to fail because logs contain duplicates.
+          const isUnique = await this.#insertUnique(log)
+
+          if (isUnique === true) {
+            logsIngested.push(log)
+          }
+        } else {
+          // If it's not a persisted event type, only keep a copy of it if it
+          // has a more recent timestamp than the event we currently have.
+          // This is useful if we only ever need the latest version of and event
+          // and is faster and uses less RAM than keeping everything in memory.
+          if (this.singleInstanceEvents[eventName]) {
+            if (Date.parse(eventTimestamp) > Date.parse(this.singleInstanceEvents[eventName].timestamp)) {
+              this.singleInstanceEvents[eventName] = log
+              logsIngested.push(log)
+            }
+          } else {
+            this.singleInstanceEvents[eventName] = log
+            logsIngested.push(log)
+          }
+          continue
         }
       }
-
-      resolve(uniqueLogs)
+      resolve(logsIngested)
     })
-  }
-
-  async update() {
-    const timestmap = this.getNewest().timestamp
-    return await this.load({timestamp})
   }
 
   async count() {
@@ -117,6 +157,8 @@ class EliteLog {
   }
 
   async getEvents(event, count = 10) {
+    // For single instance events, return single copy we are holding in memory
+    if (this.singleInstanceEvents[event]) return [this.singleInstanceEvents[event]]
     return await db.find({ event }).sort({ timestamp: -1 }).limit(count)
   }
 

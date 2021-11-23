@@ -58,11 +58,12 @@ export default function IndexPage () {
             padding: '0 .5rem'
           }}
         >
+          {loadingComplete === false ? <p>LOADING...</p> : ''}
           <div className={loadingComplete ? 'text-muted' : ''}>
             {gameState.numberOfFiles > 0 ? <p>{gameState.numberOfFiles.toLocaleString()} files</p> : ''}
             {gameState.numberOfLogEntries > 0 ? <p>{gameState.numberOfLogEntries.toLocaleString()} log entries</p> : ''}
           </div>
-          {loadingComplete ? <p>READY CMDR</p> : <p>Loading...</p>}
+          {loadingComplete === true && gameState.numberOfFiles > 0 ? <p>READY CMDR</p> : ''}
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
           <button onClick={() => window.app_newWindow()}>New Terminal</button>

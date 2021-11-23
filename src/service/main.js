@@ -87,4 +87,6 @@ httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}`)
 
 // Start loading data from game files
-loadData()
+// A short grace period makes for a slightly snappier app startup without
+// depending on a trigger from the UI to start loading.
+setTimeout(() => loadData(), 500)

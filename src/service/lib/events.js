@@ -79,11 +79,11 @@ async function loadData () {
 
   // Load JSON files and watch for changes
   await eliteJson.load()
-  eliteJson.watch() // @TODO Pass a callback to handle messages
+  eliteJson.watch() // @TODO Pass a callback to handle new messages
 
   // Load logs and watch for changes
   await eliteLog.load()
-  eliteLog.watch() // @TODO Pass a callback to handle messages
+  eliteLog.watch() // @TODO Pass a callback to handle new messages
 
   loadingInProgress = false // Track that loading is complete
 }
