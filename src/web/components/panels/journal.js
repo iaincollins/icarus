@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { eliteDateTime } from 'lib/format'
 import { useSocket, useEventListener } from 'components/socket'
 
 let loadNewJournalEntries
@@ -47,7 +48,7 @@ export default function JournalPanel () {
             {journalEntries && journalEntries.map(logEntry =>
               <tr key={`${logEntry._checksum}`}>
                 <td>{logEntry.event}</td>
-                <td className='text-right'>{timestampToEliteDateTime(logEntry.timestamp)}</td>
+                <td className='text-right'>{eliteDateTime(logEntry.timestamp)}</td>
               </tr>
             )}
           </tbody>
@@ -55,13 +56,4 @@ export default function JournalPanel () {
       }
     </>
   )
-}
-
-function timestampToEliteDateTime (timestamp) {
-  const date = new Date(timestamp)
-  date.setFullYear(date.getFullYear() + 1286) // We are living in the future
-  return date.toUTCString()
-    .replace(' GMT', '') // Time in the Elite universe is always in UTC
-    .replace(/(.*),/, '') // Strip day of week
-    .replace(/:[0-9]{2}$/, '') // Strip seconds
 }

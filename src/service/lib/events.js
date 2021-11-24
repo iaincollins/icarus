@@ -106,7 +106,7 @@ const eventHandlers = {
       urls
     }
   },
-  eventStats: () => loadingStats(),
+  loadingStats: () => loadingStats(),
   commander: async () => {
     const [LoadGame] = await Promise.all([eliteLog.getEvent('LoadGame')])
     return {

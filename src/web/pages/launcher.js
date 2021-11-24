@@ -5,7 +5,7 @@ import Loader from 'components/loader'
 import Panel from 'components/panel'
 import packageJson from '../../../package.json'
 
-const defaultloadingProgress = {
+const defaultloadingStats = {
   loadingComplete: false,
   loadingInProgress: false,
   numberOfFiles: 0,
@@ -18,13 +18,13 @@ const defaultloadingProgress = {
 export default function IndexPage () {
   const { connected, sendEvent } = useSocket()
   const [hostInfo, setHostInfo] = useState()
-  const [loadingProgress, setLoadingProgress] = useState(defaultloadingProgress)
+  const [loadingProgress, setLoadingProgress] = useState(defaultloadingStats)
 
   // Display URL (IP address/port) to connect from a browser
   useEffect(async () => setHostInfo(await sendEvent('hostInfo')), [])
 
   useEffect(async () => {
-    const message = await sendEvent('eventStats')
+    const message = await sendEvent('loadingStats')
     setLoadingProgress(message)
   }, [connected])
 
