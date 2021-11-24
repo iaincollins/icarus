@@ -10,7 +10,7 @@ const defaultloadingProgress = {
   loadingInProgress: false,
   numberOfFiles: 0,
   numberOfLogLines: 0,
-  numberOfLogEvents: 0,
+  numberOfEventsImported: 0,
   logSizeInBytes: 0,
   loadingTime: 0,
 }
@@ -61,12 +61,12 @@ export default function IndexPage () {
           <div className={loadingProgress.loadingComplete ? 'text-muted' : ''}>
             {loadingProgress.loadingComplete === false ? <p>LOADING...</p> : <p>LOADED</p>}
             <p>{loadingProgress.numberOfFiles.toLocaleString()} FILES</p>
-            <p>{loadingProgress.numberOfLogLines} LINES</p>
+            <p>{loadingProgress.numberOfLogLines.toLocaleString()} LOG ENTRIES</p>
             <p>{formatBytes(loadingProgress.logSizeInBytes)}</p>
-            <p>{loadingProgress.numberOfLogEvents.toLocaleString()} EVENTS</p>
-            <p>{parseInt(loadingProgress.loadingTime / 1000)} SECONDS</p>
+            <p>{loadingProgress.numberOfEventsImported.toLocaleString()} EVENTS IMPORTED</p>
+            <p>TIME ELAPSED: {parseInt(loadingProgress.loadingTime / 1000)} SECONDS</p>
             <div style={{position: 'absolute', bottom: '.5rem', left: '.5rem', right: '.5rem'}}>
-              {loadingProgress.loadingComplete === false && <progress value={loadingProgress.numberOfLogEvents} max={loadingProgress.numberOfLogLines}></progress>}
+              {loadingProgress.loadingComplete === false && <progress value={loadingProgress.numberOfEventsImported} max={loadingProgress.numberOfLogLines}></progress>}
             </div>
           </div>
           {loadingProgress.loadingComplete === true ? <p>READY</p> : ''}

@@ -11,6 +11,9 @@ const INGORED_EVENT_TYPES = [
   'Music'
 ]
 
+// Override PERSISTED_EVENT_TYPES to persist all events to DB (for testing)
+const PERSIST_ALL_EVENTS = true
+
 // These events will be persisted to the database
 // (for all other events, only the most recent copy will be retained in memory)
 const PERSISTED_EVENT_TYPES = [
@@ -18,8 +21,6 @@ const PERSISTED_EVENT_TYPES = [
   'FSSDiscoveryScan',
   'FSSSignalDiscovered'
 ]
-
-const PERSIST_ALL_EVENTS = true // Load all events to DB (for development)
 
 class EliteLog {
   constructor(dir) {
@@ -29,7 +30,7 @@ class EliteLog {
     this.loadFileCallback = null
     this.logEventCallback = null
     this.singleInstanceEvents = {}
-    this.numberOfLogEventsIngested = 0
+    this.numberOfEventsImportedIngested = 0
 
     // setInterval(() => {
     //   const numberOfFilesBeingWatched = Object.entries(this.files)
@@ -38,7 +39,7 @@ class EliteLog {
     //       return file.watch !== false
     //     }).length
 
-    //   console.log(`events: ${this.numberOfLogEventsIngested}\tmost recent event: ${this.mostRecentEventTimestamp}\tfiles watched: ${numberOfFilesBeingWatched}`)
+    //   console.log(`events: ${this.numberOfEventsImportedIngested}\tmost recent event: ${this.mostRecentEventTimestamp}\tfiles watched: ${numberOfFilesBeingWatched}`)
     // }, 2000)
 
     return this
@@ -94,7 +95,7 @@ class EliteLog {
       
       const logsIngested = []
       for (const log of logs) {
-        this.numberOfLogEventsIngested++
+        this.numberOfEventsImportedIngested++
         let logIngested = false
         const eventName = log.event
         const eventTimestamp = log.timestamp
@@ -150,7 +151,7 @@ class EliteLog {
 
   stats() {
     return {
-      numberOfLogEventsIngested: this.numberOfLogEventsIngested,
+      numberOfEventsImportedIngested: this.numberOfEventsImportedIngested,
       mostRecentEventTimestamp: this.mostRecentEventTimestamp
     }
   }

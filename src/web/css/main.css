@@ -153,12 +153,18 @@ progress {
   border: .1rem solid var(--primary-color);
 }
 
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 progress[value]::-webkit-progress-bar {
   background: var(--dark-primary-color);
 }
 
 progress[value]::-webkit-progress-value {
   background: var(--primary-color);
+  transition : width 1s ease;
 }
 
 #background {

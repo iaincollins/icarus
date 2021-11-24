@@ -39,7 +39,7 @@ Object.keys(ICARUS_EVENTS).forEach(icarusEventName => {
 // Track initial file load
 let loadingComplete = false
 let loadingInProgress = false
-let numberOfLogEvents = 0 // Count of log entries loaded
+let numberOfEventsImported = 0 // Count of log entries loaded
 let numberOfLogLines = 0
 let logSizeInBytes = 0 //
 const filesLoaded = [] // List of files loaded
@@ -67,8 +67,8 @@ const logEventCallback = (log) => {
   const eventName = log.event
 
   // Update stats
-  const { numberOfLogEventsIngested } = eliteLog.stats()
-  numberOfLogEvents = numberOfLogEventsIngested
+  const { numberOfEventsImportedIngested } = eliteLog.stats()
+  numberOfEventsImported = numberOfEventsImportedIngested
 
   // Add logic to handle broadcasting specific game events
   if (GAME_EVENT_TO_ICARUS_EVENT_MAP[eventName]) {
@@ -154,7 +154,7 @@ function loadingStats () {
     loadingComplete,
     loadingInProgress,
     numberOfFiles: filesLoaded.length,
-    numberOfLogEvents,
+    numberOfEventsImported,
     numberOfLogLines,
     eventTypesLoaded,
     logSizeInBytes,

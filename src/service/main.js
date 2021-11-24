@@ -90,4 +90,4 @@ httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}`)
 
 // Initialize app - start parsing data and watching for game state changes
-setTimeout(() => init(), 0)
+setTimeout(() => init(), 250)
