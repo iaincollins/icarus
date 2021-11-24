@@ -86,10 +86,11 @@ class EliteJson {
         if (error) return console.error(error)
 
         const response = files.map(name => {
-          const lastModified = fs.statSync(name).mtime
+          const { size, mtime: lastModified } = fs.statSync(name)
           return new File({ 
             name,
             lastModified,
+            size,
             label: path.basename(name).replace(/\.json$/, '')
           })
         })
@@ -101,9 +102,10 @@ class EliteJson {
 }
 
 class File {
-  constructor({name, lastModified, label, contents, watch = false}) {
+  constructor({name, lastModified, size, label, contents, watch = false}) {
     this.name = name // Full path to file
     this.lastModified = lastModified
+    this.size = size,
     this.label = label
     this.contents = contents
     this.watch = watch

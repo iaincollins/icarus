@@ -1,33 +1,35 @@
 import { useState, useEffect } from 'react'
+import { formatBytes } from 'lib/format'
 import { useSocket, useEventListener } from 'components/socket'
 import Loader from 'components/loader'
 import Panel from 'components/panel'
 import packageJson from '../../../package.json'
 
-const defaultGameState = {
+const defaultloadingProgress = {
   loadingComplete: false,
   loadingInProgress: false,
   numberOfFiles: 0,
-  numberOfLogEntries: 0
+  numberOfLogLines: 0,
+  numberOfLogEvents: 0,
+  logSizeInBytes: 0,
+  loadingTime: 0,
 }
 
 export default function IndexPage () {
   const { connected, sendEvent } = useSocket()
   const [hostInfo, setHostInfo] = useState()
-  const [gameState, setGameState] = useState(defaultGameState)
+  const [loadingProgress, setLoadingProgress] = useState(defaultloadingProgress)
 
   // Display URL (IP address/port) to connect from a browser
   useEffect(async () => setHostInfo(await sendEvent('hostInfo')), [])
 
-  // Handle game state change on load
   useEffect(async () => {
-    const message = await sendEvent('gameState')
-    setGameState(message)
+    const message = await sendEvent('eventStats')
+    setLoadingProgress(message)
   }, [connected])
 
-  // Handle game state changes events from server
-  useEffect(() => useEventListener('gameStateChange', (message) => {
-    setGameState(message)
+  useEffect(() => useEventListener('loadingProgress', (message) => {
+    setLoadingProgress(message)
   }), [])
 
   return (
@@ -56,12 +58,18 @@ export default function IndexPage () {
             padding: '0 .5rem'
           }}
         >
-          <div className={gameState.loadingComplete ? 'text-muted' : ''}>
-            {gameState.loadingComplete === false ? <p>LOADING...</p> : <p>LOADED</p>}
-            {gameState.numberOfFiles > 0 ? <p>{gameState.numberOfFiles.toLocaleString()} FILES</p> : ''}
-            {gameState.numberOfLogEntries > 0 ? <p>{gameState.numberOfLogEntries.toLocaleString()} EVENTS</p> : ''}
+          <div className={loadingProgress.loadingComplete ? 'text-muted' : ''}>
+            {loadingProgress.loadingComplete === false ? <p>LOADING...</p> : <p>LOADED</p>}
+            <p>{loadingProgress.numberOfFiles.toLocaleString()} FILES</p>
+            <p>{loadingProgress.numberOfLogLines} LINES</p>
+            <p>{formatBytes(loadingProgress.logSizeInBytes)}</p>
+            <p>{loadingProgress.numberOfLogEvents.toLocaleString()} EVENTS</p>
+            <p>{parseInt(loadingProgress.loadingTime / 1000)} SECONDS</p>
+            <div style={{position: 'absolute', bottom: '.5rem', left: '.5rem', right: '.5rem'}}>
+              {loadingProgress.loadingComplete === false && <progress value={loadingProgress.numberOfLogEvents} max={loadingProgress.numberOfLogLines}></progress>}
+            </div>
           </div>
-          {gameState.loadingComplete === true ? <p>READY CMDR</p> : '' }
+          {loadingProgress.loadingComplete === true ? <p>READY</p> : ''}
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
           <button onClick={() => window.app_newWindow()}>New Terminal</button>

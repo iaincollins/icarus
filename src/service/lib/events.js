@@ -16,44 +16,85 @@ const EliteLog = require('./elite-log')
 const eliteJson = new EliteJson(DATA_DIR)
 const eliteLog = new EliteLog(DATA_DIR)
 
+// TODO Define these in another file / merge with eventHandlers before porting
+// over existing event handlers from the internal build
+const ICARUS_EVENTS = {
+  IcarusGameLoadedEvent: {
+    events: ['LoadGame'],
+    handler: async () => { /* Return JSON */ }
+  }
+}
+
+const GAME_EVENT_TO_ICARUS_EVENT_MAP = {}
+
+// Create mapping of game events to ICARUS events, so that when a game event
+// happens it's easy to lookup what ICARUS events to fire
+Object.keys(ICARUS_EVENTS).forEach(icarusEventName => {
+  ICARUS_EVENTS[icarusEventName].events.forEach(gameEventName => {
+    if (!GAME_EVENT_TO_ICARUS_EVENT_MAP[gameEventName]) GAME_EVENT_TO_ICARUS_EVENT_MAP[gameEventName] = []
+    GAME_EVENT_TO_ICARUS_EVENT_MAP[gameEventName].push(icarusEventName)
+  })
+})
+
 // Track initial file load
 let loadingComplete = false
 let loadingInProgress = false
-let numberOfLogEntries = 0 // Count of log entries loaded
+let numberOfLogEvents = 0 // Count of log entries loaded
+let numberOfLogLines = 0
+let logSizeInBytes = 0 //
 const filesLoaded = [] // List of files loaded
 const eventTypesLoaded = {} // List of event types seen
+let loadingStartTime, loadingEndTime // Used to track how long loading takes
+let loadingProgressInterval // Used to update clients on loading progress
 
-// The gameStateChange event is fired for each event during initial load *and*
-// in response to new events logged anytime game is running.
-//
-// These events are throttled to avoid sending excessive updates to clients
-// (eg during initial import of thousands - or millions! - of log entries)
-const gameStateChangeEvent = throttle(() => broadcastEvent('gameStateChange', stats()), 100, { leading: true, trailing: true })
+// const loadingProgressEvent = throttle(() => broadcastEvent('loadingProgressEvent', loadingStats()), 250, { leading: true, trailing: true })
+
+const loadingProgressEvent = () => broadcastEvent('loadingProgress', loadingStats())
 
 // Callback to be invoked when a file is loaded
 // Fires every time a file is loaded or reloaded
 const loadFileCallback = (file) => {
-  if (!filesLoaded.includes(file.name)) filesLoaded.push(file.name)
-  gameStateChangeEvent()
+  if (!filesLoaded.includes(file.name)) {
+    filesLoaded.push(file.name)
+    logSizeInBytes += file.size
+    if (file.lineCount) numberOfLogLines += file.lineCount
+  }
 }
 
 // Callback when a log entry is loaded
 // Fires once for each log entry, duplicate entries won't fire multiple events
-const loadLogEntryCallback = (log) => {
-  numberOfLogEntries++
-
-  // Keep track of all event types seen (and how many of each type)
+const logEventCallback = (log) => {
   const eventName = log.event
-  if (!eventTypesLoaded[eventName]) eventTypesLoaded[eventName] = 0
-  eventTypesLoaded[eventName]++
 
-  gameStateChangeEvent()
+  // Update stats
+  const { numberOfLogEventsIngested } = eliteLog.stats()
+  numberOfLogEvents = numberOfLogEventsIngested
+
+  // Add logic to handle broadcasting specific game events
+  if (GAME_EVENT_TO_ICARUS_EVENT_MAP[eventName]) {
+    // Only fire events *if* we are not loading (otherwise can generate
+    // thousands of messages in a few seconds, which slows loading)
+    if (!loadingInProgress) {
+      // Fire off all ICARUS_EVENTS that depend on this game event
+      GAME_EVENT_TO_ICARUS_EVENT_MAP[eventName].map(async (icarusEventName) => {
+        const message = await ICARUS_EVENTS[icarusEventName].handler()
+        broadcastEvent(icarusEventName, message)
+      })
+    }
+  } else {
+    // Keep track of all event types seen (and how many of each type)
+    // TODO Move this into the EliteLog class
+    if (!eventTypesLoaded[eventName]) eventTypesLoaded[eventName] = 0
+    eventTypesLoaded[eventName]++
+  }
+
+  if (!loadingInProgress) broadcastEvent('newJournalEntry', log)
 }
 
 // Callbacks are bound here so we can track data being parsed
 eliteJson.loadFileCallback = loadFileCallback
 eliteLog.loadFileCallback = loadFileCallback
-eliteLog.loadLogEntryCallback = loadLogEntryCallback
+eliteLog.logEventCallback = logEventCallback
 
 const eventHandlers = {
   hostInfo: () => {
@@ -65,42 +106,59 @@ const eventHandlers = {
       urls
     }
   },
-  gameState: () => stats(),
+  eventStats: () => loadingStats(),
   commander: async () => {
     const [LoadGame] = await Promise.all([eliteLog.getEvent('LoadGame')])
     return {
       commander: LoadGame?.Commander ?? UNKNOWN_VALUE,
       credits: LoadGame?.Credits ?? UNKNOWN_VALUE
     }
+  },
+  getJournal: async ({ count = 50, timestamp }) => {
+    if (timestamp) {
+      return await eliteLog.getFromTimestamp(timestamp)
+    } else {
+      return await eliteLog.getNewest(count)
+    }
   }
 }
 
 async function init () {
-  if (loadingComplete) return stats() // If already run, don't run again
+  if (loadingComplete) return loadingStats() // If already run, don't run again
 
-  // @TODO If in progress, wait until loadingInProgress is false
-  
-  loadingInProgress = true // Track that loading is in progress
- 
+  loadingInProgress = true // True while initial loading is happening
+
+  loadingProgressEvent()
+  loadingProgressInterval = setInterval(loadingProgressEvent, 250)
+
+  loadingStartTime = new Date()
+
   await eliteJson.load() // Load JSON files then watch for changes
   eliteJson.watch() // @TODO Pass a callback to handle new messages
 
-  await eliteLog.load()  // Load logs then watch for changes
+  await eliteLog.load() // Load logs then watch for changes
   eliteLog.watch() // @TODO Pass a callback to handle new messages
 
-  loadingInProgress = false // Track that loading is complete
-  loadingComplete = true // Set to true if data has been loaded at least once
+  loadingInProgress = false // We are done with the loading phase
+  loadingComplete = true // Set to true when data has been loaded
+  loadingEndTime = new Date()
 
-  return stats()
+  clearInterval(loadingProgressInterval)
+  loadingProgressEvent() // Trigger once complete
+
+  return loadingStats()
 }
 
-function stats () {
+function loadingStats () {
   return {
     loadingComplete,
     loadingInProgress,
     numberOfFiles: filesLoaded.length,
-    numberOfLogEntries,
-    eventTypesLoaded
+    numberOfLogEvents,
+    numberOfLogLines,
+    eventTypesLoaded,
+    logSizeInBytes,
+    loadingTime: (loadingEndTime) ? loadingEndTime - loadingStartTime : new Date() - loadingStartTime
   }
 }
 

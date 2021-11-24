@@ -10,18 +10,16 @@ function gameEventsToArray (gameEvents) {
   }).sort((a, b) => a.count > b.count ? -1 : 0)
 }
 
-export default function Panels_EventTypes () {
+export default function EventTypesPanel () {
   const { connected, sendEvent } = useSocket()
   const [gameEvents, setGameEvents] = useState()
 
-  // Handle game state change on load
   useEffect(async () => {
-    const message = await sendEvent('gameState')
+    const message = await sendEvent('eventStats')
     setGameEvents(gameEventsToArray(message.eventTypesLoaded))
   }, [connected])
 
-  // Handle game state changes events from server
-  useEffect(() => useEventListener('gameStateChange', (message) => {
+  useEffect(() => useEventListener('loadingProgress', (message) => {
     setGameEvents(gameEventsToArray(message.eventTypesLoaded))
   }), [])
 

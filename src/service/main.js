@@ -41,15 +41,17 @@ if (HTTP_SERVER) {
 
 const webSocketServer = new WebSocket.Server({ server: httpServer })
 
+function webSocketDebugMessage () { /* console.log(...arguments) */ }
+
 // Bind message event handler to WebSocket server before starting server
 webSocketServer.on('connection', socket => {
-  console.log('WebSocket connection open')
+  webSocketDebugMessage('WebSocket connection open')
   socket.on('message', async (event) => {
     const { requestId, name, message } = JSON.parse(event)
-    console.log('WebSocket message received', name, event.toString())
+    webSocketDebugMessage('WebSocket message received', name, event.toString())
     if (eventHandlers[name]) {
       try {
-        const data = await eventHandlers[name](message)
+        const data = await eventHandlers[name](message || {})
         socket.send(JSON.stringify({ requestId, name, message: data }))
       } catch (e) {
         console.error('ERROR_SOCKET_NO_EVENT_HANDLER', name, e)
@@ -69,6 +71,7 @@ function broadcastEvent (name, message) {
         client.send(JSON.stringify({ name, message }))
       }
     })
+    webSocketDebugMessage('WebSocket broadcast sent', name, message)
   } catch (e) {
     console.error('ERROR_SOCKET_BROADCAST_EVENT_FAILED', name, message, e)
   }
@@ -86,7 +89,5 @@ console.log(`ICARUS Terminal Service ${packageJson.version}`)
 httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}`)
 
-// Initalalize app, start parsing data and watching for game state changes
-// A short grace period makes for a slightly snappier app startup without
-// depending on a trigger from the UI to start loading.
-setTimeout(() => init(), 500)
+// Initialize app - start parsing data and watching for game state changes
+setTimeout(() => init(), 0)

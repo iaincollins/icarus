@@ -144,6 +144,23 @@ ul {
   margin: 0;
 }
 
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  border-radius: 0;
+  height: 2rem;
+  border: .1rem solid var(--primary-color);
+}
+
+progress[value]::-webkit-progress-bar {
+  background: var(--dark-primary-color);
+}
+
+progress[value]::-webkit-progress-value {
+  background: var(--primary-color);
+}
+
 #background {
   position: absolute !important;
   top: 0;

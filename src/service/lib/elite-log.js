@@ -19,15 +19,28 @@ const PERSISTED_EVENT_TYPES = [
   'FSSSignalDiscovered'
 ]
 
+const PERSIST_ALL_EVENTS = true // Load all events to DB (for development)
+
 class EliteLog {
   constructor(dir) {
     this.dir = dir || null
     this.files = {} // All log files found
-    this.activeLog = null // Most recently written logfile
-    this.mostRecentTimestamp = null
+    this.mostRecentEventTimestamp = null
     this.loadFileCallback = null
-    this.loadLogEntryCallback = null
+    this.logEventCallback = null
     this.singleInstanceEvents = {}
+    this.numberOfLogEventsIngested = 0
+
+    // setInterval(() => {
+    //   const numberOfFilesBeingWatched = Object.entries(this.files)
+    //     .filter(obj => {
+    //       const [fileName, file] = obj
+    //       return file.watch !== false
+    //     }).length
+
+    //   console.log(`events: ${this.numberOfLogEventsIngested}\tmost recent event: ${this.mostRecentEventTimestamp}\tfiles watched: ${numberOfFilesBeingWatched}`)
+    // }, 2000)
+
     return this
   }
 
@@ -62,10 +75,13 @@ class EliteLog {
         })
       }
 
-      // If timestamp specified, only load log entries that are more recent.
+      // If mostRecentEventTimestamp has been set, this function has been run at
+      // least once already. We can use it to discard old log files without
+      // waisting more time on them.
+      // use this timestamp to filter 
       // Reduces time wasted parsing log entries we have previously ingested.
-      if (this.mostRecentTimestamp) {
-        logs = logs.filter(log => (Date.parse(log.timestamp) > Date.parse(this.mostRecentTimestamp)))
+      if (this.mostRecentEventTimestamp) {
+        logs = logs.filter(log => (Date.parse(log.timestamp) > Date.parse(this.mostRecentEventTimestamp)))
       }
 
       // Enforces unique database entry constraint using checksum.
@@ -78,23 +94,24 @@ class EliteLog {
       
       const logsIngested = []
       for (const log of logs) {
-        if (this.loadLogEntryCallback) this.loadLogEntryCallback(log)
-        
+        this.numberOfLogEventsIngested++
+        let logIngested = false
         const eventName = log.event
         const eventTimestamp = log.timestamp
 
-        // Keep track of the most recent timestamp seen
-        if (!this.mostRecentTimestamp)
-          this.mostRecentTimestamp = eventTimestamp
+        // Keep track of the most recent timestamp seen across all logs
+        // (so when we are called again can skip over logs we've already seen)
+        if (!this.mostRecentEventTimestamp)
+          this.mostRecentEventTimestamp = eventTimestamp
         
-        if (Date.parse(eventTimestamp) > Date.parse(this.mostRecentTimestamp))
-          this.mostRecentTimestamp = eventTimestamp
+        if (Date.parse(eventTimestamp) > Date.parse(this.mostRecentEventTimestamp))
+          this.mostRecentEventTimestamp = eventTimestamp
 
         // Skip ignored event types (e.g. Music)
         if (INGORED_EVENT_TYPES.includes(eventName)) continue
 
         // Only persist supported event types in the databases
-        if (PERSISTED_EVENT_TYPES.includes(eventName)) {
+        if (PERSIST_ALL_EVENTS === true || PERSISTED_EVENT_TYPES.includes(eventName)) {
           // Generate unique checksum for each message to avoid duplicates
           // Timestamp would probably be sufficent, but checksum is more robust
           // and performance difference and overhead are inconsequential.
@@ -104,9 +121,7 @@ class EliteLog {
           // (which is faster) tends to fail because logs contain duplicates.
           const isUnique = await this.#insertUnique(log)
 
-          if (isUnique === true) {
-            logsIngested.push(log)
-          }
+          if (isUnique === true) logIngested = true
         } else {
           // If it's not a persisted event type, only keep a copy of it if it
           // has a more recent timestamp than the event we currently have.
@@ -115,17 +130,29 @@ class EliteLog {
           if (this.singleInstanceEvents[eventName]) {
             if (Date.parse(eventTimestamp) > Date.parse(this.singleInstanceEvents[eventName].timestamp)) {
               this.singleInstanceEvents[eventName] = log
-              logsIngested.push(log)
+              logIngested = true
             }
           } else {
             this.singleInstanceEvents[eventName] = log
-            logsIngested.push(log)
+            logIngested = true
           }
-          continue
+        }
+
+        // If log was ingested, set to true and trigger callback
+        if (logIngested) {
+          logsIngested.push(log)
+          if (this.logEventCallback) this.logEventCallback(log)
         }
       }
       resolve(logsIngested)
     })
+  }
+
+  stats() {
+    return {
+      numberOfLogEventsIngested: this.numberOfLogEventsIngested,
+      mostRecentEventTimestamp: this.mostRecentEventTimestamp
+    }
   }
 
   async count() {
@@ -148,8 +175,8 @@ class EliteLog {
     }
   }
 
-  async getFromTimestamp(timestamp = new Date().toUTCString) {
-    return await db.find({ "timestamp": { $gt: timestamp } }).sort({ timestamp: -1 })
+  async getFromTimestamp(timestamp = new Date().toUTCString, count = 100) {
+    return await db.find({ "timestamp": { $gt: timestamp } }).sort({ timestamp: -1 }).limit(count)
   }
 
   async getEvent(event) {
@@ -254,8 +281,9 @@ class EliteLog {
         if (error) return console.error(error)
 
         const response = files.map(name => {
-          const lastModified = fs.statSync(name).mtime
-          return new File({ name, lastModified })
+          const { size, mtime: lastModified } = fs.statSync(name)
+          const lineCount = fs.readFileSync(name).toString().split('\n').length
+          return new File({ name, lastModified, size, lineCount })
         })
 
         resolve(response)
@@ -283,9 +311,11 @@ class EliteLog {
 }
 
 class File {
-  constructor({name, lastModified, watch = false}) {
+  constructor({name, lastModified, size, lineCount, watch = false}) {
     this.name = name // Full path to file
     this.lastModified = lastModified
+    this.size = size,
+    this.lineCount = lineCount
     this.watch = watch
   }
 }
