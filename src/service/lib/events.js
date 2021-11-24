@@ -1,5 +1,5 @@
 const os = require('os')
-const throttle = require('lodash.throttle')
+// const throttle = require('lodash.throttle')
 
 const {
   PORT,
@@ -88,7 +88,7 @@ const logEventCallback = (log) => {
     eventTypesLoaded[eventName]++
   }
 
-  if (!loadingInProgress) broadcastEvent('newJournalEntry', log)
+  if (!loadingInProgress) broadcastEvent('newLogEntry', log)
 }
 
 // Callbacks are bound here so we can track data being parsed
@@ -114,7 +114,7 @@ const eventHandlers = {
       credits: LoadGame?.Credits ?? UNKNOWN_VALUE
     }
   },
-  getJournal: async ({ count = 50, timestamp }) => {
+  getLogEntries: async ({ count = 50, timestamp }) => {
     if (timestamp) {
       return await eliteLog.getFromTimestamp(timestamp)
     } else {
