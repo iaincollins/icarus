@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { formatBytes } from 'lib/format'
+import { newWindow } from 'lib/window'
 import { useSocket, useEventListener } from 'components/socket'
 import Loader from 'components/loader'
 import Panel from 'components/panel'
@@ -72,7 +73,7 @@ export default function IndexPage () {
           {loadingProgress.loadingComplete === true ? <p>READY</p> : ''}
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
-          <button onClick={() => window.app_newWindow()}>New Terminal</button>
+          <button onClick={newWindow}>New Terminal</button>
         </div>
       </Panel>
     </>
