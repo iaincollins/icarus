@@ -13,13 +13,13 @@ export default function IndexPage () {
 
   useEffect(async () => {
     const newLogEntries = await sendEvent('getLogEntries')
-    if (newLogEntries.length > 0) {
+    if (Array.isArray(newLogEntries) && newLogEntries.length > 0) {
       setLogEntries(newLogEntries)
     }
   }, [connected])
 
   useEffect(() => useEventListener('newLogEntry', async (newLogEntry) => {
-    setLogEntries(logEntries.concat[newLogEntry])
+    setLogEntries(prevState => [newLogEntry, ...prevState])
   }), [])
 
   useEffect(() => useEventListener('loadingProgress', async (message) => {
@@ -28,7 +28,7 @@ export default function IndexPage () {
     if (!loadNewLogEntries) {
       loadNewLogEntries = setTimeout(async () => {
         const newLogEntries = await sendEvent('getLogEntries')
-        if (newLogEntries.length > 0) {
+        if (Array.isArray(newLogEntries) && newLogEntries.length > 0) {
           setLogEntries(newLogEntries)
         }
         loadNewLogEntries = null
