@@ -1,6 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
-  <rect x="327" y="433" width="270" height="58" />
-  <path d="M 462,21.083 850.93334,65.049328 894.302,462 855.51525,855.51525 462,894.302 74.213131,860.09715 29.698,462 62.758377,66.194803 462,29.698 M 462,0 37.667,37.667 0,462 37.667,886.333 462,924 886.333,886.333 924,462 886.333,37.667 Z" />
-  <path d="M 462,41.698 882.302,462 462,882.302 41.698,462 462,41.698 M 462,0 0,462 462,924 924,462 Z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1000 1000"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="coriolis-starport.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.873"
+     inkscape:cx="499.42726"
+     inkscape:cy="500.57274"
+     inkscape:window-width="3840"
+     inkscape:window-height="2096"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <rect
+     x="353.34964"
+     y="467.89114"
+     width="291.75659"
+     height="62.673637"
+     id="rect2"
+     style="stroke-width:1.08058" />
+  <path
+     d="M 499.22795,22.781868 919.50153,70.291001 966.36484,499.22795 924.45265,924.45265 499.22795,966.36484 80.193223,929.40376 32.091064,499.22795 67.815446,71.528779 499.22795,32.091064 M 499.22795,0 40.702206,40.702206 0,499.22795 40.702206,957.75369 499.22795,998.4559 957.75369,957.75369 998.4559,499.22795 957.75369,40.702206 Z"
+     id="path4"
+     style="stroke-width:1.08058" />
+  <path
+     d="M 499.22795,45.058024 953.39788,499.22795 499.22795,953.39788 45.058024,499.22795 499.22795,45.058024 M 499.22795,0 0,499.22795 499.22795,998.4559 998.4559,499.22795 Z"
+     id="path6"
+     style="stroke-width:1.08058" />
 </svg>

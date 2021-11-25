@@ -31,10 +31,10 @@ async function build () {
   const files = [fs.readFileSync(path.join(RESOURCES_DIR, 'icon.png'))]
   const buf = await toIco(files)
   fs.writeFileSync(path.join(ASSETS_DIR, 'icon.ico'), buf)
-  fse.copySync(path.join(ASSETS_DIR, 'icon.ico'), 'src/web/public/favicon.ico', { recursive: true })
+  fse.copySync(path.join(ASSETS_DIR, 'icon.ico'), 'src/web/public/favicon.ico')
 
   // Build icon font
-  svgtofont({
+  await svgtofont({
     src: path.join(RESOURCES_DIR, 'icons'),
     dist: ICON_FONT_DIR,
     fontName: 'icarus-terminal',
@@ -51,9 +51,9 @@ async function build () {
       logo: false,
       version: packageJson.version
     }
-  }).then(() => {
-    console.log('done!')
   })
+
+  fse.copySync(path.join(ASSETS_DIR, 'icon-font', 'icarus-terminal.ttf'), 'src/web/public/fonts/icarus-terminal.ttf')
 }
 
 function copy () {

@@ -27,4 +27,6 @@
 .icarus-terminal-star:before { content: "\ea0e"; }
 .icarus-terminal-system-bodies:before { content: "\ea0f"; }
 .icarus-terminal-system-orbits:before { content: "\ea10"; }
-.icarus-terminal-table:before { content: "\ea11"; }
+.icarus-terminal-table-index:before { content: "\ea11"; }
+.icarus-terminal-table-inspector:before { content: "\ea12"; }
+.icarus-terminal-table-rows:before { content: "\ea13"; }

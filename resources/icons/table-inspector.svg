@@ -4,7 +4,7 @@
    preserveAspectRatio="xMidYMid meet"
    version="1.1"
    id="svg4"
-   sodipodi:docname="star.svg"
+   sodipodi:docname="table-inspector.svg"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -22,16 +22,16 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.873"
-     inkscape:cx="499.42726"
+     inkscape:cx="500"
      inkscape:cy="500.57274"
-     inkscape:window-width="3840"
-     inkscape:window-height="2096"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
+     inkscape:window-width="1941"
+     inkscape:window-height="1390"
+     inkscape:window-x="969"
+     inkscape:window-y="379"
+     inkscape:window-maximized="0"
      inkscape:current-layer="svg4" />
   <path
-     d="M 500.05017,5.9708329 482.52752,59.19218 377.52706,378.09446 3.2155566,500.12897 377.52706,622.16348 500.05017,994.28711 622.57131,622.16348 996.88281,500.12897 622.57131,378.09446 Z m 0,117.9786071 93.31934,283.43118 284.48099,92.74835 -284.48099,92.74835 -93.31934,283.43119 -93.32132,-283.43119 -284.48099,-92.74835 284.48099,-92.74835 z"
-     id="path2"
-     style="stroke-width:1.00466" />
+     id="rect1109"
+     style="fill:#000000;stroke-width:1.05121;paint-order:fill markers stroke"
+     d="m 0,0 v 100 100 100 100 100 100 100 100 100 100 h 100 420.61914 100 H 900 1000 V 900 100 0 H 100 Z M 100,200 H 520.61914 V 300 H 100 Z m 520.61914,0 H 900 V 900 H 620.61914 Z M 100,400 H 520.61914 V 500 H 100 Z m 0,200 H 520.61914 V 700 H 100 Z m 0,200 H 520.61914 V 900 H 100 Z" />
 </svg>

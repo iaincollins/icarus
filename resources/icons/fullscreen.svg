@@ -1,7 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
-  <path d="M 209.89285,106.75917 396.18675,293.05306 292.9306,396.30921 106.63671,210.01531 Z m -51.63348,-41.053377 -1e-5,335.624297 H 66.621338 l -5e-6,-335.6243 z m -91.638037,-3e-6 335.624297,1e-6 10e-6,91.638029 -335.6243,-1e-5 z" />
-  <path d="M 896.81656,208.97731 710.52267,395.27121 607.26652,292.01506 793.56042,105.72117 Z m 41.05337,-51.63348 -335.62429,-1e-5 V 65.705798 l 335.62429,-1e-5 z m 0,-91.638042 V 401.33009 l -91.63802,1e-5 10e-6,-335.624302 z" />
-  <path d="M 209.89284,895.90102 396.18674,709.60713 292.93059,606.35098 106.6367,792.64488 Z m -51.63348,41.05338 -10e-6,-335.6243 H 66.62133 l -1e-5,335.6243 z m -91.63804,0 h 335.6243 l 1e-5,-91.63803 -335.6243,10e-6 z" />
-  <path d="M 896.81655,793.68288 710.52266,607.38898 607.26651,710.64513 793.56041,896.93902 Z m 41.05337,51.63348 -335.62429,10e-6 v 91.63802 l 335.62429,10e-6 z m 0,91.63804 V 601.3301 l -91.63802,-10e-6 10e-6,335.6243 z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1000 1000"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="fullscreen.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.873"
+     inkscape:cx="550.40092"
+     inkscape:cy="479.38144"
+     inkscape:window-width="1509"
+     inkscape:window-height="1095"
+     inkscape:window-x="971"
+     inkscape:window-y="612"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg10" />
+  <path
+     id="path2"
+     d="M 0 0 L 0 91.638672 L 0 120.23438 L 0 332.17773 L 106.85352 227.08789 L 207.75781 327.99219 L 327.99219 207.75781 L 228.08984 107.85547 L 335.625 2.0957031 L 335.625 0 L 120.23438 0 L 0 0 z " />
+  <path
+     id="path2-0"
+     d="M 999.428,0 V 91.638672 120.23438 332.17773 L 892.57447,227.08789 791.67018,327.99219 671.4358,207.75781 771.33815,107.85547 663.803,2.0957027 V 0 h 215.39061 z" />
+  <path
+     id="path2-06"
+     d="M 0,999.6857 V 908.04699 879.45128 667.50793 L 106.85352,772.59777 207.75781,671.69347 327.99219,791.92785 228.08984,891.83019 335.625,997.58996 v 2.09574 H 120.23438 Z" />
+  <path
+     id="path2-0-0"
+     d="M 999.42798,999.6857 V 908.04699 879.45128 667.50793 L 892.57447,772.59777 791.67018,671.69347 671.4358,791.92785 771.33815,891.83019 663.803,997.58996 v 2.09574 h 215.39061 z" />
 </svg>
