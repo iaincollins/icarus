@@ -118,6 +118,10 @@ I'd like to express appreciation to [Serge Zaitsev](https://github.com/zserge) f
 
 The loading animation is by James Panter (http://codepen.io/jpanter/pen/PWWQXK).
 
+Various icons are from https://edassets.org (for a list of contributors, see https://github.com/SpyTec/EDAssets).
+
+ICARUS Terminal uses imagery from Elite Dangerous, which copyright Frontier Developments plc. This software is not endorsed by nor reflects the views or opinions of Frontier Developments and no employee of Frontier Developments was involved in the making of it.
+
 Thank you to all those who have written libraries on which this software depends.
 
 A full list of credits will be in place before the release of v1.0.0.
