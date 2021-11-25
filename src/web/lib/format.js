@@ -15,7 +15,7 @@ function formatBytes (bytes) {
   return bytes
 }
 
-function eliteDateTime (timestamp) {
+function eliteDateTime (timestamp = Date.now()) {
   const date = new Date(timestamp)
   date.setFullYear(date.getFullYear() + 1286) // We are living in the future
   return date.toUTCString()
@@ -25,7 +25,45 @@ function eliteDateTime (timestamp) {
     .replace(/^0/, '') // Strip leading zeros from day of month
 }
 
+function objectToHtml (obj, depth = 0, type = null) {
+  const tag = 'div'
+  let str = ''
+
+  if (depth === 0) str = `<${tag} class="text-formatted-object">`
+
+  for (const propertyName in obj) {
+    if (propertyName.startsWith('_')) continue // Skip internal properties
+    str += `<div class="text-formatted-object-property" data-depth="${depth}" style="margin-left: ${depth}rem">`
+    const propertyLabel = `<label>${(type === 'array') ? 'Item ' : ''}${propertyName.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ').trim()}${(type === 'array') ? ':' : ''}</label>`
+    switch (typeof obj[propertyName]) {
+      case 'string':
+      case 'number':
+      case 'boolean':
+        str += propertyLabel + ' <span class="text-formatted-object-value">' + obj[propertyName] + '</span>'
+        break
+      case 'object':
+      default:
+        if (Array.isArray(obj[propertyName])) {
+          if (obj[propertyName].length > 0) {
+            str += propertyLabel + objectToHtml(obj[propertyName], depth + 1, 'array')
+          } else {
+            str += propertyLabel + ' <span class="text-formatted-object-value">NONE</span>'
+          }
+        } else {
+          str += propertyLabel + objectToHtml(obj[propertyName], depth + 1)
+        }
+        break
+    }
+    str += '</div>'
+  }
+
+  if (depth === 0) str += `</${tag}>`
+
+  return str
+}
+
 module.exports = {
   formatBytes,
-  eliteDateTime
+  eliteDateTime,
+  objectToHtml
 }

@@ -49,3 +49,21 @@
 @keyframes text-blink-animation {
   50% { opacity: 0; }
 }
+
+
+.text-formatted-object {
+  color: var(--primary-text-color);
+}
+
+.text-formatted-object-property {
+  margin: .5rem 0;
+}
+
+.text-formatted-object label {
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.text-formatted-object .text-formatted-object-value {
+  color: var(--secondary-text-color) !important;
+}

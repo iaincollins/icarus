@@ -1,10 +1,11 @@
 @import "variables.css";
 
+@import "layout.css";
+@import "panels.css";
 @import "loader.css";
 @import "overlay.css";
 @import "buttons.css";
 @import "text.css";
-@import "panels.css";
 @import "table.css";
 
 @import "icarus-terminal-font.css";
@@ -169,18 +170,24 @@ progress[value]::-webkit-progress-value {
   transition : width 1s ease;
 }
 
-#background {
-  position: absolute !important;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: ' ';
-  background: radial-gradient(circle, var(--background-color) 0%, rgba(0,0,0,1) 100%);
-  z-index: -1;
+hr {
+  border: none;
+  height: .15rem;
+  background: var(--primary-color);
+  margin: .5rem 0;
+  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0 .7rem -.03rem var(--primary-color) !important;
   opacity: 0.8;
 }
 
-#main {
-  z-index: 10;
+hr.small {
+  height: .05rem;
+}
+
+hr.large {
+  height: 2.5rem;
+}
+
+hr.bold {
+  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0rem .7rem -.03rem var(--primary-color), 0 0rem 1rem -.01rem var(--dark-primary-color) !important;
+  opacity: 1;
 }

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import Toolbar from 'components/toolbar'
+import Toolbar from 'components/layout/toolbar'
 import Loader from 'components/loader'
-import Panel from 'components/panel'
+import MainLayout from 'components/layout/main-layout'
+import PanelLayout from 'components/layout/panel-layout'
 import LogPanel from 'components/panels/log-panel'
+import LogEntryPanel from 'components/panels/log-entry-panel'
 import { useSocket, useEventListener } from 'lib/socket'
 
 let loadNewLogEntries
@@ -10,16 +12,21 @@ let loadNewLogEntries
 export default function IndexPage () {
   const { connected, sendEvent } = useSocket()
   const [logEntries, setLogEntries] = useState([])
+  const [selectedLogEntry, setSelectedLogEntry] = useState()
 
   useEffect(async () => {
     const newLogEntries = await sendEvent('getLogEntries')
     if (Array.isArray(newLogEntries) && newLogEntries.length > 0) {
       setLogEntries(newLogEntries)
+      // Only select a log entry if one isn't selected already
+      setSelectedLogEntry(prevState => prevState || newLogEntries[0])
     }
   }, [connected])
 
   useEffect(() => useEventListener('newLogEntry', async (newLogEntry) => {
     setLogEntries(prevState => [newLogEntry, ...prevState])
+    // Only select a log entry if one isn't selected already
+    setSelectedLogEntry(prevState => prevState || newLogEntry)
   }), [])
 
   useEffect(() => useEventListener('loadingProgress', async (message) => {
@@ -30,6 +37,8 @@ export default function IndexPage () {
         const newLogEntries = await sendEvent('getLogEntries')
         if (Array.isArray(newLogEntries) && newLogEntries.length > 0) {
           setLogEntries(newLogEntries)
+          // Only select a log entry if one isn't selected already
+          setSelectedLogEntry(prevState => prevState || newLogEntries[0])
         }
         loadNewLogEntries = null
       }, 1000)
@@ -40,11 +49,14 @@ export default function IndexPage () {
     <>
       <Toolbar connected={connected} />
       <Loader visible={!connected || logEntries.length === 0} />
-      <Panel visible={connected && logEntries.length > 0}>
-        <div className='scrollable' style={{ position: 'absolute', top: '5rem', bottom: '1rem', left: '1rem', right: '1rem' }}>
-          <LogPanel logEntries={logEntries} />
-        </div>
-      </Panel>
+      <MainLayout visible={connected && logEntries.length > 0}>
+        <PanelLayout layout='left-half'>
+          <LogPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
+        </PanelLayout>
+        <PanelLayout layout='right-half'>
+          <LogEntryPanel logEntry={selectedLogEntry} />
+        </PanelLayout>
+      </MainLayout>
     </>
   )
 }

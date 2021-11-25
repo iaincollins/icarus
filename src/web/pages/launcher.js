@@ -3,7 +3,6 @@ import { formatBytes } from 'lib/format'
 import { newWindow } from 'lib/window'
 import { useSocket, useEventListener } from 'lib/socket'
 import Loader from 'components/loader'
-import Panel from 'components/panel'
 import packageJson from '../../../package.json'
 
 const defaultloadingStats = {
@@ -36,7 +35,7 @@ export default function IndexPage () {
   return (
     <>
       <Loader visible={!connected} />
-      <Panel visible={connected}>
+      <div style={{ opacity: connected ? 1 : 0 }}>
         <h1>ICARUS</h1>
         <h3 className='text-primary'>Version {packageJson.version}</h3>
         <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
@@ -75,7 +74,7 @@ export default function IndexPage () {
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
           <button onClick={newWindow}>New Terminal</button>
         </div>
-      </Panel>
+      </div>
     </>
   )
 }

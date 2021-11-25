@@ -1,0 +1,43 @@
+
+.layout__background {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: ' ';
+  background: radial-gradient(circle, var(--background-color) 0%, rgba(0,0,0,1) 100%);
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.layout__main {
+  position: absolute;
+  top: 6rem;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  transition: .25s ease-in-out;
+  opacity: 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.laytout__full-width {
+  width: 100%;
+  height: 100%;
+}
+
+.layout__left-half,
+.layout__right-half {
+  width: 50%;
+  height: 100%;
+}
+
+.layout__left-half {
+  float: left;
+}
+
+.layout__right-half  {
+  float: right;
+}

@@ -17,11 +17,9 @@ class MyDocument extends Document {
         }}
         />
         <body className='not-selectable'>
-          <div id='background' />
-          <div id='main'>
-            <Main />
-            <NextScript />
-          </div>
+          <div className='layout__background' />
+          <Main />
+          <NextScript />
         </body>
       </Html>
     )
