@@ -1,7 +1,7 @@
 
 export default function Loader ({ visible }) {
   return (
-    <div id='loader' style={{ opacity: visible ? 1 : 0 }}>
+    <div id='loader' style={{ opacity: visible ? .75 : 0 }}>
       <div className='loader__row'>
         <div className='loader__arrow loader__arrow--outer-18' />
         <div className='loader__arrow loader__arrow--down lloader__arrow--outer-17' />

@@ -2,18 +2,19 @@
 
 #loader {
   position: absolute;
-  top: 25%;
+  top: 50%;
   left: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1em;
-  zoom: 2;
   opacity: .75;
+  zoom: 1.5;
   transition: .25s ease-in-out;
-  z-index: 1;
+  z-index: 100;
   pointer-events: none;
+  margin-top: -2.5rem;
+  text-align: center;
 }
 
 .loader__row {
