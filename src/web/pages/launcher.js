@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { formatBytes } from 'lib/format'
 import { newWindow } from 'lib/window'
-import { useSocket, useEventListener } from 'components/socket'
+import { useSocket, useEventListener } from 'lib/socket'
 import Loader from 'components/loader'
 import Panel from 'components/panel'
 import packageJson from '../../../package.json'

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useSocket, useEventListener } from 'components/socket'
+import { useSocket, useEventListener } from 'lib/socket'
 
 function gameEventsToArray (gameEvents) {
   return Object.keys(gameEvents).map(event => {

@@ -1,5 +1,5 @@
 import '../css/main.css'
-import { Socket } from 'components/socket'
+import { Socket } from 'lib/socket'
 
 export default function MyApp ({ Component, pageProps }) {
   return (

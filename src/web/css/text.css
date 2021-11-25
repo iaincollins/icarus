@@ -41,3 +41,11 @@
 .text-right {
   text-align: right;
 }
+
+.text-blink {
+  animation: text-blink-animation .5s ease-in-out infinite;
+}
+
+@keyframes text-blink-animation {
+  50% { opacity: 0; }
+}

@@ -1,3 +1,4 @@
+/* global Element */
 function toggleFullScreen () {
   if (typeof window.app_toggleFullScreen === 'function') { return window.app_toggleFullScreen() }
 
@@ -20,7 +21,7 @@ function toggleFullScreen () {
   }
 }
 
-function newWindow() {
+function newWindow () {
   if (typeof window.app_newWindow === 'function') { return window.app_newWindow() }
 
   window.open(`//${window.location.host}`)

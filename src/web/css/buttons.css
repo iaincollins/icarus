@@ -24,3 +24,21 @@ button:not(:disabled):active {
   background: var(--secondary-color);
   color: var(--dark-secondary-color);
 }
+
+button.button-with-icon {
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+  display: inline-block;
+  min-width: initial;
+  padding: 0;
+}
+
+button.button-with-icon > * {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+button.button-transparent {
+  background: none;
+}

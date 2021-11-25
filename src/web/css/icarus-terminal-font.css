@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "icarus-terminal";
+  src: url('../public/fonts/icarus-terminal.ttf?t=1637863636375') format('truetype');
+}
+
+[class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
+  font-family: 'icarus-terminal' !important;
+  font-style: normal;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icarus-terminal-asteroid-base:before { content: "\ea01"; }
+.icarus-terminal-coriolis-starport:before { content: "\ea02"; }
+.icarus-terminal-credits:before { content: "\ea03"; }
+.icarus-terminal-engineering:before { content: "\ea04"; }
+.icarus-terminal-fullscreen-window:before { content: "\ea05"; }
+.icarus-terminal-fullscreen:before { content: "\ea06"; }
+.icarus-terminal-ocellus-starport:before { content: "\ea07"; }
+.icarus-terminal-orbis-starport:before { content: "\ea08"; }
+.icarus-terminal-outpost:before { content: "\ea09"; }
+.icarus-terminal-planet:before { content: "\ea0a"; }
+.icarus-terminal-planetary-port:before { content: "\ea0b"; }
+.icarus-terminal-route:before { content: "\ea0c"; }
+.icarus-terminal-signal:before { content: "\ea0d"; }
+.icarus-terminal-star:before { content: "\ea0e"; }
+.icarus-terminal-system-bodies:before { content: "\ea0f"; }
+.icarus-terminal-system-orbits:before { content: "\ea10"; }
+.icarus-terminal-table:before { content: "\ea11"; }
