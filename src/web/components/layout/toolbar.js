@@ -3,15 +3,13 @@ import { toggleFullScreen } from 'lib/window'
 import { eliteDateTime } from 'lib/format'
 
 export default function Toolbar ({ connected }) {
-  const [dateTime, setDateTime] = useState(0)
+  const [dateTime, setDateTime] = useState(eliteDateTime())
 
   useEffect(() => {
-    eliteDateTime()
-    const timeout = setTimeout(() => {
+    const dateTimeInterval = setInterval(() => {
       setDateTime(eliteDateTime())
     }, 1000)
-
-    return () => clearTimeout(timeout)
+    return () => clearInterval(dateTimeInterval)
   }, [])
 
   return (
