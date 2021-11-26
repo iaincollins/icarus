@@ -31,26 +31,43 @@ function objectToHtml (obj, depth = 0, type = null) {
 
   if (depth === 0) str = `<${tag} class="text-formatted-object">`
 
-  for (const propertyName in obj) {
+  for (const prop in obj) {
+    let propertyName = prop
+    let propertyValue = obj[propertyName]
+
     if (propertyName.startsWith('_')) continue // Skip internal properties
-    str += `<div class="text-formatted-object-property" data-depth="${depth}" style="margin-left: ${depth}rem">`
+
+    // Use only localised versions of property names (if exists)
+    if (!propertyName.endsWith('_Localised') && obj[`${propertyName}_Localised`]) continue
+    if (propertyName.endsWith('_Localised')) propertyName = propertyName.replace(/_Localised$/, '')
+
+    if (propertyName === 'timestamp') {
+      propertyName = 'Time'
+      propertyValue = eliteDateTime(propertyValue)
+    }
+
     const propertyLabel = `<label>${(type === 'array') ? 'Item ' : ''}${propertyName.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ').trim()}${(type === 'array') ? ':' : ''}</label>`
-    switch (typeof obj[propertyName]) {
+
+    str += `<div class="text-formatted-object-property" data-depth="${depth}" style="margin-left: ${depth}rem">`
+
+    switch (typeof propertyValue) {
       case 'string':
+        str += propertyLabel + ' <span class="text-formatted-object-value">' + propertyValue.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ').replace(/^\$/, '').replace(/;$/, '').trim() + '</span>'
+        break
       case 'number':
       case 'boolean':
-        str += propertyLabel + ' <span class="text-formatted-object-value">' + obj[propertyName] + '</span>'
+        str += propertyLabel + ' <span class="text-formatted-object-value">' + propertyValue + '</span>'
         break
       case 'object':
       default:
-        if (Array.isArray(obj[propertyName])) {
-          if (obj[propertyName].length > 0) {
-            str += propertyLabel + objectToHtml(obj[propertyName], depth + 1, 'array')
+        if (Array.isArray(propertyValue)) {
+          if (propertyValue.length > 0) {
+            str += propertyLabel + objectToHtml(propertyValue, depth + 1, 'array')
           } else {
             str += propertyLabel + ' <span class="text-formatted-object-value">NONE</span>'
           }
         } else {
-          str += propertyLabel + objectToHtml(obj[propertyName], depth + 1)
+          str += propertyLabel + objectToHtml(propertyValue, depth + 1)
         }
         break
     }

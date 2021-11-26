@@ -12,8 +12,8 @@ export default function LogPanel ({ logEntries, setSelectedLogEntry }) {
       <tbody>
         {logEntries && logEntries.map(logEntry =>
           <tr key={`${logEntry._checksum}`} tabIndex='2' onFocus={() => setSelectedLogEntry(logEntry)}>
-            <td>{logEntry.event}</td>
-            <td className='text-right'>{eliteDateTime(logEntry.timestamp)}</td>
+            <td>{logEntry.event.replace(/([a-z])([A-Z])/g, '$1 $2')}</td>
+            <td className='text-right text-no-wrap'>{eliteDateTime(logEntry.timestamp)}</td>
           </tr>
         )}
       </tbody>

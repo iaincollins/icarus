@@ -42,6 +42,12 @@
   text-align: right;
 }
 
+.text-no-wrap {
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+}
+
 .text-blink {
   animation: text-blink-animation .5s ease-in-out infinite;
 }
@@ -49,7 +55,6 @@
 @keyframes text-blink-animation {
   50% { opacity: 0; }
 }
-
 
 .text-formatted-object {
   color: var(--primary-text-color);
@@ -61,7 +66,8 @@
 
 .text-formatted-object label {
   display: inline-block;
-  text-transform: capitalize;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .text-formatted-object .text-formatted-object-value {

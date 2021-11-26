@@ -44,8 +44,8 @@ table tbody tr {
 
 table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td,
 table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td span {
-  color: var(--dark-primary-color);
-  background: var(--button-active-color);
+  color: var(--primary-color);
+  background: var(--dark-primary-color);
   font-weight: bold;
   transition: all .1s ease;
   --icon-color: var(--dark-primary-color);
