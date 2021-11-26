@@ -26,18 +26,18 @@ type Release struct {
 }
 
 func CheckForUpdate() {
-	currentProductVersion := GetCurrentAppVersion()
+	installedProductVersion := GetCurrentAppVersion()
 	release, releaseErr := GetLatestRelease(LATEST_RELEASE_URL)
 	if releaseErr != nil {
 		return
 	}
 
 	// If we are already running the latest release, do nothing
-	if (currentProductVersion == release.productVersion) {
+	if (installedProductVersion == release.productVersion) {
 		return
 	}
 
-	ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nWould you like to install the update?").Title("New version available").YesNo()
+	ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nWould you like to upgrade?").Title("New version available").YesNo()
 	if (ok) {
 		pathToFile, _ := DownloadUpdate(release.downloadUrl)
 		runElevated(pathToFile)
