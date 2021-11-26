@@ -30,6 +30,7 @@
 
 .layout__left-half,
 .layout__right-half {
+  position: relative;
   width: 50%;
   height: 100%;
 }

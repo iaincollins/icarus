@@ -167,7 +167,7 @@ progress[value]::-webkit-progress-bar {
 
 progress[value]::-webkit-progress-value {
   background: var(--primary-color);
-  transition : width 1s ease;
+  transition : width .25s ease;
 }
 
 hr {

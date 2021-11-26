@@ -4,7 +4,7 @@ import Loader from 'components/loader'
 import MainLayout from 'components/layout/main-layout'
 import PanelLayout from 'components/layout/panel-layout'
 import LogPanel from 'components/panels/log-panel'
-import LogEntryPanel from 'components/panels/log-entry-panel'
+import LogInspectorPanel from 'components/panels/log-inspector-panel'
 import { useSocket, useEventListener } from 'lib/socket'
 
 let loadNewLogEntries
@@ -50,11 +50,11 @@ export default function IndexPage () {
       <Toolbar connected={connected} />
       <Loader visible={!connected || logEntries.length === 0} />
       <MainLayout visible={connected && logEntries.length > 0}>
-        <PanelLayout layout='left-half'>
+        <PanelLayout layout='left-half' scrollable>
           <LogPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
         </PanelLayout>
-        <PanelLayout layout='right-half'>
-          <LogEntryPanel logEntry={selectedLogEntry} />
+        <PanelLayout layout='right-half' scrollable>
+          <LogInspectorPanel logEntry={selectedLogEntry} />
         </PanelLayout>
       </MainLayout>
     </>

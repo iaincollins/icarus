@@ -26,11 +26,12 @@ class EliteLog {
   constructor(dir) {
     this.dir = dir || null
     this.files = {} // All log files found
-    this.mostRecentEventTimestamp = null
+    this.lastActiveLogFileName = null
+    this.lastActiveTimestamp = null
     this.loadFileCallback = null
     this.logEventCallback = null
     this.singleInstanceEvents = {}
-    this.numberOfEventsImportedIngested = 0
+    this.numberOfEventsImported = 0
 
     // setInterval(() => {
     //   const numberOfFilesBeingWatched = Object.entries(this.files)
@@ -39,7 +40,7 @@ class EliteLog {
     //       return file.watch !== false
     //     }).length
 
-    //   console.log(`events: ${this.numberOfEventsImportedIngested}\tmost recent event: ${this.mostRecentEventTimestamp}\tfiles watched: ${numberOfFilesBeingWatched}`)
+    //   console.log(`events: ${this.numberOfEventsImported}\tmost recent event: ${this.lastActiveTimestamp}\tfiles watched: ${numberOfFilesBeingWatched}`)
     // }, 2000)
 
     return this
@@ -50,19 +51,26 @@ class EliteLog {
   }
 
   // Get all log entries
-  load({ file = null } = {}) {
+  load({ file = null, lastActiveOnly = true, minTimestamp = null, reloadAll = false } = {}) {
     return new Promise(async (resolve) => {
       let logs = []
       // If file specified, load logs from that file, otherwise load all files
       const files = file ? [file] : await this.#getFiles()
       for (const file of files) {
+        // If lastActiveOnly is true (the default) then we parse but do not
+        // ingest all events. This allows for fast startup time. Historical data 
+        // can still be explicitly imported by users via an option.
+        if (lastActiveOnly === true && file.name !== this.lastActiveLogFileName) continue
+
+        // Skip old files that haven't been modified since minTimestamp
+        if (minTimestamp && minTimestamp > Date.parse(file.lastModified)) continue
+
         // If any step fails (e.g if trying read and parse while being written)
         // then is automatically retried with this function.
         //
         // There is no error handling here, but the function has exponential
         // backoff and while single failures are quite common more than one
         // retry is extremely rare.
-
         await retry(async bail => {
           const rawLog = fs.readFileSync(file.name).toString()
           const parsedLog = this.#parse(rawLog)
@@ -76,13 +84,16 @@ class EliteLog {
         })
       }
 
-      // If mostRecentEventTimestamp has been set, this function has been run at
+      // If a minimum timestamp was specified, use it to filter what is loaded
+      if (minTimestamp) {
+        logs = logs.filter(log => (Date.parse(log.timestamp) > minTimestamp))
+      }
+
+      // If lastActiveTimestamp has been set, this function has been run at
       // least once already. We can use it to discard old log files without
-      // waisting more time on them.
-      // use this timestamp to filter 
-      // Reduces time wasted parsing log entries we have previously ingested.
-      if (this.mostRecentEventTimestamp) {
-        logs = logs.filter(log => (Date.parse(log.timestamp) > Date.parse(this.mostRecentEventTimestamp)))
+      // spending more time on them. Overriden by reloadAll argument.
+      if (this.lastActiveTimestamp && reloadAll !== true) {
+        logs = logs.filter(log => (Date.parse(log.timestamp) > Date.parse(this.lastActiveTimestamp)))
       }
 
       // Enforces unique database entry constraint using checksum.
@@ -95,18 +106,19 @@ class EliteLog {
       
       const logsIngested = []
       for (const log of logs) {
-        this.numberOfEventsImportedIngested++
+        this.numberOfEventsImported++
+
         let logIngested = false
         const eventName = log.event
         const eventTimestamp = log.timestamp
 
         // Keep track of the most recent timestamp seen across all logs
         // (so when we are called again can skip over logs we've already seen)
-        if (!this.mostRecentEventTimestamp)
-          this.mostRecentEventTimestamp = eventTimestamp
+        if (!this.lastActiveTimestamp)
+          this.lastActiveTimestamp = eventTimestamp
         
-        if (Date.parse(eventTimestamp) > Date.parse(this.mostRecentEventTimestamp))
-          this.mostRecentEventTimestamp = eventTimestamp
+        if (Date.parse(eventTimestamp) > Date.parse(this.lastActiveTimestamp))
+          this.lastActiveTimestamp = eventTimestamp
 
         // Skip ignored event types (e.g. Music)
         if (INGORED_EVENT_TYPES.includes(eventName)) continue
@@ -151,8 +163,10 @@ class EliteLog {
 
   stats() {
     return {
-      numberOfEventsImportedIngested: this.numberOfEventsImportedIngested,
-      mostRecentEventTimestamp: this.mostRecentEventTimestamp
+      numberOfEventsImported: this.numberOfEventsImported,
+      mostRecentEventTimestamp: this.lastActiveTimestamp,
+      lastActivity: this.lastActiveTimestamp,
+      files: this.files
     }
   }
 
@@ -203,8 +217,10 @@ class EliteLog {
     const watchFiles = async () => {
       const files = await this.#getFiles()
 
-      // Get currently active log file (mostly recently modified)
+      // Get currently active log file (mostly recently modified) in case that
+      // has changed since we loaded (e.g. due to log rotation)
       const activeLogFile = files.sort((a, b) => b.lastModified - a.lastModified)[0]
+      this.lastActiveLogFileName = activeLogFile.name
 
       // Get all log files
       for (const file of files) {
@@ -278,16 +294,20 @@ class EliteLog {
     return new Promise(resolve => {
       // Note: Journal.*.log excludes files like JournalAlpha.*.log so that
       // alpha / beta test data doesn't get included by mistake.
-      glob(`${this.dir}/Journal.*.log`, {}, async (error, files) => {
+      glob(`${this.dir}/Journal.*.log`, {}, async (error, globFiles) => {
         if (error) return console.error(error)
 
-        const response = files.map(name => {
+        const files = globFiles.map(name => {
           const { size, mtime: lastModified } = fs.statSync(name)
           const lineCount = fs.readFileSync(name).toString().split('\n').length
           return new File({ name, lastModified, size, lineCount })
         })
 
-        resolve(response)
+        // Track most (mostly recently modified) log file
+        const activeLogFile = files.sort((a, b) => b.lastModified - a.lastModified)[0]
+        this.lastActiveLogFileName = activeLogFile.name
+
+        resolve(files)
       })
     })
   }

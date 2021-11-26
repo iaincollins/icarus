@@ -10,7 +10,10 @@
   --secondary-text-color: var(--secondary-color);
   
   --background-color: var(--dark-primary-color);
-  --panel-background-color: rgba(58, 12, 0, .2);
+  --panel-background-color: rgba(58, 12, 0, .4);
+  --solid-panel-background-color: rgba(29, 6, 0);
+
+  --table-row-hover-background-color: rgba(58, 12, 0, .8);
 
   --button-active-color: var(--primary-color);
   --button-hover-color: var(--dark-secondary-color);

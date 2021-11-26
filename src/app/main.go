@@ -27,7 +27,7 @@ const DEBUGGER = true
 const defaultLauncherWindowWidth = int32(900)
 const defaultLauncherWindowHeight = int32(500)
 const defaultWindowWidth = int32(1280)
-const defaultWindowHeight = int32(960)
+const defaultWindowHeight = int32(860)
 
 var defaultPort = 3300 // Set to 0 to be assigned a free high numbered port
 var port int           // Actual port we are running on

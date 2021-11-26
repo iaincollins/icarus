@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { formatBytes } from 'lib/format'
+import { formatBytes, eliteDateTime } from 'lib/format'
 import { newWindow } from 'lib/window'
 import { useSocket, useEventListener } from 'lib/socket'
 import Loader from 'components/loader'
@@ -47,7 +47,7 @@ export default function IndexPage () {
           </ul>
         </div>
         <div
-          className='scrollable text-right' style={{
+          className='scrollable text-right text-uppercase' style={{
             position: 'absolute',
             top: '1rem',
             right: '1rem',
@@ -59,17 +59,19 @@ export default function IndexPage () {
           }}
         >
           <div className={loadingProgress.loadingComplete ? 'text-muted' : ''}>
-            {loadingProgress.loadingComplete === false ? <p>LOADING...</p> : <p>LOADED</p>}
-            <p>{loadingProgress.numberOfFiles.toLocaleString()} FILES</p>
-            <p>{loadingProgress.numberOfLogLines.toLocaleString()} LOG ENTRIES</p>
+
+            {loadingProgress.loadingComplete === false ? <p>Loading...</p> : <p>Loaded</p>}
             <p>{formatBytes(loadingProgress.logSizeInBytes)}</p>
-            <p>{loadingProgress.numberOfEventsImported.toLocaleString()} EVENTS IMPORTED</p>
-            <p>TIME ELAPSED: {parseInt(loadingProgress.loadingTime / 1000)} SECONDS</p>
+            <p>{loadingProgress.numberOfFiles.toLocaleString()} files</p>
+            <p>{loadingProgress.numberOfLogLines.toLocaleString()} log entries</p>
+            <p>{loadingProgress.numberOfEventsImported.toLocaleString()} events imported</p>
+            {loadingProgress.loadingComplete === true ? <p>Last active: {eliteDateTime(loadingProgress.lastActivity)}</p> : ''}
+            {/* <p>Load time: {parseInt(loadingProgress.loadingTime / 1000)} seconds</p> */}
             <div style={{ position: 'absolute', bottom: '.5rem', left: '.5rem', right: '.5rem' }}>
               {loadingProgress.loadingComplete === false && <progress value={loadingProgress.numberOfEventsImported} max={loadingProgress.numberOfLogLines} />}
             </div>
           </div>
-          {loadingProgress.loadingComplete === true ? <p>READY</p> : ''}
+          {loadingProgress.loadingComplete === true ? <p>Ready</p> : ''}
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
           <button onClick={newWindow}>New Terminal</button>

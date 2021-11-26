@@ -18,12 +18,24 @@ table thead tr th {
   text-shadow: var(--text-shadow);
   text-transform: uppercase;
   color: var(--primary-color);
-  background: var(--dark-primary-color);
+  background: var(--solid-panel-background-color);
   box-shadow: 0 -10px 0 var(--dark-primary-color);
-  padding: 0.4rem 1rem 0.6rem 1rem;
+  padding: .6rem 1rem .8rem 1rem;
   font-weight: bold;
   text-align: left;
   user-select: none;
+}
+
+table thead tr th:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 100%;
+  top: 2.8rem;
+  left: 0;
+  right: 0;
+  border-bottom: .1rem solid var(--primary-color);
+  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0 .7rem -.03rem var(--primary-color) !important;
 }
 
 table td {
@@ -36,19 +48,19 @@ table td {
 }
 
 table tbody tr {
+  border-top: .25rem solid transparent;
   outline: 0 !important;
   animation: fade-in-animation .25s ease;
   background-color: var(--panel-background-color);
-  border-bottom: .25rem solid transparent;
 }
 
 table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td,
 table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td span {
   color: var(--primary-color);
-  background: var(--dark-primary-color);
+  background: var(--table-row-hover-background-color);
   font-weight: bold;
   transition: all .1s ease;
-  --icon-color: var(--dark-primary-color);
+  --icon-color: var(--primary-color);
 }
 
 table:not(.table__inline) tbody tr:focus:not([disabled="disabled"]) td,

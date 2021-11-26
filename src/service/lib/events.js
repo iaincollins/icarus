@@ -67,8 +67,7 @@ const logEventCallback = (log) => {
   const eventName = log.event
 
   // Update stats
-  const { numberOfEventsImportedIngested } = eliteLog.stats()
-  numberOfEventsImported = numberOfEventsImportedIngested
+  numberOfEventsImported = eliteLog.stats().numberOfEventsImported
 
   // Add logic to handle broadcasting specific game events
   if (GAME_EVENT_TO_ICARUS_EVENT_MAP[eventName]) {
@@ -123,20 +122,23 @@ const eventHandlers = {
   }
 }
 
-async function init () {
+async function init ({
+  lastActiveOnly = false,
+  minTimestamp = Date.now() - 90 * 24 * 60 * 60 * 1000 // Load last 90 days by default
+} = {}) {
   if (loadingComplete) return loadingStats() // If already run, don't run again
 
   loadingInProgress = true // True while initial loading is happening
 
   loadingProgressEvent()
-  loadingProgressInterval = setInterval(loadingProgressEvent, 250)
+  loadingProgressInterval = setInterval(loadingProgressEvent, 200)
 
   loadingStartTime = new Date()
 
   await eliteJson.load() // Load JSON files then watch for changes
   eliteJson.watch() // @TODO Pass a callback to handle new messages
 
-  await eliteLog.load() // Load logs then watch for changes
+  await eliteLog.load({ lastActiveOnly, minTimestamp }) // Load logs then watch for changes
   eliteLog.watch() // @TODO Pass a callback to handle new messages
 
   loadingInProgress = false // We are done with the loading phase
@@ -158,6 +160,7 @@ function loadingStats () {
     numberOfLogLines,
     eventTypesLoaded,
     logSizeInBytes,
+    lastActivity: eliteLog.stats().lastActivity,
     loadingTime: (loadingEndTime) ? loadingEndTime - loadingStartTime : new Date() - loadingStartTime
   }
 }

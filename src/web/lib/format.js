@@ -48,7 +48,7 @@ function objectToHtml (obj, depth = 0, type = null) {
 
     const propertyLabel = `<label>${(type === 'array') ? 'Item ' : ''}${propertyName.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ').trim()}${(type === 'array') ? ':' : ''}</label>`
 
-    str += `<div class="text-formatted-object-property" data-depth="${depth}" style="margin-left: ${depth}rem">`
+    str += `<div class="text-formatted-object-property" data-depth="${depth}" style="margin-left: ${depth / 2}rem">`
 
     switch (typeof propertyValue) {
       case 'string':

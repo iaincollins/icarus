@@ -52,6 +52,10 @@
   animation: text-blink-animation .5s ease-in-out infinite;
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 @keyframes text-blink-animation {
   50% { opacity: 0; }
 }
