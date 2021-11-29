@@ -9,6 +9,7 @@ let loadNewLogEntries
 
 export default function LogPage () {
   const { connected, active, sendEvent } = useSocket()
+  const [ready, setReady] = useState(false)
   const [logEntries, setLogEntries] = useState([])
   const [selectedLogEntry, setSelectedLogEntry] = useState()
 
@@ -19,6 +20,7 @@ export default function LogPage () {
       // Only select a log entry if one isn't selected already
       setSelectedLogEntry(prevState => prevState || newLogEntries[0])
     }
+    setReady(true)
   }, [connected])
 
   useEffect(() => useEventListener('newLogEntry', async (newLogEntry) => {
@@ -44,7 +46,7 @@ export default function LogPage () {
   }), [])
 
   return (
-    <Layout connected={connected} active={active}>
+    <Layout connected={connected} active={active} ready={ready}>
       <Panel layout='left-half' scrollable>
         <LogPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
       </Panel>

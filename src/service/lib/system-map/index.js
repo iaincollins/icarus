@@ -1,12 +1,12 @@
-import Icons from 'lib/icons'
-import {
+const Icons = require('./icons')
+const {
   MEGASHIPS,
   STARPORTS,
   PLANETARY_PORTS,
   PLANETARY_OUTPOSTS,
   SETTLEMENTS,
   PLANETARY_BASES
-} from 'lib/consts'
+} = require('../consts')
 
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
@@ -15,7 +15,7 @@ function escapeRegExp (text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
 }
 
-export default class SystemMap {
+class SystemMap {
   constructor (system) {
     this.system = system
     const { bodies = [], stations = [] } = this.system
@@ -564,3 +564,5 @@ function truncateString (string, maxLength) {
   }
   return string
 }
+
+module.exports = SystemMap

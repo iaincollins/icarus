@@ -11,6 +11,8 @@ const UNKNOWN_VALUE = 'Unknown'
 
 const EliteJson = require('./elite-json')
 const EliteLog = require('./elite-log')
+const EDSM = require('./edsm')
+const SystemMap = require('./system-map')
 
 // Instances that can be used to query game state
 const eliteJson = new EliteJson(DATA_DIR)
@@ -106,7 +108,7 @@ const eventHandlers = {
     }
   },
   loadingStats: () => loadingStats(),
-  commander: async () => {
+  getCommander: async () => {
     const [LoadGame] = await Promise.all([eliteLog.getEvent('LoadGame')])
     return {
       commander: LoadGame?.Commander ?? UNKNOWN_VALUE,
@@ -119,6 +121,27 @@ const eventHandlers = {
     } else {
       return await eliteLog.getNewest(count)
     }
+  },
+  getSystem: async ({ systemName } = {}) => {
+    let targetSystemName = systemName
+    if (!targetSystemName) {
+      const FSDJump = await eliteLog.getEvent('FSDJump')
+      targetSystemName = FSDJump?.StarSystem ?? UNKNOWN_VALUE
+      if (targetSystemName === UNKNOWN_VALUE) return null
+    }
+
+    // TODO don't rely on the cache in the EDSM class as plotting system maps
+    // is slow! Cache each system map and check that cache instead.
+
+    const [bodies, stations] = await Promise.all([
+      EDSM.bodies(targetSystemName),
+      EDSM.stations(targetSystemName)
+    ])
+
+    // TODO Handle when there is no data more explicitly
+
+    const systemMap = new SystemMap({ name: targetSystemName, bodies, stations })
+    return systemMap.stars
   }
 }
 

@@ -1,8 +1,5 @@
-import iconJson from 'lib/icons.json'
-import {
-  PLANETARY_PORTS,
-  PLANETARY_BASES
-} from 'lib/consts'
+const iconJson = require('./icons.json')
+const { PLANETARY_PORTS, PLANETARY_BASES } = require('../consts')
 
 class _Icons {
   static icon (name, style, classNames) {
@@ -61,3 +58,5 @@ function getClassNamesAsString () {
 }
 
 const Icons = new Proxy(_Icons, _IconsProxyHandler)
+
+module.exports = Icons
