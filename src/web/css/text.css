@@ -9,7 +9,7 @@
 }
 
 .text-primary-dark {
-  color: var(--darkest-primary-color);
+  color: var(--dark-primary-color);
   text-shadow: var(--text-shadow);
 }
 
@@ -19,7 +19,7 @@
 }
 
 .text-secondary-dark {
-  color: var(--darkest-secondary-color);
+  color: var(--dark-secondary-color);
   text-shadow: var(--text-shadow);
 }
 

@@ -20,7 +20,7 @@
 }
 
 ::selection { 
-  background: var(--darkest-secondary-color);
+  background: var(--dark-secondary-color);
   color: var(--secondary-color);
   text-shadow: 0 0 5px var(--secondary-color);
 }
@@ -52,7 +52,7 @@ html::-webkit-scrollbar,
 .scrollable::-webkit-scrollbar-thumb {
   background: var(--primary-color);
   min-height: 4rem;
-  box-shadow: 0 0 10px var(--darkest-primary-color);
+  box-shadow: 0 0 10px var(--dark-primary-color);
 }
 
 .scrollable::-webkit-scrollbar-track {
@@ -179,7 +179,7 @@ progress[value] {
 }
 
 progress[value]::-webkit-progress-bar {
-  background: var(--darkest-primary-color);
+  background: var(--dark-primary-color);
 }
 
 progress[value]::-webkit-progress-value {
@@ -205,6 +205,6 @@ hr.large {
 }
 
 hr.bold {
-  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0rem .7rem -.03rem var(--primary-color), 0 0rem 1rem -.01rem var(--darkest-primary-color) !important;
+  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0rem .7rem -.03rem var(--primary-color), 0 0rem 1rem -.01rem var(--dark-primary-color) !important;
   opacity: 1;
 }
