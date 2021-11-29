@@ -42,11 +42,13 @@ export default function Toolbar ({ activeNavButton, connected, active }) {
       </div>
       <hr className='bold' />
       <div className='button-group'>
-        {NAV_BUTTONS.map(buttonName => 
-          <Link 
+        {NAV_BUTTONS.map(buttonName =>
+          <Link
+            key={buttonName}
             href={!ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPageName}` : `/${buttonName.toLowerCase()}`}
             disabled={!ENABLED_NAV_BUTTONS.includes(buttonName)}
-          ><a className={`button ${currentPageName === buttonName.toLowerCase() ? 'active' : ''} ${!ENABLED_NAV_BUTTONS.includes(buttonName) ? 'button-disabled' : ''}`}>{buttonName}</a></Link>
+          ><a className={`button ${currentPageName === buttonName.toLowerCase() ? 'active' : ''} ${!ENABLED_NAV_BUTTONS.includes(buttonName) ? 'button-disabled' : ''}`}>{buttonName}</a>
+          </Link>
         )}
       </div>
       <hr />

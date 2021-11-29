@@ -3,20 +3,16 @@ import Layout from 'components/layout'
 import Panel from 'components/panel'
 import { useSocket } from 'lib/socket'
 
-let loadNewLogEntries
-
 export default function IndexPage () {
   const { connected, active } = useSocket()
 
   // Client side redirect
-  if (typeof window !== "undefined") Router.push('/log')
+  if (typeof window !== 'undefined') Router.push('/log')
 
   return (
     <>
       <Layout connected={connected} active={active}>
-        <Panel layout='full-width' scrollable>
-          
-        </Panel>
+        <Panel layout='full-width' scrollable />
       </Layout>
     </>
   )
