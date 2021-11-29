@@ -1,21 +1,15 @@
-import Router from 'next/router'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
 import { useSocket } from 'lib/socket'
 
-let loadNewLogEntries
-
-export default function IndexPage () {
+export default function NavPage () {
   const { connected, active } = useSocket()
-
-  // Client side redirect
-  if (typeof window !== "undefined") Router.push('/log')
 
   return (
     <>
       <Layout connected={connected} active={active}>
         <Panel layout='full-width' scrollable>
-          
+          <h2>Navigation</h2>
         </Panel>
       </Layout>
     </>

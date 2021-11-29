@@ -1,4 +1,5 @@
-button {
+button,
+.button {
   background: var(--dark-primary-color);
   color: var(--primary-color);
   border: 0;
@@ -9,23 +10,28 @@ button {
   font-weight: 900;
   min-width: 20rem;
   text-transform: uppercase;
+  text-align: center;
 }
 
-button:disabled {
+button:disabled,
+.button.button-disabled {
   opacity: 0.25;
 }
 
-button:not(:disabled):hover {
+button:not(:disabled):hover,
+.button:not(.button-disabled):hover {
   background: var(--primary-color);
   color: var(--dark-primary-color);
 }
 
-button:not(:disabled):active {
+button:not(:disabled):active,
+.button:not(.button-disabled):active {
   background: var(--secondary-color);
   color: var(--dark-secondary-color);
 }
 
-button.button-with-icon {
+button.button-with-icon,
+.button.button-with-icon {
   position: relative;
   height: 3rem;
   width: 3rem;
@@ -34,11 +40,13 @@ button.button-with-icon {
   padding: 0;
 }
 
-button.button-with-icon > * {
+button.button-with-icon > *,
+.button.button-with-icon > * {
   font-size: 2rem;
   line-height: 3rem;
 }
 
-button.button-transparent {
+button.button-transparent ,
+.button.button-transparent {
   background: none;
 }

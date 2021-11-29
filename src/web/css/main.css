@@ -15,6 +15,7 @@
   src: url('../public/fonts/Jura-VariableFont_wght.ttf') format('truetype');
 }
 
+a,
 * {
   cursor: url('../public/images/cursor.png'), crosshair;
 }
@@ -147,6 +148,9 @@ p {
 a {
   color: white;
   text-decoration: none;
+}
+
+a:not(.button) {
   cursor: pointer;
 }
 

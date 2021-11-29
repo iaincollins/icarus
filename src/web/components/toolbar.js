@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { toggleFullScreen } from 'lib/window'
 import { eliteDateTime } from 'lib/format'
 
-export default function Toolbar ({ connected, active }) {
+const NAV_BUTTONS = ['Cmdr', 'Ship', 'Nav', 'Trade', 'Log', 'Comms']
+const ENABLED_NAV_BUTTONS = ['Log'] // Enabling options as they are ready
+
+export default function Toolbar ({ activeNavButton, connected, active }) {
+  const router = useRouter()
   const [dateTime, setDateTime] = useState(eliteDateTime())
 
   useEffect(() => {
@@ -19,6 +25,8 @@ export default function Toolbar ({ connected, active }) {
     signalClassName += ' text-secondary'
   }
 
+  const currentPageName = router.pathname.replace(/\//, '').toLowerCase()
+
   return (
     <>
       <hr className='small' />
@@ -34,12 +42,12 @@ export default function Toolbar ({ connected, active }) {
       </div>
       <hr className='bold' />
       <div className='button-group'>
-        <button disabled>Cmdr</button>
-        <button disabled>Ship</button>
-        <button disabled>Nav</button>
-        <button disabled>Trade</button>
-        <button className='active'>Log</button>
-        <button disabled>Comms</button>
+        {NAV_BUTTONS.map(buttonName => 
+          <Link 
+            href={!ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPageName}` : `/${buttonName.toLowerCase()}`}
+            disabled={!ENABLED_NAV_BUTTONS.includes(buttonName)}
+          ><a className={`button ${currentPageName === buttonName.toLowerCase() ? 'active' : ''} ${!ENABLED_NAV_BUTTONS.includes(buttonName) ? 'button-disabled' : ''}`}>{buttonName}</a></Link>
+        )}
       </div>
       <hr />
     </>

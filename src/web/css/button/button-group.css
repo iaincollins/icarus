@@ -3,28 +3,34 @@
   gap: .25rem;
 }
 
-.button-group button {
+.button-group button,
+.button-group .button {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
   min-width: initial;
 }
 
-.button-group button {
+.button-group button,
+.button-group .button {
   background: var(--dark-primary-color);
   color: var(--primary-color);
 }
 
 .button-group button:hover:not(.active):not([disabled]),
 .button-group button:focus:not(.active):not([disabled]),
-.button-group button:active:not(.active):not([disabled]) {
+.button-group button:active:not(.active):not([disabled]),
+.button-group .button:hover:not(.active):not(.button-disabled),
+.button-group .button:focus:not(.active):not(.button-disabled),
+.button-group .button:active:not(.active):not(.button-disabled) {
   background: var(--dark-secondary-color);
   color: var(--secondary-color);
   text-shadow: var(--text-shadow);
   --icon-color: var(--dark-secondary-color);
 }
 
-.button-group button.active {
+.button-group button.active,
+.button-group .button.active {
   background: var(--button-active-color);
   color: var(--dark-primary-color);
   --icon-color: var(--dark-primary-color);
