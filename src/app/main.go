@@ -77,7 +77,7 @@ func main() {
 
 	port = int(*portPtr)
 	url = fmt.Sprintf("http://localhost:%d", *portPtr)
-	launcherUrl := fmt.Sprintf("http://localhost:%d/launcher.html", *portPtr)
+	launcherUrl := fmt.Sprintf("http://localhost:%d/launcher", *portPtr)
 
 	// Check if we are starting in Terminal mode
 	if *terminalMode {

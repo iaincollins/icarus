@@ -35,7 +35,7 @@ if (HTTP_SERVER) {
   // The default behaviour (i.e. production) to serve static assets. When the
   // application is compiled to a native executable these assets will be bundled
   // with the executable in a virtual file system.
-  const webServer = connect().use(serveStatic(WEBROOT))
+  const webServer = connect().use(serveStatic(WEBROOT, { extensions: ['html'] }))
   httpServer = http.createServer(webServer)
 }
 
