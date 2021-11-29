@@ -1,8 +1,8 @@
-import iconJson from './icons.json'
+import iconJson from 'lib/icons.json'
 import {
   PLANETARY_PORTS,
   PLANETARY_BASES
-} from './consts'
+} from 'lib/consts'
 
 class _Icons {
   static icon (name, style, classNames) {

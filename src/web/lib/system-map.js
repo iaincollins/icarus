@@ -1,4 +1,4 @@
-import Icons from './icons'
+import Icons from 'lib/icons'
 import {
   MEGASHIPS,
   STARPORTS,
@@ -6,7 +6,7 @@ import {
   PLANETARY_OUTPOSTS,
   SETTLEMENTS,
   PLANETARY_BASES
-} from './consts'
+} from 'lib/consts'
 
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
@@ -16,8 +16,8 @@ function escapeRegExp (text) {
 }
 
 export default class SystemMap {
-  constructor (navigationData) {
-    this.system = navigationData.system
+  constructor (system) {
+    this.system = system
     const { bodies = [], stations = [] } = this.system
     this.stars = bodies.filter(body => body.type === 'Star')
     this.planets = bodies.filter(body => body.type === 'Planet')
@@ -330,7 +330,7 @@ export default class SystemMap {
     return children
   }
 
-  renderSystemMapObject (obj, { onFocus }) {
+  renderSystemMapObject (obj, { onFocus } = {}) {
     const CLICKABLE_AREA_PADDING = 250
     const MAX_LABEL_WIDTH = 3000
 

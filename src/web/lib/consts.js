@@ -35,7 +35,7 @@ const SETTLEMENTS = ['Odyssey Settlement']
 // All types of ground facility
 const PLANETARY_BASES = PLANETARY_PORTS.concat(PLANETARY_OUTPOSTS).concat(SETTLEMENTS)
 
-export default {
+module.exports = {
   MEGASHIPS,
   STARPORTS,
   PLANETARY_PORTS,
