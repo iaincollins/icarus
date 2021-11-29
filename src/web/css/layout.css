@@ -1,4 +1,3 @@
-
 .layout__overlay {
   z-index: 100;
   pointer-events: none;
@@ -33,11 +32,10 @@
   }
 }
 
-
 .layout__main {
   position: absolute;
   top: 10rem;
-  bottom: 0rem;
+  bottom: 1rem;
   left: 1rem;
   right: 1rem;
   transition: .25s ease-in-out;
@@ -78,7 +76,7 @@
   }
   .layout__right-half {
     position: absolute;
-    bottom: 1.5rem;
+    bottom: .5rem;
     height: 50%;
   }
 }
