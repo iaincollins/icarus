@@ -7,7 +7,7 @@ import { eliteDateTime } from 'lib/format'
 const NAV_BUTTONS = ['Cmdr', 'Ship', 'Nav', 'Trade', 'Log', 'Comms']
 const ENABLED_NAV_BUTTONS = ['Log'] // Enabling options as they are ready
 
-export default function Toolbar ({ activeNavButton, connected, active }) {
+export default function Toolbar ({ connected, active }) {
   const router = useRouter()
   const [dateTime, setDateTime] = useState(eliteDateTime())
 

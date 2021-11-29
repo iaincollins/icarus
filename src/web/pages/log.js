@@ -44,15 +44,13 @@ export default function LogPage () {
   }), [])
 
   return (
-    <>
-      <Layout connected={connected} active={active}>
-        <Panel layout='left-half' scrollable>
-          <LogPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
-        </Panel>
-        <Panel layout='right-half' scrollable>
-          <LogInspectorPanel logEntry={selectedLogEntry} />
-        </Panel>
-      </Layout>
-    </>
+    <Layout connected={connected} active={active}>
+      <Panel layout='left-half' scrollable>
+        <LogPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
+      </Panel>
+      <Panel layout='right-half' scrollable>
+        <LogInspectorPanel logEntry={selectedLogEntry} />
+      </Panel>
+    </Layout>
   )
 }

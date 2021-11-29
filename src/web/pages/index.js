@@ -10,10 +10,8 @@ export default function IndexPage () {
   if (typeof window !== 'undefined') Router.push('/log')
 
   return (
-    <>
-      <Layout connected={connected} active={active}>
-        <Panel layout='full-width' scrollable />
-      </Layout>
-    </>
+    <Layout connected={connected} active={active}>
+      <Panel layout='full-width' scrollable />
+    </Layout>
   )
 }

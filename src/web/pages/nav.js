@@ -6,12 +6,10 @@ export default function NavPage () {
   const { connected, active } = useSocket()
 
   return (
-    <>
-      <Layout connected={connected} active={active}>
-        <Panel layout='full-width' scrollable>
-          <h2>Navigation</h2>
-        </Panel>
-      </Layout>
-    </>
+    <Layout connected={connected} active={active}>
+      <Panel layout='full-width' scrollable>
+        <h2>Navigation</h2>
+      </Panel>
+    </Layout>
   )
 }

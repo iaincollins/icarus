@@ -6,12 +6,10 @@ export default function TradePage () {
   const { connected, active } = useSocket()
 
   return (
-    <>
-      <Layout connected={connected} active={active}>
-        <Panel layout='full-width' scrollable>
-          <h2>Trade</h2>
-        </Panel>
-      </Layout>
-    </>
+    <Layout connected={connected} active={active}>
+      <Panel layout='full-width' scrollable>
+        <h2>Trade</h2>
+      </Panel>
+    </Layout>
   )
 }
