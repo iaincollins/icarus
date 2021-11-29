@@ -23,7 +23,7 @@ export default function Toolbar ({ connected, active }) {
     <>
       <hr className='small' />
       <h1 style={{ padding: '.5rem 0' }}> ICARUS Terminal</h1>
-      <div style={{ position: 'absolute', top: '1.6rem', right: '1rem' }}>
+      <div style={{ position: 'absolute', top: '1.5rem', right: '1rem' }}>
         <h3 className='text-primary' style={{ display: 'inline', position: 'relative', top: '-.5rem', left: '-.5rem' }}>{dateTime}</h3>
         <button disabled className='button-with-icon button-transparent' style={{ opacity: 1, marginRight: '.5rem' }}>
           <i className={signalClassName} style={{ transition: 'all .25s ease' }} />

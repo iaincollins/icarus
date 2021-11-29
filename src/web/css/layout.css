@@ -16,6 +16,8 @@
 }
 
 .layout header h1 {
+  position: relative;
+  top: -.15rem;
   font-size: 2rem;
   line-height: 2rem;
 }
