@@ -17,13 +17,14 @@ table thead tr th {
   z-index: 2;
   text-shadow: var(--text-shadow);
   text-transform: uppercase;
-  color: var(--primary-color);
+  color: var(--darker-primary-color);
   background: var(--solid-panel-background-color);
-  box-shadow: 0 -10px 0 var(--dark-primary-color);
+  box-shadow: 0 -10px 0 var(--darkest-primary-color);
   padding: .6rem 1rem .8rem 1rem;
-  font-weight: bold;
   text-align: left;
   user-select: none;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--darker-primary-color);
 }
 
 table thead tr th:after {
@@ -34,17 +35,17 @@ table thead tr th:after {
   top: 2.8rem;
   left: 0;
   right: 0;
-  border-bottom: .1rem solid var(--primary-color);
-  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0 .7rem -.03rem var(--primary-color) !important;
+  border-bottom: .15rem solid var(--darker-primary-color);
+  box-shadow: 0 .03rem .5rem var(--darker-primary-color), 0 0 .7rem -.03rem var(--darker-primary-color) !important;
 }
 
 table td {
   padding: 0.5rem 1rem;
   overflow: hidden;
   text-shadow: var(--text-shadow);
-  font-weight: bold;
   text-transform: uppercase;
   vertical-align: top;
+  font-weight: bold;
 }
 
 table tbody tr {
@@ -57,18 +58,16 @@ table tbody tr {
 table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td,
 table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td span {
   color: var(--primary-color);
-  background: var(--table-row-hover-background-color);
-  font-weight: bold;
+  background: var(--darkest-primary-color);
   transition: all .1s ease;
   --icon-color: var(--primary-color);
 }
 
 table:not(.table__inline) tbody tr:focus:not([disabled="disabled"]) td,
 table:not(.table__inline) tbody tr:focus:not([disabled="disabled"]) td span {
-  color: var(--dark-primary-color);
+  color: var(--darkest-primary-color);
   background: var(--button-active-color);
-  --icon-color: var(--dark-primary-color);
-  font-weight: bold;
+  --icon-color: var(--darkest-primary-color);
 }
 
 table tbody td {
@@ -102,7 +101,7 @@ table.table__bordered tbody tr td {
   animation-delay: 1s;
   opacity: 0;
   background-color: var(--panel-background-color);
-  border: .2rem solid var(--dark-primary-color);
+  border: .2rem solid var(--darkest-primary-color);
 }
 
 table.table__bordered tbody tr:nth-child(1) td {

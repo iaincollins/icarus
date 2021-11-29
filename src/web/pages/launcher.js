@@ -35,7 +35,7 @@ export default function IndexPage () {
   return (
     <>
       <Loader visible={!connected} />
-      <div style={{ opacity: connected ? 1 : 0 }}>
+      <div style={{ padding: '.5rem 1rem', opacity: connected ? 1 : 0 }}>
         <h1>ICARUS</h1>
         <h3 className='text-primary'>Version {packageJson.version}</h3>
         <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
@@ -59,13 +59,12 @@ export default function IndexPage () {
           }}
         >
           <div className={loadingProgress.loadingComplete ? 'text-muted' : ''}>
-
             {loadingProgress.loadingComplete === false ? <p>Loading...</p> : <p>Loaded</p>}
-            <p>{formatBytes(loadingProgress.logSizeInBytes)}</p>
-            <p>{loadingProgress.numberOfFiles.toLocaleString()} files</p>
-            <p>{loadingProgress.numberOfLogLines.toLocaleString()} log entries</p>
+            <p>{loadingProgress.numberOfFiles.toLocaleString()} log files</p>
+            <p>{formatBytes(loadingProgress.logSizeInBytes)} of data</p>
+            <p>{loadingProgress.numberOfLogLines.toLocaleString()} recent log entries</p>
             <p>{loadingProgress.numberOfEventsImported.toLocaleString()} events imported</p>
-            {loadingProgress.loadingComplete === true ? <p>Last active: {eliteDateTime(loadingProgress.lastActivity)}</p> : ''}
+            {loadingProgress.loadingComplete === true ? <p>Last activity {eliteDateTime(loadingProgress.lastActivity)}</p> : ''}
             {/* <p>Load time: {parseInt(loadingProgress.loadingTime / 1000)} seconds</p> */}
             <div style={{ position: 'absolute', bottom: '.5rem', left: '.5rem', right: '.5rem' }}>
               {loadingProgress.loadingComplete === false && <progress value={loadingProgress.numberOfEventsImported} max={loadingProgress.numberOfLogLines} />}

@@ -1,5 +1,5 @@
 button {
-  background: var(--dark-primary-color);
+  background: var(--darkest-primary-color);
   color: var(--primary-color);
   border: 0;
   padding: .5rem 1rem;
@@ -17,12 +17,12 @@ button:disabled {
 
 button:not(:disabled):hover {
   background: var(--primary-color);
-  color: var(--dark-primary-color);
+  color: var(--darkest-primary-color);
 }
 
 button:not(:disabled):active {
   background: var(--secondary-color);
-  color: var(--dark-secondary-color);
+  color: var(--darkest-secondary-color);
 }
 
 button.button-with-icon {

@@ -19,6 +19,7 @@ function toggleFullScreen () {
       document.webkitCancelFullScreen()
     }
   }
+  document.activeElement.blur() // Reset element focus after switching
 }
 
 function newWindow () {

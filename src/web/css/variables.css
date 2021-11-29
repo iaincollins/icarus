@@ -1,22 +1,23 @@
 :root {
-  --primary-color: rgb(235, 125, 0);
-  --dark-primary-color: rgb(58, 12, 0);
+  --primary-color: rgb(251, 142, 0);
+  --darker-primary-color: rgb(206, 100, 2);
+  --darkest-primary-color: rgb(58, 12, 0);
 
   --secondary-color: rgb(163, 229, 255);
-  --dark-secondary-color: rgb(9, 26, 40);
+  --darkest-secondary-color: rgb(9, 26, 40);
 
   /* advanced theming options */
   --primary-text-color: var(--primary-color);
   --secondary-text-color: var(--secondary-color);
   
-  --background-color: var(--dark-primary-color);
+  --background-color: var(--darkest-primary-color);
   --panel-background-color: rgba(58, 12, 0, .4);
   --solid-panel-background-color: rgba(29, 6, 0);
 
-  --table-row-hover-background-color: rgba(58, 12, 0, .8);
+  --table-row-hover-background-color: var(--darker-primary-color);
 
   --button-active-color: var(--primary-color);
-  --button-hover-color: var(--dark-secondary-color);
+  --button-hover-color: var(--darkest-secondary-color);
   --button-hover-text-color: var(--secondary-color);
   
   --text-shift-left-color: rgba(0, 128, 0, .5);
@@ -33,6 +34,9 @@
   --icon-focus-color: var(--secondary-color);
 
   --text-shadow: 0 0 20px;
+
+  --mobile-max-breakpoint: 600px;
+  --tablet-max-breakpoint: 800px;
 }
 
 /*

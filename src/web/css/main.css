@@ -1,12 +1,12 @@
 @import "variables.css";
 
 @import "layout.css";
-@import "panels.css";
 @import "loader.css";
-@import "overlay.css";
-@import "buttons.css";
+@import "button/button.css";
+@import "button/button-group.css";
 @import "text.css";
 @import "table.css";
+@import "fx.css";
 
 @import "icarus-terminal-font.css";
 
@@ -20,7 +20,7 @@
 }
 
 ::selection { 
-  background: var(--dark-secondary-color);
+  background: var(--darkest-secondary-color);
   color: var(--secondary-color);
   text-shadow: 0 0 5px var(--secondary-color);
 }
@@ -52,7 +52,7 @@ html::-webkit-scrollbar,
 .scrollable::-webkit-scrollbar-thumb {
   background: var(--primary-color);
   min-height: 4rem;
-  box-shadow: 0 0 10px var(--dark-primary-color);
+  box-shadow: 0 0 10px var(--darkest-primary-color);
 }
 
 .scrollable::-webkit-scrollbar-track {
@@ -103,8 +103,25 @@ body {
   color: white;
   font-family: "Jura", sans-serif;
   font-size: 1.25rem;
-  padding: .5rem 1rem;
+  padding: 0;
   margin: 0;
+  zoom: 0.9;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    zoom: 0.8;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    zoom: 0.7;
+  }
+}
+
+header {
+  padding: .5rem 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -153,7 +170,7 @@ progress {
   width: 100%;
   border-radius: 0;
   height: 2rem;
-  border: .1rem solid var(--primary-color);
+  border: 0;
 }
 
 progress[value] {
@@ -162,12 +179,12 @@ progress[value] {
 }
 
 progress[value]::-webkit-progress-bar {
-  background: var(--dark-primary-color);
+  background: var(--darkest-primary-color);
 }
 
 progress[value]::-webkit-progress-value {
   background: var(--primary-color);
-  transition : width .25s ease;
+  transition: width .25s ease;
 }
 
 hr {
@@ -188,6 +205,6 @@ hr.large {
 }
 
 hr.bold {
-  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0rem .7rem -.03rem var(--primary-color), 0 0rem 1rem -.01rem var(--dark-primary-color) !important;
+  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0rem .7rem -.03rem var(--primary-color), 0 0rem 1rem -.01rem var(--darkest-primary-color) !important;
   opacity: 1;
 }

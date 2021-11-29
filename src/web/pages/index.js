@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
-import Toolbar from 'components/layout/toolbar'
-import Loader from 'components/loader'
-import MainLayout from 'components/layout/main-layout'
-import PanelLayout from 'components/layout/panel-layout'
+import Layout from 'components/layout'
+import Panels from 'components/panels'
 import LogPanel from 'components/panels/log-panel'
 import LogInspectorPanel from 'components/panels/log-inspector-panel'
 import { useSocket, useEventListener } from 'lib/socket'
@@ -10,7 +8,7 @@ import { useSocket, useEventListener } from 'lib/socket'
 let loadNewLogEntries
 
 export default function IndexPage () {
-  const { connected, sendEvent } = useSocket()
+  const { connected, active, sendEvent } = useSocket()
   const [logEntries, setLogEntries] = useState([])
   const [selectedLogEntry, setSelectedLogEntry] = useState()
 
@@ -47,16 +45,14 @@ export default function IndexPage () {
 
   return (
     <>
-      <Toolbar connected={connected} />
-      <Loader visible={!connected || logEntries.length === 0} />
-      <MainLayout visible={connected && logEntries.length > 0}>
-        <PanelLayout layout='left-half' scrollable>
+      <Layout connected={connected} active={active}>
+        <Panels layout='left-half' scrollable>
           <LogPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
-        </PanelLayout>
-        <PanelLayout layout='right-half' scrollable>
+        </Panels>
+        <Panels layout='right-half' scrollable>
           <LogInspectorPanel logEntry={selectedLogEntry} />
-        </PanelLayout>
-      </MainLayout>
+        </Panels>
+      </Layout>
     </>
   )
 }

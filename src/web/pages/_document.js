@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render () {
     return (
-      <Html lang='en'>
+      <Html lang='en' data-fx-crt='false' data-fx-crt-text='false' data-fx-crt-text-animated='false'>
         <Head />
         <script dangerouslySetInnerHTML={{
           __html: `
@@ -18,6 +18,7 @@ class MyDocument extends Document {
         />
         <body className='not-selectable'>
           <div className='layout__background' />
+          <div className='layout__overlay' />
           <Main />
           <NextScript />
         </body>

@@ -4,62 +4,103 @@ import { createContext, useState, useContext } from 'react'
 let socket // Store socket connection
 const callbackHandlers = {} // Store callbacks waiting to be executed (pending response from server)
 const deferredEventQueue = [] // Store events waiting to be sent (used when server is not ready yet or offline)
+let recentBroadcastEvents = 0
 
 const defaultSocketState = {
   connected: false, // Boolean to indicate current connection status
+  active: false, // Boolean to indicate if any pending requests
   sendEvent // An async function components can call to send an event
 }
+
+function socketDebugMessage () { /* console.log(...arguments) */ }
 
 function connect (socketState, setSocketState) {
   socket = new WebSocket('ws://' + window.location.host)
   socket.onmessage = (event) => {
     const { requestId, name, message } = JSON.parse(event.data)
     // Invoke callback to handler (if there is one)
-    if (callbackHandlers[requestId]) { callbackHandlers[requestId](event) }
+    if (requestId && callbackHandlers[requestId]) callbackHandlers[requestId](event, setSocketState)
     // Broadcast event to anything that is listening for an event with this name
-    if (name) {
-      window.dispatchEvent(new CustomEvent(`socket.${name}`, { detail: message }))
+    if (!requestId && name) {
+      window.dispatchEvent(new CustomEvent(`socketEvent_${name}`, { detail: message }))
+
+      // When a broadcast message is received, use recentBroadcastEvents to
+      // track recent requests so the activity monitor in the UI can reflect
+      // that there is activity and that the client is receiving events.
+      recentBroadcastEvents++
+      setTimeout(() => {
+        recentBroadcastEvents--
+        setSocketState(prevState => ({
+          ...prevState,
+          active: socketRequestsPending()
+        }))
+      }, 500)
     }
-    console.log('Message received from socket server', requestId, name, message)
+    socketDebugMessage('Message received from socket server', requestId, name, message)
   }
   socket.onopen = (e) => {
-    console.log('Connected to socket server')
-    setSocketState({
-      ...socketState,
-      connected: true
-    })
+    socketDebugMessage('Connected to socket server')
 
-    while (deferredEventQueue.length > 0) {
-      const { requestId, name, message } = deferredEventQueue.shift()
-      socket.send(JSON.stringify({ requestId, name, message }))
-      console.log('Queued message sent to socket server', requestId, name, message)
+    setSocketState(prevState => ({
+      ...prevState,
+      active: socketRequestsPending(),
+      connected: true
+    }))
+
+    // While connection remains open and there are queued messages, try to
+    // deliver. The readyState check matters because otherwise if a connection
+    // does down just after going up we want to catch that scenario, and try to
+    // send the message again when the open event is next fired.
+    while (socket.readyState === WebSocket.OPEN && deferredEventQueue.length > 0) {
+      const { requestId, name, message } = deferredEventQueue[0]
+      try {
+        socket.send(JSON.stringify({ requestId, name, message }))
+        setSocketState(prevState => ({
+          ...prevState,
+          active: socketRequestsPending()
+        }))
+        deferredEventQueue.shift() // Remove message from queue once delivered
+        socketDebugMessage('Queued message sent to socket server', requestId, name, message)
+      } catch (e) {
+        // Edge case for flakey connections
+        socketDebugMessage('Failed to deliver queued message socket server', requestId, name, message)
+      }
     }
   }
   socket.onclose = (e) => {
-    console.log('Disconnected from socket server')
-    setSocketState({
-      ...socketState,
+    socketDebugMessage('Disconnected from socket server')
+    setSocketState(prevState => ({
+      ...prevState,
+      active: !!((Object.keys(callbackHandlers).length > 0 || deferredEventQueue.length > 0)),
       connected: false
-    })
+    }))
   }
 }
 
 function sendEvent (name, message = null) {
   return new Promise((resolve, reject) => {
     const requestId = generateUuid()
-    callbackHandlers[requestId] = (event) => {
+    callbackHandlers[requestId] = (event, setSocketState) => {
       const { message } = JSON.parse(event.data)
       delete callbackHandlers[requestId]
+      setSocketState(prevState => ({
+        ...prevState,
+        active: socketRequestsPending()
+      }))
       resolve(message)
     }
     if (socket && socket.readyState === WebSocket.OPEN) {
       socket.send(JSON.stringify({ requestId, name, message }))
-      console.log('Message sent to socket server', requestId, name, message)
+      socketDebugMessage('Message sent to socket server', requestId, name, message)
     } else {
       deferredEventQueue.push({ requestId, name, message })
-      console.log('Message queued', requestId, name, message)
+      socketDebugMessage('Message queued', requestId, name, message)
     }
   })
+}
+
+function socketRequestsPending () {
+  return !!((Object.keys(callbackHandlers).length > 0 || deferredEventQueue.length > 0 || recentBroadcastEvents > 0))
 }
 
 function generateUuid () {
@@ -90,6 +131,6 @@ export function useEventListener (eventName, callback) {
   const eventHandler = (e) => {
     callback(e.detail)
   }
-  window.addEventListener(`socket.${eventName}`, eventHandler)
-  return () => window.removeEventListener(`socket.${eventName}`, eventHandler)
+  window.addEventListener(`socketEvent_${eventName}`, eventHandler)
+  return () => window.removeEventListener(`socketEvent_${eventName}`, eventHandler)
 }

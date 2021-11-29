@@ -1,6 +1,8 @@
 import { objectToHtml } from 'lib/format'
 
 export default function LogInspectorPanel ({ logEntry }) {
+  if (!logEntry) return null
+
   return (
     <div style={{ padding: '.5rem 1rem' }}>
       <h2 className='text-primary'>Log Entry</h2>

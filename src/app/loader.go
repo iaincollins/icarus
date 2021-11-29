@@ -10,8 +10,8 @@ func LoadUrl(url string) string {
     <style>
       :root {
         --primary-color: rgb(235, 125, 0);
-        --dark-primary-color: rgb(58, 12, 0);
-				--background-color: var(--dark-primary-color);
+        --darkest-primary-color: rgb(58, 12, 0);
+				--background-color: var(--darkest-primary-color);
       }
 
       html {
