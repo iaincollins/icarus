@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const connect = require('connect')
 const serveStatic = require('serve-static')
 const http = require('http')
@@ -12,14 +14,14 @@ const commandLineArgs = yargs.argv
 // Parse command line arguments
 const PORT = commandLineArgs.port || 3300 // Port to listen on
 const HTTP_SERVER = commandLineArgs['http-server'] || false // URL of server
-const DATA_DIR = process.env.DATA_DIR
-  ? process.env.DATA_DIR.startsWith('/') ? process.env.DATA_DIR : path.join(__dirname, process.env.DATA_DIR)
+const LOG_DIR = process.env.LOG_DIR
+  ? process.env.LOG_DIR.startsWith('/') ? process.env.LOG_DIR : path.join(__dirname, process.env.LOG_DIR)
   : path.join(os.homedir(), 'Saved Games', 'Frontier Developments', 'Elite Dangerous')
-const WEBROOT = 'build/web'
+const WEB_DIR = 'build/web'
 
 // Export globals BEFORE loading libraries that use them
 global.PORT = PORT
-global.DATA_DIR = DATA_DIR
+global.LOG_DIR = LOG_DIR
 global.BROADCAST_EVENT = broadcastEvent
 
 const packageJson = require('../../package.json')
@@ -35,7 +37,7 @@ if (HTTP_SERVER) {
   // The default behaviour (i.e. production) to serve static assets. When the
   // application is compiled to a native executable these assets will be bundled
   // with the executable in a virtual file system.
-  const webServer = connect().use(serveStatic(WEBROOT, { extensions: ['html'] }))
+  const webServer = connect().use(serveStatic(WEB_DIR, { extensions: ['html'] }))
   httpServer = http.createServer(webServer)
 }
 

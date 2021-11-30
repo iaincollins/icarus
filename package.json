@@ -14,7 +14,7 @@
     "build:debug:app": "node scripts/build-app.js --debug",
     "build:debug:service": "node scripts/build-service.js --debug",
     "dev:web": "next src/web",
-    "dev:service": "node src/service/main.js --http-server=\"http://localhost:3000\" &",
+    "dev:service": "node src/service/main.js --http-server=\"http://localhost:3000\"",
     "lint": "npm run lint:go && npm run lint:javascript",
     "lint:go": "go fmt src/app/main.go",
     "lint:javascript": "npx standard --fix"
@@ -40,6 +40,7 @@
     "async-retry": "^1.3.3",
     "axios": "^0.24.0",
     "connect": "^3.7.0",
+    "dotenv": "^10.0.0",
     "glob": "^7.1.7",
     "http-proxy": "^1.18.1",
     "lodash.throttle": "^4.1.1",

@@ -4,3 +4,4 @@ node_modules/
 temp/
 src/web/.next
 .DS_Store
+.env

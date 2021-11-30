@@ -3,7 +3,7 @@ const os = require('os')
 
 const {
   PORT,
-  DATA_DIR,
+  LOG_DIR,
   BROADCAST_EVENT: broadcastEvent
 } = global
 
@@ -15,8 +15,8 @@ const EDSM = require('./edsm')
 const SystemMap = require('./system-map')
 
 // Instances that can be used to query game state
-const eliteJson = new EliteJson(DATA_DIR)
-const eliteLog = new EliteLog(DATA_DIR)
+const eliteJson = new EliteJson(LOG_DIR)
+const eliteLog = new EliteLog(LOG_DIR)
 
 // TODO Define these in another file / merge with eventHandlers before porting
 // over existing event handlers from the internal build
@@ -147,7 +147,7 @@ const eventHandlers = {
 
 async function init ({
   lastActiveOnly = false,
-  minTimestamp = Date.now() - 30 * 24 * 60 * 60 * 1000 // Load last 30 days by default
+  minTimestamp = Date.now() - 300 * 24 * 60 * 60 * 1000 // Load last 30 days by default
 } = {}) {
   if (loadingComplete) return loadingStats() // If already run, don't run again
 
