@@ -49,9 +49,9 @@ function objectToHtml (obj, depth = 0, type = null) {
     let propertyLabel
     if (type === 'array') {
       if (typeof propertyValue === 'object') {
-        propertyLabel = `<label style="display: block; height: 0; position: relative; top: .5rem; left: -.5rem;">■</label>`
+        propertyLabel = '<label style="display: block; height: 0; position: relative; top: .5rem; left: -.5rem;">■</label>'
       } else {
-        propertyLabel = `<label> ■</label>`
+        propertyLabel = '<label> ■</label>'
       }
     } else {
       propertyLabel = `<label>${propertyName.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ').trim()}</label>`
