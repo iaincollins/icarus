@@ -2,13 +2,13 @@
 function toggleFullScreen () {
   if (typeof window.app_toggleFullScreen === 'function') { return window.app_toggleFullScreen() }
 
-  if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) {
+  if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.webkitCurrentFullScreenElement) {
     if (document.documentElement.requestFullscreen) {
       document.documentElement.requestFullscreen()
     } else if (document.documentElement.mozRequestFullScreen) {
       document.documentElement.mozRequestFullScreen()
     } else if (document.documentElement.webkitRequestFullscreen) {
-      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT)
+      document.documentElement.webkitRequestFullscreen()
     }
   } else {
     if (document.cancelFullScreen) {
@@ -17,6 +17,8 @@ function toggleFullScreen () {
       document.mozCancelFullScreen()
     } else if (document.webkitCancelFullScreen) {
       document.webkitCancelFullScreen()
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen()
     }
   }
   document.activeElement.blur() // Reset element focus after switching
