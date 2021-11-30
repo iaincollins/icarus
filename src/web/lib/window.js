@@ -1,4 +1,3 @@
-/* global Element */
 function toggleFullScreen () {
   if (typeof window.app_toggleFullScreen === 'function') { return window.app_toggleFullScreen() }
 

@@ -19,35 +19,31 @@ const systemStationsCache = {}
 const baseUrl = 'https://www.edsm.net/api-system-v1/'
 
 class EDSM {
-  static bodies (systemName) {
+  static async bodies (systemName) {
     // Try to use cache
     if (systemBodiesCache[systemName]) return systemBodiesCache[systemName]
 
-    return new Promise(async (resolve) => {
-      await retry(async bail => {
-        // console.log('Fetching system bodies from EDSM...', systemName)
-        const res = await axios.get(`${baseUrl}bodies?systemName=${encodeURIComponent(systemName)}`)
-        systemBodiesCache[systemName] = res.data.bodies
-        resolve(res.data.bodies)
-      }, {
-        retries: 10
-      })
+    return await retry(async bail => {
+      // console.log('Fetching system bodies from EDSM...', systemName)
+      const res = await axios.get(`${baseUrl}bodies?systemName=${encodeURIComponent(systemName)}`)
+      systemBodiesCache[systemName] = res.data.bodies
+      return res.data.bodies
+    }, {
+      retries: 10
     })
   }
 
-  static stations (systemName) {
+  static async stations (systemName) {
     // Try to use cache
     if (systemStationsCache[systemName]) return systemStationsCache[systemName]
 
-    return new Promise(async (resolve) => {
-      await retry(async bail => {
-        // console.log('Fetching system stations from EDSM...', systemName)
-        const res = await axios.get(`${baseUrl}stations?systemName=${encodeURIComponent(systemName)}`)
-        systemStationsCache[systemName] = res.data.stations
-        resolve(res.data.stations)
-      }, {
-        retries: 10
-      })
+    return await retry(async bail => {
+      // console.log('Fetching system stations from EDSM...', systemName)
+      const res = await axios.get(`${baseUrl}stations?systemName=${encodeURIComponent(systemName)}`)
+      systemStationsCache[systemName] = res.data.stations
+      return res.data.stations
+    }, {
+      retries: 10
     })
   }
 
