@@ -17,10 +17,6 @@ class MyDocument extends Document {
         }}
         />
         <body className='not-selectable'>
-          <div className='layout__background' />
-          <div className='layout__overlay' />
-          <Main />
-          <NextScript />
           <div dangerouslySetInnerHTML={{
             __html: `
             <!-- SVG filters and effects used for styling icons (e.g. sytem map) -->
@@ -44,7 +40,7 @@ class MyDocument extends Document {
           <stop offset="100%" stop-color="#aaa" />
         </linearGradient>
         <!-- Planets -->
-        <linearGradient id="svg-gradient__planet-ring" gradientTransform="rotate(90)"  gradientUnits="userSpaceOnUse">
+        <linearGradient id="svg-gradient__planet-ring" gradientTransform="rotate(90)" gradientUnits="userSpaceOnUse">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
@@ -165,10 +161,10 @@ class MyDocument extends Document {
       <svg style="position: absolute; height: 0; margin: 0; padding: 0; top: -100px;">
         <defs>
           <pattern id="svg-pattern__planet-surface" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="7280" height="7040">
-            <image href="images/rock.png" x="0" y="0" width="7280" height="7040"/>
+            <image href="/images/rock.png" x="0" y="0" width="7280" height="7040"/>
           </pattern>
           <pattern id="svg-pattern__planet-surface-animated" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="7280" height="7040">
-            <image href="images/rock.png" x="0" y="0" width="7280" height="7040"/>
+            <image href="/images/rock.png" x="0" y="0" width="7280" height="7040"/>
             <animate attributeName="x" values="0;7280" dur="30s" repeatCount="indefinite" />
           </pattern>
         </defs>
@@ -179,6 +175,10 @@ class MyDocument extends Document {
           `
           }}
           />
+          <div className='layout__background' />
+          <div className='layout__overlay' />
+          <Main />
+          <NextScript />
         </body>
       </Html>
     )

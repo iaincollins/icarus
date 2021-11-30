@@ -148,7 +148,7 @@
 }
 
 .navigation-panel__map-background::after {
-  /* background-image: url(../../images/space.png); */
+  background-image: url(/images/space.png);
   content: " ";
   display: block;
   position: absolute;
