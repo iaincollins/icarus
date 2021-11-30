@@ -217,12 +217,13 @@ class EliteLog {
     const watchFiles = async () => {
       const files = await this.#getFiles()
 
+      // If no files found, nothing to do
+      if (files.length === 0) return 
+
       // Get currently active log file (mostly recently modified) in case that
       // has changed since we loaded (e.g. due to log rotation)
-      if (files.length > 0) {
-        const activeLogFile = files.sort((a, b) => b.lastModified - a.lastModified)[0]
-        this.lastActiveLogFileName = activeLogFile.name
-      }
+      const activeLogFile = files.sort((a, b) => b.lastModified - a.lastModified)[0]
+      this.lastActiveLogFileName = activeLogFile.name
 
       // Get all log files
       for (const file of files) {
