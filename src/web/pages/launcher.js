@@ -35,7 +35,7 @@ export default function IndexPage () {
   return (
     <>
       <Loader visible={!connected} />
-      <div style={{ padding: '.5rem 1rem', opacity: connected ? 1 : 0, zoom: '1.2'}}>
+      <div style={{ padding: '.5rem 1rem', opacity: connected ? 1 : 0, zoom: '1.2' }}>
         <h1>ICARUS</h1>
         <h3 className='text-primary'>Version {packageJson.version}</h3>
         <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
