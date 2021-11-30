@@ -7,7 +7,7 @@ import { eliteDateTime } from 'lib/format'
 const NAV_BUTTONS = ['Cmdr', 'Ship', 'Nav', 'Trade', 'Log', 'Comms']
 const ENABLED_NAV_BUTTONS = ['Nav', 'Log'] // Enabling options as they are ready
 
-export default function Toolbar ({ connected, active }) {
+export default function Header ({ connected, active }) {
   const router = useRouter()
   const [dateTime, setDateTime] = useState(eliteDateTime())
 
@@ -28,30 +28,30 @@ export default function Toolbar ({ connected, active }) {
   const currentPageName = router.pathname.replace(/\//, '').toLowerCase()
 
   return (
-    <>
+    <header>
       <hr className='small' />
       <h1 style={{ padding: '.5rem 0' }}> ICARUS Terminal</h1>
       <div style={{ position: 'absolute', top: '1.5rem', right: '1rem' }}>
         <h3 className='text-primary' style={{ display: 'inline', position: 'relative', top: '-.5rem', left: '-.5rem' }}>{dateTime}</h3>
-        <button disabled className='button-with-icon button-transparent' style={{ opacity: 1, marginRight: '.5rem' }}>
+        <button disabled className='with-icon transparent' style={{ opacity: 1, marginRight: '.5rem' }}>
           <i className={signalClassName} style={{ transition: 'all .25s ease' }} />
         </button>
-        <button onClick={toggleFullScreen} className='button-with-icon'>
+        <button onClick={toggleFullScreen} className='with-icon'>
           <i className='icarus-terminal-fullscreen' />
         </button>
       </div>
       <hr className='bold' />
       <div className='button-group'>
         {NAV_BUTTONS.map(buttonName =>
-          <Link
+          <button
             key={buttonName}
-            href={!ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPageName}` : `/${buttonName.toLowerCase()}`}
             disabled={!ENABLED_NAV_BUTTONS.includes(buttonName)}
-          ><a className={`button ${currentPageName === buttonName.toLowerCase() ? 'active' : ''} ${!ENABLED_NAV_BUTTONS.includes(buttonName) ? 'button-disabled' : ''}`}>{buttonName}</a>
-          </Link>
+            className={currentPageName === buttonName.toLowerCase() ? 'active' : ''}
+            onClick={() => router.push(  !ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPageName}` : `/${buttonName.toLowerCase()}` )}
+          >{buttonName}</button>
         )}
       </div>
       <hr />
-    </>
+    </header>
   )
 }

@@ -14,24 +14,24 @@ button,
 }
 
 button:disabled,
-.button.button-disabled {
+.button.disabled {
   opacity: 0.25;
 }
 
-button:not(:disabled):hover,
-.button:not(.button-disabled):hover {
+button.active,
+button:hover:not([disabled]),
+button:focus:not([disabled]),
+button:active:not([disabled]),
+.button.active,
+.button:hover:not(.disabled):not([disabled]),
+.button:focus:not(.disabled):not([disabled]),
+.button:active:not(.disabled):not([disabled]) {
   background: var(--primary-color);
   color: var(--dark-primary-color);
 }
 
-button:not(:disabled):active,
-.button:not(.button-disabled):active {
-  background: var(--secondary-color);
-  color: var(--dark-secondary-color);
-}
-
-button.button-with-icon,
-.button.button-with-icon {
+button.with-icon,
+.button.with-icon {
   position: relative;
   height: 3rem;
   width: 3rem;
@@ -40,13 +40,13 @@ button.button-with-icon,
   padding: 0;
 }
 
-button.button-with-icon > *,
-.button.button-with-icon > * {
+button.with-icon > *,
+.button.with-icon > * {
   font-size: 2rem;
   line-height: 3rem;
 }
 
-button.button-transparent ,
-.button.button-transparent {
+button.transparent ,
+.button.transparent {
   background: none;
 }
