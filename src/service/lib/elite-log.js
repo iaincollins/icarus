@@ -219,8 +219,10 @@ class EliteLog {
 
       // Get currently active log file (mostly recently modified) in case that
       // has changed since we loaded (e.g. due to log rotation)
-      const activeLogFile = files.sort((a, b) => b.lastModified - a.lastModified)[0]
-      this.lastActiveLogFileName = activeLogFile.name
+      if (files.length > 0) {
+        const activeLogFile = files.sort((a, b) => b.lastModified - a.lastModified)[0]
+        this.lastActiveLogFileName = activeLogFile.name
+      }
 
       // Get all log files
       for (const file of files) {
@@ -304,8 +306,10 @@ class EliteLog {
         })
 
         // Track most (mostly recently modified) log file
-        const activeLogFile = files.sort((a, b) => b.lastModified - a.lastModified)[0]
-        this.lastActiveLogFileName = activeLogFile.name
+        if (files.length > 0) {
+          const activeLogFile = files.sort((a, b) => b.lastModified - a.lastModified)[0]
+          this.lastActiveLogFileName = activeLogFile.name
+        }
 
         resolve(files)
       })
