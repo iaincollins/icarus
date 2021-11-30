@@ -73,6 +73,7 @@ table:not(.table__inline) tbody tr:focus:not([disabled="disabled"]) td span {
   color: var(--dark-primary-color);
   background: var(--button-active-color);
   --icon-color: var(--dark-primary-color);
+  text-shadow: none;
 }
 
 table tbody td {

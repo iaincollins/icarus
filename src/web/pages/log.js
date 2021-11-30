@@ -49,7 +49,7 @@ export default function LogPage () {
     <Layout connected={connected} active={active} ready={ready}>
       <Panel layout='left-half' scrollable>
         <LogPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
-        {ready && logEntries.length === 0 && <p style={{ margin: '2rem 0' }} className='text-center text-muted'>No recent log entries found</p>}
+        {ready && logEntries.length === 0 && <p style={{ margin: '2rem 0' }} className='text-center text-muted'>No recent log entries</p>}
       </Panel>
       <Panel layout='right-half' scrollable>
         <LogInspectorPanel logEntry={selectedLogEntry} />

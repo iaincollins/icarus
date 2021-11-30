@@ -70,6 +70,7 @@
 
 .text-formatted-object {
   color: var(--primary-text-color);
+  font-size: 1.5rem;
 }
 
 .text-formatted-object-property {
