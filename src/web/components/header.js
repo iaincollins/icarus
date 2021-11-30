@@ -47,8 +47,9 @@ export default function Header ({ connected, active }) {
             key={buttonName}
             disabled={!ENABLED_NAV_BUTTONS.includes(buttonName)}
             className={currentPageName === buttonName.toLowerCase() ? 'active' : ''}
-            onClick={() => router.push(  !ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPageName}` : `/${buttonName.toLowerCase()}` )}
-          >{buttonName}</button>
+            onClick={() => router.push(!ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPageName}` : `/${buttonName.toLowerCase()}`)}
+          >{buttonName}
+          </button>
         )}
       </div>
       <hr />
