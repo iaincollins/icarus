@@ -46,9 +46,18 @@ function objectToHtml (obj, depth = 0, type = null) {
       propertyValue = eliteDateTime(propertyValue)
     }
 
-    const propertyLabel = `<label>${(type === 'array') ? 'Item ' : ''}${propertyName.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ').trim()}${(type === 'array') ? ':' : ''}</label>`
+    let propertyLabel
+    if (type === 'array') {
+      if (typeof propertyValue === 'object') {
+        propertyLabel = `<label style="display: block; height: 0; position: relative; top: .5rem; left: -.5rem;">■</label>`
+      } else {
+        propertyLabel = `<label> ■</label>`
+      }
+    } else {
+      propertyLabel = `<label>${propertyName.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ').trim()}</label>`
+    }
 
-    str += `<div class="text-formatted-object-property" data-depth="${depth}" style="margin-left: ${depth / 2}rem">`
+    str += `<div class="text-formatted-object-property" data-depth="${depth}" style="padding-left: ${(depth)}rem;">`
 
     switch (typeof propertyValue) {
       case 'string':
@@ -67,7 +76,7 @@ function objectToHtml (obj, depth = 0, type = null) {
             str += propertyLabel + ' <span class="text-formatted-object-value">NONE</span>'
           }
         } else {
-          str += propertyLabel + objectToHtml(propertyValue, depth + 1)
+          str += propertyLabel + objectToHtml(propertyValue, depth > 1 ? depth - 1 : depth)
         }
         break
     }
