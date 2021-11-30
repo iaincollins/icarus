@@ -97,6 +97,8 @@ eliteJson.loadFileCallback = loadFileCallback
 eliteLog.loadFileCallback = loadFileCallback
 eliteLog.logEventCallback = logEventCallback
 
+const systemCache = {} // Crude hack until we have persistant storage
+
 const eventHandlers = {
   hostInfo: () => {
     const urls = Object.values(os.networkInterfaces())
@@ -130,18 +132,23 @@ const eventHandlers = {
       if (targetSystemName === UNKNOWN_VALUE) return null
     }
 
-    // TODO don't rely on the cache in the EDSM class as plotting system maps
-    // is slow! Cache each system map and check that cache instead.
+    // Use cache if we got an entry
+    if (!systemCache[systemName]) {
+      const [bodies, stations] = await Promise.all([
+        EDSM.bodies(targetSystemName),
+        EDSM.stations(targetSystemName)
+      ])
 
-    const [bodies, stations] = await Promise.all([
-      EDSM.bodies(targetSystemName),
-      EDSM.stations(targetSystemName)
-    ])
+      // Create cache entry
+      systemCache[systemName] = {
+        name: targetSystemName,
+        bodies,
+        stations,
+      }
+    }
 
     // TODO Handle when there is no data more explicitly
-
-    const systemMap = new SystemMap({ name: targetSystemName, bodies, stations })
-    return systemMap.stars
+    return new SystemMap(systemCache[systemName]).stars
   }
 }
 
