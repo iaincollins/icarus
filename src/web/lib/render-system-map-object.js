@@ -3,7 +3,7 @@ import Icons from './icons'
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
 
-export function renderSystemMapObject (obj, { onFocus } = {}) {
+export default function RenderSystemMapObject (obj, { onFocus } = {}) {
   const CLICKABLE_AREA_PADDING = 250
   const MAX_LABEL_WIDTH = 3000
 
@@ -30,19 +30,19 @@ export function renderSystemMapObject (obj, { onFocus } = {}) {
           ${Icons.Planet}
         </svg>
         <!-- Transparent interactive overlay for icon (as transparent SVG parts not clickable) -->
-      <rect
-        x="${x - CORRECT_FOR_IMAGE_OFFSET}"
-        y="${y - CORRECT_FOR_IMAGE_OFFSET}"
-        height="${h2}"
-        width="${w2}"
-        onFocus="${onFocus}"
-        tabindex="0"
-        class="navigation-panel__station"
-        data-type="${obj.type}"
-        data-detail="${encodeURI(JSON.stringify(obj))}"
-        opacity="0.85"
-      />
-        `
+        <rect
+          x="${x - CORRECT_FOR_IMAGE_OFFSET}"
+          y="${y - CORRECT_FOR_IMAGE_OFFSET}"
+          height="${h2}"
+          width="${w2}"
+          onFocus="${onFocus}"
+          tabindex="0"
+          class="navigation-panel__station"
+          data-type="${obj.type}"
+          data-detail="${encodeURI(JSON.stringify(obj))}"
+          opacity="0.85"
+        />
+      `
     } else {
       const x = obj._x
       const y = obj._y

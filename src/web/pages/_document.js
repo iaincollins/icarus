@@ -13,14 +13,16 @@ class MyDocument extends Document {
         <script dangerouslySetInnerHTML={{
           __html: `
             document.oncontextmenu = (e) => e.preventDefault()
-        `}}/>
+        `
+        }}
+        />
         <body className='not-selectable'>
           <div className='layout__background' />
           <div className='layout__overlay' />
           <Main />
           <NextScript />
           <div dangerouslySetInnerHTML={{
-          __html: `
+            __html: `
             <!-- SVG filters and effects used for styling icons (e.g. sytem map) -->
     <svg style="position: absolute; height: 0; margin: 0; padding: 0; top: -100px;">
       <defs>
@@ -174,7 +176,9 @@ class MyDocument extends Document {
       \`)
     }
   </script>
-          `}}/>
+          `
+          }}
+          />
         </body>
       </Html>
     )
