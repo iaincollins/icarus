@@ -2,6 +2,11 @@ package main
 
 import ("encoding/base64")
 
+// We use a baked in loading animation to reduce visual flash and improve 
+// perceived performance while the service loads and assets are loaded.
+// Inlined data URIs like this load instantly as there are no external assets
+// to load and it's very lightweight. This looks best when there is a smooth
+// transition between this animation and loading animation in the web app.
 func LoadUrl(url string) string {
 	html := `
 <html>
@@ -10,6 +15,7 @@ func LoadUrl(url string) string {
     <style>
       :root {
         --primary-color: rgb(235, 125, 0);
+				--dark-primary-color: rgb(58, 12, 0);
 				--background-color: var(--dark-primary-color);
       }
 
@@ -47,6 +53,7 @@ func LoadUrl(url string) string {
         padding: .5rem;
         margin: 0;
         text-align: center;
+        zoom: 0.8;
       }
 
       html,
@@ -68,18 +75,19 @@ func LoadUrl(url string) string {
 
       #loader {
         position: absolute;
-        top: 25%;
+        top: 50%;
         left: 0;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 1em;
-        zoom: 2;
         opacity: .75;
+        zoom: 1.5;
         transition: .25s ease-in-out;
-        z-index: 1;
+        z-index: 100;
         pointer-events: none;
+        margin-top: -2.5rem;
+        text-align: center;
       }
 
       .loader__row {
@@ -212,7 +220,8 @@ func LoadUrl(url string) string {
       }
     </style>
   </head>
-  <body oncontextmenu="return false;" class="not-selectable scrollable">
+  <body oncontextmenu="return false;" class="not-selectable">
+		<div id="background"></div>
     <div id="loader">
       <div class="loader__row">
         <div class="loader__arrow loader__arrow--outer-18"></div>
@@ -247,7 +256,6 @@ func LoadUrl(url string) string {
         <div class="loader__arrow loader__arrow--down loader__arrow--outer-9"></div>
       </div>
     </div>
-    <div id="background"></div>
   </body>
 	<script>setTimeout(() => window.location.href = "`+url+`", 0)</script>
 </html>
