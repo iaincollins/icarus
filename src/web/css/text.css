@@ -1,6 +1,6 @@
 .text-muted {
   opacity: 0.5 !important;
-  text-shadow: var(--text-shadow);
+  text-shadow: none;
 }
 
 .text-primary {

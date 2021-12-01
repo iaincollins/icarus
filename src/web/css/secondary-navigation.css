@@ -1,0 +1,22 @@
+
+.secondary-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 100%;
+}
+
+.secondary-navigation button {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: .5rem;
+  text-shadow: none;
+}
+
+.secondary-navigation button .icon {
+  position: relative;
+  top: .25rem;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}

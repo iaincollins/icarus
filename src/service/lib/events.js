@@ -117,7 +117,7 @@ const eventHandlers = {
       credits: LoadGame?.Credits ?? UNKNOWN_VALUE
     }
   },
-  getLogEntries: async ({ count = 50, timestamp }) => {
+  getLogEntries: async ({ count = 100, timestamp }) => {
     if (timestamp) {
       return await eliteLog.getFromTimestamp(timestamp)
     } else {

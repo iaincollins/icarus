@@ -1,10 +1,10 @@
 import '../css/main.css'
-import { Socket } from 'lib/socket'
+import { SocketProvider } from 'lib/socket'
 
 export default function MyApp ({ Component, pageProps }) {
   return (
-    <Socket>
+    <SocketProvider>
       <Component {...pageProps} />
-    </Socket>
+    </SocketProvider>
   )
 }

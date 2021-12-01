@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { formatBytes, eliteDateTime } from 'lib/format'
 import { newWindow } from 'lib/window'
-import { useSocket, useEventListener } from 'lib/socket'
+import { useSocket, eventListener, sendEvent } from 'lib/socket'
 import Loader from 'components/loader'
 import packageJson from '../../../package.json'
 
@@ -16,7 +16,7 @@ const defaultloadingStats = {
 }
 
 export default function IndexPage () {
-  const { connected, sendEvent } = useSocket()
+  const { connected } = useSocket()
   const [hostInfo, setHostInfo] = useState()
   const [loadingProgress, setLoadingProgress] = useState(defaultloadingStats)
 
@@ -28,7 +28,7 @@ export default function IndexPage () {
     setLoadingProgress(message)
   }, [connected])
 
-  useEffect(() => useEventListener('loadingProgress', (message) => {
+  useEffect(() => eventListener('loadingProgress', (message) => {
     setLoadingProgress(message)
   }), [])
 
@@ -72,8 +72,8 @@ export default function IndexPage () {
           </div>
           {loadingProgress.loadingComplete === true ? <p>Ready</p> : ''}
         </div>
-        <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
-          <button onClick={newWindow}>New Terminal</button>
+        <div style={{ position: 'absolute', bottom: '1rem', right: '1rem', }}>
+          <button style={{width: '20rem'}} onClick={newWindow}>New Terminal</button>
         </div>
       </div>
     </>

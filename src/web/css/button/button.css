@@ -4,34 +4,34 @@ button,
   color: var(--primary-color);
   border: 0;
   padding: .5rem 1rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 2rem;
   font-family: "Jura", sans-serif;
   font-weight: 900;
-  min-width: 20rem;
   text-transform: uppercase;
   text-align: center;
+  text-shadow: var(--text-shadow);
 }
 
 button:disabled,
-.button.disabled {
+.button.button--disabled {
   opacity: 0.25;
 }
 
-button.active,
+button.button--active,
 button:hover:not([disabled]),
 button:focus:not([disabled]),
 button:active:not([disabled]),
-.button.active,
-.button:hover:not(.disabled):not([disabled]),
-.button:focus:not(.disabled):not([disabled]),
-.button:active:not(.disabled):not([disabled]) {
+.button.button--active,
+.button:hover:not(.button--disabled):not([disabled]),
+.button:focus:not(.button--disabled):not([disabled]),
+.button:active:not(.button--disabled):not([disabled]) {
   background: var(--primary-color);
   color: var(--dark-primary-color);
 }
 
-button.with-icon,
-.button.with-icon {
+button.button--icon,
+.button.button--icon {
   position: relative;
   height: 3rem;
   width: 3rem;
@@ -40,13 +40,13 @@ button.with-icon,
   padding: 0;
 }
 
-button.with-icon > *,
-.button.with-icon > * {
+button.button--icon > *,
+.button.button--icon > * {
   font-size: 2rem;
   line-height: 3rem;
 }
 
-button.transparent ,
-.button.transparent {
+button.button--transparent ,
+.button.button--transparent {
   background: none;
 }

@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
-import LogPanel from 'components/panels/log-panel'
-import LogInspectorPanel from 'components/panels/log-inspector-panel'
-import { useSocket, useEventListener } from 'lib/socket'
+import LogListPanel from 'components/panels/log/log-list-panel'
+import LogInspectorPanel from 'components/panels/log/log-inspector-panel'
+import { useSocket, eventListener, sendEvent } from 'lib/socket'
 
 let loadNewLogEntries
 
 export default function LogPage () {
-  const { connected, active, sendEvent } = useSocket()
+  const { connected, active } = useSocket()
   const [ready, setReady] = useState(false)
   const [logEntries, setLogEntries] = useState([])
   const [selectedLogEntry, setSelectedLogEntry] = useState()
 
   useEffect(async () => {
-    const newLogEntries = await sendEvent('getLogEntries')
+    const newLogEntries = await sendEvent('getLogEntries', {count: 100})
     if (Array.isArray(newLogEntries) && newLogEntries.length > 0) {
       setLogEntries(newLogEntries)
       // Only select a log entry if one isn't selected already
@@ -23,13 +23,13 @@ export default function LogPage () {
     setReady(true)
   }, [connected])
 
-  useEffect(() => useEventListener('newLogEntry', async (newLogEntry) => {
+  useEffect(() => eventListener('newLogEntry', async (newLogEntry) => {
     setLogEntries(prevState => [newLogEntry, ...prevState])
     // Only select a log entry if one isn't selected already
     setSelectedLogEntry(prevState => prevState || newLogEntry)
   }), [])
 
-  useEffect(() => useEventListener('loadingProgress', async (message) => {
+  useEffect(() => eventListener('loadingProgress', async (message) => {
     // We don't want to stress the service too much while it is loading so
     // limit the number of requests we make (while still updating the UI)
     if (!loadNewLogEntries) {
@@ -48,7 +48,7 @@ export default function LogPage () {
   return (
     <Layout connected={connected} active={active} ready={ready}>
       <Panel layout='left-half' scrollable>
-        <LogPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
+        <LogListPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
         {ready && logEntries.length === 0 && <p style={{ margin: '2rem 0' }} className='text-center text-muted'>No recent log entries</p>}
       </Panel>
       <Panel layout='right-half' scrollable>

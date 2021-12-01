@@ -9,9 +9,10 @@
 @import "text.css";
 @import "table.css";
 @import "fx.css";
+@import "secondary-navigation.css";
 
-@import "panels/navigation-panel__map.css";
 @import "panels/navigation-panel.css";
+/* @import "panels/navigation-panel__planets.css"; */
 
 @font-face {
   font-family: 'Jura';
@@ -106,7 +107,7 @@ html, body {
 body {
   color: white;
   font-family: "Jura", sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   padding: 0;
   margin: 0;
   zoom: 0.9;

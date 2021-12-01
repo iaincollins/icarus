@@ -14,7 +14,6 @@
 .navigation-panel__detail-info {
   position: relative;
   padding-left: 5rem;
-  min-height: 4rem;
   margin-right: 2rem;
 }
 
@@ -24,17 +23,21 @@
   right: 0;
   top: 0;
   bottom: 0;
-  width: 25rem;
+  width: 24rem;
+  padding: .5rem;
 }
 
-.navigation-panel__detail .navigation-panel__detail-info svg {
+.navigation-panel__detail .navigation-panel__detail-info .icon {
   position: absolute;
   top: .25rem;
-  left: .25rem;
+  left: .5rem;
   bottom: 0;
   width: 4rem;
-  display: block;
-  filter: grayscale(100%);
+  font-size: 3.5rem;
+}
+
+.navigation-panel__detail hr {
+  margin: 1.5rem 0;
 }
 
 .navigation-panel__detail .percentage {
@@ -44,19 +47,13 @@
   margin-right: .5rem;
 }
 
-.navigation-panel__detail hr {
-  margin-right: 2rem;
-}
-
 .navigation-panel__detail h3 {
   font-size: 1.5rem;
-  text-shadow: var(--text-shadow);
   margin-bottom: .25rem;
 }
 
 .navigation-panel__detail h4 {
   text-transform: uppercase;
-  color: var(--secondary-text-color);
   font-size: 1.15rem;
   margin-bottom: 0;
 }
@@ -110,7 +107,6 @@
   text-transform: uppercase;
 }
 
-
 .navigation-panel__planet-distance-text {
   font-size: 22rem;
   fill: var(--secondary-text-color);
@@ -125,13 +121,19 @@
   height: 100%;
 }
 
+.navigation-panel__list .icon {
+  xfont-size: 2rem;
+  margin-right: .5rem;
+  float: left;
+}
+
 .navigation-panel__map-background {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 15, 0.7);
+  background: rgba(0, 0, 10, 0.85);
 }
 
 .navigation-panel__map-foreground {
@@ -147,7 +149,9 @@
 }
 
 .navigation-panel__map-background::after {
-  background-image: url(/images/space.png);
+  /* https://commons.wikimedia.org/wiki/File:Abell315_(ESO).jpg */
+  background-image: url(/images/stars.jpg);
+  background-size: 30rem;
   content: " ";
   display: block;
   position: absolute;
@@ -157,6 +161,7 @@
   right: 0;
   z-index: -2;
   filter: contrast(2);
+  opacity: .8;
 }
 
 .navigation-panel__map-background::before {
@@ -171,6 +176,19 @@
   bottom: 0;
   right: 0;
   z-index: -1;
+}
+
+.navigation-panel__map h1 > * [class^="icarus-terminal-"],
+.navigation-panel__map h1 > * [class*=" icarus-terminal-"] {
+  position: relative;
+  top: .6rem;
+  margin-right: .75rem;
+}
+
+.navigation-panel__map h2 > * [class^="icarus-terminal-"],
+.navigation-panel__map h2 > * [class*=" icarus-terminal-"] {
+  position: relative;
+  top: .5rem;
 }
 
 .navigation-panel__map .system-info {
@@ -188,15 +206,13 @@
 }
 
 .navigation-panel__map .system-info h2 {
-  font-size: 1.25rem;
-  margin: 0 0 0 3.5rem;
-  top: -.75rem;
-  position: relative;
+  font-size: 1.5rem;
+  margin: 0 0 0 5.25rem;
 }
 
 .navigation-panel__map .system-info h3 {
   font-size: 1.25rem;
-  margin: 0;
+  margin: 0 0 0 5.25rem;
   text-transform: none;
 }
 
@@ -253,17 +269,14 @@
   color: var(--secondary-text-color);
   text-shadow: var(--text-shadow);
   font-size: 1.25rem;
-  margin: 0 0 0 2.75rem !important;
-  top: -.5rem;
-  position: relative;
+  margin: .25rem 0 0 2.75rem !important;
 }
 
 .navigation-panel__map .system-objects h4 {
-  display: none;
   color: var(--secondary-text-color);
   text-shadow: var(--text-shadow);
   font-size: 1.25rem;
-  margin: .5rem 0 1rem 0;
+  margin: 0 0 0 2.75rem !important;
   text-transform: none;
 }
 

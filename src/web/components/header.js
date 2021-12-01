@@ -32,10 +32,10 @@ export default function Header ({ connected, active }) {
       <h1 style={{ padding: '.5rem 0' }}> ICARUS Terminal</h1>
       <div style={{ position: 'absolute', top: '1.5rem', right: '1rem' }}>
         <h3 className='text-primary' style={{ display: 'inline', position: 'relative', top: '-.5rem', left: '-.5rem' }}>{dateTime}</h3>
-        <button disabled className='with-icon transparent' style={{ opacity: 1, marginRight: '.5rem' }}>
+        <button disabled className='button--icon button--transparent' style={{ opacity: 1, marginRight: '.5rem' }}>
           <i className={signalClassName} style={{ transition: 'all .25s ease' }} />
         </button>
-        <button onClick={toggleFullScreen} className='with-icon'>
+        <button onClick={toggleFullScreen} className='button--icon'>
           <i className='icarus-terminal-fullscreen' />
         </button>
       </div>
@@ -45,7 +45,7 @@ export default function Header ({ connected, active }) {
           <button
             key={buttonName}
             disabled={!ENABLED_NAV_BUTTONS.includes(buttonName)}
-            className={currentPageName === buttonName.toLowerCase() ? 'active' : ''}
+            className={currentPageName === buttonName.toLowerCase() ? 'button--active' : ''}
             onClick={() => router.push(!ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPageName}` : `/${buttonName.toLowerCase()}`)}
           >{buttonName}
           </button>

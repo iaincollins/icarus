@@ -9,6 +9,7 @@ table {
   width: 100%;
   --icon-color: var(--primary-color);
   padding-right: .25rem;
+  font-size: 1.5rem;
 }
 
 table thead tr th {
@@ -60,16 +61,16 @@ table tbody tr {
   background-color: var(--panel-background-color);
 }
 
-table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td,
-table:not(.table__inline) tbody tr:hover:not([disabled="disabled"]) td span {
+table:not(.table__inline) tbody tr:hover:not(.table-row--disabled) td,
+table:not(.table__inline) tbody tr:hover:not(.table-row--disabled) td span {
   color: var(--primary-color);
   background: var(--dark-primary-color);
   transition: all .1s ease;
   --icon-color: var(--primary-color);
 }
 
-table:not(.table__inline) tbody tr:focus:not([disabled="disabled"]) td,
-table:not(.table__inline) tbody tr:focus:not([disabled="disabled"]) td span {
+table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) td,
+table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) td span {
   color: var(--dark-primary-color);
   background: var(--button-active-color);
   --icon-color: var(--dark-primary-color);
@@ -98,6 +99,9 @@ table.table__bordered {
 
 table.table__bordered tbody tr {
   border-bottom: 0;
+}
+
+table.table__bordered tbody tr :not(.table-row--disabled) {
   background-color: transparent !important;
 }
 

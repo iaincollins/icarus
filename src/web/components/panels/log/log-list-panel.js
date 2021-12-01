@@ -1,6 +1,6 @@
 import { eliteDateTime } from 'lib/format'
 
-export default function LogPanel ({ logEntries, setSelectedLogEntry }) {
+export default function LogListPanel ({ logEntries, setSelectedLogEntry }) {
   if (!logEntries) return null
 
   return (

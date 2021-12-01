@@ -8,8 +8,7 @@ let recentBroadcastEvents = 0
 
 const defaultSocketState = {
   connected: false, // Boolean to indicate current connection status
-  active: false, // Boolean to indicate if any pending requests
-  sendEvent // An async function components can call to send an event
+  active: false // Boolean to indicate if any pending requests
 }
 
 function socketDebugMessage () { /* console.log(...arguments) */ }
@@ -77,6 +76,24 @@ function connect (socketState, setSocketState) {
   }
 }
 
+const SocketContext = createContext()
+
+function SocketProvider ({ children }) {
+  const [socketState, setSocketState] = useState(defaultSocketState)
+
+  if (typeof WebSocket !== 'undefined' && socketState.connected !== true) {
+    connect(socketState, setSocketState)
+  }
+
+  return (
+    <SocketContext.Provider value={socketState}>
+      {children}
+    </SocketContext.Provider>
+  )
+}
+
+function useSocket () { return useContext(SocketContext) }
+
 function sendEvent (name, message = null) {
   return new Promise((resolve, reject) => {
     const requestId = generateUuid()
@@ -99,6 +116,12 @@ function sendEvent (name, message = null) {
   })
 }
 
+function eventListener (eventName, callback) {
+  const eventHandler = (e) => { callback(e.detail) }
+  window.addEventListener(`socketEvent_${eventName}`, eventHandler)
+  return () => window.removeEventListener(`socketEvent_${eventName}`, eventHandler)
+}
+
 function socketRequestsPending () {
   return !!((Object.keys(callbackHandlers).length > 0 || deferredEventQueue.length > 0 || recentBroadcastEvents > 0))
 }
@@ -107,30 +130,9 @@ function generateUuid () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
-const SocketContext = createContext()
-
-export function Socket ({ children }) {
-  const [socketState, setSocketState] = useState(defaultSocketState)
-
-  if (typeof WebSocket !== 'undefined' && socketState.connected !== true) {
-    connect(socketState, setSocketState)
-  }
-
-  return (
-    <SocketContext.Provider value={socketState}>
-      {children}
-    </SocketContext.Provider>
-  )
-}
-
-export function useSocket () {
-  return useContext(SocketContext)
-}
-
-export function useEventListener (eventName, callback) {
-  const eventHandler = (e) => {
-    callback(e.detail)
-  }
-  window.addEventListener(`socketEvent_${eventName}`, eventHandler)
-  return () => window.removeEventListener(`socketEvent_${eventName}`, eventHandler)
+module.exports = {
+  SocketProvider,
+  useSocket,
+  sendEvent,
+  eventListener
 }

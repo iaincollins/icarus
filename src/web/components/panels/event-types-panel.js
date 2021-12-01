@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useSocket, useEventListener } from 'lib/socket'
+import { useSocket, eventListener, sendEvent } from 'lib/socket'
 
 function gameEventsToArray (gameEvents) {
   return Object.keys(gameEvents).map(event => {
@@ -11,7 +11,7 @@ function gameEventsToArray (gameEvents) {
 }
 
 export default function EventTypesPanel () {
-  const { connected, sendEvent } = useSocket()
+  const { connected } = useSocket()
   const [gameEvents, setGameEvents] = useState()
 
   useEffect(async () => {
@@ -19,7 +19,7 @@ export default function EventTypesPanel () {
     setGameEvents(gameEventsToArray(message.eventTypesLoaded))
   }, [connected])
 
-  useEffect(() => useEventListener('loadingProgress', (message) => {
+  useEffect(() => eventListener('loadingProgress', (message) => {
     setGameEvents(gameEventsToArray(message.eventTypesLoaded))
   }), [])
 

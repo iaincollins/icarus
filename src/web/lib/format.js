@@ -25,7 +25,7 @@ function eliteDateTime (timestamp = Date.now()) {
     .replace(/^0/, '') // Strip leading zeros from day of month
 }
 
-function objectToHtml (obj, depth = 0, type = null) {
+function objectToHtml (obj, depth = 0, type = null, previousPropertyName) {
   const tag = 'div'
   let str = ''
 
@@ -49,7 +49,7 @@ function objectToHtml (obj, depth = 0, type = null) {
     let propertyLabel
     if (type === 'array') {
       if (typeof propertyValue === 'object') {
-        propertyLabel = '<label style="display: block; height: 0; position: relative; top: .5rem; left: -.5rem;">■</label>'
+        propertyLabel = `<label class="text-muted">${previousPropertyName.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ').trim()} #${propertyName.replace(/([a-z])([A-Z])/g, '$1 $2').replaceAll('_', ' ').trim()}</label>`
       } else {
         propertyLabel = '<label> ■</label>'
       }
@@ -71,12 +71,12 @@ function objectToHtml (obj, depth = 0, type = null) {
       default:
         if (Array.isArray(propertyValue)) {
           if (propertyValue.length > 0) {
-            str += propertyLabel + objectToHtml(propertyValue, depth + 1, 'array')
+            str += propertyLabel + objectToHtml(propertyValue, depth + 1, 'array', propertyName)
           } else {
             str += propertyLabel + ' <span class="text-formatted-object-value">NONE</span>'
           }
         } else {
-          str += propertyLabel + objectToHtml(propertyValue, depth > 1 ? depth - 1 : depth)
+          str += propertyLabel + objectToHtml(propertyValue, depth > 1 ? depth - 1 : depth, null, propertyName)
         }
         break
     }
