@@ -5,7 +5,7 @@ const {
   PLANETARY_OUTPOSTS,
   SETTLEMENTS,
   PLANETARY_BASES
-} = require('../consts')
+} = require('./consts')
 
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
@@ -16,8 +16,9 @@ function escapeRegExp (text) {
 
 class SystemMap {
   constructor (system) {
-    this.system = system
-    const { bodies = [], stations = [] } = this.system
+    this.detail = system
+    const { name = '', bodies = [], stations = [] } = this.detail
+    this.name = name
     this.stars = bodies.filter(body => body.type === 'Star')
     this.planets = bodies.filter(body => body.type === 'Planet')
     this.starports = stations.filter(station => STARPORTS.includes(station.type))
@@ -44,15 +45,15 @@ class SystemMap {
   init () {
     for (const systemObject of this.objectsInSystem) {
       // Attach name to system name
-      // alert(escapeRegExp(this.system.name))
-      systemObject.label = systemObject.name.replace(new RegExp(`^${escapeRegExp(this.system.name)} `), '')
+      // alert(escapeRegExp(this.detail.name))
+      systemObject.label = systemObject.name.replace(new RegExp(`^${escapeRegExp(this.detail.name)} `), '')
       // Loop through and find all stations / ships / etc and assign parents
       // value based on whatever planet they are nearest to (before calculating
       // co-ordiantes for values, which are used to draw the map). The approach
       // here may not always be technically correct, but it's good enough for
       // our map and should render meaningfully.
       if (!systemObject.parents && systemObject.type && STARPORTS.concat(MEGASHIPS).concat(SETTLEMENTS).includes(systemObject.type)) {
-        // Find planet with closes similar distance to sun
+        // Find planet with closest similar distance to sun
         // This could be the wrong choice in edge cases, but is good enough.
         const nearestPlanet = this.getNearestPlanet(systemObject)
         const nearestLandablePlanet = this.getNearestLandablePlanet(systemObject)
@@ -198,6 +199,7 @@ class SystemMap {
     })
 
     star._yOffset += Y_LABEL_OFFSET
+    star._viewBox = `0 -${star._yOffset} ${star._xMax + star._xOffset} ${star._yMax + star._yOffset}`
 
     return star
   }
@@ -251,6 +253,8 @@ class SystemMap {
           }
         }
       }
+
+      if (!systemObject.parents) continue
 
       // The most immediate body this object is orbiting
       systemObject._immediateOrbitBodyId = systemObject.parents.reverse()

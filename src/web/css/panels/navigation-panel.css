@@ -132,7 +132,6 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 15, 0.7);
-  Xbackground: linear-gradient(rgba(0, 0, 0, 0.7), rgba(27, 8, 0, 0.7));
 }
 
 .navigation-panel__map-foreground {

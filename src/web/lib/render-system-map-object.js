@@ -39,7 +39,7 @@ export default function RenderSystemMapObject (obj, { onFocus } = {}) {
           tabindex="0"
           class="navigation-panel__station"
           data-type="${obj.type}"
-          data-detail="${encodeURI(JSON.stringify(obj))}"
+          data-detail="${encodeObjectDetail(obj)}"
           opacity="0.85"
         />
       `
@@ -103,7 +103,7 @@ export default function RenderSystemMapObject (obj, { onFocus } = {}) {
         data-sub-type="${obj.subType}"
         data-small="${!!obj._small}"
         data-atmosphere="${obj.atmosphereType}"
-        data-detail="${encodeURI(JSON.stringify(obj))}"
+        data-detail="${encodeObjectDetail(obj)}"
         tabindex="0"
         cx="${x}"
         cy="${y}"
@@ -205,7 +205,7 @@ export default function RenderSystemMapObject (obj, { onFocus } = {}) {
         tabindex="0"
         class="navigation-panel__station"
         data-type="${obj.type}"
-        data-detail="${encodeURI(JSON.stringify(obj))}"
+        data-detail="${encodeObjectDetail(obj)}"
       />
       <!-- Inline SVG icon (loaded from string so can be easily styled) -->
       <svg class="navigation-panel__station-icon icon" x="${imageX}" y="${imageY}" h="${imageH * 10}" w="${imageW * 10}">
@@ -235,4 +235,8 @@ function truncateString (string, maxLength) {
     return `${string.substring(0, maxLength - 1)}…`
   }
   return string
+}
+
+function encodeObjectDetail (obj) {
+  // return encodeURI(JSON.stringify(obj))
 }
