@@ -109,8 +109,8 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
 
   return (
     <tr tabIndex='2' onClick={() => setSystemObject(systemObject)}>
-      <td className={`${systemObject.isLandable ? 'text-secondary' : 'text-primary'}`}>
-        <div style={{ paddingLeft: `${(depth * 1.5) + 2}rem` }} className='text-no-wrap'>
+      <td className={` ${systemObject.isLandable ? 'text-secondary' : 'text-primary'}`}>
+        <div style={{ paddingLeft: `${(depth * 1.5) + 2}rem` }}>
           <i className={iconClass} />
           {systemObject.name}
         </div>
