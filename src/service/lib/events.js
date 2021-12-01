@@ -191,7 +191,7 @@ const eventHandlers = {
 
 async function init ({
   lastActiveOnly = false,
-  minTimestamp = Date.now() - 10 * 24 * 60 * 60 * 1000 // Load last 30 days by default
+  minTimestamp = Date.now() - 30 * 24 * 60 * 60 * 1000 // Load last 30 days by default
 } = {}) {
   if (loadingComplete) return loadingStats() // If already run, don't run again
 
