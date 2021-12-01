@@ -9,7 +9,7 @@ export default function NavigationSystemMapPanel ({ system }) {
     <div className='navigation-panel__map' style={{ display: 'block' }}>
       <div className='navigation-panel__map-background'>
         <div className='navigation-panel__map-foreground scrollable'>
-          <div className='system-info text-primary'>
+          <div className='navigation-panel__system-info text-primary'>
             <h1>
               <span className='fx-animated-text' data-fx-order='1'>
                 <i className='icarus-terminal-system-orbits' />

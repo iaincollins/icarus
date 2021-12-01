@@ -53,7 +53,8 @@
 .text-no-wrap {
   white-space: nowrap !important;
   text-overflow: ellipsis !important;
-  overflow: hidden !important;
+  overflow-x: hidden !important; /* fallback for when clip is not supported */
+  overflow-x: clip !important; /* avoids clipping text shadow on y axis */
 }
 
 .text-blink {
@@ -84,4 +85,8 @@
 
 .text-formatted-object .text-formatted-object-value {
   color: var(--secondary-text-color) !important;
+}
+
+.text-no-shadow {
+  text-shadow: none !important;
 }

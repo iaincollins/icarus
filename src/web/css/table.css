@@ -9,7 +9,6 @@ table {
   width: 100%;
   --icon-color: var(--primary-color);
   padding-right: .25rem;
-  font-size: 1.5rem;
 }
 
 table thead tr th {
@@ -106,43 +105,8 @@ table.table__bordered tbody tr :not(.table-row--disabled) {
 }
 
 table.table__bordered tbody tr td {
-  animation: flash-in-animation .1s;
-  animation-fill-mode: forwards;
-  animation-delay: 1s;
-  opacity: 0;
   background-color: var(--panel-background-color);
   border: .2rem solid var(--dark-primary-color);
-}
-
-table.table__bordered tbody tr:nth-child(1) td {
-  animation-delay: 0s;
-}
-table.table__bordered tbody tr:nth-child(2) td {
-  animation-delay: .1s;
-}
-table.table__bordered tbody tr:nth-child(3) td {
-  animation-delay: .2s;
-}
-table.table__bordered tbody tr:nth-child(4) td {
-  animation-delay: .3s;
-}
-table.table__bordered tbody tr:nth-child(5) td {
-  animation-delay: .4s;
-}
-table.table__bordered tbody tr:nth-child(6) td {
-  animation-delay: .5s;
-}
-table.table__bordered tbody tr:nth-child(7) td {
-  animation-delay: .6s;
-}
-table.table__bordered tbody tr:nth-child(8) td {
-  animation-delay: .7s;
-}
-table.table__bordered tbody tr:nth-child(9) td {
-  animation-delay: .8s;
-}
-table.table__bordered tbody tr:nth-child(10) td {
-  animation-delay: .9s;
 }
 
 table.table__inline {
@@ -153,8 +117,77 @@ table.table__inline {
 table.table__inline tbody tr td {
   padding: .125rem 1.5rem .125rem 0;
 }
+
 table.table__inline tbody tr {
   border-spacing: 0;
   border-bottom: 0;
   background-color: transparent;
+}
+
+table.table--animated tbody tr td {
+  animation: fx-flash-in-animation .2s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+table.table--animated tbody tr:nth-child(1) td {
+  animation-delay: 0s;
+}
+table.table--animated tbody tr:nth-child(2) td {
+  animation-delay: .05s;
+}
+table.table--animated tbody tr:nth-child(3) td {
+  animation-delay: .1s;
+}
+table.table--animated tbody tr:nth-child(4) td {
+  animation-delay: .15s;
+}
+table.table--animated tbody tr:nth-child(5) td {
+  animation-delay: .2s;
+}
+table.table--animated tbody tr:nth-child(6) td {
+  animation-delay: .25s;
+}
+table.table--animated tbody tr:nth-child(7) td {
+  animation-delay: .3s;
+}
+table.table--animated tbody tr:nth-child(8) td {
+  animation-delay: .35s;
+}
+table.table--animated tbody tr:nth-child(9) td {
+  animation-delay: .4s;
+}
+table.table--animated tbody tr:nth-child(10) td {
+  animation-delay: .45s;
+}
+table.table--animated tbody tr:nth-child(11) td {
+  animation-delay: .5s;
+}
+table.table--animated tbody tr:nth-child(12) td {
+  animation-delay: .55s;
+}
+table.table--animated tbody tr:nth-child(13) td {
+  animation-delay: .6s;
+}
+table.table--animated tbody tr:nth-child(14) td {
+  animation-delay: .65s;
+}
+table.table--animated tbody tr:nth-child(15) td {
+  animation-delay: .7s;
+}
+table.table--animated tbody tr:nth-child(16) td {
+  animation-delay: .75s;
+}
+table.table--animated tbody tr:nth-child(17) td {
+  animation-delay: .8s;
+}
+table.table--animated tbody tr:nth-child(18) td {
+  animation-delay: .85s;
+}
+table.table--animated tbody tr:nth-child(19) td {
+  animation-delay: .9s;
+}
+table.table--animated tbody tr:nth-child(20) td {
+  animation-delay: .95s;
 }

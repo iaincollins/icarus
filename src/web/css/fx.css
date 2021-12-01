@@ -113,3 +113,49 @@ html[data-fx-crt="true"] .layout__overlay {
     text-shadow: 0 0 15px var(--primary-text-color),2.6208764473832513px 0 1px var(--text-shift-right-color), -2.6208764473832513px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
 }
+
+.fx-animated-text {
+  overflow-x: hidden !important; /* fallback for when clip is not supported */
+  overflow-x: clip !important; /* avoids clipping text shadow on y axis */
+  padding-left: 2rem;
+  margin-left: -2rem;
+  white-space: nowrap !important;
+  animation: fx-text-typing-animation .5s steps(15, end);
+  display: inline-block;
+  animation-fill-mode: forwards;
+  width: 0;
+  text-shadow: none; /* Added to text when animation starts (avoids clipping) */
+}
+
+.fx-animated-text[data-fx-order="1"] { animation-delay: .1s }
+.fx-animated-text[data-fx-order="2"] { animation-delay: .2s }
+.fx-animated-text[data-fx-order="3"] { animation-delay: .3s }
+.fx-animated-text[data-fx-order="4"] { animation-delay: .4s }
+.fx-animated-text[data-fx-order="5"] { animation-delay: .5s }
+.fx-animated-text[data-fx-order="6"] { animation-delay: .6s }
+.fx-animated-text[data-fx-order="7"] { animation-delay: .7s }
+.fx-animated-text[data-fx-order="8"] { animation-delay: .8s }
+.fx-animated-text[data-fx-order="9"] { animation-delay: .9s }
+
+.fx-fade-in {
+  animation: fx-fade-in-animation .5s ease-in-out;
+}
+
+@keyframes fx-text-typing-animation {
+  from { width: 0; text-shadow: var(--text-shadow); }
+  to { width: 100%; text-shadow: var(--text-shadow); }
+}
+
+@keyframes fx-fade-in-animation {
+  from { opacity :0; }
+  to { opacity: 1; }
+}
+
+@keyframes fx-flash-in-animation {
+  0% { opacity: 0; }
+  99% { 
+    opacity: .25;
+    background: var(--primary-color);
+  }
+  100% { opacity: 1; }
+}

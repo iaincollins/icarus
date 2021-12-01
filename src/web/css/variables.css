@@ -34,6 +34,8 @@
 
   --mobile-max-breakpoint: 600px;
   --tablet-max-breakpoint: 800px;
+
+  --base-font-size: 1.25rem;
 }
 
 /*

@@ -1,9 +1,9 @@
 
-.navigation-panel__detail-info,
-.navigation-panel__detail h4,
-.navigation-panel__detail h5,
-.navigation-panel__detail p,
-.navigation-panel__detail span {
+.navigation-panel__inspector-heading,
+.navigation-panel__inspector h4,
+.navigation-panel__inspector h5,
+.navigation-panel__inspector p,
+.navigation-panel__inspector span {
   word-wrap: break-word;
   /* word-break: break-all; */
   overflow-wrap: break-word;
@@ -11,13 +11,12 @@
   white-space: normal;
 }
 
-.navigation-panel__detail-info {
+.navigation-panel__inspector-heading {
   position: relative;
   padding-left: 5rem;
-  margin-right: 2rem;
 }
 
-.navigation-panel__detail {
+.navigation-panel__inspector {
   background-color: var(--panel-background-color);
   position: absolute;
   right: 0;
@@ -27,7 +26,7 @@
   padding: .5rem;
 }
 
-.navigation-panel__detail .navigation-panel__detail-info .icon {
+.navigation-panel__inspector .navigation-panel__inspector-heading .icon {
   position: absolute;
   top: .25rem;
   left: .5rem;
@@ -36,34 +35,34 @@
   font-size: 3.5rem;
 }
 
-.navigation-panel__detail hr {
+.navigation-panel__inspector hr {
   margin: 1.5rem 0;
 }
 
-.navigation-panel__detail .percentage {
+.navigation-panel__inspector .percentage {
   display: inline-block;
   width: 6rem;
   text-align: right;
   margin-right: .5rem;
 }
 
-.navigation-panel__detail h3 {
+.navigation-panel__inspector h3 {
   font-size: 1.5rem;
   margin-bottom: .25rem;
 }
 
-.navigation-panel__detail h4 {
+.navigation-panel__inspector h4 {
   text-transform: uppercase;
   font-size: 1.15rem;
   margin-bottom: 0;
 }
 
-.navigation-panel__detail h5 {
+.navigation-panel__inspector h5 {
   font-size: 1.5rem;
   text-shadow: var(--text-shadow);
 }
 
-.navigation-panel__detail label {
+.navigation-panel__inspector label {
   display: block;
   color: var(--primary-color);
   font-weight: bold;
@@ -71,7 +70,7 @@
   text-transform: uppercase;
 }
 
-.navigation-panel__detail p {
+.navigation-panel__inspector p {
   color: var(--secondary-color);
   font-size: 1.5rem;
 }
@@ -122,9 +121,10 @@
 }
 
 .navigation-panel__list .icon {
-  xfont-size: 2rem;
-  margin-right: .5rem;
-  float: left;
+  font-size: 2rem;
+  margin-left: -2.75rem;
+  margin-top: -.25rem;
+  position: absolute;
 }
 
 .navigation-panel__map-background {
@@ -191,28 +191,27 @@
   top: .5rem;
 }
 
-.navigation-panel__map .system-info {
-  position: relative;
-  left: 0rem;
-  right: 0rem;
-  height: 9rem;
-  display: block;
+.navigation-panel__map .navigation-panel__system-info {
+  margin-bottom: 1px;
 }
 
-.navigation-panel__map .system-info h1 {
+.navigation-panel__map .navigation-panel__system-info h1 {
   margin: 0;
   padding: 0;
   text-transform: uppercase;
+  font-size: 3rem;
+  line-height: 3rem;
 }
 
-.navigation-panel__map .system-info h2 {
+.navigation-panel__map .navigation-panel__system-info h2 {
   font-size: 1.5rem;
-  margin: 0 0 0 5.25rem;
+  margin: 0 0 0 4.25rem;
+  padding: 0;
 }
 
-.navigation-panel__map .system-info h3 {
+.navigation-panel__map .navigation-panel__system-info h3 {
   font-size: 1.25rem;
-  margin: 0 0 0 5.25rem;
+  margin: 0 0 0 4.25rem;
   text-transform: none;
 }
 
@@ -263,6 +262,7 @@
 .navigation-panel__map .system-objects h2 {
   text-shadow: var(--text-shadow);
   margin: 0 !important;
+  font-size: 2rem;
 }
 
 .navigation-panel__map .system-objects h3 {

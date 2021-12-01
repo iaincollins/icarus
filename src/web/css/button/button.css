@@ -4,13 +4,13 @@ button,
   color: var(--primary-color);
   border: 0;
   padding: .5rem 1rem;
-  font-size: 1.5rem;
   line-height: 2rem;
   font-family: "Jura", sans-serif;
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
   text-shadow: var(--text-shadow);
+  font-size: inherit;
 }
 
 button:disabled,

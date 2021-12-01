@@ -107,7 +107,7 @@ html, body {
 body {
   color: white;
   font-family: "Jura", sans-serif;
-  font-size: 1.5rem;
+  font-size: var(--base-font-size);
   padding: 0;
   margin: 0;
   zoom: 0.9;
