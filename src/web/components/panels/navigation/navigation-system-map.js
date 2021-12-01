@@ -4,27 +4,27 @@ import RenderSystemMapObject from 'lib/render-system-map-object'
 
 export default function NavigationSystemMapPanel ({ system }) {
   if (!system) return null
-  
+
   return (
     <div className='navigation-panel__map' style={{ display: 'block' }}>
-    <div className='navigation-panel__map-background'>
-      <div className='navigation-panel__map-foreground scrollable'>
-        <div className='system-info text-primary'>
-          <h1>
-            <span className='fx-animated-text' data-fx-order='1'>
-              <i className='icarus-terminal-system-orbits' />
-              {system.name}
-            </span>
-          </h1>
-          <h2 className='text-secondary'>
-            <span className='fx-animated-text' data-fx-order='1'>
-              {system.allegiance || 'Unaligned'}
-              {system.government === 'None' ? ' // No government' : ` // ${system.government}`}
-              {(system.security !== system.government) ? ` // ${system.security}` : ''}
-            </span>
-          </h2>
-          <h3 className='text-secondary'>
-            {/* <span class="fx-animated-text" data-fx-order="2">${loadedSystemInfo === true ? `
+      <div className='navigation-panel__map-background'>
+        <div className='navigation-panel__map-foreground scrollable'>
+          <div className='system-info text-primary'>
+            <h1>
+              <span className='fx-animated-text' data-fx-order='1'>
+                <i className='icarus-terminal-system-orbits' />
+                {system.name}
+              </span>
+            </h1>
+            <h2 className='text-secondary'>
+              <span className='fx-animated-text' data-fx-order='1'>
+                {system.allegiance || 'Unaligned'}
+                {system.government === 'None' ? ' // No government' : ` // ${system.government}`}
+                {(system.security !== system.government) ? ` // ${system.security}` : ''}
+              </span>
+            </h2>
+            <h3 className='text-secondary'>
+              {/* <span class="fx-animated-text" data-fx-order="2">${loadedSystemInfo === true ? `
               ${Render.numberOf(numberOfStars, 'star')},
               ${Render.numberOf(planets, 'planet')},
               ${Render.numberOf(starports, 'starport')},
@@ -37,31 +37,31 @@ export default function NavigationSystemMapPanel ({ system }) {
               -->
               ` : ''}
             </span> */}
-            <span className='fx-animated-text' data-fx-order='3'>
-              {system.faction && system.faction !== 'Unknown'
-                ? `Controlled by ${system.faction}`
-                : ''}
-            </span>
-          </h3>
+              <span className='fx-animated-text' data-fx-order='3'>
+                {system.faction && system.faction !== 'Unknown'
+                  ? `Controlled by ${system.faction}`
+                  : ''}
+              </span>
+            </h3>
+          </div>
+          {system.stars.map(star =>
+            <div
+              key={`${star.name}_ID:${star.bodyId}`}
+              className='system-objects text-primary'
+              data-stellar-objects-horizontal={star._children.length}
+              data-stellar-objects-vertical={star._maxObjectsInOrbit}
+              dangerouslySetInnerHTML={{
+                __html: starHtml(star)
+              }}
+            />
+          )}
         </div>
-        {system.stars.map(star =>
-          <div
-            key={`${star.name}_ID:${star.bodyId}`}
-            className="system-objects text-primary"
-            data-stellar-objects-horizontal={star._children.length}
-            data-stellar-objects-vertical={star._maxObjectsInOrbit}
-            dangerouslySetInnerHTML={{
-              __html: starHtml(star)
-            }}
-          />
-        )}
       </div>
     </div>
-  </div>
   )
 }
 
-function starHtml(star) {
+function starHtml (star) {
   if (star.type === 'Null' && (!star._children || star._children.length === 0)) return ''
 
   return `

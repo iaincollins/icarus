@@ -72,8 +72,8 @@ export default function IndexPage () {
           </div>
           {loadingProgress.loadingComplete === true ? <p>Ready</p> : ''}
         </div>
-        <div style={{ position: 'absolute', bottom: '1rem', right: '1rem', }}>
-          <button style={{width: '20rem'}} onClick={newWindow}>New Terminal</button>
+        <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
+          <button style={{ width: '20rem' }} onClick={newWindow}>New Terminal</button>
         </div>
       </div>
     </>

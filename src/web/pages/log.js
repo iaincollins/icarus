@@ -14,7 +14,7 @@ export default function LogPage () {
   const [selectedLogEntry, setSelectedLogEntry] = useState()
 
   useEffect(async () => {
-    const newLogEntries = await sendEvent('getLogEntries', {count: 100})
+    const newLogEntries = await sendEvent('getLogEntries', { count: 100 })
     if (Array.isArray(newLogEntries) && newLogEntries.length > 0) {
       setLogEntries(newLogEntries)
       // Only select a log entry if one isn't selected already

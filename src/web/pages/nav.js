@@ -25,17 +25,17 @@ export default function NavPage () {
   return (
     <Layout connected={connected} active={active} ready={ready}>
       <Panel layout='full-width' scrollable>
-        <div className="secondary-navigation">
-          <button tabIndex="1" className={`button--icon ${view === 'map' ? 'button--active' : ''}`} onClick={() => setView('map')}>
-            <i className="icon icarus-terminal-system-bodies"/>
+        <div className='secondary-navigation'>
+          <button tabIndex='1' className={`button--icon ${view === 'map' ? 'button--active' : ''}`} onClick={() => setView('map')}>
+            <i className='icon icarus-terminal-system-bodies' />
           </button>
-          <button tabIndex="1" className={`button--icon ${view === 'list' ? 'button--active' : ''}`} onClick={() => setView('list')}>
-            <i className="icon icarus-terminal-table-inspector"/>
+          <button tabIndex='1' className={`button--icon ${view === 'list' ? 'button--active' : ''}`} onClick={() => setView('list')}>
+            <i className='icon icarus-terminal-table-inspector' />
           </button>
         </div>
-        {view === 'list' && <NavigationListPanel system={system} setSystemObject={setSystemObject}/>}
-        {view === 'map' && <NavigationSystemMapPanel system={system}/>}
-        <NavigationInspectorPanel systemObject={systemObject}/>
+        {view === 'list' && <NavigationListPanel system={system} setSystemObject={setSystemObject} />}
+        {view === 'map' && <NavigationSystemMapPanel system={system} />}
+        <NavigationInspectorPanel systemObject={systemObject} />
       </Panel>
     </Layout>
   )
