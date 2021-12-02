@@ -14,8 +14,13 @@ class MyDocument extends Document {
   render () {
     return (
       <Html lang='en' data-fx-crt='false' data-fx-crt-text='false' data-fx-crt-text-animated='false'>
-        <Head />
-        <script dangerouslySetInnerHTML={{ __html: onContextMenu }} />
+        <Head>
+          <style dangerouslySetInnerHTML={{
+            __html: 'html { background: black; }'
+          }}
+          />
+          <script dangerouslySetInnerHTML={{ __html: onContextMenu }} />
+        </Head>
         <body className='not-selectable'>
           <div dangerouslySetInnerHTML={{
             __html: `

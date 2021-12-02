@@ -57,28 +57,27 @@ table tbody tr {
   border-top: .25rem solid transparent;
   outline: 0 !important;
   animation: fade-in-animation .25s ease;
-  background-color: var(--panel-background-color);
+  color: var(--primary-color);
+  background: var(--panel-background-color);
 }
 
-table:not(.table__inline) tbody tr:hover:not(.table-row--disabled) td,
-table:not(.table__inline) tbody tr:hover:not(.table-row--disabled) td span {
+/* 
+ Use <td> selector for :hover and :focus states as some older browsers don't 
+ let you set a background colour for those states on <tr> elements
+*/
+table:not(.table__inline) tbody tr:hover:not(.table-row--disabled):not(:focus) td {
   color: var(--primary-color);
   background: var(--dark-primary-color);
   transition: all .1s ease;
-  --icon-color: var(--primary-color);
 }
 
-table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) td,
-table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) td span {
-  color: var(--dark-primary-color);
-  background: var(--button-active-color);
-  --icon-color: var(--dark-primary-color);
-  text-shadow: none;
+table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) td {
+  color: var(--dark-primary-color) !important;
+  background: var(--button-active-color) !important;
 }
 
-table tbody td {
-  color: var(--primary-color);
-  background: var(--system-object-background-color);
+table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) .icon {
+  color: var(--dark-primary-color) !important; 
 }
 
 table td.wrap:last-child {
@@ -100,11 +99,11 @@ table.table__bordered tbody tr {
   border-bottom: 0;
 }
 
-table.table__bordered tbody tr :not(.table-row--disabled) {
+table.table__bordered tbody tr:not(.table-row--disabled) {
   background-color: transparent !important;
 }
 
-table.table__bordered tbody tr td {
+table.table__bordered tbody tr {
   background-color: var(--panel-background-color);
   border: .2rem solid var(--dark-primary-color);
 }
@@ -124,70 +123,70 @@ table.table__inline tbody tr {
   background-color: transparent;
 }
 
-table.table--animated tbody tr td {
+table.table--animated tbody tr {
   animation: fx-flash-in-animation .2s;
   animation-fill-mode: forwards;
   animation-delay: 1s;
   opacity: 0;
 }
 
-table.table--animated tbody tr:nth-child(1) td {
+table.table--animated tbody tr:nth-child(1) {
   animation-delay: 0s;
 }
-table.table--animated tbody tr:nth-child(2) td {
+table.table--animated tbody tr:nth-child(2) {
   animation-delay: .05s;
 }
-table.table--animated tbody tr:nth-child(3) td {
+table.table--animated tbody tr:nth-child(3) {
   animation-delay: .1s;
 }
-table.table--animated tbody tr:nth-child(4) td {
+table.table--animated tbody tr:nth-child(4) {
   animation-delay: .15s;
 }
-table.table--animated tbody tr:nth-child(5) td {
+table.table--animated tbody tr:nth-child(5) {
   animation-delay: .2s;
 }
-table.table--animated tbody tr:nth-child(6) td {
+table.table--animated tbody tr:nth-child(6) {
   animation-delay: .25s;
 }
-table.table--animated tbody tr:nth-child(7) td {
+table.table--animated tbody tr:nth-child(7) {
   animation-delay: .3s;
 }
-table.table--animated tbody tr:nth-child(8) td {
+table.table--animated tbody tr:nth-child(8) {
   animation-delay: .35s;
 }
-table.table--animated tbody tr:nth-child(9) td {
+table.table--animated tbody tr:nth-child(9) {
   animation-delay: .4s;
 }
-table.table--animated tbody tr:nth-child(10) td {
+table.table--animated tbody tr:nth-child(10) {
   animation-delay: .45s;
 }
-table.table--animated tbody tr:nth-child(11) td {
+table.table--animated tbody tr:nth-child(11) {
   animation-delay: .5s;
 }
-table.table--animated tbody tr:nth-child(12) td {
+table.table--animated tbody tr:nth-child(12) {
   animation-delay: .55s;
 }
-table.table--animated tbody tr:nth-child(13) td {
+table.table--animated tbody tr:nth-child(13) {
   animation-delay: .6s;
 }
-table.table--animated tbody tr:nth-child(14) td {
+table.table--animated tbody tr:nth-child(14) {
   animation-delay: .65s;
 }
-table.table--animated tbody tr:nth-child(15) td {
+table.table--animated tbody tr:nth-child(15) {
   animation-delay: .7s;
 }
-table.table--animated tbody tr:nth-child(16) td {
+table.table--animated tbody tr:nth-child(16) {
   animation-delay: .75s;
 }
-table.table--animated tbody tr:nth-child(17) td {
+table.table--animated tbody tr:nth-child(17) {
   animation-delay: .8s;
 }
-table.table--animated tbody tr:nth-child(18) td {
+table.table--animated tbody tr:nth-child(18) {
   animation-delay: .85s;
 }
-table.table--animated tbody tr:nth-child(19) td {
+table.table--animated tbody tr:nth-child(19) {
   animation-delay: .9s;
 }
-table.table--animated tbody tr:nth-child(20) td {
+table.table--animated tbody tr:nth-child(20) {
   animation-delay: .95s;
 }

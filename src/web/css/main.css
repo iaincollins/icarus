@@ -47,7 +47,6 @@ html::-webkit-scrollbar,
 
 .scrollable {
   scrollbar-width: none;
-  overflow: auto !important;
   overflow-x: hidden !important;
 }
 
@@ -111,6 +110,9 @@ body {
   padding: 0;
   margin: 0;
   zoom: 0.9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
 }
 
 @media only screen and (max-width: 800px) {

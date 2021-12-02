@@ -115,7 +115,6 @@ html[data-fx-crt="true"] .layout__overlay {
 }
 
 .fx-animated-text {
-  overflow-x: hidden !important; /* fallback for when clip is not supported */
   overflow-x: clip !important; /* avoids clipping text shadow on y axis */
   padding-left: 2rem;
   margin-left: -2rem;
