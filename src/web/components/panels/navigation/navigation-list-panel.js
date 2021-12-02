@@ -1,3 +1,5 @@
+import { STARPORTS, PLANETARY_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../service/lib/consts'
+
 export default function NavigationInspectorPanel ({ system, setSystemObject }) {
   if (!system) return null
 
@@ -33,48 +35,50 @@ export default function NavigationInspectorPanel ({ system, setSystemObject }) {
   )
 }
 
-// FIXME this should be recursive
 function NavigationTableBody ({ system, setSystemObject }) {
-  const tableRows = []
+  let tableRows = []
 
-  system.stars.forEach(star => {
+  for (const star of system.stars) {
     tableRows.push(<NavigationTableRow key={`${star.name}_${star.id}`} systemObject={star} setSystemObject={setSystemObject} />)
 
-    star._children.forEach((systemObject, i) => {
-      tableRows.push(<NavigationTableRow key={`${systemObject.name}_${systemObject.id}`} systemObject={systemObject} depth={1} setSystemObject={setSystemObject} />)
+    for (const systemObject of star._children) {
+      tableRows = tableRows.concat(<NavigationTableRowChildren key={`${systemObject.name}_${systemObject.id}`} systemObject={systemObject} setSystemObject={setSystemObject} />)
+    }
+  }
 
-      systemObject._children.forEach((systemObjectChild, i) => {
-        tableRows.push(<NavigationTableRow key={`${systemObjectChild.name}_${systemObjectChild.id}`} systemObject={systemObjectChild} depth={2} setSystemObject={setSystemObject} />)
+  return tableRows
+}
 
-        if (systemObjectChild._planetaryBases) {
-          systemObjectChild._planetaryBases.forEach(planetaryBase => {
-            tableRows.push(<NavigationTableRow key={`${planetaryBase.name}_${planetaryBase.id}`} systemObject={planetaryBase} depth={3} setSystemObject={setSystemObject} />)
-          })
-        }
-      })
+function NavigationTableRowChildren ({ systemObject, setSystemObject, depth = 1 }) {
+  let tableRows = []
 
-      if (systemObject._planetaryBases) {
-        systemObject._planetaryBases.forEach(planetaryBase => {
-          tableRows.push(<NavigationTableRow key={`${planetaryBase.name}_${planetaryBase.id}`} systemObject={planetaryBase} depth={2} setSystemObject={setSystemObject} />)
-        })
-      }
-    })
-  })
+  tableRows.push(<NavigationTableRow key={`${systemObject.name}_${systemObject.id}`} systemObject={systemObject} depth={depth} setSystemObject={setSystemObject} />)
 
-  // ${false && systemObject._planetaryBases && systemObject._planetaryBases.length > 0
-  //   ? Render.html(systemObject._planetaryBases.map(
-  //       (childSystemObject, i) => NavigationPanel.renderTableRow(childSystemObject, indent + 1))
-  //     )
-  //   : ''}
+  if (systemObject._children) {
+    for (const childSystemObject of systemObject._children) {
+      tableRows = tableRows.concat(<NavigationTableRowChildren key={`${childSystemObject.name}_${childSystemObject.id}`} systemObject={childSystemObject} setSystemObject={setSystemObject} depth={depth + 1} />)
+    }
+  }
+
+  if (systemObject._planetaryBases) {
+    for (const planetaryBase of systemObject._planetaryBases) {
+      tableRows = tableRows.concat(<NavigationTableRowChildren key={`${planetaryBase.name}_${planetaryBase.id}`} systemObject={planetaryBase} setSystemObject={setSystemObject} depth={depth + 1} />)
+    }
+  }
 
   return tableRows
 }
 
 function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
+  if (!systemObject.type) {
+    console.warn('Unknown type of system object', systemObject)
+    return null
+  }
+
   if (systemObject.type === 'Null') { return (<tr className='table-row--disabled'><td colSpan='2'><hr /></td></tr>) }
 
-  // const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
-  // const isPlanetaryBase = PLANETARY_BASES.includes(systemObject.type)
+  const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
+  const isPlanetaryBase = PLANETARY_BASES.includes(systemObject.type)
 
   // TODO Move to icon class
   let iconClass = 'icon icarus-terminal-'
@@ -107,10 +111,12 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
     default:
   }
 
+  if (isLandable) { iconClass += ' text-secondary' }
+
   return (
-    <tr tabIndex='2' onClick={() => setSystemObject(systemObject)}>
-      <td className={` ${systemObject.isLandable ? 'text-secondary' : 'text-primary'}`}>
-        <div style={{ paddingLeft: `${(depth * 1.5) + 2}rem` }}>
+    <tr tabIndex='2' onFocus={() => setSystemObject(systemObject)}>
+      <td>
+        <div style={{ paddingLeft: `${(depth * 1.5) + 2}rem` }} className='text-no-wrap'>
           <i className={iconClass} />
           {systemObject.name}
         </div>

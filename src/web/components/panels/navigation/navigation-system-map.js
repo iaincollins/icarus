@@ -12,7 +12,7 @@ export default function NavigationSystemMapPanel ({ system }) {
           <div className='navigation-panel__system-info text-primary'>
             <h1>
               <span className='fx-animated-text' data-fx-order='1'>
-                <i className='icarus-terminal-system-orbits' />
+                <i className='icon icarus-terminal-system-orbits' />
                 {system.name}
               </span>
             </h1>
@@ -68,8 +68,8 @@ function starHtml (star) {
                   <h2>
                     <span class="fx-animated-text" data-fx-order="4">
                       ${star.type !== 'Null'
-                        ? '<i class="icarus-terminal-star"></i>'
-                        : '<i class="icarus-terminal-system-bodies"></i>'
+                        ? '<i class="icon icarus-terminal-star"></i>'
+                        : '<i class="icon icarus-terminal-system-bodies"></i>'
                       } ${star.name}
                     </span>
                   <h2>
