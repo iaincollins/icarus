@@ -51,19 +51,47 @@ class EliteLog {
   }
 
   // Get all log entries
-  load({ file = null, lastActiveOnly = true, minTimestamp = null, reloadAll = false } = {}) {
+  load({ 
+    file = null, // Load a particular file (used internally when file changes)
+    days = null, // Days since last activity to load (if null, load all events)
+    reload = false // Attempt to reload all events if they are older (safe, won't result in duplicates)
+  } = {}) {
     return new Promise(async (resolve) => {
       let logs = []
       // If file specified, load logs from that file, otherwise load all files
       const files = file ? [file] : await this.#getFiles()
-      for (const file of files) {
-        // If lastActiveOnly is true (the default) then we parse but do not
-        // ingest all events. This allows for fast startup time. Historical data 
-        // can still be explicitly imported by users via an option.
-        if (lastActiveOnly === true && file.name !== this.lastActiveLogFileName) continue
 
+      // Only determine a minimum timestamp if number of days specified and on
+      // first run (this.lastActiveTimestamp will not be null if any events
+      // have actually been imported already).
+      let minTimestamp = null
+      if (days !== null && !this.lastActiveTimestamp) {
+        let oldestTimestamp = null
+        let newestTimestamp = null
+        for (const file of files) {
+          await retry(() => { // Auto-retry on failure (write in progress)
+            const rawLog = fs.readFileSync(file.name).toString()
+            const logs = this.#parse(rawLog)
+            for (const log of logs) {
+              if (!newestTimestamp || (Date.parse(log.timestamp) > Date.parse(newestTimestamp)))
+                newestTimestamp = log.timestamp
+
+              if (!oldestTimestamp || (Date.parse(log.timestamp) < Date.parse(oldestTimestamp)))
+                oldestTimestamp = log.timestamp
+            }
+          }, {
+            retries: 10
+          })
+        }
+        
+        // Store in human readable timestamp for easier debugging
+        // (performance impact is minimal)
+        minTimestamp = new Date(Date.parse(newestTimestamp) - days * 24 * 60 * 60 * 1000).toISOString()
+      }
+
+      for (const file of files) {
         // Skip old files that haven't been modified since minTimestamp
-        if (minTimestamp && minTimestamp > Date.parse(file.lastModified)) continue
+        if (minTimestamp && Date.parse(minTimestamp) > Date.parse(file.lastModified)) continue
 
         // If any step fails (e.g if trying read and parse while being written)
         // then is automatically retried with this function.
@@ -71,13 +99,10 @@ class EliteLog {
         // There is no error handling here, but the function has exponential
         // backoff and while single failures are quite common more than one
         // retry is extremely rare.
-        await retry(async bail => {
+        await retry(() => {
           const rawLog = fs.readFileSync(file.name).toString()
           const parsedLog = this.#parse(rawLog)
-
-          // Add new log data to existing log data 
-          logs = logs.concat(parsedLog)
-
+          logs = logs.concat(parsedLog) // Add new log entries to existing logs
           if (this.loadFileCallback) this.loadFileCallback(file)
         }, {
           retries: 10
@@ -86,13 +111,13 @@ class EliteLog {
 
       // If a minimum timestamp was specified, use it to filter what is loaded
       if (minTimestamp) {
-        logs = logs.filter(log => (Date.parse(log.timestamp) > minTimestamp))
+        logs = logs.filter(log => (Date.parse(log.timestamp) > Date.parse(minTimestamp)))
       }
 
       // If lastActiveTimestamp has been set, this function has been run at
       // least once already. We can use it to discard old log files without
-      // spending more time on them. Overriden by reloadAll argument.
-      if (this.lastActiveTimestamp && reloadAll !== true) {
+      // spending more time on them. Overriden by reload argument.
+      if (this.lastActiveTimestamp && reload !== true) {
         logs = logs.filter(log => (Date.parse(log.timestamp) > Date.parse(this.lastActiveTimestamp)))
       }
 

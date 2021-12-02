@@ -189,10 +189,7 @@ const eventHandlers = {
   }
 }
 
-async function init ({
-  lastActiveOnly = false,
-  minTimestamp = Date.now() - 30 * 24 * 60 * 60 * 1000 // Load last 30 days by default
-} = {}) {
+async function init ({ days = 30 } = {}) {
   if (loadingComplete) return loadingStats() // If already run, don't run again
 
   loadingInProgress = true // True while initial loading is happening
@@ -205,7 +202,7 @@ async function init ({
   await eliteJson.load() // Load JSON files then watch for changes
   eliteJson.watch() // @TODO Pass a callback to handle new messages
 
-  await eliteLog.load({ lastActiveOnly, minTimestamp }) // Load logs then watch for changes
+  await eliteLog.load({ days }) // Load logs then watch for changes
   eliteLog.watch() // @TODO Pass a callback to handle new messages
 
   loadingInProgress = false // We are done with the loading phase
