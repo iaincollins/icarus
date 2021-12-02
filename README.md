@@ -6,16 +6,16 @@ _This documentation is intended for developers. This is pre-release software and
 
 [If you want to try it out, can download the latest preview release.](https://github.com/iaincollins/icarus/releases/latest)
 
-Notes: 
+* Functionality in the pre-releases is currently very limited.
+* You can run ICARUS Terminal in a single window, in multiple windows or connect remotely from another computer, tablet or other device with a browser (or any combination of those) and the information displayed will update in real time.
+* The application checks for new releases when it starts and will give you the option to install the update.
+* The application includes integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/). Data such as your current in-game location will be provided to them order to render information in the interface, but does not include information about the game state (e.g. your commander name or ship name) or any personally identifiable information.
+* Windows 7 or newer is required. Builds are not currently signed with a code signing certificate.
 
-* ICARUS Terminal checks for new releases at startup, these are opt-in updates.
-* Current functionality is extremely limited and does not yet include functionality seen in the initial prototype.
-* You do not need to register to use this application and your information is not shared with third parties.
-* Future updates will include integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/).
-* Builds are not currently signed with a code signing certificate.
 ----
 
-<img src="https://user-images.githubusercontent.com/595695/137490706-4772ba94-904e-47f4-8bf0-759d3ca51287.png">
+![Screenshot)](https://user-images.githubusercontent.com/595695/144334044-82cefe96-2bec-45fc-9c55-85e94c2f27d9.png)
+_A view showing multiple terminal windows open at the same time, each with a different interface panel open_
 
 ICARUS is a Windows (Win32) application built primarily in JavaScript, using Node.js + WebSockets and Go with a fork of custom [Edge/WebView2 abstraction in C/C++](https://github.com/iaincollins/webview).
 
