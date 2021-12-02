@@ -104,11 +104,14 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
     case 'planet':
       iconClass += 'planet'
       break
-    case 'planetary port':
-    case 'odyssey settlement':
-      iconClass += 'planetary-port'
-      break
     default:
+      if (PLANETARY_BASES.includes(systemObject.type)) {
+        if (PLANETARY_PORTS.includes(systemObject.type)) {
+          iconClass += 'planetary-port'
+        } else {
+          iconClass += 'settlement'
+        }
+      }
   }
 
   if (isLandable) { iconClass += ' text-secondary' }
