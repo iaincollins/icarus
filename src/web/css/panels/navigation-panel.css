@@ -205,13 +205,12 @@
 
 .navigation-panel__map .navigation-panel__system-info h2 {
   font-size: 1.5rem;
-  margin: 0 0 0 4.25rem;
-  padding: 0;
+  margin: 0 0 0 4rem;
 }
 
 .navigation-panel__map .navigation-panel__system-info h3 {
   font-size: 1.25rem;
-  margin: 0 0 0 4.25rem;
+  margin: 0 0 0 4rem;
   text-transform: none;
 }
 
