@@ -337,14 +337,13 @@ class SystemMap {
   // screen space, but do include still include it in things like station names.
   // e.g "Colonia 5" is fine with the label "5" in the system map, but the name
   // "Colonia Outpost" should not be truncated to "Outpost".
-  getSystemObjectLabel(systemObject) {
+  getSystemObjectLabel (systemObject) {
     if (systemObject.type && systemObject.type === 'Planet') {
       return systemObject.name.replace(new RegExp(`^${escapeRegExp(this.name)} `), '')
     } else {
       return systemObject.name
     }
   }
-
 }
 
 module.exports = SystemMap

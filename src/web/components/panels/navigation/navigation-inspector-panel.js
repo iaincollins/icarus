@@ -1,8 +1,10 @@
+import { PLANETARY_PORTS, PLANETARY_BASES } from '../../../../service/lib/consts'
+
 export default function NavigationInspectorPanel ({ systemObject }) {
   if (!systemObject) return null
 
   // TODO Move to icon class
-  let iconClass = 'text-info icon icarus-terminal-'
+  let iconClass = 'icon icarus-terminal-'
   switch (systemObject.type.toLowerCase()) {
     case 'star':
       iconClass += 'star'
@@ -25,11 +27,14 @@ export default function NavigationInspectorPanel ({ systemObject }) {
     case 'planet':
       iconClass += 'planet'
       break
-    case 'planetary port':
-    case 'odyssey settlement':
-      iconClass += 'planetary-port'
-      break
     default:
+      if (PLANETARY_BASES.includes(systemObject.type)) {
+        if (PLANETARY_PORTS.includes(systemObject.type)) {
+          iconClass += 'planetary-port'
+        } else {
+          iconClass += 'settlement'
+        }
+      }
   }
 
   return (

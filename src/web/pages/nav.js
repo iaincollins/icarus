@@ -4,7 +4,7 @@ import Panel from 'components/panel'
 import NavigationSystemMapPanel from 'components/panels/navigation/navigation-system-map'
 import NavigationInspectorPanel from 'components/panels/navigation/navigation-inspector-panel'
 import NavigationListPanel from 'components/panels/navigation/navigation-list-panel'
-import { useSocket, sendEvent } from 'lib/socket'
+import { useSocket, sendEvent, eventListener } from 'lib/socket'
 
 const MAP_VIEW = 'map-view'
 const LIST_VIEW = 'list-view'
@@ -24,6 +24,15 @@ export default function NavPage () {
     setSystemObject(firstSystemObject)
     setReady(true)
   }, [connected])
+
+  useEffect(() => eventListener('newLogEntry', async (newLogEntry) => {
+    if (newLogEntry.event === 'FSDJump') {
+      const newSystem = await sendEvent('getSystem')
+      const firstSystemObject = newSystem?.stars?.[0]?._children?.[0] ?? null
+      setSystem(newSystem)
+      setSystemObject(firstSystemObject)
+    }
+  }), [])
 
   return (
     <Layout connected={connected} active={active} ready={ready}>
