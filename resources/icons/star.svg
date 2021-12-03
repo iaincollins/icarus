@@ -22,16 +22,17 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.873"
-     inkscape:cx="499.42726"
+     inkscape:cx="498.85452"
      inkscape:cy="500.57274"
-     inkscape:window-width="3840"
-     inkscape:window-height="2096"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg4" />
+     inkscape:window-width="1801"
+     inkscape:window-height="1338"
+     inkscape:window-x="1184"
+     inkscape:window-y="595"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4"
+     showguides="false" />
   <path
-     d="M 500.05017,5.9708329 482.52752,59.19218 377.52706,378.09446 3.2155566,500.12897 377.52706,622.16348 500.05017,994.28711 622.57131,622.16348 996.88281,500.12897 622.57131,378.09446 Z m 0,117.9786071 93.31934,283.43118 284.48099,92.74835 -284.48099,92.74835 -93.31934,283.43119 -93.32132,-283.43119 -284.48099,-92.74835 284.48099,-92.74835 z"
-     id="path2"
-     style="stroke-width:1.00466" />
+     id="path951"
+     style="stroke-width:1.00466"
+     d="m 500.05078,5.9707031 -17.52344,53.2207029 -105,318.902344 L 3.2148438,500.12891 377.52734,622.16406 500.05078,994.28711 622.57227,622.16406 996.88281,500.12891 622.57227,378.09375 Z m 2.09766,185.9941369 77.39844,235.07422 235.94531,76.92578 -235.94531,76.92383 -77.39844,235.07422 -77.40039,-235.07422 -235.94532,-76.92383 235.94532,-76.92578 z" />
 </svg>

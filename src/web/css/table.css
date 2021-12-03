@@ -78,6 +78,7 @@ table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) td {
 
 table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) .icon {
   color: var(--dark-primary-color) !important; 
+  font-weight: bold;
 }
 
 table td.wrap:last-child {
