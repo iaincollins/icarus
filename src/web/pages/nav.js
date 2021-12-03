@@ -20,7 +20,6 @@ export default function NavPage () {
     if (!connected) return
     const newSystem = await sendEvent('getSystem')
     const firstSystemObject = newSystem?.stars?.[0]?._children?.[0] ?? null
-    console.log(newSystem)
     setSystem(newSystem)
     setSystemObject(firstSystemObject)
     setReady(true)

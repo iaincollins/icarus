@@ -81,11 +81,13 @@ function starHtml (star) {
                     }
                     </span>
                   </h3>
-                  ${star.numberOfPlanets > 0 ? `<h4>
+                  ${star.numberOfPlanets > 0
+? `<h4>
                     <span class="fx-animated-text" data-fx-order="6">
                       ${star.numberOfPlanets === 1 ? '1 planet' : `${star.numberOfPlanets} planets`}
                     </span>
-                  </h4>` : ''}
+                  </h4>`
+: ''}
                   ${(star._children && star._children.length > 0)
   ? `
                     <div class="svg-wrapper" style="opacity: 1;">
