@@ -1,4 +1,4 @@
-import { PLANETARY_PORTS, PLANETARY_BASES } from '../../../../service/lib/consts'
+import { SURFACE_PORTS, PLANETARY_BASES } from '../../../../service/lib/consts'
 
 export default function NavigationInspectorPanel ({ systemObject }) {
   if (!systemObject) return null
@@ -29,7 +29,7 @@ export default function NavigationInspectorPanel ({ systemObject }) {
       break
     default:
       if (PLANETARY_BASES.includes(systemObject.type)) {
-        if (PLANETARY_PORTS.includes(systemObject.type)) {
+        if (SURFACE_PORTS.includes(systemObject.type)) {
           iconClass += 'planetary-port'
         } else {
           iconClass += 'settlement'

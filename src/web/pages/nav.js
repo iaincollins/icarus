@@ -18,8 +18,9 @@ export default function NavPage () {
 
   useEffect(async () => {
     if (!connected) return
-    const newSystem = await sendEvent('getSystem')
+    const newSystem = await sendEvent('getSystem', {name: 'Colonia'})
     const firstSystemObject = newSystem?.stars?.[0]?._children?.[0] ?? null
+    console.log(newSystem)
     setSystem(newSystem)
     setSystemObject(firstSystemObject)
     setReady(true)

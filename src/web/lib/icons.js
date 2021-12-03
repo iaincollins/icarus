@@ -1,12 +1,12 @@
 import iconJson from './icons.json'
-import { PLANETARY_PORTS, PLANETARY_BASES } from '../../service/lib/consts'
+import { SURFACE_PORTS, PLANETARY_BASES } from '../../service/lib/consts'
 
 class _Icons {
   static icon (name, style, classNames) {
     // As we don't have icons for all types of planetary bases yet,
     // use either a generic base icon or a planetary port icon
     if (PLANETARY_BASES.includes(name)) name = 'planetaryBase'
-    if (PLANETARY_PORTS.includes(name)) name = 'planetaryPort'
+    if (SURFACE_PORTS.includes(name)) name = 'planetaryPort'
 
     const svgSrc = `
       <svg

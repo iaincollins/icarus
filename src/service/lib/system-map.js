@@ -1,7 +1,7 @@
 const {
   MEGASHIPS,
   STARPORTS,
-  PLANETARY_PORTS,
+  SURFACE_PORTS,
   PLANETARY_OUTPOSTS,
   SETTLEMENTS,
   PLANETARY_BASES
@@ -22,7 +22,7 @@ class SystemMap {
     this.stars = bodies.filter(body => body.type === 'Star')
     this.planets = bodies.filter(body => body.type === 'Planet')
     this.starports = stations.filter(station => STARPORTS.includes(station.type))
-    this.planetaryPorts = stations.filter(station => PLANETARY_PORTS.includes(station.type))
+    this.planetaryPorts = stations.filter(station => SURFACE_PORTS.includes(station.type))
     this.planetaryOutposts = stations.filter(station => PLANETARY_OUTPOSTS.includes(station.type))
     this.settlements = stations.filter(station => SETTLEMENTS.includes(station.type))
     this.megaships = stations.filter(station => MEGASHIPS.includes(station.type))
@@ -52,7 +52,7 @@ class SystemMap {
       // co-ordiantes for values, which are used to draw the map). The approach
       // here may not always be technically correct, but it's good enough for
       // our map and should render meaningfully.
-      if (!systemObject.parents && systemObject.type && STARPORTS.concat(MEGASHIPS).concat(SETTLEMENTS).includes(systemObject.type)) {
+      if (!systemObject.parents && systemObject.type && STARPORTS.concat(MEGASHIPS).concat(PLANETARY_BASES).includes(systemObject.type)) {
         // Find planet with closest similar distance to sun
         // This could be the wrong choice in edge cases, but is good enough.
         const nearestPlanet = this.getNearestPlanet(systemObject)
@@ -83,6 +83,17 @@ class SystemMap {
             if (systemObjectParent.bodyId === nearestLandablePlanet.bodyId) {
               if (!systemObjectParent._planetaryBases) systemObjectParent._planetaryBases = []
               systemObjectParent._planetaryBases.push(systemObject)
+            }
+          }
+        }
+
+        // If this object is any time of planetry port, outpost or settlement
+        // then add it as a planetary base of the parent body
+        if (MEGASHIPS.includes(systemObject.type)) {
+          for (const systemObjectParent of this.objectsInSystem) {
+            if (systemObjectParent.bodyId === nearestPlanet.bodyId) {
+              if (!systemObjectParent._megaships) systemObjectParent._megaships = []
+              systemObjectParent._megaships.push(systemObject)
             }
           }
         }

@@ -1,4 +1,4 @@
-import { STARPORTS, PLANETARY_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../service/lib/consts'
+import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../service/lib/consts'
 
 export default function NavigationInspectorPanel ({ system, setSystemObject }) {
   if (!system) return null
@@ -60,12 +60,17 @@ function NavigationTableRowChildren ({ systemObject, setSystemObject, depth = 1 
     }
   }
 
+  if (systemObject._megaships) {
+    for (const megaship of systemObject._megaships) {
+      tableRows = tableRows.concat(<NavigationTableRowChildren key={`${megaship.name}_${megaship.id}`} systemObject={megaship} setSystemObject={setSystemObject} depth={depth + 1} />)
+    }
+  }
+
   if (systemObject._planetaryBases) {
     for (const planetaryBase of systemObject._planetaryBases) {
       tableRows = tableRows.concat(<NavigationTableRowChildren key={`${planetaryBase.name}_${planetaryBase.id}`} systemObject={planetaryBase} setSystemObject={setSystemObject} depth={depth + 1} />)
     }
   }
-
   return tableRows
 }
 
@@ -106,7 +111,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
       break
     default:
       if (PLANETARY_BASES.includes(systemObject.type)) {
-        if (PLANETARY_PORTS.includes(systemObject.type)) {
+        if (SURFACE_PORTS.includes(systemObject.type)) {
           iconClass += 'planetary-port'
         } else {
           iconClass += 'settlement'
