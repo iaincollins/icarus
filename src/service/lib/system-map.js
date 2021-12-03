@@ -19,6 +19,7 @@ class SystemMap {
     this.detail = system
     const { name = '', bodies = [], stations = [] } = this.detail
     this.name = name
+
     this.stars = bodies.filter(body => body.type === 'Star')
     this.planets = bodies.filter(body => body.type === 'Planet')
     this.starports = stations.filter(station => STARPORTS.includes(station.type))

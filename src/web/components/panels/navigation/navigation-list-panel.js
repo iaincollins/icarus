@@ -83,7 +83,6 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
   if (systemObject.type === 'Null') { return (<tr className='table-row--disabled'><td colSpan='2'><hr /></td></tr>) }
 
   const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
-  const isPlanetaryBase = PLANETARY_BASES.includes(systemObject.type)
 
   // TODO Move to icon class
   let iconClass = 'icon icarus-terminal-'
