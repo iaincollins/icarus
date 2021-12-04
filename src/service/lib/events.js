@@ -49,9 +49,9 @@ const eventTypesLoaded = {} // List of event types seen
 let loadingStartTime, loadingEndTime // Used to track how long loading takes
 let loadingProgressInterval // Used to update clients on loading progress
 
-// const loadingProgressEvent = throttle(() => broadcastEvent('loadingProgressEvent', loadingStats()), 250, { leading: true, trailing: true })
+// const loadingProgressEvent = throttle(() => broadcastEvent('loadingProgressEvent', getLoadingStatus()), 250, { leading: true, trailing: true })
 
-const loadingProgressEvent = () => broadcastEvent('loadingProgress', loadingStats())
+const loadingProgressEvent = () => broadcastEvent('loadingProgress', getLoadingStatus())
 
 // Callback to be invoked when a file is loaded
 // Fires every time a file is loaded or reloaded
@@ -109,7 +109,7 @@ const eventHandlers = {
       urls
     }
   },
-  loadingStats: () => loadingStats(),
+  getLoadingStatus: () => getLoadingStatus(),
   getCommander: async () => {
     const [LoadGame] = await Promise.all([eliteLog.getEvent('LoadGame')])
     return {
@@ -190,14 +190,15 @@ const eventHandlers = {
 }
 
 async function init ({ days = 30 } = {}) {
-  if (loadingComplete) return loadingStats() // If already run, don't run again
+  // If already run (or already started) don't run again
+  if (loadingComplete || loadingInProgress) return getLoadingStatus()
 
   loadingInProgress = true // True while initial loading is happening
-
-  loadingProgressEvent()
-  loadingProgressInterval = setInterval(loadingProgressEvent, 200)
-
   loadingStartTime = new Date()
+  loadingEndTime = null // Reset
+
+  loadingProgressEvent() // Fire first event
+  loadingProgressInterval = setInterval(loadingProgressEvent, 200)
 
   await eliteJson.load() // Load JSON files then watch for changes
   eliteJson.watch() // @TODO Pass a callback to handle new messages
@@ -205,27 +206,28 @@ async function init ({ days = 30 } = {}) {
   await eliteLog.load({ days }) // Load logs then watch for changes
   eliteLog.watch() // @TODO Pass a callback to handle new messages
 
+  clearInterval(loadingProgressInterval)
+
   loadingInProgress = false // We are done with the loading phase
   loadingComplete = true // Set to true when data has been loaded
   loadingEndTime = new Date()
 
-  clearInterval(loadingProgressInterval)
   loadingProgressEvent() // Trigger once complete
 
-  return loadingStats()
+  return getLoadingStatus()
 }
 
-function loadingStats () {
+function getLoadingStatus () {
   return {
     loadingComplete,
     loadingInProgress,
+    loadingCompleted: loadingEndTime,
+    loadingTime: (loadingEndTime) ? loadingEndTime - loadingStartTime : new Date() - loadingStartTime,
     numberOfFiles: filesLoaded.length,
     numberOfEventsImported,
     numberOfLogLines,
-    eventTypesLoaded,
     logSizeInBytes,
-    lastActivity: eliteLog.stats().lastActivity,
-    loadingTime: (loadingEndTime) ? loadingEndTime - loadingStartTime : new Date() - loadingStartTime
+    lastActivity: eliteLog.stats().lastActivity
   }
 }
 

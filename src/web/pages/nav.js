@@ -10,20 +10,21 @@ const MAP_VIEW = 'map-view'
 const LIST_VIEW = 'list-view'
 
 export default function NavPage () {
-  const { connected, active } = useSocket()
-  const [ready, setReady] = useState(false)
+  const { connected, active, ready } = useSocket()
+  const [componentReady, setComponentReady] = useState(false)
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
   const [view, setView] = useState(MAP_VIEW)
 
   useEffect(async () => {
     if (!connected) return
+    setComponentReady(false)
     const newSystem = await sendEvent('getSystem')
     const firstSystemObject = newSystem?.stars?.[0]?._children?.[0] ?? null
     setSystem(newSystem)
     setSystemObject(firstSystemObject)
-    setReady(true)
-  }, [connected])
+    setComponentReady(true)
+  }, [connected, ready])
 
   useEffect(() => eventListener('newLogEntry', async (newLogEntry) => {
     if (newLogEntry.event === 'FSDJump') {
@@ -35,7 +36,7 @@ export default function NavPage () {
   }), [])
 
   return (
-    <Layout connected={connected} active={active} ready={ready}>
+    <Layout connected={connected} active={active} ready={ready && componentReady}>
       <Panel layout='full-width' scrollable>
         <div className='secondary-navigation'>
           <button tabIndex='1' className={`button--icon ${view === MAP_VIEW ? 'button--active' : ''}`} onClick={() => setView(MAP_VIEW)}>

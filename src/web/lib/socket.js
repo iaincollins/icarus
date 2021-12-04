@@ -8,7 +8,8 @@ let recentBroadcastEvents = 0
 
 const defaultSocketState = {
   connected: false, // Boolean to indicate current connection status
-  active: false // Boolean to indicate if any pending requests
+  active: false, // Boolean to indicate if any pending requests
+  ready: false // Boolean to indicate if the service is ready and loaded
 }
 
 function socketDebugMessage () { /* console.log(...arguments) */ }
@@ -19,6 +20,19 @@ function connect (socketState, setSocketState) {
     const { requestId, name, message } = JSON.parse(event.data)
     // Invoke callback to handler (if there is one)
     if (requestId && callbackHandlers[requestId]) callbackHandlers[requestId](event, setSocketState)
+
+    // Updating resync whern loading completes tells any components to resync
+    // with the server. it is useful for remote clients that disconnects then
+    // reconnects to tell them to update once the service is ready.
+    if (name === 'loadingProgress') {
+      if (message.loadingComplete) {
+        setSocketState(prevState => ({
+          ...prevState,
+          ready: true
+        }))
+      }
+    }
+
     // Broadcast event to anything that is listening for an event with this name
     if (!requestId && name) {
       window.dispatchEvent(new CustomEvent(`socketEvent_${name}`, { detail: message }))
@@ -37,7 +51,7 @@ function connect (socketState, setSocketState) {
     }
     socketDebugMessage('Message received from socket server', requestId, name, message)
   }
-  socket.onopen = (e) => {
+  socket.onopen = async (e) => {
     socketDebugMessage('Connected to socket server')
 
     setSocketState(prevState => ({
@@ -65,13 +79,24 @@ function connect (socketState, setSocketState) {
         socketDebugMessage('Failed to deliver queued message socket server', requestId, name, message)
       }
     }
+
+    // If we are fully loaded, then set 'ready' state to true, otherwise wait
+    // until get a loadingProgress event that indicates the service is loaded
+    const loadingStats = await sendEvent('getLoadingStatus')
+    if (loadingStats.loadingComplete) {
+      setSocketState(prevState => ({
+        ...prevState,
+        ready: true
+      }))
+    }
   }
   socket.onclose = (e) => {
     socketDebugMessage('Disconnected from socket server')
     setSocketState(prevState => ({
       ...prevState,
-      active: !!((Object.keys(callbackHandlers).length > 0 || deferredEventQueue.length > 0)),
-      connected: false
+      active: socketRequestsPending(),
+      connected: false,
+      ready: false
     }))
   }
 }

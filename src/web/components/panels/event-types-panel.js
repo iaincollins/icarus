@@ -15,7 +15,7 @@ export default function EventTypesPanel () {
   const [gameEvents, setGameEvents] = useState()
 
   useEffect(async () => {
-    const message = await sendEvent('loadingStats')
+    const message = await sendEvent('getLoadingStatus')
     setGameEvents(gameEventsToArray(message.eventTypesLoaded))
   }, [connected])
 

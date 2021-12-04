@@ -24,7 +24,7 @@ export default function IndexPage () {
   useEffect(async () => setHostInfo(await sendEvent('hostInfo')), [])
 
   useEffect(async () => {
-    const message = await sendEvent('loadingStats')
+    const message = await sendEvent('getLoadingStatus')
     setLoadingProgress(message)
   }, [connected])
 
