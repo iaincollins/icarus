@@ -5,7 +5,7 @@ export default function SystemMap ({ system, setSystemObject }) {
 
   return (
     <>
-      <div className='navigation-panel__system-info text-primary'>
+      <div className='system-map text-primary'>
         <h1>
           <span className='fx-animated-text' data-fx-order='1'>
             <i className='icon icarus-terminal-system-orbits' />

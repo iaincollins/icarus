@@ -80,7 +80,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
         <>
           {(systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere') &&
             <circle
-              className='navigation-panel__planet-atmosphere'
+              className='system-map__planet-atmosphere'
               cx={x - 0}
               cy={y - 0}
               r={r + 70}
@@ -88,7 +88,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
           {SHOW_LABELS === true &&
             <>
               <text
-                className='navigation-panel__planet-name-text'
+                className='system-map__planet-name-text'
                 x={textNameX}
                 y={textNameY}
                 textLength={textNameXLength !== false ? `${textNameXLength}px` : null}
@@ -97,7 +97,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
                 {textNameContents}
               </text>
               <text
-                className='navigation-panel__planet-distance-text'
+                className='system-map__planet-distance-text'
                 x={textDistanceX}
                 y={textDistanceY}
               >
@@ -106,7 +106,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
             </>}
           <circle
             id={`navigation-panel__${systemObject.id}`}
-            className='system-object'
+            className='system-map__system-object'
             data-landable={systemObject.isLandable}
             data-type={systemObject.type}
             data-sub-type={systemObject.subType}
@@ -120,7 +120,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
             onFocus={() => setSystemObject(systemObject)}
           />
           <circle
-            className='navigation-panel__planet-surface'
+            className='system-map__planet-surface'
             cx={x}
             cy={y}
             r={r}
@@ -131,7 +131,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
               <defs>
                 <mask
                   id={`planet-ring-mask-${systemObject.id}`}
-                  className='navigation-panel__planet-ring-mask'
+                  className='system-map__planet-ring-mask'
                 >
                   <ellipse
                     cx={x}
@@ -157,7 +157,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
                 </mask>
               </defs>
               <ellipse
-                className='navigation-panel__planet-ring'
+                className='system-map__planet-ring'
                 cx={x}
                 cy={y}
                 rx={r * 2}
@@ -166,7 +166,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
                 opacity='1'
               />
               <ellipse
-                className='navigation-panel__planet-ring'
+                className='system-map__planet-ring'
                 cx={x}
                 cy={y - (r / 80)}
                 rx={r * 1.85}
@@ -235,7 +235,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
         {SHOW_LABELS === true &&
           <>
             <text
-              className='navigation-panel__planet-name-text'
+              className='system-map__planet-name-text'
               x={textNameX}
               y={textNameY}
               textLength={textNameXLength !== false ? `${textNameXLength}px` : null}
@@ -243,7 +243,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
             >{textNameContents}
             </text>
             <text
-              className='navigation-panel__planet-distance-text'
+              className='system-map__planet-distance-text'
               x={textDistanceX}
               y={textDistanceY}
             >{textDistanceContents}

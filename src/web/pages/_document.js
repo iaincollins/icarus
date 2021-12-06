@@ -45,56 +45,56 @@ class MyDocument extends Document {
           <stop offset="100%" stop-color="#aaa" />
         </linearGradient>
         <!-- Planets -->
-        <linearGradient id="svg-gradient__planet-ring" gradientTransform="rotate(90)" gradientUnits="userSpaceOnUse">
+        <linearGradient id="system-map-svg-gradient__planet-ring" gradientTransform="rotate(90)" gradientUnits="userSpaceOnUse">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet" gradientTransform="rotate(10)">
+        <linearGradient id="system-map-svg-gradient__planet" gradientTransform="rotate(10)">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet--gas-giant">
+        <linearGradient id="system-map-svg-gradient__planet--gas-giant">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet--gas-giant-ammonia">
+        <linearGradient id="system-map-svg-gradient__planet--gas-giant-ammonia">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet--rocky">
+        <linearGradient id="system-map-svg-gradient__planet--rocky">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet--rocky-icy">
+        <linearGradient id="system-map-svg-gradient__planet--rocky-icy">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet--icy">
+        <linearGradient id="system-map-svg-gradient__planet--icy">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet--high-metal">
+        <linearGradient id="system-map-svg-gradient__planet--high-metal">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet--metal-rich">
+        <linearGradient id="system-map-svg-gradient__planet--metal-rich">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet--earth-like">
+        <linearGradient id="system-map-svg-gradient__planet--earth-like">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <linearGradient id="svg-gradient__planet--landable">
+        <linearGradient id="system-map-svg-gradient__planet--landable">
           <stop offset="0%" />
           <stop offset="100%" />
         </linearGradient>
-        <radialGradient id="svg-gradient__planet--atmosphere--radial">
+        <radialGradient id="system-map-svg-gradient__planet--atmosphere--radial">
           <stop offset="25%" />
           <stop offset="50%" />
           <stop offset="100%" />
         </radialGradient>
-        <linearGradient id="svg-gradient__planet--atmosphere" gradientTransform="rotate(10)">
+        <linearGradient id="system-map-svg-gradient__planet--atmosphere" gradientTransform="rotate(10)">
           <stop offset="50%" />
           <stop offset="100%" />
         </linearGradient>
@@ -165,12 +165,12 @@ class MyDocument extends Document {
       document.write(\`
       <svg style="position: absolute; height: 0; margin: 0; padding: 0; top: -100px;">
         <defs>
-          <pattern id="svg-pattern__planet-surface" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="7280" height="7040">
-            <image href="/images/rock.png" x="0" y="0" width="7280" height="7040"/>
+          <pattern id="svg-pattern__planet-surface" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+            <image href="/images/rock.png" x="0" y="0" width="4096" height="4096"/>
           </pattern>
-          <pattern id="svg-pattern__planet-surface-animated" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="7280" height="7040">
-            <image href="/images/rock.png" x="0" y="0" width="7280" height="7040"/>
-            <animate attributeName="x" values="0;7280" dur="30s" repeatCount="indefinite" />
+          <pattern id="svg-pattern__planet-surface-animated" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+            <image href="/images/rock.png" x="0" y="0" width="4096" height="4096"/>
+            <animate attributeName="x" values="0;4096" dur="30s" repeatCount="indefinite" />
           </pattern>
         </defs>
       </svg>

@@ -1,0 +1,322 @@
+.system-map {
+  margin-bottom: 1px;
+}
+
+.system-map h1 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+.system-map h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0 4rem;
+}
+
+.system-map h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0 4rem;
+  text-transform: none;
+}
+
+.system-map__planetary-system {
+  position: relative;
+  display: block;
+  left: 0rem;
+  min-height: 5rem;
+  height: auto;
+  padding-top: 1rem;
+}
+
+.system-map__planetary-system:last-child {
+  margin-bottom: 2rem;
+}
+
+/*  Set different max height based on number of items */
+.system-map__planetary-system svg {
+  max-width: 100%;
+}
+
+.system-map__planetary-system[data-stellar-objects-horizontal="1"] svg,
+.system-map__planetary-system[data-stellar-objects-horizontal="2"] svg {
+  max-width: 25%;
+}
+
+.system-map__planetary-system[data-stellar-objects-horizontal="3"] svg {
+  max-width: 50%;
+}
+
+.system-map__planetary-system[data-stellar-objects-horizontal="4"] svg {
+  max-width: 75%;
+}
+
+.system-map__planetary-system[data-stellar-objects-horizontal="1"][data-stellar-objects-vertical="4"] svg,
+.system-map__planetary-system[data-stellar-objects-horizontal="1"][data-stellar-objects-vertical="5"] svg,
+.system-map__planetary-system[data-stellar-objects-horizontal="1"][data-stellar-objects-vertical="6"] svg,
+.system-map__planetary-system[data-stellar-objects-horizontal="2"][data-stellar-objects-vertical="4"] svg,
+.system-map__planetary-system[data-stellar-objects-horizontal="2"][data-stellar-objects-vertical="5"] svg,
+.system-map__planetary-system[data-stellar-objects-horizontal="2"][data-stellar-objects-vertical="6"] svg,
+.system-map__planetary-system[data-stellar-objects-horizontal="3"][data-stellar-objects-vertical="4"] svg,
+.system-map__planetary-system[data-stellar-objects-horizontal="3"][data-stellar-objects-vertical="5"] svg,
+.system-map__planetary-system[data-stellar-objects-horizontal="3"][data-stellar-objects-vertical="6"] svg {
+  max-width: 75%;
+}
+
+.system-map__planetary-system h2 {
+  text-shadow: var(--text-shadow);
+  margin: 0 !important;
+  font-size: 2rem;
+}
+
+.system-map__planetary-system h3 {
+  color: var(--secondary-text-color);
+  text-shadow: var(--text-shadow);
+  font-size: 1.25rem;
+  margin: .25rem 0 0 2.75rem !important;
+}
+
+.system-map__planetary-system h4 {
+  color: var(--secondary-text-color);
+  text-shadow: var(--text-shadow);
+  font-size: 1.25rem;
+  margin: 0 0 0 2.75rem !important;
+  text-transform: none;
+}
+
+.system-map__system-object {
+  fill: url(#svg-gradient__unknown);
+}
+
+.system-map__system-object:focus {
+  outline: none;
+  stroke-width: 100 !important;
+  stroke: var(--icon-focus-color) !important;
+  filter: drop-shadow(0 0 10rem var(--planet-atmosphere)) !important;
+  transition: all .1s ease;
+}
+
+.system-map__system-object {
+  z-index: 3;
+}
+
+.system-map__system-object[data-type="Planet"]:focus {
+  Xfilter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) brightness(1.4) var(--planet-not-landable-filter) !important;
+  filter: url(#svg-filter__planet-shadow);
+}
+
+.system-map__system-object[data-type="Planet"][data-small="true"]:focus {
+  Xfilter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) contrast(.95) var(--planet-not-landable-filter) !important;
+  filter: url(#svg-filter__planet-shadow--small);
+}
+
+.system-map__system-object[data-type="Planet"][data-landable="true"]:focus {
+  Xfilter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) brightness(1.4) !important;
+  filter: url(#svg-filter__planet-shadow);
+}
+
+.system-map__system-object[data-type="Planet"][data-small="true"][data-landable="true"]:focus {
+  Xfilter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) contrast(.95) !important;
+  filter: url(#svg-filter__planet-shadow--small);
+}
+
+/* .system-map__system-object[data-type="Planet"]:focus + .system-map__planet-ring {
+  stroke: var(--icon-focus-color);
+  stroke-width: 10rem;
+  transition: all .1s ease; 
+  opacity: 0.7;
+} */
+
+.system-map__system-object[data-type="Planet"]:not([data-atmosphere="No atmosphere"]) {
+
+}
+
+
+.system-map__system-object[data-type="Planet"] {
+  Xfilter: url(#svg-filter__planet-shadow) var(--planet-not-landable-filter);
+  filter: url(#svg-filter__planet-shadow);
+  fill: url(#system-map-svg-gradient__planet);
+  /*
+  fill: url(#svg-pattern__planet--clouds);
+  filter: var(--planet-not-landable-filter) saturate(1.5) sepia(100%)  hue-rotate(330deg) contrast(2);
+  */
+}
+
+.system-map__system-object[data-type="Planet"][data-landable="true"] {
+  fill: url(#system-map-svg-gradient__planet--landable);
+}
+
+.system-map__system-object[data-type="Planet"][data-landable="true"][data-small="true"] {
+  filter: url(#svg-filter__planet-shadow--small);
+}
+
+.system-map__system-object[data-small="true"] {
+  filter: url(#svg-filter__planet-shadow--small);
+}
+
+.system-map__system-object[data-type="Planet"]:not([data-atmosphere="No atmosphere"]) {
+  Xfilter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) var(--planet-not-landable-filter);
+  filter: url(#svg-filter__planet-shadow);
+  Xstroke: var(--planet-atmosphere);
+  Xstroke: black;
+}
+
+.system-map__system-object[data-type="Planet"]:not([data-atmosphere="No atmosphere"])[data-small="true"] {
+  Xfilter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) var(--planet-not-landable-filter) !important;
+  filter: url(#svg-filter__planet-shadow--small);
+  Xstroke: var(--planet-atmosphere);
+  Xstroke: black;
+}
+
+.system-map__system-object[data-type="Planet"]:not([data-atmosphere="No atmosphere"])[data-landable="true"][data-small="true"] {
+  Xfilter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) !important;
+  filter: url(#svg-filter__planet-shadow--small);
+  Xstroke: var(--planet-atmosphere);
+  Xstroke: black;
+}
+/* 
+.system-map__system-object:focus + .system-map__planet-surface {
+  fill: url(#svg-pattern__planet-surface-animated);
+}
+ */
+.system-map__planetary-system-map {
+  position: relative;
+  animation: fade-in-animation ease 1s;
+  animation-fill-mode: forwards;
+  animation-delay: .5s;
+  opacity: 0;
+  margin: 1rem auto auto auto;
+  z-index: 2;
+  filter: contrast(1.5);
+  user-select: none;
+  Xfilter: sepia(100%) hue-rotate(160deg) saturate(2) contrast(1.2) grayscale(50%) brightness(.8);
+}
+
+
+/*
+.system-map__planetary-system-map {
+  position: relative;
+  padding: 2rem;
+}
+
+.system-map__planetary-system-map::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: text-flicker-animation 5s infinite;
+}
+
+.system-map__planetary-system-map::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%), linear-gradient(90deg, rgba(138, 73, 0, .25), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+*/
+
+.system-map__planet-name-text {
+  font-size: 26rem;
+  fill: var(--primary-text-color);
+  color: var(--primary-text-color);
+  text-shadow: var(--text-shadow);
+  font-weight: bold;
+  opacity: 1;
+  text-transform: uppercase;
+}
+
+.system-map__planet-distance-text {
+  font-size: 22rem;
+  fill: var(--secondary-text-color);
+  color: var(--secondary-text-color);
+  text-shadow: var(--text-shadow);
+  font-weight: bold;
+  opacity: 1;
+}
+
+.system-map__planet-surface {
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.system-map__planet-atmosphere {
+  fill: url(#system-map-svg-gradient__planet--atmosphere);
+  stroke: var(--planet-atmosphere);
+  stroke-width: 50;
+  filter: blur(5rem);
+  opacity: .75;
+}
+
+.system-map__planet-ring {
+  display: none;
+}
+
+.system-map__planet-ring {
+  display: block;
+  fill: transparent;
+  stroke: rgba(160, 255, 246, 0.2);
+  stroke-width: 7rem;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(-15deg);
+  fill: url(#system-map-svg-gradient__planet-ring);
+  pointer-events: none;
+}
+
+.system-map__planet-ring-mask {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(-15deg);
+}
+
+#system-map-svg-gradient__planet stop:nth-child(1) {
+  stop-color: var(--primary-color);
+  stop-color: #005c81;
+}
+#system-map-svg-gradient__planet stop:nth-child(2) {
+  stop-color: var(--dark-primary-color);
+  stop-color:  #551b00;
+}
+
+#system-map-svg-gradient__planet--landable stop:nth-child(1) {
+  stop-color: #00b3f7;
+}
+#system-map-svg-gradient__planet--landable stop:nth-child(2) {
+  stop-color:  #8f3c15;
+}
+
+#system-map-svg-gradient__planet-ring stop:nth-child(1) {
+  stop-color: rgba(160, 160, 160, 0.05);
+}
+#system-map-svg-gradient__planet-ring stop:nth-child(2) {
+  stop-color: rgba(160, 160, 160, 0.1);
+}
+
+
+#system-map-svg-gradient__planet--atmosphere stop:nth-child(1) {
+  stop-color: rgb(113, 203, 255);
+}
+
+#system-map-svg-gradient__planet--atmosphere stop:nth-child(2) {
+  stop-color: rgb(0, 140, 255);
+}
+
+#system-map-svg-gradient__planet--atmosphere stop:nth-child(3) {
+  stop-color: rgb(0, 135, 177);
+}

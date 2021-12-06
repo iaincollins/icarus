@@ -11,8 +11,10 @@
 @import "fx.css";
 @import "secondary-navigation.css";
 
+@import "system-map.css";
+/* @import "system-map-realistic-planets.css"; */
+
 @import "panels/navigation-panel.css";
-/* @import "panels/navigation-panel__planets.css"; */
 
 @font-face {
   font-family: 'Jura';

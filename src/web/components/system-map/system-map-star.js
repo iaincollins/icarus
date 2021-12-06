@@ -5,7 +5,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
 
   return (
     <div
-      className='system-objects text-primary'
+      className='system-map__planetary-system text-primary'
       data-stellar-objects-horizontal={star._children.length}
       data-stellar-objects-vertical={star._maxObjectsInOrbit}
     >
@@ -30,7 +30,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
           </span>
         </h4>}
       {star._children && star._children.length > 0 &&
-        <div className='svg-wrapper' style={{ opacity: 1 }}>
+        <div className='system-map__planetary-system-map' style={{ opacity: 1 }}>
           <svg
             viewBox={star._viewBox}
             preserveAspectRatio='xMinYMid meet'
