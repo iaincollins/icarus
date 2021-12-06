@@ -47,7 +47,7 @@ export default function NavPage () {
           </button>
         </div>
         {view === LIST_VIEW && <NavigationListPanel system={system} setSystemObject={setSystemObject} />}
-        {view === MAP_VIEW && <NavigationSystemMapPanel system={system} />}
+        {view === MAP_VIEW && <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} />}
         <NavigationInspectorPanel systemObject={systemObject} />
       </Panel>
     </Layout>

@@ -66,30 +66,32 @@ export default function NavigationInspectorPanel ({ systemObject }) {
             <div className='navigation-panel__inspector-section'>
               <h4 className='text-primary'>Settlements</h4>
               <ul className='text-secondary'>
-                {systemObject._planetaryBases.map(base => <li>{base.name}</li>)}
+                {systemObject._planetaryBases.map(base => <li key={`navigation-inspector_${systemObject.id}_${base.id}`}>{base.name}</li>)}
               </ul>
             </div>}
 
-          {systemObject.atmosphereComposition
-            ? <div className='navigation-panel__inspector-section'>
+          {systemObject.atmosphereComposition &&
+            <div className='navigation-panel__inspector-section'>
               <h4 className='text-primary'>Atmosphere</h4>
               {systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere' ? <p className='text-secondary'>{systemObject.atmosphereType}</p> : null}
               {systemObject.surfacePressure ? <p className='text-secondary'>Pressure {systemObject.surfacePressure.toFixed(1)} atm</p> : null}
               <p className='text-secondary'>Composition:</p>
               <ul className='text-secondary'>
-                {Object.entries(systemObject.atmosphereComposition).map(e => <li>{e[0]} ({e[1]} %)</li>)}
+                {Object.entries(systemObject.atmosphereComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_atmosphere_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
               </ul>
-              </div>
-            : <div className='navigation-panel__inspector-section'>
+            </div>}
+
+          {!systemObject.atmosphereComposition &&
+            <div className='navigation-panel__inspector-section'>
               <h4 className='text-primary'>Atmosphere</h4>
               <p className='text-muted'>No atmosphere</p>
-              </div>}
+            </div>}
 
           {systemObject.solidComposition &&
             <div className='navigation-panel__inspector-section'>
               <h4 className='text-primary'>Surface Composition</h4>
               <ul className='text-secondary'>
-                {Object.entries(systemObject.solidComposition).map(e => <li>{e[0]} ({e[1]} %)</li>)}
+                {Object.entries(systemObject.solidComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_surface_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
               </ul>
             </div>}
         </>}
@@ -116,14 +118,14 @@ export default function NavigationInspectorPanel ({ systemObject }) {
         <div className='navigation-panel__inspector-section'>
           <h4 className='text-primary'>Port Services</h4>
           <ul className='text-secondary'>
-            {systemObject._services.map(service => <li>{service}</li>)}
+            {systemObject._services.map(service => <li key={`navigation-inspector_${systemObject.id}_service_${service}`}>{service}</li>)}
           </ul>
         </div>}
       {systemObject.otherServices &&
         <div className='navigation-panel__inspector-section'>
           <h4 className='text-primary'>Other Services</h4>
           <ul className='text-secondary'>
-            {systemObject.otherServices.map(service => <li>{service}</li>)}
+            {systemObject.otherServices.map(service => <li key={`navigation-inspector_${systemObject.id}_other-service_${service}`}>{service}</li>)}
           </ul>
         </div>}
     </div>

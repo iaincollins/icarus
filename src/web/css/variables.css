@@ -30,6 +30,8 @@
   --icon-color: var(--info-color);
   --icon-focus-color: var(--secondary-color);
 
+  --system-map-line-color: var(--icon-color);
+
   --text-shadow: 0 0 20px;
 
   --mobile-max-breakpoint: 600px;
