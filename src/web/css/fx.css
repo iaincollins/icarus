@@ -151,10 +151,10 @@ html[data-fx-crt="true"] .layout__overlay {
 }
 
 @keyframes fx-flash-in-animation {
-  0% { opacity: 0; }
-  99% { 
-    opacity: .25;
+  0% {
+    opacity: 1;
     background: var(--primary-color);
+    color: var(--dark-primary-color);
   }
   100% { opacity: 1; }
 }
