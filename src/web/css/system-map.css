@@ -93,7 +93,7 @@
   outline: none;
   stroke-width: 100 !important;
   stroke: var(--icon-focus-color) !important;
-  filter: drop-shadow(0 0 10rem var(--planet-atmosphere)) !important;
+  filter: brightness(1.2);
   transition: all .1s ease;
 }
 
@@ -102,23 +102,19 @@
 }
 
 .system-map__system-object[data-type="Planet"]:focus {
-  Xfilter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) brightness(1.4) var(--planet-not-landable-filter) !important;
-  filter: url(#svg-filter__planet-shadow);
+  filter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) brightness(1.2) var(--planet-not-landable-filter) !important;
 }
 
 .system-map__system-object[data-type="Planet"][data-small="true"]:focus {
-  Xfilter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) contrast(.95) var(--planet-not-landable-filter) !important;
-  filter: url(#svg-filter__planet-shadow--small);
+  filter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) brightness(1.2) var(--planet-not-landable-filter) !important;
 }
 
 .system-map__system-object[data-type="Planet"][data-landable="true"]:focus {
-  Xfilter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) brightness(1.4) !important;
-  filter: url(#svg-filter__planet-shadow);
+  filter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) brightness(1.2) !important;
 }
 
 .system-map__system-object[data-type="Planet"][data-small="true"][data-landable="true"]:focus {
-  Xfilter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) contrast(.95) !important;
-  filter: url(#svg-filter__planet-shadow--small);
+  filter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) brightness(1.2) !important;
 }
 
 /* .system-map__system-object[data-type="Planet"]:focus + .system-map__planet-ring {
