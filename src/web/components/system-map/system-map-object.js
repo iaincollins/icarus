@@ -79,7 +79,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
       return (
         <g>
           {(systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere') &&
-           <g class="system-map__planet">
+            <g class='system-map__planet'>
               <circle
                 className='system-map__planet-atmosphere'
                 cx={x - 0}
@@ -106,78 +106,78 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
                 {textDistanceContents}
               </text>
             </>}
-            <g class="system-map__planet">
-          <circle
-            id={`navigation-panel__${systemObject.id}`}
-            className='system-map__system-object'
-            data-landable={systemObject.isLandable}
-            data-type={systemObject.type}
-            data-sub-type={systemObject.subType}
-            data-small={!!systemObject._small}
-            data-atmosphere={systemObject.atmosphereType}
-            data-detail={encodeObjectDetail(systemObject)}
-            tabIndex='0'
-            cx={x}
-            cy={y}
-            r={r}
-            onFocus={() => setSystemObject(systemObject)}
-          />
-          <circle
-            className='system-map__planet-surface'
-            cx={x}
-            cy={y}
-            r={r}
-            fill='url(#svg-pattern__planet-surface)'
-          />
-          {systemObject.rings &&
-            <>
-              <defs>
-                <mask
-                  id={`planet-ring-mask-${systemObject.id}`}
-                  className='system-map__planet-ring-mask'
-                >
-                  <ellipse
-                    cx={x}
-                    cy={y}
-                    rx={r * 2}
-                    ry={r / 3}
-                    fill='white'
-                  />
-                  <ellipse
-                    cx={x}
-                    cy={y - (r / 5)}
-                    rx={r}
-                    ry={r / 3}
-                    fill='black'
-                  />
-                  <ellipse
-                    cx={x}
-                    cy={y - (r / 15)}
-                    rx={r * 1.2}
-                    ry={r / 5}
-                    fill='black'
-                  />
-                </mask>
-              </defs>
-              <ellipse
-                className='system-map__planet-ring'
-                cx={x}
-                cy={y}
-                rx={r * 2}
-                ry={r / 3}
-                mask={`url(#planet-ring-mask-${systemObject.id})`}
-                opacity='1'
-              />
-              <ellipse
-                className='system-map__planet-ring'
-                cx={x}
-                cy={y - (r / 80)}
-                rx={r * 1.85}
-                ry={r / 4.2}
-                mask={`url(#planet-ring-mask-${systemObject.id})`}
-                opacity='.25'
-              />
-            </>}
+          <g class='system-map__planet'>
+            <circle
+              id={`navigation-panel__${systemObject.id}`}
+              className='system-map__system-object'
+              data-landable={systemObject.isLandable}
+              data-type={systemObject.type}
+              data-sub-type={systemObject.subType}
+              data-small={!!systemObject._small}
+              data-atmosphere={systemObject.atmosphereType}
+              data-detail={encodeObjectDetail(systemObject)}
+              tabIndex='0'
+              cx={x}
+              cy={y}
+              r={r}
+              onFocus={() => setSystemObject(systemObject)}
+            />
+            <circle
+              className='system-map__planet-surface'
+              cx={x}
+              cy={y}
+              r={r}
+              fill='url(#svg-pattern__planet-surface)'
+            />
+            {systemObject.rings &&
+              <>
+                <defs>
+                  <mask
+                    id={`planet-ring-mask-${systemObject.id}`}
+                    className='system-map__planet-ring-mask'
+                  >
+                    <ellipse
+                      cx={x}
+                      cy={y}
+                      rx={r * 2}
+                      ry={r / 3}
+                      fill='white'
+                    />
+                    <ellipse
+                      cx={x}
+                      cy={y - (r / 5)}
+                      rx={r}
+                      ry={r / 3}
+                      fill='black'
+                    />
+                    <ellipse
+                      cx={x}
+                      cy={y - (r / 15)}
+                      rx={r * 1.2}
+                      ry={r / 5}
+                      fill='black'
+                    />
+                  </mask>
+                </defs>
+                <ellipse
+                  className='system-map__planet-ring'
+                  cx={x}
+                  cy={y}
+                  rx={r * 2}
+                  ry={r / 3}
+                  mask={`url(#planet-ring-mask-${systemObject.id})`}
+                  opacity='1'
+                />
+                <ellipse
+                  className='system-map__planet-ring'
+                  cx={x}
+                  cy={y - (r / 80)}
+                  rx={r * 1.85}
+                  ry={r / 4.2}
+                  mask={`url(#planet-ring-mask-${systemObject.id})`}
+                  opacity='.25'
+                />
+              </>}
           </g>
         </g>
       )

@@ -118,7 +118,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
       }
   }
 
-  if (isLandable) { iconClass += ' text-secondary' }
+  if (isLandable) { iconClass += ' text-info' }
 
   return (
     <tr tabIndex='2' onFocus={() => setSystemObject(systemObject)}>

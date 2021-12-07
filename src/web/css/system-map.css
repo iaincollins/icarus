@@ -3,7 +3,7 @@
 }
 
 .system-map h1 {
-  margin: 0;
+  margin: 0 0 0 5rem;
   padding: 0;
   text-transform: uppercase;
   font-size: 3rem;
@@ -12,12 +12,14 @@
 
 .system-map h2 {
   font-size: 1.5rem;
-  margin: 0 0 0 4rem;
+  line-height: 1.5rem;
+  margin: 0 0 0 5rem;
 }
 
 .system-map h3 {
   font-size: 1.25rem;
-  margin: 0 0 0 4rem;
+  line-height: 1.25rem;
+  margin: 0 0 0 5rem;
   text-transform: none;
 }
 
@@ -66,7 +68,7 @@
 
 .system-map__planetary-system h2 {
   text-shadow: var(--text-shadow);
-  margin: 0 !important;
+  margin: 0 0 0 5rem;
   font-size: 2rem;
 }
 
@@ -74,14 +76,16 @@
   color: var(--secondary-text-color);
   text-shadow: var(--text-shadow);
   font-size: 1.25rem;
-  margin: .25rem 0 0 2.75rem !important;
+  line-height: 1.25rem;
+  margin: .25rem 0 0 5rem !important;
 }
 
 .system-map__planetary-system h4 {
   color: var(--secondary-text-color);
   text-shadow: var(--text-shadow);
   font-size: 1.25rem;
-  margin: 0 0 0 2.75rem !important;
+  line-height: 1.25rem;
+  margin: 0 0 0 5rem !important;
   text-transform: none;
 }
 

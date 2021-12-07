@@ -5,6 +5,7 @@
   left: 0;
   width: 4rem;
   height: 100%;
+  z-index: 10;
 }
 
 .secondary-navigation button {
@@ -17,6 +18,17 @@
 .secondary-navigation button .icon {
   position: relative;
   top: .25rem;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.secondary-navigation button.button--active,
+.secondary-navigation button:focus:not([disabled]),
+.secondary-navigation button:active:not([disabled]),
+.secondary-navigation .button.button--active,
+.secondary-navigation .button:focus:not(.button--disabled):not([disabled]),
+.secondary-navigation .button:active:not(.button--disabled):not([disabled]) {
+  background: var(--dark-primary-color);
+  color: var(--primary-color);
+  box-shadow: inset -.5rem 0 0 var(--primary-color);
 }
