@@ -180,3 +180,26 @@
   margin: .25rem 0;
 }
 
+@media only screen and (max-width: 800px) {
+  .navigation-panel__list,
+  .navigation-panel__map {
+    position: absolute;
+    height: 50%;
+    top: 0;
+    bottom: 50%;
+    right: 0;
+  }
+
+  .navigation-panel__inspector {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 50%;
+    bottom: .5rem;
+    margin-top: .5rem;
+  }
+
+  .navigation-panel__inspector > * {
+    margin-left: 1rem !important;
+  }
+}

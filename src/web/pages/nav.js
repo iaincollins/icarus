@@ -37,19 +37,17 @@ export default function NavPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready && componentReady}>
-      <Panel layout='full-width'>
-        <div className='secondary-navigation'>
-          <button tabIndex='1' className={`button--icon ${view === MAP_VIEW ? 'button--active' : ''}`} onClick={() => setView(MAP_VIEW)}>
-            <i className='icon icarus-terminal-system-bodies' />
-          </button>
-          <button tabIndex='1' className={`button--icon ${view === LIST_VIEW ? 'button--active' : ''}`} onClick={() => setView(LIST_VIEW)}>
-            <i className='icon icarus-terminal-table-inspector' />
-          </button>
-        </div>
-        {view === LIST_VIEW && <NavigationListPanel system={system} setSystemObject={setSystemObject} />}
-        {view === MAP_VIEW && <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} />}
-        <NavigationInspectorPanel systemObject={systemObject} />
-      </Panel>
+      <div className='secondary-navigation'>
+        <button tabIndex='1' className={`button--icon ${view === MAP_VIEW ? 'button--active' : ''}`} onClick={() => setView(MAP_VIEW)}>
+          <i className='icon icarus-terminal-system-bodies' />
+        </button>
+        <button tabIndex='1' className={`button--icon ${view === LIST_VIEW ? 'button--active' : ''}`} onClick={() => setView(LIST_VIEW)}>
+          <i className='icon icarus-terminal-table-inspector' />
+        </button>
+      </div>
+      {view === LIST_VIEW && <NavigationListPanel system={system} setSystemObject={setSystemObject} />}
+      {view === MAP_VIEW && <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} />}
+      <NavigationInspectorPanel systemObject={systemObject} />
     </Layout>
   )
 }

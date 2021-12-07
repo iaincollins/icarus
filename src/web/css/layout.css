@@ -67,18 +67,20 @@
 }
 
 @media only screen and (max-width: 800px) {
-  /* Hackey and approximate but good enough for now */
   .layout__left-half,
   .layout__right-half {
+    position: absolute;
     width: 100%;
+    height: 50%;
     float: none;
   }
   .layout__left-half {
-    height: 45%;
+    top: 0;
+    bottom: 50%;
   }
   .layout__right-half {
-    position: absolute;
+    margin-top: .5rem;
+    top: 50%;
     bottom: .5rem;
-    height: 50%;
   }
 }
