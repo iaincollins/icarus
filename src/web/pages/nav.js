@@ -37,7 +37,7 @@ export default function NavPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready && componentReady}>
-      <Panel layout='full-width' scrollable>
+      <Panel layout='full-width'>
         <div className='secondary-navigation'>
           <button tabIndex='1' className={`button--icon ${view === MAP_VIEW ? 'button--active' : ''}`} onClick={() => setView(MAP_VIEW)}>
             <i className='icon icarus-terminal-system-bodies' />
