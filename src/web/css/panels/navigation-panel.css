@@ -112,7 +112,6 @@
   z-index: 10;
   width: auto;
   height: 100%;
-  padding: 0.5rem 1rem;
 }
 
 .navigation-panel__map-background::after {
