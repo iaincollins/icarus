@@ -5,7 +5,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
 
   return (
     <div
-      className='system-map__planetary-system text-primary'
+      className='system-map__planetary-system xtext-primary'
       data-stellar-objects-horizontal={star._children.length}
       data-stellar-objects-vertical={star._maxObjectsInOrbit}
     >
@@ -17,7 +17,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
         </span>
       </h2>
       <h3>
-        <span className='fx-animated-text text-secondary' data-fx-order='5'>
+        <span className='fx-animated-text text-primary' data-fx-order='5'>
           {star.type === 'Null'
             ? star.description || ''
             : `Type ${star.subType} // Class ${star.spectralClass} ${star.isScoopable ? '// Fuel Star' : ''}`}
@@ -25,7 +25,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
       </h3>
       {star.numberOfPlanets > 0 &&
         <h4>
-          <span className='fx-animated-text' data-fx-order='6'>
+          <span className='fx-animated-text text-primary text-muted' data-fx-order='6'>
             {star.numberOfPlanets === 1 ? '1 planet' : `${star.numberOfPlanets} planets`}
           </span>
         </h4>}

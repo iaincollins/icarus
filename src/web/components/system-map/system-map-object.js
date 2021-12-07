@@ -77,14 +77,16 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
       const textDistanceY = systemObject.orbitsStar ? y - (r * 1) - 300 : y + 300
 
       return (
-        <>
+        <g>
           {(systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere') &&
-            <circle
-              className='system-map__planet-atmosphere'
-              cx={x - 0}
-              cy={y - 0}
-              r={r + 70}
-            />}
+           <g class="system-map__planet">
+              <circle
+                className='system-map__planet-atmosphere'
+                cx={x - 0}
+                cy={y - 0}
+                r={r + 70}
+              />
+            </g>}
           {SHOW_LABELS === true &&
             <>
               <text
@@ -104,6 +106,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
                 {textDistanceContents}
               </text>
             </>}
+            <g class="system-map__planet">
           <circle
             id={`navigation-panel__${systemObject.id}`}
             className='system-map__system-object'
@@ -175,7 +178,8 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
                 opacity='.25'
               />
             </>}
-        </>
+          </g>
+        </g>
       )
     }
   } else {

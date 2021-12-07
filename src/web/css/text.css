@@ -83,7 +83,7 @@
 }
 
 .text-formatted-object .text-formatted-object-value {
-  color: var(--secondary-text-color) !important;
+  color: var(--info-color) !important;
 }
 
 .text-no-shadow {

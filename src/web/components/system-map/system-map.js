@@ -5,21 +5,21 @@ export default function SystemMap ({ system, setSystemObject }) {
 
   return (
     <>
-      <div className='system-map text-primary'>
+      <div className='system-map text-info'>
         <h1>
           <span className='fx-animated-text' data-fx-order='1'>
             <i className='icon icarus-terminal-system-orbits' />
             {system.name}
           </span>
         </h1>
-        <h2 className='text-secondary'>
+        <h2 className='text-primary'>
           <span className='fx-animated-text' data-fx-order='1'>
             {system.allegiance || 'Unaligned'}
             {system.government === 'None' ? ' // No government' : ` // ${system.government}`}
             {(system.security !== system.government) ? ` // ${system.security}` : ''}
           </span>
         </h2>
-        <h3 className='text-secondary'>
+        <h3 className='text-primary text-muted'>
           {/* <span className="fx-animated-text" data-fx-order="2">${loadedSystemInfo === true ? `
           ${Render.numberOf(numberOfStars, 'star')},
           ${Render.numberOf(planets, 'planet')},

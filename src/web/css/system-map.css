@@ -128,6 +128,9 @@
 
 }
 
+.system-map__planet {
+  filter: contrast(1.5);
+}
 
 .system-map__system-object[data-type="Planet"] {
   Xfilter: url(#svg-filter__planet-shadow) var(--planet-not-landable-filter);
@@ -184,9 +187,9 @@
   opacity: 0;
   margin: 1rem auto auto auto;
   z-index: 2;
-  filter: contrast(1.5);
   user-select: none;
-  Xfilter: sepia(100%) hue-rotate(160deg) saturate(2) contrast(1.2) grayscale(50%) brightness(.8);
+  Xfilter: contrast(1.5);
+  Zfilter: sepia(100%) hue-rotate(160deg) saturate(2) contrast(1.2) grayscale(50%) brightness(.8);
 }
 
 
@@ -238,11 +241,11 @@
 
 .system-map__planet-distance-text {
   font-size: 22rem;
-  fill: var(--secondary-text-color);
-  color: var(--secondary-text-color);
+  fill: var(--info-color);
+  color: var(--info-color);
   text-shadow: var(--text-shadow);
   font-weight: bold;
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .system-map__planet-surface {
