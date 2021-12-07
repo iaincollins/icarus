@@ -1,21 +1,26 @@
 # <img src="https://user-images.githubusercontent.com/595695/142777841-975d2279-eb6f-47fc-99c2-f024d949268a.png" width="50" align="left"> ICARUS Terminal
 
-ICARUS Terminal is an immersive, context-sensitive second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/).
+_ICARUS Terminal is an immersive, context-sensitive second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/)._
 
-_This documentation is intended for developers. This is pre-release software and not yet ready for general release._
+**ICARUS Terminal is currently in early access.**
 
-[If you want to try it out, can download the latest preview release.](https://github.com/iaincollins/icarus/releases/latest)
+[Download the latest preview release.](https://github.com/iaincollins/icarus/releases/latest)
 
-* Functionality in the pre-releases is currently very limited.
+![preview](https://user-images.githubusercontent.com/595695/144976547-4775ca06-15fd-4230-bc95-5fea9753c026.png)
+
+## About ICARUS Terminal
+
+* ICARUS Terminal is currently in early access and is incomplete.
 * You can run ICARUS Terminal in a single window, in multiple windows or connect remotely from another computer, tablet or other device with a browser (or any combination of those) and the information displayed will update in real time.
 * The application checks for new releases when it starts and will give you the option to install the update.
-* The application includes integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/). Data such as your current in-game location will be provided to them order to render information in the interface, but does not include information about the game state (e.g. your commander name or ship name) or any personally identifiable information.
+* The application includes integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/). Data such as your current in-game location will be provided to them order to render information in the interface, but does not include information about you (e.g. your commander name or ship name) or any personally identifiable information.
 * Windows 7 or newer is required. Builds are not currently signed with a code signing certificate.
 
 ----
 
-![Screenshot)](https://user-images.githubusercontent.com/595695/144334044-82cefe96-2bec-45fc-9c55-85e94c2f27d9.png)
-_A view showing multiple terminal windows open at the same time, each with a different interface panel open_
+## Overview
+
+_This documentation is intended for developers._
 
 ICARUS is a Windows (Win32) application built primarily in JavaScript, using Node.js + WebSockets and Go with a fork of custom [Edge/WebView2 abstraction in C/C++](https://github.com/iaincollins/webview).
 
