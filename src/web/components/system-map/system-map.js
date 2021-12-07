@@ -2,7 +2,7 @@ import SystemMapStar from './system-map-star'
 
 export default function SystemMap ({ system, setSystemObject }) {
   if (!system) return null
-  
+
   return (
     <>
       <div className='system-map text-info'>
@@ -34,8 +34,7 @@ export default function SystemMap ({ system, setSystemObject }) {
             <span className='fx-animated-text' data-fx-order='3'>
               Controlled by {system.faction}
             </span>
-          </h3>
-        }
+          </h3>}
       </div>
       {system.stars.map(star =>
         <SystemMapStar

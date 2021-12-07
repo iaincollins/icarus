@@ -80,7 +80,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
     return null
   }
 
-  if (systemObject.type === 'Null') { 
+  if (systemObject.type === 'Null') {
     return (<tr className='table-row--disabled'><td colSpan='2'>{systemObject._children.length > 0 && <hr />}</td></tr>)
   }
 
