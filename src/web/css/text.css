@@ -64,6 +64,10 @@
   text-transform: uppercase;
 }
 
+.text-no-transform {
+  text-transform: none;
+}
+
 @keyframes text-blink-animation {
   50% { opacity: 0; }
 }

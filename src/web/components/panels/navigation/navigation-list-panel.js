@@ -128,7 +128,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
           {systemObject.name}
         </div>
       </td>
-      <td className='text-right'>{systemObject.distanceToArrival ? `${Math.round(systemObject.distanceToArrival)} Ls` : ''}</td>
+      <td className='text-right text-no-transform'>{systemObject.distanceToArrival ? `${Math.round(systemObject.distanceToArrival)} Ls` : ''}</td>
     </tr>
   )
   // if (systemObject.type === 'Null') {
