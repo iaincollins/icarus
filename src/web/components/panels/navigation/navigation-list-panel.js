@@ -80,7 +80,9 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
     return null
   }
 
-  if (systemObject.type === 'Null') { return (<tr className='table-row--disabled'><td colSpan='2'><hr /></td></tr>) }
+  if (systemObject.type === 'Null') { 
+    return (<tr className='table-row--disabled'><td colSpan='2'>{systemObject._children.length > 0 && <hr />}</td></tr>)
+  }
 
   const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
 

@@ -114,14 +114,14 @@ export default function NavigationInspectorPanel ({ systemObject }) {
               {systemObject.secondEconomy}
             </p>}
         </div>}
-      {systemObject._services &&
+      {systemObject._services && systemObject._services.length > 0  &&
         <div className='navigation-panel__inspector-section'>
           <h4 className='text-primary'>Port Services</h4>
           <ul className='text-info'>
             {systemObject._services.map(service => <li key={`navigation-inspector_${systemObject.id}_service_${service}`}>{service}</li>)}
           </ul>
         </div>}
-      {systemObject.otherServices &&
+      {systemObject.otherServices && systemObject.otherServices.length > 0 &&
         <div className='navigation-panel__inspector-section'>
           <h4 className='text-primary'>Other Services</h4>
           <ul className='text-info'>

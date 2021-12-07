@@ -52,10 +52,9 @@ async function build () {
       version: packageJson.version
     }
   })
-
-  fse.copySync(path.join(ASSETS_DIR, 'icon-font', 'icarus-terminal.ttf'), 'src/web/public/fonts/icarus-terminal.ttf')
 }
 
 function copy () {
-
+  fse.copySync(path.join(ASSETS_DIR, 'icon-font', 'icarus-terminal.ttf'), 'src/web/public/fonts/icarus-terminal.ttf')
+  fse.copySync(path.join(ASSETS_DIR, 'icon-font', 'icarus-terminal.json'), 'src/web/lib/icons.json')
 }

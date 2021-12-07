@@ -30,7 +30,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
             y={y}
             height={h}
             width={w}
-            className='navigation-panel__planet'
+            className='system-map__planet-icon'
           >
             {Icons.Planet}
           </svg>
@@ -42,7 +42,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
             width={w2}
             onFocus={() => setSystemObject(systemObject)}
             tabIndex='0'
-            className='navigation-panel__station'
+            className='system-map__station'
             data-type={systemObject.type}
             data-detail={encodeObjectDetail(systemObject)}
             opacity='0.85'
@@ -79,7 +79,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
       return (
         <g>
           {(systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere') &&
-            <g class='system-map__planet'>
+            <g className='system-map__planet'>
               <circle
                 className='system-map__planet-atmosphere'
                 cx={x - 0}
@@ -106,7 +106,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
                 {textDistanceContents}
               </text>
             </>}
-          <g class='system-map__planet'>
+          <g className='system-map__planet'>
             <circle
               id={`navigation-panel__${systemObject.id}`}
               className='system-map__system-object'
@@ -184,7 +184,8 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
     }
   } else {
     // Draw systemObjects that are not planets or stars using icons
-    const CORRECT_FOR_IMAGE_OFFSET = 70
+
+    const CORRECT_FOR_IMAGE_OFFSET = 90
 
     const r = systemObject._r
 
@@ -222,13 +223,13 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
           r={systemObject._r - 50}
           onFocus={() => setSystemObject(systemObject)}
           tabIndex='0'
-          className='navigation-panel__station'
+          className='system-map__station'
           data-type={systemObject.type}
           data-detail={encodeObjectDetail(systemObject)}
         />
         {/*  Inline SVG icon (loaded from string so can be easily styled) */}
         <svg
-          className='navigation-panel__station-icon icon'
+          className='system-map__station-icon'
           x={imageX}
           y={imageY}
           h={imageH * 10}

@@ -291,6 +291,24 @@
   transform: rotate(-15deg);
 }
 
+
+.system-map__station {
+  fill: black;
+  stroke: #666;
+  stroke-width: 100;
+  transition: all .1s ease;
+  outline: none;
+}
+
+.system-map__station:focus {
+  stroke: var(--icon-focus-color);
+}
+
+.system-map__station-icon {
+  fill: var(--info-color);
+  pointer-events: none;
+}
+
 #system-map-svg-gradient__planet stop:nth-child(1) {
   stop-color: var(--primary-color);
   stop-color: #005c81;

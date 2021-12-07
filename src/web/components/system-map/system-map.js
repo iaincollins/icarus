@@ -2,7 +2,7 @@ import SystemMapStar from './system-map-star'
 
 export default function SystemMap ({ system, setSystemObject }) {
   if (!system) return null
-
+  
   return (
     <>
       <div className='system-map text-info'>
@@ -19,26 +19,23 @@ export default function SystemMap ({ system, setSystemObject }) {
             {(system.security !== system.government) ? ` // ${system.security}` : ''}
           </span>
         </h2>
-        <h3 className='text-primary text-muted'>
-          {/* <span className="fx-animated-text" data-fx-order="2">${loadedSystemInfo === true ? `
-          ${Render.numberOf(numberOfStars, 'star')},
-          ${Render.numberOf(planets, 'planet')},
-          ${Render.numberOf(starports, 'starport')},
-          ${Render.numberOf(planetaryPorts, 'planetary port')},
-          ${Render.numberOf(settlements, 'settlement')}
-          <!--
-          ${Render.numberOf(planetaryOutposts, 'outpost')},
-          ${Render.numberOf(megaships, 'megaship')},
-          ${Render.numberOf(system?.population, 'people', false)}
-          -->
-          ` : ''}
-        </span> */}
+        {/*
+        <h3 className='text-primary'>
           <span className='fx-animated-text' data-fx-order='3'>
-            {system.faction && system.faction !== 'Unknown'
-              ? `Controlled by ${system.faction}`
-              : ''}
+            {system.planetaryPorts.length > 0 && <>Starports: {system.starports.length} </>}
+            {system.planetaryPorts.length > 0 && <>Planetary ports: {system.planetaryPorts.length} </>}
+            {system.planetaryPorts.length > 0 && <>Megaships ports: {system.megaships.length} </>}
+            {system.population && <>Popuation: {system.population} </>}
           </span>
         </h3>
+        */}
+        {system.faction && system.faction !== 'Unknown' &&
+          <h3 className='text-primary'>
+            <span className='fx-animated-text' data-fx-order='3'>
+              Controlled by {system.faction}
+            </span>
+          </h3>
+        }
       </div>
       {system.stars.map(star =>
         <SystemMapStar

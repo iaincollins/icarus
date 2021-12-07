@@ -285,7 +285,7 @@ class SystemMap {
           primaryOrbit = inOrbitAroundPlanets[0]
         } else {
           // FIXME: Handles edge cases - e.g. where orbiting both a star
-          // (or more than one star) and also another body like a plent. If that
+          // (or more than one star) and also another body. If that
           // is the case then we regard them as only orbiting the nearest star.
           //
           // The system map in Elite Dangerous view draws planets like this
@@ -294,6 +294,15 @@ class SystemMap {
           // are just another planet.
           //
           // NB: _immediateOrbitBodyId contains immediate body we are orbiting
+
+          const planetsInOrbitAround = systemObject.parents.reverse().filter(parents => {
+            const [keys] = Object.keys(parents)
+            return (keys === 'Planet')
+          }).map(parents => {
+            const [keys] = Object.keys(parents)
+            return parents[keys]
+          })
+
           const starsInOrbitAround = systemObject.parents.reverse().filter(parents => {
             const [keys] = Object.keys(parents)
             return (keys === 'Star')
@@ -302,7 +311,9 @@ class SystemMap {
             return parents[keys]
           })
 
-          if (starsInOrbitAround.length > 0) {
+          if (planetsInOrbitAround.length > 0) {
+            primaryOrbit = planetsInOrbitAround[planetsInOrbitAround.length - 1]
+          } else if (starsInOrbitAround.length > 0) {
             primaryOrbit = starsInOrbitAround[starsInOrbitAround.length - 1]
           } else {
             primaryOrbit = 0
@@ -329,7 +340,7 @@ class SystemMap {
         } else if (immediateChildren === false) {
           children.push(systemObject)
         }
-      } else if (targetBody.type === 'Null' && inOrbitAroundNull.includes(targetBody.bodyId)) {
+      } else if (targetBody.type === 'Null' && inOrbitAroundNull.includes(targetBody.bodyId) && inOrbitAroundStars.length === 0 && inOrbitAroundPlanets.length === 0) {
         if (immediateChildren === true && primaryOrbit === targetBody.bodyId) {
           children.push(systemObject)
         } else if (immediateChildren === false) {

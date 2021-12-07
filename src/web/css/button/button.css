@@ -19,13 +19,17 @@ button:disabled,
 }
 
 button.button--active,
-button:hover:not([disabled]),
-button:focus:not([disabled]),
 button:active:not([disabled]),
 .button.button--active,
-.button:hover:not(.button--disabled):not([disabled]),
-.button:focus:not(.button--disabled):not([disabled]),
-.button:active:not(.button--disabled):not([disabled]) {
+.button:active:not(.button--disabled) {
+  background: var(--primary-color);
+  color: var(--dark-primary-color);
+}
+
+button:hover:not([disabled]):not(.button--active),
+button:focus:not([disabled]):not(.button--active),
+.button:hover:not(.button--disabled):not(.button--active),
+.button:focus:not(.button--disabled):not(.button--active) {
   background: var(--primary-color);
   color: var(--dark-primary-color);
 }

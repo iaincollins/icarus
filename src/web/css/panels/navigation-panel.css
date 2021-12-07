@@ -157,26 +157,10 @@
   line-height: 3rem;
 }
 
-.navigation-panel__planet {
+.system-map__planet-icon {
   height: 100%;
   width: 100%;
   border-radius: 10000px;
-  pointer-events: none;
-}
-
-.navigation-panel__station {
-  fill: black;
-  stroke: #666;
-  stroke-width: 100;
-  transition: all .1s ease;
-  outline: none;
-}
-
-.navigation-panel__station:focus {
-  stroke: var(--icon-focus-color);
-}
-
-.navigation-panel__station-icon {
   pointer-events: none;
 }
 

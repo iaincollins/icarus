@@ -29,6 +29,12 @@ export default function SystemMapStar ({ star, setSystemObject }) {
             {star.numberOfPlanets === 1 ? '1 planet' : `${star.numberOfPlanets} planets`}
           </span>
         </h4>}
+    {star.numberOfPlanets === 0 &&
+    <h4>
+      <span className='fx-animated-text text-primary text-muted' data-fx-order='6'>
+        No planets
+      </span>
+    </h4>}
       {star._children && star._children.length > 0 &&
         <div className='system-map__planetary-system-map' style={{ opacity: 1 }}>
           <svg
