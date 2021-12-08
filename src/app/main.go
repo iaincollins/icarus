@@ -81,7 +81,7 @@ func main() {
 
 	// Check if we are starting in Terminal mode
 	if *terminalMode {
-		createWindow(TERMINAL_WINDOW_TITLE, url, defaultWindowWidth, defaultWindowHeight, webview.HintMin)
+		createWindow(TERMINAL_WINDOW_TITLE, url, defaultWindowWidth, defaultWindowHeight, webview.HintNone)
 		return
 	}
 
