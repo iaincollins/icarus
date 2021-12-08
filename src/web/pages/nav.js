@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
+import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
 import NavigationSystemMapPanel from 'components/panels/navigation/navigation-system-map'
 import NavigationInspectorPanel from 'components/panels/navigation/navigation-inspector-panel'
 import NavigationListPanel from 'components/panels/navigation/navigation-list-panel'
-import { useSocket, sendEvent, eventListener } from 'lib/socket'
-
-const MAP_VIEW = 'map-view'
-const LIST_VIEW = 'list-view'
 
 export default function NavPage () {
+  const MAP_VIEW = 'MAP_VIEW'
+  const LIST_VIEW = 'LIST_VIEW'
+
   const { connected, active, ready } = useSocket()
   const [componentReady, setComponentReady] = useState(false)
   const [system, setSystem] = useState()
@@ -37,17 +37,22 @@ export default function NavPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready && componentReady}>
-      <div className='secondary-navigation'>
-        <button tabIndex='1' className={`button--icon ${view === MAP_VIEW ? 'button--active' : ''}`} onClick={() => setView(MAP_VIEW)}>
-          <i className='icon icarus-terminal-system-bodies' />
-        </button>
-        <button tabIndex='1' className={`button--icon ${view === LIST_VIEW ? 'button--active' : ''}`} onClick={() => setView(LIST_VIEW)}>
-          <i className='icon icarus-terminal-table-inspector' />
-        </button>
-      </div>
-      {view === LIST_VIEW && <NavigationListPanel system={system} setSystemObject={setSystemObject} />}
-      {view === MAP_VIEW && <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} />}
-      <NavigationInspectorPanel systemObject={systemObject} />
+      <Panel layout='full-width' navigationItems={[
+        {
+          icon: 'system-bodies',
+          onClick: () => setView(MAP_VIEW),
+          active: view === MAP_VIEW
+        },
+        {
+          icon: 'table-inspector',
+          onClick: () => setView(LIST_VIEW),
+          active: view === LIST_VIEW
+        }
+      ]}>
+        {view === LIST_VIEW && <NavigationListPanel system={system} setSystemObject={setSystemObject} />}
+        {view === MAP_VIEW && <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} />}
+        <NavigationInspectorPanel systemObject={systemObject} />
+      </Panel>
     </Layout>
   )
 }

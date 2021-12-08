@@ -62,8 +62,12 @@
   float: left;
 }
 
-.layout__right-half  {
+.layout__right-half {
   float: right;
+}
+
+.layout__panel--secondary-navigation {
+  margin-left: 5rem;
 }
 
 @media only screen and (max-width: 800px) {
