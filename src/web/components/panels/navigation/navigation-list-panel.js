@@ -81,9 +81,13 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
   }
 
   if (systemObject.type === 'Null') {
-    return (<tr className='table-row--disabled'><td colSpan='2'>{systemObject._children.length > 0 && <hr />}</td></tr>)
+    if (systemObject._children.length> 0) {
+      return (<tr className='table-row--disabled'><td colSpan='2'><hr /></td></tr>)
+    } else {
+      return null
+    }
   }
-
+  
   const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
 
   // TODO Move to icon class
@@ -123,7 +127,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
   if (isLandable) { iconClass += ' text-info' }
 
   return (
-    <tr tabIndex='2' onFocus={() => setSystemObject(systemObject)}>
+    <tr data-system-object-name={systemObject.name} tabIndex='2' onFocus={() => setSystemObject(systemObject)}>
       <td>
         <div style={{ paddingLeft: `${(depth * 1.5) + 2}rem` }} className='text-no-wrap'>
           <i className={iconClass} />
