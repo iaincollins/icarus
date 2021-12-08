@@ -108,30 +108,30 @@
   z-index: 3;
 }
 
-.system-map__system-object[data-type="Planet"]:focus {
+.system-map__system-object[data-system-object-type="Planet"]:focus {
   filter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) brightness(1.2) var(--planet-not-landable-filter) !important;
 }
 
-.system-map__system-object[data-type="Planet"][data-small="true"]:focus {
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-small="true"]:focus {
   filter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) brightness(1.2) var(--planet-not-landable-filter) !important;
 }
 
-.system-map__system-object[data-type="Planet"][data-landable="true"]:focus {
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-landable="true"]:focus {
   filter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) brightness(1.2) !important;
 }
 
-.system-map__system-object[data-type="Planet"][data-small="true"][data-landable="true"]:focus {
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-small="true"][data-system-object-landable="true"]:focus {
   filter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) brightness(1.2) !important;
 }
 
-/* .system-map__system-object[data-type="Planet"]:focus + .system-map__planet-ring {
+/* .system-map__system-object[data-system-object-type="Planet"]:focus + .system-map__planet-ring {
   stroke: var(--icon-focus-color);
   stroke-width: 10rem;
   transition: all .1s ease; 
   opacity: 0.7;
 } */
 
-.system-map__system-object[data-type="Planet"]:not([data-atmosphere="No atmosphere"]) {
+.system-map__system-object[data-system-object-type="Planet"]:not([data-system-object-atmosphere="No atmosphere"]) {
 
 }
 
@@ -139,7 +139,7 @@
   filter: contrast(1.5);
 }
 
-.system-map__system-object[data-type="Planet"] {
+.system-map__system-object[data-system-object-type="Planet"] {
   Xfilter: url(#svg-filter__planet-shadow) var(--planet-not-landable-filter);
   filter: url(#svg-filter__planet-shadow);
   fill: url(#system-map-svg-gradient__planet);
@@ -149,33 +149,33 @@
   */
 }
 
-.system-map__system-object[data-type="Planet"][data-landable="true"] {
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-landable="true"] {
   fill: url(#system-map-svg-gradient__planet--landable);
 }
 
-.system-map__system-object[data-type="Planet"][data-landable="true"][data-small="true"] {
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-landable="true"][data-system-object-small="true"] {
   filter: url(#svg-filter__planet-shadow--small);
 }
 
-.system-map__system-object[data-small="true"] {
+.system-map__system-object[data-system-object-small="true"] {
   filter: url(#svg-filter__planet-shadow--small);
 }
 
-.system-map__system-object[data-type="Planet"]:not([data-atmosphere="No atmosphere"]) {
+.system-map__system-object[data-system-object-type="Planet"]:not([data-system-object-atmosphere="No atmosphere"]) {
   Xfilter: url(#svg-filter__planet-shadow) drop-shadow(0 0 8rem var(--planet-atmosphere)) var(--planet-not-landable-filter);
   filter: url(#svg-filter__planet-shadow);
   Xstroke: var(--planet-atmosphere);
   Xstroke: black;
 }
 
-.system-map__system-object[data-type="Planet"]:not([data-atmosphere="No atmosphere"])[data-small="true"] {
+.system-map__system-object[data-system-object-type="Planet"]:not([data-system-object-atmosphere="No atmosphere"])[data-system-object-small="true"] {
   Xfilter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) var(--planet-not-landable-filter) !important;
   filter: url(#svg-filter__planet-shadow--small);
   Xstroke: var(--planet-atmosphere);
   Xstroke: black;
 }
 
-.system-map__system-object[data-type="Planet"]:not([data-atmosphere="No atmosphere"])[data-landable="true"][data-small="true"] {
+.system-map__system-object[data-system-object-type="Planet"]:not([data-system-object-atmosphere="No atmosphere"])[data-system-object-landable="true"][data-system-object-small="true"] {
   Xfilter: url(#svg-filter__planet-shadow--small) drop-shadow(0 0 4rem var(--planet-atmosphere)) !important;
   filter: url(#svg-filter__planet-shadow--small);
   Xstroke: var(--planet-atmosphere);
@@ -291,6 +291,16 @@
   transform: rotate(-15deg);
 }
 
+.system-map__planetary-port-icon,
+.system-map__planetary-facility-icon {
+  pointer-events: none;
+  overflow: visible;
+  z-index: 5;
+  display: block;
+  fill: var(--info-color);
+  filter: drop-shadow(0 0 5rem var(--secondary-color)) drop-shadow(0 0 10rem var(--secondary-color)) drop-shadow(0 0 10rem var(--dark-secondary-color));
+ }
+
 .system-map__station {
   fill: black;
   stroke: #666;
@@ -306,6 +316,7 @@
 .system-map__station-icon {
   fill: var(--info-color);
   pointer-events: none;
+  filter: drop-shadow(0 0 5rem var(--info-color));
 }
 
 #system-map-svg-gradient__planet stop:nth-child(1) {

@@ -5,7 +5,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
 
   return (
     <div
-      className='system-map__planetary-system xtext-primary'
+      className='system-map__planetary-system'
       data-stellar-objects-horizontal={star._children.length}
       data-stellar-objects-vertical={star._maxObjectsInOrbit}
     >
@@ -63,7 +63,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
                     strokeWidth='75'
                     opacity='0.25'
                   />}
-                <SystemMapObject systemObject={systemObject} setSystemObject={setSystemObject} />
+                <SystemMapObject systemObject={systemObject} setSystemObject={setSystemObject} parentSystemObject={star} />
                 {(systemObject._children || []).map((itemInOrbit, i) =>
                   <SystemMapObject key={`system-map-object_${itemInOrbit.id}`} systemObject={itemInOrbit} setSystemObject={setSystemObject} />
                 )}

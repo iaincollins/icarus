@@ -211,7 +211,7 @@ class SystemMap {
     })
 
     star._yOffset += Y_LABEL_OFFSET
-    star._viewBox = `0 -${star._yOffset} ${star._xMax + star._xOffset} ${star._yMax + star._yOffset}`
+    star._viewBox = `0 -${star._yOffset} ${star._xMax + star._xOffset + 1500} ${star._yMax + star._yOffset}`
 
     return star
   }

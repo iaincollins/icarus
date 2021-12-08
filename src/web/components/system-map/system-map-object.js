@@ -1,11 +1,12 @@
 import Icons from 'lib/icons'
+import { SURFACE_PORTS, PLANETARY_OUTPOSTS, SETTLEMENTS } from '../../../service/lib/consts'
 
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
 
 // TODO This has been ported to JSX but would be easier to maintain if each
 // type of object was refactored out into it's own component
-export default function SystemMapObject ({ systemObject, setSystemObject }) {
+export default function SystemMapObject ({ systemObject, setSystemObject, parentSystemObject }) {
   const CLICKABLE_AREA_PADDING = 250
   const MAX_LABEL_WIDTH = 3000
 
@@ -43,8 +44,8 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
             onFocus={() => setSystemObject(systemObject)}
             tabIndex='0'
             className='system-map__station'
-            data-type={systemObject.type}
-            data-detail={encodeObjectDetail(systemObject)}
+            data-system-object-type={systemObject.type}
+            data-system-object-name={systemObject.name}
             opacity='0.85'
           />
         </>
@@ -75,6 +76,28 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
       const textDistanceContents = `${systemObject.distanceToArrival.toFixed(0)} Ls`
       const textDistanceX = systemObject.orbitsStar ? textNameX : x + (r * 1) + 200
       const textDistanceY = systemObject.orbitsStar ? y - (r * 1) - 300 : y + 300
+
+      // const CORRECT_FOR_IMAGE_OFFSET_X = ['Star', 'Null'].includes(parentSystemObject?.type) ? 550 : 2000
+      // const CORRECT_FOR_IMAGE_OFFSET_Y = ['Star', 'Null'].includes(parentSystemObject?.type) ? 150 : 100
+
+      const CORRECT_FOR_IMAGE_OFFSET_X = 250
+      const CORRECT_FOR_IMAGE_OFFSET_Y = 200
+
+      const imageX = x - CORRECT_FOR_IMAGE_OFFSET_X
+      const imageY = y - CORRECT_FOR_IMAGE_OFFSET_Y
+
+      let hasPlanetaryPort = false
+      let hasPlanetaryFacilities = false
+
+      // TODO Make these explict properties (bools) that are pre-calculated
+      systemObject?._planetaryBases?.forEach(base => {
+        if (PLANETARY_OUTPOSTS.concat(SETTLEMENTS).includes(base.type)) {
+          hasPlanetaryFacilities = true
+        }
+        if (SURFACE_PORTS.includes(base.type)) {
+          hasPlanetaryPort = true
+        }
+      })
 
       return (
         <g>
@@ -110,12 +133,12 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
             <circle
               id={`navigation-panel__${systemObject.id}`}
               className='system-map__system-object'
-              data-landable={systemObject.isLandable}
-              data-type={systemObject.type}
-              data-sub-type={systemObject.subType}
-              data-small={!!systemObject._small}
-              data-atmosphere={systemObject.atmosphereType}
-              data-detail={encodeObjectDetail(systemObject)}
+              data-system-object-landable={systemObject.isLandable}
+              data-system-object-type={systemObject.type}
+              data-system-object-sub-type={systemObject.subType}
+              data-system-object-small={!!systemObject._small}
+              data-system-object-atmosphere={systemObject.atmosphereType}
+              data-system-object-name={systemObject.name}
               tabIndex='0'
               cx={x}
               cy={y}
@@ -179,15 +202,29 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
                 />
               </>}
           </g>
+          {hasPlanetaryFacilities && !hasPlanetaryPort &&
+            <svg
+              className='system-map__planetary-facility-icon'
+              x={imageX}
+              y={imageY}
+            >
+              {Icons.Settlement}
+            </svg>}
+          {hasPlanetaryPort &&
+            <svg
+              className='system-map__planetary-port-icon'
+              x={imageX}
+              y={imageY - 100}
+            >
+              {Icons['Planetary Port']}
+            </svg>}
         </g>
       )
     }
   } else {
     // Draw systemObjects that are not planets or stars using icons
-
-    const CORRECT_FOR_IMAGE_OFFSET = 90
-
     const r = systemObject._r
+    const CORRECT_FOR_IMAGE_OFFSET = 90
 
     // const x = systemObject._x - (r / 2) - CLICKABLE_AREA_PADDING
     // const y = systemObject._y - (r / 2) - CLICKABLE_AREA_PADDING
@@ -224,8 +261,8 @@ export default function SystemMapObject ({ systemObject, setSystemObject }) {
           onFocus={() => setSystemObject(systemObject)}
           tabIndex='0'
           className='system-map__station'
-          data-type={systemObject.type}
-          data-detail={encodeObjectDetail(systemObject)}
+          data-system-object-type={systemObject.type}
+          data-system-object-name={systemObject.name}
         />
         {/*  Inline SVG icon (loaded from string so can be easily styled) */}
         <svg
@@ -264,8 +301,4 @@ function truncateString (string, maxLength) {
     return `${string.substring(0, maxLength - 1)}…`
   }
   return string
-}
-
-function encodeObjectDetail (systemObject) {
-  // return encodeURI(JSON.stringify(systemObject))
 }

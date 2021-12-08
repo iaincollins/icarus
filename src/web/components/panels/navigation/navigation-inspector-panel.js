@@ -30,10 +30,13 @@ export default function NavigationInspectorPanel ({ systemObject }) {
     case 'planet':
       iconClass += 'planet'
       break
+    case 'mega ship':
+      iconClass += 'megaship'
+      break
     default:
       if (PLANETARY_BASES.includes(systemObject.type)) {
         if (SURFACE_PORTS.includes(systemObject.type)) {
-          iconClass += 'planetary-port'
+          iconClass += 'planetary-port-large'
         } else {
           iconClass += 'settlement'
         }

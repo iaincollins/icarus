@@ -15,18 +15,28 @@ export default function NavMapPage () {
   const [systemObject, setSystemObject] = useState()
 
   if (router.isReady && system && !systemObject) {
+    let newSystemObject
     if (query.selected) {
-      const newSystemObject = system.objectsInSystem.filter(child => child.name === query.selected)[0]
-      if (newSystemObject) setSystemObject(newSystemObject)
+      newSystemObject = system.objectsInSystem.filter(child => child.name === query.selected)[0]
     } else {
-      const newSystemObject = system?.stars?.[0]?._children?.[0] ?? null
-      if (newSystemObject) setSystemObject(newSystemObject)
+      newSystemObject = system?.stars?.[0]?._children?.[0] ?? null
+    }
+
+    if (newSystemObject) {
+      const el = document.querySelector(`[data-system-object-name="${newSystemObject?.name}"]`)
+      if (el) {
+        el.focus()
+      } else {
+        // TODO If the object is a ground facility, highlight the nearest planet in the map
+        setSystemObject(newSystemObject)
+      }
     }
   }
 
   useEffect(async () => {
     if (!connected || !router.isReady) return
     const newSystem = await sendEvent('getSystem', query.system ? { name: query.system } : null)
+    console.log('newSystem', newSystem)
     if (newSystem) setSystem(newSystem)
   }, [connected, ready, router.isReady])
 
@@ -59,10 +69,7 @@ export default function NavMapPage () {
             icon: 'table-inspector',
             url: {
               pathname: '/nav/list',
-              query: {
-                system: system?.name ?? null,
-                selected: systemObject?.name ?? null
-              }
+              query
             }
           }
         ]}

@@ -81,13 +81,13 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
   }
 
   if (systemObject.type === 'Null') {
-    if (systemObject._children.length> 0) {
+    if (systemObject._children.length > 0) {
       return (<tr className='table-row--disabled'><td colSpan='2'><hr /></td></tr>)
     } else {
       return null
     }
   }
-  
+
   const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
 
   // TODO Move to icon class
@@ -113,6 +113,9 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
       break
     case 'planet':
       iconClass += 'planet'
+      break
+    case 'mega ship':
+      iconClass += 'megaship'
       break
     default:
       if (PLANETARY_BASES.includes(systemObject.type)) {
