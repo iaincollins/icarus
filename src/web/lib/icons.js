@@ -14,7 +14,7 @@ const _IconsProxyHandler = {
     }
 
     if (iconJson[iconName]) {
-      return iconJson[iconName].map(path => <path d={path} />)
+      return iconJson[iconName].map((path, i) => <path key={`icon-${iconName}-${i}`} d={path} />)
     } else {
       console.log('Unsupported icon:', name)
       return null

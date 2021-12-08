@@ -45,8 +45,8 @@ export default function NavigationInspectorPanel ({ systemObject }) {
   if (systemObject.type === 'Planet') type = systemObject.subType
 
   return (
-    <div className='navigation-panel__inspector scrollable'>
-      <div className='navigation-panel__inspector-heading fx-fade-in'>
+    <div className='navigation-panel__inspector fx-fade-in scrollable'>
+      <div className='navigation-panel__inspector-heading'>
         <i className={iconClass} />
         <h2 className='text-info'>{systemObject.name}</h2>
         <h3 className='text-primary'>{type}</h3>
