@@ -1,4 +1,5 @@
 import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../service/lib/consts'
+import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
 
 export default function NavigationInspectorPanel ({ systemObject }) {
   if (!systemObject) return null
@@ -58,7 +59,11 @@ export default function NavigationInspectorPanel ({ systemObject }) {
             <h4 className='text-primary'>Environment</h4>
             {isLandable ? <p className='text-info'>Landable</p> : <p className='text-muted'>Not Landable</p>}
             {systemObject.gravity ? <p className='text-info'>Gravity {systemObject.gravity.toFixed(1)}g</p> : null}
-            {systemObject.surfaceTemperature ? <p className='text-info'>Temperature {systemObject.surfaceTemperature} Kelvin</p> : null}
+            {systemObject.surfaceTemperature &&
+              <p className='text-info'>
+                Temperature {systemObject.surfaceTemperature}K
+                ({kelvinToCelius(systemObject.surfaceTemperature)}C/{kelvinToFahrenheit(systemObject.surfaceTemperature)}F)
+              </p>}
             {systemObject.volcanismType !== 'No volcanism' ? <p className='text-info'>{systemObject.volcanismType}</p> : null}
           </div>
 
