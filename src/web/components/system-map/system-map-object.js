@@ -226,15 +226,14 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
     const r = systemObject._r
     const CORRECT_FOR_IMAGE_OFFSET = 90
 
-    // const x = systemObject._x - (r / 2) - CLICKABLE_AREA_PADDING
-    // const y = systemObject._y - (r / 2) - CLICKABLE_AREA_PADDING
-    // const height = r + (CLICKABLE_AREA_PADDING * 2)
-    // const width = r + (CLICKABLE_AREA_PADDING * 2)
+    let imageY = (systemObject._y - (r / 2)) - CORRECT_FOR_IMAGE_OFFSET
+    let imageX = (systemObject._x - (r / 2)) - CORRECT_FOR_IMAGE_OFFSET
 
-    const imageH = r * 2
-    const imageW = imageH
-    const imageY = (systemObject._y - (r / 2)) - CORRECT_FOR_IMAGE_OFFSET
-    const imageX = (systemObject._x - (r / 2)) - CORRECT_FOR_IMAGE_OFFSET
+    // Hacky because this SVG renders weirdly positioned for some reason
+    if (systemObject.type === 'Mega ship') {
+      imageX -= 25
+      imageY += 60
+    }
 
     const textNameContents = truncateString(systemObject.label, (systemObject.orbitsStar ? 10 : 20))
     const textNameXOffset = textNameContents.length * 120 // Roughly center text
@@ -269,8 +268,6 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
           className='system-map__station-icon'
           x={imageX}
           y={imageY}
-          h={imageH * 10}
-          w={imageW * 10}
         >
           {Icons[systemObject.type]}
         </svg>

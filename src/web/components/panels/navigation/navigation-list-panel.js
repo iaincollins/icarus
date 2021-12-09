@@ -54,15 +54,10 @@ function NavigationTableRowChildren ({ systemObject, setSystemObject, depth = 1 
 
   tableRows.push(<NavigationTableRow key={`${systemObject.name}_${systemObject.id}`} systemObject={systemObject} depth={depth} setSystemObject={setSystemObject} />)
 
+  // Includes Planets, Starports and Megaships in orbit
   if (systemObject._children) {
     for (const childSystemObject of systemObject._children) {
       tableRows = tableRows.concat(<NavigationTableRowChildren key={`${childSystemObject.name}_${childSystemObject.id}`} systemObject={childSystemObject} setSystemObject={setSystemObject} depth={depth + 1} />)
-    }
-  }
-
-  if (systemObject._megaships) {
-    for (const megaship of systemObject._megaships) {
-      tableRows = tableRows.concat(<NavigationTableRowChildren key={`${megaship.name}_${megaship.id}`} systemObject={megaship} setSystemObject={setSystemObject} depth={depth + 1} />)
     }
   }
 
@@ -140,38 +135,4 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
       <td className='text-right text-no-transform'>{systemObject.distanceToArrival ? `${Math.round(systemObject.distanceToArrival)} Ls` : ''}</td>
     </tr>
   )
-  // if (systemObject.type === 'Null') {
-  //   return `<tr disabled="disabled"><td colspan="3" style="padding: 0;"><hr></td></tr>`
-  // }
-
-  // const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
-  // const isPlanetaryBase = PLANETARY_BASES.includes(systemObject.type)
-
-  // return `
-  //   <tr
-  //     tabindex="2"
-  //     onFocus="NavigationPanel.renderDetail(this, 'navigation-panel__inspector')"
-  //     data-detail="${encodeURI(JSON.stringify(systemObject))}"
-  //   >
-  //   <td class="no-wrap">
-  //     ${Icons.icon(systemObject.type, {
-  //       height: '2rem',
-  //       marginLeft: `${indent * 1.5}rem`,
-  //       marginRight: '.75rem',
-  //       marginTop: '0',
-  //       float: 'left'
-  //     }, (isLandable ? 'icon-secondary' : ''))}
-  //     ${systemObject.name}
-  //   </td>
-  //   <td class="no-wrap" style="text-transform: none; text-align: right;">
-  //     ${systemObject.distanceToArrival ? `${Math.round(systemObject.distanceToArrival)} Ls` : ''}
-  //   </td>
-  // </tr>
-  // <!-- Render rows for any Ports / Outposts / Odyssey Settlements on the planet -->
-  // ${false && systemObject._planetaryBases && systemObject._planetaryBases.length > 0
-  //   ? Render.html(systemObject._planetaryBases.map(
-  //       (childSystemObject, i) => NavigationPanel.renderTableRow(childSystemObject, indent + 1))
-  //     )
-  //   : ''}
-  // `
 }

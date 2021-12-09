@@ -11,6 +11,7 @@ const _IconsProxyHandler = {
     if (!iconJson[iconName]) {
       if (PLANETARY_BASES.includes(name)) iconName = 'settlement'
       if (SURFACE_PORTS.includes(name)) iconName = 'planetary-port'
+      if (name === 'Mega ship') iconName = 'megaship'
     }
 
     if (iconJson[iconName]) {

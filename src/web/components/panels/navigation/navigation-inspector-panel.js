@@ -84,7 +84,7 @@ export default function NavigationInspectorPanel ({ systemObject }) {
                     }
                   }
                   return (
-                    <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className="text-no-wrap">
+                    <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-no-wrap'>
                       <i className={iconClass} />
                       {base.name}
                     </p>

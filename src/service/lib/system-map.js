@@ -61,10 +61,10 @@ class SystemMap {
     this.init()
   }
 
-   reclassifyBrownDwarfStarsAsPlanets(bodies) {
+  reclassifyBrownDwarfStarsAsPlanets (bodies) {
     const brownDwarfs = []
 
-    bodies.forEach((body,i) => {
+    bodies.forEach((body, i) => {
       if (BROWN_DWARFS.includes(body?.subType)) {
         // Change each Brown Dwarf type from 'Star' to 'Planet'
         body.type = 'Planet'
@@ -77,14 +77,14 @@ class SystemMap {
         brownDwarfs.push(body.bodyId)
       }
     })
- 
+
     // Update the 'parent' reference to each object orbiting a Brown Dwarf from
     // orbiting a 'Star' to a 'Planet' so it's plotted correctly.
-    bodies.forEach((body,i) => {
+    bodies.forEach((body, i) => {
       (body?.parents ?? []).forEach((parent, i) => {
-        let [k,v] = Object.entries(parent)[0]
+        const [k, v] = Object.entries(parent)[0]
         if (brownDwarfs.includes(v) && k === 'Star') {
-          body.parents[i] = { 'Planet' : v }
+          body.parents[i] = { Planet: v }
         }
       })
     })
@@ -102,7 +102,7 @@ class SystemMap {
       // co-ordiantes for values, which are used to draw the map). The approach
       // here may not always be technically correct, but it's good enough for
       // our map and should render meaningfully.
-      if (!systemObject.parents && systemObject.type && STARPORTS.concat(MEGASHIPS).concat(PLANETARY_BASES).includes(systemObject.type)) {
+      if (!systemObject.parents && systemObject.type && STARPORTS.concat(PLANETARY_BASES).concat(MEGASHIPS).includes(systemObject.type)) {
         // Find planet with closest similar distance to sun
         // This could be the wrong choice in edge cases, but is good enough.
         const nearestPlanet = this.getNearestPlanet(systemObject)
@@ -291,12 +291,11 @@ class SystemMap {
       })
   }
 
-  getChildren (targetBody, immediateChildren = true, filter = ['Planet'].concat(STARPORTS)) {
+  getChildren (targetBody, immediateChildren = true, filter = ['Planet'].concat(STARPORTS).concat(MEGASHIPS)) {
     const children = []
     if (!targetBody?.type) return []
 
     for (const systemObject of this.objectsInSystem) {
-
       // By default only get Planets and Starports
       if (filter?.length && !filter.includes(systemObject?.type)) continue
 
@@ -315,7 +314,6 @@ class SystemMap {
           }
         }
       }
-
 
       if (!systemObject.parents) continue
 
@@ -386,8 +384,6 @@ class SystemMap {
           children.push(systemObject)
         }
       } else if (targetBody.type === 'Planet' && inOrbitAroundPlanets.includes(targetBody.bodyId)) {
-
-
         if (immediateChildren === true && primaryOrbit === targetBody.bodyId) {
           children.push(systemObject)
         } else if (immediateChildren === false) {

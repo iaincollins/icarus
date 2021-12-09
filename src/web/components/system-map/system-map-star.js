@@ -64,7 +64,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
                     opacity='0.25'
                   />}
                 <SystemMapObject systemObject={systemObject} setSystemObject={setSystemObject} parentSystemObject={star} />
-                {(systemObject._children || []).map((itemInOrbit, i) =>
+                {(systemObject?._children ?? []).map((itemInOrbit, i) =>
                   <SystemMapObject key={`system-map-object_${itemInOrbit.id}`} systemObject={itemInOrbit} setSystemObject={setSystemObject} />
                 )}
               </g>
