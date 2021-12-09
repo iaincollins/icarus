@@ -125,99 +125,109 @@ table.table__inline tbody tr {
 }
 
 table.table--animated tbody tr {
-  animation: fx-flash-in-animation .1s;
+  animation: fx-fade-in-animation .5s;
   animation-fill-mode: forwards;
-  animation-delay: .75s;
+  animation-delay: 0.5s;
   opacity: 0;
 }
 
 table.table--animated tbody tr:nth-child(1) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: 0s;
 }
 table.table--animated tbody tr:nth-child(2) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .025s;
 }
 table.table--animated tbody tr:nth-child(3) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .05s;
 }
 table.table--animated tbody tr:nth-child(4) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .075s;
 }
 table.table--animated tbody tr:nth-child(5) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .1s;
 }
 table.table--animated tbody tr:nth-child(6) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .125s;
 }
 table.table--animated tbody tr:nth-child(7) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .15s;
 }
 table.table--animated tbody tr:nth-child(8) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .175s;
 }
 table.table--animated tbody tr:nth-child(9) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .2s;
 }
 table.table--animated tbody tr:nth-child(10) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .225s;
 }
 table.table--animated tbody tr:nth-child(11) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .25s;
 }
 table.table--animated tbody tr:nth-child(12) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .275s;
 }
 table.table--animated tbody tr:nth-child(13) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .3s;
 }
 table.table--animated tbody tr:nth-child(14) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .325s;
 }
 table.table--animated tbody tr:nth-child(15) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .35s;
 }
 table.table--animated tbody tr:nth-child(16) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .375s;
 }
 table.table--animated tbody tr:nth-child(17) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .4s;
 }
 table.table--animated tbody tr:nth-child(18) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .425s;
 }
 table.table--animated tbody tr:nth-child(19) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .45s;
 }
 table.table--animated tbody tr:nth-child(20) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
   animation-delay: .475s;
-}
-table.table--animated tbody tr:nth-child(21) {
-  animation-delay: .5s;
-}
-table.table--animated tbody tr:nth-child(22) {
-  animation-delay: .525s;
-}
-table.table--animated tbody tr:nth-child(23) {
-  animation-delay: .55s;
-}
-table.table--animated tbody tr:nth-child(24) {
-  animation-delay: .575s;
-}
-table.table--animated tbody tr:nth-child(25) {
-  animation-delay: .6s;
-}
-table.table--animated tbody tr:nth-child(26) {
-  animation-delay: .625s;
-}
-table.table--animated tbody tr:nth-child(27) {
-  animation-delay: .65s;
-}
-table.table--animated tbody tr:nth-child(28) {
-  animation-delay: .675s;
-}
-table.table--animated tbody tr:nth-child(29) {
-  animation-delay: .7s;
-}
-table.table--animated tbody tr:nth-child(30) {
-  animation-delay: .725s;
 }
