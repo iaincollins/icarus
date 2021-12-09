@@ -7,8 +7,24 @@ const {
   PLANETARY_BASES
 } = require('./consts')
 
+/*
+  Intersting systems with unusual properties for testing:
+
+  Sol
+  Antiang
+  Colonia
+  Farwell
+  White Sun
+  TYC 3319-306-1
+  Skaude AA-A h294
+  CD-58 538
+  HIP+35926
+*/
+
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
+const SOLAR_RADIUS = 696340 // Size of Sol in km
+const BROWN_DWARFS = ['Y (Brown dwarf) Star'] // Treat Brown Dwarfs like planets
 
 function escapeRegExp (text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
@@ -17,11 +33,13 @@ function escapeRegExp (text) {
 class SystemMap {
   constructor (system) {
     this.detail = system
-    const { name = '', bodies = [], stations = [] } = this.detail
+    const { name = '', bodies: _bodies, stations = [] } = this.detail
     this.name = name
 
+    const bodies = this.reclassifyBrownDwarfStarsAsPlanets(_bodies || [])
+
     this.stars = bodies.filter(body => body.type === 'Star')
-    this.planets = bodies.filter(body => body.type === 'Planet')
+    this.planets = bodies.filter(body => body?.type === 'Planet')
     this.starports = stations.filter(station => STARPORTS.includes(station.type))
     this.planetaryPorts = stations.filter(station => SURFACE_PORTS.includes(station.type))
     this.planetaryOutposts = stations.filter(station => PLANETARY_OUTPOSTS.includes(station.type))
@@ -41,6 +59,37 @@ class SystemMap {
     })
 
     this.init()
+  }
+
+   reclassifyBrownDwarfStarsAsPlanets(bodies) {
+    const brownDwarfs = []
+
+    bodies.forEach((body,i) => {
+      if (BROWN_DWARFS.includes(body?.subType)) {
+        // Change each Brown Dwarf type from 'Star' to 'Planet'
+        body.type = 'Planet'
+
+        // Add a standard radius property (based on it's Solar radius)
+        // This property is required to be able to draw the body on a map
+        body.radius = body.solarRadius * SOLAR_RADIUS
+
+        // Save the ID of this Body for the loop below...
+        brownDwarfs.push(body.bodyId)
+      }
+    })
+ 
+    // Update the 'parent' reference to each object orbiting a Brown Dwarf from
+    // orbiting a 'Star' to a 'Planet' so it's plotted correctly.
+    bodies.forEach((body,i) => {
+      (body?.parents ?? []).forEach((parent, i) => {
+        let [k,v] = Object.entries(parent)[0]
+        if (brownDwarfs.includes(v) && k === 'Star') {
+          body.parents[i] = { 'Planet' : v }
+        }
+      })
+    })
+
+    return bodies
   }
 
   init () {
@@ -247,6 +296,7 @@ class SystemMap {
     if (!targetBody?.type) return []
 
     for (const systemObject of this.objectsInSystem) {
+
       // By default only get Planets and Starports
       if (filter?.length && !filter.includes(systemObject?.type)) continue
 
@@ -266,10 +316,11 @@ class SystemMap {
         }
       }
 
+
       if (!systemObject.parents) continue
 
       // The most immediate body this object is orbiting
-      systemObject._immediateOrbitBodyId = systemObject.parents.reverse()
+      systemObject._immediateOrbitBodyId = systemObject.parents
         .map(parents => {
           const [keys] = Object.keys(parents)
           return parents[keys]
@@ -335,6 +386,8 @@ class SystemMap {
           children.push(systemObject)
         }
       } else if (targetBody.type === 'Planet' && inOrbitAroundPlanets.includes(targetBody.bodyId)) {
+
+
         if (immediateChildren === true && primaryOrbit === targetBody.bodyId) {
           children.push(systemObject)
         } else if (immediateChildren === false) {
