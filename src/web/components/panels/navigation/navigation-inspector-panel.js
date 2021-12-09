@@ -73,9 +73,24 @@ export default function NavigationInspectorPanel ({ systemObject }) {
           {systemObject._planetaryBases &&
             <div className='navigation-panel__inspector-section'>
               <h4 className='text-primary'>Facilities</h4>
-              <ul className='text-info'>
-                {systemObject._planetaryBases.map(base => <li key={`navigation-inspector_${systemObject.id}_${base.id}`}>{base.name}</li>)}
-              </ul>
+              <div className='text-info'>
+                {systemObject._planetaryBases.map(base => {
+                  let iconClass = 'icon icarus-terminal-'
+                  if (PLANETARY_BASES.includes(base.type)) {
+                    if (SURFACE_PORTS.includes(base.type)) {
+                      iconClass += 'planetary-port'
+                    } else {
+                      iconClass += 'settlement'
+                    }
+                  }
+                  return (
+                    <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className="text-no-wrap">
+                      <i className={iconClass} />
+                      {base.name}
+                    </p>
+                  )
+                })}
+              </div>
             </div>}
 
           {systemObject.atmosphereComposition &&

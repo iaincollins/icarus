@@ -170,6 +170,18 @@
   font-weight: bold;
 }
 
+.navigation-panel__inspector-section .icon {
+  margin-right: .5rem;
+  font-size: 2rem;
+  line-height: 1rem;
+  position: relative;
+  top: .5rem;
+}
+
+.navigation-panel__inspector-section p {
+  margin: .25rem 0;
+}
+
 .navigation-panel__inspector-section ul {
   margin-bottom: .5rem;
   margin: .5rem 0;
