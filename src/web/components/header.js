@@ -24,7 +24,7 @@ export default function Header ({ connected, active }) {
     signalClassName += ' text-secondary'
   }
 
-  const currentPageName = router.pathname.replace(/\//, '').toLowerCase()
+  const currentPanelName = router.pathname.split('/')[1].toLowerCase()
 
   return (
     <header>
@@ -45,8 +45,8 @@ export default function Header ({ connected, active }) {
           <button
             key={buttonName}
             disabled={!ENABLED_NAV_BUTTONS.includes(buttonName)}
-            className={currentPageName === buttonName.toLowerCase() ? 'button--active' : ''}
-            onClick={() => router.push(!ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPageName}` : `/${buttonName.toLowerCase()}`)}
+            className={buttonName.toLowerCase() === currentPanelName ? 'button--active' : ''}
+            onClick={() => router.push(!ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPanelName}` : `/${buttonName.toLowerCase()}`)}
           >{buttonName}
           </button>
         )}
