@@ -18,11 +18,12 @@ const {
   TYC 3319-306-1
   Skaude AA-A h294
   CD-58 538
-  HIP+35926
+  HIP 35926
 */
 
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
+const NORMALIZE_VIEWBOX_WIDTH = true
 const SOLAR_RADIUS = 696340 // Size of Sol in km
 const BROWN_DWARFS = ['Y (Brown dwarf) Star'] // Treat Brown Dwarfs like planets
 
@@ -106,7 +107,7 @@ class SystemMap {
         // Find planet with closest similar distance to sun
         // This could be the wrong choice in edge cases, but is good enough.
         const nearestPlanet = this.getNearestPlanet(systemObject)
-        const nearestLandablePlanet = this.getNearestLandablePlanet(systemObject)
+        // const nearestLandablePlanet = this.getNearestLandablePlanet(systemObject)
         const nearestPlanetParentType = Object.keys(nearestPlanet.parents[0])[0]
 
         // If parent of planet is a star (or null - for rogue planets) then make
@@ -128,9 +129,9 @@ class SystemMap {
 
         // If this object is any time of planetry port, outpost or settlement
         // then add it as a planetary base of the parent body
-        if (PLANETARY_BASES.includes(systemObject.type)) {
+        if (PLANETARY_BASES.includes(systemObject.type) && systemObject?.body?.id) {
           for (const systemObjectParent of this.objectsInSystem) {
-            if (systemObjectParent.bodyId === nearestLandablePlanet.bodyId) {
+            if (systemObjectParent.id === systemObject.body.id) {
               if (!systemObjectParent._planetaryBases) systemObjectParent._planetaryBases = []
               systemObjectParent._planetaryBases.push(systemObject)
             }
@@ -151,7 +152,17 @@ class SystemMap {
     }
 
     // Calculate position to draw items on map
-    this.stars.map(star => this.plotObjectsAroundStar(star))
+    let maxViewBoxWidth = 0
+    this.stars.forEach(star => {
+      this.plotObjectsAroundStar(star)
+      if (star._viewBox[2] > maxViewBoxWidth) maxViewBoxWidth = star._viewBox[2]
+    })
+
+    if (NORMALIZE_VIEWBOX_WIDTH) {
+      this.stars.forEach(star => {
+        star._viewBox[2] = maxViewBoxWidth
+      })
+    }
   }
 
   plotObjectsAroundStar (star) {
@@ -260,8 +271,12 @@ class SystemMap {
     })
 
     star._yOffset += Y_LABEL_OFFSET
-    star._viewBox = `0 -${star._yOffset} ${star._xMax + star._xOffset + 1500} ${star._yMax + star._yOffset}`
-
+    star._viewBox = [
+      0,
+      parseInt(`-${star._yOffset}`),
+      star._xMax + star._xOffset + 1500,
+      star._yMax + star._yOffset
+    ]
     return star
   }
 

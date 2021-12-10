@@ -38,6 +38,20 @@
   text-shadow: var(--text-shadow);
 }
 
+.text-link .text-link-text {
+  padding-bottom: .15rem;
+  border-bottom: .15rem dotted var(--info-color);
+}
+
+.text-link:hover {
+  color: var(--secondary-text-color);
+  text-shadow: var(--text-shadow);
+}
+
+.text-link:hover .text-link-text {
+  border-bottom: .15rem dotted var(--secondary-text-color);
+}
+
 .text-right {
   text-align: right;
 }
@@ -92,4 +106,17 @@
 
 .text-no-shadow {
   text-shadow: none !important;
+}
+
+/* This class should only be used on containg <div> elements */
+.text-center-vertical {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

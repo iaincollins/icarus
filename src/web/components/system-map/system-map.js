@@ -5,6 +5,10 @@ export default function SystemMap ({ system, setSystemObject }) {
 
   return (
     <>
+      {(!system.stars || system.stars.length < 2) &&
+        <div className='text-danger text-blink text-center-vertical'>
+          <h3>No information about this system</h3>
+        </div>}
       <div className='system-map text-info'>
         <h1>
           <span className='fx-animated-text' data-fx-order='1'>

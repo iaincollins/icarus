@@ -38,7 +38,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
       {star._children && star._children.length > 0 &&
         <div className='system-map__planetary-system-map' style={{ opacity: 1 }}>
           <svg
-            viewBox={star._viewBox}
+            viewBox={star._viewBox.join(' ')}
             preserveAspectRatio='xMinYMid meet'
           >
             {star._children && star._children.length > 0 &&

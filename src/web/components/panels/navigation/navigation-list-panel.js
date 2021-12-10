@@ -5,6 +5,10 @@ export default function NavigationInspectorPanel ({ system, setSystemObject }) {
 
   return (
     <div className='navigation-panel__list'>
+      {(!system.stars || system.stars.length < 2) &&
+        <div className='text-danger text-blink text-center-vertical'>
+          <h3>No information about this system</h3>
+        </div>}
       <div className='scrollable'>
         <table className='table--animated fx-fade-in'>
           <thead>

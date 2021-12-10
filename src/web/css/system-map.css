@@ -47,31 +47,6 @@
   max-width: 100%;
 }
 
-.system-map__planetary-system[data-stellar-objects-horizontal="1"] svg,
-.system-map__planetary-system[data-stellar-objects-horizontal="2"] svg {
-  max-width: 25%;
-}
-
-.system-map__planetary-system[data-stellar-objects-horizontal="3"] svg {
-  max-width: 50%;
-}
-
-.system-map__planetary-system[data-stellar-objects-horizontal="4"] svg {
-  max-width: 75%;
-}
-
-.system-map__planetary-system[data-stellar-objects-horizontal="1"][data-stellar-objects-vertical="4"] svg,
-.system-map__planetary-system[data-stellar-objects-horizontal="1"][data-stellar-objects-vertical="5"] svg,
-.system-map__planetary-system[data-stellar-objects-horizontal="1"][data-stellar-objects-vertical="6"] svg,
-.system-map__planetary-system[data-stellar-objects-horizontal="2"][data-stellar-objects-vertical="4"] svg,
-.system-map__planetary-system[data-stellar-objects-horizontal="2"][data-stellar-objects-vertical="5"] svg,
-.system-map__planetary-system[data-stellar-objects-horizontal="2"][data-stellar-objects-vertical="6"] svg,
-.system-map__planetary-system[data-stellar-objects-horizontal="3"][data-stellar-objects-vertical="4"] svg,
-.system-map__planetary-system[data-stellar-objects-horizontal="3"][data-stellar-objects-vertical="5"] svg,
-.system-map__planetary-system[data-stellar-objects-horizontal="3"][data-stellar-objects-vertical="6"] svg {
-  max-width: 75%;
-}
-
 .system-map__planetary-system h2 {
   text-shadow: var(--text-shadow);
   font-size: 2rem;

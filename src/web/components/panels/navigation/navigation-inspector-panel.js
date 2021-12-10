@@ -1,10 +1,23 @@
 import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../service/lib/consts'
 import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
 
-export default function NavigationInspectorPanel ({ systemObject }) {
-  if (!systemObject) return null
+export default function NavigationInspectorPanel ({ system, systemObject, setSystemObjectByName }) {
+  if (!systemObject) {
+    return (
+      <div className='navigation-panel__inspector fx-fade-in scrollable'>
+        <div className='text-primary text-muted text-center-vertical'>
+          Nothing selected
+        </div>
+      </div>
+    )
+  }
 
   const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
+
+  let systemObjectSubType = systemObject.subType || systemObject.type
+  if (PLANETARY_BASES.includes(systemObject.type) && !SURFACE_PORTS.includes(systemObject.type)) systemObjectSubType = 'Settlement'
+  if (systemObject.type === 'Star') systemObjectSubType = systemObject.subType
+  if (systemObject.type === 'Planet') systemObjectSubType = systemObject.subType
 
   // TODO Move to icon class
   let iconClass = 'icon icarus-terminal-'
@@ -33,27 +46,24 @@ export default function NavigationInspectorPanel ({ systemObject }) {
     case 'mega ship':
       iconClass += 'megaship'
       break
+    case 'planetary port':
+      iconClass += 'planetary-port'
+      break
+    case 'settlement':
+      iconClass += 'settlement'
+      break
     default:
-      if (PLANETARY_BASES.includes(systemObject.type)) {
-        if (SURFACE_PORTS.includes(systemObject.type)) {
-          iconClass += 'planetary-port-large'
-        } else {
-          iconClass += 'settlement'
-        }
-      }
+      if (systemObjectSubType === 'Planetary Port') iconClass += 'planetary-port'
+      if (systemObjectSubType === 'Settlement') iconClass += 'settlement'
   }
-
-  let type = systemObject.type
-  if (systemObject.type === 'Odyssey Settlement') type = 'Settlement'
-  if (systemObject.type === 'Star') type = systemObject.subType
-  if (systemObject.type === 'Planet') type = systemObject.subType
 
   return (
     <div className='navigation-panel__inspector fx-fade-in scrollable'>
+
       <div className='navigation-panel__inspector-heading'>
         <i className={iconClass} />
         <h2 className='text-info'>{systemObject.name}</h2>
-        <h3 className='text-primary'>{type}</h3>
+        <h3 className='text-primary'>{systemObjectSubType}</h3>
       </div>
       <hr />
       {systemObject.type === 'Planet' &&
@@ -84,9 +94,9 @@ export default function NavigationInspectorPanel ({ systemObject }) {
                     }
                   }
                   return (
-                    <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-no-wrap'>
+                    <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-link text-no-wrap' onClick={() => setSystemObjectByName(base.name)}>
                       <i className={iconClass} />
-                      {base.name}
+                      <span className='text-link-text text-no-wrap'>{base.name}</span>
                     </p>
                   )
                 })}
@@ -119,6 +129,13 @@ export default function NavigationInspectorPanel ({ systemObject }) {
             </div>}
         </>}
 
+      {(systemObjectSubType === 'Settlement' || systemObjectSubType === 'Planetary Port') && systemObject.body &&
+        <div className='navigation-panel__inspector-section navigation-panel__inspector-section--location'>
+          <h4 className='text-primary'>Location</h4>
+          <p className='text-info text-link text-no-wrap' onClick={() => setSystemObjectByName(systemObject.body.name)}>
+            <i className='icon icarus-terminal-planet' /> <span className='text-link-text text-no-wrap'>{systemObject.body.name}</span>
+          </p>
+        </div>}
       {systemObject.government &&
         <div className='navigation-panel__inspector-section'>
           <h4 className='text-primary'>Government</h4>
@@ -132,7 +149,7 @@ export default function NavigationInspectorPanel ({ systemObject }) {
           <p className='text-info'>
             {systemObject.economy}
           </p>
-          {systemObject.secondEconomy &&
+          {systemObject.secondEconomy && systemObject.secondEconomy !== systemObject.economy &&
             <p className='text-info'>
               {systemObject.secondEconomy}
             </p>}

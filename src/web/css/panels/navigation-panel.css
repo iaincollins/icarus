@@ -178,10 +178,6 @@
   top: .5rem;
 }
 
-.navigation-panel__inspector-section p {
-  margin: .25rem 0;
-}
-
 .navigation-panel__inspector-section ul {
   margin-bottom: .5rem;
   margin: .5rem 0;
@@ -190,6 +186,15 @@
 .navigation-panel__inspector-section li {
   font-size: var(--base-font-size);
   margin: .25rem 0;
+}
+
+.navigation-panel__inspector-section--location .icon {
+  margin-right: .25rem;
+  font-size: 1.75rem;
+  line-height: 1.5rem;
+  position: relative;
+  top: .45rem;
+  text-decoration: none !important;
 }
 
 @media only screen and (max-width: 800px) {

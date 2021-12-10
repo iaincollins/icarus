@@ -14,6 +14,16 @@ export default function NavMapPage () {
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
 
+  const setSystemObjectByName = (name) => {
+    const el = document.querySelector(`[data-system-object-name="${name}"]`)
+    if (el) {
+      el.focus()
+    } else {
+      const newSystemObject = system.objectsInSystem.filter(child => child.name === name)[0]
+      setSystemObject(newSystemObject)
+    }
+  }
+
   if (router.isReady && system && !systemObject) {
     let newSystemObject
     if (query.selected) {
@@ -44,7 +54,7 @@ export default function NavMapPage () {
       const newSystem = await sendEvent('getSystem')
       if (newSystem) setSystem(newSystem)
       const newSystemObject = newSystem?.stars?.[0]?._children?.[0] ?? null
-      if (newSystemObject) setSystemObject(newSystemObject)
+      setSystemObject(newSystemObject)
     }
   }), [])
 
@@ -74,7 +84,7 @@ export default function NavMapPage () {
         ]}
       >
         <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} />
-        <NavigationInspectorPanel systemObject={systemObject} />
+        <NavigationInspectorPanel system={system} systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>
     </Layout>
   )
