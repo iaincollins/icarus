@@ -137,6 +137,11 @@ class EliteLog {
         const eventName = log.event
         const eventTimestamp = log.timestamp
 
+        // Generate unique checksum for each message to avoid duplicates.
+        // This is also useful for clients who receive new event log entries
+        // so they can ignore events they ahve seen before (e.g. after a reload)
+        log._checksum = this.#checksum(JSON.stringify(log))
+
         // Keep track of the most recent timestamp seen across all logs
         // (so when we are called again can skip over logs we've already seen)
         if (!this.lastActiveTimestamp)
@@ -150,11 +155,6 @@ class EliteLog {
 
         // Only persist supported event types in the databases
         if (PERSIST_ALL_EVENTS === true || PERSISTED_EVENT_TYPES.includes(eventName)) {
-          // Generate unique checksum for each message to avoid duplicates
-          // Timestamp would probably be sufficent, but checksum is more robust
-          // and performance difference and overhead are inconsequential.
-          log._checksum = this.#checksum(JSON.stringify(log))
-
           // Insert each message one by one, as using bulk import with constraint
           // (which is faster) tends to fail because logs contain duplicates.
           const isUnique = await this.#insertUnique(log)
