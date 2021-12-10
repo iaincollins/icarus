@@ -15,6 +15,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
   const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
 
   let systemObjectSubType = systemObject.subType || systemObject.type
+  if (SURFACE_PORTS.includes(systemObject.type)) systemObjectSubType = 'Planetary Port'
   if (PLANETARY_BASES.includes(systemObject.type) && !SURFACE_PORTS.includes(systemObject.type)) systemObjectSubType = 'Settlement'
   if (systemObject.type === 'Star') systemObjectSubType = systemObject.subType
   if (systemObject.type === 'Planet') systemObjectSubType = systemObject.subType
