@@ -7,25 +7,12 @@ const {
   PLANETARY_BASES
 } = require('./consts')
 
-/*
-  Intersting systems with unusual properties for testing:
-
-  Sol
-  Antiang
-  Colonia
-  Farwell
-  White Sun
-  TYC 3319-306-1
-  Skaude AA-A h294
-  CD-58 538
-  HIP 35926
-*/
-
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
 const NORMALIZE_VIEWBOX_WIDTH = true
+const MIN_VIEWBOX_WIDTH = 10000
+
 const SOLAR_RADIUS = 696340 // Size of Sol in km
-const BROWN_DWARFS = ['Y (Brown dwarf) Star'] // Treat Brown Dwarfs like planets
 
 function escapeRegExp (text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
@@ -37,10 +24,19 @@ class SystemMap {
     const { name = '', bodies: _bodies, stations = [] } = this.detail
     this.name = name
 
-    const bodies = this.reclassifyBrownDwarfStarsAsPlanets(_bodies || [])
+    // On the map, we draw a system view for each Star in a system, as that's
+    // a great way to organise the information to make it easy to read.
+    //
+    // However, for this to work we need to to treat "Stars" that are more like
+    // Planets (e.g. Class Y Brown Dawrf Stars or Class T Tauri Stars) that 
+    // orbit other stars as if they were regular planets.
+    //
+    // We use our own classification system (stored in ._type) for the purpose
+    // of deciding how we want to treat them for the purposes of the system map
+    const bodies = this.#findStarsOrbitingOtherStarsLikePlanets(_bodies || [])
 
-    this.stars = bodies.filter(body => body.type === 'Star')
-    this.planets = bodies.filter(body => body?.type === 'Planet')
+    this.stars = bodies.filter(body => body?._type === 'Star')
+    this.planets = bodies.filter(body => body?._type === 'Planet')
     this.starports = stations.filter(station => STARPORTS.includes(station.type))
     this.planetaryPorts = stations.filter(station => SURFACE_PORTS.includes(station.type))
     this.planetaryOutposts = stations.filter(station => PLANETARY_OUTPOSTS.includes(station.type))
@@ -56,35 +52,52 @@ class SystemMap {
       name: 'Additional Objects',
       description: 'Rogue // Extrasolar // Circumbinary Orbit',
       type: 'Null',
+      _type: 'Null',
       _children: []
     })
 
     this.init()
   }
 
-  reclassifyBrownDwarfStarsAsPlanets (bodies) {
-    const brownDwarfs = []
+  #findStarsOrbitingOtherStarsLikePlanets (_bodies) {
+    const bodies = JSON.parse(JSON.stringify(_bodies))
+
+    const starsOrbitingStarsLikePlanets = []
 
     bodies.forEach((body, i) => {
-      if (BROWN_DWARFS.includes(body?.subType)) {
-        // Change each Brown Dwarf type from 'Star' to 'Planet'
-        body.type = 'Planet'
+      body._type = body.type
 
-        // Add a standard radius property (based on it's Solar radius)
-        // This property is required to be able to draw the body on a map
-        body.radius = body.solarRadius * SOLAR_RADIUS
+      //if (body.name === 'Colonia 3') console.log(body)
+      // Only applies to stars
+      if (body.type !== 'Star') return
 
-        // Save the ID of this Body for the loop below...
-        brownDwarfs.push(body.bodyId)
-      }
+      // Never applies to main stars (the Mizar or Castor systems are listed as
+      // having a parent object that doesn't actually exist, this check catches
+      // that exception).
+      if (body.isMainStar === true) return
+
+      // If Star doesn't have any non-null parent objects (i.e. it's not 
+      // orbiting a planet or star) then we still treat it as one of the
+      // "main stars" and don't reclassify it as a Planet for the system map
+      if (this.#getNearestNotNullParent(body) === null) return
+
+      // Change each _type from 'Star' to 'Planet')
+      body._type = 'Planet'
+
+      // Add a standard radius property (based on it's Solar radius)
+      // This property is required to be able to draw the body on a map
+      body.radius = body.solarRadius * SOLAR_RADIUS
+
+      // Save the ID of this Body for the loop below...
+      starsOrbitingStarsLikePlanets.push(body.bodyId)
     })
 
-    // Update the 'parent' reference to each object orbiting a Brown Dwarf from
+    // Update the 'parent' reference to each object orbiting 'star' from
     // orbiting a 'Star' to a 'Planet' so it's plotted correctly.
     bodies.forEach((body, i) => {
       (body?.parents ?? []).forEach((parent, i) => {
         const [k, v] = Object.entries(parent)[0]
-        if (brownDwarfs.includes(v) && k === 'Star') {
+        if (starsOrbitingStarsLikePlanets.includes(v)) {
           body.parents[i] = { Planet: v }
         }
       })
@@ -93,8 +106,23 @@ class SystemMap {
     return bodies
   }
 
+  #getNearestNotNullParent(body) {
+    let nonNullParent = null
+    ;(body?.parents || []).every(parent => {
+      const [k, v] = Object.entries(parent)[0]
+      if (k !== 'Null') {
+        nonNullParent = v
+        return false
+      }
+      return true
+    })
+    return nonNullParent
+  }
+
   init () {
     for (const systemObject of this.objectsInSystem) {
+      if (!systemObject._type) systemObject._type = systemObject.type
+      
       // Attach name to system name
       // alert(escapeRegExp(this.detail.name))
       systemObject.label = this.getSystemObjectLabel(systemObject)
@@ -152,7 +180,7 @@ class SystemMap {
     }
 
     // Calculate position to draw items on map
-    let maxViewBoxWidth = 0
+    let maxViewBoxWidth = MIN_VIEWBOX_WIDTH
     this.stars.forEach(star => {
       this.plotObjectsAroundStar(star)
       if (star._viewBox[2] > maxViewBoxWidth) maxViewBoxWidth = star._viewBox[2]
@@ -252,9 +280,9 @@ class SystemMap {
     })
     // Used by UI
     // TODO Add number of stations orbiting star and outposts on surfaces
-    star.numberOfPlanets = star._children.filter(x => x.type === 'Planet').length
+    star.numberOfPlanets = star._children.filter(x => x._type === 'Planet').length
     star._children.forEach(child => {
-      star.numberOfPlanets += child._children.filter(x => x.type === 'Planet').length
+      star.numberOfPlanets += child._children.filter(x => x._type === 'Planet').length
     })
 
     // If last item had rings, add padding to avoid clipping them on the edge
@@ -287,7 +315,7 @@ class SystemMap {
   getNearestPlanet (systemObject) {
     const targetDistanceToArrival = systemObject.distanceToArrival
     return this.objectsInSystem
-      .filter(body => body.type === 'Planet')
+      .filter(body => body._type === 'Planet')
       .reduce((ob1, ob2) => {
         return Math.abs(targetDistanceToArrival - ob2.distanceToArrival) < Math.abs(targetDistanceToArrival - ob1.distanceToArrival)
           ? ob2
@@ -298,7 +326,7 @@ class SystemMap {
   getNearestLandablePlanet (systemObject) {
     const targetDistanceToArrival = systemObject.distanceToArrival
     return this.objectsInSystem
-      .filter(body => body.type === 'Planet' && body.isLandable)
+      .filter(body => body._type === 'Planet' && body.isLandable)
       .reduce((ob1, ob2) => {
         return Math.abs(targetDistanceToArrival - ob2.distanceToArrival) < Math.abs(targetDistanceToArrival - ob1.distanceToArrival)
           ? ob2
@@ -308,21 +336,24 @@ class SystemMap {
 
   getChildren (targetBody, immediateChildren = true, filter = ['Planet'].concat(STARPORTS).concat(MEGASHIPS)) {
     const children = []
-    if (!targetBody?.type) return []
+    if (!targetBody?._type) return []
 
     for (const systemObject of this.objectsInSystem) {
       // By default only get Planets and Starports
-      if (filter?.length && !filter.includes(systemObject?.type)) continue
+      if (filter?.length && !filter.includes(systemObject?._type)) continue
 
       const inOrbitAroundStars = []
       const inOrbitAroundPlanets = []
       const inOrbitAroundNull = []
       let primaryOrbit = null
+      let primaryOrbitType = null
 
       if (systemObject.parents) {
         for (const parent of systemObject.parents) {
           for (const key of Object.keys(parent)) {
             if (primaryOrbit === null) primaryOrbit = parent[key]
+            if (primaryOrbitType === null) primaryOrbitType = key
+
             if (key === 'Star') inOrbitAroundStars.push(parent[key])
             if (key === 'Planet') inOrbitAroundPlanets.push(parent[key])
             if (key === 'Null') inOrbitAroundNull.push(parent[key])
@@ -332,79 +363,29 @@ class SystemMap {
 
       if (!systemObject.parents) continue
 
-      // The most immediate body this object is orbiting
-      systemObject._immediateOrbitBodyId = systemObject.parents
-        .map(parents => {
-          const [keys] = Object.keys(parents)
-          return parents[keys]
-        })[0]
+      const nearestNonNullParent = this.#getNearestNotNullParent(systemObject)
 
-      // The first item in the list of primaries is the immediate primary orbit.
-      // It's possible for some systems to have multiple Null points that
-      // various bodies orbit around. We collabse these all into one Null orbi
-      // (Body ID 0), which always exists anyway, to better visualise rogue
-      // bodies that are not orbiting a specific star.
-      if (primaryOrbit !== 0 && inOrbitAroundNull.includes(primaryOrbit)) {
-        if (inOrbitAroundPlanets.length > 0) {
-          primaryOrbit = inOrbitAroundPlanets[0]
-        } else {
-          // FIXME: Handles edge cases - e.g. where orbiting both a star
-          // (or more than one star) and also another body. If that
-          // is the case then we regard them as only orbiting the nearest star.
-          //
-          // The system map in Elite Dangerous view draws planets like this
-          // with a square line to the planet they are orbiting, but our map
-          // view doesn't support that currently, we just draw them as if they
-          // are just another planet.
-          //
-          // NB: _immediateOrbitBodyId contains immediate body we are orbiting
-
-          const planetsInOrbitAround = systemObject.parents.reverse().filter(parents => {
-            const [keys] = Object.keys(parents)
-            return (keys === 'Planet')
-          }).map(parents => {
-            const [keys] = Object.keys(parents)
-            return parents[keys]
-          })
-
-          const starsInOrbitAround = systemObject.parents.reverse().filter(parents => {
-            const [keys] = Object.keys(parents)
-            return (keys === 'Star')
-          }).map(parents => {
-            const [keys] = Object.keys(parents)
-            return parents[keys]
-          })
-
-          if (planetsInOrbitAround.length > 0) {
-            primaryOrbit = planetsInOrbitAround[planetsInOrbitAround.length - 1]
-          } else if (starsInOrbitAround.length > 0) {
-            primaryOrbit = starsInOrbitAround[starsInOrbitAround.length - 1]
-          } else {
-            primaryOrbit = 0
-          }
-        }
+      // Some systems to have multiple Null points round which bodies orbit.
+      // We noramlize these all into one Null orbit (Body ID 0) to allow the map
+      // to better visualize bodies that are not orbiting any specific star.
+      // This ONLY applies to bodies that are not also orbiting another body.
+      if ( primaryOrbitType === 'Null' && nearestNonNullParent === null) {
+        primaryOrbit = 0
       }
 
-      // We should be able to skip all the above nonsense as _primaryOrbitBodyId
-      // and _immediateOrbitBodyId should be the same, but the map view
-      // doesn't seem to work well for this so leaving in the above logic
-      // until we can list, cater for and test all the edge cases.
-      // systemObject._primaryOrbitBodyId = systemObject._immediateOrbitBodyId
-      systemObject._primaryOrbitBodyId = primaryOrbit
-
-      if (targetBody.type === 'Star' && inOrbitAroundStars.includes(targetBody.bodyId)) {
-        if (immediateChildren === true && primaryOrbit === targetBody.bodyId) {
+      if (targetBody._type === 'Star' && inOrbitAroundStars.includes(targetBody.bodyId)) {
+        if (immediateChildren === true && nearestNonNullParent === targetBody.bodyId) {
           children.push(systemObject)
         } else if (immediateChildren === false) {
           children.push(systemObject)
         }
-      } else if (targetBody.type === 'Planet' && inOrbitAroundPlanets.includes(targetBody.bodyId)) {
-        if (immediateChildren === true && primaryOrbit === targetBody.bodyId) {
+      } else if (targetBody._type === 'Planet' && inOrbitAroundPlanets.includes(targetBody.bodyId)) {
+        if (immediateChildren === true && nearestNonNullParent === targetBody.bodyId) {
           children.push(systemObject)
         } else if (immediateChildren === false) {
           children.push(systemObject)
         }
-      } else if (targetBody.type === 'Null' && inOrbitAroundNull.includes(targetBody.bodyId) && inOrbitAroundStars.length === 0 && inOrbitAroundPlanets.length === 0) {
+      } else if (targetBody._type === 'Null' && primaryOrbitType === 'Null') {
         if (immediateChildren === true && primaryOrbit === targetBody.bodyId) {
           children.push(systemObject)
         } else if (immediateChildren === false) {
@@ -425,7 +406,7 @@ class SystemMap {
   // e.g "Colonia 5" is fine with the label "5" in the system map, but the name
   // "Colonia Outpost" should not be truncated to "Outpost".
   getSystemObjectLabel (systemObject) {
-    if (systemObject.type && systemObject.type === 'Planet') {
+    if (systemObject._type && systemObject._type === 'Planet') {
       return systemObject.name.replace(new RegExp(`^${escapeRegExp(this.name)} `), '')
     } else {
       return systemObject.name
