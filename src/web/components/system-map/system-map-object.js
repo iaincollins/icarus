@@ -100,7 +100,17 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
       })
 
       return (
-        <g>
+        <g
+          className='system-map__system-object'
+          data-system-object-landable={systemObject.isLandable}
+          data-system-object-type={systemObject.type}
+          data-system-object-sub-type={systemObject.subType}
+          data-system-object-small={!!systemObject._small}
+          data-system-object-atmosphere={systemObject.atmosphereType}
+          data-system-object-name={systemObject.name}
+          tabIndex='0'
+          onFocus={() => setSystemObject(systemObject)}
+        >
           {(systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere') &&
             <g className='system-map__planet'>
               <circle
@@ -132,18 +142,9 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
           <g className='system-map__planet'>
             <circle
               id={`navigation-panel__${systemObject.id}`}
-              className='system-map__system-object'
-              data-system-object-landable={systemObject.isLandable}
-              data-system-object-type={systemObject.type}
-              data-system-object-sub-type={systemObject.subType}
-              data-system-object-small={!!systemObject._small}
-              data-system-object-atmosphere={systemObject.atmosphereType}
-              data-system-object-name={systemObject.name}
-              tabIndex='0'
               cx={x}
               cy={y}
               r={r}
-              onFocus={() => setSystemObject(systemObject)}
             />
             <circle
               className='system-map__planet-surface'
@@ -228,11 +229,20 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
 
     let imageY = (systemObject._y - (r / 2)) - CORRECT_FOR_IMAGE_OFFSET
     let imageX = (systemObject._x - (r / 2)) - CORRECT_FOR_IMAGE_OFFSET
+    let viewBox = '0 0 1000 1000'
 
-    // Hacky because this SVG renders weirdly positioned for some reason
+    // Icon specific hacks
     if (systemObject.type === 'Mega ship') {
-      imageX -= 25
+      imageX -= 30
       imageY += 60
+    }
+
+    if (systemObject.type === 'Outpost') {
+      imageX -= 90
+    }
+
+    if (systemObject.type === 'Asteroid base') {
+      viewBox = '0 0 2000 2000'
     }
 
     const textNameContents = truncateString(systemObject.label, (systemObject.orbitsStar ? 10 : 20))
@@ -251,23 +261,29 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
     const textDistanceY = systemObject.orbitsStar ? systemObject._y - (r * 1) - 300 : systemObject._y + 300
 
     return (
-      <>
+      <g
+        className='system-map__system-object'
+        onFocus={() => setSystemObject(systemObject)}
+        tabIndex='0'
+        data-system-object-type={systemObject.type}
+        data-system-object-name={systemObject.name}
+      >
         {/* Transparent interactive overlay for icon (as transparent SVG parts not clickable) */}
         <circle
+          className='system-map__station'
           cx={systemObject._x}
           cy={systemObject._y}
           r={systemObject._r - 50}
-          onFocus={() => setSystemObject(systemObject)}
-          tabIndex='0'
-          className='system-map__station'
-          data-system-object-type={systemObject.type}
-          data-system-object-name={systemObject.name}
         />
         {/*  Inline SVG icon (loaded from string so can be easily styled) */}
         <svg
           className='system-map__station-icon'
           x={imageX}
           y={imageY}
+          height='1000'
+          width='1000'
+          preserveAspectRatio='xMinYMid meet'
+          viewBox={viewBox}
         >
           {Icons[systemObject.type]}
         </svg>
@@ -288,7 +304,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
             >{textDistanceContents}
             </text>
           </>}
-      </>
+      </g>
     )
   }
 }

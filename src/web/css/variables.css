@@ -25,7 +25,8 @@
   --info-color: white;
 
   --planet-atmosphere: #00b3f7;
-  --planet-not-landable-filter: grayscale(0%);
+  --planet-not-landable-filter: contrast(1.06);
+  --planet-landable-filter: contrast(1.15) brightness(1.1);
 
   --icon-color: var(--info-color);
   --icon-focus-color: var(--secondary-color);
