@@ -151,7 +151,6 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
               cx={x}
               cy={y}
               r={r}
-              fill='url(#svg-pattern__planet-surface)'
             />
             {systemObject.rings &&
               <>

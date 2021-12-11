@@ -165,6 +165,9 @@ class MyDocument extends Document {
       document.write(\`
       <svg style="position: absolute; height: 0; margin: 0; padding: 0; top: -100px;">
         <defs>
+          <pattern id="svg-pattern__star-surface" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+            <image href="/images/noise.png" x="0" y="0" width="4096" height="4096"/>
+          </pattern>
           <pattern id="svg-pattern__planet-surface" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
             <image href="/images/rock.png" x="0" y="0" width="4096" height="4096"/>
           </pattern>

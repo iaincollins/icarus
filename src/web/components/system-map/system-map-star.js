@@ -26,13 +26,13 @@ export default function SystemMapStar ({ star, setSystemObject }) {
       {star.numberOfPlanets > 0 &&
         <h4>
           <span className='fx-animated-text text-primary text-muted' data-fx-order='6'>
-            {star.numberOfPlanets === 1 ? '1 planet' : `${star.numberOfPlanets} planets`}
+            {star.numberOfPlanets === 1 ? '1 orbiting body' : `${star.numberOfPlanets} orbiting bodies`}
           </span>
         </h4>}
       {star.numberOfPlanets === 0 &&
         <h4>
           <span className='fx-animated-text text-primary text-muted' data-fx-order='6'>
-            No planets
+            No orbiting bodies
           </span>
         </h4>}
       {star._children && star._children.length > 0 &&
