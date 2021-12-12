@@ -20,7 +20,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
         <span className='fx-animated-text text-primary' data-fx-order='5'>
           {star.type === 'Null'
             ? star.description || ''
-            : `Type ${star.subType} // Class ${star.spectralClass} ${star.isScoopable ? '// Fuel Star' : ''}`}
+            : `${star.subType} // Class ${star.spectralClass} ${star.isScoopable ? '// Fuel Star' : ''}`}
         </span>
       </h3>
       {star.numberOfPlanets > 0 &&

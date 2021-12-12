@@ -185,10 +185,6 @@ class MyDocument extends Document {
         }
       </style>
       \`)
-    } else{
-      document.write(\`
-
-      \`)
     }
   </script>
           `
