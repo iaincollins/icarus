@@ -15,7 +15,10 @@ const MIN_VIEWBOX_WIDTH = 10000
 const SOLAR_RADIUS = 696340 // Size of Sol in km
 
 function escapeRegExp (text) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
+  console.log(text)
+  let t = text.replace(/[[\]{}()*+?.,\-\\^$|#\s]/g, '\\$&')
+  console.log(t)
+  return t
 }
 
 class SystemMap {
@@ -425,7 +428,7 @@ class SystemMap {
   // "Colonia Outpost" should not be truncated to "Outpost".
   getSystemObjectLabel (systemObject) {
     if (systemObject._type && systemObject._type === 'Planet') {
-      return systemObject.name.replace(new RegExp(`^${escapeRegExp(this.name)} `), '')
+      return systemObject.name.replace(new RegExp(`^${escapeRegExp(this.name)} `, 'i'), '')
     } else {
       return systemObject.name
     }
