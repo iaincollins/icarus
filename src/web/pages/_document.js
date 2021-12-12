@@ -117,10 +117,6 @@ class MyDocument extends Document {
           <feComponentTransfer in="shadow" result="shadow"><feFuncA type="linear" slope=".7"/></feComponentTransfer>
           <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
         </filter>
-        <!-- Cloud patterns on planets with atmosphere -->
-        <pattern id="svg-pattern__planet--clouds" x="0" y="0" width="1" height="1">
-          <image href="images/clouds.jpg" />
-        </pattern>
       </defs>
     </svg>
     <script>
@@ -165,18 +161,33 @@ class MyDocument extends Document {
       document.write(\`
       <svg style="position: absolute; height: 0; margin: 0; padding: 0; top: -100px;">
         <defs>
-          <pattern id="svg-pattern__star-surface" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
-            <image href="/images/noise.png" x="0" y="0" width="4096" height="4096"/>
+          <pattern id="svg-pattern__star-surface" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+            <image href="/images/textures/star.jpg" x="0" y="0" width="4096" height="4096"/>
           </pattern>
-          <pattern id="svg-pattern__planet-surface" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
-            <image href="/images/rock.png" x="0" y="0" width="4096" height="4096"/>
+          <pattern id="svg-pattern__planet-surface" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+            <image href="/images/textures/rock.jpg" x="0" y="0" width="4096" height="4096"/>
           </pattern>
           <pattern id="svg-pattern__planet-surface-animated" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
-            <image href="/images/rock.png" x="0" y="0" width="4096" height="4096"/>
-            <animate attributeName="x" values="0;4096" dur="30s" repeatCount="indefinite" />
+            <image href="/images/textures/rock.jpg" x="0" y="0" width="4096" height="4096"/>
+            <animate attributeName="x" values="0;4096" dur="30s" repeatCount="indefinite"/>
+          </pattern>
+          <pattern id="svg-pattern__planet-surface--clouds" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+            <image href="/images/textures/clouds.jpg" x="0" y="0" width="4096" height="4096"/>
+          </pattern>
+          <pattern id="svg-pattern__planet-surface--gas-giant" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+            <image href="/images/textures/gas-giant.jpg" x="0" y="0" width="4096" height="4096"/>
           </pattern>
         </defs>
       </svg>
+      <style>
+        .system-map__system-object[data-system-object-type="Star"] .system-map__planet-surface {
+          fill: url(#svg-pattern__star-surface) !important;
+        }
+      </style>
+      \`)
+    } else{
+      document.write(\`
+
       \`)
     }
   </script>
@@ -192,5 +203,11 @@ class MyDocument extends Document {
     )
   }
 }
+
+/*
+.system-map__system-object[data-system-object-type="Star"] .system-map__planet {
+  fill: white;
+  fill: url(#svg-pattern__star-surface);
+  */
 
 export default MyDocument
