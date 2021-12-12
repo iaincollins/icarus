@@ -76,7 +76,6 @@ class SystemMap {
     bodies.forEach((body, i) => {
       body._type = body.type
 
-      //if (body.name === 'Colonia 3') console.log(body)
       // Only applies to stars
       if (body.type !== 'Star') return
 
@@ -383,10 +382,6 @@ class SystemMap {
       if (!systemObject.parents) continue
 
       const nearestNonNullParent = this.#getNearestNotNullParent(systemObject)
-
-      if (MEGASHIPS.includes(systemObject?._type)) {
-        console.log('M', targetBody.name, `(${targetBody.bodyId})`, systemObject.name, systemObject.parents, nearestNonNullParent)
-      }
       
       // Some systems to have multiple Null points round which bodies orbit.
       // We noramlize these all into one Null orbit (Body ID 0) to allow the map

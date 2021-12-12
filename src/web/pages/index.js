@@ -7,7 +7,7 @@ export default function IndexPage () {
   const { connected, active } = useSocket()
 
   // Client side redirect
-  if (typeof window !== 'undefined') Router.push('/nav')
+  if (typeof window !== 'undefined') Router.push('/nav/map')
 
   return (
     <Layout connected={connected} active={active}>
