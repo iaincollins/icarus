@@ -20,7 +20,7 @@ export default function SystemMap ({ system, setSystemObject }) {
           <span className='fx-animated-text' data-fx-order='1'>
             {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
             {(!system.allegiance || system.allegiance === 'Unknown') && <span className='text-muted'>System status unknown</span>}
-            {system.government && system.government !== 'None'  && system.government !== 'Unknown' && `// ${system.government}`}
+            {system.government && system.government !== 'None' && system.government !== 'Unknown' && `// ${system.government}`}
             {(system.security !== system.government) ? ` // ${system.security}` : ''}
           </span>
         </h2>

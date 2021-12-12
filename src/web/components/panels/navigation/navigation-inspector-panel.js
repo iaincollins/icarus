@@ -76,12 +76,10 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
       {systemObject.type === 'Star' &&
         <div className='navigation-panel__inspector-section'>
           <h4 className='text-primary'>Statistics</h4>
-          {systemObject.spectralClass && <p className='text-info'>
-            Class {systemObject.spectralClass} Star
-            </p>}
+          {systemObject.spectralClass && <p className='text-info'>Class {systemObject.spectralClass} Star </p>}
           <p className='text-info'>{systemObject.solarMasses.toFixed(2)} Solar masses</p>
           {systemObject.radius && <p className='text-info'>{systemObject.radius.toFixed(0)} Km</p>}
-          <p className='text-info'>Temperature {systemObject.surfaceTemperature} K</p> 
+          <p className='text-info'>Temperature {systemObject.surfaceTemperature} K</p>
           {systemObject.isScoopable ? <p className='text-info'>Fuel star (scoopable)</p> : <p className='text-info text-muted'>Not scoopable</p>}
         </div>}
 
@@ -123,38 +121,38 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
               </div>
             </div>}
 
-        {systemObject.atmosphereComposition &&
-          <div className='navigation-panel__inspector-section'>
-            <h4 className='text-primary'>Atmosphere</h4>
-            {systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere' ? <p className='text-info'>{systemObject.atmosphereType}</p> : null}
-            {systemObject.surfacePressure ? <p className='text-info'>Pressure {systemObject.surfacePressure.toFixed(1)} atm</p> : null}
-            <p className='text-info'>Composition:</p>
-            <ul className='text-info'>
-              {Object.entries(systemObject.atmosphereComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_atmosphere_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
-            </ul>
-          </div>}
+          {systemObject.atmosphereComposition &&
+            <div className='navigation-panel__inspector-section'>
+              <h4 className='text-primary'>Atmosphere</h4>
+              {systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere' ? <p className='text-info'>{systemObject.atmosphereType}</p> : null}
+              {systemObject.surfacePressure ? <p className='text-info'>Pressure {systemObject.surfacePressure.toFixed(1)} atm</p> : null}
+              <p className='text-info'>Composition:</p>
+              <ul className='text-info'>
+                {Object.entries(systemObject.atmosphereComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_atmosphere_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
+              </ul>
+            </div>}
 
-        {!systemObject.atmosphereComposition &&
-          <div className='navigation-panel__inspector-section'>
-            <h4 className='text-primary'>Atmosphere</h4>
-            <p className='text-muted'>No atmosphere</p>
-          </div>}
+          {!systemObject.atmosphereComposition &&
+            <div className='navigation-panel__inspector-section'>
+              <h4 className='text-primary'>Atmosphere</h4>
+              <p className='text-muted'>No atmosphere</p>
+            </div>}
 
-        {systemObject.solidComposition &&
-          <div className='navigation-panel__inspector-section'>
-            <h4 className='text-primary'>Surface Composition</h4>
-            <ul className='text-info'>
-              {Object.entries(systemObject.solidComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_surface_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
-            </ul>
-          </div>}
-      </>}
+          {systemObject.solidComposition &&
+            <div className='navigation-panel__inspector-section'>
+              <h4 className='text-primary'>Surface Composition</h4>
+              <ul className='text-info'>
+                {Object.entries(systemObject.solidComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_surface_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
+              </ul>
+            </div>}
+        </>}
 
       {systemObject.rings &&
         <div className='navigation-panel__inspector-section'>
           <h4 className='text-primary'>Rings</h4>
           {systemObject.reserveLevel && <p className='text-info'>{systemObject.reserveLevel} Reserves</p>}
           <ul className='text-info'>
-            {systemObject.rings.map((ring,i) => <li key={`navigation-inspector_${systemObject.id}_rings_${i}}`}>{ring.name} ({ring.type})</li>)}
+            {systemObject.rings.map((ring, i) => <li key={`navigation-inspector_${systemObject.id}_rings_${i}}`}>{ring.name} ({ring.type})</li>)}
           </ul>
         </div>}
 

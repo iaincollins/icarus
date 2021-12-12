@@ -117,76 +117,102 @@ class MyDocument extends Document {
           <feComponentTransfer in="shadow" result="shadow"><feFuncA type="linear" slope=".7"/></feComponentTransfer>
           <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
         </filter>
+        <filter id="svg-filter__star-glow">
+          <feOffset dx="0" dy="0"/>
+          <feGaussianBlur stdDeviation="500" result="offset-blur"/>
+          <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+          <feFlood flood-color="rgba(255,0,0,.5)" flood-opacity="1" result="color"/>
+          <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+          <feComponentTransfer in="shadow" result="shadow"><feFuncA type="linear" slope="1"/></feComponentTransfer>
+          <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+        </filter>
+        <filter id="svg-filter__star-glow--light">
+          <feOffset dx="0" dy="0"/>
+          <feGaussianBlur stdDeviation="500" result="offset-blur"/>
+          <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+          <feFlood flood-color="rgba(255,0,0,.25)" flood-opacity="1" result="color"/>
+          <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+          <feComponentTransfer in="shadow" result="shadow"><feFuncA type="linear" slope="1"/></feComponentTransfer>
+          <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+        </filter>
       </defs>
     </svg>
     <script>
-    const isChromium = window.chrome
-    const isSafari = navigator.vendor.match(/apple/i) &&
-                      !navigator.userAgent.match(/crios/i) &&
-                      !navigator.userAgent.match(/fxios/i) &&
-                      !navigator.userAgent.match(/Opera|OPT\\//)
-    const isOpera = typeof window.opr !== "undefined"
-    const isIEedge = window.navigator.userAgent.indexOf("Edg") > -1
-    const isIOSChrome = window.navigator.userAgent.match("CriOS")
-    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1
+      const isChromium = window.chrome
+      const isSafari = navigator.vendor.match(/apple/i) &&
+                        !navigator.userAgent.match(/crios/i) &&
+                        !navigator.userAgent.match(/fxios/i) &&
+                        !navigator.userAgent.match(/Opera|OPT\\//)
+      const isOpera = typeof window.opr !== "undefined"
+      const isIEedge = window.navigator.userAgent.indexOf("Edg") > -1
+      const isIOSChrome = window.navigator.userAgent.match("CriOS")
+      const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1
 
-    // Google Chrome support filters on SVG textures in this way but not all
-    // imitation Chrome browsers do and some look terrible as a result because
-    // of how the fail at rendering.
-    // 
-    // Firefox supports this feature too, though doesn't support focus events
-    // on the SVGs so the map view isn't actually interactive on Firefox.
-    //
-    // This is all so that the map doesn't look bad on cheap tablets, like the
-    // Amazon Fire, which Amazon recently forceably purged side loaded Google
-    // Chrome from and replaced it with less capeable version of Amazon's 
-    // Silk browser which uses Google Inc. as the vendor name but isn't
-    // actually from Google.
-    let ENABLE_PLANET_TEXTURES = false
-    if (isIOSChrome || isSafari || isIEedge || isFirefox) {
-      ENABLE_PLANET_TEXTURES = true
-    } else if (
-      // Check is Google Chrome (and not impostor)
-      isChromium !== null &&
-      typeof isChromium !== "undefined" &&
-      window.navigator.vendor === "Google Inc." &&
-      !window.navigator.userAgent.match("like Chrome") && // Browsers like Amazon Fire's Silk Browsers use the Google Inc. vendor name, but that's a lie and it doesn't support this feature
-      isOpera === false &&
-      isIEedge === false
-    ) {
-      ENABLE_PLANET_TEXTURES = true
-    }
+      // Google Chrome support filters on SVG textures in this way but not all
+      // imitation Chrome browsers do and some look terrible as a result because
+      // of how the fail at rendering.
+      // 
+      // Firefox supports this feature too, though doesn't support focus events
+      // on the SVGs so the map view isn't actually interactive on Firefox.
+      //
+      // This is all so that the map doesn't look bad on cheap tablets, like the
+      // Amazon Fire, which Amazon recently forceably purged side loaded Google
+      // Chrome from and replaced it with less capeable version of Amazon's 
+      // Silk browser which uses Google Inc. as the vendor name but isn't
+      // actually from Google.
+      let ENABLE_PLANET_TEXTURES = false
+      if (isIOSChrome || isSafari || isIEedge || isFirefox) {
+        ENABLE_PLANET_TEXTURES = true
+      } else if (
+        // Check is Google Chrome (and not impostor)
+        isChromium !== null &&
+        typeof isChromium !== "undefined" &&
+        window.navigator.vendor === "Google Inc." &&
+        !window.navigator.userAgent.match("like Chrome") && // Browsers like Amazon Fire's Silk Browsers use the Google Inc. vendor name, but that's a lie and it doesn't support this feature
+        isOpera === false &&
+        isIEedge === false
+      ) {
+        ENABLE_PLANET_TEXTURES = true
+      }
 
-    if (ENABLE_PLANET_TEXTURES) {
-      document.write(\`
-      <svg style="position: absolute; height: 0; margin: 0; padding: 0; top: -100px;">
-        <defs>
-          <pattern id="svg-pattern__star-surface" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
-            <image href="/images/textures/star.jpg" x="0" y="0" width="4096" height="4096"/>
-          </pattern>
-          <pattern id="svg-pattern__planet-surface" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
-            <image href="/images/textures/rock.jpg" x="0" y="0" width="4096" height="4096"/>
-          </pattern>
-          <pattern id="svg-pattern__planet-surface-animated" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
-            <image href="/images/textures/rock.jpg" x="0" y="0" width="4096" height="4096"/>
-            <animate attributeName="x" values="0;4096" dur="30s" repeatCount="indefinite"/>
-          </pattern>
-          <pattern id="svg-pattern__planet-surface--clouds" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
-            <image href="/images/textures/clouds.jpg" x="0" y="0" width="4096" height="4096"/>
-          </pattern>
-          <pattern id="svg-pattern__planet-surface--gas-giant" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
-            <image href="/images/textures/gas-giant.jpg" x="0" y="0" width="4096" height="4096"/>
-          </pattern>
-        </defs>
-      </svg>
-      <style>
-        .system-map__system-object[data-system-object-type="Star"] .system-map__planet-surface {
-          fill: url(#svg-pattern__star-surface) !important;
-        }
-      </style>
-      \`)
-    }
-  </script>
+      if (ENABLE_PLANET_TEXTURES) {
+        document.write(\`
+          <svg style="position: absolute; height: 0; margin: 0; padding: 0; top: -100px;">
+            <defs>
+              <pattern id="svg-pattern__star-surface" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+                <image href="/images/textures/star.jpg" x="0" y="0" width="4096" height="4096"/>
+              </pattern>
+              <pattern id="svg-pattern__planet-surface" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+                <image href="/images/textures/rock.jpg" x="0" y="0" width="4096" height="4096"/>
+              </pattern>
+              <pattern id="svg-pattern__planet-surface-animated" x="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+                <image href="/images/textures/rock.jpg" x="0" y="0" width="4096" height="4096"/>
+                <animate attributeName="x" values="0;4096" dur="30s" repeatCount="indefinite"/>
+              </pattern>
+              <pattern id="svg-pattern__planet-surface--clouds" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+                <image href="/images/textures/clouds.jpg" x="0" y="0" width="4096" height="4096"/>
+              </pattern>
+              <pattern id="svg-pattern__planet-surface--gas-giant" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
+                <image href="/images/textures/gas-giant.jpg" x="0" y="0" width="4096" height="4096"/>
+              </pattern>
+            </defs>
+          </svg>
+          <style>
+            .system-map__system-object[data-system-object-type="Star"] .system-map__planet-surface {
+              fill: url(#svg-pattern__star-surface) !important;
+            }
+          </style>
+        \`)
+      } else {
+        document.write(\`
+          <style>
+            .system-map__system-object[data-system-object-type="Star"] .system-map__planet {
+              filter: url(#svg-filter__star-glow) !important;
+            }
+        </style>
+        \`)
+      }
+    </script>
           `
           }}
           />
@@ -201,6 +227,9 @@ class MyDocument extends Document {
 }
 
 /*
+.system-map__system-object[data-system-object-type="Star"] .system-map__planet {
+  fill: url(#system-map-svg-gradient__planet);
+}
 .system-map__system-object[data-system-object-type="Star"] .system-map__planet {
   fill: white;
   fill: url(#svg-pattern__star-surface);

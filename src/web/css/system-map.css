@@ -75,6 +75,7 @@
 .system-map__system-object .system-map__planet {
   fill: url(#svg-gradient__unknown);
   xfilter: contrast(1.5) brigh !important;
+  overflow: visible;
 }
 
 .system-map__system-object:focus .system-map__planet {
@@ -151,10 +152,13 @@
   filter: url(#svg-filter__planet-shadow--small) var(--planet-landable-filter);
 }
 
-.system-map__system-object[data-system-object-type="Star"]:focus .system-map__planet {
-  stroke-width: 250 !important;
+.system-map__system-object[data-system-object-type="Star"] .system-map__planet {
+  filter: url(#svg-filter__star-glow--light);
 }
 
+.system-map__system-object[data-system-object-type="Star"]:focus .system-map__planet {
+  stroke-width: 225 !important;
+}
 
 .system-map__system-object[data-system-object-type="Star"] .system-map__planet-surface {
   fill: white;
@@ -185,15 +189,15 @@
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WC "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WN "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="W0 "] .system-map__planet-surface {
-  filter: grayscale(100%) contrast(0.2) brightness(1.5) drop-shadow(0 0 25rem white);
+  filter: grayscale(100%) contrast(0.2) brightness(1.5) drop-shadow(0 0 15rem white);
 }
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="F "] .system-map__planet-surface {
-  filter: contrast(0.15) sepia(100%) hue-rotate(340deg) saturate(1.7) brightness(1.2) contrast(2) drop-shadow(0 0 25rem orange);
+  filter: contrast(0.15) sepia(100%) hue-rotate(340deg) saturate(1.7) brightness(1.2) contrast(2) drop-shadow(0 0 15rem orange);
 }
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="G "] .system-map__planet-surface {
-  filter: contrast(0.15) sepia(100%) hue-rotate(340deg) saturate(2) brightness(1.1) contrast(2) drop-shadow(0 0 25rem orange);
+  filter: contrast(0.15) sepia(100%) hue-rotate(340deg) saturate(2) brightness(1.1) contrast(2) drop-shadow(0 0 15rem orange);
 }
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Ae "] .system-map__planet-surface,
@@ -208,20 +212,18 @@
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="MS "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WNC "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="S "] .system-map__planet-surface {
-  filter: contrast(0.25) sepia(100%) hue-rotate(330deg) saturate(3.75) brightness(1.15) contrast(2) drop-shadow(0 0 25rem orange);
+  filter: contrast(0.25) sepia(100%) hue-rotate(330deg) saturate(3.75) brightness(1.15) contrast(2) drop-shadow(0 0 15rem orange);
 }
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="M "] .system-map__planet-surface {
-  filter: contrast(0.25) sepia(100%) hue-rotate(360deg) saturate(5) brightness(.8) contrast(2) drop-shadow(0 0 25rem darkorange);
+  filter: contrast(0.25) sepia(100%) hue-rotate(360deg) saturate(5) brightness(.8) contrast(2) drop-shadow(0 0 15rem darkorange);
 }
-
-
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="L "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Y "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="T "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="(Brown dwarf)"] .system-map__planet-surface {
-  filter: contrast(0.15) sepia(100%) hue-rotate(280deg) saturate(2) brightness(.5)  contrast(2) drop-shadow(0 0 25rem maroon);
+  filter: contrast(0.15) sepia(100%) hue-rotate(280deg) saturate(2) brightness(.5)  contrast(2) drop-shadow(0 0 15rem maroon);
 }
 
 /* 
