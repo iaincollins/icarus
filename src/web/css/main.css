@@ -199,6 +199,42 @@ progress[value]::-webkit-progress-value {
   transition: width .25s ease;
 }
 
+form {
+  padding: 0;
+  margin: 0;
+}
+
+label {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 900;
+  margin-right: 1rem;
+}
+
+input {
+  border: .25rem solid var(--dark-primary-color);
+  background: var(--dark-primary-color);
+  color: var(--icon-color);
+  font-size: 1.25rem;
+  line-height: 2rem;
+  outline: 0;
+  padding: .25rem 1rem;
+  text-transform: uppercase;
+  font-family: "Jura", sans-serif;
+  font-weight: 900;
+}
+
+/* You cannot combine these styles! */
+::-webkit-input-placeholder { color: var(--primary-color) }
+::-moz-placeholder { color: var(--primary-color)  }
+::-ms-placeholder { color: var(--primary-color) }
+::placeholder {color: var(--primary-color) }
+
+input:focus,
+input:hover {
+  border-color: var(--primary-color);
+}
+
 hr {
   border: none;
   height: .15rem;

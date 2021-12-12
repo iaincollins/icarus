@@ -46,7 +46,8 @@ export default function NavListPage () {
   useEffect(() => eventListener('newLogEntry', async (newLogEntry) => {
     if (newLogEntry.event === 'FSDJump') {
       const newSystem = await sendEvent('getSystem')
-      if (newSystem) setSystem(newSystem)
+      if (!newSystem) return
+      setSystem(newSystem)
       const newSystemObject = newSystem?.stars?.[0]?._children?.[0] ?? null
       setSystemObject(newSystemObject)
     }

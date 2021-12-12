@@ -69,12 +69,10 @@
 
 .system-map__system-object {
   outline: 0;
-
 }
 
 .system-map__system-object .system-map__planet {
   fill: url(#svg-gradient__unknown);
-  xfilter: contrast(1.5) brigh !important;
   overflow: visible;
 }
 
@@ -82,8 +80,6 @@
   outline: none;
   stroke-width: 100 !important;
   stroke: var(--primary-color) !important;
-  xfilter: brightness(1.2);
-  xfilter: contrast(2);
   transition: all .1s ease;
 }
 
@@ -168,6 +164,7 @@
   stroke: none;
 }
 
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Supermassive Black Hole"] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Black Hole"] .system-map__planet-surface {
   fill: black;
   filter: drop-shadow(0 0 25rem black);

@@ -197,6 +197,23 @@
   text-decoration: none !important;
 }
 
+.navigation-panel__system-map-search-form {
+  position: absolute;
+  top: .75rem;
+  right: 1.75rem;
+  z-index: 20;
+}
+
+.navigation-panel__system-map-search-input {
+  width: 1rem;
+  transition: width .25s ease-in-out;
+}
+
+.navigation-panel__system-map-search-input:hover,
+.navigation-panel__system-map-search-input:focus {
+  width: 15rem;
+}
+
 @media only screen and (max-width: 800px) {
   .navigation-panel__list,
   .navigation-panel__map {
@@ -205,6 +222,10 @@
     top: 0;
     bottom: 50%;
     right: 0;
+  }
+
+  .navigation-panel__map .system-map {
+    margin-top: 3.5rem;
   }
 
   .navigation-panel__inspector {

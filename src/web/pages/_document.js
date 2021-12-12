@@ -226,13 +226,4 @@ class MyDocument extends Document {
   }
 }
 
-/*
-.system-map__system-object[data-system-object-type="Star"] .system-map__planet {
-  fill: url(#system-map-svg-gradient__planet);
-}
-.system-map__system-object[data-system-object-type="Star"] .system-map__planet {
-  fill: white;
-  fill: url(#svg-pattern__star-surface);
-  */
-
 export default MyDocument

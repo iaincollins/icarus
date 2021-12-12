@@ -14,6 +14,14 @@ export default function NavMapPage () {
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
 
+  const getSystem = async (systemName) => {
+    const newSystem = await sendEvent('getSystem', { name: systemName })
+    if (!newSystem) return
+    setSystem(newSystem)
+    const newSystemObject = newSystem?.stars?.[0]?._children?.[0] ?? null
+    setSystemObject(newSystemObject)
+  }
+
   const setSystemObjectByName = (name) => {
     const el = document.querySelector(`[data-system-object-name="${name}"]`)
     if (el) {
@@ -52,7 +60,8 @@ export default function NavMapPage () {
   useEffect(() => eventListener('newLogEntry', async (newLogEntry) => {
     if (newLogEntry.event === 'FSDJump') {
       const newSystem = await sendEvent('getSystem')
-      if (newSystem) setSystem(newSystem)
+      if (!newSystem) return
+      setSystem(newSystem)
       const newSystemObject = newSystem?.stars?.[0]?._children?.[0] ?? null
       setSystemObject(newSystemObject)
     }
@@ -83,7 +92,7 @@ export default function NavMapPage () {
           }
         ]}
       >
-        <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} />
+        <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} getSystem={getSystem} />
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>
     </Layout>
