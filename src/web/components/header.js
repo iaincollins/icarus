@@ -12,7 +12,7 @@ const NAV_BUTTONS = [
   {
     name: 'Ship',
     path: '/ship',
-    enabled: false
+    enabled: true
   },
   {
     name: 'Nav',

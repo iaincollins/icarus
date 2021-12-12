@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
+import { NavPanelNavItems } from 'lib/navigation-items'
 import NavigationSystemMapPanel from 'components/panels/navigation/navigation-system-map'
 import NavigationInspectorPanel from 'components/panels/navigation/navigation-inspector-panel'
 
@@ -77,21 +78,7 @@ export default function NavMapPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready}>
-      <Panel
-        layout='full-width' navigation={[
-          {
-            icon: 'system-bodies',
-            active: true
-          },
-          {
-            icon: 'table-inspector',
-            url: {
-              pathname: '/nav/list',
-              query
-            }
-          }
-        ]}
-      >
+      <Panel layout='full-width' navigation={NavPanelNavItems('Map', query)}>
         <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} getSystem={getSystem} />
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>
