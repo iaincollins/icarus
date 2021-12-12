@@ -15,10 +15,7 @@ const MIN_VIEWBOX_WIDTH = 10000
 const SOLAR_RADIUS = 696340 // Size of Sol in km
 
 function escapeRegExp (text) {
-  console.log(text)
-  let t = text.replace(/[[\]{}()*+?.,\-\\^$|#\s]/g, '\\$&')
-  console.log(t)
-  return t
+  return text.replace(/[[\]{}()*+?.,\-\\^$|#\s]/g, '\\$&')
 }
 
 class SystemMap {

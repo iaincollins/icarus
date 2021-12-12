@@ -12,15 +12,13 @@ export default function NavigationSystemMapPanel ({ system, setSystemObject, get
               control until the search bar component has been built */
           e.preventDefault()
           const el = document.getElementById('navigation-panel__system-map-search-input')
-          getSystem(el.value.toLowerCase())
-          el.value = ''
-          const oldWidth = el.style.width
-          el.style.width = '1rem'
+          if (el.value === '') return
           el.blur()
           setTimeout(() => {
             const el = document.getElementById('navigation-panel__system-map-search-input')
-            el.style.width = oldWidth
-          }, 1000)
+            getSystem(el.value.toLowerCase())
+            el.value = ''
+          }, 500)
         }}
         onMouseOver={() => {
           const el = document.getElementById('navigation-panel__system-map-search-input')
@@ -36,7 +34,7 @@ export default function NavigationSystemMapPanel ({ system, setSystemObject, get
           id='navigation-panel__system-map-search-input'
           className='navigation-panel__system-map-search-input'
           type='text'
-          placeholder='> Enter system name…'
+          placeholder='Enter system name…'
           onFocus={() => {
             const el = document.getElementById('navigation-panel__system-map-search-input')
             el.select()
@@ -47,7 +45,6 @@ export default function NavigationSystemMapPanel ({ system, setSystemObject, get
       <div className='navigation-panel__map-background'>
         <div className='navigation-panel__map-foreground scrollable'>
           <SystemMap system={system} setSystemObject={setSystemObject} />
-
         </div>
       </div>
     </div>

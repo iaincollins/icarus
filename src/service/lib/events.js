@@ -125,7 +125,7 @@ const eventHandlers = {
     }
   },
   getSystem: async ({ name = null } = {}) => {
-    let systemName = name
+    let systemName = name ? name.trim().toUpperCase() : null
     const FSDJump = await eliteLog.getEvent('FSDJump')
 
     if (!systemName) {
