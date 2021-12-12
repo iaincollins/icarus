@@ -157,7 +157,6 @@
 
 .system-map__system-object[data-system-object-type="Star"] .system-map__planet-surface {
   fill: white;
-  Xfill: url(#svg-pattern__star-surface);
   filter: grayscale(100%) contrast(0.2) brightness(1.5) drop-shadow(0 0 25rem white);
   opacity: 1;
   stroke: none;
@@ -173,9 +172,11 @@
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="White Dwarf" i] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Neutron Star" i] .system-map__planet-surface {
-  filter: grayscale(100%) contrast(0.1) brightness(2) drop-shadow(0 0 10rem lightblue);
+  filter: grayscale(100%) contrast(0.1) brightness(2) drop-shadow(0 0 5rem rgb(118, 173, 245)) drop-shadow(0 0 5rem rgb(53, 114, 255));
 }
 
+
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="K "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="0 "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="B "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="A "] .system-map__planet-surface,
@@ -185,20 +186,17 @@
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WC "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WN "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="W0 "] .system-map__planet-surface {
-  filter: grayscale(100%) contrast(0.2) brightness(1.5) drop-shadow(0 0 15rem white);
+  filter: grayscale(100%) contrast(0.2) brightness(1.8) drop-shadow(0 0 5rem rgb(222, 247, 255)) drop-shadow(0 0 10rem white) drop-shadow(0 0 10rem rgb(108, 196, 255));
 }
 
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="F "] .system-map__planet-surface {
-  filter: contrast(0.15) sepia(100%) hue-rotate(340deg) saturate(1.7) brightness(1.2) contrast(2) drop-shadow(0 0 15rem orange);
-}
-
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="F "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="G "] .system-map__planet-surface {
-  filter: contrast(0.15) sepia(100%) hue-rotate(340deg) saturate(2) brightness(1.1) contrast(2) drop-shadow(0 0 15rem orange);
+  filter: contrast(0.2) sepia(100%) hue-rotate(340deg) saturate(2) brightness(1.1) contrast(2) drop-shadow(0 0 5rem rgb(255, 236, 129)) drop-shadow(0 0 10rem rgb(255, 236, 129)) drop-shadow(0 0 10rem orange);
 }
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Ae "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Be "] .system-map__planet-surface,
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="K "] .system-map__planet-surface,
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="XXXXXXxxxx K "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="C "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="CH "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="CHd "] .system-map__planet-surface,
@@ -208,18 +206,18 @@
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="MS "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WNC "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="S "] .system-map__planet-surface {
-  filter: contrast(0.25) sepia(100%) hue-rotate(330deg) saturate(3.75) brightness(1.15) contrast(2) drop-shadow(0 0 15rem orange);
+  filter: contrast(0.25) sepia(100%) hue-rotate(330deg) saturate(3.75) brightness(1.15) contrast(2) drop-shadow(0 0 5rem rgb(255, 236, 129)) drop-shadow(0 0 10rem orange) drop-shadow(0 0 10rem orange);
 }
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="M "] .system-map__planet-surface {
-  filter: contrast(0.25) sepia(100%) hue-rotate(360deg) saturate(5) brightness(.8) contrast(2) drop-shadow(0 0 15rem darkorange);
+  filter: contrast(0.4) sepia(100%) hue-rotate(360deg) saturate(5) brightness(.75) contrast(2)  drop-shadow(0 0 5rem darkorange) drop-shadow(0 0 10rem darkorange) drop-shadow(0 0 10rem darkorange);
 }
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="L "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Y "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="T "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="Brown dwarf" i] .system-map__planet-surface {
-  filter: contrast(0.15) sepia(100%) hue-rotate(280deg) saturate(2) brightness(.5)  contrast(2) drop-shadow(0 0 15rem maroon);
+  filter: contrast(0.3) sepia(100%) hue-rotate(280deg) saturate(1.7) brightness(.45)  contrast(2) drop-shadow(0 0 15rem maroon);
 }
 
 /* 
