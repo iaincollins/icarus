@@ -118,8 +118,7 @@
   fill: url(#system-map-svg-gradient__planet);
   filter: url(#svg-filter__planet-shadow) var(--planet-not-landable-filter);
 }
-
-.system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="gas giant"] .system-map__planet-surface {
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="gas giant" i] .system-map__planet-surface {
   fill: url(#svg-pattern__planet-surface--gas-giant);
   xfilter: var(--planet-not-landable-filter) saturate(1.5) sepia(100%)  hue-rotate(330deg) contrast(2);
 }
@@ -164,16 +163,16 @@
   stroke: none;
 }
 
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Supermassive Black Hole"] .system-map__planet-surface,
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Black Hole"] .system-map__planet-surface {
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Supermassive Black Hole" i] .system-map__planet-surface,
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Black Hole" i] .system-map__planet-surface {
   fill: black;
   filter: drop-shadow(0 0 25rem black);
   stroke-width: 50;
   stroke: white;
 }
 
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="White Dwarf"] .system-map__planet-surface,
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Neutron Star"] .system-map__planet-surface {
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="White Dwarf" i] .system-map__planet-surface,
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Neutron Star" i] .system-map__planet-surface {
   filter: grayscale(100%) contrast(0.1) brightness(2) drop-shadow(0 0 10rem lightblue);
 }
 
@@ -219,7 +218,7 @@
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="L "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Y "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="T "] .system-map__planet-surface,
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="(Brown dwarf)"] .system-map__planet-surface {
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="Brown dwarf" i] .system-map__planet-surface {
   filter: contrast(0.15) sepia(100%) hue-rotate(280deg) saturate(2) brightness(.5)  contrast(2) drop-shadow(0 0 15rem maroon);
 }
 
