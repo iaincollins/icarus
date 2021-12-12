@@ -33,7 +33,12 @@ class SystemMap {
     //
     // We use our own classification system (stored in ._type) for the purpose
     // of deciding how we want to treat them for the purposes of the system map
-    const bodies = this.#findStarsOrbitingOtherStarsLikePlanets(_bodies || [])
+    let bodies = this.#findStarsOrbitingOtherStarsLikePlanets(_bodies || [])
+
+    // Squash duplicate entries (e.g. Rhea system, where Rhea 4 is now Forsyth),
+    // or you end up with two planets with different names and the same body id
+    // on the map
+    bodies = this.#getUniqueObjectsByProperty(bodies, 'bodyId')
 
     this.stars = bodies.filter(body => body?._type === 'Star')
     this.planets = bodies.filter(body => body?._type === 'Planet')
@@ -57,6 +62,10 @@ class SystemMap {
     })
 
     this.init()
+  }
+
+  #getUniqueObjectsByProperty(arr, key) {
+    return [...new Map(arr.map(item => [item[key], item])).values()]
   }
 
   #findStarsOrbitingOtherStarsLikePlanets (_bodies) {
@@ -166,13 +175,23 @@ class SystemMap {
           }
         }
 
-        // If this object is any time of planetry port, outpost or settlement
-        // then add it as a planetary base of the parent body
+        // Plot megaships
+        // I think is is redundant now (seems to work without it after refactor)
+        // but not verified for edge cases.
         if (MEGASHIPS.includes(systemObject.type)) {
-          for (const systemObjectParent of this.objectsInSystem) {
-            if (systemObjectParent.bodyId === nearestPlanet.bodyId) {
-              if (!systemObjectParent._megaships) systemObjectParent._megaships = []
-              systemObjectParent._megaships.push(systemObject)
+          if (systemObject?.parents?.[0]?.['Planet']) {
+            for (const systemObjectParent of this.objectsInSystem) {
+              if (systemObjectParent.bodyId === nearestPlanet.bodyId) {
+                if (!systemObjectParent._megaships) systemObjectParent._megaships = []
+                systemObjectParent._megaships.push(systemObject)
+              }
+            }
+          } else {
+            for (const systemObjectParent of this.objectsInSystem) {
+              if (systemObjectParent.bodyId === nearestPlanet.bodyId) {
+                if (!systemObjectParent._megaships) systemObjectParent._megaships = []
+                systemObjectParent._megaships.push(systemObject)
+              }
             }
           }
         }
@@ -365,6 +384,10 @@ class SystemMap {
 
       const nearestNonNullParent = this.#getNearestNotNullParent(systemObject)
 
+      if (MEGASHIPS.includes(systemObject?._type)) {
+        console.log('M', targetBody.name, `(${targetBody.bodyId})`, systemObject.name, systemObject.parents, nearestNonNullParent)
+      }
+      
       // Some systems to have multiple Null points round which bodies orbit.
       // We noramlize these all into one Null orbit (Body ID 0) to allow the map
       // to better visualize bodies that are not orbiting any specific star.
