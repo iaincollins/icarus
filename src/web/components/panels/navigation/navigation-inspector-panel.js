@@ -1,7 +1,7 @@
 import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../service/lib/consts'
 import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
 
-export default function NavigationInspectorPanel ({ system, systemObject, setSystemObjectByName }) {
+export default function NavigationInspectorPanel ({ systemObject, setSystemObjectByName }) {
   if (!systemObject) {
     return (
       <div className='navigation-panel__inspector fx-fade-in scrollable'>
@@ -67,6 +67,24 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
         <h3 className='text-primary'>{systemObjectSubType}</h3>
       </div>
       <hr />
+      {(systemObject.distanceToArrival && systemObject.distanceToArrival > 0) === true &&
+        <div className='navigation-panel__inspector-section'>
+          <h4 className='text-primary'>Distance to arrival</h4>
+          <p className='text-info'>{systemObject.distanceToArrival} Ls</p>
+        </div>}
+
+      {systemObject.type === 'Star' &&
+        <div className='navigation-panel__inspector-section'>
+          <h4 className='text-primary'>Statistics</h4>
+          {systemObject.spectralClass && <p className='text-info'>
+            Class {systemObject.spectralClass} Star
+            </p>}
+          <p className='text-info'>{systemObject.solarMasses.toFixed(2)} Solar masses</p>
+          {systemObject.radius && <p className='text-info'>{systemObject.radius.toFixed(0)} Km</p>}
+          <p className='text-info'>Temperature {systemObject.surfaceTemperature} K</p> 
+          {systemObject.isScoopable ? <p className='text-info'>Fuel star (scoopable)</p> : <p className='text-info text-muted'>Not scoopable</p>}
+        </div>}
+
       {systemObject.type === 'Planet' &&
         <>
           <div className='navigation-panel__inspector-section'>
@@ -79,6 +97,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
                 ({kelvinToCelius(systemObject.surfaceTemperature)}C/{kelvinToFahrenheit(systemObject.surfaceTemperature)}F)
               </p>}
             {systemObject.volcanismType !== 'No volcanism' ? <p className='text-info'>{systemObject.volcanismType}</p> : null}
+            {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && <p className='text-info'>{systemObject.terraformingState}</p>}
           </div>
 
           {systemObject._planetaryBases &&
@@ -104,31 +123,40 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
               </div>
             </div>}
 
-          {systemObject.atmosphereComposition &&
-            <div className='navigation-panel__inspector-section'>
-              <h4 className='text-primary'>Atmosphere</h4>
-              {systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere' ? <p className='text-info'>{systemObject.atmosphereType}</p> : null}
-              {systemObject.surfacePressure ? <p className='text-info'>Pressure {systemObject.surfacePressure.toFixed(1)} atm</p> : null}
-              <p className='text-info'>Composition:</p>
-              <ul className='text-info'>
-                {Object.entries(systemObject.atmosphereComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_atmosphere_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
-              </ul>
-            </div>}
+        {systemObject.atmosphereComposition &&
+          <div className='navigation-panel__inspector-section'>
+            <h4 className='text-primary'>Atmosphere</h4>
+            {systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere' ? <p className='text-info'>{systemObject.atmosphereType}</p> : null}
+            {systemObject.surfacePressure ? <p className='text-info'>Pressure {systemObject.surfacePressure.toFixed(1)} atm</p> : null}
+            <p className='text-info'>Composition:</p>
+            <ul className='text-info'>
+              {Object.entries(systemObject.atmosphereComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_atmosphere_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
+            </ul>
+          </div>}
 
-          {!systemObject.atmosphereComposition &&
-            <div className='navigation-panel__inspector-section'>
-              <h4 className='text-primary'>Atmosphere</h4>
-              <p className='text-muted'>No atmosphere</p>
-            </div>}
+        {!systemObject.atmosphereComposition &&
+          <div className='navigation-panel__inspector-section'>
+            <h4 className='text-primary'>Atmosphere</h4>
+            <p className='text-muted'>No atmosphere</p>
+          </div>}
 
-          {systemObject.solidComposition &&
-            <div className='navigation-panel__inspector-section'>
-              <h4 className='text-primary'>Surface Composition</h4>
-              <ul className='text-info'>
-                {Object.entries(systemObject.solidComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_surface_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
-              </ul>
-            </div>}
-        </>}
+        {systemObject.solidComposition &&
+          <div className='navigation-panel__inspector-section'>
+            <h4 className='text-primary'>Surface Composition</h4>
+            <ul className='text-info'>
+              {Object.entries(systemObject.solidComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_surface_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
+            </ul>
+          </div>}
+      </>}
+
+      {systemObject.rings &&
+        <div className='navigation-panel__inspector-section'>
+          <h4 className='text-primary'>Rings</h4>
+          {systemObject.reserveLevel && <p className='text-info'>{systemObject.reserveLevel} Reserves</p>}
+          <ul className='text-info'>
+            {systemObject.rings.map((ring,i) => <li key={`navigation-inspector_${systemObject.id}_rings_${i}}`}>{ring.name} ({ring.type})</li>)}
+          </ul>
+        </div>}
 
       {(systemObjectSubType === 'Settlement' || systemObjectSubType === 'Planetary Port') && systemObject.body &&
         <div className='navigation-panel__inspector-section navigation-panel__inspector-section--location'>

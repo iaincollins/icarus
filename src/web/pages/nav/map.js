@@ -84,7 +84,7 @@ export default function NavMapPage () {
         ]}
       >
         <NavigationSystemMapPanel system={system} setSystemObject={setSystemObject} />
-        <NavigationInspectorPanel system={system} systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
+        <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>
     </Layout>
   )
