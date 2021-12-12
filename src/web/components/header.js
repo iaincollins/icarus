@@ -3,8 +3,38 @@ import { useRouter } from 'next/router'
 import { toggleFullScreen } from 'lib/window'
 import { eliteDateTime } from 'lib/format'
 
-const NAV_BUTTONS = ['Cmdr', 'Ship', 'Nav', 'Trade', 'Log', 'Comms']
-const ENABLED_NAV_BUTTONS = ['Nav', 'Log'] // Enabling options as they are ready
+const NAV_BUTTONS = [
+  {
+    name: 'Cmdr',
+    path: '/cmdr',
+    enabled: false
+  },
+  {
+    name: 'Ship',
+    path: '/ship',
+    enabled: false
+  },
+  {
+    name: 'Nav',
+    path: '/nav',
+    enabled: true
+  },
+  {
+    name: 'Trade',
+    path: '/trade',
+    enabled: false
+  },
+  {
+    name: 'Log',
+    path: '/log',
+    enabled: true
+  },
+  {
+    name: 'Comms',
+    path: '/comms',
+    enabled: false
+  }
+]
 
 export default function Header ({ connected, active }) {
   const router = useRouter()
@@ -24,7 +54,7 @@ export default function Header ({ connected, active }) {
     signalClassName += ' text-secondary'
   }
 
-  const currentPanelName = router.pathname.split('/')[1].toLowerCase()
+  const currentPath = `/${router.pathname.split('/')[1].toLowerCase()}`
 
   return (
     <header>
@@ -41,13 +71,13 @@ export default function Header ({ connected, active }) {
       </div>
       <hr className='bold' />
       <div className='button-group'>
-        {NAV_BUTTONS.map(buttonName =>
+        {NAV_BUTTONS.filter(button => button).map(button =>
           <button
-            key={buttonName}
-            disabled={!ENABLED_NAV_BUTTONS.includes(buttonName)}
-            className={buttonName.toLowerCase() === currentPanelName ? 'button--active' : ''}
-            onClick={() => router.push(!ENABLED_NAV_BUTTONS.includes(buttonName) ? `/${currentPanelName}` : `/${buttonName.toLowerCase()}`)}
-          >{buttonName}
+            key={button.name}
+            disabled={!button.enabled}
+            className={button.path === currentPath ? 'button--active' : ''}
+            onClick={() => router.push(!button.enabled ? currentPath : button.path)}
+          >{button.name}
           </button>
         )}
       </div>
