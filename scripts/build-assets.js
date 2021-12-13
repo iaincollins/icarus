@@ -64,6 +64,4 @@ function copy () {
     'icarus-terminal.svg',
     'icarus-terminal.json'
   ].forEach(fontAsset => fse.copySync(path.join(ASSETS_DIR, 'icon-font', fontAsset), `src/web/public/fonts/icarus-terminal/${fontAsset}`))
-
-  fse.copySync(path.join(ASSETS_DIR, 'icon-font', 'icarus-terminal.json'), 'src/web/lib/icons.json')
 }
