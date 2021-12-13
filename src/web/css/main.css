@@ -1,13 +1,13 @@
 @import "variables.css";
 
-@import "fonts.css";
+@import "utils.css";
+@import "fx.css";
 @import "layout.css";
 @import "loader.css";
 @import "button/button.css";
 @import "button/button-group.css";
 @import "text.css";
 @import "table.css";
-@import "fx.css";
 @import "secondary-navigation.css";
 
 @import "system-map.css";
@@ -15,6 +15,17 @@
 
 @import "panels/navigation-panel.css";
 
+@font-face {
+  font-family: 'Jura';
+  src: url('../public/fonts/Jura-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Override generated defaults for terminal font */
+[class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
+  font-size: inherit;
+  font-weight: 500;
+  pointer-events: none;
+}
 
 a,
 * {

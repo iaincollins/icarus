@@ -65,18 +65,18 @@ table tbody tr {
  Use <td> selector for :hover and :focus states as some older browsers don't 
  let you set a background colour for those states on <tr> elements
 */
-table:not(.table__inline) tbody tr:hover:not(.table-row--disabled):not(:focus) td {
+table:not(.table--inline) tbody tr:hover:not(.table-row--disabled):not(:focus) td {
   color: var(--primary-color);
   background: var(--dark-primary-color);
   transition: all .1s ease;
 }
 
-table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) td {
+table:not(.table--inline) tbody tr:focus:not(.table-row--disabled) td {
   color: var(--dark-primary-color) !important;
   background: var(--button-active-color) !important;
 }
 
-table:not(.table__inline) tbody tr:focus:not(.table-row--disabled) .icon {
+table:not(.table--inline) tbody tr:focus:not(.table-row--disabled) .icon {
   color: var(--dark-primary-color) !important; 
   font-weight: bold;
 }
@@ -109,19 +109,24 @@ table.table__bordered tbody tr {
   border: .2rem solid var(--dark-primary-color);
 }
 
-table.table__inline {
+table.table--inline {
   display: inline-block;
   font-size: 1.25rem;
 }
 
-table.table__inline tbody tr td {
+table.table--inline tbody tr td {
   padding: .125rem 1.5rem .125rem 0;
 }
 
-table.table__inline tbody tr {
+table.table--inline tbody tr {
   border-spacing: 0;
   border-bottom: 0;
   background-color: transparent;
+}
+
+table.table--inline tbody tr td .value {
+  margin-left: 1rem;
+  float: right;
 }
 
 table.table--animated tbody tr {
