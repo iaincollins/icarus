@@ -11,12 +11,12 @@ const UNKNOWN_VALUE = 'Unknown'
 
 const EliteJson = require('./elite-json')
 const EliteLog = require('./elite-log')
-const EDSM = require('./edsm')
-const SystemMap = require('./system-map')
+const NavigationEvents = require('./events/system')
 
 // Instances that can be used to query game state
 const eliteJson = new EliteJson(LOG_DIR)
 const eliteLog = new EliteLog(LOG_DIR)
+const navigationEvents = new NavigationEvents({ eliteLog })
 
 // TODO Define these in another file / merge with eventHandlers before porting
 // over existing event handlers from the internal build
@@ -97,8 +97,6 @@ eliteJson.loadFileCallback = loadFileCallback
 eliteLog.loadFileCallback = loadFileCallback
 eliteLog.logEventCallback = logEventCallback
 
-const systemCache = {} // Crude hack until we have persistant storage
-
 const eventHandlers = {
   hostInfo: () => {
     const urls = Object.values(os.networkInterfaces())
@@ -124,69 +122,7 @@ const eventHandlers = {
       return await eliteLog.getNewest(count)
     }
   },
-  getSystem: async ({ name = null } = {}) => {
-    let systemName = name ? name.trim().toUpperCase() : null
-    const FSDJump = await eliteLog.getEvent('FSDJump')
-
-    if (!systemName) {
-      systemName = FSDJump?.StarSystem ?? UNKNOWN_VALUE
-      if (systemName === UNKNOWN_VALUE) return null
-    }
-
-    // Use cache if we got an entry
-    if (!systemCache[systemName]) {
-      const [bodies, stations] = await Promise.all([
-        EDSM.bodies(systemName),
-        EDSM.stations(systemName)
-      ])
-
-      // Create cache entry
-      systemCache[systemName] = new SystemMap({
-        name: systemName,
-        bodies,
-        stations
-      })
-    }
-
-    // TODO Handle when there is no data more explicitly
-    let response = systemCache[systemName]
-
-    if (FSDJump?.StarSystem === systemName) {
-      response = {
-        ...response,
-        address: FSDJump?.SystemAddress ?? UNKNOWN_VALUE,
-        position: FSDJump?.StarPos ?? UNKNOWN_VALUE,
-        allegiance: FSDJump?.SystemAllegiance ?? UNKNOWN_VALUE,
-        government: FSDJump?.SystemGovernment_Localised ?? UNKNOWN_VALUE,
-        security: FSDJump?.SystemSecurity_Localised ?? UNKNOWN_VALUE,
-        economy: {
-          primary: FSDJump?.SystemEconomy_Localised ?? UNKNOWN_VALUE,
-          secondary: FSDJump?.SystemSecondEconomy_Localised ?? UNKNOWN_VALUE
-        },
-        population: FSDJump?.Population ?? UNKNOWN_VALUE,
-        faction: FSDJump?.SystemFaction?.Name ?? UNKNOWN_VALUE
-      }
-    } else {
-      // TODO if last jump was not to this system, check database (or do a
-      // lookup via an API) to get most recent info for this system
-      response = {
-        ...response,
-        address: UNKNOWN_VALUE,
-        position: UNKNOWN_VALUE,
-        allegiance: UNKNOWN_VALUE,
-        government: UNKNOWN_VALUE,
-        security: UNKNOWN_VALUE,
-        economy: {
-          primary: UNKNOWN_VALUE,
-          secondary: UNKNOWN_VALUE
-        },
-        population: UNKNOWN_VALUE,
-        faction: UNKNOWN_VALUE
-      }
-    }
-
-    return response
-  }
+  getSystem: (args) => navigationEvents.getSystem(args)
 }
 
 async function init ({ days = 30 } = {}) {
