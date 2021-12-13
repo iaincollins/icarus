@@ -63,10 +63,10 @@ export default function Header ({ connected, active }) {
       <div style={{ position: 'absolute', top: '1.5rem', right: '1rem' }}>
         <h3 className='text-primary' style={{ display: 'inline', position: 'relative', top: '-.5rem', left: '-.5rem' }}>{dateTime}</h3>
         <button disabled className='button--icon button--transparent' style={{ opacity: 1, marginRight: '.5rem' }}>
-          <i className={signalClassName} style={{ transition: 'all .25s ease' }} />
+          <i className={signalClassName} style={{ transition: 'all .25s ease', fontSize: '2rem' }} />
         </button>
         <button onClick={toggleFullScreen} className='button--icon'>
-          <i className='icarus-terminal-fullscreen' />
+          <i className='icon icarus-terminal-fullscreen' style={{ fontSize: '2rem' }} />
         </button>
       </div>
       <hr className='bold' />

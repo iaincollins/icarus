@@ -2,7 +2,7 @@ function ShipPanelNavItems (activePanel) {
   const navigationItems = [
     {
       name: 'Modules',
-      icon: 'table-index',
+      icon: 'ship',
       url: '/ship/modules'
     },
     {
@@ -12,7 +12,7 @@ function ShipPanelNavItems (activePanel) {
     },
     {
       name: 'Cargo',
-      icon: 'table-rows',
+      icon: 'table-index',
       url: '/ship/cargo'
     }
   ]

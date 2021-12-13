@@ -114,6 +114,12 @@
   height: 100%;
 }
 
+@media only screen and (min-width: 801px) {
+  .navigation-panel__map-foreground.scrollable {
+    overflow-y: scroll;
+  }
+}
+
 .navigation-panel__map-background::after {
   /* https://commons.wikimedia.org/wiki/File:Abell315_(ESO).jpg */
   background-image: url(/images/stars.jpg);
@@ -199,36 +205,23 @@
 
 .navigation-panel__system-map-search-form {
   position: absolute;
-  top: .75rem;
-  right: 1.75rem;
+  top: .5rem;
+  right: 1.5rem;
   z-index: 20;
 }
 
-.navigation-panel__system-map-search-form button {
-  background: var(--dark-secondary-color);
-  color: var(--secondary-color);
-}
-
 .navigation-panel__system-map-search-input {
-  padding: .25rem 0;
+  padding: .25rem .5rem;
   width: 0rem;
-  transition: width .25s ease-in-out;
   border-right: none;
   margin-right: -.5rem;
+  animation: navigation-panel__system-map-search-input-animation .25s ease-in-out;
+  animation-fill-mode: forwards;
 }
 
-.navigation-panel__system-map-search-input:hover,
-.navigation-panel__system-map-search-input:focus {
-  padding: .25rem .5rem;
-  width: 15rem;
-}
-
-.navigation-panel__system-map-search-input:focus button
-.navigation-panel__system-map-search-input:hover + button,
-.navigation-panel__system-map-search-input:focus + button {
-  background: var(--primary-color);
-  color: var(--dark-primary-color);
-  border-color: var(--dark-primary-color);
+@keyframes navigation-panel__system-map-search-input-animation {
+  from { width: 0rem; }
+  to { width: 15rem; }
 }
 
 @media only screen and (max-width: 800px) {
@@ -239,10 +232,6 @@
     top: 0;
     bottom: 50%;
     right: 0;
-  }
-
-  .navigation-panel__map .system-map {
-    margin-top: 3.5rem;
   }
 
   .navigation-panel__inspector {

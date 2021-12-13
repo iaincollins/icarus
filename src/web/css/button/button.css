@@ -44,13 +44,35 @@ button.button--icon,
   padding: 0;
 }
 
-button.button--icon > *,
-.button.button--icon > * {
-  font-size: 2rem;
+button.button--icon .icon,
+.button.button--icon .icon {
+  font-size: 1.5rem;
   line-height: 3rem;
 }
 
 button.button--transparent ,
 .button.button--transparent {
   background: none;
+}
+
+button.button--secondary,
+.button.button--secondary {
+  background: var(--dark-secondary-color);
+  color: var(--secondary-color);
+}
+
+button.button--active.button--secondary,
+button.button--secondary:active:not([disabled]),
+.button.button--active.button--secondary,
+.button.button--secondary:active:not(.button--disabled) {
+  background: var(--secondary-color);
+  color: var(--dark-secondary-color);
+}
+
+button.button--secondary:hover:not([disabled]):not(.button--active),
+button.button--secondary:focus:not([disabled]):not(.button--active),
+.button.button--secondary:hover:not(.button--disabled):not(.button--active),
+.button.button--secondary:focus:not(.button--disabled):not(.button--active) {
+  background: var(--secondary-color);
+  color: var(--dark-secondary-color);
 }

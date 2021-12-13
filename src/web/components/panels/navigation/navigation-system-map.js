@@ -1,46 +1,60 @@
+import { useState, useEffect } from 'react'
 import SystemMap from 'components/system-map/system-map'
 
 export default function NavigationSystemMapPanel ({ system, setSystemObject, getSystem }) {
   if (!system) return null
 
+  const [searchValue, setSearchValue] = useState('')
+  const [searchInputVisible, setSearchInputVisible] = useState(false)
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick)
+    return () => document.removeEventListener('click', handleClick)
+    function handleClick (event) {
+      if (!event?.target?.id.startsWith('navigation-panel__system-map-search-')) {
+        setSearchInputVisible(false)
+      }
+    }
+  }, [])
+
   return (
     <div className='navigation-panel__map' style={{ display: 'block' }}>
       <form
+        id='navigation-panel__system-map-search-form'
         className='navigation-panel__system-map-search-form'
-        onSubmit={(e) => {
-          /* This is nasty and hacky, but a temporary wau to add a search
-              control until the search bar component has been built */
-          e.preventDefault()
+        onSubmit={(event) => {
+          event.preventDefault()
           const el = document.getElementById('navigation-panel__system-map-search-input')
-          if (el.value === '') return
-          el.blur()
-          setTimeout(() => {
-            const el = document.getElementById('navigation-panel__system-map-search-input')
-            getSystem(el.value.toLowerCase())
-            el.value = ''
-          }, 500)
-        }}
-        onMouseOver={() => {
-          const el = document.getElementById('navigation-panel__system-map-search-input')
-          el.select()
-        }}
-        onMouseLeave={() => {
-          const el = document.getElementById('navigation-panel__system-map-search-input')
-          el.blur()
+          getSystem(el.value)
+          setSearchInputVisible(false)
         }}
         autoComplete='off'
       >
-        <input
-          id='navigation-panel__system-map-search-input'
-          className='navigation-panel__system-map-search-input'
-          type='text'
-          placeholder='Enter system name…'
-          onFocus={() => {
-            const el = document.getElementById('navigation-panel__system-map-search-input')
-            el.select()
-          }}
-        />
-        <button className='button--active'>Search</button>
+        {searchInputVisible &&
+          <>
+            <input
+              id='navigation-panel__system-map-search-input'
+              className='navigation-panel__system-map-search-input'
+              type='text'
+              placeholder='Enter system name…'
+              onFocus={() => {
+                const el = document.getElementById('navigation-panel__system-map-search-input')
+                el.select()
+              }}
+              value={searchValue}
+              autoFocus
+              onChange={(event) => setSearchValue(event.target.value)}
+            />
+            <button id='navigation-panel__system-map-search-button' type='submit' className='button--active'>Search</button>
+          </>}
+        {!searchInputVisible &&
+          <button
+            id='navigation-panel__system-map-search-toggle'
+            className='button--icon button--secondary'
+            onClick={() => { setSearchInputVisible(true) }}
+          >
+            <i className='icon icarus-terminal-search' />
+          </button>}
       </form>
       <div className='navigation-panel__map-background'>
         <div className='navigation-panel__map-foreground scrollable'>

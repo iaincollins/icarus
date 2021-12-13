@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Jura';
+  src: url('../public/fonts/Jura-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Override generated defaults */
+[class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
+  font-size: inherit;
+  font-weight: 500;
+  pointer-events: none;
+}

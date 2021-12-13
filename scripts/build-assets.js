@@ -55,6 +55,15 @@ async function build () {
 }
 
 function copy () {
-  fse.copySync(path.join(ASSETS_DIR, 'icon-font', 'icarus-terminal.ttf'), 'src/web/public/fonts/icarus-terminal.ttf')
+  [
+    'icarus-terminal.css',
+    'icarus-terminal.eot',
+    'icarus-terminal.woff',
+    'icarus-terminal.woff2',
+    'icarus-terminal.ttf',
+    'icarus-terminal.svg',
+    'icarus-terminal.json'
+  ].forEach(fontAsset => fse.copySync(path.join(ASSETS_DIR, 'icon-font', fontAsset), `src/web/public/fonts/icarus-terminal/${fontAsset}`))
+
   fse.copySync(path.join(ASSETS_DIR, 'icon-font', 'icarus-terminal.json'), 'src/web/lib/icons.json')
 }

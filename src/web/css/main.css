@@ -1,7 +1,6 @@
 @import "variables.css";
 
-@import "icarus-terminal-font.css";
-
+@import "fonts.css";
 @import "layout.css";
 @import "loader.css";
 @import "button/button.css";
@@ -16,10 +15,6 @@
 
 @import "panels/navigation-panel.css";
 
-@font-face {
-  font-family: 'Jura';
-  src: url('../public/fonts/Jura-VariableFont_wght.ttf') format('truetype');
-}
 
 a,
 * {

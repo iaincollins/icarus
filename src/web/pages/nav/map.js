@@ -24,11 +24,11 @@ export default function NavMapPage () {
   }
 
   const setSystemObjectByName = (name) => {
-    const el = document.querySelector(`[data-system-object-name="${name}"]`)
+    const el = document.querySelector(`[data-system-object-name="${name}" i]`)
     if (el) {
       el.focus()
     } else {
-      const newSystemObject = system.objectsInSystem.filter(child => child.name === name)[0]
+      const newSystemObject = system.objectsInSystem.filter(child => child.name.toLowerCase() === name.toLowerCase())[0]
       setSystemObject(newSystemObject)
     }
   }
@@ -36,19 +36,21 @@ export default function NavMapPage () {
   if (router.isReady && system && !systemObject) {
     let newSystemObject
     if (query.selected) {
-      newSystemObject = system.objectsInSystem.filter(child => child.name === query.selected)[0]
+      newSystemObject = system.objectsInSystem.filter(child => child.name.toLowerCase() === query.selected.toLowerCase())[0]
     } else {
       newSystemObject = system?.stars?.[0]?._children?.[0] ?? null
     }
 
     if (newSystemObject) {
-      const el = document.querySelector(`[data-system-object-name="${newSystemObject?.name}"]`)
-      if (el) {
-        el.focus()
-      } else {
-        // TODO If the object is a ground facility, highlight the nearest planet in the map
-        setSystemObject(newSystemObject)
-      }
+      setTimeout(() => {
+        const el = document.querySelector(`[data-system-object-name="${newSystemObject?.name}" i]`)
+        if (el) {
+          el.focus()
+        } else {
+          // TODO If the object is a ground facility, highlight the nearest planet in the map
+          setSystemObject(newSystemObject)
+        }
+      }, 500) // Delay to allow map to render
     }
   }
 
@@ -71,8 +73,8 @@ export default function NavMapPage () {
   useEffect(() => {
     if (!router.isReady) return
     const q = { ...query }
-    if (system) q.system = system.name
-    if (systemObject) q.selected = systemObject.name
+    if (system) q.system = system.name.toLowerCase()
+    if (systemObject) q.selected = systemObject.name.toLowerCase()
     router.push({ query: q }, undefined, { shallow: true })
   }, [system, systemObject, router.isReady])
 

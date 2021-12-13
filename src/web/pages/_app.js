@@ -1,4 +1,6 @@
+import '../public/fonts/icarus-terminal/icarus-terminal.css'
 import '../css/main.css'
+
 import { SocketProvider } from 'lib/socket'
 
 export default function MyApp ({ Component, pageProps }) {

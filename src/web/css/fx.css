@@ -119,11 +119,11 @@ html[data-fx-crt="true"] .layout__overlay {
   padding-left: 2rem;
   margin-left: -2rem;
   white-space: nowrap !important;
-  animation: fx-text-typing-animation .5s steps(15, end);
   display: inline-block;
-  animation-fill-mode: forwards;
   width: 0;
   text-shadow: none; /* Added to text when animation starts (avoids clipping) */
+  animation: fx-text-typing-animation .5s steps(15, end);
+  animation-fill-mode: forwards;
 }
 
 .fx-animated-text[data-fx-order="1"] { animation-delay: .1s }

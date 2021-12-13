@@ -16,11 +16,11 @@ export default function NavListPage () {
   const [systemObject, setSystemObject] = useState()
 
   const setSystemObjectByName = (name) => {
-    const el = document.querySelector(`[data-system-object-name="${name}"]`)
+    const el = document.querySelector(`[data-system-object-name="${name}" i]`)
     if (el) {
       el.focus()
     } else {
-      const newSystemObject = system.objectsInSystem.filter(child => child.name === name)[0]
+      const newSystemObject = system.objectsInSystem.filter(child => child.name.toLowerCase() === name.toLowerCase())[0]
       setSystemObject(newSystemObject)
     }
   }
@@ -28,12 +28,12 @@ export default function NavListPage () {
   if (router.isReady && system && !systemObject) {
     let newSystemObject
     if (query.selected) {
-      newSystemObject = system.objectsInSystem.filter(child => child.name === query.selected)[0]
+      newSystemObject = system.objectsInSystem.filter(child => child.name.toLowerCase() === query.selected.toLowerCase())[0]
     } else {
       newSystemObject = system?.stars?.[0]?._children?.[0] ?? null
     }
     if (newSystemObject) {
-      const el = document.querySelector(`[data-system-object-name="${newSystemObject.name}"]`)
+      const el = document.querySelector(`[data-system-object-name="${newSystemObject.name}" i]`)
       if (el) el.focus()
     }
   }
@@ -57,8 +57,8 @@ export default function NavListPage () {
   useEffect(() => {
     if (!router.isReady) return
     const q = { ...query }
-    if (system) q.system = system.name
-    if (systemObject) q.selected = systemObject.name
+    if (system) q.system = system.name.toLowerCase()
+    if (systemObject) q.selected = systemObject.name.toLowerCase()
     router.push({ query: q }, undefined, { shallow: true })
   }, [system, systemObject, router.isReady])
 

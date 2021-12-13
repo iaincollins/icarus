@@ -1,4 +1,4 @@
-import iconJson from './icons.json'
+import iconJson from '../public/fonts/icarus-terminal/icarus-terminal.json'
 import { SURFACE_PORTS, PLANETARY_BASES } from '../../service/lib/consts'
 class _Icons {
 
