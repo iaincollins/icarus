@@ -1,12 +1,10 @@
-import { useState, useEffect } from 'react'
-import { useSocket, sendEvent, eventListener } from 'lib/socket'
+import { useSocket } from 'lib/socket'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
 import { ShipPanelNavItems } from 'lib/navigation-items'
 
 export default function ShipCargoPage () {
   const { connected, active, ready } = useSocket()
-  const [ship, setShip] = useState()
 
   return (
     <Layout connected={connected} active={active} ready={ready}>

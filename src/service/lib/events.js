@@ -12,11 +12,13 @@ const UNKNOWN_VALUE = 'Unknown'
 const EliteJson = require('./elite-json')
 const EliteLog = require('./elite-log')
 const NavigationEvents = require('./events/system')
+const ShipEvents = require('./events/ship')
 
 // Instances that can be used to query game state
 const eliteJson = new EliteJson(LOG_DIR)
 const eliteLog = new EliteLog(LOG_DIR)
 const navigationEvents = new NavigationEvents({ eliteLog })
+const shipEvents = new ShipEvents({ eliteLog, eliteJson })
 
 // TODO Define these in another file / merge with eventHandlers before porting
 // over existing event handlers from the internal build
@@ -122,7 +124,8 @@ const eventHandlers = {
       return await eliteLog.getNewest(count)
     }
   },
-  getSystem: (args) => navigationEvents.getSystem(args)
+  getSystem: (args) => navigationEvents.getSystem(args),
+  getShipModules: (args) => shipEvents.getShipModules(args)
 }
 
 async function init ({ days = 30 } = {}) {
