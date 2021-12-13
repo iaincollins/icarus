@@ -6,6 +6,7 @@ import { useSocket } from 'lib/socket'
 export default function NavPage () {
   const { connected, active } = useSocket()
 
+  // Client side redirect to default map view
   if (typeof window !== 'undefined') Router.push('/nav/map')
 
   return (
