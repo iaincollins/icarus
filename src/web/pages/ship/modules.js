@@ -30,7 +30,7 @@ export default function ShipModulesPage () {
           <div className='ship-panel'>
             <h1 style={{ marginBottom: '.5rem' }} className='text-info'>{ship.name}</h1>
             <h3 style={{ marginBottom: '1rem' }} className='text-primary'>
-              {ship.type.replaceAll('_', ' ')} // IDENT: {ship.ident}
+              {ship.type.replaceAll('_', ' ')} // ID {ship.ident}
             </h3>
             <table className='table--inline'>
               <tbody>
@@ -95,7 +95,7 @@ export default function ShipModulesPage () {
               />
             </div>
             <hr />
-            <div style={{ display: 'inline-block', marginBottom: '1rem' }} className='ship-panel__modules--inline'>
+            <div style={{ marginBottom: '1rem' }} className='ship-panel__modules--inline'>
               <Modules name='Utility Mounts' modules={Object.values(ship.modules).filter(module => ['tiny'].includes(module?.size))} />
             </div>
           </div>}
