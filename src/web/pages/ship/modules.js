@@ -73,7 +73,7 @@ export default function ShipModulesPage () {
                 .filter(module => {
                   if (!module.internal) return false
                   if (CORE_SHIP_SLOTS.includes(module.slot)) return false
-                  if (module.slot == 'CodexScanner') return false // special case
+                  if (module.slot === 'CodexScanner') return false // special case
                   return true
                 })
             }
@@ -99,12 +99,12 @@ export default function ShipModulesPage () {
 }
 
 const Modules = ({ name, modules, hardpoint, optional }) => {
-  const mountText = hardpoint ? 'Mount' : 'Class rating'
+  const mountText = hardpoint ? 'Mount' : ''
 
   return (
     <>
       <h2 style={{ margin: '1rem 0' }} className='text-info text-muted'>{name}</h2>
-      <table className="table--flex-inline">
+      <table className='table--flex-inline'>
         <tbody>
           {modules.map(module => {
             const moduleMountText = optional
@@ -115,37 +115,55 @@ const Modules = ({ name, modules, hardpoint, optional }) => {
                   .replace(/([a-z])([A-Z])/g, '$1 $2')
                   .trim() || mountText
               : mountText
-            
+
             const moduleName = module.name
-              .replace(/int_/, '').replace(/_size(.*?)$/g, ' ').replace(/_/g, ' ') // New/unsupported modules (e.g. int_multidronecontrol_universal_size7_class5)
               .replace(/ Package$/, '') // Hull / Armour modules
+              .replace(/multidronecontrol_universal/, 'Universal Drone Controller') // e.g. int_multidronecontrol_universal_size7_class5
+              .replace(/int_/, '').replace(/_size(.*?)$/g, ' ').replace(/_/g, ' ') // Other unsupported modules
 
             return (
-              <tr>
-                <td>
+              <tr key={`${name}_${module.name}_${module.slot}`}>
+                <td className='ship-panel__module'>
+                  <div
+                    style={{
+                      height: '100%',
+                      width: '5.5rem',
+                      display: 'inline-block',
+                      float: 'left',
+                      margin: '0 .5rem 0 .5rem',
+                      background: 'var(--dark-primary-color)'
+                    }} className='text-center'
+                  >
+                    <div style={{ fontSize: '3.5rem' }}>
+                      {module.class && <>{module.class}{module.rating}</>}
+                      {!module.class && <></>}
+                    </div>
+                    {module.size && module.size !== 'tiny' && module.size}
+                  </div>
                   <h3 className='disabled--fx-animated-text' data-module-name={module.name} data-fx-order='3'>
-                    {module.size !== 'tiny' && module.size} {moduleName}
+                    {moduleName}
                   </h3>
-                  <p className='text-muted disabled--fx-animated-text' data-fx-order='4'>
-                    {module.class && <>{module.class}{module.rating} {module.mount} {moduleMountText}</>}
+                  <p className='text-no-wrap text-muted disabled--fx-animated-text' data-fx-order='4'>
+                    {module.mount} {moduleMountText}
                   </p>
                   {module?.power > 0 &&
-                    <p>
-                      <span className='text-muted'>Power draw</span> {parseFloat(module.power).toFixed(2)} MW
+                    <p className='text-no-wrap'>
+                      <span className='text-muted'>Power</span> {parseFloat(module.power).toFixed(2)} MW
                     </p>}
                   {module.ammoInClip &&
-                    <p>
+                    <p className='text-no-wrap'>
                       <span className='text-muted'>Ammo</span> {module.ammoInClip + module.ammoInHopper}
                     </p>}
                   {module.engineering &&
-                    <p className='ship-panel__engineering disabled--fx-animated-text' data-fx-order='4'>
-                      {[...Array(module.engineering)].map(() =>
+                    <div className='ship-panel__engineering disabled--fx-animated-text' data-fx-order='4'>
+                      {[...Array(module.engineering)].map((j, i) =>
                         <i
+                          key={`${name}_${module.name}_${module.slot}_engineering_${i}`}
                           style={{ display: 'inline-block', marginRight: '.25rem' }}
                           className='text-info icon icarus-terminal-engineering'
                         />
                       )}
-                    </p>}
+                    </div>}
                 </td>
               </tr>
             )

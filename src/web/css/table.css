@@ -129,7 +129,6 @@ table.table--flex-inline tr {
   background: none;
   width: 25%;
   box-sizing: border-box;
-  min-height: 15rem;
   margin: 0;
   padding: .25rem;
 }
@@ -149,7 +148,6 @@ table.table--flex-inline tr {
 @media only screen and (max-width: 800px) {
   table.table--flex-inline tr {
     width: 100%;
-    min-height: 12rem;
   }  
 }
 
