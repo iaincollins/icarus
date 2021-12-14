@@ -4,8 +4,10 @@
 
 .ship-panel__engineering {
   position: absolute;
-  right: .5rem;
-  bottom: 0;
+  right: .25rem;
+  bottom: -.75rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
 }
 
 .ship-panel__modules:first-of-type {
@@ -16,32 +18,37 @@
   padding-right: 0;
 }
 
-.ship-panel__modules--inline {
-  padding: 0 .4rem;
-}
-
-.ship-panel__modules--inline tbody {
+table.table--flex-inline tbody {
   display: flex;
   flex-wrap: wrap;
+  border: 0;
 }
 
-.ship-panel__modules--inline tr {
-  width: 24.5%;
-  box-sizing: border-box;
-  min-height: 10rem;
-  margin: .25%;
+.ship-panel__ship-stats {
+  width: auto;
 }
 
-@media only screen and (max-width: 800px) {
-  .ship-panel__modules--inline tr {
-    width: 100%;
-    margin: .5% 0;
-  }  
+.ship-panel__ship-stats tr,
+.ship-panel__ship-stats tr:hover {
+  background: none;
 }
 
-.ship-panel__modules--inline td {
-  display: block;
-  height: 100%;
-  box-sizing: border-box;
-  position: relative;
+.ship-panel__ship-stats td {
+  word-wrap: nowrap;
+  white-space: nowrap;
+  padding: .25rem 1rem .25rem 0;
+}
+
+.ship-panel__ship-stats .value {
+  float: right;
+  margin-left: 2rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .ship-panel__ship-stats span,
+  .ship-panel__ship-stats .value {
+    clear: both;
+    float: left;
+    margin-left: 0;
+  }
 }

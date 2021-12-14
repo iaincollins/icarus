@@ -124,9 +124,42 @@ table.table--inline tbody tr {
   background-color: transparent;
 }
 
-table.table--inline tbody tr td .value {
-  margin-left: 1rem;
-  float: right;
+
+table.table--flex-inline tr {
+  background: none;
+  width: 25%;
+  box-sizing: border-box;
+  min-height: 15rem;
+  margin: 0;
+  padding: .25rem;
+}
+
+@media only screen and (max-width: 1280px) {
+  table.table--flex-inline tr {
+    width: 50%;
+  }  
+}
+
+@media only screen and (max-width: 1280px) {
+  table.table--flex-inline tr {
+    width: 33.33%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  table.table--flex-inline tr {
+    width: 100%;
+    min-height: 12rem;
+  }  
+}
+
+table.table--flex-inline td {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  background: var(--panel-background-color);
+  border: .2rem solid var(--dark-primary-color);
 }
 
 table.table--animated tbody tr {

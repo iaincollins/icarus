@@ -32,20 +32,20 @@ export default function ShipModulesPage () {
             <h3 style={{ marginBottom: '1rem' }} className='text-primary'>
               {ship.type.replaceAll('_', ' ')} // ID {ship.ident}
             </h3>
-            <table className='table--inline'>
+            <table className='ship-panel__ship-stats'>
               <tbody>
                 <tr>
                   <td className='text-info'>
                     <span className='text-muted'>Max jump range</span>
-                    <span className='value'>{ship.maxJumpRange}LY</span>
+                    <span className='value'>{parseFloat(ship.maxJumpRange).toFixed(2)}LY</span>
                   </td>
                   <td className='text-info'>
                     <span className='text-muted'>Fuel (curr/max)</span>
-                    <span className='value'>{ship.fuelLevel}/{ship.fuelCapacity}</span>
+                    <span className='value'>{parseFloat(ship.fuelLevel).toFixed(2)}/{parseFloat(ship.fuelCapacity).toFixed(2)}</span>
                   </td>
                   <td className='text-info'>
                     <span className='text-muted'>Total power draw</span>
-                    <span className='value'>{ship.modulePowerDraw} MW</span>
+                    <span className='value'>{parseFloat(ship.modulePowerDraw).toFixed(2)} MW</span>
                   </td>
                 </tr>
                 <tr>
@@ -65,35 +65,29 @@ export default function ShipModulesPage () {
               </tbody>
             </table>
             <hr />
-            <div className='ship-panel__modules--inline'>
-              <Modules name='Hardpoints' modules={Object.values(ship.modules).filter(module => ['huge', 'large', 'medium', 'small'].includes(module?.size))} />
-            </div>
+            <Modules name='Hardpoints' hardpoint modules={Object.values(ship.modules).filter(module => ['huge', 'large', 'medium', 'small'].includes(module?.size))} />
             <hr />
-            <div className='ship-panel__modules--inline'>
-              <Modules
-                name='Optional Internals' optional modules={
+            <Modules
+              name='Optional Internals' optional modules={
+              Object.values(ship.modules)
+                .filter(module => {
+                  if (!module.internal) return false
+                  if (CORE_SHIP_SLOTS.includes(module.slot)) return false
+                  if (module.slot == 'CodexScanner') return false // special case
+                  return true
+                })
+            }
+            />
+            <hr />
+            <Modules
+              name='Core Internals' modules={
                 Object.values(ship.modules)
                   .filter(module => {
-                    if (!module.internal) return false
-                    if (CORE_SHIP_SLOTS.includes(module.slot)) return false
-                    if (module.slot == 'CodexScanner') return false // special case
+                    if (!CORE_SHIP_SLOTS.includes(module.slot) && !ship.armour.includes(module.name)) return false
                     return true
                   })
-              }
-              />
-            </div>
-            <hr />
-            <div className='ship-panel__modules--inline'>
-              <Modules
-                name='Core Internals' modules={
-                  Object.values(ship.modules)
-                    .filter(module => {
-                      if (!CORE_SHIP_SLOTS.includes(module.slot) && !ship.armour.includes(module.name)) return false
-                      return true
-                    })
-              } filter={['tiny']}
-              />
-            </div>
+            } filter={['tiny']}
+            />
             <hr />
             <div style={{ marginBottom: '1rem' }} className='ship-panel__modules--inline'>
               <Modules name='Utility Mounts' modules={Object.values(ship.modules).filter(module => ['tiny'].includes(module?.size))} />
@@ -110,7 +104,7 @@ const Modules = ({ name, modules, hardpoint, optional }) => {
   return (
     <>
       <h2 style={{ margin: '1rem 0' }} className='text-info text-muted'>{name}</h2>
-      <table className='table__bordered'>
+      <table className="table--flex-inline">
         <tbody>
           {modules.map(module => {
             const moduleMountText = optional
@@ -121,29 +115,33 @@ const Modules = ({ name, modules, hardpoint, optional }) => {
                   .replace(/([a-z])([A-Z])/g, '$1 $2')
                   .trim() || mountText
               : mountText
+            
+            const moduleName = module.name
+              .replace(/int_/, '').replace(/_size(.*?)$/g, ' ').replace(/_/g, ' ') // New/unsupported modules (e.g. int_multidronecontrol_universal_size7_class5)
+              .replace(/ Package$/, '') // Hull / Armour modules
 
             return (
               <tr>
                 <td>
-                  <h3 className='disabled--fx-animated-text' data-fx-order='3'>
-                    {module.size !== 'tiny' && module.size} {module.name.replace(/ Package$/, '')}
+                  <h3 className='disabled--fx-animated-text' data-module-name={module.name} data-fx-order='3'>
+                    {module.size !== 'tiny' && module.size} {moduleName}
                   </h3>
                   <p className='text-muted disabled--fx-animated-text' data-fx-order='4'>
-                    {module.class}{module.rating} {module.mount} {moduleMountText}
+                    {module.class && <>{module.class}{module.rating} {module.mount} {moduleMountText}</>}
                   </p>
                   {module?.power > 0 &&
                     <p>
-                      <span className='text-muted'>Power draw</span> {module.power} MW
+                      <span className='text-muted'>Power draw</span> {parseFloat(module.power).toFixed(2)} MW
                     </p>}
                   {module.ammoInClip &&
                     <p>
-                      <span className='text-muted'>Ammunition</span> {module.ammoInClip + module.ammoInHopper}
+                      <span className='text-muted'>Ammo</span> {module.ammoInClip + module.ammoInHopper}
                     </p>}
                   {module.engineering &&
                     <p className='ship-panel__engineering disabled--fx-animated-text' data-fx-order='4'>
                       {[...Array(module.engineering)].map(() =>
                         <i
-                          style={{ display: 'inline-block', fontSize: '2rem', lineHeight: '2.5rem', margin: '.25rem .25rem 0 0' }}
+                          style={{ display: 'inline-block', marginRight: '.25rem' }}
                           className='text-info icon icarus-terminal-engineering'
                         />
                       )}
