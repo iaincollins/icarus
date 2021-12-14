@@ -4,7 +4,8 @@ function ShipPanelNavItems (activePanel) {
       name: 'Modules',
       icon: 'ship',
       url: '/ship/modules'
-    },
+    }
+    /*
     {
       name: 'Engineering',
       icon: 'engineering',
@@ -15,6 +16,7 @@ function ShipPanelNavItems (activePanel) {
       icon: 'table-index',
       url: '/ship/cargo'
     }
+    */
   ]
   navigationItems.forEach(item => {
     if (item.name.toLowerCase() === activePanel.toLowerCase()) item.active = true

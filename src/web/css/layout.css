@@ -73,7 +73,8 @@
 }
 
 .layout__panel--secondary-navigation {
-  margin-left: 5rem;
+  padding-left: 5rem;
+  box-sizing: border-box;
 }
 
 

@@ -21,7 +21,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
   if (systemObject.type === 'Planet') systemObjectSubType = systemObject.subType
 
   // TODO Move to icon class
-  let iconClass = 'icon icarus-terminal-'
+  let iconClass = 'text-info icon icarus-terminal-'
   switch (systemObject.type.toLowerCase()) {
     case 'star':
       iconClass += 'star'

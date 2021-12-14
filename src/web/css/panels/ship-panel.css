@@ -1,0 +1,47 @@
+.ship-panel hr {
+  margin: 1.5rem 0;
+}
+
+.ship-panel__engineering {
+  position: absolute;
+  right: .5rem;
+  bottom: 0;
+}
+
+.ship-panel__modules:first-of-type {
+  padding-left: 0;
+}
+
+.ship-panel__modules:last-of-type {
+  padding-right: 0;
+}
+
+.ship-panel__modules--inline {
+  padding: 0 .4rem;
+}
+
+.ship-panel__modules--inline tbody {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ship-panel__modules--inline tr {
+  width: 24.5%;
+  box-sizing: border-box;
+  min-height: 10rem;
+  margin: .25%;
+}
+
+@media only screen and (max-width: 800px) {
+  .ship-panel__modules--inline tr {
+    width: 100%;
+    margin: .5% 0;
+  }  
+}
+
+.ship-panel__modules--inline td {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
