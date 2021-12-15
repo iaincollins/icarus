@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useSocket, sendEvent } from 'lib/socket'
+import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
 import { ShipPanelNavItems } from 'lib/navigation-items'
@@ -20,32 +20,57 @@ export default function ShipModulesPage () {
 
   useEffect(async () => {
     if (!connected) return
-    setShip(await sendEvent('getShipModules'))
+    setShip(await sendEvent('getShip'))
   }, [connected, ready])
+
+  useEffect(() => eventListener('gameStateChange', async () => {
+    setShip(await sendEvent('getShip'))
+  }), [])
+
+  useEffect(() => eventListener('newLogEntry', async (newLogEntry) => {
+    setShip(await sendEvent('getShip'))
+  }), [])
 
   return (
     <Layout connected={connected} active={active} ready={ready}>
       <Panel layout='full-width' navigation={ShipPanelNavItems('Modules')} scrollable>
         {ship &&
           <div className='ship-panel'>
-            <h1 style={{ marginBottom: '.5rem' }} className='text-info'>{ship.name}</h1>
-            <h3 style={{ marginBottom: '1rem' }} className='text-primary'>
-              {ship.type.replaceAll('_', ' ')} // ID {ship.ident}
-            </h3>
+            <h1 style={{ marginBottom: '.5rem' }} className='text-info'>
+              {ship.name}
+              {/* <small className='text-muted' style={{fontSize: '2rem'}}> {ship.ident}</small> */}
+            </h1>
+            <h2 style={{ marginBottom: '1rem' }} className='text-primary'>
+              {ship.type.replaceAll('_', ' ')}
+            </h2>
+            <div className='ship-panel__ship-pips'>
+              <div className='ship-panel__ship-pip'>
+                <label className={ship?.pips?.systems > 0 ? 'text-primary' : 'text-danger text-blink'}>SYS</label>
+                <progress value={ship.pips.systems} max={8} />
+              </div>
+              <div className='ship-panel__ship-pip'>
+                <label className={ship?.pips?.engines > 0 ? 'text-primary' : 'text-danger text-blink'}>ENG</label>
+                <progress value={ship.pips.engines} max={8} />
+              </div>
+              <div className='ship-panel__ship-pip'>
+                <label className={ship?.pips?.weapons > 0 ? 'text-primary' : 'text-danger text-blink'}>WEP</label>
+                <progress value={ship.pips.weapons} max={8} />
+              </div>
+            </div>
             <table className='ship-panel__ship-stats'>
               <tbody>
                 <tr>
                   <td className='text-info'>
                     <span className='text-muted'>Max jump range</span>
-                    <span className='value'>{parseFloat(ship.maxJumpRange).toFixed(2)}LY</span>
+                    <span className='value'>{parseFloat(ship.maxJumpRange).toFixed(2)} Ly</span>
                   </td>
                   <td className='text-info'>
                     <span className='text-muted'>Fuel (curr/max)</span>
-                    <span className='value'>{parseFloat(ship.fuelLevel).toFixed(2)}/{parseFloat(ship.fuelCapacity).toFixed(2)}</span>
+                    <span className='value'>{parseFloat(ship.fuelLevel).toFixed(1)}/{parseFloat(ship.fuelCapacity).toFixed(1)} T</span>
                   </td>
                   <td className='text-info'>
-                    <span className='text-muted'>Total power draw</span>
-                    <span className='value'>{parseFloat(ship.modulePowerDraw).toFixed(2)} MW</span>
+                    <span className='text-muted'>Cargo (curr/max)</span>
+                    <span className='value'>{ship.cargo.count}/{ship.cargo.capacity} T</span>
                   </td>
                 </tr>
                 <tr>
@@ -58,8 +83,8 @@ export default function ShipModulesPage () {
                     <span className='value'>{ship.moduleValue.toLocaleString()} CR</span>
                   </td>
                   <td className='text-info'>
-                    <span className='text-muted'>Cargo (curr/max)</span>
-                    <span className='value'>{ship.cargo.count}/{ship.cargo.capacity} T</span>
+                    <span className='text-muted'>Total power draw</span>
+                    <span className='value'>{parseFloat(ship.modulePowerDraw).toFixed(2)} MW</span>
                   </td>
                 </tr>
               </tbody>
@@ -118,9 +143,8 @@ const Modules = ({ name, modules, hardpoint, optional }) => {
 
             const moduleName = module.name
               .replace(/ Package$/, '') // Hull / Armour modules
-              .replace(/multidronecontrol_universal/, 'Universal Drone Controller') // e.g. int_multidronecontrol_universal_size7_class5
-              .replace(/int_/, '').replace(/_size(.*?)$/g, ' ').replace(/_/g, ' ') // Other unsupported modules
-
+              .replace(/multidronecontrol_universal/, 'Universal Limpet Controller') // e.g. int_multidronecontrol_universal_size7_class5
+              .replace(/int_/, '').replace(/_size(.*?)$/g, ' ').replace(/_/g, ' ') // Fallback for other unsupported modules
             return (
               <tr key={`${name}_${module.name}_${module.slot}`}>
                 <td className='ship-panel__module'>
@@ -128,17 +152,42 @@ const Modules = ({ name, modules, hardpoint, optional }) => {
                     style={{
                       height: '100%',
                       width: '5.5rem',
-                      display: 'inline-block',
-                      float: 'left',
-                      margin: '0 .5rem 0 .5rem',
-                      background: 'var(--dark-primary-color)'
+                      margin: '0 .5rem 0 -.5rem',
+                      float: 'left'
                     }} className='text-center'
                   >
-                    <div style={{ fontSize: '3.5rem' }}>
-                      {module.class && <>{module.class}{module.rating}</>}
-                      {!module.class && <></>}
-                    </div>
-                    {module.size && module.size !== 'tiny' && module.size}
+                    {module.size && module.size !== 'tiny' &&
+                      <div
+                        style={{
+                          width: '5.5rem',
+                          paddingBottom: '.5rem'
+                        }} className='ship-panel__module-icon'
+                      >
+                        <div style={{
+                          fontSize: '3.5rem'
+                        }}
+                        >
+                          {module.class && <>{module.class}{module.rating}</>}
+                          {!module.class && <>?</>}
+                        </div>
+                        {module.size}
+                      </div>}
+                    {(!module.size || module.size === 'tiny') &&
+                      <div
+                        style={{
+                          width: '5.5rem',
+                          paddingTop: '.75rem',
+                          paddingBottom: '1.25rem'
+                        }} className='ship-panel__module-icon'
+                      >
+                        <div style={{
+                          fontSize: '3.5rem'
+                        }}
+                        >
+                          {module.class && <>{module.class}{module.rating}</>}
+                          {!module.class && <>?</>}
+                        </div>
+                      </div>}
                   </div>
                   <h3 className='disabled--fx-animated-text' data-module-name={module.name} data-fx-order='3'>
                     {moduleName}
@@ -160,7 +209,7 @@ const Modules = ({ name, modules, hardpoint, optional }) => {
                         <i
                           key={`${name}_${module.name}_${module.slot}_engineering_${i}`}
                           style={{ display: 'inline-block', marginRight: '.25rem' }}
-                          className='text-info icon icarus-terminal-engineering'
+                          className='icon icarus-terminal-engineering'
                         />
                       )}
                     </div>}

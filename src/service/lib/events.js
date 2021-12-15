@@ -125,7 +125,7 @@ const eventHandlers = {
     }
   },
   getSystem: (args) => navigationEvents.getSystem(args),
-  getShipModules: (args) => shipEvents.getShipModules(args)
+  getShip: (args) => shipEvents.getShip(args)
 }
 
 async function init ({ days = 30 } = {}) {
@@ -140,7 +140,7 @@ async function init ({ days = 30 } = {}) {
   loadingProgressInterval = setInterval(loadingProgressEvent, 200)
 
   await eliteJson.load() // Load JSON files then watch for changes
-  eliteJson.watch() // @TODO Pass a callback to handle new messages
+  eliteJson.watch(eliteJsonCallback) // @TODO Pass a callback to handle new messages
 
   await eliteLog.load({ days }) // Load logs then watch for changes
   eliteLog.watch() // @TODO Pass a callback to handle new messages
@@ -168,6 +168,10 @@ function getLoadingStatus () {
     logSizeInBytes,
     lastActivity: eliteLog.stats().lastActivity
   }
+}
+
+function eliteJsonCallback () {
+  broadcastEvent('gameStateChange')
 }
 
 module.exports = {

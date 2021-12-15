@@ -124,40 +124,52 @@ table.table--inline tbody tr {
   background-color: transparent;
 }
 
+table.table--flex-inline tbody {
+  display: flex;
+  flex-wrap: wrap;
+  border: 0;
+}
 
-table.table--flex-inline tr {
+table.table--flex-inline tbody tr {
   background: none;
   width: 25%;
   box-sizing: border-box;
   margin: 0;
-  padding: .25rem;
+  padding: .1rem .25rem;
 }
 
 @media only screen and (max-width: 1280px) {
-  table.table--flex-inline tr {
+  table.table--flex-inline tbody tr {
     width: 50%;
   }  
 }
 
 @media only screen and (max-width: 1280px) {
-  table.table--flex-inline tr {
+  table.table--flex-inline tbody tr {
     width: 33.33%;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  table.table--flex-inline tr {
+  table.table--flex-inline tbody tr {
     width: 100%;
   }  
 }
 
-table.table--flex-inline td {
+table.table--flex-inline tbody tr td {
   display: block;
   height: 100%;
   box-sizing: border-box;
   position: relative;
   background: var(--panel-background-color);
   border: .2rem solid var(--dark-primary-color);
+}
+
+table.table--flex-inline tbody tr:hover td {
+  background: var(--primary-color) !important;
+  color: var(--dark-primary-color) !important;
+  opacity: 1;
+  text-shadow: none;
 }
 
 table.table--animated tbody tr {

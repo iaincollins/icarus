@@ -9,7 +9,7 @@ class ShipEvents {
     return this
   }
 
-  async getShipModules () {
+  async getShip () {
     const [LoadGame, Loadout, Json] = await Promise.all([
       this.eliteLog.getEvent('LoadGame'),
       this.eliteLog.getEvent('Loadout'),
@@ -86,7 +86,12 @@ class ShipEvents {
       type: Loadout?.Ship ?? UNKNOWN_VALUE,
       name: Loadout?.ShipName ?? UNKNOWN_VALUE,
       ident: Loadout?.ShipIdent ?? UNKNOWN_VALUE,
-      fuelLevel: LoadGame?.FuelLevel ?? UNKNOWN_VALUE,
+      pips: {
+        systems: Json?.Status?.Pips?.[0] ?? UNKNOWN_VALUE,
+        engines: Json?.Status?.Pips?.[1] ?? UNKNOWN_VALUE,
+        weapons: Json?.Status?.Pips?.[2] ?? UNKNOWN_VALUE
+      },
+      fuelLevel: Json?.Status?.Fuel?.FuelMain ?? UNKNOWN_VALUE,
       fuelCapacity: LoadGame?.FuelCapacity ?? UNKNOWN_VALUE,
       maxJumpRange: Loadout?.MaxJumpRange ?? UNKNOWN_VALUE,
       modulePowerDraw: totalModulePowerDraw,

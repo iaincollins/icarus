@@ -75,7 +75,7 @@ class EliteJson {
         // Send data for all files in the callback
         if (callback) callback(await this.json())
       } catch (e) {
-        console.error("watcher error", file)
+        console.error("watcher error", e)
       }
     })
   }
