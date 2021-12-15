@@ -36,53 +36,53 @@ export default function ShipModulesPage () {
       <Panel layout='full-width' navigation={ShipPanelNavItems('Modules')} scrollable>
         {ship &&
           <div className='ship-panel'>
-            <h1 style={{ marginBottom: '.5rem' }} className='text-info'>
-              {ship.name}
-              {/* <small className='text-muted' style={{fontSize: '2rem'}}> {ship.ident}</small> */}
-            </h1>
+            <h1 className='text-info'>{ship.name}</h1>
+            <h2 className='text-info text-muted'>{ship.ident}</h2>
             <h2 style={{ marginBottom: '1rem' }} className='text-primary'>
               {ship.type.replaceAll('_', ' ')}
             </h2>
-            <div className='ship-panel__ship-pips'>
-              <div className='ship-panel__ship-pip'>
-                <label className={ship?.pips?.systems > 0 ? 'text-primary' : 'text-danger text-blink'}>SYS</label>
-                <progress value={ship.pips.systems} max={8} />
-              </div>
-              <div className='ship-panel__ship-pip'>
-                <label className={ship?.pips?.engines > 0 ? 'text-primary' : 'text-danger text-blink'}>ENG</label>
-                <progress value={ship.pips.engines} max={8} />
-              </div>
-              <div className='ship-panel__ship-pip'>
-                <label className={ship?.pips?.weapons > 0 ? 'text-primary' : 'text-danger text-blink'}>WEP</label>
-                <progress value={ship.pips.weapons} max={8} />
-              </div>
-            </div>
+            {!ship.onBoard && <div className='ship-panel__ship-pips text-muted text-uppercase'>Not onboard</div>}
+            {ship.onBoard &&
+              <div className='ship-panel__ship-pips'>
+                <div className='ship-panel__ship-pip'>
+                  <label className={ship?.pips?.systems > 0 ? 'text-primary' : 'text-primary text-blink'}>SYS</label>
+                  <progress value={ship.pips.systems} max={8} />
+                </div>
+                <div className='ship-panel__ship-pip'>
+                  <label className={ship?.pips?.engines > 0 ? 'text-primary' : 'text-primary text-blink'}>ENG</label>
+                  <progress value={ship.pips.engines} max={8} />
+                </div>
+                <div className='ship-panel__ship-pip'>
+                  <label className={ship?.pips?.weapons > 0 ? 'text-primary' : 'text-primary text-blink'}>WEP</label>
+                  <progress value={ship.pips.weapons} max={8} />
+                </div>
+              </div>}
             <table className='ship-panel__ship-stats'>
-              <tbody>
+              <tbody className='text-info'>
                 <tr>
-                  <td className='text-info'>
+                  <td>
                     <span className='text-muted'>Max jump range</span>
                     <span className='value'>{parseFloat(ship.maxJumpRange).toFixed(2)} Ly</span>
                   </td>
-                  <td className='text-info'>
+                  <td>
                     <span className='text-muted'>Fuel (curr/max)</span>
-                    <span className='value'>{parseFloat(ship.fuelLevel).toFixed(1)}/{parseFloat(ship.fuelCapacity).toFixed(1)} T</span>
+                    <span className='value'>{ship.onBoard ? parseFloat(ship.fuelLevel).toFixed(1) : '-'}/{parseFloat(ship.fuelCapacity).toFixed(1)} T</span>
                   </td>
-                  <td className='text-info'>
+                  <td>
                     <span className='text-muted'>Cargo (curr/max)</span>
-                    <span className='value'>{ship.cargo.count}/{ship.cargo.capacity} T</span>
+                    <span className='value'>{ship.onBoard ? ship.cargo.count : '-'}/{ship.cargo.capacity} T</span>
                   </td>
                 </tr>
                 <tr>
-                  <td className='text-info'>
+                  <td>
                     <span className='text-muted'>Rebuy value</span>
                     <span className='value'>{ship.rebuy.toLocaleString()} CR</span>
                   </td>
-                  <td className='text-info'>
+                  <td>
                     <span className='text-muted'>Module value</span>
                     <span className='value'>{ship.moduleValue.toLocaleString()} CR</span>
                   </td>
-                  <td className='text-info'>
+                  <td>
                     <span className='text-muted'>Total power draw</span>
                     <span className='value'>{parseFloat(ship.modulePowerDraw).toFixed(2)} MW</span>
                   </td>

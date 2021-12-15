@@ -22,6 +22,11 @@ class ShipEvents {
     const modulesInfoModules = Json?.ModulesInfo?.Modules ?? []
     const modules = {}
 
+    // If Fuel does not exist, then we are on foot (and not on board)
+    // If FuelMain exists but is zero, we are in an SVR (and not on board)
+    // If FuelMain exists and greater than zero we are in a ship
+    const onBoard = !!((Json?.Status?.Fuel?.FuelMain > 0 ?? false))
+
     loadoutModules.forEach(module => {
       const slot = module.Slot
       if (!modules[slot]) modules[slot] = {}
@@ -87,9 +92,9 @@ class ShipEvents {
       name: Loadout?.ShipName ?? UNKNOWN_VALUE,
       ident: Loadout?.ShipIdent ?? UNKNOWN_VALUE,
       pips: {
-        systems: Json?.Status?.Pips?.[0] ?? UNKNOWN_VALUE,
-        engines: Json?.Status?.Pips?.[1] ?? UNKNOWN_VALUE,
-        weapons: Json?.Status?.Pips?.[2] ?? UNKNOWN_VALUE
+        systems: onBoard ? Json?.Status?.Pips?.[0] ?? UNKNOWN_VALUE : UNKNOWN_VALUE,
+        engines: onBoard ? Json?.Status?.Pips?.[1] ?? UNKNOWN_VALUE : UNKNOWN_VALUE,
+        weapons: onBoard ? Json?.Status?.Pips?.[2] ?? UNKNOWN_VALUE : UNKNOWN_VALUE
       },
       fuelLevel: Json?.Status?.Fuel?.FuelMain ?? UNKNOWN_VALUE,
       fuelCapacity: LoadGame?.FuelCapacity ?? UNKNOWN_VALUE,
@@ -100,8 +105,8 @@ class ShipEvents {
       armour,
       cargo: {
         capacity: Loadout?.CargoCapacity ?? UNKNOWN_VALUE,
-        count: Json?.Cargo?.Count ?? UNKNOWN_VALUE,
-        inventory: (Json?.Cargo?.Inventory)
+        count: onBoard ? Json?.Cargo?.Count ?? UNKNOWN_VALUE : UNKNOWN_VALUE,
+        inventory: (onBoard && Json?.Cargo?.Inventory)
           ? Json.Cargo.Inventory.map(item => ({
               type: item?.Name ?? UNKNOWN_VALUE,
               name: item?.Name_Localised ?? item?.Name ?? UNKNOWN_VALUE,
@@ -110,6 +115,7 @@ class ShipEvents {
             }))
           : UNKNOWN_VALUE
       },
+      onBoard,
       modules
     }
   }

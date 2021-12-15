@@ -24,6 +24,7 @@
 
 .ship-panel__ship-pip label {
   float: left;
+  font-size: 1.25rem;
 }
 
 .ship-panel__ship-stats {
@@ -92,7 +93,7 @@ table.table--flex-inline tbody tr:hover td.ship-panel__module .ship-panel__engin
   position: absolute;
   right: .25rem;
   bottom: 0rem;
-  font-size: 2rem;
-  line-height: 2rem;
+  font-size: 1.75rem;
+  line-height: 1.75rem;
   color: var(--info-color);
 }
