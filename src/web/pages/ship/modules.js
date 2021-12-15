@@ -36,12 +36,11 @@ export default function ShipModulesPage () {
       <Panel layout='full-width' navigation={ShipPanelNavItems('Modules')} scrollable>
         {ship &&
           <div className='ship-panel'>
-            <h1 className='text-info'>{ship.name}</h1>
-            <h2 className='text-info text-muted'>{ship.ident}</h2>
-            <h2 style={{ marginBottom: '1rem' }} className='text-primary'>
+            <h1 className='text-info' style={{ marginRight: '10rem' }}>{ship.name}</h1>
+            <h2 className='text-info text-muted'>IDENT {ship.ident}</h2>
+            <h2 style={{ marginBottom: '.5rem' }} className='text-primary'>
               {ship.type.replaceAll('_', ' ')}
             </h2>
-            {!ship.onBoard && <div className='ship-panel__ship-pips text-muted text-uppercase'>Not onboard</div>}
             {ship.onBoard &&
               <div className='ship-panel__ship-pips'>
                 <div className='ship-panel__ship-pip'>

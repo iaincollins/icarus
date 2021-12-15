@@ -8,7 +8,7 @@
 
 .ship-panel__ship-pips {
   position: absolute;
-  top: .5rem;
+  top: .25rem;
   right: .75rem;
 }
 
@@ -39,8 +39,6 @@
 }
 
 .ship-panel__ship-stats td {
-  word-wrap: nowrap;
-  white-space: nowrap;
   padding: .25rem 1rem .25rem 0;
   text-shadow: none;
 }
@@ -71,6 +69,15 @@
   background: var(--dark-primary-color);
 }
 
+/* Temporary until modules can be interacted with */
+table.table--flex-inline tbody tr td.ship-panel__module,
+table.table--flex-inline tbody tr:hover td.ship-panel__module {
+  background: var(--panel-background-color) !important;
+  color: var(--primary-color) !important;
+  text-shadow: var(--text-shadow);
+}
+
+/*
 table.table--flex-inline tbody tr:hover td.ship-panel__module .ship-panel__module-icon {
   color: var(--dark-primary-color);
   background: var(--panel-background-color);
@@ -80,6 +87,7 @@ table.table--flex-inline tbody tr:hover td.ship-panel__module .ship-panel__modul
 table.table--flex-inline tbody tr:hover td.ship-panel__module .ship-panel__engineering {
   color: var(--dark-primary-color);
 }
+*/
 
 .ship-panel__module p {
   margin-bottom: 0;
