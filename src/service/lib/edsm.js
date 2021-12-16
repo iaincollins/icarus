@@ -14,7 +14,6 @@ const baseUrl = 'https://www.edsm.net/api-system-v1/'
 class EDSM {
   static async bodies (systemName) {
     return await retry(async bail => {
-      // console.log('Fetching system bodies from EDSM...', systemName)
       const res = await axios.get(`${baseUrl}bodies?systemName=${encodeURIComponent(systemName)}`)
       return res.data.bodies
     }, {
@@ -24,7 +23,6 @@ class EDSM {
 
   static async stations (systemName) {
     return await retry(async bail => {
-      // console.log('Fetching system stations from EDSM...', systemName)
       const res = await axios.get(`${baseUrl}stations?systemName=${encodeURIComponent(systemName)}`)
       return res.data.stations
     }, {
@@ -32,16 +30,19 @@ class EDSM {
     })
   }
 
-  // static system(systemName) {
-  //   return new Promise(async (resolve) => {
-  //     await retry(async bail => {
-  //       const res = await axios.get(`${baseUrl}bodies?systemName=${encodeURIComponent(systemName)}`)
-  //       resolve({...res.data, stations: await EDSM.stations(systemName)})
-  //     }, {
-  //       retries: 10
-  //     })
-  //   })
-  // }
+  static async system (systemName) {
+    return await retry(async bail => {
+      const resBodies = await axios.get(`${baseUrl}bodies?systemName=${encodeURIComponent(systemName)}`)
+      const resStations = await axios.get(`${baseUrl}stations?systemName=${encodeURIComponent(systemName)}`)
+      return {
+        name: resBodies.data.name,
+        bodies: resBodies.data.bodies,
+        stations: resStations.data.stations
+      }
+    }, {
+      retries: 10
+    })
+  }
 }
 
 module.exports = EDSM

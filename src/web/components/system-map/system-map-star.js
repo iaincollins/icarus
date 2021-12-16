@@ -47,7 +47,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
                 y1={star._children[0]._y}
                 x2={star._children[star._children.length - 1]._x}
                 y2={star._children[star._children.length - 1]._y}
-                stroke='var(--system-map-line-color)'
+                stroke='var(--color-system-map-line)'
                 strokeWidth='125'
                 opacity='0.25'
               />}
@@ -59,7 +59,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
                     y1={systemObject._y}
                     x2={systemObject._children[systemObject._children.length - 1]._x}
                     y2={systemObject._children[systemObject._children.length - 1]._y}
-                    stroke='var(--system-map-line-color)'
+                    stroke='var(--color-system-map-line)'
                     strokeWidth='75'
                     opacity='0.25'
                   />}

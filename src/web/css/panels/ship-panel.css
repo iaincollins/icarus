@@ -23,8 +23,9 @@
 }
 
 .ship-panel__ship-pip label {
-  float: left;
+  float: right;
   font-size: 1.25rem;
+  margin-right: .5rem;
 }
 
 .ship-panel__ship-stats {
@@ -66,28 +67,21 @@
 }
 
 .ship-panel__module-icon {
-  background: var(--dark-primary-color);
+  background: var(--color-primary-dark);
 }
 
-/* Temporary until modules can be interacted with */
-table.table--flex-inline tbody tr td.ship-panel__module,
-table.table--flex-inline tbody tr:hover td.ship-panel__module {
-  background: var(--panel-background-color) !important;
-  color: var(--primary-color) !important;
-  text-shadow: var(--text-shadow);
-}
-
-/*
-table.table--flex-inline tbody tr:hover td.ship-panel__module .ship-panel__module-icon {
-  color: var(--dark-primary-color);
-  background: var(--panel-background-color);
+table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module .ship-panel__module-icon,
+table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module .ship-panel__module-icon {
+  color: var(--color-primary-dark);
+  background: var(--color-background-panel);
   text-shadow: none;
 }
 
-table.table--flex-inline tbody tr:hover td.ship-panel__module .ship-panel__engineering {
-  color: var(--dark-primary-color);
+table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module .ship-panel__engineering .icon,
+table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module .ship-panel__engineering .icon {
+  color: var(--color-primary-dark);
+  font-weight: 600;
 }
-*/
 
 .ship-panel__module p {
   margin-bottom: 0;
@@ -99,9 +93,14 @@ table.table--flex-inline tbody tr:hover td.ship-panel__module .ship-panel__engin
 
 .ship-panel__engineering {
   position: absolute;
-  right: .25rem;
-  bottom: 0rem;
-  font-size: 1.75rem;
-  line-height: 1.75rem;
-  color: var(--info-color);
+  right: .5rem;
+  bottom: 0.25rem;
+  font-size: 2rem;
+  line-height: 2rem;
+  color: var(--color-info);
+}
+
+.ship-panel__engineering .icon {
+  font-weight: 500;
+  margin-right: .1rem;
 }

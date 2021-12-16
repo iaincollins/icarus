@@ -6,11 +6,14 @@ export default function NavigationInspectorPanel ({ system, setSystemObject }) {
   return (
     <div className='navigation-panel__list'>
       {(!system.stars || system.stars.length < 2) &&
-        <div className='text-danger text-blink text-center-vertical'>
-          <h3>No information about this system</h3>
+        <div
+          className='text-info text-blink-slow text-center text-center-vertical'
+          style={{ zIndex: '30', pointerEvents: 'none' }}
+        >
+          <h2>No system information</h2>
         </div>}
       <div className='scrollable'>
-        <table className='table--animated fx-fade-in'>
+        <table className='table--animated table--interactive fx-fade-in'>
           <thead>
             <tr>
               <th>Description</th>

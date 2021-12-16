@@ -1,11 +1,11 @@
 @font-face {
   font-family: "icarus-terminal";
-  src: url('icarus-terminal.eot?t=1639430542735'); /* IE9*/
-  src: url('icarus-terminal.eot?t=1639430542735#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("icarus-terminal.woff2?t=1639430542735") format("woff2"),
-  url("icarus-terminal.woff?t=1639430542735") format("woff"),
-  url('icarus-terminal.ttf?t=1639430542735') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('icarus-terminal.svg?t=1639430542735#icarus-terminal') format('svg'); /* iOS 4.1- */
+  src: url('icarus-terminal.eot?t=1639651467331'); /* IE9*/
+  src: url('icarus-terminal.eot?t=1639651467331#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("icarus-terminal.woff2?t=1639651467331") format("woff2"),
+  url("icarus-terminal.woff?t=1639651467331") format("woff"),
+  url('icarus-terminal.ttf?t=1639651467331') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icarus-terminal.svg?t=1639651467331#icarus-terminal') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icarus-terminal-"], [class*=" icarus-terminal-"] {

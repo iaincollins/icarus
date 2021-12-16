@@ -19,6 +19,13 @@ export default function NavigationSystemMapPanel ({ system, setSystemObject, get
 
   return (
     <div className='navigation-panel__map' style={{ display: 'block' }}>
+      {(!system.stars || system.stars.length < 2) &&
+        <div
+          className='text-info text-blink-slow text-center text-center-vertical'
+          style={{ zIndex: '30', pointerEvents: 'none' }}
+        >
+          <h2>No system information</h2>
+        </div>}
       <form
         id='navigation-panel__system-map-search-form'
         className='navigation-panel__system-map-search-form'
@@ -34,7 +41,7 @@ export default function NavigationSystemMapPanel ({ system, setSystemObject, get
           <>
             <input
               id='navigation-panel__system-map-search-input'
-              className='navigation-panel__system-map-search-input'
+              className='navigation-panel__system-map-search-input input--secondary'
               type='text'
               placeholder='Enter system name…'
               onFocus={() => {
@@ -45,7 +52,7 @@ export default function NavigationSystemMapPanel ({ system, setSystemObject, get
               autoFocus
               onChange={(event) => setSearchValue(event.target.value)}
             />
-            <button id='navigation-panel__system-map-search-button' type='submit' className='button--active'>Search</button>
+            <button id='navigation-panel__system-map-search-button' type='submit' className='button--active button--secondary'>Search</button>
           </>}
         {!searchInputVisible &&
           <button

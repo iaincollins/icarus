@@ -14,9 +14,9 @@ func LoadUrl(url string) string {
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <style>
       :root {
-        --primary-color: rgb(235, 125, 0);
-				--dark-primary-color: rgb(58, 12, 0);
-				--background-color: var(--dark-primary-color);
+        --color-primary: rgb(235, 125, 0);
+				--color-primary-dark: rgb(58, 12, 0);
+				--color-background: var(--color-primary-dark);
       }
 
       html {
@@ -68,7 +68,7 @@ func LoadUrl(url string) string {
         width: 100%;
         height: 100%;
         content: " ";
-        background: radial-gradient(circle, var(--background-color) 0%, rgba(0, 0, 0, 1) 100%);
+        background: radial-gradient(circle, var(--color-background) 0%, rgba(0, 0, 0, 1) 100%);
         z-index: -1;
         opacity: 0.8;
       }
@@ -100,9 +100,9 @@ func LoadUrl(url string) string {
         margin: 0 -6px;
         border-left: 12px solid transparent;
         border-right: 12px solid transparent;
-        border-bottom: 21.6px solid var(--primary-color);
+        border-bottom: 21.6px solid var(--color-primary);
         animation: loader__arrow-blink 1s infinite;
-        filter: drop-shadow(0 0 18px var(--primary-color));
+        filter: drop-shadow(0 0 18px var(--color-primary));
       }
 
       .loader__arrow--down {

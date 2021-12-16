@@ -1,7 +1,7 @@
 button,
 .button {
-  background: var(--dark-primary-color);
-  color: var(--primary-color);
+  background: var(--color-primary-dark);
+  color: var(--color-primary);
   border: 0;
   padding: .5rem 1rem;
   line-height: 2rem;
@@ -11,10 +11,11 @@ button,
   text-align: center;
   text-shadow: var(--text-shadow);
   font-size: inherit;
+  outline: none;
 }
 
-button:disabled,
-.button.button--disabled {
+button:disabled:not(.button--active),
+.button.button--disabled:not(.button--active) {
   opacity: 0.25;
 }
 
@@ -22,16 +23,18 @@ button.button--active,
 button:active:not([disabled]),
 .button.button--active,
 .button:active:not(.button--disabled) {
-  background: var(--primary-color);
-  color: var(--dark-primary-color);
+  background: var(--color-primary);
+  color: var(--color-primary-dark);
+  text-shadow: none;
 }
 
 button:hover:not([disabled]):not(.button--active),
 button:focus:not([disabled]):not(.button--active),
 .button:hover:not(.button--disabled):not(.button--active),
 .button:focus:not(.button--disabled):not(.button--active) {
-  background: var(--primary-color);
-  color: var(--dark-primary-color);
+  background: var(--color-primary);
+  color: var(--color-primary-dark);
+  text-shadow: none;
 }
 
 button.button--icon,
@@ -57,22 +60,22 @@ button.button--transparent ,
 
 button.button--secondary,
 .button.button--secondary {
-  background: var(--dark-secondary-color);
-  color: var(--secondary-color);
+  background: var(--color-secondary-dark);
+  color: var(--color-secondary);
 }
 
 button.button--active.button--secondary,
 button.button--secondary:active:not([disabled]),
 .button.button--active.button--secondary,
 .button.button--secondary:active:not(.button--disabled) {
-  background: var(--secondary-color);
-  color: var(--dark-secondary-color);
+  background: var(--color-secondary);
+  color: var(--color-secondary-dark);
 }
 
 button.button--secondary:hover:not([disabled]):not(.button--active),
 button.button--secondary:focus:not([disabled]):not(.button--active),
 .button.button--secondary:hover:not(.button--disabled):not(.button--active),
 .button.button--secondary:focus:not(.button--disabled):not(.button--active) {
-  background: var(--secondary-color);
-  color: var(--dark-secondary-color);
+  background: var(--color-secondary);
+  color: var(--color-secondary-dark);
 }

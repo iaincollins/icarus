@@ -7,20 +7,20 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
-  --icon-color: var(--primary-color);
+  --color-icon: var(--color-primary);
   padding-right: .25rem;
 }
 
 table thead tr th {
   text-shadow: var(--text-shadow);
   text-transform: uppercase;
-  color: var(--primary-color);
-  box-shadow: 0 -10px 0 var(--dark-primary-color);
+  color: var(--color-primary);
+  box-shadow: 0 -10px 0 var(--color-primary-dark);
   padding: .6rem 1rem .8rem 1rem;
   text-align: left;
   user-select: none;
   font-weight: bold;
-  text-shadow: 0 0 5px var(--primary-color);
+  text-shadow: 0 0 5px var(--color-primary);
   opacity: 0.5;
 }
 
@@ -28,7 +28,7 @@ table thead tr {
   position: sticky !important;
   top: 0;
   z-index: 2;
-  background: var(--solid-panel-background-color);
+  background: var(--color-background-panel-opaque);
 }
 
 table thead tr th:after {
@@ -40,8 +40,8 @@ table thead tr th:after {
   top: 2.6rem;
   left: 0;
   right: 0;
-  border-bottom: .2rem solid var(--primary-color);
-  box-shadow: 0 .03rem .5rem var(--primary-color);
+  border-bottom: .2rem solid var(--color-primary);
+  box-shadow: 0 .03rem .5rem var(--color-primary);
 }
 
 table td {
@@ -57,27 +57,27 @@ table tbody tr {
   border-top: .25rem solid transparent;
   outline: 0 !important;
   animation: fade-in-animation .25s ease;
-  color: var(--primary-color);
-  background: var(--panel-background-color);
+  color: var(--color-primary);
+  background: var(--color-background-panel);
 }
 
 /* 
  Use <td> selector for :hover and :focus states as some older browsers don't 
  let you set a background colour for those states on <tr> elements
 */
-table:not(.table--inline) tbody tr:hover:not(.table-row--disabled):not(:focus) td {
-  color: var(--primary-color);
-  background: var(--dark-primary-color);
+table:not(.table--inline).table--interactive tbody tr:hover:not(.table-row--disabled):not(:focus) td {
+  color: var(--color-primary);
+  background: var(--color-primary-dark);
   transition: all .1s ease;
 }
 
-table:not(.table--inline) tbody tr:focus:not(.table-row--disabled) td {
-  color: var(--dark-primary-color) !important;
-  background: var(--button-active-color) !important;
+table:not(.table--inline).table--interactive tbody tr:focus:not(.table-row--disabled) td {
+  color: var(--color-primary-dark) !important;
+  background: var(--color-primary) !important;
 }
 
-table:not(.table--inline) tbody tr:focus:not(.table-row--disabled) .icon {
-  color: var(--dark-primary-color) !important; 
+table:not(.table--inline).table--interactive tbody tr:focus:not(.table-row--disabled) .icon {
+  color: var(--color-primary-dark) !important; 
   font-weight: bold;
 }
 
@@ -101,12 +101,12 @@ table.table__bordered tbody tr {
 }
 
 table.table__bordered tbody tr:not(.table-row--disabled) {
-  background-color: transparent !important;
+  background: transparent !important;
 }
 
 table.table__bordered tbody tr {
-  background-color: var(--panel-background-color);
-  border: .2rem solid var(--dark-primary-color);
+  background: var(--color-background-panel);
+  border: .2rem solid var(--color-primary-dark);
 }
 
 table.table--inline {
@@ -121,7 +121,7 @@ table.table--inline tbody tr td {
 table.table--inline tbody tr {
   border-spacing: 0;
   border-bottom: 0;
-  background-color: transparent;
+  background: transparent;
 }
 
 table.table--flex-inline tbody {
@@ -140,20 +140,20 @@ table.table--flex-inline tbody tr {
 
 @media only screen and (max-width: 1280px) {
   table.table--flex-inline tbody tr {
-    width: 50%;
-  }  
-}
-
-@media only screen and (max-width: 1280px) {
-  table.table--flex-inline tbody tr {
     width: 33.33%;
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
+  table.table--flex-inline tbody tr {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
   table.table--flex-inline tbody tr {
     width: 100%;
-  }  
+  }
 }
 
 table.table--flex-inline tbody tr td {
@@ -161,13 +161,14 @@ table.table--flex-inline tbody tr td {
   height: 100%;
   box-sizing: border-box;
   position: relative;
-  background: var(--panel-background-color);
-  border: .2rem solid var(--dark-primary-color);
+  background: var(--color-background-panel);
+  border: .2rem solid var(--color-primary-dark);
 }
 
-table.table--flex-inline tbody tr:hover td {
-  background: var(--primary-color) !important;
-  color: var(--dark-primary-color) !important;
+table.table--flex-inline.table--interactive tbody tr:hover td,
+table.table--flex-inline.table--interactive tbody tr:focus td {
+  background: var(--color-primary) !important;
+  color: var(--color-primary-dark) !important;
   opacity: 1;
   text-shadow: none;
 }

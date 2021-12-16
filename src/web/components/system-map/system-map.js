@@ -5,10 +5,6 @@ export default function SystemMap ({ system, setSystemObject }) {
 
   return (
     <>
-      {(!system.stars || system.stars.length < 2) &&
-        <div className='text-danger text-blink text-center-vertical'>
-          <h3>No information about this system</h3>
-        </div>}
       <div className='system-map text-info'>
         <h1>
           <span className='fx-animated-text' data-fx-order='1'>
@@ -19,7 +15,6 @@ export default function SystemMap ({ system, setSystemObject }) {
         <h2 className='text-primary'>
           <span className='fx-animated-text' data-fx-order='1'>
             {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
-            {(!system.allegiance || system.allegiance === 'Unknown') && <span className='text-muted'>System status unknown</span>}
             {system.government && system.government !== 'None' && system.government !== 'Unknown' && ` // ${system.government}`}
             {(system.security !== system.government) ? ` // ${system.security}` : ''}
           </span>

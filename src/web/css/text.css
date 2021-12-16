@@ -4,52 +4,58 @@
 }
 
 .text-primary {
-  color: var(--primary-text-color);
+  color: var(--color-primary);
   text-shadow: var(--text-shadow);
 }
 
 .text-primary-dark {
-  color: var(--dark-primary-color);
+  color: var(--color-primary-dark);
   text-shadow: var(--text-shadow);
 }
 
 .text-secondary {
-  color: var(--secondary-text-color);
+  color: var(--color-secondary);
   text-shadow: var(--text-shadow);
 }
 
 .text-secondary-dark {
-  color: var(--dark-secondary-color);
+  color: var(--color-secondary-dark);
   text-shadow: var(--text-shadow);
 }
 
 .text-danger {
-  color: var(--danger-color);
+  color: var(--color-danger);
   text-shadow: var(--text-shadow);
 }
 
 .text-success {
-  color: var(--success-color);
+  color: var(--color-success);
   text-shadow: var(--text-shadow);
 }
 
 .text-info {
-  color: var(--info-color);
+  color: var(--color-info);
   text-shadow: var(--text-shadow);
+}
+
+.text-link {
+  text-shadow: none;
 }
 
 .text-link .text-link-text {
   padding-bottom: .15rem;
-  border-bottom: .15rem dotted var(--info-color);
+  border-bottom: .15rem dotted var(--color-info);
+  text-shadow: none;
 }
 
-.text-link:hover {
-  color: var(--secondary-text-color);
-  text-shadow: var(--text-shadow);
+.text-link:hover,
+.text-link:focus {
+  color: var(--color-secondary);
 }
 
-.text-link:hover .text-link-text {
-  border-bottom: .15rem dotted var(--secondary-text-color);
+.text-link:hover .text-link-text,
+.text-link:focus .text-link-text {
+  border-bottom: .15rem dotted var(--color-secondary);
 }
 
 .text-right {
@@ -70,8 +76,20 @@
   overflow-x: clip !important; /* avoids clipping text shadow on y axis */
 }
 
+.text-blink-slow {
+  animation: text-blink-animation .75s ease-in-out infinite;
+}
+
 .text-blink {
   animation: text-blink-animation .5s ease-in-out infinite;
+}
+
+.text-blink-fast {
+  animation: text-blink-animation .25s ease-in-out infinite;
+}
+
+@keyframes text-blink-animation {
+  50% { opacity: 10%; }
 }
 
 .text-uppercase {
@@ -82,12 +100,8 @@
   text-transform: none;
 }
 
-@keyframes text-blink-animation {
-  50% { opacity: 0; }
-}
-
 .text-formatted-object {
-  color: var(--primary-text-color);
+  color: var(--color-primary);
   font-weight: bold;
 }
 
@@ -101,7 +115,7 @@
 }
 
 .text-formatted-object .text-formatted-object-value {
-  color: var(--info-color) !important;
+  color: var(--color-info) !important;
 }
 
 .text-no-shadow {

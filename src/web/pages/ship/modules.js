@@ -36,24 +36,24 @@ export default function ShipModulesPage () {
       <Panel layout='full-width' navigation={ShipPanelNavItems('Modules')} scrollable>
         {ship &&
           <div className='ship-panel'>
-            <h1 className='text-info' style={{ marginRight: '10rem' }}>{ship.name}</h1>
+            <h1 className='text-info' style={{ marginRight: '13rem' }}>{ship.name}</h1>
             <h2 className='text-info text-muted'>IDENT {ship.ident}</h2>
             <h2 style={{ marginBottom: '.5rem' }} className='text-primary'>
               {ship.type.replaceAll('_', ' ')}
             </h2>
             {ship.onBoard &&
-              <div className='ship-panel__ship-pips'>
+              <div className='ship-panel__ship-pips text-uppercase'>
                 <div className='ship-panel__ship-pip'>
-                  <label className={ship?.pips?.systems > 0 ? 'text-primary' : 'text-primary text-blink'}>SYS</label>
                   <progress value={ship.pips.systems} max={8} />
+                  <label className={ship?.pips?.systems > 0 ? 'text-primary' : 'text-primary text-blink'}>Systems</label>
                 </div>
                 <div className='ship-panel__ship-pip'>
-                  <label className={ship?.pips?.engines > 0 ? 'text-primary' : 'text-primary text-blink'}>ENG</label>
                   <progress value={ship.pips.engines} max={8} />
+                  <label className={ship?.pips?.engines > 0 ? 'text-primary' : 'text-primary text-blink'}>Engines</label>
                 </div>
                 <div className='ship-panel__ship-pip'>
-                  <label className={ship?.pips?.weapons > 0 ? 'text-primary' : 'text-primary text-blink'}>WEP</label>
                   <progress value={ship.pips.weapons} max={8} />
+                  <label className={ship?.pips?.weapons > 0 ? 'text-primary' : 'text-primary text-blink'}>Weapons</label>
                 </div>
               </div>}
             <table className='ship-panel__ship-stats'>
@@ -128,14 +128,14 @@ const Modules = ({ name, modules, hardpoint, optional }) => {
   return (
     <>
       <h2 style={{ margin: '1rem 0' }} className='text-info text-muted'>{name}</h2>
-      <table className='table--flex-inline'>
+      <table className='table--flex-inline table--interactive'>
         <tbody>
           {modules.map(module => {
             const moduleMountText = optional
               ? module.slot.replace('_', '')
                   .replace(/([0-9]+)/g, ' $1 ')
                   .replace(/^Slot ([0-9]+) Size ([0-9]+)/g, '') // "(Max size: $2)")
-                  .replace(/Military 0([0-9])/, '(Military slot $1)')
+                  .replace(/Military 0([0-9])/, 'Military slot $1')
                   .replace(/([a-z])([A-Z])/g, '$1 $2')
                   .trim() || mountText
               : mountText
@@ -145,7 +145,10 @@ const Modules = ({ name, modules, hardpoint, optional }) => {
               .replace(/multidronecontrol_universal/, 'Universal Limpet Controller') // e.g. int_multidronecontrol_universal_size7_class5
               .replace(/int_/, '').replace(/_size(.*?)$/g, ' ').replace(/_/g, ' ') // Fallback for other unsupported modules
             return (
-              <tr key={`${name}_${module.name}_${module.slot}`}>
+              <tr
+                key={`${name}_${module.name}_${module.slot}`}
+                tabIndex='3'
+              >
                 <td className='ship-panel__module'>
                   <div
                     style={{
@@ -194,20 +197,21 @@ const Modules = ({ name, modules, hardpoint, optional }) => {
                   <p className='text-no-wrap text-muted disabled--fx-animated-text' data-fx-order='4'>
                     {module.mount} {moduleMountText}
                   </p>
+                  {/*
                   {module?.power > 0 &&
                     <p className='text-no-wrap'>
                       <span className='text-muted'>Power</span> {parseFloat(module.power).toFixed(2)} MW
                     </p>}
+                  */}
                   {module.ammoInClip &&
                     <p className='text-no-wrap'>
-                      <span className='text-muted'>Ammo</span> {module.ammoInClip + module.ammoInHopper}
+                      <span className='text-muted'>Ammunition</span> {module.ammoInClip + module.ammoInHopper}
                     </p>}
                   {module.engineering &&
                     <div className='ship-panel__engineering disabled--fx-animated-text' data-fx-order='4'>
                       {[...Array(module.engineering)].map((j, i) =>
                         <i
                           key={`${name}_${module.name}_${module.slot}_engineering_${i}`}
-                          style={{ display: 'inline-block', marginRight: '.25rem' }}
                           className='icon icarus-terminal-engineering'
                         />
                       )}

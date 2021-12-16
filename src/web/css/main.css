@@ -6,6 +6,7 @@
 @import "loader.css";
 @import "button/button.css";
 @import "button/button-group.css";
+@import "input.css";
 @import "text.css";
 @import "table.css";
 @import "secondary-navigation.css";
@@ -34,9 +35,9 @@ a,
 }
 
 ::selection { 
-  background: var(--dark-secondary-color);
-  color: var(--secondary-color);
-  text-shadow: 0 0 5px var(--secondary-color);
+  background: var(--color-secondary-dark);
+  color: var(--color-secondary);
+  text-shadow: 0 0 5px var(--color-secondary);
 }
 
 html {
@@ -64,13 +65,13 @@ html::-webkit-scrollbar,
 }
 
 .scrollable::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
+  background: var(--color-primary);
   min-height: 4rem;
-  box-shadow: 0 0 10px var(--dark-primary-color);
+  box-shadow: 0 0 10px var(--color-primary-dark);
 }
 
 .scrollable::-webkit-scrollbar-track {
-  background-image: linear-gradient(90deg, transparent 41.67%, var(--primary-color) 41.67%, var(--primary-color) 50%, transparent 50%, transparent 91.67%, var(--primary-color) 91.67%, var(--primary-color) 100%);
+  background-image: linear-gradient(90deg, transparent 41.67%, var(--color-primary) 41.67%, var(--color-primary) 50%, transparent 50%, transparent 91.67%, var(--color-primary) 91.67%, var(--color-primary) 100%);
   background-size: 48.00px 48.00px;
   background-position-x: 10px;
 }
@@ -113,7 +114,7 @@ html, body {
 }
 
 body {
-  color: white;
+  color: var(--color-info);
   font-family: "Jura", sans-serif;
   font-size: var(--base-font-size);
   padding: 0;
@@ -121,7 +122,6 @@ body {
   zoom: 0.9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 @media only screen and (max-width: 800px) {
@@ -173,8 +173,8 @@ a:hover:not(.active):not([disabled]),
 a:active:not(.active):not([disabled]),
 a:focus:not(.active):not([disabled]) {
   outline: none;
-  outline-color: var(--secondary-color);
-  --icon-color: var(--secondary-color);
+  outline-color: var(--color-secondary);
+  --color-icon: var(--color-secondary);
 }
 
 ul {
@@ -198,11 +198,11 @@ progress[value] {
 }
 
 progress[value]::-webkit-progress-bar {
-  background: var(--dark-primary-color);
+  background: var(--color-primary-dark);
 }
 
 progress[value]::-webkit-progress-value {
-  background: var(--primary-color);
+  background: var(--color-primary);
   transition: width .25s ease;
 }
 
@@ -218,41 +218,12 @@ label {
   margin-right: 1rem;
 }
 
-input {
-  border: .25rem solid var(--dark-primary-color);
-  background: var(--dark-primary-color);
-  color: var(--icon-color);
-  font-size: 1.25rem;
-  line-height: 2rem;
-  outline: 0;
-  padding: .25rem .5rem;
-  text-transform: uppercase;
-  font-family: "Jura", sans-serif;
-  font-weight: 900;
-}
-
-/* You cannot combine these styles! */
-/* 
-::-webkit-input-placeholder { color: var(--primary-color) }
-::-moz-placeholder { color: var(--primary-color)  }
-::-ms-placeholder { color: var(--primary-color) }
-*/
-::placeholder {
-  color: var(--primary-color);
-  opacity: 0.5;
-}
-
-input:focus,
-input:hover {
-  border-color: var(--primary-color);
-}
-
 hr {
   border: none;
   height: .15rem;
-  background: var(--primary-color);
+  background: var(--color-primary);
   margin: .5rem 0;
-  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0 .7rem -.03rem var(--primary-color) !important;
+  box-shadow: 0 .03rem .5rem var(--color-primary), 0 0 .7rem -.03rem var(--color-primary) !important;
   opacity: 0.8;
 }
 
@@ -265,6 +236,6 @@ hr.large {
 }
 
 hr.bold {
-  box-shadow: 0 .03rem .5rem var(--primary-color), 0 0rem .7rem -.03rem var(--primary-color), 0 0rem 1rem -.01rem var(--dark-primary-color) !important;
+  box-shadow: 0 .03rem .5rem var(--color-primary), 0 0rem .7rem -.03rem var(--color-primary), 0 0rem 1rem -.01rem var(--color-primary-dark) !important;
   opacity: 1;
 }

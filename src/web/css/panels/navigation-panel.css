@@ -17,7 +17,7 @@
 }
 
 .navigation-panel__inspector {
-  background-color: var(--panel-background-color);
+  background: var(--color-background-panel);
   position: absolute;
   right: 0;
   top: 0;

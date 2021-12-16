@@ -39,7 +39,7 @@ html[data-fx-crt="true"] body::before {
 }
 
 html[data-fx-crt="true"] .layout__overlay {
-  box-shadow: 0 0 2rem 1rem rgba(0,0,0,1.5) inset, 0 2rem 2rem -2rem var(--primary-color) inset;
+  box-shadow: 0 0 2rem 1rem rgba(0,0,0,1.5) inset, 0 2rem 2rem -2rem var(--color-primary) inset;
   display: block;
   position: fixed;
   top: 0;
@@ -50,67 +50,67 @@ html[data-fx-crt="true"] .layout__overlay {
 
 @keyframes text-refraction-animation {
   0% {
-    text-shadow: 0 0 15px var(--primary-text-color), 0.4389924193300864px 0 1px var(--text-shift-right-color), -0.4389924193300864px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary), 0.4389924193300864px 0 1px var(--text-shift-right-color), -0.4389924193300864px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   5% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.7928974010788217px 0 1px var(--text-shift-right-color), -2.7928974010788217px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.7928974010788217px 0 1px var(--text-shift-right-color), -2.7928974010788217px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   10% {
-    text-shadow: 0 0 15px var(--primary-text-color),0.02956275843481219px 0 1px var(--text-shift-right-color), -0.02956275843481219px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),0.02956275843481219px 0 1px var(--text-shift-right-color), -0.02956275843481219px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   15% {
-    text-shadow: 0 0 15px var(--primary-text-color),0.40218538552878136px 0 1px var(--text-shift-right-color), -0.40218538552878136px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),0.40218538552878136px 0 1px var(--text-shift-right-color), -0.40218538552878136px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   20% {
-    text-shadow: 0 0 15px var(--primary-text-color),3.4794037899852017px 0 1px var(--text-shift-right-color), -2.4794037899852017px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),3.4794037899852017px 0 1px var(--text-shift-right-color), -2.4794037899852017px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   25% {
-    text-shadow: 0 0 15px var(--primary-text-color),1.6125630401149584px 0 1px var(--text-shift-right-color), -1.6125630401149584px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),1.6125630401149584px 0 1px var(--text-shift-right-color), -1.6125630401149584px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   30% {
-    text-shadow: 0 0 15px var(--primary-text-color),0.7015590085143956px 0 1px var(--text-shift-right-color), -0.7015590085143956px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),0.7015590085143956px 0 1px var(--text-shift-right-color), -0.7015590085143956px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   35% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.896914047650351px 0 1px var(--text-shift-right-color), -2.896914047650351px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.896914047650351px 0 1px var(--text-shift-right-color), -2.896914047650351px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   40% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.870905614848819px 0 1px var(--text-shift-right-color), -2.870905614848819px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.870905614848819px 0 1px var(--text-shift-right-color), -2.870905614848819px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   45% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.231056963361899px 0 1px var(--text-shift-right-color), -2.231056963361899px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.231056963361899px 0 1px var(--text-shift-right-color), -2.231056963361899px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   50% {
-    text-shadow: 0 0 15px var(--primary-text-color),0.08084290417898504px 0 1px var(--text-shift-right-color), -0.08084290417898504px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),0.08084290417898504px 0 1px var(--text-shift-right-color), -0.08084290417898504px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   55% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.3758461067427543px 0 1px var(--text-shift-right-color), -2.3758461067427543px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.3758461067427543px 0 1px var(--text-shift-right-color), -2.3758461067427543px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   60% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.202193051050636px 0 1px var(--text-shift-right-color), -2.202193051050636px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.202193051050636px 0 1px var(--text-shift-right-color), -2.202193051050636px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   65% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.8638780614874975px 0 1px var(--text-shift-right-color), -2.8638780614874975px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.8638780614874975px 0 1px var(--text-shift-right-color), -2.8638780614874975px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   70% {
-    text-shadow: 0 0 15px var(--primary-text-color),0.48874025155497314px 0 1px var(--text-shift-right-color), -0.48874025155497314px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),0.48874025155497314px 0 1px var(--text-shift-right-color), -0.48874025155497314px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   75% {
-    text-shadow: 0 0 15px var(--primary-text-color),1.8948491305757957px 0 1px var(--text-shift-right-color), -1.8948491305757957px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),1.8948491305757957px 0 1px var(--text-shift-right-color), -1.8948491305757957px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   80% {
-    text-shadow: 0 0 15px var(--primary-text-color),0.0833037308038857px 0 1px var(--text-shift-right-color), -0.0833037308038857px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),0.0833037308038857px 0 1px var(--text-shift-right-color), -0.0833037308038857px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   85% {
-    text-shadow: 0 0 15px var(--primary-text-color),0.09769827255241735px 0 1px var(--text-shift-right-color), -0.09769827255241735px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),0.09769827255241735px 0 1px var(--text-shift-right-color), -0.09769827255241735px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   90% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.443339761481782px 0 1px var(--text-shift-right-color), -2.443339761481782px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.443339761481782px 0 1px var(--text-shift-right-color), -2.443339761481782px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   95% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.1841838852799786px 0 1px var(--text-shift-right-color), -2.1841838852799786px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.1841838852799786px 0 1px var(--text-shift-right-color), -2.1841838852799786px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
   100% {
-    text-shadow: 0 0 15px var(--primary-text-color),2.6208764473832513px 0 1px var(--text-shift-right-color), -2.6208764473832513px 0 1px var(--text-shift-left-color), 0 0 3px;
+    text-shadow: 0 0 15px var(--color-primary),2.6208764473832513px 0 1px var(--text-shift-right-color), -2.6208764473832513px 0 1px var(--text-shift-left-color), 0 0 3px;
   }
 }
 
@@ -153,8 +153,8 @@ html[data-fx-crt="true"] .layout__overlay {
 @keyframes fx-flash-in-animation {
   0% {
     opacity: 1;
-    background: var(--primary-color);
-    color: var(--dark-primary-color);
+    background: var(--color-primary);
+    color: var(--color-primary-dark);
   }
   100% { opacity: 1; }
 }

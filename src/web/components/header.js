@@ -65,7 +65,7 @@ export default function Header ({ connected, active }) {
         <button disabled className='button--icon button--transparent' style={{ opacity: 1, marginRight: '.5rem' }}>
           <i className={signalClassName} style={{ transition: 'all .25s ease', fontSize: '2rem' }} />
         </button>
-        <button onClick={toggleFullScreen} className='button--icon'>
+        <button tabIndex='1' onClick={toggleFullScreen} className='button--icon'>
           <i className='icon icarus-terminal-fullscreen' style={{ fontSize: '2rem' }} />
         </button>
       </div>
@@ -74,7 +74,8 @@ export default function Header ({ connected, active }) {
         {NAV_BUTTONS.filter(button => button).map(button =>
           <button
             key={button.name}
-            disabled={!button.enabled}
+            tabIndex='1'
+            disabled={!button.enabled || button.path === currentPath}
             className={button.path === currentPath ? 'button--active' : ''}
             onClick={() => router.push(!button.enabled ? currentPath : button.path)}
           >{button.name}

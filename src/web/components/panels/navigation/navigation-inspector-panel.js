@@ -5,8 +5,8 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
   if (!systemObject) {
     return (
       <div className='navigation-panel__inspector fx-fade-in scrollable'>
-        <div className='text-primary text-muted text-center-vertical'>
-          Nothing selected
+        <div className='text-primary text-muted text-uppercase text-center-vertical'>
+          Select item to view details
         </div>
       </div>
     )

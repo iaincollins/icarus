@@ -10,7 +10,7 @@
   width: 100%;
   height: 100%;
   content: ' ';
-  background: radial-gradient(circle, var(--background-color) 0%, rgba(0,0,0,1) 100%);
+  background: radial-gradient(circle, var(--color-background) 0%, rgba(0,0,0,1) 100%);
   z-index: -1;
   opacity: 0.8;
 }

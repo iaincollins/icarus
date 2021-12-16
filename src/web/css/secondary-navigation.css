@@ -23,12 +23,8 @@
 }
 
 .secondary-navigation button.button--active,
-.secondary-navigation button:focus:not([disabled]),
-.secondary-navigation button:active:not([disabled]),
-.secondary-navigation .button.button--active,
-.secondary-navigation .button:focus:not(.button--disabled):not([disabled]),
-.secondary-navigation .button:active:not(.button--disabled):not([disabled]) {
-  background: var(--dark-primary-color);
-  color: var(--primary-color);
-  border-right: .5rem solid var(--primary-color);
+.secondary-navigation .button.button--active {
+  background: var(--color-primary-dark);
+  color: var(--color-primary);
+  border-right: .5rem solid var(--color-primary);
 }

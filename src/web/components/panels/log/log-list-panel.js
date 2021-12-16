@@ -5,7 +5,7 @@ export default function LogPanel ({ logEntries, setSelectedLogEntry }) {
 
   return (
     <div style={{ paddingRight: '0.5rem' }}>
-      <table className='table--animated fx-fade-in'>
+      <table className='table--animated table--interactive fx-fade-in'>
         <thead>
           <tr>
             <th>Event</th>

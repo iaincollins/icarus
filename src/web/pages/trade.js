@@ -1,9 +1,12 @@
+import { useState } from 'React'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
 import { useSocket } from 'lib/socket'
 
 export default function TradePage () {
   const { connected, active } = useSocket()
+  const [system, setSystem] = useState()
+  const [location, setMarketLocation] = useState()
 
   return (
     <Layout connected={connected} active={active}>

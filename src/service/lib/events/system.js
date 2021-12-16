@@ -1,3 +1,4 @@
+const { endsWith } = require('lodash')
 const EDSM = require('../edsm')
 const SystemMap = require('../system-map')
 
@@ -14,31 +15,25 @@ class NavigationEvents {
   async getSystem ({ name = null } = {}) {
     let systemName = name ? name.trim().toLowerCase() : null
     const FSDJump = await this.eliteLog.getEvent('FSDJump')
-
+    
     if (!systemName) {
-      systemName = FSDJump?.StarSystem ?? UNKNOWN_VALUE
+      systemName = FSDJump?.StarSystem.toLowerCase() ?? UNKNOWN_VALUE
       if (systemName === UNKNOWN_VALUE) return null
     }
 
-    // Use cache if we got an entry
-    if (!systemCache[systemName]) {
-      const [bodies, stations] = await Promise.all([
-        EDSM.bodies(systemName),
-        EDSM.stations(systemName)
-      ])
-
-      // Create cache entry
-      systemCache[systemName] = new SystemMap({
-        name: systemName,
-        bodies,
-        stations
-      })
+    if (!systemCache[systemName]) { // Check for entry in cache
+      const system = await EDSM.system(systemName)
+      systemCache[systemName] = new SystemMap(system) // Create cache entry
     }
 
-    // TODO Handle when there is no data more explicitly
-    let response = systemCache[systemName]
+    let response = systemCache[systemName] // Use cache
 
-    if (FSDJump?.StarSystem === systemName) {
+    if (!response.name) {
+      response.name = name.trim()
+      response.unknownSystem = true
+    }
+
+    if (FSDJump?.StarSystem.toLowerCase() === systemName) {
       response = {
         ...response,
         address: FSDJump?.SystemAddress ?? UNKNOWN_VALUE,
@@ -51,7 +46,8 @@ class NavigationEvents {
           secondary: FSDJump?.SystemSecondEconomy_Localised ?? UNKNOWN_VALUE
         },
         population: FSDJump?.Population ?? UNKNOWN_VALUE,
-        faction: FSDJump?.SystemFaction?.Name ?? UNKNOWN_VALUE
+        faction: FSDJump?.SystemFaction?.Name ?? UNKNOWN_VALUE,
+        isCurrentLocation: true
       }
     } else {
       // TODO if last jump was not to this system, check database (or do a
@@ -68,7 +64,8 @@ class NavigationEvents {
           secondary: UNKNOWN_VALUE
         },
         population: UNKNOWN_VALUE,
-        faction: UNKNOWN_VALUE
+        faction: UNKNOWN_VALUE,
+        isCurrentLocation: false
       }
     }
 

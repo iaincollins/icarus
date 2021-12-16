@@ -53,7 +53,7 @@ export default function IndexPage () {
             right: '1rem',
             bottom: '5rem',
             width: '19rem',
-            background: 'var(--panel-background-color)',
+            background: 'var(--color-background-panel)',
             fontSize: '1.15rem',
             padding: '0 .5rem'
           }}
