@@ -1,4 +1,4 @@
-import { useState } from 'React'
+import { useState } from 'react'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
 import { useSocket } from 'lib/socket'

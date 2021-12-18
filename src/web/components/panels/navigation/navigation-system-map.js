@@ -8,9 +8,9 @@ export default function NavigationSystemMapPanel ({ system, setSystemObject, get
   const [searchInputVisible, setSearchInputVisible] = useState(false)
 
   useEffect(() => {
-    document.addEventListener('click', handleClick)
-    return () => document.removeEventListener('click', handleClick)
-    function handleClick (event) {
+    document.addEventListener('click', onClickHandler)
+    return () => document.removeEventListener('click', onClickHandler)
+    function onClickHandler (event) {
       if (!event?.target?.id.startsWith('navigation-panel__system-map-search-')) {
         setSearchInputVisible(false)
       }
@@ -32,8 +32,9 @@ export default function NavigationSystemMapPanel ({ system, setSystemObject, get
         onSubmit={(event) => {
           event.preventDefault()
           const el = document.getElementById('navigation-panel__system-map-search-input')
-          getSystem(el.value)
-          setSearchInputVisible(false)
+          getSystem(el.value) // Get system
+          setSearchInputVisible(false) // Hide control after submission
+          setSearchValue() // Reset input contents after submission
         }}
         autoComplete='off'
       >

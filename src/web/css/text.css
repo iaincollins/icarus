@@ -39,13 +39,12 @@
 }
 
 .text-link {
-  text-shadow: none;
+  color: var(--color-secondary);
 }
 
 .text-link .text-link-text {
   padding-bottom: .15rem;
-  border-bottom: .15rem dotted var(--color-info);
-  text-shadow: none;
+  border-bottom: .15rem dotted var(--color-secondary);
 }
 
 .text-link:hover,
@@ -55,7 +54,7 @@
 
 .text-link:hover .text-link-text,
 .text-link:focus .text-link-text {
-  border-bottom: .15rem dotted var(--color-secondary);
+  border-bottom: .15rem solid var(--color-secondary);
 }
 
 .text-right {

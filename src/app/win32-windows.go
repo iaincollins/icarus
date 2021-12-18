@@ -75,3 +75,48 @@ func CreateWin32Window(hInstance win.HINSTANCE, LAUNCHER_WINDOW_TITLE string, wi
 		hInstance,
 		nil)
 }
+
+// https://docs.microsoft.com/en-us/windows/win32/gdi/positioning-objects-on-a-multiple-display-setup
+// const MONITOR_CENTER = 0x0001 // center rect to monitor 
+// const MONITOR_CLIP = 0x0000 // clip rect to monitor 
+// const MONITOR_WORKAREA = 0x0002 // use monitor work area 
+// const MONITOR_AREA = 0x0000 // use monitor entire area 
+// func ClipOrCenterRectToMonitor(prc *win.RECT, flags uint) {
+// 	var hMonitor win.HMONITOR;
+// 	var mi win.MONITORINFO;
+// 	var rc win.RECT;
+//   var w = prc.Right - prc.Left;
+//   var h = prc.Bottom - prc.Top;
+
+//     // 
+//     // get the nearest monitor to the passed rect. 
+//     // 
+//     hMonitor = win.MonitorFromRect(prc, win.MONITOR_DEFAULTTONEAREST);
+
+//     // 
+//     // get the work area or entire monitor rect. 
+//     // 
+//     mi.CbSize = unsafe.Sizeof(mi);
+//     win.GetMonitorInfo(hMonitor, &mi);
+
+//     if (flags & MONITOR_WORKAREA) {
+//         rc = mi.RcWork;
+//     } else {
+//         rc = mi.RcMonitor;
+// 		}
+
+//     // 
+//     // center or clip the passed rect to the monitor rect 
+//     // 
+//     if (flags & MONITOR_CENTER) {
+//         prc.left   = rc.Left + (rc.Right  - rc.Left - w) / 2;
+//         prc.top    = rc.Top  + (rc.Bottom - rc.Top  - h) / 2;
+//         prc.right  = prc.Left + w;
+//         prc.bottom = prc.Top  + h;
+//     }  else {
+//         prc.left   = unsafe.Max(rc.Left, unsafe.Min(rc.Right-w,  prc.Left));
+//         prc.top    = unsafe.Max(rc.Top,  unsafe.Min(rc.Bottom-h, prc.Top));
+//         prc.right  = prc.Left + w;
+//         prc.bottom = prc.Top  + h;
+//     }
+// }

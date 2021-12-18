@@ -166,7 +166,8 @@ table.table--flex-inline tbody tr td {
 }
 
 table.table--flex-inline.table--interactive tbody tr:hover td,
-table.table--flex-inline.table--interactive tbody tr:focus td {
+table.table--flex-inline.table--interactive tbody tr:focus td,
+table.table--flex-inline.table--interactive tbody tr.table__row--active td {
   background: var(--color-primary) !important;
   color: var(--color-primary-dark) !important;
   opacity: 1;

@@ -39,12 +39,14 @@ export default function IndexPage () {
         <h1>ICARUS</h1>
         <h3 className='text-primary'>Version {packageJson.version}</h3>
         <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
-          <p className='text-muted'>Connect remotely:</p>
-          <ul>
-            {hostInfo && hostInfo.urls.map((url, i) => {
-              return (i === 0) ? <li key={url} className='selectable'>{url}</li> : null
-            })}
-          </ul>
+          <p className='text-muted'>Connect from a browser on</p>
+          {hostInfo?.urls?.[0] &&
+            <p>
+              <a className="text-link" href={hostInfo.urls[0]} target="_blank">
+                <span className="text-link-text">{hostInfo.urls[0]}</span>
+              </a>
+            </p>
+          }
         </div>
         <div
           className='scrollable text-right text-uppercase' style={{

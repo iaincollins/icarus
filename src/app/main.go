@@ -222,6 +222,10 @@ func bindFunctionsToWebView(w webview.WebView) {
 	defaultWindowStyle := win.GetWindowLong(hwnd, win.GWL_STYLE)
 
 	w.Bind("app_toggleFullScreen", func() bool {
+		// FIXME Always go fullscreen on main monitor.
+		// If the window is on a second monitor, it should go fullscreen on that
+		// display instead. See the following URL for example of how to handle
+		// https://docs.microsoft.com/en-us/windows/win32/gdi/positioning-objects-on-a-multiple-display-setup
 		screenWidth := int32(win.GetSystemMetrics(win.SM_CXSCREEN))
 		screenHeight := int32(win.GetSystemMetrics(win.SM_CYSCREEN))
 		windowX := int32((screenWidth / 2) - (windowWidth / 2))
@@ -238,7 +242,19 @@ func bindFunctionsToWebView(w webview.WebView) {
 			// Set to fullscreen and remove window border
 			newWindowStyle := defaultWindowStyle &^ (win.WS_CAPTION | win.WS_THICKFRAME | win.WS_MINIMIZEBOX | win.WS_MAXIMIZEBOX | win.WS_SYSMENU)
 			win.SetWindowLong(hwnd, win.GWL_STYLE, newWindowStyle)
+
 			win.SetWindowPos(hwnd, 0, 0, 0, screenWidth, screenHeight, win.SWP_FRAMECHANGED)
+
+			// TODO Implement full screen mode that respects multi monitor setups
+			// const MONITOR_CENTER = 0x0001 // center rect to monitor 
+			// const MONITOR_CLIP = 0x0000 // clip rect to monitor 
+			// const MONITOR_WORKAREA = 0x0002 // use monitor work area 
+			// const MONITOR_AREA = 0x0000 // use monitor entire area 
+			// var rc win.RECT;
+			// win.GetWindowRect(hwnd, &rc);
+			// ClipOrCenterRectToMonitor(&rc, MONITOR_AREA);
+			// win.SetWindowPos(hwnd, 0, rc.Left, rc.Top, 0, 0, win.SWP_NOSIZE | win.SWP_NOZORDER | win.SWP_NOACTIVATE | win.SWP_FRAMECHANGED);
+	
 			isFullScreen = true
 		}
 		return isFullScreen

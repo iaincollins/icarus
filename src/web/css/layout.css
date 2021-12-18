@@ -77,6 +77,22 @@
   box-sizing: border-box;
 }
 
+.layout__top-half,
+.layout__bottom-half {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  float: none;
+}
+.layout__top-half {
+  top: 0;
+  bottom: 50%;
+}
+.layout__bottom-half {
+  margin-top: .5rem;
+  top: 50%;
+  bottom: .5rem;
+}
 
 @media only screen and (max-width: 800px) {
   .layout__left-half,

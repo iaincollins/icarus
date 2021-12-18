@@ -79,3 +79,12 @@ button.button--secondary:focus:not([disabled]):not(.button--active),
   background: var(--color-secondary);
   color: var(--color-secondary-dark);
 }
+
+.button__close-button {
+  position: absolute;
+  display: block;
+  right: .5rem;
+  top: .5rem;
+  padding: .5rem 1rem;
+  text-align: center;
+}

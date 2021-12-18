@@ -5,8 +5,8 @@
   --color-primary-b: 0;
   --color-primary-dark-adjust: 200;
   
-  --color-secondary-r: 90;
-  --color-secondary-g: 210;
+  --color-secondary-r: 100;
+  --color-secondary-g: 215;
   --color-secondary-b: 255;
   --color-secondary-dark-factor: 180;
 
@@ -19,7 +19,7 @@
   
   --color-danger: red;
   --color-success: lime;
-  --color-info: rgb(236, 252, 255);
+  --color-info: rgb(218, 248, 255);
 
   --text-shift-left-color: rgba(0, 128, 0, .5);
   --text-shift-right-color: rgba(255, 0, 0, .5);

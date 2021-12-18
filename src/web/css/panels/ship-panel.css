@@ -1,9 +1,41 @@
 .ship-panel {
-  position: relative;
+  --height-module-panel-rem: 20;
 }
 
 .ship-panel hr {
   margin: 1.5rem 0;
+}
+
+.ship-panel__modules {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: auto;
+}
+
+.ship-panel__modules--module-inspector {
+  bottom: 20rem;
+}
+
+.ship-panel__module-inspector {
+  position: absolute;
+  height: 19.5rem;
+  bottom: 0;
+  background: var(--color-background-panel);
+  padding: .5rem;
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 20;
+  transition: height .25s ease-in;
+}
+
+.ship-panel__module-inspector > *:not(button) {
+  pointer-events: none;
+}
+
+.ship-panel__module-inspector--hidden {
+  height: 0;
+  padding: 0;
 }
 
 .ship-panel__ship-pips {
@@ -71,14 +103,16 @@
 }
 
 table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module .ship-panel__module-icon,
-table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module .ship-panel__module-icon {
+table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module .ship-panel__module-icon,
+table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-panel__module .ship-panel__module-icon {
   color: var(--color-primary-dark);
   background: var(--color-background-panel);
   text-shadow: none;
 }
 
 table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module .ship-panel__engineering .icon,
-table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module .ship-panel__engineering .icon {
+table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module .ship-panel__engineering .icon,
+table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-panel__module .ship-panel__engineering .icon {
   color: var(--color-primary-dark);
   font-weight: 600;
 }
