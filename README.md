@@ -6,7 +6,7 @@ _ICARUS Terminal is an immersive, context-sensitive second screen interface for 
 
 [Download the latest preview release.](https://github.com/iaincollins/icarus/releases/latest)
 
-![preview](https://user-images.githubusercontent.com/595695/144976547-4775ca06-15fd-4230-bc95-5fea9753c026.png)
+![Screenshot](https://user-images.githubusercontent.com/595695/146653481-885eba7f-5956-4aa5-ac93-06ec39723aad.png)
 
 ## About ICARUS Terminal
 
@@ -26,7 +26,7 @@ ICARUS is a Windows (Win32) application built primarily in JavaScript, using Nod
 
 This inital public release is focused on sharing the application scaffolding, following development of an earlier (unreleased) proof of concept created in Electron. In comparison to the Electron version, this implementation has a smaller memory footprint and a much smaller package size (~20 MB vs ~200 MB).
 
-This approach means the functionality from the previous version can be ported into this version and that it is easier to leverage existing third party libraries. The trade off is includes additional complexity in the build process and that it required development of custom launcher / application shell in Go/C++ and custom software update mechaism (using NSIS and GitHub Releases).
+This approach means the functionality from the previous version can be ported into this version and that it is easier to leverage existing third party libraries. The trade off is includes additional complexity in the build process and that it required development of custom launcher / application shell in Go/C++ (to take advantage of native Windows APIs) and custom software update mechaism (using NSIS and GitHub Releases).
 
 This release does not currently include the logic or assests developed for the prototype. The intention is to port the existing functionality that has been developed over to this codebase and to publish a public beta when there is minimum viable level of functionality. The first thing to be ported willl be the event handling logic.
 
@@ -91,7 +91,7 @@ You can also run each build step independently:
 * `npm run build:service` builds only the service (ICARUS Service.exe)
 * `npm run build:package` builds only the Windows installer (ICARUS Setup.exe)
 * `npm run build:web` builds only the web interface; required to build the service as is an embedded resource
-* `npm run build:assets` builds assets (icons, fonts, etc); assets are commited the repository and only rebuilt when this is expicitly run
+* `npm run build:assets` builds assets (icons, fonts, etc) - e.g. used to update the icon font
 * `npm run build:clean` resets the build environment
 
 You can also generate fast, unoptimized builds to test executables without building an installable package:
@@ -123,7 +123,9 @@ I'd like to express appreciation to [Serge Zaitsev](https://github.com/zserge) f
 
 The loading animation is by James Panter (http://codepen.io/jpanter/pen/PWWQXK).
 
-Various icons are from https://edassets.org (for a list of contributors, see https://github.com/SpyTec/EDAssets).
+Includes origional icons and some icons from https://edassets.org - for a list of contributors, see https://github.com/SpyTec/EDAssets
+
+Uses stellar cartography data from the wonderful https://www.edsm.net
 
 ICARUS Terminal uses imagery from Elite Dangerous, which copyright Frontier Developments plc. This software is not endorsed by nor reflects the views or opinions of Frontier Developments and no employee of Frontier Developments was involved in the making of it.
 
