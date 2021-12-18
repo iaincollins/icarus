@@ -33,5 +33,6 @@
   <path
      id="rect1109"
      style="fill:#000000;stroke-width:1.05121;paint-order:fill markers stroke"
-     d="m 0,0 v 100 100 100 100 100 100 100 100 100 100 h 100 420.61914 100 H 900 1000 V 900 100 0 H 100 Z M 100,200 H 520.61914 V 300 H 100 Z m 520.61914,0 H 900 V 900 H 620.61914 Z M 100,400 H 520.61914 V 500 H 100 Z m 0,200 H 520.61914 V 700 H 100 Z m 0,200 H 520.61914 V 900 H 100 Z" />
+     d="m 0,0 v 100 100 100 100 100 100 100 100 100 100 h 100 420.61914 100 H 900 1000 V 900 100 0 H 100 Z M 80,180 H 540.61914 V 320 H 80 Z m 540.61914,0 H 920 V 920 H 620.61914 Z M 80,380 H 540.61914 V 520 H 80 Z m 0,200 H 540.61914 V 720 H 80 Z m 0,200 H 540.61914 V 920 H 80 Z"
+     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccc" />
 </svg>

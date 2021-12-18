@@ -4,7 +4,7 @@
    preserveAspectRatio="xMidYMid meet"
    version="1.1"
    id="svg4"
-   sodipodi:docname="table-index.svg"
+   sodipodi:docname="chevron-down.svg"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -22,17 +22,17 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.873"
-     inkscape:cx="500"
-     inkscape:cy="500.57274"
-     inkscape:window-width="1941"
-     inkscape:window-height="1390"
-     inkscape:window-x="969"
-     inkscape:window-y="379"
+     inkscape:cx="487.97251"
+     inkscape:cy="533.79152"
+     inkscape:window-width="1801"
+     inkscape:window-height="1338"
+     inkscape:window-x="1440"
+     inkscape:window-y="450"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg4" />
+     inkscape:current-layer="svg4"
+     showguides="false" />
   <path
-     id="path989"
-     style="stroke-width:1.05121;paint-order:fill markers stroke"
-     d="m 0,0 v 100 100 100 100 100 100 100 100 100 100 h 100 100 100 600 100 V 900 100 0 H 100 Z M 80,180 H 220 V 320 H 80 Z m 200,0 H 920 V 320 H 280 Z M 80,380 H 220 V 520 H 80 Z m 200,0 H 920 V 520 H 280 Z M 80,580 H 220 V 720 H 80 Z m 200,0 H 920 V 720 H 280 Z M 80,780 H 220 V 920 H 80 Z m 200,0 H 920 V 920 H 280 Z"
-     sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+     id="path1179"
+     style="stroke-width:100;paint-order:fill markers stroke"
+     d="M 90.390625,267.5625 8.5839844,349.36914 417.61914,758.40625 438.07227,778.85938 499.42773,840.21289 990.27148,349.36914 908.46289,267.5625 499.42578,676.59766 Z" />
 </svg>
