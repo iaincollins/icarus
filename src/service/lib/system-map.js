@@ -110,7 +110,7 @@ class SystemMap {
         }
       })
     })
-
+    
     return bodies
   }
 
@@ -143,17 +143,28 @@ class SystemMap {
         // Find planet with closest similar distance to sun
         // This could be the wrong choice in edge cases, but is good enough.
         const nearestPlanet = this.getNearestPlanet(systemObject)
-        // const nearestLandablePlanet = this.getNearestLandablePlanet(systemObject)
-        const nearestPlanetParentType = Object.keys(nearestPlanet.parents[0])[0]
+        const nearestPlanetParentType = nearestPlanet?.parents?.[0] ? Object.keys(nearestPlanet.parents[0])[0] : null
+        const nearestStar = this.getNearestStar(systemObject)
 
         // If parent of planet is a star (or null - for rogue planets) then make
         // it the main body this station orbits. However, if the nearest planet
         // is a orbiting another larger planet, make the target the larger planet
         const parentBodyId = (nearestPlanetParentType === 'Star' || nearestPlanetParentType === 'Null')
           ? nearestPlanet.bodyId
-          : nearestPlanet.parents[0][nearestPlanetParentType]
+          : nearestPlanet?.parents?.[0]?.[nearestPlanetParentType] ?? null
 
-        systemObject.parents = [{ Planet: parentBodyId }]
+        // If the object doesn't have a nearby planet it's orbiting, then assume
+        // it's orbiting a star (e.g. like in Asterope which has 3 stars, no 
+        // planets but a Mega Ship and Coriolis Starport).
+        // 
+        // FIXME reduce this to one check of 'Nearest Body Type' that returns 
+        // nearest body regardless of if it is a Star or Planet, so that if 
+        // the star is closer but there is a far away planet, that it doesn't 
+        // show the object as orbiting the planet.
+        systemObject.parents = parentBodyId === null
+          ? nearestStar ? [{ Star: nearestStar.bodyId }] : [{ Null: 0 }]
+          : [{ Planet: parentBodyId }]
+        
         systemObject.radius = 1000
 
         const services = []
@@ -177,23 +188,25 @@ class SystemMap {
         // Plot megaships
         // I think is is redundant now (seems to work without it after refactor)
         // but not verified for edge cases.
+        /*
         if (MEGASHIPS.includes(systemObject.type)) {
           if (systemObject?.parents?.[0]?.['Planet']) {
             for (const systemObjectParent of this.objectsInSystem) {
-              if (systemObjectParent.bodyId === nearestPlanet.bodyId) {
+              if (systemObjectParent.bodyId === nearestPlanet?.bodyId) {
                 if (!systemObjectParent._megaships) systemObjectParent._megaships = []
                 systemObjectParent._megaships.push(systemObject)
               }
             }
           } else {
             for (const systemObjectParent of this.objectsInSystem) {
-              if (systemObjectParent.bodyId === nearestPlanet.bodyId) {
+              if (systemObjectParent.bodyId === nearestPlanet?.bodyId) {
                 if (!systemObjectParent._megaships) systemObjectParent._megaships = []
                 systemObjectParent._megaships.push(systemObject)
               }
             }
           }
         }
+        */
       }
     }
 
@@ -332,9 +345,9 @@ class SystemMap {
 
   getNearestPlanet (systemObject) {
     const targetDistanceToArrival = systemObject.distanceToArrival
-    return this.objectsInSystem
-      .filter(body => body._type === 'Planet')
-      .reduce((ob1, ob2) => {
+    const planets = this.objectsInSystem.filter(body => body._type === 'Planet')
+    if (planets.length === 0) return null
+    return planets.reduce((ob1, ob2) => {
         return Math.abs(targetDistanceToArrival - ob2.distanceToArrival) < Math.abs(targetDistanceToArrival - ob1.distanceToArrival)
           ? ob2
           : ob1
@@ -343,10 +356,22 @@ class SystemMap {
 
   getNearestLandablePlanet (systemObject) {
     const targetDistanceToArrival = systemObject.distanceToArrival
-    return this.objectsInSystem
-      .filter(body => body._type === 'Planet' && body.isLandable)
-      .reduce((ob1, ob2) => {
+    const landablePlanets = this.objectsInSystem.filter(body => body._type === 'Planet' && body.isLandable)
+    if (landablePlanets.length === 0) return null
+    return landablePlanets.reduce((ob1, ob2) => {
         return Math.abs(targetDistanceToArrival - ob2.distanceToArrival) < Math.abs(targetDistanceToArrival - ob1.distanceToArrival)
+          ? ob2
+          : ob1
+      })
+  }
+
+  getNearestStar(systemObject) {
+    const targetDistanceToArrival = systemObject.distanceToArrival
+    const stars = this.objectsInSystem.filter(body => body._type === 'Star')
+    if (stars.length === 0) return null
+    if (stars.length === 1) return stars[0]
+    return stars.reduce((ob1, ob2) => {
+        return Math.abs(targetDistanceToArrival - ob2?.distanceToArrival ?? 0) < Math.abs(targetDistanceToArrival - ob1?.distanceToArrival ?? 0)
           ? ob2
           : ob1
       })

@@ -1,4 +1,3 @@
-const { endsWith } = require('lodash')
 const EDSM = require('../edsm')
 const SystemMap = require('../system-map')
 
