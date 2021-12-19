@@ -40,13 +40,9 @@ export default function ShipModuleInspectorPanel ({ module }) {
             <p className='text-no-wrap'>
               <span className='text-muted'>Power</span> {parseFloat(module.power).toFixed(2)} MW
             </p>}
-          {module.ammoInHopper &&
+          {module.ammoInHopper && module.ammoInClip &&
             <p className='text-no-wrap'>
-              <span className='text-muted'>Ammo in Hopper</span> {module.ammoInHopper}
-            </p>}
-          {module.ammoInClip &&
-            <p className='text-no-wrap'>
-              <span className='text-muted'>Ammo in Clip</span> {module.ammoInClip}
+              <span className='text-muted'>Ammo (Clip/Hopper)</span> {module.ammoInClip}/{module.ammoInHopper}
             </p>}
         </div>
       </div>
