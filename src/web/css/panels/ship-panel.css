@@ -14,12 +14,12 @@
 }
 
 .ship-panel__modules--module-inspector {
-  bottom: 20rem;
+  bottom: 25rem;
 }
 
 .ship-panel__module-inspector {
   position: absolute;
-  height: 19.5rem;
+  height: 24.5rem;
   bottom: 0;
   background: var(--color-background-panel);
   padding: .5rem;
@@ -34,8 +34,13 @@
 }
 
 .ship-panel__module-inspector--hidden {
+  background: var(--color-background-panel-opaque);
   height: 0;
   padding: 0;
+}
+
+.ship-panel__module-inspector--hidden * {
+  display: none;
 }
 
 .ship-panel__ship-pips {

@@ -36,9 +36,9 @@ export default function ShipModulesPage () {
     document.addEventListener('click', onClickHandler)
     return () => document.removeEventListener('click', onClickHandler)
     function onClickHandler (event) {
-      if (!document?.activeElement?.getAttribute('data-module')) {
-        if (!event?.target?.getAttribute('data-module')) {
-        // If click on that isn't a module, clear selected module
+      if (!document?.activeElement?.getAttribute('data-module-slot')) {
+        if (!event?.target?.getAttribute('data-module-slot')) {
+          // If click on that isn't a module, clear selected module
           setSelectedModule(null)
         }
       }
@@ -159,7 +159,7 @@ export default function ShipModulesPage () {
       <Panel scrollable>
         <div
           className={`ship-panel__module-inspector ${!selectedModule ? 'ship-panel__module-inspector--hidden' : ''}`}
-          data-module
+          data-module-slot={selectedModule?.slot}
           onClick={(e) => e.preventDefault()}
         >
           <button className='button__close-button'>
@@ -201,8 +201,8 @@ const Modules = ({ name, modules, hardpoint, optional, selectedModule, setSelect
               <tr
                 key={`${name}_${module.name}_${module.slot}`}
                 tabIndex='3'
-                onFocus={() => setSelectedModule(module)}
-                data-module
+                onFocus={() => setSelectedModule(module) }
+                data-module-slot={module.slot}
                 className={selectedModule && selectedModule.slot === module.slot ? 'table__row--active' : null}
               >
                 <td className='ship-panel__module'>
