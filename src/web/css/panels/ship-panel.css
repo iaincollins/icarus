@@ -14,12 +14,12 @@
 }
 
 .ship-panel__modules--module-inspector {
-  bottom: 25rem;
+  bottom: 22rem;
 }
 
 .ship-panel__module-inspector {
   position: absolute;
-  height: 24.5rem;
+  height: 21.5rem;
   bottom: 0;
   background: var(--color-background-panel);
   padding: .5rem;
@@ -27,6 +27,15 @@
   width: 100%;
   z-index: 20;
   transition: height .25s ease-in;
+}
+
+.ship-panel__module-inspector .button__close-button {
+  position: fixed;
+  right: 2rem;
+  top: auto;
+  left: auto;
+  bottom: 19.5rem;
+  z-index: 20;
 }
 
 .ship-panel__module-inspector > *:not(button) {
@@ -37,6 +46,10 @@
   background: var(--color-background-panel-opaque);
   height: 0;
   padding: 0;
+}
+
+.ship-panel__module-inspector--hidden .button__close-button {
+  display: none;
 }
 
 .ship-panel__module-inspector--hidden * {
@@ -105,6 +118,25 @@
 
 .ship-panel__module-icon {
   background: var(--color-primary-dark);
+}
+
+.ship-panel__module-info,
+.ship-panel__module-engineering {
+  width: 50%;
+  float: left;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .ship-panel__module-info,
+  .ship-panel__module-engineering {
+    width: 100%;
+  }
+}
+
+.ship-panel__module-info p,
+.ship-panel__module-engineering p {
+  margin: 0.25rem 0;
 }
 
 table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module .ship-panel__module-icon,

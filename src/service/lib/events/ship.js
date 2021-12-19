@@ -37,7 +37,8 @@ class ShipEvents {
       modules[slot].value = module.Value
       modules[slot].ammoInClip = module.AmmoInClip
       modules[slot].ammoInHopper = module.AmmoInHopper
-      modules[slot].engineering = module?.Engineering ? module.Engineering.Level : false
+      modules[slot].engineering = module?.Engineering ? module.Engineering : false
+      modules[slot].engineeringLevel = module?.Engineering ? module.Engineering.Level : 0
     })
 
     modulesInfoModules.forEach(module => {

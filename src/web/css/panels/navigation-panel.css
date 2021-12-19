@@ -285,8 +285,8 @@
 
   .navigation-panel__inspector .button__close-button {
     top: 50%;
-    right: 2.5rem;
+    right: 2rem;
     transform: rotate(90deg);
-    margin-top: 5.5rem;
+    margin-top: 5rem;
   }
 }

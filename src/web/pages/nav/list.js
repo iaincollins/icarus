@@ -44,9 +44,8 @@ export default function NavListPage () {
     if (newLogEntry.event === 'FSDJump') {
       const newSystem = await sendEvent('getSystem')
       if (!newSystem) return
+      setSystemObject(null)
       setSystem(newSystem)
-      const newSystemObject = newSystem?.stars?.[0]?._children?.[0] ?? null
-      setSystemObject(newSystemObject)
     }
   }), [])
 

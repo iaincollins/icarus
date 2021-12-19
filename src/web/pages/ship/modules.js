@@ -158,20 +158,109 @@ export default function ShipModulesPage () {
         </Panel>}
       <Panel scrollable>
         <div
-          className={`ship-panel__module-inspector ${!selectedModule ? 'ship-panel__module-inspector--hidden' : ''}`}
+          className={`ship-panel__module-inspector scrollable ${!selectedModule ? 'ship-panel__module-inspector--hidden' : ''}`}
           data-module-slot={selectedModule?.slot}
           onClick={(e) => e.preventDefault()}
         >
-          <button className='button__close-button'>
-            <i className='icon icarus-terminal-chevron-down' />
-          </button>
-          <h2 className='text-primary'>Module</h2>
-          <hr style={{ margin: '1rem 0' }} />
-          {selectedModule &&
-            <pre>{JSON.stringify(selectedModule, null, 2)}</pre>}
+          {selectedModule && <Module module={selectedModule} />}
         </div>
       </Panel>
     </Layout>
+  )
+}
+
+const Module = ({ module }) => {
+  // const mountText = ['Turreted', 'Fixed', 'Gimbled'].includes(module.mount) ? `${module.mount} Mount` : ''
+  const size = ['Turreted', 'Fixed', 'Gimbled'].includes(module.mount) && module.size !== 'tiny' ? module.size : ''
+  const slotName = module.slot.replace('_', ' ')
+    .replace(/([0-9]+)/g, ' $1 ')
+    .replace(/^Slot ([0-9]+) Size ([0-9]+)/g, '') // "(Max size: $2)")
+    .replace(/ 0/g, ' ') // Leading zeros in numbers
+    .replace(/Military 0([0-9])/, 'Military slot $1')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .trim()
+
+  const moduleName = module.name
+    .replace(/ Package$/, '') // Hull / Armour modules
+    .replace(/multidronecontrol_universal/, 'Universal Limpet Controller') // e.g. int_multidronecontrol_universal_size7_class5
+    .replace(/int_/, '').replace(/_size(.*?)$/g, ' ').replace(/_/g, ' ') // Fallback for other unsupported modules
+
+  return (
+    <>
+      <button className='button--icon button__close-button'>
+        <i className='icon icarus-terminal-chevron-down' />
+      </button>
+      <h2 className='text-info' data-module-name={module.name} data-fx-order='3'>
+        {size} {module.mount} {moduleName}
+      </h2>
+      <h3 className='text-no-wrap'>
+        {module.class}{module.rating} <span className='text-muted'>Class Rating</span>
+      </h3>
+      <div className='ship-panel__module-info text-uppercase'>
+        <div className='text-primary' style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+          <p className='text-no-wrap '>
+            <span className='text-muted'>Slot</span> {slotName}
+          </p>
+          {module?.power > 0 &&
+            <p className='text-no-wrap'>
+              <span className='text-muted'>Power</span> {parseFloat(module.power).toFixed(2)} MW
+            </p>}
+          {module.ammoInHopper &&
+            <p className='text-no-wrap'>
+              <span className='text-muted'>Ammo in Hopper</span> {module.ammoInHopper}
+            </p>}
+          {module.ammoInClip &&
+            <p className='text-no-wrap'>
+              <span className='text-muted'>Ammo in Clip</span> {module.ammoInClip}
+            </p>}
+          {module.engineering &&
+            <>
+              <p className='text-secondary'>
+                {module.engineering.BlueprintName.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()} <span className='text-muted'>modification</span>
+                {module.engineering.ExperimentalEffect_Localised &&
+                  <>
+                    <br />
+                    <span className='text-muted'>with </span> <span className='text-secondary'>{module.engineering.ExperimentalEffect_Localised.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}</span> <span className='text-muted'>experimental effect</span>
+                  </>}
+                <br /><span className='text-muted'>by</span> {module.engineering.Engineer}
+              </p>
+              <div className='text-secondary' style={{ fontSize: '2rem' }}>
+                {[...Array(module.engineeringLevel)].map((j, i) =>
+                  <i
+                    key={`${module.name}_${module.slot}_engineering_${i}`}
+                    className='icon icarus-terminal-engineering'
+                  />
+                )}
+              </div>
+            </>}
+        </div>
+      </div>
+      <div className='ship-panel__module-engineering text-uppercase' style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+        {module.engineering &&
+          <>
+            <p>
+              Modified
+            </p>
+            <ul>
+              {module.engineering.Modifiers.map((modifier) =>
+                <li
+                  key={`${module.name}_${module.slot}_engineering_modifier_${modifier.Label}`}
+                  className='text-secondary'
+                >
+                  {modifier.Label.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}
+                  <span style={{ marginLeft: '1rem' }}>
+                    {(modifier.LessIsGood === 0 && modifier.Value > modifier.OriginalValue) && <><span className='text-success'>+{(modifier.Value - modifier.OriginalValue).toFixed(2).replace(/\.00$/, '')}</span></>}
+                    {(modifier.LessIsGood === 0 && modifier.Value < modifier.OriginalValue) && <><span className='text-danger'>-{(modifier.OriginalValue - modifier.Value).toFixed(2).replace(/\.00$/, '')}</span></>}
+                    {(modifier.LessIsGood === 1 && modifier.Value < modifier.OriginalValue) && <><span className='text-success'>-{(modifier.OriginalValue - modifier.Value).toFixed(2).replace(/\.00$/, '')}</span></>}
+                    {(modifier.LessIsGood === 1 && modifier.Value > modifier.OriginalValue) && <><span className='text-danger'>+{(modifier.Value - modifier.OriginalValue).toFixed(2).replace(/\.00$/, '')}</span></>}
+                  </span>
+                </li>
+
+              )}
+            </ul>
+          </>}
+      </div>
+    </>
   )
 }
 
@@ -201,7 +290,7 @@ const Modules = ({ name, modules, hardpoint, optional, selectedModule, setSelect
               <tr
                 key={`${name}_${module.name}_${module.slot}`}
                 tabIndex='3'
-                onFocus={() => setSelectedModule(module) }
+                onFocus={() => setSelectedModule(module)}
                 data-module-slot={module.slot}
                 className={selectedModule && selectedModule.slot === module.slot ? 'table__row--active' : null}
               >
@@ -261,11 +350,11 @@ const Modules = ({ name, modules, hardpoint, optional, selectedModule, setSelect
                   */}
                   {module.ammoInClip &&
                     <p className='text-no-wrap'>
-                      <span className='text-muted'>Ammunition</span> {module.ammoInClip + module.ammoInHopper}
+                      <span className='text-muted'>Ammo</span> {module.ammoInClip + module.ammoInHopper}
                     </p>}
                   {module.engineering &&
                     <div className='ship-panel__engineering disabled--fx-animated-text' data-fx-order='4'>
-                      {[...Array(module.engineering)].map((j, i) =>
+                      {[...Array(module.engineeringLevel)].map((j, i) =>
                         <i
                           key={`${name}_${module.name}_${module.slot}_engineering_${i}`}
                           className='icon icarus-terminal-engineering'
