@@ -42,9 +42,13 @@
   margin-bottom: 2rem;
 }
 
-/*  Set different max height based on number of items */
 .system-map__planetary-system svg {
   max-width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  animation: fx-fade-in-animation .5s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: .5s;
 }
 
 .system-map__planetary-system h2 {

@@ -39,14 +39,13 @@ export default function NavMapPage () {
 
     if (query.selected) {
       const newSystemObject = newSystem.objectsInSystem.filter(child => child.name.toLowerCase() === query.selected.toLowerCase())[0]
-      if (newSystemObject) {
-        const el = document.querySelector(`[data-system-object-name="${newSystemObject?.name}" i]`)
-        if (el) {
-          setTimeout(() => el.focus(), 100) // Delay to allow map to render
-        } else {
-          setSystemObject(newSystemObject) // TODO If the object is a ground facility, highlight the nearest planet in the map
-        }
-      }
+      if (!newSystemObject) return
+      setSystemObject(newSystemObject)
+      // TODO Highlight body on map (or, if ground facility, the nearest planet)
+      // setTimeout(() => {
+      //   const el = document.querySelector(`[data-system-object-name="${newSystemObject?.name}" i]`)
+      //   if (el) el.focus()
+      // }, 750) // Delay to allow map to render
     }
   }, [connected, ready, router.isReady])
 

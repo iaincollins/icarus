@@ -30,6 +30,8 @@
   --color-background-panel-dark-adjust: calc(var(--color-primary-dark-adjust) + 20);
   --color-background-panel-opaque: rgb(calc(var(--color-primary-r) - var(--color-background-panel-dark-adjust)), calc(var(--color-primary-g) - var(--color-background-panel-dark-adjust)), calc(var(--color-primary-b) - var(--color-background-panel-dark-adjust)), 1);
 
+  --linear-gradient-background: linear-gradient(var(--color-primary-dark), var(--color-background-panel-opaque));
+  
   --color-icon: var(--color-info);
   --color-icon-focus: var(--color-secondary);
 

@@ -127,6 +127,8 @@ Includes origional icons and some icons from https://edassets.org - for a list o
 
 Uses stellar cartography data from the wonderful https://www.edsm.net
 
+Includes data from EDCD https://github.com/EDCD/FDevIDs
+
 ICARUS Terminal uses imagery from Elite Dangerous, which copyright Frontier Developments plc. This software is not endorsed by nor reflects the views or opinions of Frontier Developments and no employee of Frontier Developments was involved in the making of it.
 
 Thank you to all those who have written libraries on which this software depends.

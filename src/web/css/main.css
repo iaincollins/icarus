@@ -199,6 +199,7 @@ progress[value] {
 
 progress[value]::-webkit-progress-bar {
   background: var(--color-primary-dark);
+
 }
 
 progress[value]::-webkit-progress-value {

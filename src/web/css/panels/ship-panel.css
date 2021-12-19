@@ -14,19 +14,20 @@
 }
 
 .ship-panel__modules--module-inspector {
-  bottom: 22rem;
+  bottom: 12.5rem;
 }
 
 .ship-panel__module-inspector {
   position: absolute;
-  height: 21.5rem;
+  height: 12rem;
   bottom: 0;
-  background: var(--color-background-panel);
   padding: .5rem;
   box-sizing: border-box;
   width: 100%;
   z-index: 20;
   transition: height .25s ease-in;
+  background: var(--linear-gradient-background);
+  border-top: .2rem solid var(--color-primary);
 }
 
 .ship-panel__module-inspector .button__close-button {
@@ -34,8 +35,12 @@
   right: 2rem;
   top: auto;
   left: auto;
-  bottom: 19.5rem;
+  bottom: 9.4rem;
   z-index: 20;
+  opacity: 0;
+  animation: fx-fade-in-animation .25s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: .5s;
 }
 
 .ship-panel__module-inspector > *:not(button) {
@@ -46,14 +51,7 @@
   background: var(--color-background-panel-opaque);
   height: 0;
   padding: 0;
-}
-
-.ship-panel__module-inspector--hidden .button__close-button {
-  display: none;
-}
-
-.ship-panel__module-inspector--hidden * {
-  display: none;
+  border-color: transparent;
 }
 
 .ship-panel__ship-pips {
@@ -90,7 +88,7 @@
 }
 
 .ship-panel__ship-stats td {
-  padding: .25rem 1rem .25rem 0;
+  padding: 0 1rem 0 0;
   text-shadow: none;
 }
 
@@ -120,22 +118,21 @@
   background: var(--color-primary-dark);
 }
 
-.ship-panel__module-info,
-.ship-panel__module-engineering {
-  width: 50%;
+.ship-panel__module-section {
+  width: 30%;
   float: left;
   pointer-events: none;
+  font-size: var(--base-font-size) !important;
+  font-weight: bold !important;
 }
 
 @media only screen and (max-width: 800px) {
-  .ship-panel__module-info,
-  .ship-panel__module-engineering {
+  .ship-panel__module-section {
     width: 100%;
   }
 }
 
-.ship-panel__module-info p,
-.ship-panel__module-engineering p {
+.ship-panel__module-section p {
   margin: 0.25rem 0;
 }
 

@@ -1,6 +1,6 @@
 
 export default function ShipModuleInspectorPanel ({ module }) {
-  if (!module) return (<div className='ship-panel__module-inspector ship-panel__module-inspector--hidden'/>)
+  if (!module) return (<div className='ship-panel__module-inspector ship-panel__module-inspector--hidden' />)
 
   // const mountText = ['Turreted', 'Fixed', 'Gimbled'].includes(module.mount) ? `${module.mount} Mount` : ''
   const size = ['Turreted', 'Fixed', 'Gimbled'].includes(module.mount) && module.size !== 'tiny' ? module.size : ''
@@ -26,14 +26,14 @@ export default function ShipModuleInspectorPanel ({ module }) {
       <button className='button--icon button__close-button'>
         <i className='icon icarus-terminal-chevron-down' />
       </button>
-      <h2 className='text-info' data-module-name={module.name} data-fx-order='3'>
-        {size} {module.mount} {moduleName}
-      </h2>
-      <h3 className='text-no-wrap'>
-        {module.class}{module.rating} <span className='text-muted'>Class Rating</span>
-      </h3>
-      <div className='ship-panel__module-info text-uppercase'>
-        <div className='text-primary' style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+      <div className='ship-panel__module-section text-uppercase'>
+        <h2 className='text-info' data-module-name={module.name} data-fx-order='3'>
+          {size} {module.mount} {moduleName}
+        </h2>
+        <h3 className='text-no-wrap'>
+          {module.class}{module.rating} <span className='text-muted'>Class Rating</span>
+        </h3>
+        <div className='text-primary'>
           <p className='text-no-wrap '>
             <span className='text-muted'>Slot</span> {slotName}
           </p>
@@ -49,52 +49,52 @@ export default function ShipModuleInspectorPanel ({ module }) {
             <p className='text-no-wrap'>
               <span className='text-muted'>Ammo in Clip</span> {module.ammoInClip}
             </p>}
-          {module.engineering &&
-            <>
-              <p className='text-secondary'>
-                {module.engineering?.BlueprintName?.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()} <span className='text-muted'>modification</span>
-                {module.engineering?.ExperimentalEffect_Localised &&
-                  <>
-                    <br />
-                    <span className='text-muted'>with </span> <span className='text-secondary'>{module.engineering.ExperimentalEffect_Localised.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}</span> <span className='text-muted'>experimental effect</span>
-                  </>}
-                <br /><span className='text-muted'>by</span> {module.engineering.Engineer}
-              </p>
-              <div className='text-secondary' style={{ fontSize: '2rem' }}>
-                {[...Array(module.engineeringLevel)].map((j, i) =>
-                  <i
-                    key={`${module.name}_${module.slot}_engineering_${i}`}
-                    className='icon icarus-terminal-engineering'
-                  />
-                )}
-              </div>
-            </>}
         </div>
       </div>
-      <div className='ship-panel__module-engineering text-uppercase' style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+      <div className='ship-panel__module-section text-uppercase'>
         {module.engineering &&
           <>
-            <p>
-              Modified
+            <h3 className='text-muted'>Engineering</h3>
+            <p className='text-secondary'>
+              {module.engineering?.BlueprintName?.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}
+              {' '}
+              {module.engineering?.ExperimentalEffect_Localised &&
+                <>
+                  <br />
+                  <span className='text-secondary'>{module.engineering.ExperimentalEffect_Localised.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}</span>
+                  {' '}
+                  <span className='text-muted'>experimental</span>
+                </>}
+              <br /><span className='text-muted'>by</span> {module.engineering.Engineer}
             </p>
-            <ul>
-              {module.engineering?.Modifiers?.map((modifier) =>
-                <li
-                  key={`${module.name}_${module.slot}_engineering_modifier_${modifier.Label}`}
-                  className='text-secondary'
-                >
-                  {modifier.Label.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}
-                  <span style={{ marginLeft: '.5rem' }}>
-                    {(modifier.LessIsGood === 0 && modifier.Value > modifier.OriginalValue) && <><span className='text-success'>+{(modifier.Value - modifier.OriginalValue).toFixed(2).replace(/\.00$/, '').replace(/0$/, '')}</span></>}
-                    {(modifier.LessIsGood === 0 && modifier.Value < modifier.OriginalValue) && <><span className='text-danger'>-{(modifier.OriginalValue - modifier.Value).toFixed(2).replace(/\.00$/, '').replace(/0$/, '')}</span></>}
-                    {(modifier.LessIsGood === 1 && modifier.Value < modifier.OriginalValue) && <><span className='text-success'>-{(modifier.OriginalValue - modifier.Value).toFixed(2).replace(/\.00$/, '').replace(/0$/, '')}</span></>}
-                    {(modifier.LessIsGood === 1 && modifier.Value > modifier.OriginalValue) && <><span className='text-danger'>+{(modifier.Value - modifier.OriginalValue).toFixed(2).replace(/\.00$/, '').replace(/0$/, '')}</span></>}
-                  </span>
-                </li>
-
+            <div className='text-info' style={{ fontSize: '2rem', marginTop: '.5rem' }}>
+              {[...Array(module.engineeringLevel)].map((j, i) =>
+                <i
+                  key={`${module.name}_${module.slot}_engineering_${i}`}
+                  className='icon icarus-terminal-engineering'
+                />
               )}
-            </ul>
+            </div>
           </>}
+      </div>
+      <div className='ship-panel__module-section text-uppercase'>
+        {module.engineering &&
+          <ul>
+            {module.engineering?.Modifiers?.map((modifier) =>
+              <li
+                key={`${module.name}_${module.slot}_engineering_modifier_${modifier.Label}`}
+                className='text-secondary'
+              >
+                {modifier.Label.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}
+                <span style={{ marginLeft: '.5rem' }}>
+                  {(modifier.LessIsGood === 0 && modifier.Value > modifier.OriginalValue) && <><span className='text-success'>+{(modifier.Value - modifier.OriginalValue).toFixed(2).replace(/\.00$/, '').replace(/0$/, '')}</span></>}
+                  {(modifier.LessIsGood === 0 && modifier.Value < modifier.OriginalValue) && <><span className='text-danger'>-{(modifier.OriginalValue - modifier.Value).toFixed(2).replace(/\.00$/, '').replace(/0$/, '')}</span></>}
+                  {(modifier.LessIsGood === 1 && modifier.Value < modifier.OriginalValue) && <><span className='text-success'>-{(modifier.OriginalValue - modifier.Value).toFixed(2).replace(/\.00$/, '').replace(/0$/, '')}</span></>}
+                  {(modifier.LessIsGood === 1 && modifier.Value > modifier.OriginalValue) && <><span className='text-danger'>+{(modifier.Value - modifier.OriginalValue).toFixed(2).replace(/\.00$/, '').replace(/0$/, '')}</span></>}
+                </span>
+              </li>
+            )}
+          </ul>}
       </div>
     </div>
   )

@@ -17,7 +17,7 @@
 }
 
 .navigation-panel__inspector {
-  background: var(--color-background-panel);
+  background: var(--linear-gradient-background);
   position: absolute;
   right: 0;
   top: 0;
@@ -25,6 +25,7 @@
   width: 20rem;
   padding: .5rem .5rem 2rem .5rem;
   transition: right .5s ease-in-out;
+  z-index: 10;
 }
 
 .navigation-panel__inspector .button__close-button {
@@ -41,6 +42,7 @@
 
 .navigation-panel__inspector--hidden {
   right: -20rem;
+  padding: 0;
 }
 
 .navigation-panel__inspector .navigation-panel__inspector-heading .icon {
@@ -89,7 +91,7 @@
   height: 100%;
   z-index: 3;
   overflow: hidden;
-  transition: right .5s ease-in-out;
+  Xtransition: right .5s ease-in-out;
 }
 
 .navigation-panel__list--inspector,

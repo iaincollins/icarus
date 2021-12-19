@@ -146,8 +146,8 @@ html[data-fx-crt="true"] .layout__overlay {
 }
 
 @keyframes fx-fade-in-animation {
-  from { opacity :0; }
-  to { opacity: 1; }
+  from { visibility: visible; opacity : 0; }
+  to { visibility: visible; opacity: 1; }
 }
 
 @keyframes fx-flash-in-animation {
