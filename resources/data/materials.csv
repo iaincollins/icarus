@@ -1,0 +1,138 @@
+id,symbol,rarity,type,category,name
+128672318,Iron,1,Raw,4,Iron
+128672319,Nickel,1,Raw,5,Nickel
+128672320,Tin,3,Raw,4,Tin
+128672321,Zinc,2,Raw,4,Zinc
+128672322,Carbon,1,Raw,1,Carbon
+128672323,Sulphur,1,Raw,3,Sulphur
+128672324,Phosphorus,1,Raw,2,Phosphorus
+128672325,Manganese,2,Raw,3,Manganese
+128672326,Selenium,4,Raw,4,Selenium
+128672327,Chromium,2,Raw,2,Chromium
+128672328,Vanadium,2,Raw,1,Vanadium
+128672329,Germanium,2,Raw,5,Germanium
+128672330,Cadmium,3,Raw,3,Cadmium
+128672331,Tungsten,3,Raw,5,Tungsten
+128672332,Arsenic,2,Raw,6,Arsenic
+128672333,Molybdenum,3,Raw,2,Molybdenum
+128672334,Niobium,3,Raw,1,Niobium
+128672335,Zirconium,2,Raw,7,Zirconium
+128672336,Mercury,3,Raw,6,Mercury
+128672337,Yttrium,4,Raw,1,Yttrium
+128672338,Tellurium,4,Raw,5,Tellurium
+128672339,Polonium,4,Raw,6,Polonium
+128672340,Technetium,4,Raw,2,Technetium
+128672341,Ruthenium,4,Raw,3,Ruthenium
+128672342,Antimony,4,Raw,7,Antimony
+128673877,GridResistors,1,Manufactured,Capacitors,Grid Resistors
+128673878,CrystalShards,1,Manufactured,Crystals,Crystal Shards
+128673879,TemperedAlloys,1,Manufactured,Thermic,Tempered Alloys
+128673880,BasicConductors,1,Manufactured,Conductive,Basic Conductors
+128673881,MechanicalScrap,1,Manufactured,Mechanical Components,Mechanical Scrap
+128673882,HeatConductionWiring,1,Manufactured,Heat,Heat Conduction Wiring
+128673883,WornShieldEmitters,1,Manufactured,Shielding,Worn Shield Emitters
+128673884,CompactComposites,1,Manufactured,Composite,Compact Composites
+128673885,SalvagedAlloys,1,Manufactured,Alloys,Salvaged Alloys
+128673886,ChemicalStorageUnits,1,Manufactured,Chemical,Chemical Storage Units
+128673887,HybridCapacitors,2,Manufactured,Capacitors,Hybrid Capacitors
+128673888,UncutFocusCrystals,2,Manufactured,Crystals,Flawed Focus Crystals
+128673889,HeatResistantCeramics,2,Manufactured,Thermic,Heat Resistant Ceramics
+128673890,ConductiveComponents,2,Manufactured,Conductive,Conductive Components
+128673891,MechanicalEquipment,2,Manufactured,Mechanical Components,Mechanical Equipment
+128673892,HeatDispersionPlate,2,Manufactured,Heat,Heat Dispersion Plate
+128673893,ShieldEmitters,2,Manufactured,Shielding,Shield Emitters
+128673894,FilamentComposites,2,Manufactured,Composite,Filament Composites
+128673895,GalvanisingAlloys,2,Manufactured,Alloys,Galvanising Alloys
+128673896,ChemicalProcessors,2,Manufactured,Chemical,Chemical Processors
+128673897,ElectrochemicalArrays,3,Manufactured,Capacitors,Electrochemical Arrays
+128673898,FocusCrystals,3,Manufactured,Crystals,Focus Crystals
+128673899,PrecipitatedAlloys,3,Manufactured,Thermic,Precipitated Alloys
+128673900,ConductiveCeramics,3,Manufactured,Conductive,Conductive Ceramics
+128673901,MechanicalComponents,3,Manufactured,Mechanical Components,Mechanical Components
+128673902,HeatExchangers,3,Manufactured,Heat,Heat Exchangers
+128673903,ShieldingSensors,3,Manufactured,Shielding,Shielding Sensors
+128673904,HighDensityComposites,3,Manufactured,Composite,High Density Composites
+128673905,PhaseAlloys,3,Manufactured,Alloys,Phase Alloys
+128673906,ChemicalDistillery,3,Manufactured,Chemical,Chemical Distillery
+128673907,PolymerCapacitors,4,Manufactured,Capacitors,Polymer Capacitors
+128673908,RefinedFocusCrystals,4,Manufactured,Crystals,Refined Focus Crystals
+128673909,ThermicAlloys,4,Manufactured,Thermic,Thermic Alloys
+128673910,ConductivePolymers,4,Manufactured,Conductive,Conductive Polymers
+128673911,ConfigurableComponents,4,Manufactured,Mechanical Components,Configurable Components
+128673912,HeatVanes,4,Manufactured,Heat,Heat Vanes
+128673913,CompoundShielding,4,Manufactured,Shielding,Compound Shielding
+128673914,FedProprietaryComposites,4,Manufactured,Composite,Proprietary Composites
+128673915,ProtoLightAlloys,4,Manufactured,Alloys,Proto Light Alloys
+128673916,ChemicalManipulators,4,Manufactured,Chemical,Chemical Manipulators
+128673917,MilitarySupercapacitors,5,Manufactured,Capacitors,Military Supercapacitors
+128673918,ExquisiteFocusCrystals,5,Manufactured,Crystals,Exquisite Focus Crystals
+128673919,MilitaryGradeAlloys,5,Manufactured,Thermic,Military Grade Alloys
+128673920,BiotechConductors,5,Manufactured,Conductive,Biotech Conductors
+128673921,ImprovisedComponents,5,Manufactured,Mechanical Components,Improvised Components
+128673922,ProtoHeatRadiators,5,Manufactured,Heat,Proto Heat Radiators
+128673923,ImperialShielding,5,Manufactured,Shielding,Imperial Shielding
+128673924,FedCoreComposites,5,Manufactured,Composite,Core Dynamics Composites
+128673925,ProtoRadiolicAlloys,5,Manufactured,Alloys,Proto Radiolic Alloys
+128673926,PharmaceuticalIsolators,5,Manufactured,Chemical,Pharmaceutical Isolators
+128681610,LegacyFirmware,1,Encoded,Encoded Firmware,Specialised Legacy Firmware
+128681611,EncryptedFiles,1,Encoded,Encryption Files,Unusual Encrypted Files
+128681612,BulkScanData,1,Encoded,Data Archives,Anomalous Bulk Scan Data
+128681613,DisruptedWakeEchoes,1,Encoded,Wake Scans,Atypical Disrupted Wake Echoes
+128681614,ScrambledEmissionData,1,Encoded,Emission Data,Exceptional Scrambled Emission Data
+128681615,ShieldCycleRecordings,1,Encoded,Shield Data,Distorted Shield Cycle Recordings
+128681616,ConsumerFirmware,2,Encoded,Encoded Firmware,Modified Consumer Firmware
+128681617,EncryptionCodes,2,Encoded,Encryption Files,Tagged Encryption Codes
+128681618,ScanArchives,2,Encoded,Data Archives,Unidentified Scan Archives
+128681619,FSDTelemetry,2,Encoded,Wake Scans,Anomalous FSD Telemetry
+128681620,ArchivedEmissionData,2,Encoded,Emission Data,Irregular Emission Data
+128681621,ShieldSoakAnalysis,2,Encoded,Shield Data,Inconsistent Shield Soak Analysis
+128681622,IndustrialFirmware,3,Encoded,Encoded Firmware,Cracked Industrial Firmware
+128681623,SymmetricKeys,3,Encoded,Encryption Files,Open Symmetric Keys
+128681624,ScanDatabanks,3,Encoded,Data Archives,Classified Scan Databanks
+128681625,WakeSolutions,3,Encoded,Wake Scans,Strange Wake Solutions
+128681626,EmissionData,3,Encoded,Emission Data,Unexpected Emission Data
+128681627,ShieldDensityReports,3,Encoded,Shield Data,Untypical Shield Scans 
+128681628,SecurityFirmware,4,Encoded,Encoded Firmware,Security Firmware Patch
+128681629,EncryptionArchives,4,Encoded,Encryption Files,Atypical Encryption Archives
+128681630,EncodedScanData,4,Encoded,Data Archives,Divergent Scan Data
+128681631,HyperspaceTrajectories,4,Encoded,Wake Scans,Eccentric Hyperspace Trajectories
+128681632,DecodedEmissionData,4,Encoded,Emission Data,Decoded Emission Data
+128681633,ShieldPatternAnalysis,4,Encoded,Shield Data,Aberrant Shield Pattern Analysis
+128681634,EmbeddedFirmware,5,Encoded,Encoded Firmware,Modified Embedded Firmware
+128681635,AdaptiveEncryptors,5,Encoded,Encryption Files,Adaptive Encryptors Capture
+128681636,ClassifiedScanData,5,Encoded,Data Archives,Classified Scan Fragment
+128681637,DataminedWake,5,Encoded,Wake Scans,Datamined Wake Exceptions
+128681638,CompactEmissionsData,5,Encoded,Emission Data,Abnormal Compact Emissions Data
+128681639,ShieldFrequencyData,5,Encoded,Shield Data,Peculiar Shield Frequency Data
+128681640,UnknownEnergySource,5,Manufactured,None,Sensor Fragment
+128731669,UnknownShipSignature,3,Encoded,None,Thargoid Ship Signature
+128731670,UnknownWakeData,4,Encoded,None,Thargoid Wake Data
+128732197,AncientLanguageData,4,Encoded,None,Pattern Delta Obelisk Data
+128732198,AncientBiologicalData,4,Encoded,None,Pattern Alpha Obelisk Data
+128732199,AncientCulturalData,4,Encoded,None,Pattern Beta Obelisk Data
+128732200,AncientHistoricalData,4,Encoded,None,Pattern Gamma Obelisk Data
+128732201,AncientTechnologicalData,4,Encoded,None,Pattern Epsilon Obelisk Data
+128737280,TG_CompositionData,3,Encoded,None,Thargoid Material Composition Data
+128737281,TG_ResidueData,4,Encoded,None,Thargoid Residue Data
+128737282,TG_StructuralData,2,Encoded,None,Thargoid Structural Data
+128737283,UnknownCarapace,2,Manufactured,None,Thargoid Carapace
+128737284,UnknownEnergyCell,3,Manufactured,None,Thargoid Energy Cell
+128737285,UnknownOrganicCircuitry,5,Manufactured,None,Thargoid Organic Circuitry
+128737286,UnknownTechnologyComponents,4,Manufactured,None,Thargoid Technological Components
+128737287,TG_BioMechanicalConduits,3,Manufactured,None,Bio-Mechanical Conduits
+128793132,TG_PropulsionElement,5,Manufactured,None,Propulsion Elements
+128793133,TG_WeaponParts,4,Manufactured,None,Weapon Parts
+128793134,TG_WreckageComponents,3,Manufactured,None,Wreckage Components
+128793135,TG_ShipFlightData,3,Encoded,None,Ship Flight Data
+128793136,TG_ShipSystemsData,4,Encoded,None,Ship Systems Data
+128815023,Guardian_PowerCell,1,Manufactured,None,Guardian Power Cell
+128815024,Guardian_PowerConduit,2,Manufactured,None,Guardian Power Conduit
+128815025,Guardian_TechComponent,3,Manufactured,None,Guardian Technology Component
+128815026,Guardian_Sentinel_WeaponParts,3,Manufactured,None,Guardian Sentinel Weapon Parts
+128815027,Guardian_Sentinel_WreckageComponents,1,Manufactured,None,Guardian Sentinel Wreckage Components
+128815028,Guardian_WeaponBlueprint,4,Encoded,None,Guardian Weapon Blueprint Segment
+128815029,Guardian_ModuleBlueprint,4,Encoded,None,Guardian Module Blueprint Segment
+128815030,Guardian_VesselBlueprint,5,Encoded,None,Guardian Vessel Blueprint Segment
+128837857,Rhenium,1,Raw,6,Rhenium
+128850245,Lead,1,Raw,7,Lead
+128850246,Boron,3,Raw,7,Boron

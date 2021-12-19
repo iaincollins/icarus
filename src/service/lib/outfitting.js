@@ -1,4 +1,4 @@
-const outfitting = require('./outfitting.json')
+const outfitting = require('../data/outfitting.json')
 
 class Outfitting {
   static async getModule (itemSymbol) {

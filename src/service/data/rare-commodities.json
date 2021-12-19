@@ -1,0 +1,996 @@
+[
+  {
+    "id": "128666746",
+    "symbol": "EraninPearlWhisky",
+    "market_id": "128001536",
+    "category": "Legal Drugs",
+    "name": "Eranin Pearl Whisky"
+  },
+  {
+    "id": "128666747",
+    "symbol": "LavianBrandy",
+    "market_id": "128106744",
+    "category": "Legal Drugs",
+    "name": "Lavian Brandy"
+  },
+  {
+    "id": "128667019",
+    "symbol": "HIP10175BushMeat",
+    "market_id": "3223234816",
+    "category": "Foods",
+    "name": "HIP 10175 Bush Meat"
+  },
+  {
+    "id": "128667020",
+    "symbol": "AlbinoQuechuaMammoth",
+    "market_id": "3222822912",
+    "category": "Foods",
+    "name": "Albino Quechua Mammoth Meat"
+  },
+  {
+    "id": "128667021",
+    "symbol": "UtgaroarMillenialEggs",
+    "market_id": "128037120",
+    "category": "Foods",
+    "name": "Utgaroar Millennial Eggs"
+  },
+  {
+    "id": "128667022",
+    "symbol": "WitchhaulKobeBeef",
+    "market_id": "3223358720",
+    "category": "Foods",
+    "name": "Witchhaul Kobe Beef"
+  },
+  {
+    "id": "128667023",
+    "symbol": "KarsukiLocusts",
+    "market_id": "3225028096",
+    "category": "Foods",
+    "name": "Karsuki Locusts"
+  },
+  {
+    "id": "128667024",
+    "symbol": "GiantIrukamaSnails",
+    "market_id": "3225345792",
+    "category": "Foods",
+    "name": "Giant Irukama Snails"
+  },
+  {
+    "id": "128667025",
+    "symbol": "BaltahSineVacuumKrill",
+    "market_id": "128088056",
+    "category": "Foods",
+    "name": "Baltah'sine Vacuum Krill"
+  },
+  {
+    "id": "128667026",
+    "symbol": "CetiRabbits",
+    "market_id": "3222560000",
+    "category": "Foods",
+    "name": "Ceti Rabbits"
+  },
+  {
+    "id": "128667027",
+    "symbol": "KachiriginLeaches",
+    "market_id": "3221595648",
+    "category": "Medicines",
+    "name": "Kachirigin Filter Leeches"
+  },
+  {
+    "id": "128667028",
+    "symbol": "LyraeWeed",
+    "market_id": "3226417152",
+    "category": "Legal Drugs",
+    "name": "Lyrae Weed"
+  },
+  {
+    "id": "128667029",
+    "symbol": "OnionHead",
+    "market_id": "128129272",
+    "category": "Legal Drugs",
+    "name": "Onionhead"
+  },
+  {
+    "id": "128667030",
+    "symbol": "TarachTorSpice",
+    "market_id": "128041984",
+    "category": "Legal Drugs",
+    "name": "Tarach Spice"
+  },
+  {
+    "id": "128667031",
+    "symbol": "Wolf1301Fesh",
+    "market_id": "128084984",
+    "category": "Legal Drugs",
+    "name": "Wolf Fesh"
+  },
+  {
+    "id": "128667032",
+    "symbol": "BorasetaniPathogenetics",
+    "market_id": "3229638400",
+    "category": "Weapons",
+    "name": "Borasetani Pathogenetics"
+  },
+  {
+    "id": "128667033",
+    "symbol": "HIP118311Swarm",
+    "market_id": "3223177472",
+    "category": "Weapons",
+    "name": "HIP 118311 Swarm"
+  },
+  {
+    "id": "128667034",
+    "symbol": "KonggaAle",
+    "market_id": "3226978048",
+    "category": "Legal Drugs",
+    "name": "Kongga Ale"
+  },
+  {
+    "id": "128667035",
+    "symbol": "WuthieloKuFroth",
+    "market_id": "3222155776",
+    "category": "Legal Drugs",
+    "name": "Wuthielo Ku Froth"
+  },
+  {
+    "id": "128667036",
+    "symbol": "AlacarakmoSkinArt",
+    "market_id": "3231373824",
+    "category": "Consumer Items",
+    "name": "Alacarakmo Skin Art"
+  },
+  {
+    "id": "128667037",
+    "symbol": "EleuThermals",
+    "market_id": "3230624768",
+    "category": "Consumer Items",
+    "name": "Eleu Thermals"
+  },
+  {
+    "id": "128667038",
+    "symbol": "EshuUmbrellas",
+    "market_id": "3222295552",
+    "category": "Consumer Items",
+    "name": "Eshu Umbrellas"
+  },
+  {
+    "id": "128667039",
+    "symbol": "KaretiiCouture",
+    "market_id": "3227333120",
+    "category": "Consumer Items",
+    "name": "Karetii Couture"
+  },
+  {
+    "id": "128667040",
+    "symbol": "NjangariSaddles",
+    "market_id": "3222416896",
+    "category": "Consumer Items",
+    "name": "Njangari Saddles"
+  },
+  {
+    "id": "128667041",
+    "symbol": "AnyNaCoffee",
+    "market_id": "3229880064",
+    "category": "Foods",
+    "name": "Any Na Coffee"
+  },
+  {
+    "id": "128667042",
+    "symbol": "CD75CatCoffee",
+    "market_id": "3228566016",
+    "category": "Foods",
+    "name": "CD-75 Kitten Brand Coffee"
+  },
+  {
+    "id": "128667043",
+    "symbol": "GomanYauponCoffee",
+    "market_id": "3224449792",
+    "category": "Foods",
+    "name": "Goman Yaupon Coffee"
+  },
+  {
+    "id": "128667044",
+    "symbol": "VolkhabBeeDrones",
+    "market_id": "3227831808",
+    "category": "Machinery",
+    "name": "Volkhab Bee Drones"
+  },
+  {
+    "id": "128667045",
+    "symbol": "KinagoInstruments",
+    "market_id": "3227394304",
+    "category": "Consumer Items",
+    "name": "Kinago Violins"
+  },
+  {
+    "id": "128667046",
+    "symbol": "NgunaModernAntiques",
+    "market_id": "3221538304",
+    "category": "Consumer Items",
+    "name": "Nguna Modern Antiques"
+  },
+  {
+    "id": "128667047",
+    "symbol": "RajukruStoves",
+    "market_id": "3227512320",
+    "category": "Consumer Items",
+    "name": "Rajukru Multi-Stoves"
+  },
+  {
+    "id": "128667048",
+    "symbol": "TiolceWaste2PasteUnits",
+    "market_id": "3224141312",
+    "category": "Consumer Items",
+    "name": "Tiolce Waste2Paste Units"
+  },
+  {
+    "id": "128667049",
+    "symbol": "ChiEridaniMarinePaste",
+    "market_id": "128128760",
+    "category": "Foods",
+    "name": "Chi Eridani Marine Paste"
+  },
+  {
+    "id": "128667050",
+    "symbol": "EsusekuCaviar",
+    "market_id": "3226919680",
+    "category": "Foods",
+    "name": "Esuseku Caviar"
+  },
+  {
+    "id": "128667051",
+    "symbol": "LiveHecateSeaWorms",
+    "market_id": "128042496",
+    "category": "Foods",
+    "name": "Live Hecate Sea Worms"
+  },
+  {
+    "id": "128667052",
+    "symbol": "HelvetitjPearls",
+    "market_id": "3231094528",
+    "category": "Metals",
+    "name": "Helvetitj Pearls"
+  },
+  {
+    "id": "128667053",
+    "symbol": "HIP41181Squid",
+    "market_id": "3227995392",
+    "category": "Foods",
+    "name": "HIP Proto-Squid"
+  },
+  {
+    "id": "128667054",
+    "symbol": "CoquimSpongiformVictuals",
+    "market_id": "3223832576",
+    "category": "Foods",
+    "name": "Coquim Spongiform Victuals"
+  },
+  {
+    "id": "128667055",
+    "symbol": "AerialEdenApple",
+    "market_id": "128083448",
+    "category": "Foods",
+    "name": "Eden Apples of Aerial"
+  },
+  {
+    "id": "128667056",
+    "symbol": "NeritusBerries",
+    "market_id": "3228206080",
+    "category": "Foods",
+    "name": "Neritus Berries"
+  },
+  {
+    "id": "128667057",
+    "symbol": "OchoengChillies",
+    "market_id": "3226719232",
+    "category": "Foods",
+    "name": "Ochoeng Chillies"
+  },
+  {
+    "id": "128667058",
+    "symbol": "DeuringasTruffles",
+    "market_id": "3229713408",
+    "category": "Foods",
+    "name": "Deuringas Truffles"
+  },
+  {
+    "id": "128667059",
+    "symbol": "HR7221Wheat",
+    "market_id": "3226170880",
+    "category": "Foods",
+    "name": "HR 7221 Wheat"
+  },
+  {
+    "id": "128667060",
+    "symbol": "JarouaRice",
+    "market_id": "3224698112",
+    "category": "Foods",
+    "name": "Jaroua Rice"
+  },
+  {
+    "id": "128667061",
+    "symbol": "BelalansRayLeather",
+    "market_id": "3223537152",
+    "category": "Textiles",
+    "name": "Belalans Ray Leather"
+  },
+  {
+    "id": "128667062",
+    "symbol": "DamnaCarapaces",
+    "market_id": "3227751936",
+    "category": "Textiles",
+    "name": "Damna Carapaces"
+  },
+  {
+    "id": "128667063",
+    "symbol": "RapaBaoSnakeSkins",
+    "market_id": "3222875648",
+    "category": "Textiles",
+    "name": "Rapa Bao Snake Skins"
+  },
+  {
+    "id": "128667064",
+    "symbol": "VanayequiRhinoFur",
+    "market_id": "3227289856",
+    "category": "Textiles",
+    "name": "Vanayequi Ceratomorpha Fur"
+  },
+  {
+    "id": "128667065",
+    "symbol": "BastSnakeGin",
+    "market_id": "128086776",
+    "category": "Legal Drugs",
+    "name": "Bast Snake Gin"
+  },
+  {
+    "id": "128667066",
+    "symbol": "ThrutisCream",
+    "market_id": "3226522368",
+    "category": "Legal Drugs",
+    "name": "Thrutis Cream"
+  },
+  {
+    "id": "128667067",
+    "symbol": "WulpaHyperboreSystems",
+    "market_id": "3221388032",
+    "category": "Machinery",
+    "name": "Wulpa Hyperbore Systems"
+  },
+  {
+    "id": "128667068",
+    "symbol": "AganippeRush",
+    "market_id": "128012800",
+    "category": "Medicines",
+    "name": "Aganippe Rush"
+  },
+  {
+    "id": "128667069",
+    "symbol": "TerraMaterBloodBores",
+    "market_id": "128051466",
+    "category": "Medicines",
+    "name": "Terra Mater Blood Bores"
+  },
+  {
+    "id": "128667070",
+    "symbol": "HolvaDuellingBlades",
+    "market_id": "3222713088",
+    "category": "Weapons",
+    "name": "Holva Duelling Blades"
+  },
+  {
+    "id": "128667071",
+    "symbol": "KamorinHistoricWeapons",
+    "market_id": "3221669632",
+    "category": "Weapons",
+    "name": "Kamorin Historic Weapons"
+  },
+  {
+    "id": "128667072",
+    "symbol": "GilyaSignatureWeapons",
+    "market_id": "3226857216",
+    "category": "Weapons",
+    "name": "Gilya Signature Weapons"
+  },
+  {
+    "id": "128667073",
+    "symbol": "DeltaPhoenicisPalms",
+    "market_id": "128045312",
+    "category": "Chemicals",
+    "name": "Delta Phoenicis Palms"
+  },
+  {
+    "id": "128667074",
+    "symbol": "ToxandjiVirocide",
+    "market_id": "3230258688",
+    "category": "Chemicals",
+    "name": "Toxandji Virocide"
+  },
+  {
+    "id": "128667075",
+    "symbol": "XiheCompanions",
+    "market_id": "3224133120",
+    "category": "Technology",
+    "name": "Xihe Biomorphic Companions"
+  },
+  {
+    "id": "128667076",
+    "symbol": "SanumaMEAT",
+    "market_id": "3230331136",
+    "category": "Foods",
+    "name": "Sanuma Decorative Meat"
+  },
+  {
+    "id": "128667077",
+    "symbol": "EthgrezeTeaBuds",
+    "market_id": "3229524992",
+    "category": "Foods",
+    "name": "Ethgreze Tea Buds"
+  },
+  {
+    "id": "128667078",
+    "symbol": "CeremonialHeikeTea",
+    "market_id": "3227417856",
+    "category": "Foods",
+    "name": "Ceremonial Heike Tea"
+  },
+  {
+    "id": "128667079",
+    "symbol": "TanmarkTranquilTea",
+    "market_id": "128057866",
+    "category": "Foods",
+    "name": "Tanmark Tranquil Tea"
+  },
+  {
+    "id": "128667080",
+    "symbol": "AZCancriFormula42",
+    "market_id": "3228400128",
+    "category": "Technology",
+    "name": "Az Cancri Formula 42"
+  },
+  {
+    "id": "128667081",
+    "symbol": "KamitraCigars",
+    "market_id": "3225450752",
+    "category": "Legal Drugs",
+    "name": "Kamitra Cigars"
+  },
+  {
+    "id": "128667082",
+    "symbol": "RusaniOldSmokey",
+    "market_id": "3229255680",
+    "category": "Legal Drugs",
+    "name": "Rusani Old Smokey"
+  },
+  {
+    "id": "128667083",
+    "symbol": "YasoKondiLeaf",
+    "market_id": "3223088640",
+    "category": "Legal Drugs",
+    "name": "Yaso Kondi Leaf"
+  },
+  {
+    "id": "128667084",
+    "symbol": "ChateauDeAegaeon",
+    "market_id": "3228416768",
+    "category": "Legal Drugs",
+    "name": "Chateau De Aegaeon"
+  },
+  {
+    "id": "128667085",
+    "symbol": "WatersOfShintara",
+    "market_id": "128666762",
+    "category": "Medicines",
+    "name": "The Waters of Shintara"
+  },
+  {
+    "id": "128667668",
+    "symbol": "OphiuchiExinoArtefacts",
+    "market_id": "3228939264",
+    "category": "Consumer Items",
+    "name": "Ophiuch Exino Artefacts"
+  },
+  {
+    "id": "128667669",
+    "symbol": "BakedGreebles",
+    "market_id": "3229378560",
+    "category": "Foods",
+    "name": "Baked Greebles"
+  },
+  {
+    "id": "128667670",
+    "symbol": "CetiAepyornisEgg",
+    "market_id": "3222560256",
+    "category": "Foods",
+    "name": "Aepyornis Egg"
+  },
+  {
+    "id": "128667671",
+    "symbol": "SaxonWine",
+    "market_id": "3227986432",
+    "category": "Legal Drugs",
+    "name": "Saxon Wine"
+  },
+  {
+    "id": "128667672",
+    "symbol": "CentauriMegaGin",
+    "market_id": "3228728832",
+    "category": "Legal Drugs",
+    "name": "Centauri Mega Gin"
+  },
+  {
+    "id": "128667673",
+    "symbol": "AnduligaFireWorks",
+    "market_id": "3230243584",
+    "category": "Consumer Items",
+    "name": "Anduliga Fire Works"
+  },
+  {
+    "id": "128667674",
+    "symbol": "BankiAmphibiousLeather",
+    "market_id": "3228346112",
+    "category": "Textiles",
+    "name": "Banki Amphibious Leather"
+  },
+  {
+    "id": "128667675",
+    "symbol": "CherbonesBloodCrystals",
+    "market_id": "3229594624",
+    "category": "Metals",
+    "name": "Cherbones Blood Crystals"
+  },
+  {
+    "id": "128667676",
+    "symbol": "MotronaExperienceJelly",
+    "market_id": "3229750528",
+    "category": "Legal Drugs",
+    "name": "Motrona Experience Jelly"
+  },
+  {
+    "id": "128667677",
+    "symbol": "GeawenDanceDust",
+    "market_id": "3230954752",
+    "category": "Legal Drugs",
+    "name": "Geawen Dance Dust"
+  },
+  {
+    "id": "128667678",
+    "symbol": "GerasianGueuzeBeer",
+    "market_id": "3228047360",
+    "category": "Legal Drugs",
+    "name": "Gerasian Gueuze Beer"
+  },
+  {
+    "id": "128667679",
+    "symbol": "HaidneBlackBrew",
+    "market_id": "3226557696",
+    "category": "Foods",
+    "name": "Haiden Black Brew"
+  },
+  {
+    "id": "128667680",
+    "symbol": "HavasupaiDreamCatcher",
+    "market_id": "3221438976",
+    "category": "Consumer Items",
+    "name": "Havasupai Dream Catcher"
+  },
+  {
+    "id": "128667681",
+    "symbol": "BurnhamBileDistillate",
+    "market_id": "3230224384",
+    "category": "Legal Drugs",
+    "name": "Burnham Bile Distillate"
+  },
+  {
+    "id": "128667682",
+    "symbol": "HIPOrganophosphates",
+    "market_id": "3227036160",
+    "category": "Chemicals",
+    "name": "HIP Organophosphates"
+  },
+  {
+    "id": "128667683",
+    "symbol": "JaradharrePuzzlebox",
+    "market_id": "3230754816",
+    "category": "Consumer Items",
+    "name": "Jaradharre Puzzle Box"
+  },
+  {
+    "id": "128667684",
+    "symbol": "KorroKungPellets",
+    "market_id": "3228726272",
+    "category": "Chemicals",
+    "name": "Koro Kung Pellets"
+  },
+  {
+    "id": "128667685",
+    "symbol": "LFTVoidExtractCoffee",
+    "market_id": "3229028864",
+    "category": "Foods",
+    "name": "Void Extract Coffee"
+  },
+  {
+    "id": "128667686",
+    "symbol": "HonestyPills",
+    "market_id": "3229561344",
+    "category": "Medicines",
+    "name": "Honesty Pills"
+  },
+  {
+    "id": "128667687",
+    "symbol": "NonEuclidianExotanks",
+    "market_id": "3224135424",
+    "category": "Machinery",
+    "name": "Non Euclidian Exotanks"
+  },
+  {
+    "id": "128667688",
+    "symbol": "LTTHyperSweet",
+    "market_id": "3224166400",
+    "category": "Foods",
+    "name": "LTT Hyper Sweet"
+  },
+  {
+    "id": "128667689",
+    "symbol": "MechucosHighTea",
+    "market_id": "3228398848",
+    "category": "Foods",
+    "name": "Mechucos High Tea"
+  },
+  {
+    "id": "128667690",
+    "symbol": "MedbStarlube",
+    "market_id": "3228762368",
+    "category": "Chemicals",
+    "name": "Medb Starlube"
+  },
+  {
+    "id": "128667691",
+    "symbol": "MokojingBeastFeast",
+    "market_id": "3229612800",
+    "category": "Foods",
+    "name": "Mokojing Beast Feast"
+  },
+  {
+    "id": "128667692",
+    "symbol": "MukusubiiChitinOs",
+    "market_id": "3221719296",
+    "category": "Foods",
+    "name": "Mukusubii Chitin-os"
+  },
+  {
+    "id": "128667693",
+    "symbol": "MulachiGiantFungus",
+    "market_id": "3228892672",
+    "category": "Foods",
+    "name": "Mulachi Giant Fungus"
+  },
+  {
+    "id": "128667694",
+    "symbol": "NgadandariFireOpals",
+    "market_id": "3226127872",
+    "category": "Metals",
+    "name": "Ngadandari Fire Opals"
+  },
+  {
+    "id": "128667695",
+    "symbol": "TiegfriesSynthSilk",
+    "market_id": "3227726848",
+    "category": "Textiles",
+    "name": "Tiegfries Synth Silk"
+  },
+  {
+    "id": "128667696",
+    "symbol": "UzumokuLowGWings",
+    "market_id": "3226474496",
+    "category": "Consumer Items",
+    "name": "Uzumoku Low-G Wings"
+  },
+  {
+    "id": "128667697",
+    "symbol": "VHerculisBodyRub",
+    "market_id": "3228959232",
+    "category": "Medicines",
+    "name": "V Herculis Body Rub"
+  },
+  {
+    "id": "128667698",
+    "symbol": "WheemeteWheatCakes",
+    "market_id": "3225032704",
+    "category": "Foods",
+    "name": "Wheemete Wheat Cakes"
+  },
+  {
+    "id": "128667699",
+    "symbol": "VegaSlimWeed",
+    "market_id": "128149240",
+    "category": "Medicines",
+    "name": "Vega Slimweed"
+  },
+  {
+    "id": "128667700",
+    "symbol": "AltairianSkin",
+    "market_id": "128151032",
+    "category": "Consumer Items",
+    "name": "Altairian Skin"
+  },
+  {
+    "id": "128667701",
+    "symbol": "PavonisEarGrubs",
+    "market_id": "128117240",
+    "category": "Legal Drugs",
+    "name": "Pavonis Ear Grubs"
+  },
+  {
+    "id": "128667702",
+    "symbol": "JotunMookah",
+    "market_id": "128078840",
+    "category": "Textiles",
+    "name": "Jotun Mookah"
+  },
+  {
+    "id": "128667703",
+    "symbol": "GiantVerrix",
+    "market_id": "128121336",
+    "category": "Machinery",
+    "name": "Giant Verrix"
+  },
+  {
+    "id": "128667704",
+    "symbol": "IndiBourbon",
+    "market_id": "128118520",
+    "category": "Legal Drugs",
+    "name": "Indi Bourbon"
+  },
+  {
+    "id": "128667705",
+    "symbol": "AroucaConventualSweets",
+    "market_id": "128098040",
+    "category": "Foods",
+    "name": "Arouca Conventual Sweets"
+  },
+  {
+    "id": "128667706",
+    "symbol": "TauriChimes",
+    "market_id": "128134648",
+    "category": "Consumer Items",
+    "name": "Tauri Chimes"
+  },
+  {
+    "id": "128667707",
+    "symbol": "ZeesszeAntGlue",
+    "market_id": "128125432",
+    "category": "Consumer Items",
+    "name": "Zeessze Ant Grub Glue"
+  },
+  {
+    "id": "128667708",
+    "symbol": "PantaaPrayerSticks",
+    "market_id": "3228824064",
+    "category": "Medicines",
+    "name": "Pantaa Prayer Sticks"
+  },
+  {
+    "id": "128667709",
+    "symbol": "FujinTea",
+    "market_id": "128134392",
+    "category": "Foods",
+    "name": "Fujin Tea"
+  },
+  {
+    "id": "128667710",
+    "symbol": "ChameleonCloth",
+    "market_id": "3223418880",
+    "category": "Textiles",
+    "name": "Chameleon Cloth"
+  },
+  {
+    "id": "128667711",
+    "symbol": "OrrerianViciousBrew",
+    "market_id": "128166392",
+    "category": "Foods",
+    "name": "Orrerian Vicious Brew"
+  },
+  {
+    "id": "128667712",
+    "symbol": "UszaianTreeGrub",
+    "market_id": "128164856",
+    "category": "Foods",
+    "name": "Uszaian Tree Grub"
+  },
+  {
+    "id": "128667713",
+    "symbol": "MomusBogSpaniel",
+    "market_id": "128075256",
+    "category": "Consumer Items",
+    "name": "Momus Bog Spaniel"
+  },
+  {
+    "id": "128667714",
+    "symbol": "DisoMaCorn",
+    "market_id": "128161016",
+    "category": "Foods",
+    "name": "Diso Ma Corn"
+  },
+  {
+    "id": "128667715",
+    "symbol": "LeestianEvilJuice",
+    "market_id": "128639992",
+    "category": "Legal Drugs",
+    "name": "Leestian Evil Juice"
+  },
+  {
+    "id": "128667716",
+    "symbol": "BlueMilk",
+    "market_id": "128639992",
+    "category": "Foods",
+    "name": "Azure Milk"
+  },
+  {
+    "id": "128667717",
+    "symbol": "AlienEggs",
+    "market_id": "128164088",
+    "category": "Consumer Items",
+    "name": "Leathery Eggs"
+  },
+  {
+    "id": "128667718",
+    "symbol": "AlyaBodilySoap",
+    "market_id": "3221638400",
+    "category": "Medicines",
+    "name": "Alya Body Soap"
+  },
+  {
+    "id": "128667719",
+    "symbol": "VidavantianLace",
+    "market_id": "3231082240",
+    "category": "Consumer Items",
+    "name": "Vidavantian Lace"
+  },
+  {
+    "id": "128667760",
+    "symbol": "TransgenicOnionHead",
+    "market_id": "128057866",
+    "category": "Legal Drugs",
+    "name": "Lucan Onionhead"
+  },
+  {
+    "id": "128668017",
+    "symbol": "JaquesQuinentianStill",
+    "market_id": "128667761",
+    "category": "Consumer Items",
+    "name": "Jaques Quinentian Still"
+  },
+  {
+    "id": "128668018",
+    "symbol": "SoontillRelics",
+    "market_id": "3225348096",
+    "category": "Consumer Items",
+    "name": "Soontill Relics"
+  },
+  {
+    "id": "128671119",
+    "symbol": "Advert1",
+    "market_id": "3227172352",
+    "category": "Consumer Items",
+    "name": "Ultra-Compact Processor Prototypes"
+  },
+  {
+    "id": "128672121",
+    "symbol": "TheHuttonMug",
+    "market_id": "3228728832",
+    "category": "Consumer Items",
+    "name": "The Hutton Mug"
+  },
+  {
+    "id": "128672122",
+    "symbol": "SothisCrystallineGold",
+    "market_id": "128668557",
+    "category": "Metals",
+    "name": "Sothis Crystalline Gold"
+  },
+  {
+    "id": "128672316",
+    "symbol": "MasterChefs",
+    "market_id": "128123640",
+    "category": "Slavery",
+    "name": "Master Chefs"
+  },
+  {
+    "id": "128672431",
+    "symbol": "PersonalGifts",
+    "market_id": "3223105792",
+    "category": "Salvage",
+    "name": "Personal Gifts"
+  },
+  {
+    "id": "128672432",
+    "symbol": "CrystallineSpheres",
+    "market_id": "128059402",
+    "category": "Salvage",
+    "name": "Crystalline Spheres"
+  },
+  {
+    "id": "128672812",
+    "symbol": "OnionHeadA",
+    "market_id": "3226977024",
+    "category": "Legal Drugs",
+    "name": "Onionhead Alpha Strain"
+  },
+  {
+    "id": "128673069",
+    "symbol": "OnionHeadB",
+    "market_id": "3223027200",
+    "category": "Legal Drugs",
+    "name": "Onionhead Beta Strain"
+  },
+  {
+    "id": "128682050",
+    "symbol": "GalacticTravelGuide",
+    "market_id": "128673074",
+    "category": "Salvage",
+    "name": "Galactic Travel Guide"
+  },
+  {
+    "id": "128727921",
+    "symbol": "AnimalEffigies",
+    "market_id": "3228463360",
+    "category": "Legal Drugs",
+    "name": "Crom Silver Fesh"
+  },
+  {
+    "id": "128732551",
+    "symbol": "ShansCharisOrchid",
+    "market_id": "128107768",
+    "category": "Consumer Items",
+    "name": "Shan's Charis Orchid"
+  },
+  {
+    "id": "128748428",
+    "symbol": "BuckyballBeerMats",
+    "market_id": "128745551",
+    "category": "Consumer Items",
+    "name": "Buckyball Beer Mats"
+  },
+  {
+    "id": "128793113",
+    "symbol": "HarmaSilverSeaRum",
+    "market_id": "3221575424",
+    "category": "Legal Drugs",
+    "name": "Harma Silver Sea Rum"
+  },
+  {
+    "id": "128793114",
+    "symbol": "PlatinumAloy",
+    "market_id": "3223779840",
+    "category": "Metals",
+    "name": "Platinum Alloy"
+  },
+  {
+    "id": "128913661",
+    "symbol": "Nanomedicines",
+    "market_id": "3226651904",
+    "category": "Medicines",
+    "name": "Nanomedicines"
+  },
+  {
+    "id": "128922524",
+    "symbol": "Duradrives",
+    "market_id": "3223453184",
+    "category": "Consumer Items",
+    "name": "Duradrives"
+  },
+  {
+    "id": "128958679",
+    "symbol": "ApaVietii",
+    "market_id": "128958681",
+    "category": "Legal Drugs",
+    "name": "Apa Vietii"
+  },
+  {
+    "id": "129002574",
+    "symbol": "ClassifiedExperimentalEquipment",
+    "market_id": "128986325",
+    "category": "Technology",
+    "name": "Classified Experimental Equipment"
+  }
+]

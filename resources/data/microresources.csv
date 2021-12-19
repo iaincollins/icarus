@@ -1,0 +1,80 @@
+id,symbol,category,English name
+?,bypass,Consumable,E-Breach
+?,largecapacitypowerregulator,Item,Power Regulator
+?,chemicalinventory,Data,Chemical Inventory
+?,dutyrota,Data,Duty Rota
+?,evacuationprotocols,Data,Evacuation Protocols
+?,explorationjournals,Data,Exploration Journals
+?,factionnews,Data,Faction News
+?,financialprojections,Data,Financial Projections
+?,salesrecords,Data,Sales Records
+?,unionmembership,Data,Union Membership
+?,compactlibrary,Item,Compact Library
+?,infinity,Item,infinity
+?,insightentertainmentsuite,Item,Insight Entertainment Suite
+?,lazarus,Item,lazarus
+?,energycell,Consumable,Energy Cell
+?,healthpack,Consumable,Medkit
+?,universaltranslator,Item,Universal Translator
+?,biochemicalagent,Item,Biochemical Agent
+?,degradedpowerregulator,Item,Degraded Power Regulator
+?,hush,Item,hush
+?,maintenancelogs,Data,Maintenance Logs
+?,patrolroutes,Data,Patrol Routes
+?,push,Item,push
+?,settlementdefenceplans,Data,Settlement Defence Plans
+?,surveilleancelogs,Data,Surveillance Logs
+?,syntheticpathogen,Item,Synthetic Pathogen
+?,buildingschematic,Item,Building Schematic
+?,operationalmanual,Data,Operational Manual
+?,blacklistdata,Data,Blacklist Data
+?,insight,Item,insight
+?,airqualityreports,Data,Air Quality Reports
+?,employeedirectory,Data,Employee Directory
+?,factionassociates,Data,Faction Associates
+?,meetingminutes,Data,Meeting Minutes
+?,multimediaentertainment,Data,Multimedia Entertainment
+?,networkaccesshistory,Data,Network Access History
+?,purchaserecords,Data,Purchase Records
+?,radioactivitydata,Data,Radioactivity Data
+?,residentialdirectory,Data,Residential Directory
+?,shareholderinformation,Data,Shareholder Information
+?,travelpermits,Data,Travel Permits
+?,accidentlogs,Data,Accident Logs
+?,campaignplans,Data,Campaign Plans
+?,combattrainingmaterial,Data,Combat Training Material
+?,internalcorrespondence,Data,Internal Correspondence
+?,payrollinformation,Data,Payroll Information
+?,personallogs,Data,Personal Logs
+?,weaponinventory,Data,Weapon Inventory
+?,atmosphericdata,Data,Atmospheric Data
+?,topographicalsurveys,Data,Topographical Surveys
+?,literaryfiction,Data,Literary Fiction
+?,reactoroutputreview,Data,Reactor Output Review
+?,nextofkinrecords,Data,Next of Kin Records
+?,purchaserequests,Data,Purchase Requests
+?,taxrecords,Data,Tax Records
+?,visitorregister,Data,Visitor Register
+?,pharmaceuticalpatents,Data,Pharmaceutical Patents
+?,vaccineresearch,Data,Vaccine Research
+?,virologydata,Data,Virology Data
+?,vaccinationrecords,Data,Vaccination Records
+?,censusdata,Data,Census Data
+?,geographicaldata,Data,Geographical Data
+?,mineralsurvey,Data,Mineral Survey
+?,chemicalformulae,Data,Chemical Formulae
+?,amm_grenade_frag,Consumable,Frag Grenade
+?,amm_grenade_emp,Consumable,Shield Disruptor
+?,amm_grenade_shield,Consumable,Shield Projector
+?,chemicalexperimentdata,Data,Chemical Experiment Data
+?,chemicalpatents,Data,Chemical Patents
+?,productionreports,Data,Production Reports
+?,productionschedule,Data,Production Schedule
+?,bloodtestresults,Data,Blood Test Results
+?,combatantperformance,Data,Combatant Performance
+?,troopdeploymentrecords,Data,Troop Deployment Records
+?,catmedia,Data,Cat Media
+?,employeegeneticdata,Data,Employee Genetic Data
+?,factiondonatorlist,Data,Faction Donator List
+?,nocdata,Data,NOC Data
+?,trueformfossil,Item,True Form Fossil

@@ -1,0 +1,476 @@
+[
+  {
+    "id": "?",
+    "symbol": "bypass",
+    "category": "Consumable",
+    "English name": "E-Breach"
+  },
+  {
+    "id": "?",
+    "symbol": "largecapacitypowerregulator",
+    "category": "Item",
+    "English name": "Power Regulator"
+  },
+  {
+    "id": "?",
+    "symbol": "chemicalinventory",
+    "category": "Data",
+    "English name": "Chemical Inventory"
+  },
+  {
+    "id": "?",
+    "symbol": "dutyrota",
+    "category": "Data",
+    "English name": "Duty Rota"
+  },
+  {
+    "id": "?",
+    "symbol": "evacuationprotocols",
+    "category": "Data",
+    "English name": "Evacuation Protocols"
+  },
+  {
+    "id": "?",
+    "symbol": "explorationjournals",
+    "category": "Data",
+    "English name": "Exploration Journals"
+  },
+  {
+    "id": "?",
+    "symbol": "factionnews",
+    "category": "Data",
+    "English name": "Faction News"
+  },
+  {
+    "id": "?",
+    "symbol": "financialprojections",
+    "category": "Data",
+    "English name": "Financial Projections"
+  },
+  {
+    "id": "?",
+    "symbol": "salesrecords",
+    "category": "Data",
+    "English name": "Sales Records"
+  },
+  {
+    "id": "?",
+    "symbol": "unionmembership",
+    "category": "Data",
+    "English name": "Union Membership"
+  },
+  {
+    "id": "?",
+    "symbol": "compactlibrary",
+    "category": "Item",
+    "English name": "Compact Library"
+  },
+  {
+    "id": "?",
+    "symbol": "infinity",
+    "category": "Item",
+    "English name": "infinity"
+  },
+  {
+    "id": "?",
+    "symbol": "insightentertainmentsuite",
+    "category": "Item",
+    "English name": "Insight Entertainment Suite"
+  },
+  {
+    "id": "?",
+    "symbol": "lazarus",
+    "category": "Item",
+    "English name": "lazarus"
+  },
+  {
+    "id": "?",
+    "symbol": "energycell",
+    "category": "Consumable",
+    "English name": "Energy Cell"
+  },
+  {
+    "id": "?",
+    "symbol": "healthpack",
+    "category": "Consumable",
+    "English name": "Medkit"
+  },
+  {
+    "id": "?",
+    "symbol": "universaltranslator",
+    "category": "Item",
+    "English name": "Universal Translator"
+  },
+  {
+    "id": "?",
+    "symbol": "biochemicalagent",
+    "category": "Item",
+    "English name": "Biochemical Agent"
+  },
+  {
+    "id": "?",
+    "symbol": "degradedpowerregulator",
+    "category": "Item",
+    "English name": "Degraded Power Regulator"
+  },
+  {
+    "id": "?",
+    "symbol": "hush",
+    "category": "Item",
+    "English name": "hush"
+  },
+  {
+    "id": "?",
+    "symbol": "maintenancelogs",
+    "category": "Data",
+    "English name": "Maintenance Logs"
+  },
+  {
+    "id": "?",
+    "symbol": "patrolroutes",
+    "category": "Data",
+    "English name": "Patrol Routes"
+  },
+  {
+    "id": "?",
+    "symbol": "push",
+    "category": "Item",
+    "English name": "push"
+  },
+  {
+    "id": "?",
+    "symbol": "settlementdefenceplans",
+    "category": "Data",
+    "English name": "Settlement Defence Plans"
+  },
+  {
+    "id": "?",
+    "symbol": "surveilleancelogs",
+    "category": "Data",
+    "English name": "Surveillance Logs"
+  },
+  {
+    "id": "?",
+    "symbol": "syntheticpathogen",
+    "category": "Item",
+    "English name": "Synthetic Pathogen"
+  },
+  {
+    "id": "?",
+    "symbol": "buildingschematic",
+    "category": "Item",
+    "English name": "Building Schematic"
+  },
+  {
+    "id": "?",
+    "symbol": "operationalmanual",
+    "category": "Data",
+    "English name": "Operational Manual"
+  },
+  {
+    "id": "?",
+    "symbol": "blacklistdata",
+    "category": "Data",
+    "English name": "Blacklist Data"
+  },
+  {
+    "id": "?",
+    "symbol": "insight",
+    "category": "Item",
+    "English name": "insight"
+  },
+  {
+    "id": "?",
+    "symbol": "airqualityreports",
+    "category": "Data",
+    "English name": "Air Quality Reports"
+  },
+  {
+    "id": "?",
+    "symbol": "employeedirectory",
+    "category": "Data",
+    "English name": "Employee Directory"
+  },
+  {
+    "id": "?",
+    "symbol": "factionassociates",
+    "category": "Data",
+    "English name": "Faction Associates"
+  },
+  {
+    "id": "?",
+    "symbol": "meetingminutes",
+    "category": "Data",
+    "English name": "Meeting Minutes"
+  },
+  {
+    "id": "?",
+    "symbol": "multimediaentertainment",
+    "category": "Data",
+    "English name": "Multimedia Entertainment"
+  },
+  {
+    "id": "?",
+    "symbol": "networkaccesshistory",
+    "category": "Data",
+    "English name": "Network Access History"
+  },
+  {
+    "id": "?",
+    "symbol": "purchaserecords",
+    "category": "Data",
+    "English name": "Purchase Records"
+  },
+  {
+    "id": "?",
+    "symbol": "radioactivitydata",
+    "category": "Data",
+    "English name": "Radioactivity Data"
+  },
+  {
+    "id": "?",
+    "symbol": "residentialdirectory",
+    "category": "Data",
+    "English name": "Residential Directory"
+  },
+  {
+    "id": "?",
+    "symbol": "shareholderinformation",
+    "category": "Data",
+    "English name": "Shareholder Information"
+  },
+  {
+    "id": "?",
+    "symbol": "travelpermits",
+    "category": "Data",
+    "English name": "Travel Permits"
+  },
+  {
+    "id": "?",
+    "symbol": "accidentlogs",
+    "category": "Data",
+    "English name": "Accident Logs"
+  },
+  {
+    "id": "?",
+    "symbol": "campaignplans",
+    "category": "Data",
+    "English name": "Campaign Plans"
+  },
+  {
+    "id": "?",
+    "symbol": "combattrainingmaterial",
+    "category": "Data",
+    "English name": "Combat Training Material"
+  },
+  {
+    "id": "?",
+    "symbol": "internalcorrespondence",
+    "category": "Data",
+    "English name": "Internal Correspondence"
+  },
+  {
+    "id": "?",
+    "symbol": "payrollinformation",
+    "category": "Data",
+    "English name": "Payroll Information"
+  },
+  {
+    "id": "?",
+    "symbol": "personallogs",
+    "category": "Data",
+    "English name": "Personal Logs"
+  },
+  {
+    "id": "?",
+    "symbol": "weaponinventory",
+    "category": "Data",
+    "English name": "Weapon Inventory"
+  },
+  {
+    "id": "?",
+    "symbol": "atmosphericdata",
+    "category": "Data",
+    "English name": "Atmospheric Data"
+  },
+  {
+    "id": "?",
+    "symbol": "topographicalsurveys",
+    "category": "Data",
+    "English name": "Topographical Surveys"
+  },
+  {
+    "id": "?",
+    "symbol": "literaryfiction",
+    "category": "Data",
+    "English name": "Literary Fiction"
+  },
+  {
+    "id": "?",
+    "symbol": "reactoroutputreview",
+    "category": "Data",
+    "English name": "Reactor Output Review"
+  },
+  {
+    "id": "?",
+    "symbol": "nextofkinrecords",
+    "category": "Data",
+    "English name": "Next of Kin Records"
+  },
+  {
+    "id": "?",
+    "symbol": "purchaserequests",
+    "category": "Data",
+    "English name": "Purchase Requests"
+  },
+  {
+    "id": "?",
+    "symbol": "taxrecords",
+    "category": "Data",
+    "English name": "Tax Records"
+  },
+  {
+    "id": "?",
+    "symbol": "visitorregister",
+    "category": "Data",
+    "English name": "Visitor Register"
+  },
+  {
+    "id": "?",
+    "symbol": "pharmaceuticalpatents",
+    "category": "Data",
+    "English name": "Pharmaceutical Patents"
+  },
+  {
+    "id": "?",
+    "symbol": "vaccineresearch",
+    "category": "Data",
+    "English name": "Vaccine Research"
+  },
+  {
+    "id": "?",
+    "symbol": "virologydata",
+    "category": "Data",
+    "English name": "Virology Data"
+  },
+  {
+    "id": "?",
+    "symbol": "vaccinationrecords",
+    "category": "Data",
+    "English name": "Vaccination Records"
+  },
+  {
+    "id": "?",
+    "symbol": "censusdata",
+    "category": "Data",
+    "English name": "Census Data"
+  },
+  {
+    "id": "?",
+    "symbol": "geographicaldata",
+    "category": "Data",
+    "English name": "Geographical Data"
+  },
+  {
+    "id": "?",
+    "symbol": "mineralsurvey",
+    "category": "Data",
+    "English name": "Mineral Survey"
+  },
+  {
+    "id": "?",
+    "symbol": "chemicalformulae",
+    "category": "Data",
+    "English name": "Chemical Formulae"
+  },
+  {
+    "id": "?",
+    "symbol": "amm_grenade_frag",
+    "category": "Consumable",
+    "English name": "Frag Grenade"
+  },
+  {
+    "id": "?",
+    "symbol": "amm_grenade_emp",
+    "category": "Consumable",
+    "English name": "Shield Disruptor"
+  },
+  {
+    "id": "?",
+    "symbol": "amm_grenade_shield",
+    "category": "Consumable",
+    "English name": "Shield Projector"
+  },
+  {
+    "id": "?",
+    "symbol": "chemicalexperimentdata",
+    "category": "Data",
+    "English name": "Chemical Experiment Data"
+  },
+  {
+    "id": "?",
+    "symbol": "chemicalpatents",
+    "category": "Data",
+    "English name": "Chemical Patents"
+  },
+  {
+    "id": "?",
+    "symbol": "productionreports",
+    "category": "Data",
+    "English name": "Production Reports"
+  },
+  {
+    "id": "?",
+    "symbol": "productionschedule",
+    "category": "Data",
+    "English name": "Production Schedule"
+  },
+  {
+    "id": "?",
+    "symbol": "bloodtestresults",
+    "category": "Data",
+    "English name": "Blood Test Results"
+  },
+  {
+    "id": "?",
+    "symbol": "combatantperformance",
+    "category": "Data",
+    "English name": "Combatant Performance"
+  },
+  {
+    "id": "?",
+    "symbol": "troopdeploymentrecords",
+    "category": "Data",
+    "English name": "Troop Deployment Records"
+  },
+  {
+    "id": "?",
+    "symbol": "catmedia",
+    "category": "Data",
+    "English name": "Cat Media"
+  },
+  {
+    "id": "?",
+    "symbol": "employeegeneticdata",
+    "category": "Data",
+    "English name": "Employee Genetic Data"
+  },
+  {
+    "id": "?",
+    "symbol": "factiondonatorlist",
+    "category": "Data",
+    "English name": "Faction Donator List"
+  },
+  {
+    "id": "?",
+    "symbol": "nocdata",
+    "category": "Data",
+    "English name": "NOC Data"
+  },
+  {
+    "id": "?",
+    "symbol": "trueformfossil",
+    "category": "Item",
+    "English name": "True Form Fossil"
+  }
+]

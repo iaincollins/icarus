@@ -18,7 +18,6 @@ export default function ShipModules ({ name, modules, hardpoint, optional, selec
 
             const moduleName = module.name
               .replace(/ Package$/, '') // Hull / Armour modules
-              .replace(/multidronecontrol_universal/, 'Universal Limpet Controller') // e.g. int_multidronecontrol_universal_size7_class5
               .replace(/int_/, '').replace(/_size(.*?)$/g, ' ').replace(/_/g, ' ') // Fallback for other unsupported modules
             return (
               <tr

@@ -1,0 +1,230 @@
+[
+  {
+    "id": "128049249",
+    "symbol": "SideWinder",
+    "name": "Sidewinder",
+    "entitlement": ""
+  },
+  {
+    "id": "128049255",
+    "symbol": "Eagle",
+    "name": "Eagle",
+    "entitlement": ""
+  },
+  {
+    "id": "128049261",
+    "symbol": "Hauler",
+    "name": "Hauler",
+    "entitlement": ""
+  },
+  {
+    "id": "128049267",
+    "symbol": "Adder",
+    "name": "Adder",
+    "entitlement": ""
+  },
+  {
+    "id": "128049273",
+    "symbol": "Viper",
+    "name": "Viper MkIII",
+    "entitlement": ""
+  },
+  {
+    "id": "128049279",
+    "symbol": "CobraMkIII",
+    "name": "Cobra MkIII",
+    "entitlement": ""
+  },
+  {
+    "id": "128049285",
+    "symbol": "Type6",
+    "name": "Type-6 Transporter",
+    "entitlement": ""
+  },
+  {
+    "id": "128049291",
+    "symbol": "Dolphin",
+    "name": "Dolphin",
+    "entitlement": "ELITE_HORIZONS_V_PLANETARY_LANDINGS"
+  },
+  {
+    "id": "128049297",
+    "symbol": "Type7",
+    "name": "Type-7 Transporter",
+    "entitlement": ""
+  },
+  {
+    "id": "128049303",
+    "symbol": "Asp",
+    "name": "Asp Explorer",
+    "entitlement": ""
+  },
+  {
+    "id": "128049309",
+    "symbol": "Vulture",
+    "name": "Vulture",
+    "entitlement": ""
+  },
+  {
+    "id": "128049315",
+    "symbol": "Empire_Trader",
+    "name": "Imperial Clipper",
+    "entitlement": ""
+  },
+  {
+    "id": "128049321",
+    "symbol": "Federation_Dropship",
+    "name": "Federal Dropship",
+    "entitlement": ""
+  },
+  {
+    "id": "128049327",
+    "symbol": "Orca",
+    "name": "Orca",
+    "entitlement": ""
+  },
+  {
+    "id": "128049333",
+    "symbol": "Type9",
+    "name": "Type-9 Heavy",
+    "entitlement": ""
+  },
+  {
+    "id": "128049339",
+    "symbol": "Python",
+    "name": "Python",
+    "entitlement": ""
+  },
+  {
+    "id": "128049345",
+    "symbol": "BelugaLiner",
+    "name": "Beluga Liner",
+    "entitlement": "ELITE_HORIZONS_V_PLANETARY_LANDINGS"
+  },
+  {
+    "id": "128049351",
+    "symbol": "FerDeLance",
+    "name": "Fer-de-Lance",
+    "entitlement": ""
+  },
+  {
+    "id": "128049363",
+    "symbol": "Anaconda",
+    "name": "Anaconda",
+    "entitlement": ""
+  },
+  {
+    "id": "128049369",
+    "symbol": "Federation_Corvette",
+    "name": "Federal Corvette",
+    "entitlement": ""
+  },
+  {
+    "id": "128049375",
+    "symbol": "Cutter",
+    "name": "Imperial Cutter",
+    "entitlement": ""
+  },
+  {
+    "id": "128671217",
+    "symbol": "DiamondBack",
+    "name": "Diamondback Scout",
+    "entitlement": ""
+  },
+  {
+    "id": "128671223",
+    "symbol": "Empire_Courier",
+    "name": "Imperial Courier",
+    "entitlement": ""
+  },
+  {
+    "id": "128671831",
+    "symbol": "DiamondBackXL",
+    "name": "Diamondback Explorer",
+    "entitlement": ""
+  },
+  {
+    "id": "128672138",
+    "symbol": "Empire_Eagle",
+    "name": "Imperial Eagle",
+    "entitlement": ""
+  },
+  {
+    "id": "128672145",
+    "symbol": "Federation_Dropship_MkII",
+    "name": "Federal Assault Ship",
+    "entitlement": ""
+  },
+  {
+    "id": "128672152",
+    "symbol": "Federation_Gunship",
+    "name": "Federal Gunship",
+    "entitlement": ""
+  },
+  {
+    "id": "128672255",
+    "symbol": "Viper_MkIV",
+    "name": "Viper MkIV",
+    "entitlement": ""
+  },
+  {
+    "id": "128672262",
+    "symbol": "CobraMkIV",
+    "name": "Cobra MkIV",
+    "entitlement": "ELITE_HORIZONS_V_COBRA_MK_IV_1000"
+  },
+  {
+    "id": "128672269",
+    "symbol": "Independant_Trader",
+    "name": "Keelback",
+    "entitlement": ""
+  },
+  {
+    "id": "128672276",
+    "symbol": "Asp_Scout",
+    "name": "Asp Scout",
+    "entitlement": ""
+  },
+  {
+    "id": "128785619",
+    "symbol": "Type9_Military",
+    "name": "Type-10 Defender",
+    "entitlement": "ELITE_HORIZONS_V_PLANETARY_LANDINGS"
+  },
+  {
+    "id": "128816567",
+    "symbol": "Krait_MkII",
+    "name": "Krait MkII",
+    "entitlement": "ELITE_HORIZONS_V_PLANETARY_LANDINGS"
+  },
+  {
+    "id": "128816574",
+    "symbol": "TypeX",
+    "name": "Alliance Chieftain",
+    "entitlement": "ELITE_HORIZONS_V_PLANETARY_LANDINGS"
+  },
+  {
+    "id": "128816581",
+    "symbol": "TypeX_2",
+    "name": "Alliance Crusader",
+    "entitlement": "ELITE_HORIZONS_V_PLANETARY_LANDINGS"
+  },
+  {
+    "id": "128816588",
+    "symbol": "TypeX_3",
+    "name": "Alliance Challenger",
+    "entitlement": "ELITE_HORIZONS_V_PLANETARY_LANDINGS"
+  },
+  {
+    "id": "128839281",
+    "symbol": "Krait_Light",
+    "name": "Krait Phantom",
+    "entitlement": "ELITE_HORIZONS_V_PLANETARY_LANDINGS"
+  },
+  {
+    "id": "128915979",
+    "symbol": "Mamba",
+    "name": "Mamba",
+    "entitlement": "ELITE_HORIZONS_V_PLANETARY_LANDINGS"
+  }
+]

@@ -13,7 +13,7 @@ const {
 } = require('./lib/build-options')
 
 const ICON_FONT_DIR = path.join(ASSETS_DIR, 'icon-font')
-console.log('ICON_FONT_DIR', ICON_FONT_DIR)
+
 ;(async () => {
   clean()
   await build()
