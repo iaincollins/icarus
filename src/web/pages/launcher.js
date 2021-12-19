@@ -42,8 +42,8 @@ export default function IndexPage () {
           <p className='text-muted'>Connect from a browser on</p>
           {hostInfo?.urls?.[0] &&
             <p>
-              <a className='text-link' href={hostInfo.urls[0]} target='_blank' rel='noreferrer'>
-                <span className='text-link-text'>{hostInfo.urls[0]}</span>
+              <a className='text-info' href={hostInfo.urls[0]} target='_blank' rel='noreferrer'>
+                {hostInfo.urls[0]}
               </a>
             </p>}
         </div>
