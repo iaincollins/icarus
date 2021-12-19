@@ -37,10 +37,10 @@ export default function ShipModulesPage () {
     return () => document.removeEventListener('click', onClickHandler)
     function onClickHandler (event) {
       if (!document?.activeElement?.getAttribute('data-module')) {
-       if (!event?.target?.getAttribute('data-module')) {
+        if (!event?.target?.getAttribute('data-module')) {
         // If click on that isn't a module, clear selected module
-        setSelectedModule(null)
-       }
+          setSelectedModule(null)
+        }
       }
     }
   }, [])
@@ -51,75 +51,75 @@ export default function ShipModulesPage () {
         <Panel
           navigation={ShipPanelNavItems('Modules')}
           scrollable
-          >
-            <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
-              <h1 className='text-info' style={{ marginRight: '13rem' }}>{ship.name}</h1>
-              <h2 className='text-info text-muted'>IDENT {ship.ident}</h2>
-              <h2 style={{ marginBottom: '.5rem' }} className='text-primary'>
-                {ship.type.replaceAll('_', ' ')}
-              </h2>
-              {ship.onBoard &&
-                <div className='ship-panel__ship-pips text-uppercase'>
-                  <div className='ship-panel__ship-pip'>
-                    <progress value={ship.pips.systems} max={8} />
-                    <label className={ship?.pips?.systems > 0 ? 'text-primary' : 'text-primary text-blink'}>Systems</label>
-                  </div>
-                  <div className='ship-panel__ship-pip'>
-                    <progress value={ship.pips.engines} max={8} />
-                    <label className={ship?.pips?.engines > 0 ? 'text-primary' : 'text-primary text-blink'}>Engines</label>
-                  </div>
-                  <div className='ship-panel__ship-pip'>
-                    <progress value={ship.pips.weapons} max={8} />
-                    <label className={ship?.pips?.weapons > 0 ? 'text-primary' : 'text-primary text-blink'}>Weapons</label>
-                  </div>
-                </div>}
-              <table className='ship-panel__ship-stats'>
-                <tbody className='text-info'>
-                  <tr>
-                    <td>
-                      <span className='text-muted'>Max jump range</span>
-                      <span className='value'>{parseFloat(ship.maxJumpRange).toFixed(2)} Ly</span>
-                    </td>
-                    <td>
-                      <span className='text-muted'>Fuel (curr/max)</span>
-                      <span className='value'>{ship.onBoard ? parseFloat(ship.fuelLevel).toFixed(1) : '-'}/{parseFloat(ship.fuelCapacity).toFixed(1)} T</span>
-                    </td>
-                    <td>
-                      <span className='text-muted'>Cargo (curr/max)</span>
-                      <span className='value'>{ship.onBoard ? ship.cargo.count : '-'}/{ship.cargo.capacity} T</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span className='text-muted'>Rebuy value</span>
-                      <span className='value'>{ship.rebuy.toLocaleString()} CR</span>
-                    </td>
-                    <td>
-                      <span className='text-muted'>Module value</span>
-                      <span className='value'>{ship.moduleValue.toLocaleString()} CR</span>
-                    </td>
-                    <td>
-                      <span className='text-muted'>Total power draw</span>
-                      <span className='value'>{parseFloat(ship.modulePowerDraw).toFixed(2)} MW</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr />
-              <Modules
-                name='Hardpoints'
-                hardpoint
-                modules={
+        >
+          <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
+            <h1 className='text-info' style={{ marginRight: '13rem' }}>{ship.name}</h1>
+            <h2 className='text-info text-muted'>IDENT {ship.ident}</h2>
+            <h2 style={{ marginBottom: '.5rem' }} className='text-primary'>
+              {ship.type.replaceAll('_', ' ')}
+            </h2>
+            {ship.onBoard &&
+              <div className='ship-panel__ship-pips text-uppercase'>
+                <div className='ship-panel__ship-pip'>
+                  <progress value={ship.pips.systems} max={8} />
+                  <label className={ship?.pips?.systems > 0 ? 'text-primary' : 'text-primary text-blink'}>Systems</label>
+                </div>
+                <div className='ship-panel__ship-pip'>
+                  <progress value={ship.pips.engines} max={8} />
+                  <label className={ship?.pips?.engines > 0 ? 'text-primary' : 'text-primary text-blink'}>Engines</label>
+                </div>
+                <div className='ship-panel__ship-pip'>
+                  <progress value={ship.pips.weapons} max={8} />
+                  <label className={ship?.pips?.weapons > 0 ? 'text-primary' : 'text-primary text-blink'}>Weapons</label>
+                </div>
+              </div>}
+            <table className='ship-panel__ship-stats'>
+              <tbody className='text-info'>
+                <tr>
+                  <td>
+                    <span className='text-muted'>Max jump range</span>
+                    <span className='value'>{parseFloat(ship.maxJumpRange).toFixed(2)} Ly</span>
+                  </td>
+                  <td>
+                    <span className='text-muted'>Fuel (curr/max)</span>
+                    <span className='value'>{ship.onBoard ? parseFloat(ship.fuelLevel).toFixed(1) : '-'}/{parseFloat(ship.fuelCapacity).toFixed(1)} T</span>
+                  </td>
+                  <td>
+                    <span className='text-muted'>Cargo (curr/max)</span>
+                    <span className='value'>{ship.onBoard ? ship.cargo.count : '-'}/{ship.cargo.capacity} T</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span className='text-muted'>Rebuy value</span>
+                    <span className='value'>{ship.rebuy.toLocaleString()} CR</span>
+                  </td>
+                  <td>
+                    <span className='text-muted'>Module value</span>
+                    <span className='value'>{ship.moduleValue.toLocaleString()} CR</span>
+                  </td>
+                  <td>
+                    <span className='text-muted'>Total power draw</span>
+                    <span className='value'>{parseFloat(ship.modulePowerDraw).toFixed(2)} MW</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr />
+            <Modules
+              name='Hardpoints'
+              hardpoint
+              modules={
                   Object.values(ship.modules).filter(module => ['huge', 'large', 'medium', 'small'].includes(module?.size))
                 }
-                selectedModule={selectedModule}
-                setSelectedModule={setSelectedModule}
-              />
-              <hr />
-              <Modules
-                name='Optional Internals'
-                optional
-                modules={
+              selectedModule={selectedModule}
+              setSelectedModule={setSelectedModule}
+            />
+            <hr />
+            <Modules
+              name='Optional Internals'
+              optional
+              modules={
                 Object.values(ship.modules)
                   .filter(module => {
                     if (!module.internal) return false
@@ -128,51 +128,49 @@ export default function ShipModulesPage () {
                     return true
                   })
                 }
-                selectedModule={selectedModule}
-                setSelectedModule={setSelectedModule}
-              />
-              <hr />
-              <Modules
-                name='Core Internals'
-                modules={
+              selectedModule={selectedModule}
+              setSelectedModule={setSelectedModule}
+            />
+            <hr />
+            <Modules
+              name='Core Internals'
+              modules={
                   Object.values(ship.modules)
                     .filter(module => {
                       if (!CORE_SHIP_SLOTS.includes(module.slot) && !ship.armour.includes(module.name)) return false
                       return true
                     })
                 }
-                filter={['tiny']}
+              filter={['tiny']}
+              selectedModule={selectedModule}
+              setSelectedModule={setSelectedModule}
+            />
+            <hr />
+            <div style={{ marginBottom: '1rem' }} className='ship-panel__modules--inline'>
+              <Modules
+                name='Utility Mounts'
+                modules={Object.values(ship.modules).filter(module => ['tiny'].includes(module?.size))}
                 selectedModule={selectedModule}
                 setSelectedModule={setSelectedModule}
               />
-              <hr />
-              <div style={{ marginBottom: '1rem' }} className='ship-panel__modules--inline'>
-                <Modules
-                  name='Utility Mounts'
-                  modules={Object.values(ship.modules).filter(module => ['tiny'].includes(module?.size))}
-                  selectedModule={selectedModule}
-                  setSelectedModule={setSelectedModule}
-                />
-              </div>
             </div>
-        </Panel>
-      }
-        <Panel scrollable>
-          <div
-            className={`ship-panel__module-inspector ${!selectedModule ? 'ship-panel__module-inspector--hidden' : ''}`}
-            data-module={true}
-            onClick={(e) => e.preventDefault()}
-          > 
-            <button className='button__close-button'>
-              <i className='icon icarus-terminal-chevron-down'/>
-            </button>
-            <h2 className='text-primary'>Module</h2>
-            <hr style={{margin: '1rem 0'}}/>
-            {selectedModule &&
-              <pre>{JSON.stringify(selectedModule, null, 2)}</pre>
-            }
           </div>
-        </Panel>
+        </Panel>}
+      <Panel scrollable>
+        <div
+          className={`ship-panel__module-inspector ${!selectedModule ? 'ship-panel__module-inspector--hidden' : ''}`}
+          data-module
+          onClick={(e) => e.preventDefault()}
+        >
+          <button className='button__close-button'>
+            <i className='icon icarus-terminal-chevron-down' />
+          </button>
+          <h2 className='text-primary'>Module</h2>
+          <hr style={{ margin: '1rem 0' }} />
+          {selectedModule &&
+            <pre>{JSON.stringify(selectedModule, null, 2)}</pre>}
+        </div>
+      </Panel>
     </Layout>
   )
 }
@@ -204,7 +202,7 @@ const Modules = ({ name, modules, hardpoint, optional, selectedModule, setSelect
                 key={`${name}_${module.name}_${module.slot}`}
                 tabIndex='3'
                 onFocus={() => setSelectedModule(module)}
-                data-module={true}
+                data-module
                 className={selectedModule && selectedModule.slot === module.slot ? 'table__row--active' : null}
               >
                 <td className='ship-panel__module'>

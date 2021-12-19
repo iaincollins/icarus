@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import SystemMap from 'components/system-map/system-map'
 
-export default function NavigationSystemMapPanel ({ system, setSystemObject, getSystem }) {
+export default function NavigationSystemMapPanel ({ system, systemObject, setSystemObject, getSystem }) {
   if (!system) return null
 
   const [searchValue, setSearchValue] = useState('')
@@ -18,7 +18,7 @@ export default function NavigationSystemMapPanel ({ system, setSystemObject, get
   }, [])
 
   return (
-    <div className='navigation-panel__map' style={{ display: 'block' }}>
+    <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
       {(!system.stars || system.stars.length < 2) &&
         <div
           className='text-info text-blink-slow text-center text-center-vertical'

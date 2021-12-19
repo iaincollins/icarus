@@ -246,15 +246,15 @@ func bindFunctionsToWebView(w webview.WebView) {
 			win.SetWindowPos(hwnd, 0, 0, 0, screenWidth, screenHeight, win.SWP_FRAMECHANGED)
 
 			// TODO Implement full screen mode that respects multi monitor setups
-			// const MONITOR_CENTER = 0x0001 // center rect to monitor 
-			// const MONITOR_CLIP = 0x0000 // clip rect to monitor 
-			// const MONITOR_WORKAREA = 0x0002 // use monitor work area 
-			// const MONITOR_AREA = 0x0000 // use monitor entire area 
+			// const MONITOR_CENTER = 0x0001 // center rect to monitor
+			// const MONITOR_CLIP = 0x0000 // clip rect to monitor
+			// const MONITOR_WORKAREA = 0x0002 // use monitor work area
+			// const MONITOR_AREA = 0x0000 // use monitor entire area
 			// var rc win.RECT;
 			// win.GetWindowRect(hwnd, &rc);
 			// ClipOrCenterRectToMonitor(&rc, MONITOR_AREA);
 			// win.SetWindowPos(hwnd, 0, rc.Left, rc.Top, 0, 0, win.SWP_NOSIZE | win.SWP_NOZORDER | win.SWP_NOACTIVATE | win.SWP_FRAMECHANGED);
-	
+
 			isFullScreen = true
 		}
 		return isFullScreen

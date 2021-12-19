@@ -1,10 +1,10 @@
 import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../service/lib/consts'
 
-export default function NavigationInspectorPanel ({ system, setSystemObject }) {
+export default function NavigationInspectorPanel ({ system, systemObject, setSystemObject }) {
   if (!system) return null
 
   return (
-    <div className='navigation-panel__list'>
+    <div className={`navigation-panel__list ${systemObject ? 'navigation-panel__list--inspector' : ''}`}>
       {(!system.stars || system.stars.length < 2) &&
         <div
           className='text-info text-blink-slow text-center text-center-vertical'

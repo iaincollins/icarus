@@ -302,7 +302,7 @@
   fill: url(#svg-pattern__planet-surface);
 }
 
-.system-map__color-planet-atmosphere {
+.system-map__planet-atmosphere {
   fill: url(#system-map-svg-gradient__planet--atmosphere);
   stroke: var(--color-system-map-planet-atmosphere);
   stroke-width: 50;

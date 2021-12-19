@@ -23,7 +23,24 @@
   top: 0;
   bottom: 0;
   width: 20rem;
-  padding: .5rem;
+  padding: .5rem .5rem 2rem .5rem;
+  transition: right .5s ease-in-out;
+}
+
+.navigation-panel__inspector .button__close-button {
+  position: fixed;
+  top: auto;
+  bottom: 1rem;
+  right: 19rem;
+  z-index: 200;
+  opacity: 0;
+  animation: fx-fade-in-animation .25s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: .5s;
+}
+
+.navigation-panel__inspector--hidden {
+  right: -20rem;
 }
 
 .navigation-panel__inspector .navigation-panel__inspector-heading .icon {
@@ -66,12 +83,18 @@
 .navigation-panel__map {
   position: absolute;
   top: 0;
-  right: 21rem;
+  right: 0;
   bottom: 0;
   margin: 0;
   height: 100%;
   z-index: 3;
   overflow: hidden;
+  transition: right .5s ease-in-out;
+}
+
+.navigation-panel__list--inspector,
+.navigation-panel__map--inspector {
+  right: 21rem;
 }
 
 .navigation-panel__list {
@@ -173,6 +196,7 @@
 .navigation-panel__inspector-section {
   margin-bottom: 1.5rem;
   font-weight: bold;
+  padding: 0 .5rem;
 }
 
 .navigation-panel__inspector-section .icon {
@@ -224,25 +248,39 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .navigation-panel__list,
   .navigation-panel__map {
+    height: 100%;
+    bottom: 0;
+  }
+  .navigation-panel__list,
+  .navigation-panel__map--inspector {
     position: absolute;
     height: 50%;
     top: 0;
     bottom: 50%;
     right: 0;
+    transition: all 0;
   }
 
   .navigation-panel__inspector {
     position: absolute;
     width: 100%;
     height: 50%;
+    right: 0;
     top: 50%;
     bottom: .5rem;
     margin-top: .5rem;
+    transition: all 0;
   }
 
   .navigation-panel__inspector > * {
     margin-left: 1rem !important;
+  }
+
+  .navigation-panel__inspector .button__close-button {
+    top: 50%;
+    right: 2.5rem;
+    transform: rotate(90deg);
+    margin-top: 5.5rem;
   }
 }

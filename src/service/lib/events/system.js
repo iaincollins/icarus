@@ -15,7 +15,7 @@ class NavigationEvents {
   async getSystem ({ name = null } = {}) {
     let systemName = name ? name.trim().toLowerCase() : null
     const FSDJump = await this.eliteLog.getEvent('FSDJump')
-    
+
     if (!systemName) {
       systemName = FSDJump?.StarSystem.toLowerCase() ?? UNKNOWN_VALUE
       if (systemName === UNKNOWN_VALUE) return null

@@ -2,15 +2,7 @@ import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../.
 import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
 
 export default function NavigationInspectorPanel ({ systemObject, setSystemObjectByName }) {
-  if (!systemObject) {
-    return (
-      <div className='navigation-panel__inspector fx-fade-in scrollable'>
-        <div className='text-primary text-muted text-uppercase text-center-vertical'>
-          {/* Select item to view details */}
-        </div>
-      </div>
-    )
-  }
+  if (!systemObject) return <div className='navigation-panel__inspector navigation-panel__inspector--hidden' />
 
   const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
 
@@ -60,7 +52,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
 
   return (
     <div className='navigation-panel__inspector fx-fade-in scrollable'>
-
       <div className='navigation-panel__inspector-heading'>
         <i className={iconClass} />
         <h2 className='text-info'>{systemObject.name}</h2>
@@ -195,6 +186,9 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             {systemObject.otherServices.map(service => <li key={`navigation-inspector_${systemObject.id}_other-service_${service}`}>{service}</li>)}
           </ul>
         </div>}
+      <button className='button--icon button__close-button' onClick={() => { setSystemObjectByName(null) }}>
+        <i className='icon icarus-terminal-chevron-right' />
+      </button>
     </div>
   )
 }

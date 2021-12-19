@@ -42,11 +42,10 @@ export default function IndexPage () {
           <p className='text-muted'>Connect from a browser on</p>
           {hostInfo?.urls?.[0] &&
             <p>
-              <a className="text-link" href={hostInfo.urls[0]} target="_blank">
-                <span className="text-link-text">{hostInfo.urls[0]}</span>
+              <a className='text-link' href={hostInfo.urls[0]} target='_blank' rel='noreferrer'>
+                <span className='text-link-text'>{hostInfo.urls[0]}</span>
               </a>
-            </p>
-          }
+            </p>}
         </div>
         <div
           className='scrollable text-right text-uppercase' style={{

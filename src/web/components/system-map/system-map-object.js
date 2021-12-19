@@ -114,7 +114,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
           {(systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere') &&
             <g className='system-map__planet'>
               <circle
-                className='system-map__color-planet-atmosphere'
+                className='system-map__planet-atmosphere'
                 cx={x - 0}
                 cy={y - 0}
                 r={r + 70}

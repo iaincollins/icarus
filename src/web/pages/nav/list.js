@@ -16,25 +16,13 @@ export default function NavListPage () {
   const [systemObject, setSystemObject] = useState()
 
   const setSystemObjectByName = (name) => {
+    if (!name) setSystemObject(null)
     const el = document.querySelector(`[data-system-object-name="${name}" i]`)
     if (el) {
       el.focus()
     } else {
-      const newSystemObject = system.objectsInSystem.filter(child => child.name.toLowerCase() === name.toLowerCase())[0]
+      const newSystemObject = system.objectsInSystem.filter(child => child.name.toLowerCase() === name?.toLowerCase())[0]
       setSystemObject(newSystemObject)
-    }
-  }
-
-  if (router.isReady && system && !systemObject) {
-    let newSystemObject
-    if (query.selected) {
-      newSystemObject = system.objectsInSystem.filter(child => child.name.toLowerCase() === query.selected.toLowerCase())[0]
-    } else {
-      newSystemObject = system?.stars?.[0]?._children?.[0] ?? null
-    }
-    if (newSystemObject) {
-      const el = document.querySelector(`[data-system-object-name="${newSystemObject.name}" i]`)
-      if (el) el.focus()
     }
   }
 
@@ -42,6 +30,14 @@ export default function NavListPage () {
     if (!connected || !router.isReady) return
     const newSystem = await sendEvent('getSystem', query.system ? { name: query.system } : null)
     if (newSystem) setSystem(newSystem)
+
+    if (query.selected) {
+      const newSystemObject = newSystem.objectsInSystem.filter(child => child.name.toLowerCase() === query.selected.toLowerCase())[0]
+      if (newSystemObject) {
+        const el = document.querySelector(`[data-system-object-name="${newSystemObject.name}" i]`)
+        if (el) el.focus()
+      }
+    }
   }, [connected, ready, router.isReady])
 
   useEffect(() => eventListener('newLogEntry', async (newLogEntry) => {
@@ -58,14 +54,18 @@ export default function NavListPage () {
     if (!router.isReady) return
     const q = { ...query }
     if (system) q.system = system.name.toLowerCase()
-    if (systemObject) q.selected = systemObject.name.toLowerCase()
+    if (systemObject) {
+      q.selected = systemObject.name.toLowerCase()
+    } else {
+      if (q.selected) delete q.selected
+    }
     router.push({ query: q }, undefined, { shallow: true })
   }, [system, systemObject, router.isReady])
 
   return (
     <Layout connected={connected} active={active} ready={ready}>
       <Panel layout='full-width' navigation={NavPanelNavItems('List', query)}>
-        <NavigationListPanel system={system} setSystemObject={setSystemObject} />
+        <NavigationListPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} />
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>
     </Layout>
