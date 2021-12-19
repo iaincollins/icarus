@@ -248,18 +248,18 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .navigation-panel__list,
   .navigation-panel__map {
     height: 100%;
     bottom: 0;
   }
-  .navigation-panel__list,
+  .navigation-panel__list--inspector,
   .navigation-panel__map--inspector {
     position: absolute;
     height: 50%;
     top: 0;
     bottom: 50%;
     right: 0;
-    transition: all 0;
   }
 
   .navigation-panel__inspector {
@@ -270,11 +270,17 @@
     top: 50%;
     bottom: .5rem;
     margin-top: .5rem;
-    transition: all 0;
+    transition: top .5s ease;
   }
 
   .navigation-panel__inspector > * {
     margin-left: 1rem !important;
+  }
+
+  .navigation-panel__inspector--hidden {
+    top: 100%;
+    height: 0;
+    padding: 0;
   }
 
   .navigation-panel__inspector .button__close-button {
