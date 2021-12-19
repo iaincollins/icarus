@@ -1,6 +1,6 @@
-const Outfitting = require('../outfitting')
-
-const UNKNOWN_VALUE = 'Unknown'
+const Outfitting = new (require('../data'))('outfitting')
+const Shipyard = new (require('../data'))('shipyard')
+const { UNKNOWN_VALUE } = require('../consts')
 
 class ShipEvents {
   constructor ({ eliteLog, eliteJson }) {
@@ -58,7 +58,7 @@ class ShipEvents {
       module.name = module.item // Use internal symbol for name as fallback
 
       // Populate additional metadata for module by looking it up
-      const outfittingModule = await Outfitting.getModule(module.item)
+      const outfittingModule = await Outfitting.getBySymbol(module.item)
 
       // Enrich module info with metadata, if we have it
       if (outfittingModule) {
@@ -88,8 +88,10 @@ class ShipEvents {
     }
     totalModulePowerDraw = totalModulePowerDraw.toFixed(2)
 
+    const ship = await Shipyard.getBySymbol(Loadout?.Ship)
+
     return {
-      type: Loadout?.Ship ?? UNKNOWN_VALUE,
+      type: ship?.name ?? Loadout?.Ship ?? UNKNOWN_VALUE,
       name: Loadout?.ShipName ?? UNKNOWN_VALUE,
       ident: Loadout?.ShipIdent ?? UNKNOWN_VALUE,
       pips: {

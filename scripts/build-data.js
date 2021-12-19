@@ -14,11 +14,10 @@ const OUTPUT_DIR = 'src/service/data'
   glob(`${INPUT_DIR}/*.csv`, {}, async (error, files) => {
     if (error) return console.error(error)
 
-    files.map(async(name) => {
+    files.map(async (name) => {
       const jsonOutput = await csv().fromFile(name)
       const basename = path.basename(name, '.csv')
       fs.writeFileSync(`${OUTPUT_DIR}/${basename}.json`, JSON.stringify(jsonOutput, null, 2))
     })
-
   })
 )()

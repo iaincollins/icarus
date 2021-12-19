@@ -1,13 +1,11 @@
 const os = require('os')
-// const throttle = require('lodash.throttle')
+const { UNKNOWN_VALUE } = require('./consts')
 
 const {
   PORT,
   LOG_DIR,
   BROADCAST_EVENT: broadcastEvent
 } = global
-
-const UNKNOWN_VALUE = 'Unknown'
 
 const EliteJson = require('./elite-json')
 const EliteLog = require('./elite-log')

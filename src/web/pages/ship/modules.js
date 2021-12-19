@@ -58,20 +58,20 @@ export default function ShipModulesPage () {
             <h1 className='text-info' style={{ marginRight: '13rem' }}>{ship.name}</h1>
             <h2 className='text-info text-muted'>IDENT {ship.ident}</h2>
             <h2 style={{ marginBottom: '.5rem' }} className='text-primary'>
-              {ship.type.replaceAll('_', ' ')}
+              {ship?.type?.replaceAll('_', ' ')}
             </h2>
             {ship.onBoard &&
               <div className='ship-panel__ship-pips text-uppercase'>
                 <div className='ship-panel__ship-pip'>
-                  <progress value={ship.pips.systems} max={8} />
+                  <progress value={ship?.pips?.systems} max={8} />
                   <label className={ship?.pips?.systems > 0 ? 'text-primary' : 'text-primary text-blink'}>Systems</label>
                 </div>
                 <div className='ship-panel__ship-pip'>
-                  <progress value={ship.pips.engines} max={8} />
+                  <progress value={ship?.pips?.engines} max={8} />
                   <label className={ship?.pips?.engines > 0 ? 'text-primary' : 'text-primary text-blink'}>Engines</label>
                 </div>
                 <div className='ship-panel__ship-pip'>
-                  <progress value={ship.pips.weapons} max={8} />
+                  <progress value={ship?.pips?.weapons} max={8} />
                   <label className={ship?.pips?.weapons > 0 ? 'text-primary' : 'text-primary text-blink'}>Weapons</label>
                 </div>
               </div>}
