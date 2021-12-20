@@ -44,11 +44,13 @@
 
 .system-map__planetary-system svg {
   max-width: 100%;
+  /* Don't display map SVG on page load for performance reasons */
   opacity: 0;
   visibility: hidden;
-  animation: fx-fade-in-animation .5s ease-in-out;
+  animation: fx-fade-in-animation .25s ease-in-out;
   animation-fill-mode: forwards;
-  animation-delay: .5s;
+  /* Wait until until after other animations on page are done for performance */
+  animation-delay: .75s; 
 }
 
 .system-map__planetary-system h2 {
