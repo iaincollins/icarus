@@ -219,7 +219,41 @@ func bindFunctionsToWebView(w webview.WebView) {
 	hwnd := win.HWND(hwndPtr)
 
 	var isFullScreen = false
+	var isPinned = false
 	defaultWindowStyle := win.GetWindowLong(hwnd, win.GWL_STYLE)
+
+	w.Bind("app_version", func() string {
+		return GetCurrentAppVersion()
+	})
+
+	w.Bind("app_togglePinWindow", func() bool {
+		if isFullScreen {
+			// Do nothing if in fullscreen mode (option in UI should be disabled)
+			return false
+		}
+
+		var rc win.RECT
+		win.GetWindowRect(hwnd, &rc)
+
+		if isPinned {
+			win.SetWindowLong(hwnd, win.GWL_STYLE, defaultWindowStyle)
+			win.GetWindowRect(hwnd, &rc)
+			currentWindowWidth := rc.Right - rc.Left
+			currentWindowHeight := rc.Bottom - rc.Top
+			win.SetWindowPos(hwnd, win.HWND_NOTOPMOST, rc.Left, rc.Top, currentWindowWidth, currentWindowHeight, win.SWP_FRAMECHANGED)
+			isPinned = false
+		} else {
+			newWindowStyle := defaultWindowStyle &^ (win.WS_BORDER | win.WS_CAPTION | win.WS_THICKFRAME | win.WS_MINIMIZEBOX | win.WS_MAXIMIZEBOX | win.WS_SYSMENU)
+			win.SetWindowLong(hwnd, win.GWL_STYLE, newWindowStyle)
+			win.GetWindowRect(hwnd, &rc)
+			currentWindowWidth := rc.Right - rc.Left
+			currentWindowHeight := rc.Bottom - rc.Top
+			win.SetWindowPos(hwnd, win.HWND_TOPMOST, rc.Left, rc.Top, currentWindowWidth, currentWindowHeight, win.SWP_FRAMECHANGED)
+			isPinned = true
+		}
+
+		return isPinned
+	})
 
 	w.Bind("app_toggleFullScreen", func() bool {
 		// FIXME Always go fullscreen on main monitor.
@@ -255,6 +289,7 @@ func bindFunctionsToWebView(w webview.WebView) {
 			// ClipOrCenterRectToMonitor(&rc, MONITOR_AREA);
 			// win.SetWindowPos(hwnd, 0, rc.Left, rc.Top, 0, 0, win.SWP_NOSIZE | win.SWP_NOZORDER | win.SWP_NOACTIVATE | win.SWP_FRAMECHANGED);
 
+			isPinned = false
 			isFullScreen = true
 		}
 		return isFullScreen
