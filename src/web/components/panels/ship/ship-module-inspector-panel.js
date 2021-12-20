@@ -46,25 +46,23 @@ export default function ShipModuleInspectorPanel ({ module }) {
       </div>
       {module.engineering &&
         <div className='ship-panel__module-section ship-panel__module-section--engineering text-uppercase'>
-            <h3>Engineering</h3>
-            <p className='text-secondary'>
-              {module.engineering?.BlueprintName?.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}
-              {' '}
-              {module.engineering?.ExperimentalEffect_Localised &&
-                <>
-                  <br />
-                  <span className='text-secondary'>{module.engineering.ExperimentalEffect_Localised.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}</span>
-                  {' '}
-                  <span className='text-muted'>experimental</span>
-                </>}
-              <br /><span className='text-muted'>by</span> {module.engineering.Engineer}
-            </p>
-            <progress
-              className='progress--secondary progress--border'
-              value={module.engineeringLevel}
-              max='5'
-              />
-            {/* <p className='text-info' style={{ margin: 0, fontSize: '2rem', top: '.25rem', position: 'relative' }}>
+          <h3>Engineering</h3>
+          <p className='text-info'>
+            {module.engineering?.BlueprintName?.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}
+            {module.engineering?.ExperimentalEffect_Localised &&
+              <>
+                <br />
+                <span className='text-muted'>experimental</span>
+                <span> {module.engineering.ExperimentalEffect_Localised.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}</span>
+              </>}
+            <br /><span className='text-muted'>by</span> {module.engineering.Engineer}
+          </p>
+          <progress
+            className='progress--border'
+            value={module.engineeringLevel}
+            max='5'
+          />
+          {/* <p className='text-info' style={{ margin: 0, fontSize: '2rem', top: '.25rem', position: 'relative' }}>
               {[...Array(module.engineeringLevel)].map((j, i) =>
                 <i
                   key={`${module.name}_${module.slot}_engineering_${i}`}
@@ -79,7 +77,7 @@ export default function ShipModuleInspectorPanel ({ module }) {
             {module.engineering?.Modifiers?.map((modifier) =>
               <li
                 key={`${module.name}_${module.slot}_engineering_modifier_${modifier.Label}`}
-                className='text-secondary'
+                className='text-info'
               >
                 {modifier.Label.replace(/_/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').trim()}
                 <span style={{ marginLeft: '.5rem' }}>

@@ -56,10 +56,10 @@ export default function ShipModulesPage () {
         >
           <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
             <h1 className='text-info' style={{ marginRight: '13rem' }}>{ship.name}</h1>
-            <h2 className='text-info text-muted'>IDENT {ship.ident}</h2>
-            <h2 style={{ marginBottom: '.5rem' }} className='text-primary'>
+            <h2 className='text-primary'>IDENT {ship.ident}</h2>
+            <h3 style={{ marginBottom: '.5rem' }} className='text-primary text-muted'>
               {ship?.type?.replaceAll('_', ' ')}
-            </h2>
+            </h3>
             {ship.onBoard &&
               <div className='ship-panel__ship-pips text-uppercase'>
                 <div className='ship-panel__ship-pip'>
