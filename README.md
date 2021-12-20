@@ -117,20 +117,22 @@ You can fork this codebase and use it for your own apps! See the LICENSE file fo
 
 ## Credits
 
-The name ICARUS was suggested by [SpaceNinjaBear](https://www.reddit.com/user/SpaceNinjaBear).
+_ICARUS Terminal would not be possible without work from dozens of enthusiasts and hundreds of open source contributors._
 
-I'd like to express appreciation to [Serge Zaitsev](https://github.com/zserge) for his work on the WebView library.
+The name ICARUS was suggested by [SpaceNinjaBear](https://www.reddit.com/user/SpaceNinjaBear) on Reddit.
 
-The loading animation is by James Panter (http://codepen.io/jpanter/pen/PWWQXK).
+Loading animation by James Panter (http://codepen.io/jpanter/pen/PWWQXK).
 
-Includes origional icons and some icons from https://edassets.org - for a list of contributors, see https://github.com/SpyTec/EDAssets
+Includes origional icons, icons inspired by those found in Elite Dangerous and icons based on those from https://edassets.org (see https://github.com/SpyTec/EDAssets for contributors).
 
-Uses stellar cartography data from the wonderful https://www.edsm.net
+Uses stellar cartography data from the wonderful [EDSM API](https://www.edsm.net).
 
-Includes data from EDCD https://github.com/EDCD/FDevIDs
+Includes game data collated and provided by [EDCD](https://github.com/EDCD/FDevIDs).
+
+The [Jura font](https://fonts.google.com/specimen/Jura#glyphs) is included under the Open Font License.
+
+Thank you to [Serge Zaitsev](https://github.com/zserge) for his work on the WebView library.
 
 ICARUS Terminal uses imagery from Elite Dangerous, which copyright Frontier Developments plc. This software is not endorsed by nor reflects the views or opinions of Frontier Developments and no employee of Frontier Developments was involved in the making of it.
 
-Thank you to all those who have written libraries on which this software depends.
-
-A full list of credits will be in place before the release of v1.0.0.
+Thank you to all those who have created and supported libraries on which this software depends.
