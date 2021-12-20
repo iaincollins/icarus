@@ -14,20 +14,23 @@
 }
 
 .ship-panel__modules--module-inspector {
-  bottom: 12.5rem;
+  bottom: 13rem;
 }
 
 .ship-panel__module-inspector {
   position: absolute;
-  height: 12rem;
+  height: 12.5rem;
   bottom: 0;
-  padding: .5rem;
+  padding: .5rem 3rem 0 .5rem;
   box-sizing: border-box;
   width: 100%;
   z-index: 20;
   transition: height .25s ease-in;
   background: var(--linear-gradient-background);
-  border-top: .2rem solid var(--color-primary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem;
+  overflow: scroll;
 }
 
 .ship-panel__module-inspector .button__close-button {
@@ -35,7 +38,7 @@
   right: 2rem;
   top: auto;
   left: auto;
-  bottom: 9.4rem;
+  bottom: 10.5rem;
   z-index: 20;
   opacity: 0;
   animation: fx-fade-in-animation .25s ease-in-out;
@@ -52,6 +55,7 @@
   height: 0;
   padding: 0;
   border-color: transparent;
+  overflow: hidden;
 }
 
 
@@ -69,7 +73,7 @@
   }
 
   .ship-panel__module-inspector .button__close-button {
-    bottom: 17.5rem;
+    bottom: 18rem;
   }
 }
 
@@ -138,23 +142,16 @@
 }
 
 .ship-panel__module-section {
-  width: 30%;
+  width: 33%;
   float: left;
   pointer-events: none;
   font-size: var(--base-font-size) !important;
   font-weight: bold !important;
+  box-sizing: border-box;
+  position: relative;
 }
 
-@media only screen and (max-width:1024px) {
-  .ship-panel__module-section {
-    width: 50%;
-  }
-  .ship-panel__module-section:last-of-type {
-    float: right;
-  }
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .ship-panel__module-section {
     width: 100%;
   }
@@ -162,6 +159,50 @@
 
 .ship-panel__module-section p {
   margin: 0.25rem 0;
+}
+
+.ship-panel__module-section--engineering {
+ background: var(--color-secondary-dark);
+ border: .2rem solid var(--color-secondary);
+ padding: .5rem 1rem;
+}
+
+/* .ship-panel__module-section--engineering:first-child {
+  border-right: 0;
+}
+
+.ship-panel__module-section--engineering:last-child {
+  border-left: 0;
+} */
+
+.ship-panel__module-section--engineering h3 {
+  background: var(--color-secondary);
+  color: var(--color-secondary-dark);
+  margin: -.52rem -1.2rem;
+  margin-bottom: .5rem;
+  padding: .25rem .5rem;
+  opacity: 1;
+  position: relative;
+  top: -.2rem;
+}
+
+.ship-panel__module-section--engineering progress {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  width: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .ship-panel__module-section--engineering progress {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    margin: .5rem 0;
+  }
 }
 
 table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module .ship-panel__module-icon,

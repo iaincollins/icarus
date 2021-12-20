@@ -199,12 +199,29 @@ progress[value] {
 
 progress[value]::-webkit-progress-bar {
   background: var(--color-primary-dark);
-
+  border-color: var(--color-primary);
+  padding: .1rem;
 }
 
 progress[value]::-webkit-progress-value {
   background: var(--color-primary);
   transition: width .25s ease;
+}
+
+progress.progress--secondary[value]::-webkit-progress-bar {
+  background: var(--color-secondary-dark);
+  border-color: var(--color-secondary);
+  padding: .1rem;
+}
+
+progress.progress--secondary[value]::-webkit-progress-value {
+  background: var(--color-secondary);
+}
+
+progress.progress--border {
+  border-width: .2rem;
+  border-style: solid;
+  border-color: inherit;
 }
 
 form {
