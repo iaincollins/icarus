@@ -222,11 +222,19 @@ func bindFunctionsToWebView(w webview.WebView) {
 	var isPinned = false
 	defaultWindowStyle := win.GetWindowLong(hwnd, win.GWL_STYLE)
 
-	w.Bind("app_version", func() string {
+	w.Bind("icarusTerminal_version", func() string {
 		return GetCurrentAppVersion()
 	})
 
-	w.Bind("app_togglePinWindow", func() bool {
+	w.Bind("icarusTerminal_isFullScreen", func() bool {
+		return isFullScreen
+	})
+
+	w.Bind("icarusTerminal_isPinned", func() bool {
+		return isPinned
+	})
+
+	w.Bind("icarusTerminal_togglePinWindow", func() bool {
 		if isFullScreen {
 			// Do nothing if in fullscreen mode (option in UI should be disabled)
 			return false
@@ -255,7 +263,7 @@ func bindFunctionsToWebView(w webview.WebView) {
 		return isPinned
 	})
 
-	w.Bind("app_toggleFullScreen", func() bool {
+	w.Bind("icarusTerminal_toggleFullScreen", func() bool {
 		// FIXME Always go fullscreen on main monitor.
 		// If the window is on a second monitor, it should go fullscreen on that
 		// display instead. See the following URL for example of how to handle
@@ -295,12 +303,12 @@ func bindFunctionsToWebView(w webview.WebView) {
 		return isFullScreen
 	})
 
-	w.Bind("app_quit", func() int {
+	w.Bind("icarusTerminal_quit", func() int {
 		exitApplication(0)
 		return 0
 	})
 
-	w.Bind("app_newWindow", func() int {
+	w.Bind("icarusTerminal_newWindow", func() int {
 		terminalCmdInstance := exec.Command(TERMINAL_EXECUTABLE, "--terminal=true", fmt.Sprintf("--port=%d", port))
 		terminalCmdErr := terminalCmdInstance.Start()
 
@@ -327,7 +335,7 @@ func bindFunctionsToWebView(w webview.WebView) {
 	// I have tried multiple approaches to resolve this but I think it's a bug
 	// in the webview library this app imports.
 	/*
-		  w.Bind("app_closeWindow", func() int {
+		  w.Bind("icarusTerminal_closeWindow", func() int {
 				w.Terminate()
 		    return 0
 		  })

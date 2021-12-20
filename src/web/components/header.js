@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { isWindowsApp, isFullScreen, isPinned, toggleFullScreen, togglePinWindow } from 'lib/window'
+import { isWindowFullScreen, isWindowPinned, toggleFullScreen, togglePinWindow } from 'lib/window'
 import { eliteDateTime } from 'lib/format'
 
 const NAV_BUTTONS = [
@@ -39,22 +39,36 @@ const NAV_BUTTONS = [
 export default function Header ({ connected, active }) {
   const router = useRouter()
   const [dateTime, setDateTime] = useState(eliteDateTime())
-  const [fullScreenState, setFullScreenState] = useState(false)
-  const [pinnedState, setPinnedState] = useState(false)
+  const [isWindowsApp, setIsWindowsApp] = useState(false)
+  const [isFullScreen, setIsFullScreen] = useState(false)
+  const [isPinned, setIsPinned] = useState(false)
 
-  async function _toggleFullScreen () {
+  async function fullScreen () {
     const newFullScreenState = await toggleFullScreen()
-    setFullScreenState(newFullScreenState)
-    if (newFullScreenState) setPinnedState(false)
+    setIsFullScreen(newFullScreenState)
+    if (newFullScreenState === true) setIsPinned(false)
+    document.activeElement.blur()
   }
 
-  async function _togglePinWindow () {
-    const newPinnedState = await togglePinWindow()
-    setPinnedState(newPinnedState)
+  async function pinWindow () {
+    const newPinState = await togglePinWindow()
+    setIsPinned(newPinState)
+    document.activeElement.blur()
   }
+
+  useEffect(async () => {
+    // icarusTerminal_* methods are not always accessible while the app is loading. This
+    // handles that by calling them when the component is mounted then the
+    // component tracks the state  in it's local state. If the window is
+    // reloadedm this is ensure the window state is still tracked properly.
+    if (typeof window === 'undefined') return setIsWindowsApp(false)
+    setIsWindowsApp(typeof window !== 'undefined' && typeof window.icarusTerminal_version === 'function')
+    setIsFullScreen(await isWindowFullScreen())
+    setIsPinned(await isWindowPinned())
+  }, [])
 
   useEffect(() => {
-    const dateTimeInterval = setInterval(() => {
+    const dateTimeInterval = setInterval(async () => {
       setDateTime(eliteDateTime())
     }, 1000)
     return () => clearInterval(dateTimeInterval)
@@ -78,11 +92,11 @@ export default function Header ({ connected, active }) {
         <button disabled className='button--icon button--transparent' style={{ marginRight: '.5rem' }}>
           <i className={signalClassName} style={{ transition: 'all .25s ease', fontSize: '2rem' }} />
         </button>
-        {isWindowsApp() &&
-          <button tabIndex='1' onClick={_togglePinWindow} className={`button--icon ${pinnedState ? 'button--transparent' : ''}`} style={{ marginRight: '.5rem' }} disabled={fullScreenState}>
+        {isWindowsApp &&
+          <button tabIndex='1' onClick={pinWindow} className={`button--icon ${isPinned ? 'button--transparent' : ''}`} style={{ marginRight: '.5rem' }} disabled={isFullScreen}>
             <i className='icon icarus-terminal-pin-window' style={{ fontSize: '2rem' }} />
           </button>}
-        <button tabIndex='1' onClick={_toggleFullScreen} className='button--icon'>
+        <button tabIndex='1' onClick={fullScreen} className='button--icon'>
           <i className='icon icarus-terminal-fullscreen' style={{ fontSize: '2rem' }} />
         </button>
       </div>
