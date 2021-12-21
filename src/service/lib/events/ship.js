@@ -27,6 +27,19 @@ class ShipEvents {
     // If FuelMain exists and greater than zero we are in a ship
     const onBoard = !!((Json?.Status?.Fuel?.FuelMain > 0 ?? false))
 
+    // Load ModulesInfo JSON first (as a fallback), then overwrite with Loadout
+    // as ModulesInfo is often stale (e.g. not updated after outfitting)
+    modulesInfoModules.forEach(module => {
+      const slot = module.Slot
+      if (!modules[slot]) modules[slot] = {}
+      modules[slot].slot = module.Slot
+      modules[slot].item = module.Item
+      modules[slot].power = module?.Power ?? false
+      modules[slot].priority = module?.Priority ?? false
+    })
+
+    // Overwrites any module info from ModdulesInfo JSON as Loadout tends to
+    // be correct but ModulesInfo is often stale
     loadoutModules.forEach(module => {
       const slot = module.Slot
       if (!modules[slot]) modules[slot] = {}
@@ -39,15 +52,6 @@ class ShipEvents {
       modules[slot].ammoInHopper = module.AmmoInHopper
       modules[slot].engineering = module?.Engineering ? module.Engineering : false
       modules[slot].engineeringLevel = module?.Engineering ? module.Engineering.Level : 0
-    })
-
-    modulesInfoModules.forEach(module => {
-      const slot = module.Slot
-      if (!modules[slot]) modules[slot] = {}
-      modules[slot].slot = module.Slot
-      modules[slot].item = module.Item
-      modules[slot].power = module?.Power ?? false
-      modules[slot].priority = module?.Priority ?? false
     })
 
     let armour = 'UNKNOWN'
