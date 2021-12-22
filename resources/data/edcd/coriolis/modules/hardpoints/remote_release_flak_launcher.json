@@ -1,0 +1,64 @@
+{
+  "rfl": [
+    {
+      "ammo": 32,
+      "breachdmg": 1.7,
+      "breachmax": 1,
+      "breachmin": 1,
+      "class": 2,
+      "clip": 1,
+      "cost": 261800,
+      "damage": 34,
+      "damagedist": {
+        "E": 1
+      },
+      "distdraw": 0.24,
+      "edID": 128785626,
+      "eddbID": 1620,
+      "falloff": 100000,
+      "fireint": 2.0,
+      "grp": "rfl",
+      "id": "x8",
+      "integrity": 51,
+      "mass": 4,
+      "mount": "F",
+      "piercing": 60,
+      "power": 1.2,
+      "rating": "B",
+      "reload": 2,
+      "shotspeed": 550,
+      "thermload": 3.6,
+      "symbol": "Hpt_FlakMortar_Fixed_Medium"
+    },
+    {
+      "ammo": 32,
+      "breachdmg": 1.7,
+      "breachmax": 1,
+      "breachmin": 1,
+      "class": 2,
+      "clip": 1,
+      "cost": 1259200,
+      "damage": 34,
+      "damagedist": {
+        "E": 1
+      },
+      "distdraw": 0.24,
+      "edID": 128793058,
+      "eddbID": 1621,
+      "falloff": 100000,
+      "fireint": 2.0,
+      "grp": "rfl",
+      "id": "x9",
+      "integrity": 51,
+      "mass": 4,
+      "mount": "T",
+      "piercing": 60,
+      "power": 1.2,
+      "rating": "B",
+      "reload": 2,
+      "shotspeed": 550,
+      "thermload": 3.6,
+      "symbol": "Hpt_FlakMortar_Turret_Medium"
+    }
+  ]
+}

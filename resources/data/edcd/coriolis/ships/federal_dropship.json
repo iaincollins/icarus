@@ -1,0 +1,190 @@
+{
+  "federal_dropship": {
+    "edID": 128049321,
+    "eddbID": 9,
+    "properties": {
+      "name": "Federal Dropship",
+      "manufacturer": "Core Dynamics",
+      "class": 2,
+      "hullCost": 13469990,
+      "speed": 180,
+      "boost": 300,
+      "boostEnergy": 19,
+      "baseShieldStrength": 200,
+      "baseArmour": 300,
+      "hardness": 60,
+      "hullMass": 580,
+      "heatCapacity": 331,
+      "masslock": 14,
+      "pipSpeed": 0.11111111111111,
+      "pitch": 30,
+      "roll": 80,
+      "yaw": 14,
+      "crew": 2,
+      "reserveFuelCapacity": 0.83
+    },
+    "retailCost": 14314210,
+    "requirements": {
+      "federationRank": 3
+    },
+    "bulkheads": [
+      {
+        "id": "bE",
+        "edID": 128049322,
+        "eddbID": 793,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "bF",
+        "edID": 128049323,
+        "eddbID": 794,
+        "grp": "bh",
+        "cost": 5725680,
+        "mass": 44,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "bG",
+        "edID": 128049324,
+        "eddbID": 795,
+        "grp": "bh",
+        "cost": 12882780,
+        "mass": 87,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "bH",
+        "edID": 128049325,
+        "eddbID": 796,
+        "grp": "bh",
+        "cost": 30446310,
+        "mass": 87,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "bI",
+        "edID": 128049326,
+        "eddbID": 797,
+        "grp": "bh",
+        "cost": 33738580,
+        "mass": 87,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        6,
+        6,
+        5,
+        5,
+        6,
+        4,
+        4
+      ],
+      "hardpoints": [
+        3,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        6,
+        5,
+        5,
+        4,
+        {
+          "class": 4,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        {
+          "class": 4,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "6E",
+        "6E",
+        "5E",
+        "5E",
+        "6E",
+        "4E",
+        "4C"
+      ],
+      "hardpoints": [
+        0,
+        17,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "04",
+        "03",
+        "4e",
+        "02",
+        0,
+        0,
+        0,
+        0,
+        "",
+        0
+      ]
+    }
+  }
+}

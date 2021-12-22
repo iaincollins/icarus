@@ -1,0 +1,28 @@
+{
+  "hs": [
+    {
+      "ammo": 2,
+      "ammocost": 25,
+      "class": 0,
+      "clip": 1,
+      "cost": 3500,
+      "distdraw": 2,
+      "drain": 100,
+      "duration": 10,
+      "edID": 128049519,
+      "eddbID": 886,
+      "eps": 0.4,
+      "fireint": 5.0,
+      "grp": "hs",
+      "id": "02",
+      "integrity": 20,
+      "mass": 1.3,
+      "name": "Heat Sink Launcher",
+      "passive": 1,
+      "power": 0.2,
+      "rating": "I",
+      "reload": 10,
+      "symbol": "Hpt_HeatSinkLauncher_Turret_Tiny"
+    }
+  ]
+}

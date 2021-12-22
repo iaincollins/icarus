@@ -1,0 +1,7 @@
+id,name
+$faction_Alliance;,Alliance
+$faction_Empire;,Empire
+$faction_Federation;,Federation
+$faction_Independent;,Independent
+$faction_none;,None
+$faction_Pirate;,Pirate

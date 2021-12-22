@@ -1,0 +1,158 @@
+{
+  "imperial_courier": {
+    "edID": 128671223,
+    "eddbID": 14,
+    "properties": {
+      "name": "Imperial Courier",
+      "manufacturer": "Gutamaya",
+      "class": 1,
+      "hullCost": 2481550,
+      "speed": 280,
+      "boost": 380,
+      "boostEnergy": 10,
+      "baseShieldStrength": 200,
+      "baseArmour": 80,
+      "hardness": 30,
+      "hullMass": 35,
+      "masslock": 7,
+      "heatCapacity": 230,
+      "pipSpeed": 0.053571428571429,
+      "pitch": 38,
+      "roll": 90,
+      "yaw": 16,
+      "crew": 1,
+      "reserveFuelCapacity": 0.41
+    },
+    "retailCost": 2542930,
+    "requirements": {
+      "empireRank": 3
+    },
+    "bulkheads": [
+      {
+        "id": "bf",
+        "edID": 128671224,
+        "eddbID": 1389,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "bg",
+        "edID": 128671225,
+        "eddbID": 1390,
+        "grp": "bh",
+        "cost": 1017200,
+        "mass": 4,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "bh",
+        "edID": 128671226,
+        "eddbID": 1391,
+        "grp": "bh",
+        "cost": 2288600,
+        "mass": 8,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "bi",
+        "edID": 128671227,
+        "eddbID": 1392,
+        "grp": "bh",
+        "cost": 5408800,
+        "mass": 8,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "bj",
+        "edID": 128671228,
+        "eddbID": 1393,
+        "grp": "bh",
+        "cost": 5993700,
+        "mass": 8,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        4,
+        3,
+        3,
+        1,
+        3,
+        2,
+        3
+      ],
+      "hardpoints": [
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        3,
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "4E",
+        "3E",
+        "3E",
+        "1E",
+        "3E",
+        "2E",
+        "3C"
+      ],
+      "hardpoints": [
+        17,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "01",
+        "01",
+        "3v",
+        "00",
+        "00",
+        "",
+        0,
+        0
+      ]
+    }
+  }
+}

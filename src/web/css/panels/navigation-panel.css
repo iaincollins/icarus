@@ -17,34 +17,20 @@
 }
 
 .navigation-panel__inspector {
-  background: var(--linear-gradient-background);
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
-  width: 20rem;
-  padding: .5rem .5rem 2rem .5rem;
+  width: 21.5rem;
   transition: right .5s ease-in-out;
   z-index: 10;
 }
 
 .navigation-panel__inspector--hidden {
-  right: -20rem;
+  right: -21.5rem;
   padding: 0;
-  background: var(--color-background-panel-opaque);
+  background: var(--color-background-panel);
   animation-delay: 0;
-}
-
-.navigation-panel__inspector .button__close-button {
-  position: fixed;
-  top: auto;
-  bottom: 1rem;
-  right: 19rem;
-  z-index: 200;
-  opacity: 0;
-  animation: fx-fade-in-animation .25s ease-in-out;
-  animation-fill-mode: forwards;
-  animation-delay: .5s;
 }
 
 .navigation-panel__inspector .navigation-panel__inspector-heading .icon {
@@ -98,7 +84,7 @@
 
 .navigation-panel__list--inspector,
 .navigation-panel__map--inspector {
-  right: 21rem;
+  right: 22rem;
 }
 
 .navigation-panel__list {
@@ -139,12 +125,6 @@
   z-index: 10;
   width: auto;
   height: 100%;
-}
-
-@media only screen and (min-width: 801px) {
-  .navigation-panel__map-foreground.scrollable {
-    overflow-y: scroll;
-  }
 }
 
 .navigation-panel__map-background::after {
@@ -200,7 +180,6 @@
 .navigation-panel__inspector-section {
   margin-bottom: 1.5rem;
   font-weight: bold;
-  padding: 0 .5rem;
 }
 
 .navigation-panel__inspector-section .icon {
@@ -251,7 +230,7 @@
   to { width: 15rem; }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 799px) {
   .navigation-panel__list,
   .navigation-panel__map {
     height: 100%;
@@ -267,19 +246,18 @@
   }
 
   .navigation-panel__inspector {
+    top: 50%;
     position: absolute;
     width: 100%;
-    height: 50%;
+    top: calc(50% + .5rem);
+    left: 0;
     right: 0;
-    top: 50%;
-    bottom: .5rem;
-    margin-top: .5rem;
+    bottom: 0;
     transition: top .5s ease;
-    overflow: scroll;
   }
 
   .navigation-panel__inspector > * {
-    margin-left: 1rem !important;
+    xmargin-left: 1rem !important;
   }
 
   .navigation-panel__inspector--hidden {
@@ -287,12 +265,5 @@
     height: 0;
     padding: 0;
     overflow: hidden;
-  }
-
-  .navigation-panel__inspector .button__close-button {
-    top: 50%;
-    right: 2rem;
-    transform: rotate(90deg);
-    margin-top: 5rem;
   }
 }

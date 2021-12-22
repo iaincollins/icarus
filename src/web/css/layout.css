@@ -22,7 +22,7 @@
   line-height: 2rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 599px) {
   .layout header h1 {
     visibility: hidden;
     height: 2rem;
@@ -94,7 +94,7 @@
   bottom: .5rem;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 799px) {
   .layout__left-half,
   .layout__right-half {
     position: absolute;

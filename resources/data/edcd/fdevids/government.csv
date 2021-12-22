@@ -1,0 +1,16 @@
+id,name
+$government_Anarchy;,Anarchy
+$government_Communism;,Communism
+$government_Confederacy;,Confederacy
+$government_Cooperative;,Cooperative
+$government_Corporate;,Corporate
+$government_Democracy;,Democracy
+$government_Dictatorship;,Dictatorship
+$government_Feudal;,Feudal
+$government_Imperial;,Imperial
+$government_None;,None
+$government_Patronage;,Patronage
+$government_PrisonColony;,Prison Colony
+$government_Theocracy;,Theocracy
+$government_Engineer;,Engineer
+$government_Carrier;,Private Ownership

@@ -167,12 +167,23 @@ class SystemMap {
         
         systemObject.radius = 1000
 
-        const services = []
-        if (systemObject.haveMarket) services.push('Market')
-        if (systemObject.haveShipyard) services.push('Shipyard')
-        if (systemObject.haveOutfitting) services.push('Outfitting')
-        if (systemObject.otherServices) services.concat(systemObject.otherServices)
-        systemObject._services = services
+        const shipServices = []
+        const otherServices = []
+      
+        if (systemObject.otherServices.includes('Repair')) shipServices.push('Repair')
+        if (systemObject.otherServices.includes('Refuel')) shipServices.push('Refuel')
+        if (systemObject.otherServices.includes('Restock')) shipServices.push('Restock')
+        if (systemObject.otherServices.includes('Tuning')) shipServices.push('Tuning')
+        if (systemObject.haveShipyard) shipServices.push('Shipyard')
+        if (systemObject.haveOutfitting) shipServices.push('Outfitting')
+        if (systemObject.haveMarket) otherServices.push('Market')
+
+        systemObject.otherServices.forEach(service => {
+          if (!shipServices.includes(service)) otherServices.push(service)
+        })
+
+        systemObject._shipServices = shipServices
+        systemObject._otherServices = otherServices
 
         // If this object is any time of planetry port, outpost or settlement
         // then add it as a planetary base of the parent body

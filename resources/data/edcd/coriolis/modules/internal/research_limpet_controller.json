@@ -1,0 +1,20 @@
+{
+  "rsl": [
+    {
+      "rating": "E",
+      "class": 1,
+      "grp": "rsl",
+      "id": "2w",
+      "eddbID": 1617,
+      "edID": 128793116,
+      "cost": 1749600,
+      "mass": 1.3,
+      "maximum": 1,
+      "power": 0.4,
+      "range": 2,
+      "symbol": "Int_DroneControl_UnkVesselResearch",
+      "time": 300,
+      "integrity": 20
+    }
+  ]
+}

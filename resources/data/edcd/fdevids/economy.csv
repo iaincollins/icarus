@@ -1,0 +1,17 @@
+id,name
+$economy_Agri;,Agriculture
+$economy_Colony;,Colony
+$economy_Extraction;,Extraction
+$economy_HighTech;,High Tech
+$economy_Industrial;,Industrial
+$economy_Military;,Military
+$economy_None;,None
+$economy_Refinery;,Refinery
+$economy_Service;,Service
+$economy_Terraforming;,Terraforming
+$economy_Tourism;,Tourism
+$economy_Prison;,Prison
+$economy_Damaged;,Damaged
+$economy_Rescue;,Rescue
+$economy_Repair;,Repair
+$economy_Carrier;,Private Enterprise

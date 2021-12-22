@@ -1,0 +1,163 @@
+{
+  "python": {
+    "edID": 128049339,
+    "eddbID": 17,
+    "properties": {
+      "name": "Python",
+      "manufacturer": "Faulcon DeLacy",
+      "class": 2,
+      "hullCost": 55171380,
+      "speed": 230,
+      "boost": 300,
+      "boostEnergy": 23,
+      "baseShieldStrength": 260,
+      "baseArmour": 260,
+      "heatCapacity": 300,
+      "hardness": 65,
+      "hullMass": 350,
+      "masslock": 17,
+      "pipSpeed": 0.097826086956522,
+      "pitch": 29,
+      "roll": 90,
+      "yaw": 10,
+      "crew": 2,
+      "reserveFuelCapacity": 0.83
+    },
+    "retailCost": 56978180,
+    "bulkheads": [
+      {
+        "id": "bO",
+        "edID": 128049340,
+        "eddbID": 808,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "bP",
+        "edID": 128049341,
+        "eddbID": 809,
+        "grp": "bh",
+        "cost": 22791270,
+        "mass": 26,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "bQ",
+        "edID": 128049342,
+        "eddbID": 810,
+        "grp": "bh",
+        "cost": 51280360,
+        "mass": 53,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "bR",
+        "edID": 128049343,
+        "eddbID": 811,
+        "grp": "bh",
+        "cost": 121192590,
+        "mass": 53,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "bS",
+        "edID": 128049344,
+        "eddbID": 812,
+        "grp": "bh",
+        "cost": 134297570,
+        "mass": 53,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        7,
+        6,
+        5,
+        4,
+        7,
+        6,
+        5
+      ],
+      "hardpoints": [
+        3,
+        3,
+        3,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        6,
+        6,
+        6,
+        5,
+        5,
+        4,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "7E",
+        "6E",
+        "5E",
+        "4E",
+        "7E",
+        "6E",
+        "5C"
+      ],
+      "hardpoints": [
+        0,
+        0,
+        0,
+        17,
+        17,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "04",
+        "04",
+        "4j",
+        "03",
+        0,
+        0,
+        0,
+        "00",
+        "",
+        0
+      ]
+    }
+  }
+}

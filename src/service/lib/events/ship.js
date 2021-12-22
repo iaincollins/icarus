@@ -1,5 +1,7 @@
-const Outfitting = new (require('../data'))('outfitting')
-const Shipyard = new (require('../data'))('shipyard')
+const EDCDOutfitting = new (require('../data'))('edcd/fdevids/outfitting')
+const EDCDShipyard = new (require('../data'))('edcd/fdevids/shipyard')
+const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
+const CoriolisModules = new (require('../data'))('edcd/coriolis/modules')
 const { UNKNOWN_VALUE } = require('../consts')
 
 class ShipEvents {
@@ -20,7 +22,7 @@ class ShipEvents {
     // all modules fitted to the ship (including cosmetic and built-in)
     const loadoutModules = Loadout?.Modules ?? []
     const modulesInfoModules = Json?.ModulesInfo?.Modules ?? []
-    const modules = {}
+    let modules = {}
 
     // If Fuel does not exist, then we are on foot (and not on board)
     // If FuelMain exists but is zero, we are in an SVR (and not on board)
@@ -40,7 +42,7 @@ class ShipEvents {
 
     // Overwrites any module info from ModdulesInfo JSON as Loadout tends to
     // be correct but ModulesInfo is often stale
-    loadoutModules.forEach(module => {
+    loadoutModules.forEach(async module => {
       const slot = module.Slot
       if (!modules[slot]) modules[slot] = {}
       modules[slot].slot = module.Slot
@@ -48,21 +50,79 @@ class ShipEvents {
       modules[slot].on = module.On
       modules[slot].health = module.Health
       modules[slot].value = module.Value
-      modules[slot].ammoInClip = module.AmmoInClip
-      modules[slot].ammoInHopper = module.AmmoInHopper
-      modules[slot].engineering = module?.Engineering ? module.Engineering : false
-      modules[slot].engineeringLevel = module?.Engineering ? module.Engineering.Level : 0
+
+      // For passenger cabins, AmmoInClip refers to number of passengers
+      if (slot.includes('PassengerCabin')) {
+        modules[slot].passengers = module.AmmoInClip
+      } else {
+        modules[slot].ammoInClip = module.AmmoInClip
+        modules[slot].ammoInHopper = module.AmmoInHopper
+      }
+
+      if (module?.Engineering) {
+        // Enrich engineering data as we add it
+        const blueprint = await CoriolisBlueprints.getBySymbol(module.Engineering.BlueprintName)
+        modules[slot].engineering = {
+          name: blueprint?.name ?? module.Engineering.BlueprintName?.replace(/_/g, ' ')?.replace(/([a-z])([A-Z])/g, '$1 $2')?.trim(),
+          level: module.Engineering.Level,
+          quality: module.Engineering.Quality,
+          modifiers: module.Engineering.Modifiers.map(mod => {
+            // Determine if change is better or worse and how much it differs
+            let difference = ''
+            let improvement = false
+            if (mod.LessIsGood === 0) {
+              if (mod.Value > mod.OriginalValue) {
+                difference = `+${(mod.Value - mod.OriginalValue).toFixed(2)}`
+                improvement = true
+              } else {
+                difference = `-${(mod.OriginalValue - mod.Value).toFixed(2)}`
+              }
+            } else {
+              if (mod.Value < mod.OriginalValue) {
+                difference = `-${(mod.OriginalValue - mod.Value).toFixed(2)}`
+                improvement = true
+              } else {
+                difference = `+${(mod.Value - mod.OriginalValue).toFixed(2)}`
+              }
+            }
+            if (mod.Value === mod.OriginalValue) difference = ''
+            
+            difference = difference.replace(/\.00$/, '').replace(/0$/, '')
+
+            return {
+              name: mod.Label.replace(/_/g, ' ')?.replace(/([a-z])([A-Z])/g, '$1 $2')?.trim(),
+              value: mod.Value,
+              originalValue: mod.OriginalValue,
+              lessIsGood: mod.LessIsGood,
+              difference,
+              improvement
+            }
+          }),
+          experimentalEffect: module.Engineering?.ExperimentalEffect_Localised?.replace(/_/g, ' ')?.replace(/([a-z])([A-Z])/g, '$1 $2')?.trim() ?? false,
+          engineer: module.Engineering.Engineer,
+          grades: blueprint?.grades ?? null
+        }
+      } else {
+        modules[slot].engineering = false
+      }
     })
 
-    let armour = 'UNKNOWN'
+    let armour = UNKNOWN_VALUE
     let totalModuleValue = 0
     let totalModulePowerDraw = 0
     for (const moduleName in modules) {
       const module = modules[moduleName]
-      module.name = module.item // Use internal symbol for name as fallback
+      
+      // As a fallback, use cleaned up version of internal symbol for name
+      module.name = module.item
+        .replace(/ Package$/, '') // Hull / Armour modules
+        .replace(/int_/, '')
+        .replace(/_size(.*?)$/g, ' ')
+        .replace(/_/g, ' ')
 
       // Populate additional metadata for module by looking it up
-      const outfittingModule = await Outfitting.getBySymbol(module.item)
+      const outfittingModule = await EDCDOutfitting.getBySymbol(module.item)
+      const coriolisModule = await CoriolisModules.getBySymbol(module.item)
 
       // Enrich module info with metadata, if we have it
       if (outfittingModule) {
@@ -86,13 +146,33 @@ class ShipEvents {
       if (module.slot.includes('SmallHardpoint')) module.size = 'small'
       if (module.slot.includes('TinyHardpoint')) module.size = 'tiny' // Utilities
 
+      module.hardpoint = module.slot.includes('Hardpoint') ? true : false
+      module.utility = module.slot.includes('TinyHardpoint') ? true : false
+
       // Keep running total of module cost and total power draw
       if (module.value) totalModuleValue += module.value
       if (module.power) totalModulePowerDraw += module.power
+
+      if (coriolisModule) {
+        // Just grab the first line of the description
+        const [firstLine, junk] = (coriolisModule?.description ?? '').split('. ')
+        module.description = ''
+        if (firstLine) module.description = firstLine.replace(/\.$/, '')
+      }
+
+      module.slotName = module.slot.replace('_', ' ')
+        .replace(/([0-9]+)/g, ' $1 ')
+        .replace(/^Slot ([0-9]+) Size ([0-9]+)/g, '') // "(Max size: $2)")
+        .replace(/ 0/g, ' ') // Leading zeros in numbers
+        .replace(/Military ([0-9])/, 'Military slot $1')
+        .replace(/([a-z])([A-Z])/g, '$1 $2')
+        .replace(/^Tiny /, 'Utility ')
+        .trim()
     }
+
     totalModulePowerDraw = totalModulePowerDraw.toFixed(2)
 
-    const ship = await Shipyard.getBySymbol(Loadout?.Ship)
+    const ship = await EDCDShipyard.getBySymbol(Loadout?.Ship)
 
     return {
       type: ship?.name ?? Loadout?.Ship ?? UNKNOWN_VALUE,

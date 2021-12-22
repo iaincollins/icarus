@@ -1,0 +1,74 @@
+{
+  "pce": [
+    {
+      "class": 2,
+      "cost": 4320,
+      "edID": 128734690,
+      "eddbID": 1563,
+      "grp": "pce",
+      "id": "ma",
+      "mass": 2.5,
+      "passengers": 2,
+      "rating": "E",
+      "symbol": "Int_PassengerCabin_Size2_Class1",
+      "ukName": "EC Passenger Cabin",
+      "ukDiscript": "Economy Class Passenger Cabin."
+    },
+    {
+      "class": 3,
+      "cost": 8659,
+      "edID": 128734691,
+      "eddbID": 1564,
+      "grp": "pce",
+      "id": "mb",
+      "mass": 5,
+      "passengers": 4,
+      "rating": "E",
+      "symbol": "Int_PassengerCabin_Size3_Class1",
+      "ukName": "EC Passenger Cabin",
+      "ukDiscript": "Economy Class Passenger Cabin."
+    },
+    {
+      "class": 4,
+      "cost": 18960,
+      "edID": 128727922,
+      "eddbID": 1565,
+      "grp": "pce",
+      "id": "mc",
+      "mass": 10,
+      "passengers": 8,
+      "rating": "E",
+      "symbol": "Int_PassengerCabin_Size4_Class1",
+      "ukName": "EC Passenger Cabin",
+      "ukDiscript": "Economy Class Passenger Cabin."
+    },
+    {
+      "class": 5,
+      "cost": 34960,
+      "edID": 128734693,
+      "eddbID": 1566,
+      "grp": "pce",
+      "id": "md",
+      "mass": 20,
+      "passengers": 16,
+      "rating": "E",
+      "symbol": "Int_PassengerCabin_Size5_Class1",
+      "ukName": "EC Passenger Cabin",
+      "ukDiscript": "Economy Class Passenger Cabin."
+    },
+    {
+      "class": 6,
+      "cost": 61420,
+      "edID": 128727926,
+      "eddbID": 1567,
+      "grp": "pce",
+      "id": "me",
+      "mass": 40,
+      "passengers": 32,
+      "rating": "E",
+      "symbol": "Int_PassengerCabin_Size6_Class1",
+      "ukName": "EC Passenger Cabin",
+      "ukDiscript": "Economy Class Passenger Cabin."
+    }
+  ]
+}

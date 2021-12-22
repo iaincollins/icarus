@@ -1,0 +1,58 @@
+{
+  "fh": [
+    {
+      "bays": 1,
+      "class": 5,
+      "cost": 575644,
+      "edID": 128727930,
+      "eddbID": 1562,
+      "fightercost": 1030,
+      "grp": "fh",
+      "id": "fr",
+      "integrity": 60,
+      "mass": 20,
+      "power": 0.25,
+      "rating": "D",
+      "rebuildsperbay": 6,
+      "symbol": "Int_FighterBay_Size5_Class1",
+      "ukName": "Fighter Hangar",
+      "ukDiscript": "A module designed to house ship launched vehicles."
+    },
+    {
+      "bays": 2,
+      "class": 6,
+      "cost": 1869350,
+      "edID": 128727931,
+      "eddbID": 1561,
+      "fightercost": 1030,
+      "grp": "fh",
+      "id": "fm",
+      "integrity": 80,
+      "mass": 40,
+      "power": 0.35,
+      "rating": "D",
+      "rebuildsperbay": 8,
+      "symbol": "Int_FighterBay_Size6_Class1",
+      "ukName": "Fighter Hangar",
+      "ukDiscript": "A module designed to house ship launched vehicles."
+    },
+    {
+      "bays": 2,
+      "class": 7,
+      "edID": 128727932,
+      "cost": 2369330,
+      "eddbID": 1560,
+      "fightercost": 1030,
+      "grp": "fh",
+      "id": "fh",
+      "integrity": 120,
+      "mass": 60,
+      "power": 0.35,
+      "rating": "D",
+      "rebuildsperbay": 15,
+      "symbol": "Int_FighterBay_Size7_Class1",
+      "ukName": "Fighter Hangar",
+      "ukDiscript": "A module designed to house ship launched vehicles."
+    }
+  ]
+}

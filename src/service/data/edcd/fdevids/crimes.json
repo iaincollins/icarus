@@ -1,0 +1,35 @@
+[
+  {
+    "id": "assault"
+  },
+  {
+    "id": "collidedAtSpeedInNoFireZone"
+  },
+  {
+    "id": "collidedAtSpeedInNoFireZone_hulldamage"
+  },
+  {
+    "id": "dockingMajorBlockingAirlock"
+  },
+  {
+    "id": "dockingMajorTresspass"
+  },
+  {
+    "id": "dockingMinorBlockingAirlock"
+  },
+  {
+    "id": "dockingMinorBlockingLandingPad"
+  },
+  {
+    "id": "dockingMinorTresspass"
+  },
+  {
+    "id": "dumpingNearStation"
+  },
+  {
+    "id": "fireInNoFireZone"
+  },
+  {
+    "id": "murder"
+  }
+]

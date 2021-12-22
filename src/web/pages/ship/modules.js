@@ -34,32 +34,18 @@ export default function ShipModulesPage () {
     setShip(await sendEvent('getShip'))
   }), [])
 
-  useEffect(() => {
-    document.addEventListener('click', onClickHandler)
-    return () => document.removeEventListener('click', onClickHandler)
-    function onClickHandler (event) {
-      if (!document?.activeElement?.getAttribute('data-module-slot')) {
-        if (!event?.target?.getAttribute('data-module-slot')) {
-          // If click on that isn't a module, clear selected module
-          setSelectedModule(null)
-        }
-      }
-    }
-  }, [])
-
   return (
     <Layout connected={connected} active={active} ready={ready} className='ship-panel'>
       {ship &&
-        <Panel
-          navigation={ShipPanelNavItems('Modules')}
-          scrollable
-        >
+        <Panel navigation={ShipPanelNavItems('Modules')} scrollable>
           <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
-            <h1 className='text-info' style={{ marginRight: '13rem' }}>{ship.name}</h1>
-            <h2 className='text-primary'>IDENT {ship.ident}</h2>
-            <h3 style={{ marginBottom: '.5rem' }} className='text-primary text-muted'>
-              {ship?.type?.replaceAll('_', ' ')}
-            </h3>
+            <div className='ship-panel__title'>
+              <h1 className='text-info'>{ship.name}</h1>
+              <h2 className='text-primary'>IDENT {ship.ident}</h2>
+              <h3 style={{ marginBottom: '.5rem' }} className='text-primary text-muted'>
+                {ship?.type?.replaceAll('_', ' ')}
+              </h3>
+            </div>
             {ship.onBoard &&
               <div className='ship-panel__ship-pips text-uppercase'>
                 <div className='ship-panel__ship-pip'>
@@ -110,9 +96,10 @@ export default function ShipModulesPage () {
             <hr />
             <ShipModules
               name='Hardpoints'
-              hardpoint
               modules={
-                  Object.values(ship.modules).filter(module => ['huge', 'large', 'medium', 'small'].includes(module?.size))
+                  Object.values(ship.modules)
+                    .filter(module => ['huge', 'large', 'medium', 'small']
+                    .includes(module?.size))
                 }
               selectedModule={selectedModule}
               setSelectedModule={setSelectedModule}
@@ -120,7 +107,6 @@ export default function ShipModulesPage () {
             <hr />
             <ShipModules
               name='Optional Internals'
-              optional
               modules={
                 Object.values(ship.modules)
                   .filter(module => {
@@ -143,7 +129,6 @@ export default function ShipModulesPage () {
                       return true
                     })
                 }
-              filter={['tiny']}
               selectedModule={selectedModule}
               setSelectedModule={setSelectedModule}
             />
@@ -151,7 +136,11 @@ export default function ShipModulesPage () {
             <div style={{ marginBottom: '1rem' }} className='ship-panel__modules--inline'>
               <ShipModules
                 name='Utility Mounts'
-                modules={Object.values(ship.modules).filter(module => ['tiny'].includes(module?.size))}
+                modules={
+                  Object.values(ship.modules)
+                  .filter(module => ['tiny']
+                  .includes(module?.size))
+                }
                 selectedModule={selectedModule}
                 setSelectedModule={setSelectedModule}
               />
@@ -159,7 +148,7 @@ export default function ShipModulesPage () {
           </div>
         </Panel>}
       <Panel>
-        <ShipModuleInspectorPanel module={selectedModule} />
+        <ShipModuleInspectorPanel module={selectedModule} setSelectedModule={setSelectedModule} />
       </Panel>
     </Layout>
   )

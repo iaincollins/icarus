@@ -1,0 +1,162 @@
+{
+  "cobra_mk_iv": {
+    "edID": 128672262,
+    "eddbID": 29,
+    "properties": {
+      "name": "Cobra Mk IV",
+      "manufacturer": "Faulcon DeLacy",
+      "class": 1,
+      "hullCost": 603740,
+      "speed": 200,
+      "boost": 300,
+      "boostEnergy": 10,
+      "baseShieldStrength": 120,
+      "heatCapacity": 228,
+      "baseArmour": 120,
+      "hardness": 35,
+      "hullMass": 210,
+      "masslock": 8,
+      "pipSpeed": 0.125,
+      "pitch": 30,
+      "roll": 90,
+      "yaw": 10,
+      "crew": 2,
+      "reserveFuelCapacity": 0.51
+    },
+    "retailCost": 747660,
+    "requirements": {
+      "horizonsEarlyAdoption": true
+    },
+    "bulkheads": [
+      {
+        "id": "cg",
+        "edID": 128672264,
+        "eddbID": 1518,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "ch",
+        "edID": 128672265,
+        "eddbID": 1519,
+        "grp": "bh",
+        "cost": 305890,
+        "mass": 14,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "ci",
+        "edID": 128672266,
+        "eddbID": 1520,
+        "grp": "bh",
+        "cost": 688250,
+        "mass": 27,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "cj",
+        "edID": 128672267,
+        "eddbID": 1521,
+        "grp": "bh",
+        "cost": 1605910,
+        "mass": 27,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "ck",
+        "edID": 128672268,
+        "eddbID": 1522,
+        "grp": "bh",
+        "cost": 1802440,
+        "mass": 27,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        4
+      ],
+      "hardpoints": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "internal": [
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "4E",
+        "4E",
+        "4E",
+        "3E",
+        "3E",
+        "3E",
+        "4C"
+      ],
+      "hardpoints": [
+        17,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "02",
+        "02",
+        "49",
+        0,
+        0,
+        0,
+        "00",
+        "",
+        0,
+        0
+      ]
+    }
+  }
+}

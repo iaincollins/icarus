@@ -28,7 +28,7 @@ table thead tr {
   position: sticky !important;
   top: 0;
   z-index: 2;
-  background: var(--color-background-panel-opaque);
+  background: var(--color-background-panel);
 }
 
 table thead tr th:after {
@@ -58,7 +58,7 @@ table tbody tr {
   outline: 0 !important;
   animation: fade-in-animation .25s ease;
   color: var(--color-primary);
-  background: var(--color-background-panel);
+  background: var(--color-background-panel-translucent);
 }
 
 /* 
@@ -105,7 +105,7 @@ table.table__bordered tbody tr:not(.table-row--disabled) {
 }
 
 table.table__bordered tbody tr {
-  background: var(--color-background-panel);
+  background: var(--color-background-panel-translucent);
   border: .2rem solid var(--color-primary-dark);
 }
 
@@ -138,19 +138,19 @@ table.table--flex-inline tbody tr {
   padding: .1rem .25rem;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1279px) {
   table.table--flex-inline tbody tr {
     width: 33.33%;
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
   table.table--flex-inline tbody tr {
     width: 50%;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 599px) {
   table.table--flex-inline tbody tr {
     width: 100%;
   }
@@ -161,7 +161,7 @@ table.table--flex-inline tbody tr td {
   height: 100%;
   box-sizing: border-box;
   position: relative;
-  background: var(--color-background-panel);
+  background: var(--color-background-panel-translucent);
   border: .2rem solid var(--color-primary-dark);
 }
 

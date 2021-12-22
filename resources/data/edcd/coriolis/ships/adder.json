@@ -1,0 +1,149 @@
+{
+  "adder": {
+    "edID": 128049267,
+    "eddbID": 1,
+    "properties": {
+      "name": "Adder",
+      "manufacturer": "Zorgon Peterson",
+      "class": 1,
+      "hullCost": 40000,
+      "speed": 220,
+      "boost": 320,
+      "boostEnergy": 9,
+      "heatCapacity": 170,
+      "baseShieldStrength": 60,
+      "baseArmour": 90,
+      "hardness": 35,
+      "hullMass": 35,
+      "masslock": 7,
+      "pipSpeed": 0.13636363636364,
+      "pitch": 38,
+      "roll": 100,
+      "yaw": 14,
+      "crew": 2,
+      "reserveFuelCapacity": 0.36
+    },
+    "retailCost": 87810,
+    "bulkheads": [
+      {
+        "id": "BC",
+        "edID": 128049268,
+        "eddbID": 753,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "BD",
+        "edID": 128049269,
+        "eddbID": 754,
+        "grp": "bh",
+        "cost": 35120,
+        "mass": 3,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "BE",
+        "edID": 128049270,
+        "eddbID": 755,
+        "grp": "bh",
+        "cost": 79030,
+        "mass": 5,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "BF",
+        "edID": 128049271,
+        "eddbID": 756,
+        "grp": "bh",
+        "cost": 186770,
+        "mass": 5,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "BG",
+        "edID": 128049272,
+        "eddbID": 757,
+        "grp": "bh",
+        "cost": 206960,
+        "mass": 5,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        3,
+        3,
+        3,
+        1,
+        2,
+        3,
+        3
+      ],
+      "hardpoints": [
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "internal": [
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "3E",
+        "3E",
+        "3E",
+        "1E",
+        "2E",
+        "3E",
+        "3C"
+      ],
+      "hardpoints": [
+        0,
+        17,
+        17,
+        0,
+        0
+      ],
+      "internal": [
+        "01",
+        "44",
+        "00",
+        0,
+        "",
+        0,
+        0
+      ]
+    }
+  }
+}

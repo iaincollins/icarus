@@ -1,0 +1,22 @@
+[
+  {
+    "id": "$Faction_HappinessBand1;",
+    "name": "Elated"
+  },
+  {
+    "id": "$Faction_HappinessBand2;",
+    "name": "Happy"
+  },
+  {
+    "id": "$Faction_HappinessBand3;",
+    "name": "Discontented"
+  },
+  {
+    "id": "$Faction_HappinessBand4;",
+    "name": "Unhappy"
+  },
+  {
+    "id": "$Faction_HappinessBand5;",
+    "name": "Despondent"
+  }
+]

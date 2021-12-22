@@ -1,0 +1,79 @@
+{
+  "ws": [
+    {
+      "class": 0,
+      "cost": 13540,
+      "edID": 128662525,
+      "eddbID": 1232,
+      "grp": "ws",
+      "id": "0i",
+      "integrity": 32,
+      "mass": 1.3,
+      "power": 0.2,
+      "range": 2000,
+      "rating": "E",
+      "scantime": 10,
+      "symbol": "Hpt_CloudScanner_Size0_Class1"
+    },
+    {
+      "class": 0,
+      "cost": 40630,
+      "edID": 128662526,
+      "eddbID": 1233,
+      "grp": "ws",
+      "id": "0h",
+      "integrity": 24,
+      "mass": 1.3,
+      "power": 0.4,
+      "range": 2500,
+      "rating": "D",
+      "scantime": 10,
+      "symbol": "Hpt_CloudScanner_Size0_Class2"
+    },
+    {
+      "class": 0,
+      "cost": 121900,
+      "edID": 128662527,
+      "eddbID": 1234,
+      "grp": "ws",
+      "id": "0g",
+      "integrity": 40,
+      "mass": 1.3,
+      "power": 0.8,
+      "range": 3000,
+      "rating": "C",
+      "scantime": 10,
+      "symbol": "Hpt_CloudScanner_Size0_Class3"
+    },
+    {
+      "class": 0,
+      "cost": 365700,
+      "edID": 128662528,
+      "eddbID": 1235,
+      "grp": "ws",
+      "id": "0f",
+      "integrity": 56,
+      "mass": 1.3,
+      "power": 1.6,
+      "range": 3500,
+      "rating": "B",
+      "scantime": 10,
+      "symbol": "Hpt_CloudScanner_Size0_Class4"
+    },
+    {
+      "class": 0,
+      "cost": 1097100,
+      "edID": 128662529,
+      "eddbID": 1236,
+      "grp": "ws",
+      "id": "0e",
+      "integrity": 48,
+      "mass": 1.3,
+      "power": 3.2,
+      "range": 4000,
+      "rating": "A",
+      "scantime": 10,
+      "symbol": "Hpt_CloudScanner_Size0_Class5"
+    }
+  ]
+}

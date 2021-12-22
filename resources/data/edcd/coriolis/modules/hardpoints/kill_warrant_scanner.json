@@ -1,0 +1,79 @@
+{
+  "kw": [
+    {
+      "class": 0,
+      "cost": 13540,
+      "edID": 128662530,
+      "eddbID": 1237,
+      "grp": "kw",
+      "id": "0n",
+      "integrity": 32,
+      "mass": 1.3,
+      "power": 0.2,
+      "range": 2000,
+      "rating": "E",
+      "scantime": 10,
+      "symbol": "Hpt_CrimeScanner_Size0_Class1"
+    },
+    {
+      "class": 0,
+      "cost": 40630,
+      "edID": 128662531,
+      "eddbID": 1238,
+      "grp": "kw",
+      "id": "0m",
+      "integrity": 24,
+      "mass": 1.3,
+      "power": 0.4,
+      "range": 2500,
+      "rating": "D",
+      "scantime": 10,
+      "symbol": "Hpt_CrimeScanner_Size0_Class2"
+    },
+    {
+      "class": 0,
+      "cost": 121900,
+      "edID": 128662532,
+      "eddbID": 1239,
+      "grp": "kw",
+      "id": "0l",
+      "integrity": 40,
+      "mass": 1.3,
+      "power": 0.8,
+      "range": 3000,
+      "rating": "C",
+      "scantime": 10,
+      "symbol": "Hpt_CrimeScanner_Size0_Class3"
+    },
+    {
+      "class": 0,
+      "cost": 365700,
+      "edID": 128662533,
+      "eddbID": 1240,
+      "grp": "kw",
+      "id": "0k",
+      "integrity": 56,
+      "mass": 1.3,
+      "power": 1.6,
+      "range": 3500,
+      "rating": "B",
+      "scantime": 10,
+      "symbol": "Hpt_CrimeScanner_Size0_Class4"
+    },
+    {
+      "class": 0,
+      "cost": 1097100,
+      "edID": 128662534,
+      "eddbID": 1241,
+      "grp": "kw",
+      "id": "0j",
+      "integrity": 48,
+      "mass": 1.3,
+      "power": 3.2,
+      "range": 4000,
+      "rating": "A",
+      "scantime": 10,
+      "symbol": "Hpt_CrimeScanner_Size0_Class5"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "beluga": {
+    "edID": 128049345,
+    "eddbID": 30,
+    "properties": {
+      "name": "Beluga Liner",
+      "manufacturer": "Saud Kruger",
+      "class": 3,
+      "hullCost": 79654610,
+      "speed": 200,
+      "boost": 280,
+      "boostEnergy": 19,
+      "baseShieldStrength": 280,
+      "heatCapacity": 283,
+      "baseArmour": 280,
+      "hardness": 60,
+      "hullMass": 950,
+      "masslock": 18,
+      "pipSpeed": 0.1125,
+      "luxuryCabins": true,
+      "fighterHangars": true,
+      "pitch": 25,
+      "roll": 60,
+      "yaw": 17,
+      "crew": 3,
+      "reserveFuelCapacity": 0.81
+    },
+    "retailCost": 84532770,
+    "requirements": {
+      "horizons": true
+    },
+    "bulkheads": [
+      {
+        "id": "cl",
+        "edID": 128049346,
+        "eddbID": 1554,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "cm",
+        "edID": 128049347,
+        "eddbID": 1555,
+        "grp": "bh",
+        "cost": 33813120,
+        "mass": 83,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "cn",
+        "edID": 128049348,
+        "eddbID": 1556,
+        "grp": "bh",
+        "cost": 76079500,
+        "mass": 165,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "co",
+        "edID": 128049349,
+        "eddbID": 1557,
+        "grp": "bh",
+        "cost": 179801200,
+        "mass": 165,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "cp",
+        "edID": 128049350,
+        "eddbID": 1558,
+        "grp": "bh",
+        "cost": 199243730,
+        "mass": 165,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        6,
+        7,
+        7,
+        8,
+        6,
+        5,
+        7
+      ],
+      "hardpoints": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        6,
+        6,
+        6,
+        6,
+        5,
+        5,
+        4,
+        3,
+        3,
+        3,
+        3,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "6E",
+        "7E",
+        "7E",
+        "8E",
+        "6E",
+        "5E",
+        "7C"
+      ],
+      "hardpoints": [
+        17,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "4j",
+        "04",
+        "mi",
+        "mi",
+        "mg",
+        "mg",
+        "02",
+        "01",
+        0,
+        0,
+        "",
+        0
+      ]
+    }
+  }
+}

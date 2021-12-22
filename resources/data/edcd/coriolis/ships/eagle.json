@@ -1,0 +1,159 @@
+{
+  "eagle": {
+    "edID": 128049255,
+    "eddbID": 7,
+    "properties": {
+      "name": "Eagle",
+      "manufacturer": "Core Dynamics",
+      "class": 1,
+      "hullCost": 10440,
+      "speed": 240,
+      "boost": 350,
+      "boostEnergy": 8,
+      "baseShieldStrength": 60,
+      "baseArmour": 40,
+      "hardness": 28,
+      "hullMass": 50,
+      "heatCapacity": 165,
+      "masslock": 6,
+      "pipSpeed": 0.0625,
+      "pitch": 50,
+      "roll": 120,
+      "yaw": 18,
+      "crew": 1,
+      "reserveFuelCapacity": 0.34
+    },
+    "retailCost": 44800,
+    "bulkheads": [
+      {
+        "id": "bY",
+        "edID": 128049256,
+        "eddbID": 743,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "bZ",
+        "edID": 128049257,
+        "eddbID": 744,
+        "grp": "bh",
+        "cost": 26880,
+        "mass": 4,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "B0",
+        "edID": 128049258,
+        "eddbID": 745,
+        "grp": "bh",
+        "cost": 90050,
+        "mass": 8,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "B1",
+        "edID": 128049259,
+        "eddbID": 746,
+        "grp": "bh",
+        "cost": 140090,
+        "mass": 8,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "B2",
+        "edID": 128049260,
+        "eddbID": 747,
+        "grp": "bh",
+        "cost": 150390,
+        "mass": 8,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        2,
+        3,
+        3,
+        1,
+        2,
+        2,
+        2
+      ],
+      "hardpoints": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "internal": [
+        3,
+        2,
+        {
+          "class": 2,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "2E",
+        "3E",
+        "3E",
+        "1E",
+        "2E",
+        "2E",
+        "2C"
+      ],
+      "hardpoints": [
+        17,
+        17,
+        0,
+        0
+      ],
+      "internal": [
+        "44",
+        "00",
+        0,
+        "",
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

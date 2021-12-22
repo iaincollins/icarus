@@ -1,0 +1,6713 @@
+{
+  "am": {
+    "blueprints": {
+      "AFM_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "power"
+    ]
+  },
+  "bh": {
+    "blueprints": {
+      "Armour_Advanced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      },
+      "Armour_Explosive": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      },
+      "Armour_HeavyDuty": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      },
+      "Armour_Kinetic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      },
+      "Armour_Thermic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "causres",
+      "explres",
+      "hullboost",
+      "kinres",
+      "mass",
+      "thermres"
+    ],
+    "specials": [
+      "special_armour_kinetic",
+      "special_armour_explosive",
+      "special_armour_chunky",
+      "special_armour_thermic"
+    ]
+  },
+  "bl": {
+    "blueprints": {
+      "Weapon_Efficient": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_Overcharged": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_ShortRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "damage",
+      "damagedist",
+      "distdraw",
+      "fallofffromrange",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "range",
+      "thermload"
+    ],
+    "specials": [
+      "special_concordant_sequence",
+      "special_regeneration_sequence",
+      "special_thermal_conduit",
+      "special_thermalshock",
+      "special_thermal_vent",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ]
+  },
+  "bsg": {
+    "blueprints": {
+      "ShieldGenerator_Kinetic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      },
+      "ShieldGenerator_Optimised": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      },
+      "ShieldGenerator_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      },
+      "ShieldGenerator_Thermic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "brokenregen",
+      "distdraw",
+      "explres",
+      "integrity",
+      "kinres",
+      "mass",
+      "optmass",
+      "optmul",
+      "power",
+      "regen",
+      "thermres"
+    ],
+    "specials": [
+      "special_shield_regenerative",
+      "special_shield_resistive",
+      "special_shield_health",
+      "special_shield_efficient",
+      "special_shield_thermic",
+      "special_shield_kinetic",
+      "special_shield_toughened",
+      "special_shield_lightweight"
+    ]
+  },
+  "c": {
+    "blueprints": {
+      "Weapon_Efficient": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge"
+            ]
+          }
+        }
+      },
+      "Weapon_HighCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge"
+            ]
+          }
+        }
+      },
+      "Weapon_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge"
+            ]
+          }
+        }
+      },
+      "Weapon_Overcharged": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge"
+            ]
+          }
+        }
+      },
+      "Weapon_ShortRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge"
+            ]
+          }
+        }
+      },
+      "Weapon_RapidFire": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod \"The Blaster\" McQuinn",
+              "Marsha Hicks"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod \"The Blaster\" McQuinn",
+              "Marsha Hicks"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Sarge"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "clip",
+      "damage",
+      "damagedist",
+      "distdraw",
+      "fallofffromrange",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "range",
+      "reload",
+      "rof",
+      "shotspeed",
+      "thermload"
+    ],
+    "specials": [
+      "special_auto_loader",
+      "special_dispersal_field",
+      "special_smart_rounds",
+      "special_force_shell",
+      "special_high_yield_shell",
+      "special_thermal_cascade",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ]
+  },
+  "cc": {
+    "blueprints": {
+      "CollectionLimpet_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "CollectionLimpet_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "CollectionLimpet_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "power"
+    ]
+  },
+  "ch": {
+    "blueprints": {
+      "Misc_ChaffCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "integrity",
+      "mass",
+      "power",
+      "reload"
+    ]
+  },
+  "cr": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "rpl": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "cs": {
+    "blueprints": {
+      "Sensor_FastScan": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Misc_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Scanner_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Misc_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Misc_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Scanner_WideAngle": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "power",
+      "angle",
+      "range",
+      "scantime"
+    ]
+  },
+  "dc": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "ec": {
+    "blueprints": {
+      "Misc_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Ram Tah"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "power"
+    ]
+  },
+  "fc": {
+    "blueprints": {
+      "Weapon_DoubleShot": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          }
+        }
+      },
+      "Weapon_Efficient": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          }
+        }
+      },
+      "Weapon_HighCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          }
+        }
+      },
+      "Weapon_Overcharged": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          }
+        }
+      },
+      "Weapon_RapidFire": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Zacariah Nemo"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "burst",
+      "burstrof",
+      "clip",
+      "damage",
+      "damagedist",
+      "fallofffromrange",
+      "distdraw",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "range",
+      "reload",
+      "rof",
+      "shotspeed",
+      "thermload"
+    ],
+    "specials": [
+      "special_corrosive_shell",
+      "special_blinding_shell",
+      "special_incendiary_rounds",
+      "special_drag_munitions",
+      "special_screening_shell",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ]
+  },
+  "rfl": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "fh": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "fi": {
+    "blueprints": {
+      "FSDinterdictor_Expanded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Felicity Farseer",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Colonel Bris Dekker"
+            ]
+          }
+        }
+      },
+      "FSDinterdictor_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Felicity Farseer",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Colonel Bris Dekker"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "boot",
+      "facinglimit",
+      "integrity",
+      "mass",
+      "power",
+      "ranget"
+    ]
+  },
+  "fs": {
+    "blueprints": {
+      "FuelScoop_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "power"
+    ]
+  },
+  "fsd": {
+    "blueprints": {
+      "FSD_FastBoot": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Elvira Martuuk",
+              "Felicity Farseer",
+              "Professor Palin"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Elvira Martuuk",
+              "Felicity Farseer",
+              "Professor Palin"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Elvira Martuuk",
+              "Felicity Farseer",
+              "Professor Palin"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicity Farseer"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicity Farseer"
+            ]
+          }
+        }
+      },
+      "FSD_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Elvira Martuuk",
+              "Felicity Farseer",
+              "Professor Palin"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Elvira Martuuk",
+              "Felicity Farseer",
+              "Professor Palin"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Elvira Martuuk",
+              "Felicity Farseer",
+              "Professor Palin"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicity Farseer"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicity Farseer"
+            ]
+          }
+        }
+      },
+      "FSD_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Elvira Martuuk",
+              "Felicity Farseer",
+              "Professor Palin"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Elvira Martuuk",
+              "Felicity Farseer",
+              "Professor Palin"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Colonel Bris Dekker",
+              "Elvira Martuuk",
+              "Felicity Farseer",
+              "Professor Palin"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicity Farseer"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicity Farseer"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "boot",
+      "integrity",
+      "mass",
+      "maxfuel",
+      "optmass",
+      "power",
+      "thermload"
+    ],
+    "specials": [
+      "special_fsd_fuelcapacity",
+      "special_fsd_heavy",
+      "special_fsd_toughened",
+      "special_fsd_lightweight",
+      "special_fsd_cooled"
+    ]
+  },
+  "ft": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "fx": {
+    "blueprints": {
+      "FuelTransferLimpet_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "FuelTransferLimpet_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "FuelTransferLimpet_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "power"
+    ]
+  },
+  "hb": {
+    "blueprints": {
+      "HatchBreakerLimpet_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "HatchBreakerLimpet_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "HatchBreakerLimpet_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "power"
+    ]
+  },
+  "hr": {
+    "blueprints": {
+      "HullReinforcement_Advanced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      },
+      "HullReinforcement_Explosive": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      },
+      "HullReinforcement_HeavyDuty": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      },
+      "HullReinforcement_Kinetic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      },
+      "HullReinforcement_Thermic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Liz Ryder",
+              "Selene Jean"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Selene Jean"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "hullreinforcement",
+      "causres",
+      "explres",
+      "kinres",
+      "mass",
+      "thermres"
+    ],
+    "specials": [
+      "special_hullreinforcement_thermic",
+      "special_hullreinforcement_kinetic",
+      "special_hullreinforcement_explosive",
+      "special_hullreinforcement_chunky"
+    ]
+  },
+  "hs": {
+    "blueprints": {
+      "Misc_HeatSinkCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "integrity",
+      "mass",
+      "power",
+      "reload"
+    ]
+  },
+  "kw": {
+    "blueprints": {
+      "Sensor_FastScan": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Misc_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Scanner_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Misc_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Misc_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Scanner_WideAngle": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "power",
+      "angle",
+      "range",
+      "scantime"
+    ]
+  },
+  "ls": {
+    "blueprints": {
+      "LifeSupport_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Etienne Dorn"
+            ]
+          }
+        }
+      },
+      "LifeSupport_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Etienne Dorn"
+            ]
+          }
+        }
+      },
+      "LifeSupport_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Etienne Dorn"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "boot",
+      "integrity",
+      "mass",
+      "power"
+    ]
+  },
+  "mc": {
+    "blueprints": {
+      "Weapon_Efficient": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_HighCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "MC_Overcharged": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_RapidFire": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_ShortRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Tod McQuinn",
+              "Zacariah Nemo"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "clip",
+      "damage",
+      "damagedist",
+      "fallofffromrange",
+      "distdraw",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "range",
+      "reload",
+      "rof",
+      "shotspeed",
+      "thermload"
+    ],
+    "specials": [
+      "special_auto_loader",
+      "special_corrosive_shell",
+      "special_emissive_munitions",
+      "special_incendiary_rounds",
+      "special_smart_rounds",
+      "special_thermalshock",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ]
+  },
+  "axmc": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "ml": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "mr": {
+    "blueprints": {
+      "Weapon_HighCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          }
+        }
+      },
+      "Weapon_RapidFire": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "clip",
+      "damage",
+      "damagedist",
+      "fallofffromrange",
+      "distdraw",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "reload",
+      "rof",
+      "thermload"
+    ],
+    "specials_S": [
+      "special_drag_munitions",
+      "special_emissive_munitions",
+      "special_overload_munitions",
+      "special_thermal_cascade",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ],
+    "specials_D": [
+      "special_emissive_munitions",
+      "special_fsd_interrupt",
+      "special_overload_munitions",
+      "special_penetrator_payload",
+      "special_thermal_cascade",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight",
+      "special_penetrator_munitions"
+    ]
+  },
+  "axmr": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "mrp": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "nl": {
+    "blueprints": {
+      "Weapon_HighCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Juri Ishmaak"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Juri Ishmaak"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Juri Ishmaak"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Juri Ishmaak"
+            ]
+          }
+        }
+      },
+      "Weapon_RapidFire": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Juri Ishmaak"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Juri Ishmaak"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Juri Ishmaak"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Juri Ishmaak"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "boot",
+      "clip",
+      "damage",
+      "damagedist",
+      "fallofffromrange",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "reload",
+      "rof",
+      "thermload"
+    ],
+    "specials": [
+      "special_ion_disruptor",
+      "special_overload_munitions",
+      "special_radiant_canister",
+      "special_reverberating_cascade",
+      "special_shiftlock_canister",
+      "special_emissive_munitions",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ]
+  },
+  "gpc": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "gpl": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "gsrp": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "gfsb": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "ghrp": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "gmrp": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "tbsc": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "gsc": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "gpp": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "ggc": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "pa": {
+    "blueprints": {
+      "Weapon_Efficient": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          }
+        }
+      },
+      "Weapon_Focused": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          }
+        }
+      },
+      "Weapon_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          }
+        }
+      },
+      "Weapon_Overcharged": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          }
+        }
+      },
+      "Weapon_RapidFire": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          }
+        }
+      },
+      "Weapon_ShortRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Zacariah Nemo"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "clip",
+      "damage",
+      "damagedist",
+      "fallofffromrange",
+      "distdraw",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "range",
+      "reload",
+      "shotspeed",
+      "rof",
+      "thermload"
+    ],
+    "specials": [
+      "special_blinding_shell",
+      "special_dispersal_field",
+      "special_phasing_sequence",
+      "special_plasma_slug",
+      "special_plasma_slug_pa",
+      "special_lock_breaker",
+      "special_thermal_conduit",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ]
+  },
+  "pas": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "pc": {
+    "blueprints": {
+      "ProspectingLimpet_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "ProspectingLimpet_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "ProspectingLimpet_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Ram Tah",
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Sarge",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "power"
+    ]
+  },
+  "pce": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "pci": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "pcm": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "pcq": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "pd": {
+    "blueprints": {
+      "PowerDistributor_HighFrequency": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Dweller"
+            ]
+          }
+        }
+      },
+      "PowerDistributor_PriorityEngines": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Dweller"
+            ]
+          }
+        }
+      },
+      "PowerDistributor_HighCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Dweller"
+            ]
+          }
+        }
+      },
+      "PowerDistributor_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Dweller"
+            ]
+          }
+        }
+      },
+      "PowerDistributor_PrioritySystems": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Dweller"
+            ]
+          }
+        }
+      },
+      "PowerDistributor_PriorityWeapons": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "The Dweller"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "boot",
+      "engcap",
+      "engrate",
+      "integrity",
+      "mass",
+      "power",
+      "syscap",
+      "sysrate",
+      "wepcap",
+      "weprate"
+    ],
+    "specials": [
+      "special_powerdistributor_capacity",
+      "special_powerdistributor_fast",
+      "special_powerdistributor_efficient",
+      "special_powerdistributor_toughened",
+      "special_powerdistributor_lightweight"
+    ]
+  },
+  "pl": {
+    "blueprints": {
+      "Weapon_Efficient": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_Focused": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_Overcharged": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_RapidFire": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_ShortRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "damage",
+      "damagedist",
+      "fallofffromrange",
+      "distdraw",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "range",
+      "rof",
+      "thermload"
+    ],
+    "specials": [
+      "special_concordant_sequence",
+      "special_emissive_munitions",
+      "special_phasing_sequence",
+      "special_scramble_spectrum",
+      "special_thermalshock",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ]
+  },
+  "po": {
+    "blueprints": {
+      "Misc_PointDefenseCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      },
+      "Misc_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Petra Olmanova",
+              "Ram Tah"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "integrity",
+      "mass",
+      "power",
+      "reload"
+    ]
+  },
+  "pp": {
+    "blueprints": {
+      "PowerPlant_Armoured": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Felicity Farseer",
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Hera Tani"
+            ]
+          }
+        }
+      },
+      "PowerPlant_Stealth": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Felicity Farseer",
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Hera Tani"
+            ]
+          }
+        }
+      },
+      "PowerPlant_Boosted": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Felicity Farseer",
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Hera Tani",
+              "Marco Qwent"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Hera Tani"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "eff",
+      "integrity",
+      "mass",
+      "pgen"
+    ],
+    "specials": [
+      "special_powerplant_highcharge",
+      "special_powerplant_cooled",
+      "special_powerplant_toughened",
+      "special_powerplant_lightweight"
+    ]
+  },
+  "psg": {
+    "blueprints": {
+      "ShieldGenerator_Kinetic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      },
+      "ShieldGenerator_Optimised": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      },
+      "ShieldGenerator_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      },
+      "ShieldGenerator_Thermic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "brokenregen",
+      "distdraw",
+      "explres",
+      "integrity",
+      "kinres",
+      "mass",
+      "optmass",
+      "optmul",
+      "power",
+      "regen",
+      "thermres"
+    ],
+    "specials": [
+      "special_shield_regenerative",
+      "special_shield_resistive",
+      "special_shield_health",
+      "special_shield_efficient",
+      "special_shield_thermic",
+      "special_shield_kinetic",
+      "special_shield_toughened",
+      "special_shield_lightweight"
+    ]
+  },
+  "pv": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "rf": {
+    "blueprints": {
+      "Refineries_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "power"
+    ]
+  },
+  "rg": {
+    "blueprints": {
+      "Weapon_HighCapacity": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_ShortRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "The Sarge",
+              "Tod McQuinn"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tod McQuinn"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "ammo",
+      "clip",
+      "damage",
+      "damagedist",
+      "fallofffromrange",
+      "distdraw",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "range",
+      "reload",
+      "rof",
+      "thermload"
+    ],
+    "specials": [
+      "special_feedback_cascade",
+      "special_feedback_cascade_cooled",
+      "special_plasma_slug",
+      "special_plasma_slug_cooled",
+      "special_super_penetrator",
+      "special_super_penetrator_cooled",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ]
+  },
+  "s": {
+    "blueprints": {
+      "Sensor_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Felicity Farseer",
+              "Hera Tani",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Felicity Farseer",
+              "Hera Tani",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Felicity Farseer",
+              "Hera Tani",
+              "Etienne Dorn"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Sensor_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Felicity Farseer",
+              "Hera Tani",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Felicity Farseer",
+              "Hera Tani",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Felicity Farseer",
+              "Hera Tani",
+              "Etienne Dorn"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Sensor_WideAngle": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Felicity Farseer",
+              "Hera Tani",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Felicity Farseer",
+              "Hera Tani",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Felicity Farseer",
+              "Hera Tani",
+              "Etienne Dorn"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "power",
+      "range",
+      "angle"
+    ]
+  },
+  "sb": {
+    "blueprints": {
+      "ShieldBooster_Explosive": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Felicity Farseer",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          }
+        }
+      },
+      "ShieldBooster_HeavyDuty": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Felicity Farseer",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          }
+        }
+      },
+      "ShieldBooster_Kinetic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Felicity Farseer",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          }
+        }
+      },
+      "ShieldBooster_Resistive": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Felicity Farseer",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          }
+        }
+      },
+      "ShieldBooster_Thermic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Felicity Farseer",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Didi Vatermann"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "explres",
+      "integrity",
+      "kinres",
+      "mass",
+      "power",
+      "shieldboost",
+      "thermres"
+    ],
+    "specials": [
+      "special_shieldbooster_thermic",
+      "special_shieldbooster_kinetic",
+      "special_shieldbooster_explosive",
+      "special_shieldbooster_efficient",
+      "special_shieldbooster_toughened",
+      "special_shieldbooster_chunky"
+    ]
+  },
+  "sfn": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "sc": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "scb": {
+    "blueprints": {
+      "ShieldCellBank_Rapid": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Lori Jameson"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Mel Brandon"
+            ]
+          }
+        }
+      },
+      "ShieldCellBank_Specialised": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Lori Jameson"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Lori Jameson"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Mel Brandon"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "boot",
+      "clip",
+      "duration",
+      "integrity",
+      "mass",
+      "power",
+      "shieldreinforcement",
+      "spinup",
+      "thermload"
+    ],
+    "specials": [
+      "special_shieldcell_gradual",
+      "special_shieldcell_oversized",
+      "special_shieldcell_efficient",
+      "special_shieldcell_toughened",
+      "special_shieldcell_lightweight"
+    ]
+  },
+  "sg": {
+    "blueprints": {
+      "ShieldGenerator_Kinetic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      },
+      "ShieldGenerator_Optimised": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      },
+      "ShieldGenerator_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      },
+      "ShieldGenerator_Thermic": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Didi Vatermann",
+              "Elvira Martuuk",
+              "Lei Cheung"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Lei Cheung"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "brokenregen",
+      "distdraw",
+      "explres",
+      "integrity",
+      "kinres",
+      "mass",
+      "optmass",
+      "optmul",
+      "power",
+      "regen",
+      "thermres"
+    ],
+    "specials": [
+      "special_shield_regenerative",
+      "special_shield_resistive",
+      "special_shield_health",
+      "special_shield_efficient",
+      "special_shield_thermic",
+      "special_shield_kinetic",
+      "special_shield_toughened",
+      "special_shield_lightweight"
+    ]
+  },
+  "ss": {
+    "blueprints": {
+      "Sensor_Expanded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Felicity Farseer",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Felicity Farseer",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Felicity Farseer",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson",
+              "Tiana Fortune"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Bill Turner",
+              "Juri Ishmaak",
+              "Lei Cheung",
+              "Lori Jameson"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "mass",
+      "angle",
+      "range",
+      "scanrate",
+      "proberadius"
+    ]
+  },
+  "xs": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "t": {
+    "blueprints": {
+      "Engine_Dirty": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicty Farseer",
+              "Professor Palin"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicty Farseer",
+              "Professor Palin"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Felicty Farseer",
+              "Professor Palin"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Professor Palin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Professor Palin"
+            ]
+          }
+        }
+      },
+      "Engine_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicty Farseer",
+              "Professor Palin"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicty Farseer",
+              "Professor Palin"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Felicty Farseer",
+              "Professor Palin"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Professor Palin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Professor Palin"
+            ]
+          }
+        }
+      },
+      "Engine_Tuned": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicty Farseer",
+              "Professor Palin"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Elvira Martuuk",
+              "Felicty Farseer",
+              "Professor Palin"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Felicty Farseer",
+              "Professor Palin"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Professor Palin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Professor Palin"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "optmass",
+      "optmul",
+      "power",
+      "thermload"
+    ],
+    "specials": [
+      "special_engine_cooled",
+      "special_engine_haulage",
+      "special_engine_overloaded",
+      "special_engine_toughened",
+      "special_engine_lightweight"
+    ]
+  },
+  "tp": {
+    "blueprints": {
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Juri Ishmaak",
+              "Liz Ryder"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Liz Ryder"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "damage",
+      "damagedist",
+      "fallofffromrange",
+      "distdraw",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "range",
+      "rof",
+      "thermload"
+    ],
+    "specials": [
+      "special_mass_lock_munition",
+      "special_penetrator_payload",
+      "special_reverberating_cascade",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight",
+      "special_deep_cut_payload",
+      "special_mass_lock"
+    ]
+  },
+  "ul": {
+    "blueprints": {
+      "Weapon_Efficient": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_Focused": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_Overcharged": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_RapidFire": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_ShortRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      },
+      "Weapon_Sturdy": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Broo Tarquin",
+              "The Dweller"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Broo Tarquin"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "burst",
+      "burstrof",
+      "damage",
+      "damagedist",
+      "fallofffromrange",
+      "distdraw",
+      "integrity",
+      "jitter",
+      "mass",
+      "piercing",
+      "power",
+      "range",
+      "rof",
+      "thermload"
+    ],
+    "specials": [
+      "special_concordant_sequence",
+      "special_inertial_impact",
+      "special_phasing_sequence",
+      "special_scramble_spectrum",
+      "special_thermalshock",
+      "special_weapon_damage",
+      "special_weapon_efficient",
+      "special_weapon_rateoffire",
+      "special_weapon_toughened",
+      "special_weapon_lightweight"
+    ]
+  },
+  "ws": {
+    "blueprints": {
+      "Sensor_FastScan": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Misc_LightWeight": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Scanner_LongRange": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Misc_Reinforced": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Misc_Shielded": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      },
+      "Scanner_WideAngle": {
+        "grades": {
+          "1": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "2": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak",
+              "Etienne Dorn"
+            ]
+          },
+          "3": {
+            "engineers": [
+              "Bill Turner",
+              "Lori Jameson",
+              "Tiana Fortune",
+              "Juri Ishmaak"
+            ]
+          },
+          "4": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          },
+          "5": {
+            "engineers": [
+              "Tiana Fortune"
+            ]
+          }
+        }
+      }
+    },
+    "modifications": [
+      "integrity",
+      "mass",
+      "power",
+      "angle",
+      "range",
+      "scantime"
+    ]
+  },
+  "tbem": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "tbrfl": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "dtl": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "mahr": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "pwa": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "scl": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "sdm": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  },
+  "abl": {
+    "blueprints": {
+    },
+    "modifications": [
+    ]
+  }
+}

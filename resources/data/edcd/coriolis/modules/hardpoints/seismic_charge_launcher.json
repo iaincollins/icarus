@@ -1,0 +1,66 @@
+{
+  "scl": [
+    {
+      "breachdmg": 3,
+      "breachmax": 0,
+      "shotspeed": 350,
+      "breachmin": 0,
+      "class": 2,
+      "cost": 445570,
+      "damage": 15,
+      "chargetime": 2,
+      "damagedist": {
+        "E": 1
+      },
+      "distdraw": 0.24,
+      "edID": 128915461,
+      "eddbID": 823,
+      "falloff": 500,
+      "fireint": 1.0,
+      "ammo": 72,
+      "clip": 1,
+      "grp": "scl",
+      "id": "3L",
+      "integrity": 51,
+      "mass": 4,
+      "mount": "T",
+      "piercing": 35,
+      "power": 1.2,
+      "range": 3000,
+      "rating": "B",
+      "thermload": 3.6,
+      "symbol": "Hpt_Mining_SeismChrgWarhd_Turret_Medium"
+    },
+    {
+      "breachdmg": 3,
+      "breachmax": 0,
+      "shotspeed": 350,
+      "breachmin": 0,
+      "class": 2,
+      "cost": 170123,
+      "damage": 15,
+      "chargetime": 2,
+      "damagedist": {
+        "E": 1
+      },
+      "distdraw": 0.24,
+      "edID": 128049381,
+      "eddbID": 823,
+      "falloff": 500,
+      "fireint": 1.0,
+      "ammo": 72,
+      "clip": 1,
+      "grp": "scl",
+      "id": "3M",
+      "integrity": 51,
+      "mass": 4,
+      "mount": "F",
+      "piercing": 35,
+      "power": 1.2,
+      "range": 3000,
+      "rating": "B",
+      "thermload": 3.6,
+      "symbol": "Hpt_Mining_SeismChrgWarhd_Fixed_Medium"
+    }
+  ]
+}

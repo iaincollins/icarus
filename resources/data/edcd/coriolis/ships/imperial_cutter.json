@@ -1,0 +1,207 @@
+{
+  "imperial_cutter": {
+    "edID": 128049375,
+    "eddbID": 26,
+    "properties": {
+      "name": "Imperial Cutter",
+      "manufacturer": "Gutamaya",
+      "class": 3,
+      "hullCost": 199926890,
+      "speed": 200,
+      "boost": 320,
+      "boostEnergy": 23,
+      "baseShieldStrength": 600,
+      "baseArmour": 400,
+      "hardness": 70,
+      "hullMass": 1100,
+      "heatCapacity": 327,
+      "masslock": 27,
+      "pipSpeed": 0.05,
+      "fighterHangars": true,
+      "pitch": 18,
+      "roll": 45,
+      "yaw": 8,
+      "crew": 3,
+      "reserveFuelCapacity": 1.16
+    },
+    "retailCost": 208969450,
+    "requirements": {
+      "empireRank": 12
+    },
+    "bulkheads": [
+      {
+        "id": "BR",
+        "edID": 128049376,
+        "eddbID": 1493,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "BS",
+        "edID": 128049377,
+        "eddbID": 1494,
+        "grp": "bh",
+        "cost": 83587790,
+        "mass": 30,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "BT",
+        "edID": 128049378,
+        "eddbID": 1495,
+        "grp": "bh",
+        "cost": 188072510,
+        "mass": 60,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "BU",
+        "edID": 128049379,
+        "eddbID": 1496,
+        "grp": "bh",
+        "cost": 444478020,
+        "mass": 60,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "BV",
+        "edID": 128049380,
+        "eddbID": 1497,
+        "grp": "bh",
+        "cost": 492541000,
+        "mass": 60,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        8,
+        8,
+        7,
+        7,
+        7,
+        7,
+        6
+      ],
+      "hardpoints": [
+        4,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        8,
+        8,
+        6,
+        6,
+        6,
+        5,
+        5,
+        {
+          "class": 5,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        {
+          "class": 5,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        4,
+        3,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "8E",
+        "8E",
+        "7E",
+        "7E",
+        "7E",
+        "7E",
+        "6C"
+      ],
+      "hardpoints": [
+        0,
+        0,
+        0,
+        17,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "4t",
+        "06",
+        "04",
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        "01",
+        "",
+        0
+      ]
+    }
+  }
+}

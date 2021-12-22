@@ -1,0 +1,151 @@
+{
+  "type_6_transporter": {
+    "edID": 128049285,
+    "eddbID": 19,
+    "properties": {
+      "name": "Type-6 Transporter",
+      "manufacturer": "Lakon",
+      "class": 2,
+      "hullCost": 865790,
+      "speed": 220,
+      "boost": 350,
+      "heatCapacity": 179,
+      "boostEnergy": 10,
+      "baseShieldStrength": 90,
+      "baseArmour": 180,
+      "hardness": 35,
+      "hullMass": 155,
+      "masslock": 8,
+      "pipSpeed": 0.14772727272727,
+      "pitch": 30,
+      "roll": 100,
+      "yaw": 17,
+      "crew": 1,
+      "reserveFuelCapacity": 0.39
+    },
+    "retailCost": 1045950,
+    "bulkheads": [
+      {
+        "id": "Bn",
+        "edID": 128049286,
+        "eddbID": 768,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "Bo",
+        "edID": 128049287,
+        "eddbID": 769,
+        "grp": "bh",
+        "cost": 418380,
+        "mass": 12,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "Bp",
+        "edID": 128049288,
+        "eddbID": 770,
+        "grp": "bh",
+        "cost": 941350,
+        "mass": 23,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "Bq",
+        "edID": 128049289,
+        "eddbID": 771,
+        "grp": "bh",
+        "cost": 2224730,
+        "mass": 23,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "Br",
+        "edID": 128049290,
+        "eddbID": 772,
+        "grp": "bh",
+        "cost": 2465290,
+        "mass": 23,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        3,
+        4,
+        4,
+        2,
+        3,
+        2,
+        4
+      ],
+      "hardpoints": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        5,
+        5,
+        4,
+        4,
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "3E",
+        "4E",
+        "4E",
+        "2E",
+        "3E",
+        "2E",
+        "4C"
+      ],
+      "hardpoints": [
+        17,
+        17,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "03",
+        "03",
+        "02",
+        "02",
+        "44",
+        "00",
+        "",
+        0
+      ]
+    }
+  }
+}

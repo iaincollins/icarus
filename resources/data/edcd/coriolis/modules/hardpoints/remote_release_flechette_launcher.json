@@ -1,0 +1,62 @@
+{
+  "tbrfl": [
+    {
+      "rating": "B",
+      "class": 2,
+      "grp": "tbrfl",
+      "id": "xy",
+      "eddbID": 0,
+      "edID": 128833996,
+      "mount": "F",
+      "cost": 353761,
+      "mass": 4,
+      "integrity": 51,
+      "power": 1.2,
+      "damage": 13,
+      "distdraw": 0.24,
+      "fireint": 2.0,
+      "thermload": 3.6,
+      "piercing": 80,
+      "shotspeed": 550,
+      "clip": 1,
+      "ammo": 72,
+      "reload": 2,
+      "breachdmg": 6.5,
+      "breachmin": 1,
+      "breachmax": 1,
+      "symbol": "Hpt_FlechetteLauncher_Fixed_Medium",
+      "damagedist": {
+        "K": 1
+      }
+    },
+    {
+      "rating": "B",
+      "class": 2,
+      "grp": "tbrfl",
+      "id": "yF",
+      "eddbID": 0,
+      "edID": 128833997,
+      "mount": "T",
+      "cost": 1279200,
+      "mass": 4,
+      "integrity": 51,
+      "power": 1.2,
+      "damage": 13,
+      "distdraw": 0.24,
+      "fireint": 2.0,
+      "thermload": 3.6,
+      "piercing": 70,
+      "shotspeed": 550,
+      "clip": 1,
+      "ammo": 72,
+      "reload": 2,
+      "breachdmg": 6.5,
+      "breachmin": 1,
+      "breachmax": 1,
+      "symbol": "Hpt_FlechetteLauncher_Turret_Medium",
+      "damagedist": {
+        "K": 1
+      }
+    }
+  ]
+}

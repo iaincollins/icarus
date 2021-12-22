@@ -1,0 +1,92 @@
+{
+  "nl": [
+    {
+      "ammo": 36,
+      "breachdmg": 0,
+      "breachmax": 0,
+      "breachmin": 0,
+      "class": 1,
+      "clip": 1,
+      "cost": 24260,
+      "damage": 44,
+      "damagedist": {
+        "E": 0.5,
+        "T": 0.5
+      },
+      "distdraw": 0,
+      "edID": 128049500,
+      "eddbID": 880,
+      "fireint": 1.0,
+      "grp": "nl",
+      "id": "2j",
+      "integrity": 40,
+      "mass": 2,
+      "mount": "F",
+      "piercing": 60,
+      "power": 0.4,
+      "rating": "I",
+      "reload": 2,
+      "thermload": 5,
+      "symbol": "Hpt_MineLauncher_Fixed_Small"
+    },
+    {
+      "ammo": 36,
+      "breachdmg": 0,
+      "breachmax": 0,
+      "breachmin": 0,
+      "class": 1,
+      "clip": 1,
+      "cost": 36400,
+      "damage": 32,
+      "damagedist": {
+        "E": 0.5,
+        "T": 0.5
+      },
+      "distdraw": 0,
+      "edID": 128671448,
+      "eddbID": 1523,
+      "fireint": 1.0,
+      "grp": "nl",
+      "id": "kp",
+      "integrity": 40,
+      "mass": 2,
+      "mount": "F",
+      "name": "Shock Mine Launcher",
+      "piercing": 60,
+      "power": 0.4,
+      "rating": "I",
+      "reload": 2,
+      "thermload": 5,
+      "symbol": "Hpt_MineLauncher_Fixed_Small_Impulse"
+    },
+    {
+      "ammo": 72,
+      "breachdmg": 0,
+      "breachmax": 0,
+      "breachmin": 0,
+      "class": 2,
+      "clip": 3,
+      "cost": 294080,
+      "damage": 44,
+      "damagedist": {
+        "E": 0.5,
+        "T": 0.5
+      },
+      "distdraw": 0,
+      "edID": 128049501,
+      "eddbID": 881,
+      "fireint": 1.0,
+      "grp": "nl",
+      "id": "2k",
+      "integrity": 51,
+      "mass": 4,
+      "mount": "F",
+      "piercing": 60,
+      "power": 0.4,
+      "rating": "I",
+      "reload": 6.6,
+      "thermload": 7.5,
+      "symbol": "Hpt_MineLauncher_Fixed_Medium"
+    }
+  ]
+}

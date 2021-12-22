@@ -1,0 +1,60 @@
+{
+  "pci": [
+    {
+      "class": 3,
+      "cost": 26707,
+      "edID": 128734692,
+      "eddbID": 1568,
+      "grp": "pci",
+      "id": "mf",
+      "mass": 5,
+      "passengers": 3,
+      "rating": "D",
+      "symbol": "Int_PassengerCabin_Size3_Class2",
+      "ukName": "BC Passenger Cabin",
+      "ukDiscript": "Business Class Passenger Cabin."
+    },
+    {
+      "class": 4,
+      "cost": 56870,
+      "edID": 128727923,
+      "eddbID": 1569,
+      "grp": "pci",
+      "id": "mg",
+      "mass": 10,
+      "passengers": 6,
+      "rating": "D",
+      "symbol": "Int_PassengerCabin_Size4_Class2",
+      "ukName": "BC Passenger Cabin",
+      "ukDiscript": "Business Class Passenger Cabin."
+    },
+    {
+      "class": 5,
+      "cost": 92370,
+      "edID": 128734694,
+      "eddbID": 1570,
+      "grp": "pci",
+      "id": "mh",
+      "mass": 20,
+      "passengers": 10,
+      "rating": "D",
+      "symbol": "Int_PassengerCabin_Size5_Class2",
+      "ukName": "BC Passenger Cabin",
+      "ukDiscript": "Business Class Passenger Cabin."
+    },
+    {
+      "class": 6,
+      "cost": 184240,
+      "edID": 128727927,
+      "eddbID": 1571,
+      "grp": "pci",
+      "id": "mi",
+      "mass": 40,
+      "passengers": 16,
+      "rating": "D",
+      "symbol": "Int_PassengerCabin_Size6_Class2",
+      "ukName": "BC Passenger Cabin",
+      "ukDiscript": "Business Class Passenger Cabin."
+    }
+  ]
+}

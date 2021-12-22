@@ -1,0 +1,153 @@
+{
+  "cobra_mk_iii": {
+    "edID": 128049279,
+    "eddbID": 4,
+    "properties": {
+      "name": "Cobra Mk III",
+      "manufacturer": "Faulcon DeLacy",
+      "class": 1,
+      "hullCost": 205800,
+      "speed": 280,
+      "boost": 400,
+      "boostEnergy": 10,
+      "baseShieldStrength": 80,
+      "baseArmour": 120,
+      "heatCapacity": 225,
+      "hardness": 35,
+      "hullMass": 180,
+      "masslock": 8,
+      "pipSpeed": 0.125,
+      "pitch": 40,
+      "roll": 100,
+      "yaw": 10,
+      "crew": 2,
+      "reserveFuelCapacity": 0.49
+    },
+    "retailCost": 349720,
+    "bulkheads": [
+      {
+        "id": "bk",
+        "edID": 128049280,
+        "eddbID": 763,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "bl",
+        "edID": 128049281,
+        "eddbID": 764,
+        "grp": "bh",
+        "cost": 151890,
+        "mass": 14,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "bm",
+        "edID": 128049282,
+        "eddbID": 765,
+        "grp": "bh",
+        "cost": 341750,
+        "mass": 27,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "bn",
+        "edID": 128049283,
+        "eddbID": 766,
+        "grp": "bh",
+        "cost": 797410,
+        "mass": 27,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "bo",
+        "edID": 128049284,
+        "eddbID": 767,
+        "grp": "bh",
+        "cost": 895000,
+        "mass": 27,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        4
+      ],
+      "hardpoints": [
+        2,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "internal": [
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        1,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "4E",
+        "4E",
+        "4E",
+        "3E",
+        "3E",
+        "3E",
+        "4C"
+      ],
+      "hardpoints": [
+        17,
+        17,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "02",
+        "02",
+        "49",
+        "00",
+        0,
+        "",
+        0,
+        0
+      ]
+    }
+  }
+}

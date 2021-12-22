@@ -1,0 +1,203 @@
+{
+  "alliance_crusader": {
+    "edID": 128816581,
+    "eddbID": 36,
+    "properties": {
+      "name": "Alliance Crusader",
+      "manufacturer": "Lakon",
+      "class": 2,
+      "hullCost": 22866341,
+      "speed": 180,
+      "boost": 300,
+      "boostEnergy": 19,
+      "baseShieldStrength": 200,
+      "baseArmour": 300,
+      "heatCapacity": 316,
+      "hardness": 65,
+      "hullMass": 500,
+      "masslock": 13,
+      "fighterHangars": true,
+      "pipSpeed": 0.15833333333333,
+      "pitch": 32,
+      "roll": 80,
+      "yaw": 16,
+      "crew": 3,
+      "reserveFuelCapacity": 0.77
+    },
+    "retailCost": 19382252,
+    "requirements": {
+      "horizons": true
+    },
+    "bulkheads": [
+      {
+        "id": "3U",
+        "edID": 128816583,
+        "eddbID": 1659,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "3V",
+        "edID": 128816584,
+        "eddbID": 1660,
+        "grp": "bh",
+        "cost": 6803170,
+        "mass": 40,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "3W",
+        "edID": 128816585,
+        "eddbID": 1661,
+        "grp": "bh",
+        "cost": 15307134,
+        "mass": 78,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "3X",
+        "edID": 128816586,
+        "eddbID": 1662,
+        "grp": "bh",
+        "cost": 36175859,
+        "mass": 78,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "3Z",
+        "edID": 128816587,
+        "eddbID": 1663,
+        "grp": "bh",
+        "cost": 40087682,
+        "mass": 78,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        6,
+        6,
+        5,
+        5,
+        6,
+        4,
+        4
+      ],
+      "hardpoints": [
+        3,
+        2,
+        2,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        6,
+        5,
+        3,
+        3,
+        2,
+        2,
+        {
+          "class": 4,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        {
+          "class": 4,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        {
+          "class": 4,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "6E",
+        "6E",
+        "5E",
+        "5E",
+        "6E",
+        "4E",
+        "4C"
+      ],
+      "hardpoints": [
+        17,
+        0,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "04",
+        "4e",
+        "02",
+        "",
+        "",
+        "",
+        "",
+        "",
+        0
+      ]
+    }
+  }
+}

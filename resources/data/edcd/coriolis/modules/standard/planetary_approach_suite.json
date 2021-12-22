@@ -1,0 +1,18 @@
+{
+  "pas": [
+    {
+      "class": 1,
+      "cost": 500,
+      "edID": 128672317,
+      "eddbID": 1538,
+      "grp": "pas",
+      "id": "PA",
+      "mass": 0,
+      "power": 0,
+      "rating": "I",
+      "symbol": "Int_PlanetApproachSuite",
+      "ukName": "Planetary Approach Suite",
+      "ukDiscript": "The required Thruster modifications, sensor package and avionics to allow a ship to fly effectively in close proximity to planets."
+    }
+  ]
+}

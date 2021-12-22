@@ -10,6 +10,7 @@
 @import "text.css";
 @import "table.css";
 @import "secondary-navigation.css";
+@import "inspector.css";
 
 @import "system-map.css";
 /* @import "system-map-realistic-planets.css"; */
@@ -124,13 +125,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 799px) {
   body {
     zoom: 0.8;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 599px) {
   body {
     zoom: 0.7;
   }

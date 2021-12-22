@@ -1,0 +1,68 @@
+{
+  "dtl": [
+    {
+      "class": 1,
+      "cost": 3600,
+      "edID": 128793941,
+      "eddbID": 1632,
+      "grp": "dtl",
+      "id": "y1",
+      "mass": 1.3,
+      "maximum": 1,
+      "power": 0.18,
+      "range": 0.6,
+      "rating": "E",
+      "symbol": "Int_DroneControl_Decontamination_Size1_Class1",
+      "ukName": "Decontamination",
+      "ukDiscript": "Controls a limpet that removes caustic chemicals affecting a ship's hull, as well as applying a small amount of hull repair."
+    },
+    {
+      "class": 3,
+      "cost": 16201,
+      "edID": 128793942,
+      "eddbID": 1633,
+      "grp": "dtl",
+      "id": "y2",
+      "mass": 2,
+      "maximum": 2,
+      "power": 0.2,
+      "range": 0.88,
+      "rating": "E",
+      "symbol": "Int_DroneControl_Decontamination_Size3_Class1",
+      "ukName": "Decontamination",
+      "ukDiscript": "Controls a limpet that removes caustic chemicals affecting a ship's hull, as well as applying a small amount of hull repair."
+    },
+    {
+      "class": 5,
+      "cost": 145801,
+      "edID": 128793943,
+      "eddbID": 1634,
+      "grp": "dtl",
+      "id": "y3",
+      "mass": 20,
+      "maximum": 3,
+      "power": 0.5,
+      "range": 1.3,
+      "rating": "E",
+      "symbol": "Int_DroneControl_Decontamination_Size5_Class1",
+      "ukName": "Decontamination",
+      "ukDiscript": "Controls a limpet that removes caustic chemicals affecting a ship's hull, as well as applying a small amount of hull repair."
+    },
+    {
+      "class": 7,
+      "cost": 1312201,
+      "edID": 128793944,
+      "eddbID": 1635,
+      "grp": "dtl",
+      "id": "y4",
+      "mass": 128,
+      "maximum": 4,
+      "power": 0.97,
+      "range": 2.04,
+      "rating": "E",
+      "symbol": "Int_DroneControl_Decontamination_Size7_Class1",
+      "ukName": "Decontamination",
+      "ukDiscript": "Controls a limpet that removes caustic chemicals affecting a ship's hull, as well as applying a small amount of hull repair."
+    }
+  ]
+}

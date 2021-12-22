@@ -1,0 +1,24 @@
+{
+  "ec": [
+    {
+      "activepower": 4,
+      "chargeup": 3,
+      "class": 0,
+      "cooldown": 10,
+      "cost": 12500,
+      "edID": 128049516,
+      "eddbID": 885,
+      "grp": "ec",
+      "id": "01",
+      "integrity": 20,
+      "mass": 1.3,
+      "name": "Electronic Countermeasure",
+      "power": 0.2,
+      "range": 3000,
+      "rating": "F",
+      "reload": 10,
+      "thermload": 4,
+      "symbol": "Hpt_ElectronicCountermeasure_Tiny"
+    }
+  ]
+}

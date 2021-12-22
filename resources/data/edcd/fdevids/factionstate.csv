@@ -1,0 +1,28 @@
+id,name
+None,None
+Boom,Boom
+Bust,Bust
+CivilUnrest,Civil Unrest
+CivilWar,Civil War
+Election,Election
+Expansion,Expansion
+Famine,Famine
+Investment,Investment
+Lockdown,Lockdown
+Outbreak,Outbreak
+Retreat,Retreat
+War,War
+CivilLiberty,Civil Liberty
+PirateAttack,Pirate Attack
+Blight,Blight
+Drought,Drought
+InfrastructureFailure,Infrastructure Failure
+NaturalDisaster,Natural Disaster
+PublicHoliday,Public Holiday
+Terrorism,Terrorist Attack
+ColdWar,Cold War
+Colonisation,Colonisation
+HistoricEvent,Historic Event
+Revolution,Revolution
+TechnologicalLeap,Technological Leap
+TradeWar,Trade War

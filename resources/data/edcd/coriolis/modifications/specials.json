@@ -1,0 +1,553 @@
+{
+    "special_auto_loader": {
+        "id": 0,
+        "edname": "special_auto_loader",
+        "name": "Auto loader",
+        "uuid": "640d6dde-f497-42cd-8bc9-73ab3fa1b43a"
+    },
+    "special_choke_canister": {
+        "id": 1,
+        "edname": "special_choke_canister",
+        "name": "Choke canister",
+        "uuid": "770007e7-398c-40ce-be02-22b227728aef"
+    },
+    "special_concordant_sequence": {
+        "id": 2,
+        "edname": "special_concordant_sequence",
+        "name": "Concordant sequence",
+        "uuid": "b556c19a-e756-45b1-846f-9ddc61af18a9"
+    },
+    "special_corrosive_shell": {
+        "id": 3,
+        "edname": "special_corrosive_shell",
+        "name": "Corrosive shell",
+        "uuid": "a6faa870-ff89-4e48-b607-424e065cbd43"
+    },
+    "special_blinding_shell": {
+        "id": 4,
+        "edname": "special_blinding_shell",
+        "name": "Dazzle shell",
+        "uuid": "0a1e29ee-2fc7-4cbd-bbda-e8803c3e03ac"
+    },
+    "special_dispersal_field": {
+        "id": 5,
+        "edname": "special_dispersal_field",
+        "name": "Dispersal field",
+        "uuid": "0e2dbd63-335d-4dca-8050-c7ca8ddc56b0"
+    },
+    "special_distortion_field": {
+        "id": 6,
+        "edname": "special_distortion_field",
+        "name": "Distortion field",
+        "uuid": "4da956d5-df5b-4d4f-8651-22fd5e343454"
+    },
+    "special_drag_munitions": {
+        "id": 7,
+        "edname": "special_drag_munitions",
+        "name": "Drag munitions",
+        "uuid": "ca4cd540-660a-4fba-b38d-179f72125819"
+    },
+    "special_emissive_munitions": {
+        "id": 8,
+        "edname": "special_emissive_munitions",
+        "name": "Emissive munitions",
+        "uuid": "16c9ed0f-63c0-4ff2-b2e0-59bbb294632d"
+    },
+    "special_feedback_cascade": {
+        "id": 9,
+        "edname": "special_feedback_cascade",
+        "name": "Feedback cascade (Legacy)",
+        "uuid": "fe22ebee-802a-4905-b390-f59a65c1394c"
+    },
+    "special_force_shell": {
+        "id": 10,
+        "edname": "special_force_shell",
+        "name": "Force shell",
+        "uuid": "62056851-d2f2-474d-ba77-66c030c900e9"
+    },
+    "special_fsd_interrupt": {
+        "id": 33,
+        "edname": "special_fsd_interrupt",
+        "name": "FSD interrupt",
+        "uuid": "c1400054-1c2b-487c-8854-7a22d96d4cd2"
+    },
+    "special_high_yield_shell": {
+        "id": 11,
+        "edname": "special_high_yield_shell",
+        "name": "High yield shell",
+        "uuid": "a950b42c-204f-4775-a0c5-21bfcec1fd14"
+    },
+    "special_incendiary_rounds": {
+        "id": 12,
+        "edname": "special_incendiary_rounds",
+        "name": "Incendiary rounds",
+        "uuid": "3526773e-a814-4bec-afbf-30db79a3e239"
+    },
+    "special_inertial_impact": {
+        "id": 32,
+        "edname": "special_inertial_impact",
+        "name": "Inertial impact",
+        "uuid": "6eda22d3-8049-4bab-a125-762b12fa576a"
+    },
+    "special_ion_disruptor": {
+        "id": 13,
+        "edname": "special_ion_disruptor",
+        "name": "Ion disruptor",
+        "uuid": "d84e40ca-afc1-4b01-9940-034152d288e7"
+    },
+    "special_mass_lock_munition": {
+        "id": 14,
+        "edname": "special_mass_lock_munition",
+        "name": "Mass lock munition",
+        "uuid": "8565714f-912d-488b-82fb-43911504a300"
+    },
+    "special_overload_munitions": {
+        "id": 15,
+        "edname": "special_overload_munitions",
+        "name": "Overload munitions",
+        "uuid": "c157bbd1-a14d-4aa2-9081-94cbfbdee558"
+    },
+    "special_penetrator_payload": {
+        "id": 16,
+        "edname": "special_penetrator_payload",
+        "name": "Penetrator payload",
+        "uuid": "39e3bb85-e349-434b-b9fe-7fd02ee57f3d"
+    },
+    "special_phasing_sequence": {
+        "id": 17,
+        "edname": "special_phasing_sequence",
+        "name": "Phasing sequence",
+        "uuid": "47254ea9-c88f-43e0-9166-d1796649917b"
+    },
+    "special_plasma_slug": {
+        "id": 18,
+        "edname": "special_plasma_slug",
+        "name": "Plasma slug (Legacy)",
+        "uuid": "8794e18a-ecd5-4ebc-afd7-0b7d0d0cdd91"
+    },
+    "special_radiant_canister": {
+        "id": 19,
+        "edname": "special_radiant_canister",
+        "name": "Radiant Canister",
+        "uuid": "51f84837-e9a5-432c-a125-d4322099266c"
+    },
+    "special_regeneration_sequence": {
+        "id": 20,
+        "edname": "special_regeneration_sequence",
+        "name": "Regeneration sequence",
+        "uuid": "3bece1bb-7c31-4735-8c18-54dc4a0057bc"
+    },
+    "special_reverberating_cascade": {
+        "id": 21,
+        "edname": "special_reverberating_cascade",
+        "name": "Reverberating cascade",
+        "uuid": "c03e2f4f-9520-44bb-9a1f-7a917e8e3a48"
+    },
+    "special_scramble_spectrum": {
+        "id": 22,
+        "edname": "special_scramble_spectrum",
+        "name": "Scramble spectrum",
+        "uuid": "4f42cb92-4440-4295-ada9-fcca788a65b8"
+    },
+    "special_screening_shell": {
+        "id": 23,
+        "edname": "special_screening_shell",
+        "name": "Screening shell",
+        "uuid": "9cf533fc-ccb1-4c92-8b6b-dd700af2988a"
+    },
+    "special_shiftlock_canister": {
+        "id": 24,
+        "edname": "special_shiftlock_canister",
+        "name": "Shift-lock canister",
+        "uuid": "1f7b0deb-e023-43e5-96f6-ebf60d683e8b"
+    },
+    "special_smart_rounds": {
+        "id": 25,
+        "edname": "special_smart_rounds",
+        "name": "Smart rounds",
+        "uuid": "2a3d8519-27af-44f2-a50b-33095964d1cc"
+    },
+    "special_super_penetrator": {
+        "id": 26,
+        "edname": "special_super_penetrator",
+        "name": "Super penetrator (Legacy)",
+        "uuid": "2423e8f7-2384-4d32-8b9d-0e06a42a301d"
+    },
+    "special_lock_breaker": {
+        "id": 27,
+        "edname": "special_lock_breaker",
+        "name": "Target lock breaker",
+        "uuid": "4cf42ed8-574f-4bb8-a1f2-ee154475b463"
+    },
+    "special_thermal_cascade": {
+        "id": 28,
+        "edname": "special_thermal_cascade",
+        "name": "Thermal cascade",
+        "uuid": "e5c8cab4-7a2f-450d-a937-2d0d8b9e3714"
+    },
+    "special_thermal_conduit": {
+        "id": 29,
+        "edname": "special_thermal_conduit",
+        "name": "Thermal conduit",
+        "uuid": "4e4e1f59-6762-47ff-b1fa-40ca43304698"
+    },
+    "special_thermal_vent": {
+        "id": 30,
+        "edname": "special_thermal_vent",
+        "name": "Thermal vent",
+        "uuid": "70f11414-7904-405c-92db-806178ee9df4"
+    },
+    "special_thermalshock": {
+        "id": 31,
+        "edname": "special_thermalshock",
+        "name": "Thermal shock",
+        "uuid": "fe8b4daa-e65d-464c-811d-400d3632a3d6"
+    },
+    "special_feedback_cascade_cooled": {
+        "name": "Feedback Cascade",
+        "id": 100,
+        "edname": "special_feedback_cascade_cooled",
+        "uuid": "3c153755-3d2c-4832-bb73-d6b3d0e99a71"
+    },
+    "special_super_penetrator_cooled": {
+        "name": "Super Penetrator",
+        "id": 101,
+        "edname": "special_super_penetrator_cooled",
+        "uuid": "4bb4ec50-40fb-473d-abaf-4fc386aa889c"
+    },
+    "special_plasma_slug_cooled": {
+        "name": "Plasma Slug",
+        "id": 102,
+        "edname": "special_plasma_slug_cooled",
+        "uuid": "58a7b1b6-57b9-40f2-9a5a-712a5388a5eb"
+    },
+    "special_plasma_slug_pa": {
+        "name": "Plasma Slug",
+        "id": 157,
+        "edname": "special_plasma_slug_pa"
+    },
+    "special_penetrator_munitions": {
+        "name": "Penetrator Munitions",
+        "id": 103,
+        "edname": "special_penetrator_munitions",
+        "uuid": "35578402-1bc7-4d19-828b-af31ebd79866"
+    },
+    "special_deep_cut_payload": {
+        "name": "Penetrator Payload",
+        "id": 104,
+        "edname": "special_deep_cut_payload",
+        "uuid": "5d25c5bc-4b45-4119-bd87-71bfd0f85957"
+    },
+    "special_mass_lock": {
+        "name": "Mass Lock Munition",
+        "id": 105,
+        "edname": "special_mass_lock",
+        "uuid": "9e8635af-4077-4d7a-98dd-5220c8722688"
+    },
+    "special_shield_regenerative": {
+        "name": "Fast Charge",
+        "id": 106,
+        "edname": "special_shield_regenerative",
+        "uuid": "42c5e92d-ccab-435a-b2c6-fd268d39d6f5"
+    },
+    "special_shield_resistive": {
+        "name": "Multi-weave",
+        "id": 107,
+        "edname": "special_shield_resistive",
+        "uuid": "dd46c8be-730c-4671-87fe-f98b181b66cf"
+    },
+    "special_shield_health": {
+        "name": "Hi-Cap",
+        "id": 108,
+        "edname": "special_shield_health",
+        "uuid": "603c1ba6-45e6-4401-af56-639c3e7c9b79"
+    },
+    "special_shield_efficient": {
+        "name": "Lo-draw",
+        "id": 109,
+        "edname": "special_shield_efficient",
+        "uuid": "66a39288-59d7-4cfb-914d-354a200c0210"
+    },
+    "special_shield_thermic": {
+        "name": "Thermo Block",
+        "id": 110,
+        "edname": "special_shield_thermic",
+        "uuid": "c7636c6b-5849-4cad-bd8e-d99968d4014e"
+    },
+    "special_shield_kinetic": {
+        "name": "Force Block",
+        "id": 111,
+        "edname": "special_shield_kinetic",
+        "uuid": "3f9e7ca8-7e07-46c4-ad06-cf3787352201"
+    },
+    "special_shield_toughened": {
+        "name": "Double Braced",
+        "id": 112,
+        "edname": "special_shield_toughened",
+        "uuid": "d7d8433c-445c-4d8e-b4a4-3bd78cba9d15"
+    },
+    "special_shield_lightweight": {
+        "name": "Stripped Down",
+        "id": 113,
+        "edname": "special_shield_lightweight",
+        "uuid": "91ff72db-51cf-428d-80a8-be96d6418c4b"
+    },
+    "special_engine_cooled": {
+        "name": "Thermal Spread",
+        "id": 114,
+        "edname": "special_engine_cooled",
+        "uuid": "42ff1374-3ecb-4872-abfa-b39b495fb203"
+    },
+    "special_engine_haulage": {
+        "name": "Drive Distributors",
+        "id": 115,
+        "edname": "special_engine_haulage",
+        "uuid": "bd3c1991-370e-4b9d-b8cd-d5dec3260647"
+    },
+    "special_engine_overloaded": {
+        "name": "Drag Drives",
+        "id": 116,
+        "edname": "special_engine_overloaded",
+        "uuid": "68998b16-7b65-4f58-8bc0-6e0f2686c367"
+    },
+    "special_engine_toughened": {
+        "name": "Double Braced",
+        "id": 117,
+        "edname": "special_engine_toughened",
+        "uuid": "41b04d96-0817-479b-92e5-2114de444170"
+    },
+    "special_engine_lightweight": {
+        "name": "Stripped Down",
+        "id": 118,
+        "edname": "special_engine_lightweight",
+        "uuid": "dd77b197-412e-4ca1-88ed-0939c5c31a01"
+    },
+    "special_fsd_fuelcapacity": {
+        "name": "Deep Charge",
+        "id": 119,
+        "edname": "special_fsd_fuelcapacity",
+        "uuid": "56f1e58d-2044-4a31-8b54-ad0f99dfd64e"
+    },
+    "special_fsd_heavy": {
+        "name": "Mass Manager",
+        "id": 120,
+        "edname": "special_fsd_heavy",
+        "uuid": "4d7d30c3-970b-4c6e-a507-89ac7e6441bd"
+    },
+    "special_fsd_toughened": {
+        "name": "Double Braced",
+        "id": 121,
+        "edname": "special_fsd_toughened",
+        "uuid": "14c7f016-5c32-4599-8a27-caa1733f92e3"
+    },
+    "special_fsd_lightweight": {
+        "name": "Stripped Down",
+        "id": 122,
+        "edname": "special_fsd_lightweight",
+        "uuid": "6ab9d9d4-d488-4de8-9c1b-089a31f290a0"
+    },
+    "special_fsd_cooled": {
+        "name": "Thermal Spread",
+        "id": 123,
+        "edname": "special_fsd_cooled",
+        "uuid": "60ab0728-c8cd-47c9-a357-8c8bfeeb7023"
+    },
+    "special_powerplant_highcharge": {
+        "name": "Monstered",
+        "id": 124,
+        "edname": "special_powerplant_highcharge",
+        "uuid": "12a57a09-0e05-41a9-9824-14a3618e7a0f"
+    },
+    "special_powerplant_cooled": {
+        "name": "Thermal Spread",
+        "id": 125,
+        "edname": "special_powerplant_cooled",
+        "uuid": "6cda2960-a05b-4dd1-978c-202d746e47bc"
+    },
+    "special_powerplant_toughened": {
+        "name": "Double Braced",
+        "id": 126,
+        "edname": "special_powerplant_toughened",
+        "uuid": "1fddaba5-bc0b-492c-9caa-4a72a149532b"
+    },
+    "special_powerplant_lightweight": {
+        "name": "Stripped Down",
+        "id": 127,
+        "edname": "special_powerplant_lightweight",
+        "uuid": "11b258eb-36d1-4cbc-be04-7fc426ef3121"
+    },
+    "special_powerdistributor_capacity": {
+        "name": "Cluster Capacitors",
+        "id": 128,
+        "edname": "special_powerdistributor_capacity",
+        "uuid": "c4231886-f988-4a31-a749-2a58550f9e44"
+    },
+    "special_powerdistributor_fast": {
+        "name": "Super Conduits",
+        "id": 129,
+        "edname": "special_powerdistributor_fast",
+        "uuid": "b5bb35a1-e851-4d37-8f26-8fe828f84c95"
+    },
+    "special_powerdistributor_efficient": {
+        "name": "Flow Control",
+        "id": 130,
+        "edname": "special_powerdistributor_efficient",
+        "uuid": "c226afaf-ee7f-4809-a4e4-0797d4822a69"
+    },
+    "special_powerdistributor_toughened": {
+        "name": "Double Braced",
+        "id": 131,
+        "edname": "special_powerdistributor_toughened",
+        "uuid": "14d36c9b-efd5-450b-8175-80287daecd78"
+    },
+    "special_powerdistributor_lightweight": {
+        "name": "Stripped Down",
+        "id": 132,
+        "edname": "special_powerdistributor_lightweight",
+        "uuid": "ec53deaf-ece6-443f-9503-dd3dc5329e14"
+    },
+    "special_shieldcell_gradual": {
+        "name": "Recycling Cell",
+        "id": 133,
+        "edname": "special_shieldcell_gradual",
+        "uuid": "c8aa2134-3153-47b8-a367-9c5dbb9c557d"
+    },
+    "special_shieldcell_oversized": {
+        "name": "Boss Cells",
+        "id": 134,
+        "edname": "special_shieldcell_oversized",
+        "uuid": "87ed0cec-9624-4ecb-8ffb-cc941464e8d2"
+    },
+    "special_shieldcell_efficient": {
+        "name": "Flow Control",
+        "id": 135,
+        "edname": "special_shieldcell_efficient",
+        "uuid": "1d2316b8-3ddb-4db4-b36f-2d3e0e8581b5"
+    },
+    "special_shieldcell_toughened": {
+        "name": "Double Braced",
+        "id": 136,
+        "edname": "special_shieldcell_toughened",
+        "uuid": "beecd33b-b171-4a08-9d5a-459266bcb275"
+    },
+    "special_shieldcell_lightweight": {
+        "name": "Stripped Down",
+        "id": 137,
+        "edname": "special_shieldcell_lightweight",
+        "uuid": "b92c2e2e-baa5-4ce9-bf60-05771d7dcbc1"
+    },
+    "special_weapon_damage": {
+        "name": "Oversized",
+        "id": 138,
+        "edname": "special_weapon_damage",
+        "uuid": "ceb5c729-4565-4869-ade8-5ee897e8b410"
+    },
+    "special_weapon_rateoffire": {
+        "name": "Multi-servos",
+        "id": 139,
+        "edname": "special_weapon_rateoffire",
+        "uuid": "fd62292f-f5ed-4728-bc8a-3ae215ced386"
+    },
+    "special_weapon_efficient": {
+        "name": "Flow Control",
+        "id": 140,
+        "edname": "special_weapon_efficient",
+        "uuid": "d7ae7537-52ce-402a-b997-1cc463d8c7d0"
+    },
+    "special_weapon_toughened": {
+        "name": "Double Braced",
+        "id": 141,
+        "edname": "special_weapon_toughened",
+        "uuid": "167892c7-c4bd-411e-af8a-5bb464beec29"
+    },
+    "special_weapon_lightweight": {
+        "name": "Stripped Down",
+        "id": 142,
+        "edname": "special_weapon_lightweight",
+        "uuid": "dfc22aad-48b8-4f8d-af16-ec3b978fc8b6"
+    },
+    "special_armour_thermic": {
+        "name": "Reflective Plating",
+        "id": 143,
+        "edname": "special_armour_thermic",
+        "uuid": "dfe731fd-b709-4bbb-989b-5190bba4aa0e"
+    },
+    "special_armour_kinetic": {
+        "name": "Angled Plating",
+        "id": 144,
+        "edname": "special_armour_kinetic",
+        "uuid": "4803f4b3-f8ac-44a6-a6da-8d4c94aee048"
+    },
+    "special_armour_explosive": {
+        "name": "Layered Plating",
+        "id": 145,
+        "edname": "special_armour_explosive",
+        "uuid": "2af2d71c-b511-49a0-a605-22cfce862a63"
+    },
+    "special_armour_chunky": {
+        "name": "Deep Plating",
+        "id": 146,
+        "edname": "special_armour_chunky",
+        "uuid": "c4318e14-d50c-49ff-984f-bacae4aaa334"
+    },
+    "special_hullreinforcement_thermic": {
+        "name": "Reflective Plating",
+        "id": 147,
+        "edname": "special_hullreinforcement_thermic",
+        "uuid": "6c88aa33-01db-4eda-928e-6ca8b9b1bc3d"
+    },
+    "special_hullreinforcement_kinetic": {
+        "name": "Angled Plating",
+        "id": 148,
+        "edname": "special_hullreinforcement_kinetic",
+        "uuid": "e8631809-2915-4373-905c-8dcf3bda6921"
+    },
+    "special_hullreinforcement_explosive": {
+        "name": "Layered Plating",
+        "id": 149,
+        "edname": "special_hullreinforcement_explosive",
+        "uuid": "cdd19fcc-74b4-463a-a8f1-2e9909da664f"
+    },
+    "special_hullreinforcement_chunky": {
+        "name": "Deep Plating",
+        "id": 150,
+        "edname": "special_hullreinforcement_chunky",
+        "uuid": "b51706cc-d412-4559-8654-f812d2eb44b9"
+    },
+    "special_shieldbooster_thermic": {
+        "name": "Thermo Block",
+        "id": 151,
+        "edname": "special_shieldbooster_thermic",
+        "uuid": "c3340df8-c6da-49c9-b236-8f1cc4209088"
+    },
+    "special_shieldbooster_kinetic": {
+        "name": "Force Block",
+        "id": 152,
+        "edname": "special_shieldbooster_kinetic",
+        "uuid": "cb95d9b4-a945-491d-95ad-e230c0454cd9"
+    },
+    "special_shieldbooster_explosive": {
+        "name": "Blast Block",
+        "id": 153,
+        "edname": "special_shieldbooster_explosive",
+        "uuid": "eb1c4a92-03ef-4263-8051-9ac91b2d43b2"
+    },
+    "special_shieldbooster_efficient": {
+        "name": "Flow Control",
+        "id": 154,
+        "edname": "special_shieldbooster_efficient",
+        "uuid": "441e1d85-5174-4172-85ea-caee8d3c632d"
+    },
+    "special_shieldbooster_toughened": {
+        "name": "Double Braced",
+        "id": 155,
+        "edname": "special_shieldbooster_toughened",
+        "uuid": "32cb80c0-bb11-49ea-ae21-4c94eb5f9195"
+    },
+    "special_shieldbooster_chunky": {
+        "name": "Super Capacitors",
+        "id": 156,
+        "edname": "special_shieldbooster_chunky",
+        "uuid": "4197c308-a3df-442a-91c2-db856b4f57cf"
+    }
+}

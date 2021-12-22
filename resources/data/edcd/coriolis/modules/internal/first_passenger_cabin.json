@@ -1,0 +1,46 @@
+{
+  "pcm": [
+    {
+      "class": 4,
+      "cost": 170587,
+      "edID": 128727924,
+      "eddbID": 1572,
+      "grp": "pcm",
+      "id": "mj",
+      "mass": 10,
+      "passengers": 3,
+      "rating": "C",
+      "symbol": "Int_PassengerCabin_Size4_Class3",
+      "ukName": "FC Passenger Cabin",
+      "ukDiscript": "First Class Passenger Cabin."
+    },
+    {
+      "class": 5,
+      "cost": 340528,
+      "edID": 128734695,
+      "eddbID": 1573,
+      "grp": "pcm",
+      "id": "mk",
+      "mass": 20,
+      "passengers": 6,
+      "rating": "C",
+      "symbol": "Int_PassengerCabin_Size5_Class3",
+      "ukName": "FC Passenger Cabin",
+      "ukDiscript": "First Class Passenger Cabin."
+    },
+    {
+      "class": 6,
+      "cost": 552700,
+      "edID": 128727928,
+      "eddbID": 1574,
+      "grp": "pcm",
+      "id": "ml",
+      "mass": 40,
+      "passengers": 12,
+      "rating": "C",
+      "symbol": "Int_PassengerCabin_Size6_Class3",
+      "ukName": "FC Passenger Cabin",
+      "ukDiscript": "First Class Passenger Cabin."
+    }
+  ]
+}

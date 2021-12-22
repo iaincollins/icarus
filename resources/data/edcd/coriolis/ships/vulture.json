@@ -1,0 +1,165 @@
+{
+  "vulture": {
+    "edID": 128049309,
+    "eddbID": 23,
+    "properties": {
+      "name": "Vulture",
+      "manufacturer": "Core Dynamics",
+      "class": 1,
+      "hullCost": 4689640,
+      "speed": 210,
+      "boost": 340,
+      "boostEnergy": 16,
+      "baseShieldStrength": 240,
+      "baseArmour": 160,
+      "heatCapacity": 237,
+      "hardness": 55,
+      "hullMass": 230,
+      "masslock": 10,
+      "pipSpeed": 0.023809523809524,
+      "pitch": 42,
+      "roll": 110,
+      "yaw": 17,
+      "crew": 2,
+      "reserveFuelCapacity": 0.57
+    },
+    "retailCost": 4925620,
+    "bulkheads": [
+      {
+        "id": "B8",
+        "edID": 128049310,
+        "eddbID": 783,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "B9",
+        "edID": 128049311,
+        "eddbID": 784,
+        "grp": "bh",
+        "cost": 1970250,
+        "mass": 17,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "Ba",
+        "edID": 128049312,
+        "eddbID": 785,
+        "grp": "bh",
+        "cost": 4433050,
+        "mass": 35,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "Bb",
+        "edID": 128049313,
+        "eddbID": 786,
+        "grp": "bh",
+        "cost": 10476780,
+        "mass": 35,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "Bc",
+        "edID": 128049314,
+        "eddbID": 787,
+        "grp": "bh",
+        "cost": 11609670,
+        "mass": 35,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        4,
+        5,
+        4,
+        3,
+        5,
+        4,
+        3
+      ],
+      "hardpoints": [
+        3,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        5,
+        {
+          "class": 5,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        4,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "4E",
+        "5E",
+        "4E",
+        "3E",
+        "5E",
+        "4E",
+        "3C"
+      ],
+      "hardpoints": [
+        17,
+        17,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "4e",
+        0,
+        "02",
+        0,
+        0,
+        "",
+        0,
+        0
+      ]
+    }
+  }
+}

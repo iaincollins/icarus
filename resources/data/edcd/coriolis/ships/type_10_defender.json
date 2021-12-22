@@ -1,0 +1,207 @@
+{
+  "type_10_defender": {
+    "edID": 128785619,
+    "eddbID": 32,
+    "properties": {
+      "name": "Type-10 Defender",
+      "manufacturer": "Lakon",
+      "class": 3,
+      "hullCost": 121454652,
+      "speed": 179,
+      "boost": 219,
+      "boostEnergy": 19,
+      "baseShieldStrength": 320,
+      "baseArmour": 580,
+      "hardness": 75,
+      "hullMass": 1200,
+      "heatCapacity": 335,
+      "masslock": 26,
+      "pipSpeed": 0.041666666666667,
+      "fighterHangars": true,
+      "pitch": 20,
+      "roll": 20,
+      "yaw": 8,
+      "crew": 3,
+      "reserveFuelCapacity": 0.77
+    },
+    "retailCost": 124755342,
+    "bulkheads": [
+      {
+        "id": "1Q",
+        "edID": 128785621,
+        "eddbID": 1627,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "1R",
+        "edID": 128785622,
+        "eddbID": 1628,
+        "grp": "bh",
+        "cost": 49902137,
+        "mass": 75,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "1S",
+        "edID": 128785623,
+        "eddbID": 1629,
+        "grp": "bh",
+        "cost": 112279807,
+        "mass": 150,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "1T",
+        "edID": 128785624,
+        "eddbID": 1630,
+        "grp": "bh",
+        "cost": 265354612,
+        "mass": 150,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "1U",
+        "edID": 128785625,
+        "eddbID": 1631,
+        "grp": "bh",
+        "cost": 294048342,
+        "mass": 150,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        8,
+        7,
+        7,
+        5,
+        7,
+        4,
+        6
+      ],
+      "hardpoints": [
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        4,
+        3,
+        3,
+        2,
+        {
+          "class": 5,
+          "name": "Military",
+          "eligible": {
+            "mahr": 1,
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        {
+          "class": 5,
+          "name": "Military",
+          "eligible": {
+            "hr": 1,
+            "scb": 1,
+            "mrp": 1,
+            "gsrp": 1,
+            "gmrp": 1,
+            "ghrp": 1
+          }
+        },
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "6E",
+        "7E",
+        "6E",
+        "5E",
+        "7E",
+        "4E",
+        "6C"
+      ],
+      "hardpoints": [
+        0,
+        0,
+        0,
+        0,
+        17,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "06",
+        "05",
+        "4j",
+        "03",
+        "02",
+        0,
+        "01",
+        0,
+        "",
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

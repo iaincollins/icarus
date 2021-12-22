@@ -1,0 +1,151 @@
+{
+  "asp_scout": {
+    "edID": 128672276,
+    "eddbID": 24,
+    "properties": {
+      "name": "Asp Scout",
+      "manufacturer": "Lakon",
+      "class": 2,
+      "hullCost": 3818240,
+      "speed": 220,
+      "boost": 300,
+      "boostEnergy": 13,
+      "baseShieldStrength": 120,
+      "heatCapacity": 210,
+      "baseArmour": 180,
+      "hardness": 52,
+      "hullMass": 150,
+      "masslock": 8,
+      "pipSpeed": 0.125,
+      "pitch": 40,
+      "roll": 110,
+      "yaw": 15,
+      "crew": 2,
+      "reserveFuelCapacity": 0.47
+    },
+    "retailCost": 3961150,
+    "bulkheads": [
+      {
+        "id": "c1",
+        "edID": 128672278,
+        "eddbID": 1503,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "c2",
+        "edID": 128672279,
+        "eddbID": 1504,
+        "grp": "bh",
+        "cost": 1584460,
+        "mass": 21,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "c3",
+        "edID": 128672280,
+        "eddbID": 1505,
+        "grp": "bh",
+        "cost": 3565040,
+        "mass": 42,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "c4",
+        "edID": 128672281,
+        "eddbID": 1506,
+        "grp": "bh",
+        "cost": 8425380,
+        "mass": 42,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "c5",
+        "edID": 128672282,
+        "eddbID": 1507,
+        "grp": "bh",
+        "cost": 9336440,
+        "mass": 42,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        4,
+        4,
+        4,
+        3,
+        4,
+        4,
+        4
+      ],
+      "hardpoints": [
+        2,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "internal": [
+        5,
+        4,
+        3,
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "4E",
+        "4E",
+        "4E",
+        "3E",
+        "4E",
+        "4E",
+        "4C"
+      ],
+      "hardpoints": [
+        0,
+        0,
+        17,
+        17,
+        0,
+        0
+      ],
+      "internal": [
+        "02",
+        "02",
+        "44",
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

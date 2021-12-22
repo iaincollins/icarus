@@ -1,0 +1,34 @@
+{
+  "dc": [
+    {
+      "class": 1,
+      "cost": 4500,
+      "edID": 128049549,
+      "eddbID": 890,
+      "grp": "dc",
+      "id": "24",
+      "integrity": 10,
+      "name": "Standard Docking Computer",
+      "power": 0.39,
+      "rating": "E",
+      "symbol": "Int_DockingComputer_Standard",
+      "ukName": "Docking Computer",
+      "ukDiscript": "Allows assisted docking sequence at all starports and outposts."
+    },
+    {
+      "class": 1,
+      "cost": 13509,
+      "edID": 128935155,
+      "eddbID": 890,
+      "grp": "dc",
+      "id": "3x",
+      "integrity": 10,
+      "name": "Advanced Docking Computer",
+      "power": 0.45,
+      "rating": "E",
+      "symbol": "Int_DockingComputer_Advanced",
+      "ukName": "Advanced Docking Computer",
+      "ukDiscript": "Allows assisted docking and launch at all starports and outposts."
+    }
+  ]
+}

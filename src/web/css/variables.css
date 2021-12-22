@@ -17,21 +17,26 @@
   --color-secondary: rgb(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b));
   --color-secondary-dark: rgb(calc(var(--color-secondary-r) - var(--color-secondary-dark-factor)), calc(var(--color-secondary-g) - var(--color-secondary-dark-factor)), calc(var(--color-secondary-b) - var(--color-secondary-dark-factor)));
   
-  --color-danger: red;
-  --color-success: lime;
-  --color-info: rgb(218, 248, 255);
+  --color-danger: rgb(252, 72, 72);
+  --color-success: rgb(77, 255, 201);
+  --color-info: rgb(206, 237, 255);
 
   --text-shift-left-color: rgba(0, 128, 0, .5);
   --text-shift-right-color: rgba(255, 0, 0, .5);
 
   --color-background: var(--color-primary-dark);
-  --color-background-panel: rgb(calc(var(--color-primary-r) - 200), calc(var(--color-primary-g) - 200), calc(var(--color-primary-b) - 200), .4);
-    /* Opaque varient of background-panel color is slightly darker to blend in better */
-  --color-background-panel-dark-adjust: calc(var(--color-primary-dark-adjust) + 20);
-  --color-background-panel-opaque: rgb(calc(var(--color-primary-r) - var(--color-background-panel-dark-adjust)), calc(var(--color-primary-g) - var(--color-background-panel-dark-adjust)), calc(var(--color-primary-b) - var(--color-background-panel-dark-adjust)), 1);
 
-  --linear-gradient-background: linear-gradient(var(--color-primary-dark), var(--color-background-panel));
-  
+  --color-background-panel-dark-adjust: calc(var(--color-primary-dark-adjust) + 20);
+  --color-background-panel: rgb(calc(var(--color-primary-r) - var(--color-background-panel-dark-adjust)), calc(var(--color-primary-g) - var(--color-background-panel-dark-adjust)), calc(var(--color-primary-b) - var(--color-background-panel-dark-adjust)), 1);
+  --color-background-panel-translucent: rgb(calc(var(--color-primary-r) - 200), calc(var(--color-primary-g) - 200), calc(var(--color-primary-b) - 200), .4);
+
+  --color-inspector-frame-dark-adjust: 180;
+  --color-inspector-frame: rgb(calc(var(--color-primary-r) - var(--color-inspector-frame-dark-adjust)), calc(var(--color-primary-g) - var(--color-inspector-frame-dark-adjust)), calc(var(--color-primary-b) - var(--color-inspector-frame-dark-adjust)), 1);
+  --color-inspector-text: var(--color-primary);
+  --color-inspector-background: var(--linear-gradient-background);
+
+  --linear-gradient-background: linear-gradient(var(--color-primary-dark), transparent);
+
   --color-icon: var(--color-info);
   --color-icon-focus: var(--color-secondary);
 
@@ -41,11 +46,13 @@
   --color-system-map-planet-atmosphere: #00b3f7;
   --filter-system-map-planet-not-landable: contrast(1.06);
   --filter-system-map-planet-landable: contrast(1.15) brightness(1.1);
-
+  
+  --base-font-size: 1.25rem;
   --text-shadow: 0 0 20px;
 
-  --mobile-max-breakpoint: 600px;
-  --tablet-max-breakpoint: 800px;
-
-  --base-font-size: 1.25rem;
+  /* CSS variables cant' be used with media queries, these are for reference */ 
+  --small-max-breakpoint: 599px;
+  --medium-max-breakpoint: 799px;
+  --large-max-breakpoint: 1023px;
+  --huge-max-breakpoint: 1279px;
 }

@@ -1,0 +1,166 @@
+{
+  "type_9_heavy": {
+    "edID": 128049333,
+    "eddbID": 21,
+    "properties": {
+      "name": "Type-9 Heavy",
+      "manufacturer": "Lakon",
+      "class": 3,
+      "hullCost": 72076730,
+      "speed": 130,
+      "boost": 200,
+      "boostEnergy": 19,
+      "heatCapacity": 289,
+      "baseShieldStrength": 240,
+      "baseArmour": 480,
+      "hardness": 65,
+      "hullMass": 850,
+      "masslock": 16,
+      "pipSpeed": 0.17307692307692,
+      "fighterHangars": true,
+      "pitch": 20,
+      "roll": 20,
+      "yaw": 8,
+      "crew": 3,
+      "reserveFuelCapacity": 0.77
+    },
+    "retailCost": 76555840,
+    "bulkheads": [
+      {
+        "id": "Bx",
+        "edID": 128049334,
+        "eddbID": 803,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "By",
+        "edID": 128049335,
+        "eddbID": 804,
+        "grp": "bh",
+        "cost": 30622340,
+        "mass": 75,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "Bz",
+        "edID": 128049336,
+        "eddbID": 805,
+        "grp": "bh",
+        "cost": 68900260,
+        "mass": 150,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "BA",
+        "edID": 128049337,
+        "eddbID": 806,
+        "grp": "bh",
+        "cost": 162834280,
+        "mass": 150,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "BB",
+        "edID": 128049338,
+        "eddbID": 807,
+        "grp": "bh",
+        "cost": 180442120,
+        "mass": 150,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        6,
+        7,
+        6,
+        5,
+        6,
+        4,
+        6
+      ],
+      "hardpoints": [
+        2,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        8,
+        8,
+        7,
+        6,
+        5,
+        4,
+        4,
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "6E",
+        "7E",
+        "6E",
+        "5E",
+        "6E",
+        "4E",
+        "6C"
+      ],
+      "hardpoints": [
+        17,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "06",
+        "06",
+        "05",
+        "4j",
+        "03",
+        "02",
+        0,
+        "01",
+        0,
+        "",
+        0
+      ]
+    }
+  }
+}

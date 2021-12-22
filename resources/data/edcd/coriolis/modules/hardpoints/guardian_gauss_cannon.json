@@ -1,0 +1,73 @@
+{
+  "ggc": [
+    {
+      "experimental": true,
+      "ammo": 80,
+      "breachdmg": 11,
+      "breachmax": 0.4,
+      "breachmin": 0.2,
+      "class": 1,
+      "clip": 1,
+      "cost": 167250,
+      "damage": 22,
+      "damagedist": {
+        "T": 1
+      },
+      "distdraw": 3.8,
+      "edID": 128891610,
+      "eddbID": 0,
+      "falloff": 1500,
+      "fireint": 0.83,
+      "grp": "ggc",
+      "id": "yL",
+      "integrity": 40,
+      "mass": 2,
+      "mount": "F",
+      "piercing": 140,
+      "power": 1.91,
+      "range": 3000,
+      "rating": "D",
+      "reload": 1,
+      "thermload": 15,
+      "symbol": "Hpt_Guardian_GaussCannon_Fixed_Small",
+      "requirements": {
+        "horizons": true
+      }
+    },
+    {
+      "experimental": true,
+      "ammo": 80,
+      "breachdmg": 35,
+      "breachmax": 0.4,
+      "breachmin": 0.2,
+      "burst": 1,
+      "class": 2,
+      "clip": 1,
+      "cost": 543801,
+      "damage": 38.5,
+      "damagedist": {
+        "T": 1
+      },
+      "distdraw": 7.2,
+      "edID": 128833687,
+      "eddbID": 876,
+      "falloff": 1500,
+      "fireint": 0.83,
+      "grp": "ggc",
+      "id": "0H",
+      "integrity": 42,
+      "mass": 4,
+      "mount": "F",
+      "piercing": 140,
+      "power": 2.61,
+      "range": 3000,
+      "rating": "B",
+      "reload": 1,
+      "thermload": 25,
+      "symbol": "Hpt_Guardian_GaussCannon_Fixed_Medium",
+      "requirements": {
+        "horizons": true
+      }
+    }
+  ]
+}

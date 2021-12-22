@@ -1,24 +1,10 @@
-export default function ShipModules ({ name, modules, hardpoint, optional, selectedModule, setSelectedModule = () => {} }) {
-  const mountText = hardpoint ? 'Mount' : ''
-
+export default function ShipModules ({ name, modules, selectedModule, setSelectedModule = () => {} }) {
   return (
     <>
       <h2 style={{ margin: '1rem 0' }} className='text-info text-muted'>{name}</h2>
       <table className='table--flex-inline table--interactive'>
         <tbody>
-          {modules.map(module => {
-            const moduleMountText = optional
-              ? module.slot.replace('_', '')
-                  .replace(/([0-9]+)/g, ' $1 ')
-                  .replace(/^Slot ([0-9]+) Size ([0-9]+)/g, '') // "(Max size: $2)")
-                  .replace(/Military 0([0-9])/, 'Military slot $1')
-                  .replace(/([a-z])([A-Z])/g, '$1 $2')
-                  .trim() || mountText
-              : mountText
-
-            const moduleName = module.name
-              .replace(/ Package$/, '') // Hull / Armour modules
-              .replace(/int_/, '').replace(/_size(.*?)$/g, ' ').replace(/_/g, ' ') // Fallback for other unsupported modules
+          {modules.sort((a, b) => (b?.class ?? 0) - (a?.class ?? 0)).map(module => {
             return (
               <tr
                 key={`${name}_${module.name}_${module.slot}`}
@@ -69,25 +55,27 @@ export default function ShipModules ({ name, modules, hardpoint, optional, selec
                         </div>
                       </div>}
                   </div>
-                  <h3 className='disabled--fx-animated-text' data-module-name={module.name} data-fx-order='3'>
-                    {moduleName}
+                  <h3>
+                  {module.mount} {module.name}
                   </h3>
-                  <p className='text-no-wrap text-muted disabled--fx-animated-text' data-fx-order='4'>
-                    {module.mount} {moduleMountText}
+                  <p>
+                    {module.slotName}
                   </p>
-                  {/*
                   {module?.power > 0 &&
-                    <p className='text-no-wrap'>
+                    <p>
                       <span className='text-muted'>Power</span> {parseFloat(module.power).toFixed(2)} MW
                     </p>}
-                  */}
-                  {module.ammoInClip &&
-                    <p className='text-no-wrap'>
+                  {module.ammoInClip && !module.passengers &&
+                    <p>
                       <span className='text-muted'>Ammo</span> {module.ammoInClip + module.ammoInHopper}
                     </p>}
+                  {module.passengers &&
+                    <p>
+                      <span className='text-muted'>Passengers</span> {module.passengers}
+                    </p>}
                   {module.engineering &&
-                    <div className='ship-panel__engineering disabled--fx-animated-text' data-fx-order='4'>
-                      {[...Array(module.engineeringLevel)].map((j, i) =>
+                    <div className='ship-panel__engineering'>
+                      {[...Array(module.engineering.level)].map((j, i) =>
                         <i
                           key={`${name}_${module.name}_${module.slot}_engineering_${i}`}
                           className='icon icarus-terminal-engineering'

@@ -1,0 +1,159 @@
+{
+  "mamba": {
+    "edID": 128915979,
+    "eddbID": 38,
+    "properties": {
+      "name": "Mamba",
+      "manufacturer": "Zorgon Peterson",
+      "class": 2,
+      "hullCost": 55866341,
+      "speed": 310,
+      "boost": 380,
+      "boostEnergy": 17,
+      "baseShieldStrength": 270,
+      "heatCapacity": 165,
+      "baseArmour": 230,
+      "hardness": 70,
+      "hullMass": 250,
+      "masslock": 12,
+      "pipSpeed": 0.056451612903226,
+      "pitch": 27,
+      "roll": 80,
+      "yaw": 10,
+      "crew": 2,
+      "reserveFuelCapacity": 0.5
+    },
+    "retailCost": 55867041,
+    "bulkheads": [
+      {
+        "id": "1A",
+        "edID": 128915981,
+        "eddbID": 1798,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "1B",
+        "edID": 128915982,
+        "eddbID": 1799,
+        "grp": "bh",
+        "cost": 20626820,
+        "mass": 19,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "1C",
+        "edID": 128915983,
+        "eddbID": 1800,
+        "grp": "bh",
+        "cost": 46410340,
+        "mass": 38,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "1D",
+        "edID": 128915984,
+        "eddbID": 1801,
+        "grp": "bh",
+        "cost": 109683090,
+        "mass": 38,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "3A",
+        "edID": 128915985,
+        "eddbID": 1802,
+        "grp": "bh",
+        "cost": 121543510,
+        "mass": 38,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        6,
+        5,
+        4,
+        4,
+        6,
+        4,
+        3
+      ],
+      "hardpoints": [
+        4,
+        3,
+        3,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        5,
+        4,
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "6E",
+        "5E",
+        "4E",
+        "4E",
+        "6E",
+        "4E",
+        "3C"
+      ],
+      "hardpoints": [
+        0,
+        0,
+        0,
+        "17",
+        "17",
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "03",
+        "49",
+        "01",
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

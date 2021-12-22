@@ -1,0 +1,62 @@
+[
+  {
+    "id": "$government_Anarchy;",
+    "name": "Anarchy"
+  },
+  {
+    "id": "$government_Communism;",
+    "name": "Communism"
+  },
+  {
+    "id": "$government_Confederacy;",
+    "name": "Confederacy"
+  },
+  {
+    "id": "$government_Cooperative;",
+    "name": "Cooperative"
+  },
+  {
+    "id": "$government_Corporate;",
+    "name": "Corporate"
+  },
+  {
+    "id": "$government_Democracy;",
+    "name": "Democracy"
+  },
+  {
+    "id": "$government_Dictatorship;",
+    "name": "Dictatorship"
+  },
+  {
+    "id": "$government_Feudal;",
+    "name": "Feudal"
+  },
+  {
+    "id": "$government_Imperial;",
+    "name": "Imperial"
+  },
+  {
+    "id": "$government_None;",
+    "name": "None"
+  },
+  {
+    "id": "$government_Patronage;",
+    "name": "Patronage"
+  },
+  {
+    "id": "$government_PrisonColony;",
+    "name": "Prison Colony"
+  },
+  {
+    "id": "$government_Theocracy;",
+    "name": "Theocracy"
+  },
+  {
+    "id": "$government_Engineer;",
+    "name": "Engineer"
+  },
+  {
+    "id": "$government_Carrier;",
+    "name": "Private Ownership"
+  }
+]

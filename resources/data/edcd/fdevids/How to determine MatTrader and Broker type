@@ -1,0 +1,15 @@
+How to determine material trader and technology broker type by the station economies in simple pseudocode:
+
+Material trader type:
+IF (primary_economy == "hightech" OR primary_economy == "military") trader_type = "Encoded";
+IF (primary_economy == "extraction" OR primary_economy == "refinery") trader_type = "Raw material";
+IF (primary_economy == "industrial") trader_type = "Manufactured";
+IF (secondary_economy == "hightech" OR secondary_economy == "military") trader_type = "Encoded";
+IF (secondary_economy == "extraction" OR secondary_economy == "refinery") trader_type = "Raw material";
+IF (secondary_economy == "industrial") trader_type = "Manufactured";
+
+Tech broker type:
+IF (primary_economy == "hightech") broker_type = "Guardian";
+IF (primary_economy == "industrial") broker_type = "Human"; // human may be set as a default and it is not needed
+IF (secondary_economy == "hightech") broker_type = "Guardian";
+IF (secondary_economy != null AND secondary_economy != "hightech") broker_type = "Human"; // needs a confirmation

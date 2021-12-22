@@ -1,0 +1,154 @@
+{
+  "keelback": {
+    "edID": 128672269,
+    "eddbID": 27,
+    "properties": {
+      "name": "Keelback",
+      "manufacturer": "Lakon",
+      "class": 2,
+      "hullCost": 2943870,
+      "speed": 200,
+      "boost": 300,
+      "boostEnergy": 10,
+      "baseShieldStrength": 135,
+      "baseArmour": 270,
+      "hardness": 45,
+      "heatCapacity": 215,
+      "hullMass": 180,
+      "masslock": 8,
+      "pipSpeed": 0.1375,
+      "fighterHangars": true,
+      "pitch": 27,
+      "roll": 100,
+      "yaw": 15,
+      "crew": 2,
+      "reserveFuelCapacity": 0.39
+    },
+    "retailCost": 3126150,
+    "bulkheads": [
+      {
+        "id": "cb",
+        "edID": 128672271,
+        "eddbID": 1513,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "cc",
+        "edID": 128672272,
+        "eddbID": 1514,
+        "grp": "bh",
+        "cost": 1250460,
+        "mass": 12,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "cd",
+        "edID": 128672273,
+        "eddbID": 1515,
+        "grp": "bh",
+        "cost": 2813540,
+        "mass": 23,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "ce",
+        "edID": 128672274,
+        "eddbID": 1516,
+        "grp": "bh",
+        "cost": 6649330,
+        "mass": 23,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "cf",
+        "edID": 128672275,
+        "eddbID": 1517,
+        "grp": "bh",
+        "cost": 7368340,
+        "mass": 23,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        4,
+        4,
+        4,
+        1,
+        3,
+        2,
+        4
+      ],
+      "hardpoints": [
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        5,
+        5,
+        4,
+        3,
+        2,
+        2,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "4E",
+        "4E",
+        "4E",
+        "1E",
+        "3E",
+        "2E",
+        "4C"
+      ],
+      "hardpoints": [
+        0,
+        0,
+        17,
+        17,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "03",
+        "03",
+        "02",
+        "44",
+        "00",
+        "",
+        0
+      ]
+    }
+  }
+}

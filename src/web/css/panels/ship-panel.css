@@ -6,6 +6,12 @@
   margin: 1.5rem 0;
 }
 
+@media only screen and (min-width: 800px) {
+  .ship-panel__title {
+    margin-right: 13rem;
+  }
+}
+
 .ship-panel__modules {
   position: absolute;
   top: 0;
@@ -14,36 +20,19 @@
 }
 
 .ship-panel__modules--module-inspector {
-  bottom: 13rem;
+  bottom: 14rem;
 }
 
 .ship-panel__module-inspector {
   position: absolute;
-  height: 12.5rem;
+  height: 13.5rem;
   bottom: 0;
-  padding: .5rem 3rem 0 .5rem;
-  box-sizing: border-box;
   width: 100%;
   z-index: 20;
   transition: height .25s ease-in;
-  background: var(--linear-gradient-background);
   display: flex;
   flex-wrap: wrap;
   gap: .25rem;
-  overflow: scroll;
-}
-
-.ship-panel__module-inspector .button__close-button {
-  position: fixed;
-  right: 2rem;
-  top: auto;
-  left: auto;
-  bottom: 10.5rem;
-  z-index: 20;
-  opacity: 0;
-  animation: fx-fade-in-animation .25s ease-in-out;
-  animation-fill-mode: forwards;
-  animation-delay: .5s;
 }
 
 .ship-panel__module-inspector > *:not(button) {
@@ -51,15 +40,14 @@
 }
 
 .ship-panel__module-inspector--hidden {
-  background: var(--color-background-panel-opaque);
+  background: var(--color-background-panel);
   height: 0;
   padding: 0;
   border-color: transparent;
   overflow: hidden;
 }
 
-
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 799px) {
   .ship-panel__modules--module-inspector {
     bottom: 20.5rem;
   }
@@ -70,10 +58,6 @@
 
   .ship-panel__module-inspector--hidden {
     height: 0;
-  }
-
-  .ship-panel__module-inspector .button__close-button {
-    bottom: 18rem;
   }
 }
 
@@ -120,7 +104,7 @@
   margin-left: 2rem;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
   .ship-panel__ship-stats span,
   .ship-panel__ship-stats .value {
     clear: both;
@@ -151,7 +135,7 @@
   position: relative;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 799px) {
   .ship-panel__module-section {
     width: 100%;
     margin-bottom: .25rem;
@@ -162,47 +146,11 @@
   margin: 0.25rem 0;
 }
 
-.ship-panel__module-section--engineering {
-  background: var(--color-primary-dark);
-  border: .2rem solid var(--color-primary);
-  padding: .5rem 1rem;
-}
-
-.ship-panel__module-section--engineering h3 {
-  background: var(--color-primary);
-  color: var(--color-primary-dark);
-  margin: -.52rem -1.2rem;
-  margin-bottom: .5rem;
-  padding: .25rem .5rem;
-  opacity: 1;
-  position: relative;
-  top: -.2rem;
-}
-
-.ship-panel__module-section--engineering progress {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  width: auto;
-}
-
-@media only screen and (max-width: 800px) {
-  .ship-panel__module-section--engineering progress {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    width: 100%;
-    margin: .5rem 0;
-  }
-}
-
 table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module .ship-panel__module-icon,
 table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module .ship-panel__module-icon,
 table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-panel__module .ship-panel__module-icon {
   color: var(--color-primary-dark);
-  background: var(--color-background-panel);
+  background: var(--color-background-panel-translucent);
   text-shadow: none;
 }
 

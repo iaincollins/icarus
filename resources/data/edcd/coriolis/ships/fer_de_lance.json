@@ -1,0 +1,159 @@
+{
+  "fer_de_lance": {
+    "edID": 128049351,
+    "eddbID": 11,
+    "properties": {
+      "name": "Fer-de-Lance",
+      "manufacturer": "Zorgon Peterson",
+      "class": 2,
+      "hullCost": 51232230,
+      "speed": 260,
+      "boost": 350,
+      "boostEnergy": 19,
+      "baseShieldStrength": 300,
+      "baseArmour": 225,
+      "hardness": 70,
+      "hullMass": 250,
+      "heatCapacity": 224,
+      "masslock": 12,
+      "pipSpeed": 0.038461538461538,
+      "pitch": 38,
+      "roll": 90,
+      "yaw": 12,
+      "crew": 2,
+      "reserveFuelCapacity": 0.67
+    },
+    "retailCost": 51567040,
+    "bulkheads": [
+      {
+        "id": "Bd",
+        "edID": 128049352,
+        "eddbID": 813,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "Be",
+        "edID": 128049353,
+        "eddbID": 814,
+        "grp": "bh",
+        "cost": 20626820,
+        "mass": 19,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "Bf",
+        "edID": 128049354,
+        "eddbID": 815,
+        "grp": "bh",
+        "cost": 46410340,
+        "mass": 38,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "Bg",
+        "edID": 128049355,
+        "eddbID": 816,
+        "grp": "bh",
+        "cost": 109683090,
+        "mass": 38,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "Bh",
+        "edID": 128049356,
+        "eddbID": 817,
+        "grp": "bh",
+        "cost": 121543510,
+        "mass": 38,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        6,
+        5,
+        4,
+        4,
+        6,
+        4,
+        3
+      ],
+      "hardpoints": [
+        4,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        5,
+        4,
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "5E",
+        "5E",
+        "4E",
+        "4E",
+        "6E",
+        "4E",
+        "3C"
+      ],
+      "hardpoints": [
+        0,
+        17,
+        17,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "internal": [
+        "03",
+        "49",
+        "02",
+        0,
+        "",
+        0
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "pcq": [
+    {
+      "class": 5,
+      "cost": 1658100,
+      "edID": 128727925,
+      "eddbID": 1575,
+      "grp": "pcq",
+      "id": "mm",
+      "mass": 20,
+      "passengers": 4,
+      "rating": "B",
+      "symbol": "Int_PassengerCabin_Size5_Class4",
+      "ukName": "LC Passenger Cabin",
+      "ukDiscript": "Luxury Class Passenger Cabin."
+    },
+    {
+      "class": 6,
+      "cost": 4974288,
+      "edID": 128727929,
+      "eddbID": 1576,
+      "grp": "pcq",
+      "id": "mn",
+      "mass": 40,
+      "passengers": 8,
+      "rating": "B",
+      "symbol": "Int_PassengerCabin_Size6_Class4",
+      "ukName": "LC Passenger Cabin",
+      "ukDiscript": "Luxury Class Passenger Cabin."
+    }
+  ]
+}

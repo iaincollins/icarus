@@ -1,0 +1,145 @@
+{
+  "sidewinder": {
+    "edID": 128049249,
+    "eddbID": 18,
+    "properties": {
+      "name": "Sidewinder",
+      "manufacturer": "Faulcon DeLacy",
+      "class": 1,
+      "hullCost": 4070,
+      "speed": 220,
+      "boost": 320,
+      "boostEnergy": 7,
+      "heatCapacity": 140,
+      "baseShieldStrength": 40,
+      "baseArmour": 60,
+      "hardness": 20,
+      "hullMass": 25,
+      "masslock": 6,
+      "pipSpeed": 0.13636363636364,
+      "pitch": 42,
+      "roll": 110,
+      "yaw": 16,
+      "crew": 1,
+      "reserveFuelCapacity": 0.3
+    },
+    "retailCost": 32000,
+    "bulkheads": [
+      {
+        "id": "b0",
+        "edID": 128049250,
+        "eddbID": 738,
+        "grp": "bh",
+        "cost": 0,
+        "mass": 0,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 0.8
+      },
+      {
+        "id": "b1",
+        "edID": 128049251,
+        "eddbID": 739,
+        "grp": "bh",
+        "cost": 25600,
+        "mass": 2,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 1.52
+      },
+      {
+        "id": "b2",
+        "edID": 128049252,
+        "eddbID": 740,
+        "grp": "bh",
+        "cost": 80320,
+        "mass": 4,
+        "causres": 0,
+        "explres": -0.4,
+        "kinres": -0.2,
+        "thermres": 0,
+        "hullboost": 2.5
+      },
+      {
+        "id": "b3",
+        "edID": 128049253,
+        "eddbID": 741,
+        "grp": "bh",
+        "cost": 132060,
+        "mass": 4,
+        "causres": 0,
+        "explres": -0.5,
+        "kinres": -0.75,
+        "thermres": 0.5,
+        "hullboost": 2.5
+      },
+      {
+        "id": "b4",
+        "edID": 128049254,
+        "eddbID": 742,
+        "grp": "bh",
+        "cost": 139420,
+        "mass": 4,
+        "causres": 0,
+        "explres": 0.2,
+        "kinres": 0.25,
+        "thermres": -0.4,
+        "hullboost": 2.5
+      }
+    ],
+    "slots": {
+      "standard": [
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "hardpoints": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "internal": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "defaults": {
+      "standard": [
+        "2E",
+        "2E",
+        "2E",
+        "1E",
+        "1E",
+        "1E",
+        "1C"
+      ],
+      "hardpoints": [
+        18,
+        18,
+        0,
+        0
+      ],
+      "internal": [
+        "3v",
+        "01",
+        "",
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}
