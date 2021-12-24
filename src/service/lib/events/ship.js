@@ -163,7 +163,7 @@ class ShipEvents {
         module.description = ''
         if (firstLine) module.description = firstLine.replace(/\.$/, '')
         if (coriolisModule.mass) module.mass = coriolisModule.mass
-        if (coriolisModule.cost) module.mass = coriolisModule.cost
+        if (coriolisModule.cost) module.cost = coriolisModule.cost
       }
 
       module.slotName = module.slot.replace('_', ' ')
