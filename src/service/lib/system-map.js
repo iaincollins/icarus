@@ -182,8 +182,8 @@ class SystemMap {
           if (!shipServices.includes(service)) otherServices.push(service)
         })
 
-        systemObject._shipServices = shipServices
-        systemObject._otherServices = otherServices
+        systemObject._shipServices = shipServices.sort()
+        systemObject._otherServices = otherServices.sort()
 
         // If this object is any time of planetry port, outpost or settlement
         // then add it as a planetary base of the parent body

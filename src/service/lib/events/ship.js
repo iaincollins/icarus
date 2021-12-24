@@ -18,30 +18,20 @@ class ShipEvents {
       this.eliteJson.json()
     ])
 
-    // Combine information from loadout and modules info to get info for
-    // all modules fitted to the ship (including cosmetic and built-in)
+    // The Loadout event is written on load, after switching ships and after
+    // using Outfitting. This logic used to use ModulesInfo.json but it is not
+    // updated as often and I haven't found a good use for ModulesInfo.json.
+    // NB: Other events like ModuleSwap, ModuleBuy are also issued *during&
+    // outfitting but handling all those would add extra work and just using
+    // for Loadout events is fine for now as it's fired after Outfitting.
     const loadoutModules = Loadout?.Modules ?? []
-    const modulesInfoModules = Json?.ModulesInfo?.Modules ?? []
-    let modules = {}
+    const modules = {}
 
     // If Fuel does not exist, then we are on foot (and not on board)
     // If FuelMain exists but is zero, we are in an SVR (and not on board)
     // If FuelMain exists and greater than zero we are in a ship
     const onBoard = !!((Json?.Status?.Fuel?.FuelMain > 0 ?? false))
 
-    // Load ModulesInfo JSON first (as a fallback), then overwrite with Loadout
-    // as ModulesInfo is often stale (e.g. not updated after outfitting)
-    modulesInfoModules.forEach(module => {
-      const slot = module.Slot
-      if (!modules[slot]) modules[slot] = {}
-      modules[slot].slot = module.Slot
-      modules[slot].item = module.Item
-      modules[slot].power = module?.Power ?? false
-      modules[slot].priority = module?.Priority ?? false
-    })
-
-    // Overwrites any module info from ModdulesInfo JSON as Loadout tends to
-    // be correct but ModulesInfo is often stale
     loadoutModules.forEach(async module => {
       const slot = module.Slot
       if (!modules[slot]) modules[slot] = {}
@@ -86,7 +76,7 @@ class ShipEvents {
               }
             }
             if (mod.Value === mod.OriginalValue) difference = ''
-            
+
             difference = difference.replace(/\.00$/, '').replace(/0$/, '')
 
             return {
@@ -112,7 +102,7 @@ class ShipEvents {
     let totalModulePowerDraw = 0
     for (const moduleName in modules) {
       const module = modules[moduleName]
-      
+
       // As a fallback, use cleaned up version of internal symbol for name
       module.name = module.item
         .replace(/ Package$/, '') // Hull / Armour modules
@@ -146,8 +136,18 @@ class ShipEvents {
       if (module.slot.includes('SmallHardpoint')) module.size = 'small'
       if (module.slot.includes('TinyHardpoint')) module.size = 'tiny' // Utilities
 
-      module.hardpoint = module.slot.includes('Hardpoint') ? true : false
-      module.utility = module.slot.includes('TinyHardpoint') ? true : false
+      module.hardpoint = !!module.slot.includes('Hardpoint')
+      module.utility = !!module.slot.includes('TinyHardpoint')
+      module.core = !![
+        'PowerDistributor',
+        'Radar',
+        'PowerPlant',
+        'MainEngines',
+        'FrameShiftDrive',
+        'LifeSupport',
+        'FuelTank',
+        'Armour'
+      ].includes(module.slot)
 
       // Keep running total of module cost and total power draw
       if (module.value) totalModuleValue += module.value
@@ -155,9 +155,11 @@ class ShipEvents {
 
       if (coriolisModule) {
         // Just grab the first line of the description
-        const [firstLine, junk] = (coriolisModule?.description ?? '').split('. ')
+        const [firstLine] = (coriolisModule?.description ?? '').split('. ')
         module.description = ''
         if (firstLine) module.description = firstLine.replace(/\.$/, '')
+        if (coriolisModule.mass) module.mass = coriolisModule.mass
+        if (coriolisModule.cost) module.mass = coriolisModule.cost
       }
 
       module.slotName = module.slot.replace('_', ' ')

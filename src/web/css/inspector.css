@@ -1,7 +1,6 @@
 .inspector {
   padding: .5rem;
   background: var(--color-inspector-background);
-  border: .2rem solid var(--color-inspector-frame);
   box-sizing: border-box;
 }
 
@@ -25,10 +24,10 @@
 .inspector__title {
   background: var(--color-inspector-frame);
   color: var(--color-inspector-text);
-  margin: -.6rem -1rem 1rem -.6rem;
+  margin: -.5rem -1rem 1rem -.5rem;
   height: 2.25rem;
   z-index: 10;
-  width: calc(100% + 1.2rem);
+  width: calc(100% + 1.4rem);
   pointer-events: all !important;
 }
 
@@ -65,6 +64,7 @@
 
 .inspector--horizontal .inspector__close-button {
   float: right;
+  padding-right: .75rem;
 }
 
 .inspector--horizontal .inspector__close-button .icon {
@@ -84,8 +84,10 @@
     display: flex;
   }
 
+  .inspector--horizontal .inspector__close-button,
   .inspector__close-button {
     float: right;
+    padding-right: .5rem;
   }
 
   .inspector__close-button .icon {

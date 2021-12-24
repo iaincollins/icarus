@@ -2,7 +2,7 @@ export default function ShipModules ({ name, modules, selectedModule, setSelecte
   return (
     <>
       <h2 style={{ margin: '1rem 0' }} className='text-info text-muted'>{name}</h2>
-      <table className='table--flex-inline table--interactive'>
+      <table className='table--flex-inline table--interactive table--animated'>
         <tbody>
           {modules.sort((a, b) => (b?.class ?? 0) - (a?.class ?? 0)).map(module => {
             return (
@@ -56,16 +56,16 @@ export default function ShipModules ({ name, modules, selectedModule, setSelecte
                       </div>}
                   </div>
                   <h3>
-                  {module.mount} {module.name}
+                    {module.mount} {module.name}
                   </h3>
-                  <p>
+                  <p className='text-muted'>
                     {module.slotName}
                   </p>
-                  {module?.power > 0 &&
+                  {/* {module?.power > 0 &&
                     <p>
                       <span className='text-muted'>Power</span> {parseFloat(module.power).toFixed(2)} MW
-                    </p>}
-                  {module.ammoInClip && !module.passengers &&
+                    </p>} */}
+                  {(!module.passengers && module.ammoInClip) &&
                     <p>
                       <span className='text-muted'>Ammo</span> {module.ammoInClip + module.ammoInHopper}
                     </p>}

@@ -50,7 +50,16 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
       if (systemObjectSubType === 'Settlement') iconClass += 'settlement'
   }
 
-  let inspectorTitle = ['Planet', 'Star'].includes(systemObject.type) ? systemObject.type : systemObjectSubType
+  let inspectorTitle = systemObjectSubType
+  if (['Planet', 'Star'].includes(systemObject.type)) inspectorTitle = systemObject.type
+  if (STARPORTS.includes(systemObject.type)) inspectorTitle = 'Starport'
+  if (STARPORTS.includes(systemObject.type) && systemObjectSubType === 'Outpost') inspectorTitle = 'Orbital Outpost'
+
+  const surfacePorts = []
+  const settlements = []
+  systemObject?._planetaryBases?.forEach(base =>
+    SURFACE_PORTS.includes(base.type) ? surfacePorts.push(base) : settlements.push(base)
+  )
 
   return (
     <div className='inspector navigation-panel__inspector fx-fade-in'>
@@ -76,10 +85,10 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {systemObject.type === 'Star' &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Characteristics</h4>
-            {systemObject.isScoopable ? <p className='text-info'>Fuel star (scoopable)</p> : <p className='text-info text-muted'>Not scoopable</p>}
+            {systemObject.isScoopable ? <p className='text-info'>Fuel Star (Scoopable)</p> : <p className='text-info text-muted'>Not Scoopable</p>}
             {systemObject.spectralClass && <p className='text-info'>Class {systemObject.spectralClass} Star </p>}
-            <p className='text-info'>Temperature {systemObject.surfaceTemperature} K</p>
             <p className='text-info'>{systemObject.solarMasses.toFixed(2)} Solar masses</p>
+            <p className='text-info'>Temperature {systemObject.surfaceTemperature} K</p>
             {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toFixed(0)} Km</p>}
           </div>}
 
@@ -94,30 +103,33 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                   Temperature {systemObject.surfaceTemperature}K
                   ({kelvinToCelius(systemObject.surfaceTemperature)}C/{kelvinToFahrenheit(systemObject.surfaceTemperature)}F)
                 </p>}
-                {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toFixed(0)} Km</p>}
+              {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toFixed(0)} Km</p>}
               {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && <p className='text-info'>{systemObject.terraformingState}</p>}
             </div>
 
-            {systemObject._planetaryBases &&
+            {surfacePorts.length > 0 &&
               <div className='navigation-panel__inspector-section'>
-                <h4 className='text-primary'>Ports &amp; Settlements</h4>
+                <h4 className='text-primary'>Ports</h4>
                 <div className='text-info'>
-                  {systemObject._planetaryBases.map(base => {
-                    let iconClass = 'icon icarus-terminal-'
-                    if (PLANETARY_BASES.includes(base.type)) {
-                      if (SURFACE_PORTS.includes(base.type)) {
-                        iconClass += 'planetary-port'
-                      } else {
-                        iconClass += 'settlement'
-                      }
-                    }
-                    return (
-                      <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-link text-no-wrap' onClick={() => setSystemObjectByName(base.name)}>
-                        <i className={iconClass} />
-                        <span className='text-link-text text-no-wrap'>{base.name}</span>
-                      </p>
-                    )
-                  })}
+                  {surfacePorts.map(base => (
+                    <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-link text-no-wrap' onClick={() => setSystemObjectByName(base.name)}>
+                      <i className='icon icarus-terminal-planetary-port' />
+                      <span className='text-link-text text-no-wrap'>{base.name}</span>
+                    </p>
+                  ))}
+                </div>
+              </div>}
+
+            {settlements.length > 0 &&
+              <div className='navigation-panel__inspector-section'>
+                <h4 className='text-primary'>Settlements</h4>
+                <div className='text-info'>
+                  {settlements.map(base => (
+                    <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-link text-no-wrap' onClick={() => setSystemObjectByName(base.name)}>
+                      <i className='icon icarus-terminal-settlement' />
+                      <span className='text-link-text text-no-wrap'>{base.name}</span>
+                    </p>
+                  ))}
                 </div>
               </div>}
 
@@ -134,7 +146,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             {!systemObject.atmosphereComposition &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Atmosphere</h4>
-                <p className='text-muted'>No atmosphere</p>
+                <p className='text-muted'>No Atmosphere</p>
               </div>}
 
             {systemObject.solidComposition &&
