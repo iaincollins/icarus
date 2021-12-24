@@ -77,7 +77,7 @@ class ShipEvents {
             }
             if (mod.Value === mod.OriginalValue) difference = ''
 
-            difference = difference.replace(/\.00$/, '').replace(/0$/, '')
+            difference = difference.replace(/\.00$/, '')
 
             return {
               name: mod.Label.replace(/_/g, ' ')?.replace(/([a-z])([A-Z])/g, '$1 $2')?.trim(),
@@ -100,6 +100,10 @@ class ShipEvents {
     let armour = UNKNOWN_VALUE
     let totalModuleValue = 0
     let totalModulePowerDraw = 0
+
+    // TODO Should add capacity of any installed fuel tanks to this
+    const totalFuelCapacity = parseInt(Loadout?.FuelCapacity?.Main) ?? 0
+
     for (const moduleName in modules) {
       const module = modules[moduleName]
 
@@ -172,7 +176,7 @@ class ShipEvents {
         .trim()
     }
 
-    totalModulePowerDraw = totalModulePowerDraw.toFixed(2)
+    totalModulePowerDraw = totalModulePowerDraw?.toFixed(2)?.replace(/\.00$/, '')
 
     const ship = await EDCDShipyard.getBySymbol(Loadout?.Ship)
 
@@ -186,7 +190,7 @@ class ShipEvents {
         weapons: onBoard ? Json?.Status?.Pips?.[2] ?? UNKNOWN_VALUE : UNKNOWN_VALUE
       },
       fuelLevel: Json?.Status?.Fuel?.FuelMain ?? UNKNOWN_VALUE,
-      fuelCapacity: LoadGame?.FuelCapacity ?? UNKNOWN_VALUE,
+      fuelCapacity: totalFuelCapacity,
       maxJumpRange: Loadout?.MaxJumpRange ?? UNKNOWN_VALUE,
       modulePowerDraw: totalModulePowerDraw,
       moduleValue: totalModuleValue,

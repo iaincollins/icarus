@@ -37,7 +37,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
               </td>
               <td>
                 <span className='text-muted'>Fuel (curr/max)</span>
-                <span className='value'>{ship.onBoard ? parseFloat(ship.fuelLevel).toFixed(1) : '-'}/{parseFloat(ship.fuelCapacity).toFixed(1)} T</span>
+                <span className='value'>{ship.onBoard ? parseFloat(ship.fuelLevel).toFixed(1) : '-'}/{ship.fuelCapacity} T</span>
               </td>
               <td>
                 <span className='text-muted'>Cargo (curr/max)</span>
