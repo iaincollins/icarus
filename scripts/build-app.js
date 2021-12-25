@@ -21,6 +21,7 @@ const {
 
 const DEVELOPMENT_BUILD = commandLineArgs.debug || DEVELOPMENT_BUILD_DEFAULT
 const DEBUG_CONSOLE = commandLineArgs.debug || DEBUG_CONSOLE_DEFAULT
+const COMPRESS_FINAL_BUILD = false
 
 ;(async () => {
   clean()
@@ -44,23 +45,33 @@ async function build () {
     execSync(`cd src/app && go build -ldflags="-H windowsgui -s -w" -o "${APP_UNOPTIMIZED_BUILD}"`)
   }
 
-  await changeExe.icon(APP_UNOPTIMIZED_BUILD, APP_ICON)
-  await changeExe.versionInfo(APP_UNOPTIMIZED_BUILD, APP_VERSION_INFO)
-
   if (DEVELOPMENT_BUILD) {
     console.log('Development build (skipping compression)')
-    fs.copyFileSync(APP_UNOPTIMIZED_BUILD, APP_FINAL_BUILD)
+    fs.copyFileSync(APP_UNOPTIMIZED_BUILD, APP_OPTIMIZED_BUILD)
   } else {
-    console.log('Optimizing...')
-    const optimisationStats = await UPX(APP_UNOPTIMIZED_BUILD)
-      .output(APP_OPTIMIZED_BUILD)
-      .start()
-    console.log('Optimization', optimisationStats)
-    fs.copyFileSync(APP_OPTIMIZED_BUILD, APP_FINAL_BUILD)
+    if (COMPRESS_FINAL_BUILD) {
+      console.log('Optimizing...')
+      const optimisationStats = await UPX(APP_UNOPTIMIZED_BUILD)
+        .output(APP_OPTIMIZED_BUILD)
+        .start()
+        .catch(err => {
+          console.log('Error compressing build', err)
+          process.exit(1)
+        })
+      console.log('Optimization', optimisationStats)
+    } else {
+      console.log('Compression disabled (skipping compression)')
+      fs.copyFileSync(APP_UNOPTIMIZED_BUILD, APP_OPTIMIZED_BUILD)
+    }
   }
+
+  // Apply icon and resource changes after optimization
+  await changeExe.icon(APP_OPTIMIZED_BUILD, APP_ICON)
+  await changeExe.versionInfo(APP_OPTIMIZED_BUILD, APP_VERSION_INFO)
 }
 
 function copy () {
+  fs.copyFileSync(APP_OPTIMIZED_BUILD, APP_FINAL_BUILD)
   // Resources required by the app
   fs.copyFileSync(path.join(RESOURCES_DIR, 'dll', 'webview.dll'), path.join(BIN_DIR, 'webview.dll'))
   fs.copyFileSync(path.join(RESOURCES_DIR, 'dll', 'WebView2Loader.dll'), path.join(BIN_DIR, 'WebView2Loader.dll'))
