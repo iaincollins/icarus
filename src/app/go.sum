@@ -12,6 +12,8 @@ github.com/nvsoft/win v0.0.0-20160111051136-23d143e32c41 h1:s0qXnW0MxcRPYZpqbrIT
 github.com/nvsoft/win v0.0.0-20160111051136-23d143e32c41/go.mod h1:bI2vvx1dagFt7tydvy947C0q6ET6k5MfIvWmmpLelpw=
 github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2 h1:JhzVVoYvbOACxoUmOs6V/G4D5nPVUW73rKvXxP4XUJc=
 github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2/go.mod h1:iIss55rKnNBTvrwdmkUpLnDpZoAHvWaiq5+iMmen4AE=
+github.com/rodolfoag/gow32 v0.0.0-20160917004320-d95ff468acf8 h1:p7tJTb+Rqvp8dS82oMnL1M1Yt9ersQyJU7E1C8Bl+7Q=
+github.com/rodolfoag/gow32 v0.0.0-20160917004320-d95ff468acf8/go.mod h1:w/ebPUfAcyZMYjstwPIWTEGSahChHx5R3Y+xElrvxDc=
 github.com/sqweek/dialog v0.0.0-20211002065838-9a201b55ab91 h1:Ap4SC7+bIAFzh81vREQSElqYUtuxPgknVl1ol5rOf9w=
 github.com/sqweek/dialog v0.0.0-20211002065838-9a201b55ab91/go.mod h1:/qNPSY91qTz/8TgHEMioAUc6q7+3SOybeKczHMXFcXw=
 github.com/webview/webview v0.0.0-20210330151455-f540d88dde4e h1:z780M7mCrdt6KiICeW9SGirvQjxDlrVU+n99FO93nbI=

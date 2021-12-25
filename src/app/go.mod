@@ -12,6 +12,7 @@ require (
 	github.com/jmoiron/jsonq v0.0.0-20150511023944-e874b168d07e // indirect
 	github.com/nvsoft/win v0.0.0-20160111051136-23d143e32c41 // indirect
 	github.com/phayes/freeport v0.0.0-20180830031419-95f893ade6f2 // indirect
+	github.com/rodolfoag/gow32 v0.0.0-20160917004320-d95ff468acf8 // indirect
 	github.com/sqweek/dialog v0.0.0-20211002065838-9a201b55ab91 // indirect
 	golang.org/x/sys v0.0.0-20200814200057-3d37ad5750ed // indirect
 )

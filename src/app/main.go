@@ -1,11 +1,11 @@
 package main
 
 import (
-	"bytes"
 	"flag"
 	"fmt"
 	"github.com/nvsoft/win"
 	"github.com/phayes/freeport"
+	"github.com/rodolfoag/gow32"
 	"github.com/sqweek/dialog"
 	"github.com/webview/webview"
 	"os"
@@ -348,11 +348,10 @@ func exitApplication(exitCode int) {
 }
 
 func checkProcessAlreadyExists(windowTitle string) bool {
-	cmd := exec.Command("TASKLIST", "/FI", fmt.Sprintf("windowTitle eq %s", windowTitle))
-	cmd.SysProcAttr = &syscall.SysProcAttr{CreationFlags: 0x08000000, HideWindow: true}
-	result, err := cmd.Output()
+	_, err := gow32.CreateMutex(windowTitle)
 	if err != nil {
-		return false
+		return true
 	}
-	return !bytes.Contains(result, []byte("No tasks are running"))
+
+	return false
 }
