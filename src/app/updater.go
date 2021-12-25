@@ -23,6 +23,7 @@ const LATEST_RELEASE_URL = "https://api.github.com/repos/iaincollins/icarus/rele
 type Release struct {
 	productVersion string
 	downloadUrl string
+	releaseNotes string
 }
 
 func CheckForUpdate() {
@@ -120,10 +121,7 @@ func GetLatestRelease(releasesUrl string) (Release, error) {
 		return release, readErr
 	}
 
-	// Hackery to convert the response into JSON that jsonq can parse
 	jsonObjectAsString := string(body)
-	// jsonObjectAsString = regexp.MustCompile(`^\[`).ReplaceAllString(jsonObjectAsString, `{"releases":[`)
-	// jsonObjectAsString = regexp.MustCompile(`\]$`).ReplaceAllString(jsonObjectAsString, `]}`)
 
 	// Use jsonq to access JSON 
 	data := map[string]interface{}{}
@@ -132,12 +130,10 @@ func GetLatestRelease(releasesUrl string) (Release, error) {
 	jq := jsonq.NewQuery(data)
 
 	// Get properties from from JSON
-	// tag, _ := jq.String("releases", "0", "tag_name")
-	// productVersion := regexp.MustCompile(`^v`).ReplaceAllString(tag, ``)
-	// downloadUrl, _ := jq.String("releases", "0", "assets", "0", "browser_download_url")
 	tag, _ := jq.String("tag_name")
 	productVersion := regexp.MustCompile(`^v`).ReplaceAllString(tag, ``) // Converts tag (v0.0.0) to semver version (0.0.0) for easier comparion
 	downloadUrl, _ := jq.String("assets", "0", "browser_download_url")
+	releaseNotes, _ := jq.String("body")
 
 	if (downloadUrl == "") {
 		return release, errors.New("Could not get download URL")
@@ -145,6 +141,7 @@ func GetLatestRelease(releasesUrl string) (Release, error) {
 
 	release.productVersion = productVersion
 	release.downloadUrl = downloadUrl
+	release.releaseNotes = releaseNotes
 
 	return release, nil
 }
