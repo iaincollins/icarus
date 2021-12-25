@@ -55,24 +55,10 @@ export default function ShipModules ({ name, modules, selectedModule, setSelecte
                         </div>
                       </div>}
                   </div>
-                  <h3>
-                    {module.mount} {module.name}
-                  </h3>
-                  <p className='text-muted'>
-                    {module.slotName}
-                  </p>
-                  {/* {module?.power > 0 &&
-                    <p>
-                      <span className='text-muted'>Power</span> {parseFloat(module.power).toFixed(2)} MW
-                    </p>} */}
-                  {(!module.passengers && module.ammoInClip) &&
-                    <p>
-                      <span className='text-muted'>Ammo</span> {module.ammoInClip + module.ammoInHopper}
-                    </p>}
-                  {module.passengers &&
-                    <p>
-                      <span className='text-muted'>Passengers</span> {module.passengers}
-                    </p>}
+                  <h3>{module.mount} {module.name}</h3>
+                  <p className='text-muted'>{module.slotName}</p>
+                  {module?.power > 0 && <p><span className='text-muted'>Power</span> {module.power} MW</p>}
+                  {module?.mass > 0 && <p><span className='text-muted'>Mass</span> {module.mass} T</p>}
                   {module.engineering &&
                     <div className='ship-panel__engineering'>
                       {[...Array(module.engineering.level)].map((j, i) =>

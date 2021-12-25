@@ -137,7 +137,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Atmosphere</h4>
                 {systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere' ? <p className='text-info'>{systemObject.atmosphereType}</p> : null}
-                {systemObject.surfacePressure ? <p className='text-info'>Pressure {systemObject.surfacePressure.toFixed(1)} atm</p> : null}
+                {systemObject.surfacePressure ? <p className='text-info'>Pressure {parseFloat(systemObject.surfacePressure.toFixed(3))} atm</p> : null}
                 <ul className='text-info'>
                   {Object.entries(systemObject.atmosphereComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_atmosphere_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
                 </ul>

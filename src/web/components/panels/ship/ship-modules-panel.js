@@ -33,11 +33,11 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             <tr>
               <td>
                 <span className='text-muted'>Max jump range</span>
-                <span className='value'>{parseFloat(ship.maxJumpRange).toFixed(2)} Ly</span>
+                <span className='value'>{ship.maxJumpRange} Ly</span>
               </td>
               <td>
                 <span className='text-muted'>Fuel (curr/max)</span>
-                <span className='value'>{ship.onBoard ? parseFloat(ship.fuelLevel).toFixed(1) : '-'}/{ship.fuelCapacity} T</span>
+                <span className='value'>{ship.onBoard ? ship.fuelLevel : '-'}/{ship.fuelCapacity} T</span>
               </td>
               <td>
                 <span className='text-muted'>Cargo (curr/max)</span>

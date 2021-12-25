@@ -23,22 +23,13 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
             {module.class}{module.rating} <span className='text-muted'>{module.slotName}</span>
           </h3>
           <div className='text-primary'>
-            {module?.power > 0 && <p><span className='text-muted'>Power</span> {parseFloat(module.power).toFixed(2)} MW</p>}
-            {(!module.passengers && module.ammoInHopper && module?.ammoInClip > 0) && <p><span className='text-muted'>Ammo (Clip/Hopper)</span> {module.ammoInClip}/{module.ammoInHopper}</p>}
+            {/*
+            {module.ammoTotal && <p><span className='text-muted'>Ammo</span> {module.ammoTotal}</p>}
             {module.passengers && <p><span className='text-muted'>Passengers</span> {module.passengers}</p>}
+            {module.heatsinks && <p><span className='text-muted'>Heatsinks</span> {module.heatsinks}</p>}
+            */}
+            {module?.power > 0 && <p><span className='text-muted'>Power</span> {module.power} MW</p>}
             {module?.mass > 0 && <p><span className='text-muted'>Mass</span> {module.mass} T</p>}
-            {/* <table className='table--layout'>
-              <tbody>
-                <tr>
-                  <td>{module?.power > 0 && <><span className='text-muted'>Power</span> {parseFloat(module.power).toFixed(2)} MW</>}</td>
-                  <td>{module?.mass > 0 && <><span className='text-muted'>Mass</span> {module.mass} T</>}</td>
-                </tr>
-                <tr>
-                  <td>{(!module.passengers && module.ammoInHopper && module?.ammoInClip > 0) && <><span className='text-muted'>Ammo (Clip/Hopper)</span> {module.ammoInClip}/{module.ammoInHopper}</>}</td>
-                  <td>{module.passengers && <><span className='text-muted'>Passengers</span> {module.passengers}</>}</td>
-                </tr>
-              </tbody>
-            </table> */}
             {module.description &&
               <p className='text-primary text-muted'>
                 {module.description}

@@ -36,17 +36,24 @@ class ShipEvents {
       const slot = module.Slot
       if (!modules[slot]) modules[slot] = {}
       modules[slot].slot = module.Slot
-      modules[slot].item = module.Item
+      modules[slot].symbol = module.Item.toLowerCase()
       modules[slot].on = module.On
       modules[slot].health = module.Health
       modules[slot].value = module.Value
+      modules[slot].power = module.Power
 
       // For passenger cabins, AmmoInClip refers to number of passengers
-      if (slot.includes('PassengerCabin')) {
-        modules[slot].passengers = module.AmmoInClip
-      } else {
-        modules[slot].ammoInClip = module.AmmoInClip
-        modules[slot].ammoInHopper = module.AmmoInHopper
+      if (module.AmmoInClip) {
+        console.log(module.Item)
+        if (modules[slot].symbol.includes('passengercabin')) {
+          modules[slot].passengers = module.AmmoInClip
+        } else if (modules[slot].symbol.includes('heatsinklauncher')) {
+          modules[slot].heatsinks = module.AmmoInClip + module.AmmoInHopper
+        } else {
+          modules[slot].ammoInClip = module.AmmoInClip
+          modules[slot].ammoInHopper = module.AmmoInHopper
+          modules[slot].ammoTotal = module.AmmoInClip + module.AmmoInHopper
+        }
       }
 
       if (module?.Engineering) {
@@ -100,23 +107,21 @@ class ShipEvents {
     let armour = UNKNOWN_VALUE
     let totalModuleValue = 0
     let totalModulePowerDraw = 0
-
-    // TODO Should add capacity of any installed fuel tanks to this
-    const totalFuelCapacity = parseInt(Loadout?.FuelCapacity?.Main) ?? 0
+    let totalFuelCapacity = 0
 
     for (const moduleName in modules) {
       const module = modules[moduleName]
 
       // As a fallback, use cleaned up version of internal symbol for name
-      module.name = module.item
+      module.name = module.symbol
         .replace(/ Package$/, '') // Hull / Armour modules
         .replace(/int_/, '')
         .replace(/_size(.*?)$/g, ' ')
         .replace(/_/g, ' ')
 
       // Populate additional metadata for module by looking it up
-      const outfittingModule = await EDCDOutfitting.getBySymbol(module.item)
-      const coriolisModule = await CoriolisModules.getBySymbol(module.item)
+      const outfittingModule = await EDCDOutfitting.getBySymbol(module.symbol)
+      const coriolisModule = await CoriolisModules.getBySymbol(module.symbol)
 
       // Enrich module info with metadata, if we have it
       if (outfittingModule) {
@@ -125,13 +130,15 @@ class ShipEvents {
         if (outfittingModule.rating) module.rating = outfittingModule.rating
         if (outfittingModule.mount) module.mount = outfittingModule.mount
         if (outfittingModule.guidance) module.guidance = outfittingModule.guidance
+      } else {
+        console.log('Outfitting: No EDCD data for module', module.symbol)
       }
 
       // Each ship has exactly one armour module
-      if (module.item.includes('_armour_')) armour = module.name
+      if (module.symbol.includes('_armour_')) armour = module.name
 
       // Internal modules start with int_
-      if (module.item.startsWith('int_')) module.internal = true
+      if (module.symbol.startsWith('int_')) module.internal = true
 
       // Set module size based on slot name
       if (module.slot.includes('HugeHardpoint')) module.size = 'huge'
@@ -164,6 +171,20 @@ class ShipEvents {
         if (firstLine) module.description = firstLine.replace(/\.$/, '')
         if (coriolisModule.mass) module.mass = coriolisModule.mass
         if (coriolisModule.cost) module.cost = coriolisModule.cost
+        if (coriolisModule.power) module.power = coriolisModule.power
+        if (coriolisModule.range) module.range = coriolisModule.range
+        if (coriolisModule.falloff) module.falloff = coriolisModule.falloff
+        if (coriolisModule.clip) module.clip = coriolisModule.clip
+        if (coriolisModule.bays) module.bays = coriolisModule.bays
+        if (coriolisModule.proberadius) module.probeRadius = coriolisModule.proberadius
+        if (coriolisModule.rate && coriolisModule.ukName === 'Fuel Scoop') module.fuelScoopRate = coriolisModule.rate
+        if (coriolisModule.rate && coriolisModule.ukName === 'Life Support') module.lifeSupportTime = coriolisModule.time
+        if (coriolisModule.fuel) {
+          module.fuelCapacity = parseInt(coriolisModule.fuel)
+          totalFuelCapacity += module.fuelCapacity
+        }
+      } else {
+        console.log('Outfitting: No Coriolis data for module', module.symbol)
       }
 
       module.slotName = module.slot.replace('_', ' ')
@@ -189,9 +210,10 @@ class ShipEvents {
         engines: onBoard ? Json?.Status?.Pips?.[1] ?? UNKNOWN_VALUE : UNKNOWN_VALUE,
         weapons: onBoard ? Json?.Status?.Pips?.[2] ?? UNKNOWN_VALUE : UNKNOWN_VALUE
       },
-      fuelLevel: Json?.Status?.Fuel?.FuelMain ?? UNKNOWN_VALUE,
+      // Using parseFloat with toFixed
+      maxJumpRange: Loadout?.MaxJumpRange ? parseFloat((Loadout.MaxJumpRange).toFixed(2)) : UNKNOWN_VALUE,
+      fuelLevel: Json?.Status?.Fuel?.FuelMain ? parseFloat((Json.Status.Fuel.FuelMain).toFixed(2)) : UNKNOWN_VALUE,
       fuelCapacity: totalFuelCapacity,
-      maxJumpRange: Loadout?.MaxJumpRange ?? UNKNOWN_VALUE,
       modulePowerDraw: totalModulePowerDraw,
       moduleValue: totalModuleValue,
       rebuy: Loadout?.Rebuy ?? UNKNOWN_VALUE,
