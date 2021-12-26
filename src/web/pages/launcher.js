@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { formatBytes, eliteDateTime } from 'lib/format'
-import { newWindow } from 'lib/window'
+import { newWindow, checkForUpdate } from 'lib/window'
 import { useSocket, eventListener, sendEvent } from 'lib/socket'
 import Loader from 'components/loader'
 import packageJson from '../../../package.json'
@@ -26,6 +26,9 @@ export default function IndexPage () {
   useEffect(async () => {
     const message = await sendEvent('getLoadingStatus')
     setLoadingProgress(message)
+
+    //const update = JSON.parse(await checkForUpdate())
+    // if (update.isUpgrade) { }
   }, [connected])
 
   useEffect(() => eventListener('loadingProgress', (message) => {

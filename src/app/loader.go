@@ -1,8 +1,10 @@
 package main
 
-import ("encoding/base64")
+import (
+	"encoding/base64"
+)
 
-// We use a baked in loading animation to reduce visual flash and improve 
+// We use a baked in loading animation to reduce visual flash and improve
 // perceived performance while the service loads and assets are loaded.
 // Inlined data URIs like this load instantly as there are no external assets
 // to load and it's very lightweight. This looks best when there is a smooth
@@ -257,8 +259,8 @@ func LoadUrl(url string) string {
       </div>
     </div>
   </body>
-	<script>setTimeout(() => window.location.href = "`+url+`", 0)</script>
+	<script>setTimeout(() => window.location.href = "` + url + `", 0)</script>
 </html>
 `
-	return `data:text/html;base64,`+base64.StdEncoding.EncodeToString([]byte(html))
+	return `data:text/html;base64,` + base64.StdEncoding.EncodeToString([]byte(html))
 }

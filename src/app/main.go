@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"github.com/nvsoft/win"
@@ -94,7 +95,13 @@ func main() {
 	}
 
 	// Check for an update before running main launcher code
-	CheckForUpdate()
+	updateAvailable, _ := CheckForUpdate()
+	if updateAvailable {
+		ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nDo you want to install the update?").Title("New version available").YesNo()
+		if ok {
+			InstallUpdate()
+		}
+	}
 
 	// Run service
 	cmdArg0 := fmt.Sprintf("%s%d", "--port=", *portPtr)
@@ -224,6 +231,24 @@ func bindFunctionsToWebView(w webview.WebView) {
 
 	w.Bind("icarusTerminal_version", func() string {
 		return GetCurrentAppVersion()
+	})
+
+	w.Bind("icarusTerminal_checkForUpdate", func() string {
+		latestRelease, latestReleaseErr := GetLatestRelease()
+		if latestReleaseErr != nil {
+			return ""
+		}
+
+		response, jsonErr := json.Marshal(latestRelease)
+		if jsonErr != nil {
+			return ""
+		}
+
+		return string(response)
+	})
+
+	w.Bind("icarusTerminal_installUpdate", func() {
+		InstallUpdate()
 	})
 
 	w.Bind("icarusTerminal_isFullScreen", func() bool {

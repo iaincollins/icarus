@@ -19,6 +19,19 @@ function closeWindow () {
   window.close()
 }
 
+async function checkForUpdate () {
+  if (isWindowsApp()) { 
+    try {
+      return JSON.parse(await window.icarusTerminal_checkForUpdate())
+    } catch {}
+    return null
+  }
+}
+
+function installUpdate () {
+  if (isWindowsApp()) { return window.icarusTerminal_installUpdate() }
+}
+
 async function toggleFullScreen () {
   if (isWindowsApp()) { return await window.icarusTerminal_toggleFullScreen() }
 
@@ -57,5 +70,7 @@ module.exports = {
   newWindow,
   closeWindow,
   toggleFullScreen,
-  togglePinWindow
+  togglePinWindow,
+  checkForUpdate,
+  installUpdate
 }

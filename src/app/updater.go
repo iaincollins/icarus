@@ -1,51 +1,48 @@
 package main
 
 import (
-	"strings"
 	"encoding/json"
-	"github.com/jmoiron/jsonq"
-	"github.com/sqweek/dialog"
+	"errors"
 	"github.com/gonutz/w32/v2"
+	"github.com/jmoiron/jsonq"
+	"golang.org/x/sys/windows"
+	"io"
 	"io/ioutil"
 	"net/http"
-	"time"
-	"regexp"
-	"errors"
-	"io"
 	"os"
-	"syscall"
-	"golang.org/x/sys/windows"
 	"path/filepath"
+	"regexp"
+	"strings"
+	"syscall"
+	"time"
 )
 
 const LATEST_RELEASE_URL = "https://api.github.com/repos/iaincollins/icarus/releases/latest"
 
 type Release struct {
-	productVersion string
-	downloadUrl string
-	releaseNotes string
+	InstalledVersion string `json:"installedVersion"`
+	ProductVersion   string `json:"productVersion"`
+	DownloadUrl      string `json:"downloadUrl"`
+	ReleaseNotes     string `json:"releaseNotes"`
+	IsUpgrade        bool   `json:"isUpgrade"`
 }
 
-func CheckForUpdate() {
-	installedProductVersion := GetCurrentAppVersion()
-	release, releaseErr := GetLatestRelease(LATEST_RELEASE_URL)
-	if releaseErr != nil {
-		return
+func CheckForUpdate() (bool, error) {
+	latestUpdate, err := GetLatestRelease()
+	if err != nil {
+		return false, err
 	}
 
-	// If we are already running the latest release, do nothing
-	if (installedProductVersion == release.productVersion) {
-		return
-	}
+	return latestUpdate.IsUpgrade, nil
+}
 
-	ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nDo you want to install the update?").Title("New version available").YesNo()
-	if (ok) {
-		pathToFile, _ := DownloadUpdate(release.downloadUrl)
+func InstallUpdate() {
+	release, err := GetLatestRelease()
+	if err != nil {
+		pathToFile, _ := DownloadUpdate(release.DownloadUrl)
 		runElevated(pathToFile)
 		os.Exit(0)
 	}
-
-	return
 }
 
 func GetCurrentAppVersion() string {
@@ -53,28 +50,28 @@ func GetCurrentAppVersion() string {
 
 	size := w32.GetFileVersionInfoSize(path)
 	if size <= 0 {
-			panic("GetFileVersionInfoSize failed")
+		panic("GetFileVersionInfoSize failed")
 	}
 
 	info := make([]byte, size)
 	ok := w32.GetFileVersionInfo(path, info)
 	if !ok {
-			panic("GetFileVersionInfo failed")
+		panic("GetFileVersionInfo failed")
 	}
 
 	/*
-	fixed, ok := w32.VerQueryValueRoot(info)
-	if !ok {
-			panic("VerQueryValueRoot failed")
-	}
-	version := fixed.FileVersion()
-	fileVersion := fmt.Sprintf(
-			"%d.%d.%d.%d",
-			version&0xFFFF000000000000>>48,
-			version&0x0000FFFF00000000>>32,
-			version&0x00000000FFFF0000>>16,
-			version&0x000000000000FFFF>>0,
-	)
+		fixed, ok := w32.VerQueryValueRoot(info)
+		if !ok {
+				panic("VerQueryValueRoot failed")
+		}
+		version := fixed.FileVersion()
+		fileVersion := fmt.Sprintf(
+				"%d.%d.%d.%d",
+				version&0xFFFF000000000000>>48,
+				version&0x0000FFFF00000000>>32,
+				version&0x00000000FFFF0000>>16,
+				version&0x000000000000FFFF>>0,
+		)
 	*/
 
 	translations, ok := w32.VerQueryValueTranslations(info)
@@ -97,7 +94,8 @@ func GetCurrentAppVersion() string {
 	return productVersion
 }
 
-func GetLatestRelease(releasesUrl string) (Release, error) {
+func GetLatestRelease() (Release, error) {
+	releasesUrl := LATEST_RELEASE_URL
 	release := Release{}
 
 	httpClient := http.Client{Timeout: time.Second * 5}
@@ -123,7 +121,7 @@ func GetLatestRelease(releasesUrl string) (Release, error) {
 
 	jsonObjectAsString := string(body)
 
-	// Use jsonq to access JSON 
+	// Use jsonq to access JSON
 	data := map[string]interface{}{}
 	dec := json.NewDecoder(strings.NewReader(jsonObjectAsString))
 	dec.Decode(&data)
@@ -135,13 +133,17 @@ func GetLatestRelease(releasesUrl string) (Release, error) {
 	downloadUrl, _ := jq.String("assets", "0", "browser_download_url")
 	releaseNotes, _ := jq.String("body")
 
-	if (downloadUrl == "") {
+	if downloadUrl == "" {
 		return release, errors.New("Could not get download URL")
 	}
 
-	release.productVersion = productVersion
-	release.downloadUrl = downloadUrl
-	release.releaseNotes = releaseNotes
+	installedVersion := GetCurrentAppVersion()
+
+	release.InstalledVersion = installedVersion
+	release.ProductVersion = productVersion
+	release.DownloadUrl = downloadUrl
+	release.ReleaseNotes = releaseNotes
+	release.IsUpgrade = !(installedVersion == productVersion)
 
 	return release, nil
 }
@@ -176,7 +178,7 @@ func runElevated(pathToExe string) {
 	exePtr, _ := syscall.UTF16PtrFromString(pathToExe)
 	cwdPtr, _ := syscall.UTF16PtrFromString(cwd)
 	argPtr, _ := syscall.UTF16PtrFromString("")
-	
+
 	windows.ShellExecute(0, verbPtr, exePtr, argPtr, cwdPtr, int32(1))
 	// if err != nil {
 	// 	fmt.Println(err)
