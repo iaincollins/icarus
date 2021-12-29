@@ -7,7 +7,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
     <div className={`navigation-panel__list ${systemObject ? 'navigation-panel__list--inspector' : ''}`}>
       {(!system.stars || system.stars.length < 2) &&
         <div
-          className='text-info text-blink-slow text-center text-center-vertical'
+          className='text-primary text-blink-slow text-center text-center-vertical'
           style={{ zIndex: '30', pointerEvents: 'none' }}
         >
           <h2>No system information</h2>

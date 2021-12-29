@@ -35,6 +35,7 @@ button:focus:not([disabled]):not(.button--active),
   background: var(--color-primary);
   color: var(--color-primary-dark);
   text-shadow: none;
+  filter: var(--filter-hover-element);
 }
 
 button.button--icon,

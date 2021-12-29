@@ -37,6 +37,10 @@
   color: var(--color-inspector-frame);
 }
 
+.inspector__title:hover {
+  filter: var(--filter-hover-element);
+}
+
 .inspector__title > * {
   float: left;
 }

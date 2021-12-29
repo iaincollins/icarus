@@ -9,6 +9,7 @@ html[data-fx-crt-text-animated="true"] .layout * {
   animation: text-refraction-animation 5s infinite;
 }
 
+.crt-fx::after,
 html[data-fx-crt="true"] body::after {
   content: " ";
   display: block;
@@ -24,6 +25,7 @@ html[data-fx-crt="true"] body::after {
   animation: text-flicker-animation 5s infinite;
 }
 
+.crt-fx::before,
 html[data-fx-crt="true"] body::before {
   content: " ";
   display: block;
@@ -36,6 +38,11 @@ html[data-fx-crt="true"] body::before {
   z-index: 100;
   background-size: 100% 2px, 3px 100%;
   pointer-events: none;
+}
+
+.crt-fx::after,
+.crt-fx::before {
+  position: absolute;
 }
 
 html[data-fx-crt="true"] .layout__overlay {

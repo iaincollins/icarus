@@ -78,7 +78,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         <hr />
         {(systemObject.distanceToArrival && systemObject.distanceToArrival > 0) === true &&
           <div className='navigation-panel__inspector-section'>
-            <h4 className='text-primary'>Distance to main star</h4>
+            <h4 className='text-primary'>Distance to arrival</h4>
             <p className='text-info'>{systemObject.distanceToArrival.toFixed(0)} Ls</p>
           </div>}
 

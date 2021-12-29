@@ -74,11 +74,13 @@ table:not(.table--inline).table--interactive tbody tr:hover:not(.table-row--disa
 table:not(.table--inline).table--interactive tbody tr:focus:not(.table-row--disabled) td {
   color: var(--color-primary-dark) !important;
   background: var(--color-primary) !important;
+  text-shadow: none;
 }
 
 table:not(.table--inline).table--interactive tbody tr:focus:not(.table-row--disabled) .icon {
   color: var(--color-primary-dark) !important; 
   font-weight: bold;
+  text-shadow: none;
 }
 
 table td.wrap:last-child {
@@ -183,6 +185,10 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td {
   color: var(--color-primary-dark) !important;
   opacity: 1;
   text-shadow: none;
+}
+
+table.table--flex-inline.table--interactive tbody tr:not(.table__row--active):hover td {
+  filter: var(--filter-hover-element);
 }
 
 table.table--animated tbody tr {
