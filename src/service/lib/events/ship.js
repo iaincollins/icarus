@@ -30,6 +30,9 @@ class ShipEvents {
     // If Fuel does not exist, then we are on foot (and not on board)
     // If FuelMain exists but is zero, we are in an SVR (and not on board)
     // If FuelMain exists and greater than zero we are in a ship
+    // TODO Check if we are onboard a Taxi or Frontline ship (taxi: true)
+    // and if so set onBoard to false, as Cargo and Fuel will refer to the
+    // taxi *not* the players ship.
     const onBoard = !!((Json?.Status?.Fuel?.FuelMain > 0 ?? false))
 
     loadoutModules.forEach(async module => {

@@ -108,13 +108,15 @@ Notes:
 * "ICARUS Terminal.exe" depends on "ICARUS Service.exe" being in the same directory to run, or it will exit on startup with a message indicating unable to start the ICARUS Terminal Service, so you must build the service at least before you can launch "ICARUS Terminal.exe" directly.
 * You can also run the service in development mode with `npm run dev:service` together with the web interface started from another terminal with `npm run dev:web`. Both must be running at the same time. You can then interact with the application via browser on `http://localhost:3300`. You can use this to do feature development and testing on any platform (e.g. Mac, Linux).
 
-## Contributing
+## Contributing / Feedback
 
-I'm not currently taking code contributions or able to provide support right now. Please do not raise pull requests at this time.
+Please feel free to ask questions or float ideas in Discussions. 
 
-Please feel free to ask questions or float ideas in Discussions. It's helpful to raise issues if there are problems running the software, but it's probably not best to expect a solution anytime soon.
+I'm not currently taking code contributions, looking for bug reports or able to provide support. 
 
-You can fork this codebase and use it for your own apps! See the LICENSE file for details.
+It's helpful to raise issues if there are problems actually running the software, however I'm not looking for bug reports relating to game data or application state. This software is still in early access and as such as there are many known issues as lots of functionality is incomplete.
+
+You are free to fork this codebase and use it to make your own app. See the LICENSE file for details. Please do not raise pull requests against this repo.
 
 ## Credits
 
