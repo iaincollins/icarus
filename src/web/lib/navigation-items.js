@@ -4,18 +4,18 @@ function ShipPanelNavItems (activePanel) {
       name: 'Modules',
       icon: 'ship',
       url: '/ship/modules'
-    }
+    },
+    {
+      name: 'Cargo',
+      icon: 'table-index',
+      url: '/ship/cargo'
+    },
     /*
     {
       name: 'Engineering',
       icon: 'engineering',
       url: '/ship/engineering'
     },
-    {
-      name: 'Cargo',
-      icon: 'table-index',
-      url: '/ship/cargo'
-    }
     */
   ]
   navigationItems.forEach(item => {
