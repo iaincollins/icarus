@@ -84,10 +84,12 @@
   height: 50%;
   float: none;
 }
+
 .layout__top-half {
   top: 0;
   bottom: 50%;
 }
+
 .layout__bottom-half {
   margin-top: .5rem;
   top: 50%;

@@ -101,7 +101,6 @@
 
 .text-formatted-object {
   color: var(--color-primary);
-  font-weight: bold;
 }
 
 .text-formatted-object-property {

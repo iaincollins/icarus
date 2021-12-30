@@ -1,8 +1,11 @@
 const EDCDOutfitting = new (require('../data'))('edcd/fdevids/outfitting')
 const EDCDShipyard = new (require('../data'))('edcd/fdevids/shipyard')
+const EDCDCommodity = new (require('../data'))('edcd/fdevids/commodity')
 const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
 const CoriolisModules = new (require('../data'))('edcd/coriolis/modules')
 const { UNKNOWN_VALUE } = require('../consts')
+
+let lastKnownShipState = null
 
 class ShipEvents {
   constructor ({ eliteLog, eliteJson }) {
@@ -12,8 +15,7 @@ class ShipEvents {
   }
 
   async getShip () {
-    const [LoadGame, Loadout, Json] = await Promise.all([
-      this.eliteLog.getEvent('LoadGame'),
+    const [Loadout, Json] = await Promise.all([
       this.eliteLog.getEvent('Loadout'),
       this.eliteJson.json()
     ])
@@ -30,10 +32,34 @@ class ShipEvents {
     // If Fuel does not exist, then we are on foot (and not on board)
     // If FuelMain exists but is zero, we are in an SVR (and not on board)
     // If FuelMain exists and greater than zero we are in a ship
+    //
     // TODO Check if we are onboard a Taxi or Frontline ship (taxi: true)
     // and if so set onBoard to false, as Cargo and Fuel will refer to the
     // taxi *not* the players ship.
     const onBoard = !!((Json?.Status?.Fuel?.FuelMain > 0 ?? false))
+
+    /*
+    if (Embark?.timestamp > Loadout && Embark?.Taxi === true) {
+      // We could be in a taxi
+      if (!Disembark?.timestamp || Disembark?.timestamp < Embark?.timestamp) {
+        // We are in a taxi and not really onboard the ship
+        onBoard = false
+      }
+    }
+    */
+
+    // If we are not onboard, and we have a last known ship state, return
+    // the last known state (cargo, fuel levels, etc) but set the onBoard flag
+    // to false to note that we are not onboard.
+    //
+    // TODO Ideally persist this last known ship state to disk (seperately for
+    // each ship) so ship states are easily trackable across game sessions.
+    if (!onBoard && lastKnownShipState !== null) {
+      return {
+        ...lastKnownShipState,
+        onBoard: false
+      }
+    }
 
     loadoutModules.forEach(async module => {
       const slot = module.Slot
@@ -47,7 +73,6 @@ class ShipEvents {
 
       // For passenger cabins, AmmoInClip refers to number of passengers
       if (module.AmmoInClip) {
-        console.log(module.Item)
         if (modules[slot].symbol.includes('passengercabin')) {
           modules[slot].passengers = module.AmmoInClip
         } else if (modules[slot].symbol.includes('heatsinklauncher')) {
@@ -204,7 +229,7 @@ class ShipEvents {
 
     const ship = await EDCDShipyard.getBySymbol(Loadout?.Ship)
 
-    return {
+    const shipState = {
       type: ship?.name ?? Loadout?.Ship ?? UNKNOWN_VALUE,
       name: Loadout?.ShipName ?? UNKNOWN_VALUE,
       ident: Loadout?.ShipIdent ?? UNKNOWN_VALUE,
@@ -223,19 +248,35 @@ class ShipEvents {
       armour,
       cargo: {
         capacity: Loadout?.CargoCapacity ?? UNKNOWN_VALUE,
-        count: onBoard ? Json?.Cargo?.Count ?? UNKNOWN_VALUE : UNKNOWN_VALUE,
-        inventory: (onBoard && Json?.Cargo?.Inventory)
-          ? Json.Cargo.Inventory.map(item => ({
-              type: item?.Name ?? UNKNOWN_VALUE,
-              name: item?.Name_Localised ?? item?.Name ?? UNKNOWN_VALUE,
-              count: item?.Count ?? UNKNOWN_VALUE,
-              stolen: item?.Stolen ?? UNKNOWN_VALUE
-            }))
-          : UNKNOWN_VALUE
+        count: Json?.Cargo?.Count ?? UNKNOWN_VALUE,
+        inventory: (Json?.Cargo?.Inventory)
+          ? await Promise.all(await Json.Cargo.Inventory.map(async (item) => {
+              const commodity = await EDCDCommodity.getBySymbol(item?.Name)
+              let description = commodity?.category?.replace(/_/g, ' ')?.replace(/([a-z])([A-Z])/g, '$1 $2')?.trim() ?? ''
+              if (item?.Name === 'drones') description = 'Single use limpet drones'
+              return {
+                symbol: item?.Name ?? UNKNOWN_VALUE,
+                name: item?.Name_Localised ?? item?.Name ?? UNKNOWN_VALUE,
+                count: item?.Count ?? UNKNOWN_VALUE,
+                stolen: Boolean(item?.Stolen) ?? UNKNOWN_VALUE,
+                mission: item?.MissionID ?? false,
+                description
+              }
+            })
+            )
+          : []
       },
       onBoard,
       modules
     }
+
+    // If ship type is known, save ship state as last known ship state.
+    // This is used to be able to return the last knwon ship state from memory
+    // (including cargo etc) even after leaving the ship and boarding an SRV
+    // or disembarking on foot.
+    if (shipState.type !== UNKNOWN_VALUE) lastKnownShipState = shipState
+
+    return shipState
   }
 }
 

@@ -118,6 +118,7 @@ body {
   color: var(--color-info);
   font-family: "Jura", sans-serif;
   font-size: var(--base-font-size);
+  font-weight: bold;
   padding: 0;
   margin: 0;
   zoom: 0.9;

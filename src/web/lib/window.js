@@ -20,7 +20,7 @@ function closeWindow () {
 }
 
 async function checkForUpdate () {
-  if (isWindowsApp()) { 
+  if (isWindowsApp()) {
     try {
       return JSON.parse(await window.icarusTerminal_checkForUpdate())
     } catch {}

@@ -6,14 +6,19 @@
   margin: 1.5rem 0;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 799px) {
   .ship-panel__title {
     margin-right: 13rem;
-  }
+  }  
 }
 
 .ship-panel__modules {
   position: absolute;
+
+  /* To avoid clipping text-shadow to left of title text */
+  left: 4rem;
+  padding-left: 1rem;
+
   top: 0;
   bottom: 0;
   height: auto;
@@ -67,6 +72,16 @@
   right: .75rem;
 }
 
+@media only screen and (max-width: 799px) {
+  .ship-panel__ship-pips {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
 .ship-panel__ship-pip {
   height: 2rem;
 }
@@ -77,10 +92,23 @@
   float: right;
 }
 
+@media only screen and (max-width: 799px) {
+  .ship-panel__ship-pip progress {
+    width: 70%;
+    margin-right: .25rem;
+  }
+}
+
 .ship-panel__ship-pip label {
   float: right;
   font-size: 1.25rem;
   margin-right: .5rem;
+}
+
+@media only screen and (max-width: 799px) {
+  .ship-panel__ship-pip label {
+    float: left;
+  }
 }
 
 .ship-panel__ship-stats {

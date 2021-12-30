@@ -5,3 +5,9 @@
 .float-left {
   float: left;
 }
+
+@media only screen and (max-width: 599px) {
+  .hidden-small {
+    display: none;
+  }
+}

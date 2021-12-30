@@ -13,6 +13,7 @@ const ROOT_OUTPUT_DATA_DIR = 'src/service/data'
   fdevids()
   coriolisDataBlueprints()
   coriolisDataModules()
+  materialUses()
 })()
 
 function fdevids () {
@@ -70,4 +71,37 @@ function coriolisDataModules () {
 
     fs.writeFileSync(`${outputDir}/modules.json`, JSON.stringify(modules, null, 2))
   })
+}
+
+function materialUses () {
+  const materials = JSON.parse(fs.readFileSync(`${ROOT_OUTPUT_DATA_DIR}/edcd/fdevids/material.json`))
+  const blueprints = JSON.parse(fs.readFileSync(`${ROOT_OUTPUT_DATA_DIR}/edcd/coriolis/blueprints.json`))
+
+  const materialUses = materials.map(material => {
+    const blueprintsMaterialIsUsedIn = []
+
+    blueprints.forEach(blueprint => {
+      const newBlueprint = {
+        symbol: blueprint.symbol,
+        name: blueprint.name,
+        grades: []
+      }
+
+      Object.keys(blueprint.grades).forEach(grade => {
+        if (blueprint.grades[grade].components[material.name]) {
+          newBlueprint.grades.push(grade)
+        }
+      })
+
+      if (newBlueprint.grades.length > 0) blueprintsMaterialIsUsedIn.push(newBlueprint)
+    })
+
+    return ({
+      symbol: material.symbol,
+      name: material.name,
+      blueprints: blueprintsMaterialIsUsedIn
+    })
+  })
+
+  fs.writeFileSync(`${ROOT_OUTPUT_DATA_DIR}/material-uses.json`, JSON.stringify(materialUses, null, 2))
 }

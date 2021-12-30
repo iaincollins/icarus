@@ -7,16 +7,9 @@ function ShipPanelNavItems (activePanel) {
     },
     {
       name: 'Cargo',
-      icon: 'table-index',
+      icon: 'cargo',
       url: '/ship/cargo'
-    },
-    /*
-    {
-      name: 'Engineering',
-      icon: 'engineering',
-      url: '/ship/engineering'
-    },
-    */
+    }
   ]
   navigationItems.forEach(item => {
     if (item.name.toLowerCase() === activePanel.toLowerCase()) item.active = true
@@ -49,7 +42,22 @@ function NavPanelNavItems (activePanel, query) {
   return navigationItems
 }
 
+function EngineeringPanelNavItems (activePanel) {
+  const navigationItems = [
+    {
+      name: 'Materials',
+      icon: 'materials',
+      url: '/eng/materials'
+    }
+  ]
+  navigationItems.forEach(item => {
+    if (item.name.toLowerCase() === activePanel.toLowerCase()) item.active = true
+  })
+  return navigationItems
+}
+
 module.exports = {
   ShipPanelNavItems,
-  NavPanelNavItems
+  NavPanelNavItems,
+  EngineeringPanelNavItems
 }

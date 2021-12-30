@@ -1,0 +1,5972 @@
+[
+  {
+    "symbol": "Iron",
+    "name": "Iron",
+    "blueprints": [
+      {
+        "symbol": "Armour_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Stealth",
+        "name": "Low emissions",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Scanner_LongRange",
+        "name": "Long range",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Nickel",
+    "name": "Nickel",
+    "blueprints": [
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "Misc_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "MC_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_ShortRange",
+        "name": "Short range",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Sturdy",
+        "name": "Sturdy",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Tin",
+    "name": "Tin",
+    "blueprints": [
+      {
+        "symbol": "Armour_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Engine_Tuned",
+        "name": "Clean",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Scanner_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_Expanded",
+        "name": "Expanded Probe Scanning Radius",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Optimised",
+        "name": "Enhanced low power",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_HighCapacity",
+        "name": "High capacity",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Zinc",
+    "name": "Zinc",
+    "blueprints": [
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "Misc_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "MC_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Sturdy",
+        "name": "Sturdy",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Carbon",
+    "name": "Carbon",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "Armour_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_DoubleShot",
+        "name": "Double shot",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Sulphur",
+    "name": "Sulphur",
+    "blueprints": [
+      {
+        "symbol": "Engine_Tuned",
+        "name": "Clean",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighCapacity",
+        "name": "High charge capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Boosted",
+        "name": "Overcharged",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "ShieldCellBank_Rapid",
+        "name": "Rapid charge",
+        "grades": [
+          "1",
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "symbol": "Weapon_LongRange",
+        "name": "Long range",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Phosphorus",
+    "name": "Phosphorus",
+    "blueprints": [
+      {
+        "symbol": "Misc_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Sensor_FastScan",
+        "name": "Fast scan",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Resistive",
+        "name": "Resistance augmented",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "1"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Manganese",
+    "name": "Manganese",
+    "blueprints": [
+      {
+        "symbol": "Misc_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_FastScan",
+        "name": "Fast scan",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Resistive",
+        "name": "Resistance augmented",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Selenium",
+    "name": "Selenium",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighCapacity",
+        "name": "High charge capacity",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Boosted",
+        "name": "Overcharged",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Chromium",
+    "name": "Chromium",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighCapacity",
+        "name": "High charge capacity",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldCellBank_Rapid",
+        "name": "Rapid charge",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Vanadium",
+    "name": "Vanadium",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Armour_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Misc_ChaffCapacity",
+        "name": "Ammo capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Misc_HeatSinkCapacity",
+        "name": "Ammo capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Misc_PointDefenseCapacity",
+        "name": "Ammo capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_DoubleShot",
+        "name": "Double shot",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_HighCapacity",
+        "name": "High capacity",
+        "grades": [
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Germanium",
+    "name": "Germanium",
+    "blueprints": [
+      {
+        "symbol": "Armour_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Stealth",
+        "name": "Low emissions",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Scanner_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Scanner_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_Expanded",
+        "name": "Expanded Probe Scanning Radius",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Optimised",
+        "name": "Enhanced low power",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Cadmium",
+    "name": "Cadmium",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Boosted",
+        "name": "Overcharged",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Tungsten",
+    "name": "Tungsten",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Misc_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Sturdy",
+        "name": "Sturdy",
+        "grades": [
+          "3",
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Arsenic",
+    "name": "Arsenic",
+    "blueprints": [
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_FastScan",
+        "name": "Fast scan",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Molybdenum",
+    "name": "Molybdenum",
+    "blueprints": [
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Misc_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Sturdy",
+        "name": "Sturdy",
+        "grades": [
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Niobium",
+    "name": "Niobium",
+    "blueprints": [
+      {
+        "symbol": "Misc_ChaffCapacity",
+        "name": "Ammo capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Misc_HeatSinkCapacity",
+        "name": "Ammo capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Misc_PointDefenseCapacity",
+        "name": "Ammo capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Stealth",
+        "name": "Low emissions",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Scanner_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Scanner_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_Expanded",
+        "name": "Expanded Probe Scanning Radius",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Optimised",
+        "name": "Enhanced low power",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_HighCapacity",
+        "name": "High capacity",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Zirconium",
+    "name": "Zirconium",
+    "blueprints": [
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "MC_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Mercury",
+    "name": "Mercury",
+    "blueprints": [
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Yttrium",
+    "name": "Yttrium",
+    "blueprints": [
+      {
+        "symbol": "ShieldCellBank_Specialised",
+        "name": "Specialised",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Tellurium",
+    "name": "Tellurium",
+    "blueprints": [
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Boosted",
+        "name": "Overcharged",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Polonium",
+    "name": "Polonium",
+    "blueprints": []
+  },
+  {
+    "symbol": "Technetium",
+    "name": "Technetium",
+    "blueprints": [
+      {
+        "symbol": "Misc_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Sturdy",
+        "name": "Sturdy",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Ruthenium",
+    "name": "Ruthenium",
+    "blueprints": [
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "Antimony",
+    "name": "Antimony",
+    "blueprints": [
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "GridResistors",
+    "name": "Grid Resistors",
+    "blueprints": [
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_Expanded",
+        "name": "Expanded capture arc",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighFrequency",
+        "name": "Charge enhanced",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "ShieldCellBank_Rapid",
+        "name": "Rapid charge",
+        "grades": [
+          "2"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "CrystalShards",
+    "name": "Crystal Shards",
+    "blueprints": []
+  },
+  {
+    "symbol": "TemperedAlloys",
+    "name": "Tempered Alloys",
+    "blueprints": []
+  },
+  {
+    "symbol": "BasicConductors",
+    "name": "Basic Conductors",
+    "blueprints": []
+  },
+  {
+    "symbol": "MechanicalScrap",
+    "name": "Mechanical Scrap",
+    "blueprints": [
+      {
+        "symbol": "Misc_ChaffCapacity",
+        "name": "Ammo capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_Expanded",
+        "name": "Expanded capture arc",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Misc_HeatSinkCapacity",
+        "name": "Ammo capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Misc_PointDefenseCapacity",
+        "name": "Ammo capacity",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Scanner_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_Expanded",
+        "name": "Expanded Probe Scanning Radius",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_HighCapacity",
+        "name": "High capacity",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "1",
+          "2"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "HeatConductionWiring",
+    "name": "Heat Conduction Wiring",
+    "blueprints": [
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Boosted",
+        "name": "Overcharged",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "WornShieldEmitters",
+    "name": "Worn Shield Emitters",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "1"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "CompactComposites",
+    "name": "Compact Composites",
+    "blueprints": []
+  },
+  {
+    "symbol": "SalvagedAlloys",
+    "name": "Salvaged Alloys",
+    "blueprints": [
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Misc_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ChemicalStorageUnits",
+    "name": "Chemical Storage Units",
+    "blueprints": []
+  },
+  {
+    "symbol": "HybridCapacitors",
+    "name": "Hybrid Capacitors",
+    "blueprints": [
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighFrequency",
+        "name": "Charge enhanced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Scanner_LongRange",
+        "name": "Long range",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldCellBank_Rapid",
+        "name": "Rapid charge",
+        "grades": [
+          "3",
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "UncutFocusCrystals",
+    "name": "Flawed Focus Crystals",
+    "blueprints": [
+      {
+        "symbol": "Sensor_FastScan",
+        "name": "Fast scan",
+        "grades": [
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "HeatResistantCeramics",
+    "name": "Heat Resistant Ceramics",
+    "blueprints": []
+  },
+  {
+    "symbol": "ConductiveComponents",
+    "name": "Conductive Components",
+    "blueprints": [
+      {
+        "symbol": "Armour_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Misc_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Engine_Tuned",
+        "name": "Clean",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Boosted",
+        "name": "Overcharged",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Resistive",
+        "name": "Resistance augmented",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldCellBank_Specialised",
+        "name": "Specialised",
+        "grades": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "Weapon_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "MC_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "MechanicalEquipment",
+    "name": "Mechanical Equipment",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_Expanded",
+        "name": "Expanded capture arc",
+        "grades": [
+          "2",
+          "4"
+        ]
+      },
+      {
+        "symbol": "Scanner_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_Expanded",
+        "name": "Expanded Probe Scanning Radius",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_DoubleShot",
+        "name": "Double shot",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_HighCapacity",
+        "name": "High capacity",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "HeatDispersionPlate",
+    "name": "Heat Dispersion Plate",
+    "blueprints": [
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Boosted",
+        "name": "Overcharged",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "2"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ShieldEmitters",
+    "name": "Shield Emitters",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Armour_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Misc_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Sturdy",
+        "name": "Sturdy",
+        "grades": [
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "FilamentComposites",
+    "name": "Filament Composites",
+    "blueprints": []
+  },
+  {
+    "symbol": "GalvanisingAlloys",
+    "name": "Galvanising Alloys",
+    "blueprints": [
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ChemicalProcessors",
+    "name": "Chemical Processors",
+    "blueprints": [
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighFrequency",
+        "name": "Charge enhanced",
+        "grades": [
+          "2"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ElectrochemicalArrays",
+    "name": "Electrochemical Arrays",
+    "blueprints": [
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Scanner_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "MC_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_ShortRange",
+        "name": "Short range",
+        "grades": [
+          "3",
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "FocusCrystals",
+    "name": "Focus Crystals",
+    "blueprints": [
+      {
+        "symbol": "Sensor_FastScan",
+        "name": "Fast scan",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Resistive",
+        "name": "Resistance augmented",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_LongRange",
+        "name": "Long range",
+        "grades": [
+          "3",
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "PrecipitatedAlloys",
+    "name": "Precipitated Alloys",
+    "blueprints": [
+      {
+        "symbol": "ShieldCellBank_Rapid",
+        "name": "Rapid charge",
+        "grades": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Optimised",
+        "name": "Enhanced low power",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "3",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ConductiveCeramics",
+    "name": "Conductive Ceramics",
+    "blueprints": [
+      {
+        "symbol": "Armour_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "Misc_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "3",
+          "5"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "3",
+          "5"
+        ]
+      },
+      {
+        "symbol": "Engine_Tuned",
+        "name": "Clean",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "3",
+          "5"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "3",
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "3",
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Boosted",
+        "name": "Overcharged",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "3",
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "3",
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Resistive",
+        "name": "Resistance augmented",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "3",
+          "5"
+        ]
+      },
+      {
+        "symbol": "MC_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "MechanicalComponents",
+    "name": "Mechanical Components",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_Expanded",
+        "name": "Expanded capture arc",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Scanner_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_Expanded",
+        "name": "Expanded Probe Scanning Radius",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_DoubleShot",
+        "name": "Double shot",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_HighCapacity",
+        "name": "High capacity",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "HeatExchangers",
+    "name": "Heat Exchangers",
+    "blueprints": [
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Stealth",
+        "name": "Low emissions",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ShieldingSensors",
+    "name": "Shielding Sensors",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "HighDensityComposites",
+    "name": "High Density Composites",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Armour_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Armour_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Misc_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighCapacity",
+        "name": "High charge capacity",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_DoubleShot",
+        "name": "Double shot",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_HighCapacity",
+        "name": "High capacity",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Sturdy",
+        "name": "Sturdy",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "PhaseAlloys",
+    "name": "Phase Alloys",
+    "blueprints": [
+      {
+        "symbol": "Armour_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Misc_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_Expanded",
+        "name": "Expanded Probe Scanning Radius",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ChemicalDistillery",
+    "name": "Chemical Distillery",
+    "blueprints": [
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighFrequency",
+        "name": "Charge enhanced",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "PolymerCapacitors",
+    "name": "Polymer Capacitors",
+    "blueprints": [
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Scanner_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "MC_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "RefinedFocusCrystals",
+    "name": "Refined Focus Crystals",
+    "blueprints": [
+      {
+        "symbol": "Sensor_FastScan",
+        "name": "Fast scan",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Resistive",
+        "name": "Resistance augmented",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ThermicAlloys",
+    "name": "Thermic Alloys",
+    "blueprints": [
+      {
+        "symbol": "ShieldGenerator_Optimised",
+        "name": "Enhanced low power",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ConductivePolymers",
+    "name": "Conductive Polymers",
+    "blueprints": [
+      {
+        "symbol": "ShieldGenerator_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "MC_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_ShortRange",
+        "name": "Short range",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ConfigurableComponents",
+    "name": "Configurable Components",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_DoubleShot",
+        "name": "Double shot",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_ShortRange",
+        "name": "Short range",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "HeatVanes",
+    "name": "Heat Vanes",
+    "blueprints": [
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FSD_FastBoot",
+        "name": "Faster boot sequence",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Stealth",
+        "name": "Low emissions",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "CompoundShielding",
+    "name": "Compound Shielding",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Armour_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "FedProprietaryComposites",
+    "name": "Proprietary Composites",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighCapacity",
+        "name": "High charge capacity",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_HighCapacity",
+        "name": "High capacity",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ProtoLightAlloys",
+    "name": "Proto Light Alloys",
+    "blueprints": [
+      {
+        "symbol": "Misc_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_Expanded",
+        "name": "Expanded Probe Scanning Radius",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "4",
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ChemicalManipulators",
+    "name": "Chemical Manipulators",
+    "blueprints": [
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighFrequency",
+        "name": "Charge enhanced",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Boosted",
+        "name": "Overcharged",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "MilitarySupercapacitors",
+    "name": "Military Supercapacitors",
+    "blueprints": [
+      {
+        "symbol": "PowerDistributor_HighCapacity",
+        "name": "High charge capacity",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Focused",
+        "name": "Focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_HighCapacity",
+        "name": "High capacity",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ExquisiteFocusCrystals",
+    "name": "Exquisite Focus Crystals",
+    "blueprints": [
+      {
+        "symbol": "PowerDistributor_HighFrequency",
+        "name": "Charge enhanced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "MilitaryGradeAlloys",
+    "name": "Military Grade Alloys",
+    "blueprints": [
+      {
+        "symbol": "Armour_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Advanced",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Optimised",
+        "name": "Enhanced low power",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "BiotechConductors",
+    "name": "Biotech Conductors",
+    "blueprints": [
+      {
+        "symbol": "Weapon_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_ShortRange",
+        "name": "Short range",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ImprovisedComponents",
+    "name": "Improvised Components",
+    "blueprints": [
+      {
+        "symbol": "ShieldGenerator_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ProtoHeatRadiators",
+    "name": "Proto Heat Radiators",
+    "blueprints": [
+      {
+        "symbol": "Armour_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Stealth",
+        "name": "Low emissions",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ImperialShielding",
+    "name": "Imperial Shielding",
+    "blueprints": [
+      {
+        "symbol": "Engine_Reinforced",
+        "name": "Reinforced",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FSD_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Resistive",
+        "name": "Resistance augmented",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "FedCoreComposites",
+    "name": "Core Dynamics Composites",
+    "blueprints": [
+      {
+        "symbol": "AFM_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Armour_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Armour_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Misc_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelScoop_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HullReinforcement_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Armoured",
+        "name": "Armoured",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Refineries_Shielded",
+        "name": "Shielded",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ProtoRadiolicAlloys",
+    "name": "Proto Radiolic Alloys",
+    "blueprints": [
+      {
+        "symbol": "Misc_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "CollectionLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "FuelTransferLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "HatchBreakerLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "LifeSupport_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ProspectingLimpet_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_Expanded",
+        "name": "Expanded Probe Scanning Radius",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_LightWeight",
+        "name": "Lightweight",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "PharmaceuticalIsolators",
+    "name": "Pharmaceutical Isolators",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "LegacyFirmware",
+    "name": "Specialised Legacy Firmware",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Engine_Tuned",
+        "name": "Clean",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighCapacity",
+        "name": "High charge capacity",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighFrequency",
+        "name": "Charge enhanced",
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "symbol": "ShieldCellBank_Specialised",
+        "name": "Specialised",
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "EncryptedFiles",
+    "name": "Unusual Encrypted Files",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_Expanded",
+        "name": "Expanded capture arc",
+        "grades": [
+          "2"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "1"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "BulkScanData",
+    "name": "Anomalous Bulk Scan Data",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "DisruptedWakeEchoes",
+    "name": "Atypical Disrupted Wake Echoes",
+    "blueprints": [
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "2"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ScrambledEmissionData",
+    "name": "Exceptional Scrambled Emission Data",
+    "blueprints": [
+      {
+        "symbol": "ShieldCellBank_Specialised",
+        "name": "Specialised",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ShieldCycleRecordings",
+    "name": "Distorted Shield Cycle Recordings",
+    "blueprints": [
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Optimised",
+        "name": "Enhanced low power",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ConsumerFirmware",
+    "name": "Modified Consumer Firmware",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Engine_Tuned",
+        "name": "Clean",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighCapacity",
+        "name": "High charge capacity",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighFrequency",
+        "name": "Charge enhanced",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_LongRange",
+        "name": "Long range",
+        "grades": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_RapidFire",
+        "name": "Rapid fire",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_ShortRange",
+        "name": "Short range",
+        "grades": [
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "EncryptionCodes",
+    "name": "Tagged Encryption Codes",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_Expanded",
+        "name": "Expanded capture arc",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "2"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ScanArchives",
+    "name": "Unidentified Scan Archives",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "FSDTelemetry",
+    "name": "Anomalous FSD Telemetry",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ArchivedEmissionData",
+    "name": "Irregular Emission Data",
+    "blueprints": [
+      {
+        "symbol": "PowerPlant_Stealth",
+        "name": "Low emissions",
+        "grades": [
+          "2",
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ShieldSoakAnalysis",
+    "name": "Inconsistent Shield Soak Analysis",
+    "blueprints": [
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Optimised",
+        "name": "Enhanced low power",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "IndustrialFirmware",
+    "name": "Cracked Industrial Firmware",
+    "blueprints": [
+      {
+        "symbol": "Engine_Dirty",
+        "name": "Dirty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighCapacity",
+        "name": "High charge capacity",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_HighFrequency",
+        "name": "Charge enhanced",
+        "grades": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldCellBank_Specialised",
+        "name": "Specialised",
+        "grades": [
+          "3",
+          "4"
+        ]
+      },
+      {
+        "symbol": "Weapon_DoubleShot",
+        "name": "Double shot",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_ShortRange",
+        "name": "Short range",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "SymmetricKeys",
+    "name": "Open Symmetric Keys",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_FastScan",
+        "name": "Fast scan",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ScanDatabanks",
+    "name": "Classified Scan Databanks",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityEngines",
+        "name": "Engine focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PrioritySystems",
+        "name": "System focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "PowerDistributor_PriorityWeapons",
+        "name": "Weapon focused",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Scanner_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "WakeSolutions",
+    "name": "Strange Wake Solutions",
+    "blueprints": [
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_Expanded",
+        "name": "Expanded capture arc",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "EmissionData",
+    "name": "Unexpected Emission Data",
+    "blueprints": [
+      {
+        "symbol": "Engine_Tuned",
+        "name": "Clean",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Stealth",
+        "name": "Low emissions",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Scanner_LongRange",
+        "name": "Long range",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Sensor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "3"
+        ]
+      },
+      {
+        "symbol": "Weapon_Efficient",
+        "name": "Efficient",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ShieldDensityReports",
+    "name": "Untypical Shield Scans",
+    "blueprints": [
+      {
+        "symbol": "ShieldBooster_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_HeavyDuty",
+        "name": "Heavy duty",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Optimised",
+        "name": "Enhanced low power",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldGenerator_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "SecurityFirmware",
+    "name": "Security Firmware Patch",
+    "blueprints": [
+      {
+        "symbol": "Weapon_DoubleShot",
+        "name": "Double shot",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "EncryptionArchives",
+    "name": "Atypical Encryption Archives",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_FastScan",
+        "name": "Fast scan",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "EncodedScanData",
+    "name": "Divergent Scan Data",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_Expanded",
+        "name": "Expanded capture arc",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Scanner_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "HyperspaceTrajectories",
+    "name": "Eccentric Hyperspace Trajectories",
+    "blueprints": [
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "DecodedEmissionData",
+    "name": "Decoded Emission Data",
+    "blueprints": [
+      {
+        "symbol": "Engine_Tuned",
+        "name": "Clean",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "PowerPlant_Stealth",
+        "name": "Low emissions",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Scanner_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      },
+      {
+        "symbol": "Sensor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "4"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ShieldPatternAnalysis",
+    "name": "Aberrant Shield Pattern Analysis",
+    "blueprints": [
+      {
+        "symbol": "ShieldBooster_Explosive",
+        "name": "Blast resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Kinetic",
+        "name": "Kinetic resistant",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "ShieldBooster_Thermic",
+        "name": "Thermal resistant",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "EmbeddedFirmware",
+    "name": "Modified Embedded Firmware",
+    "blueprints": [
+      {
+        "symbol": "Weapon_DoubleShot",
+        "name": "Double shot",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "MC_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Weapon_Overcharged",
+        "name": "Overcharged",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "AdaptiveEncryptors",
+    "name": "Adaptive Encryptors Capture",
+    "blueprints": [
+      {
+        "symbol": "FSDinterdictor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_FastScan",
+        "name": "Fast scan",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ClassifiedScanData",
+    "name": "Classified Scan Fragment",
+    "blueprints": [
+      {
+        "symbol": "Scanner_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_WideAngle",
+        "name": "Wide angle",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "DataminedWake",
+    "name": "Datamined Wake Exceptions",
+    "blueprints": [
+      {
+        "symbol": "FSD_LongRange",
+        "name": "Increased range",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "CompactEmissionsData",
+    "name": "Abnormal Compact Emissions Data",
+    "blueprints": [
+      {
+        "symbol": "Engine_Tuned",
+        "name": "Clean",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Scanner_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      },
+      {
+        "symbol": "Sensor_LongRange",
+        "name": "Long range",
+        "grades": [
+          "5"
+        ]
+      }
+    ]
+  },
+  {
+    "symbol": "ShieldFrequencyData",
+    "name": "Peculiar Shield Frequency Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "UnknownEnergySource",
+    "name": "Sensor Fragment",
+    "blueprints": []
+  },
+  {
+    "symbol": "UnknownShipSignature",
+    "name": "Thargoid Ship Signature",
+    "blueprints": []
+  },
+  {
+    "symbol": "UnknownWakeData",
+    "name": "Thargoid Wake Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "AncientLanguageData",
+    "name": "Pattern Delta Obelisk Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "AncientBiologicalData",
+    "name": "Pattern Alpha Obelisk Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "AncientCulturalData",
+    "name": "Pattern Beta Obelisk Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "AncientHistoricalData",
+    "name": "Pattern Gamma Obelisk Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "AncientTechnologicalData",
+    "name": "Pattern Epsilon Obelisk Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "TG_CompositionData",
+    "name": "Thargoid Material Composition Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "TG_ResidueData",
+    "name": "Thargoid Residue Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "TG_StructuralData",
+    "name": "Thargoid Structural Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "UnknownCarapace",
+    "name": "Thargoid Carapace",
+    "blueprints": []
+  },
+  {
+    "symbol": "UnknownEnergyCell",
+    "name": "Thargoid Energy Cell",
+    "blueprints": []
+  },
+  {
+    "symbol": "UnknownOrganicCircuitry",
+    "name": "Thargoid Organic Circuitry",
+    "blueprints": []
+  },
+  {
+    "symbol": "UnknownTechnologyComponents",
+    "name": "Thargoid Technological Components",
+    "blueprints": []
+  },
+  {
+    "symbol": "TG_BioMechanicalConduits",
+    "name": "Bio-Mechanical Conduits",
+    "blueprints": []
+  },
+  {
+    "symbol": "TG_PropulsionElement",
+    "name": "Propulsion Elements",
+    "blueprints": []
+  },
+  {
+    "symbol": "TG_WeaponParts",
+    "name": "Weapon Parts",
+    "blueprints": []
+  },
+  {
+    "symbol": "TG_WreckageComponents",
+    "name": "Wreckage Components",
+    "blueprints": []
+  },
+  {
+    "symbol": "TG_ShipFlightData",
+    "name": "Ship Flight Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "TG_ShipSystemsData",
+    "name": "Ship Systems Data",
+    "blueprints": []
+  },
+  {
+    "symbol": "Guardian_PowerCell",
+    "name": "Guardian Power Cell",
+    "blueprints": []
+  },
+  {
+    "symbol": "Guardian_PowerConduit",
+    "name": "Guardian Power Conduit",
+    "blueprints": []
+  },
+  {
+    "symbol": "Guardian_TechComponent",
+    "name": "Guardian Technology Component",
+    "blueprints": []
+  },
+  {
+    "symbol": "Guardian_Sentinel_WeaponParts",
+    "name": "Guardian Sentinel Weapon Parts",
+    "blueprints": []
+  },
+  {
+    "symbol": "Guardian_Sentinel_WreckageComponents",
+    "name": "Guardian Sentinel Wreckage Components",
+    "blueprints": []
+  },
+  {
+    "symbol": "Guardian_WeaponBlueprint",
+    "name": "Guardian Weapon Blueprint Segment",
+    "blueprints": []
+  },
+  {
+    "symbol": "Guardian_ModuleBlueprint",
+    "name": "Guardian Module Blueprint Segment",
+    "blueprints": []
+  },
+  {
+    "symbol": "Guardian_VesselBlueprint",
+    "name": "Guardian Vessel Blueprint Segment",
+    "blueprints": []
+  },
+  {
+    "symbol": "Rhenium",
+    "name": "Rhenium",
+    "blueprints": []
+  },
+  {
+    "symbol": "Lead",
+    "name": "Lead",
+    "blueprints": []
+  },
+  {
+    "symbol": "Boron",
+    "name": "Boron",
+    "blueprints": []
+  }
+]

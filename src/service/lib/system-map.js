@@ -47,7 +47,8 @@ class SystemMap {
     this.planetaryOutposts = stations.filter(station => PLANETARY_OUTPOSTS.includes(station.type))
     this.settlements = stations.filter(station => SETTLEMENTS.includes(station.type))
     this.megaships = stations.filter(station => MEGASHIPS.includes(station.type))
-    this.objectsInSystem = bodies.concat(stations).sort((a, b) => (a.distanceToArrival - b.distanceToArrival))
+    //this.objectsInSystem = bodies.concat(stations).sort((a, b) => (a.distanceToArrival - b.distanceToArrival))
+    this.objectsInSystem = bodies.concat(stations).sort((a, b) => (a.bodyId - b.bodyId))
 
     // This object will be used to contain all on the map not directly oribiting
     // a star. There can be multiple 'Null' objects around which planets orbit
@@ -254,7 +255,7 @@ class SystemMap {
     star._yOffset = 0
 
     // let previousItemInOrbit = null
-    // Get each objects directly oribitng star (already sorted by distance)
+    // Get each objects directly orbiting star
     star._children = this.getChildren(star, true).map((itemInOrbit, i) => {
       // Ensure planets are always drawn slightly larger than their moons
       const MAIN_PLANET_MIN_R = MIN_R
@@ -291,7 +292,8 @@ class SystemMap {
 
       // Get every object that directly or indirectly orbits this item
       itemInOrbit._children
-        .sort((a, b) => (a.distanceToArrival - b.distanceToArrival))
+        //.sort((a, b) => (a.distanceToArrival - b.distanceToArrival))
+        .sort((a, b) => (a.bodyId - b.bodyId))
         .map(subItemInOrbit => {
           subItemInOrbit._r = subItemInOrbit.radius / R_DIVIDER
           if (subItemInOrbit._r < SUB_MIN_R) subItemInOrbit._r = SUB_MIN_R

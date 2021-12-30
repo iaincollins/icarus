@@ -293,7 +293,6 @@
   fill: var(--color-primary);
   color: var(--color-primary);
   text-shadow: var(--text-shadow);
-  font-weight: bold;
   opacity: 1;
   text-transform: uppercase;
 }
@@ -303,7 +302,6 @@
   fill: var(--color-info);
   color: var(--color-info);
   text-shadow: var(--text-shadow);
-  font-weight: bold;
   opacity: 0.5;
 }
 
@@ -353,12 +351,12 @@
   z-index: 5;
   display: block;
   fill: var(--color-info);
-  filter: drop-shadow(0 0 5rem var(--color-secondary)) drop-shadow(0 0 10rem var(--color-secondary)) drop-shadow(0 0 10rem var(--color-secondary-dark));
+  filter: drop-shadow(0 0 5rem var(--color-secondary)) drop-shadow(0 0 10rem var(--color-secondary)) drop-shadow(0 0 10rem var(--color-secondary-dark)) !important;
  }
 
  .system-map__system-object:focus .system-map__planetary-port-icon,
  .system-map__system-object:focus .system-map__planetary-facility-icon {
-  filter: drop-shadow(0 0 5rem var(--color-primary)) drop-shadow(0 0 10rem var(--color-primary));
+  filter: drop-shadow(0 0 5rem var(--color-primary)) drop-shadow(0 0 10rem var(--color-primary)) !important;
  }
 
  .system-map__system-object .system-map__station {
@@ -377,11 +375,11 @@
 .system-map__station-icon {
   fill: var(--color-info);
   pointer-events: none;
-  filter: drop-shadow(0 0 5rem var(--color-secondary));
+  filter: drop-shadow(0 0 5rem var(--color-secondary)) !important;
 }
 
 .system-map__system-object:focus .system-map__station-icon {
-  filter: drop-shadow(0 0 5rem var(--color-primary));
+  filter: drop-shadow(0 0 5rem var(--color-primary)) !important;
 }
 
 #system-map-svg-gradient__planet stop:nth-child(1) {

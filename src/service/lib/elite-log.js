@@ -220,13 +220,27 @@ class EliteLog {
   }
 
   async getEvent(event) {
-    return (await this.getEvents(event))[0]
+    return (await this.getEvents(event, 1))[0]
   }
 
-  async getEvents(event, count = 10) {
+  async getEvents(event, count = 0) {
     // For single instance events, return single copy we are holding in memory
     if (this.singleInstanceEvents[event]) return [this.singleInstanceEvents[event]]
-    return await db.find({ event }).sort({ timestamp: -1 }).limit(count)
+    if (count > 0) {
+      return await db.find({ event }).sort({ timestamp: -1 }).limit(count)
+    } else {
+      return await db.find({ event }).sort({ timestamp: -1 })
+    }
+  }
+
+  async getEventsFromTimestamp(event, timestamp = new Date().toUTCString, count = 0) {
+    // For single instance events, return single copy we are holding in memory
+    if (this.singleInstanceEvents[event]) return [this.singleInstanceEvents[event]]
+    if (count > 0) {
+      return await db.find({ event, "timestamp": { $gt: timestamp } }).sort({ timestamp: -1 }).limit(count)
+    } else {
+      return await db.find({ event, "timestamp": { $gt: timestamp } }).sort({ timestamp: -1 })
+    }
   }
 
   async getEventTypes() {

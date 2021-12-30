@@ -4,36 +4,41 @@ import { isWindowFullScreen, isWindowPinned, toggleFullScreen, togglePinWindow }
 import { eliteDateTime } from 'lib/format'
 
 const NAV_BUTTONS = [
-  {
-    name: 'Cmdr',
-    path: '/cmdr',
-    enabled: false
-  },
+  // {
+  //   name: 'Cmdr',
+  //   path: '/cmdr',
+  //   enabled: false
+  // },
   {
     name: 'Ship',
     path: '/ship',
     enabled: true
   },
   {
-    name: 'Nav',
+    name: 'Navigation',
     path: '/nav',
     enabled: true
   },
+  // {
+  //   name: 'Trade',
+  //   path: '/trade',
+  //   enabled: false
+  // },
   {
-    name: 'Trade',
-    path: '/trade',
-    enabled: false
+    name: 'Engineering',
+    path: '/eng',
+    enabled: true
   },
   {
     name: 'Log',
     path: '/log',
     enabled: true
-  },
-  {
-    name: 'Comms',
-    path: '/comms',
-    enabled: false
   }
+  // {
+  //   name: 'Comms',
+  //   path: '/comms',
+  //   enabled: false
+  // }
 ]
 
 export default function Header ({ connected, active }) {
@@ -74,11 +79,13 @@ export default function Header ({ connected, active }) {
     return () => clearInterval(dateTimeInterval)
   }, [])
 
-  let signalClassName = 'icarus-terminal-signal'
+  let signalClassName = 'icarus-terminal-signal '
   if (!connected) {
-    signalClassName += ' text-muted text-blink'
+    signalClassName += 'text-primary text-muted'
   } else if (active) {
-    signalClassName += ' text-secondary'
+    signalClassName += 'text-secondary'
+  } else {
+    signalClassName += 'text-primary text-muted'
   }
 
   const currentPath = `/${router.pathname.split('/')[1].toLowerCase()}`
@@ -89,7 +96,7 @@ export default function Header ({ connected, active }) {
       <h1 style={{ padding: '.5rem 0' }}> ICARUS Terminal</h1>
       <div style={{ position: 'absolute', top: '1.5rem', right: '1rem' }}>
         <h3 className='text-primary' style={{ display: 'inline', position: 'relative', top: '-.5rem', left: '-.5rem' }}>{dateTime}</h3>
-        <button disabled className='button--icon button--transparent' style={{ marginRight: '.5rem' }}>
+        <button disabled className='button--icon button--transparent' style={{ marginRight: '.5rem', opacity: 1, transition: 'all 1s ease-out' }}>
           <i className={signalClassName} style={{ transition: 'all .25s ease', fontSize: '2rem' }} />
         </button>
         {isWindowsApp &&

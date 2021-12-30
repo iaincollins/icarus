@@ -11,12 +11,14 @@ const EliteJson = require('./elite-json')
 const EliteLog = require('./elite-log')
 const NavigationEvents = require('./events/system')
 const ShipEvents = require('./events/ship')
+const MaterialsEvents = require('./events/materials')
 
 // Instances that can be used to query game state
 const eliteJson = new EliteJson(LOG_DIR)
 const eliteLog = new EliteLog(LOG_DIR)
 const navigationEvents = new NavigationEvents({ eliteLog })
 const shipEvents = new ShipEvents({ eliteLog, eliteJson })
+const materialsEvents = new MaterialsEvents({ eliteLog, eliteJson })
 
 // TODO Define these in another file / merge with eventHandlers before porting
 // over existing event handlers from the internal build
@@ -123,7 +125,8 @@ const eventHandlers = {
     }
   },
   getSystem: (args) => navigationEvents.getSystem(args),
-  getShip: (args) => shipEvents.getShip(args)
+  getShip: (args) => shipEvents.getShip(args),
+  getMaterials: (args) => materialsEvents.getMaterials(args)
 }
 
 async function init ({ days = 30 } = {}) {

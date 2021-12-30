@@ -27,7 +27,7 @@ export default function IndexPage () {
     const message = await sendEvent('getLoadingStatus')
     setLoadingProgress(message)
 
-    //const update = JSON.parse(await checkForUpdate())
+    // const update = JSON.parse(await checkForUpdate())
     // if (update.isUpgrade) { }
   }, [connected])
 
