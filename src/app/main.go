@@ -100,6 +100,7 @@ func main() {
 		ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nDo you want to install the update?").Title("New version available").YesNo()
 		if ok {
 			InstallUpdate()
+			return
 		}
 	}
 

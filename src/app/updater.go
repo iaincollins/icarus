@@ -38,7 +38,7 @@ func CheckForUpdate() (bool, error) {
 
 func InstallUpdate() {
 	release, err := GetLatestRelease()
-	if err != nil {
+	if err == nil {
 		pathToFile, _ := DownloadUpdate(release.DownloadUrl)
 		runElevated(pathToFile)
 		os.Exit(0)
