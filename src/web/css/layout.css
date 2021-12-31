@@ -62,7 +62,7 @@
   float: left;
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 800px) {
   .layout__left-half.scrollable {
     overflow-y: scroll;
   }
@@ -96,7 +96,7 @@
   bottom: .5rem;
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (orientation: portrait) {
   .layout__left-half,
   .layout__right-half {
     position: absolute;

@@ -29,6 +29,7 @@
   z-index: 10;
   width: calc(100% + 1.4rem);
   pointer-events: all !important;
+  position: absolute;
 }
 
 .inspector__title:hover,
@@ -46,7 +47,7 @@
 }
 
 .inspector__title h3 {
-  padding: .25rem 0;
+  padding: .25rem 0 0 2rem;
 }
 
 .inspector__close-button {
@@ -55,6 +56,8 @@
   padding: 0 .5rem;
   pointer-events: all !important;
   text-shadow: none;
+  position: absolute;
+  left: 0rem;
 }
 
 .inspector__close-button .icon {
@@ -64,6 +67,7 @@
 .inspector__close-button:hover, 
 .inspector__close-button:focus {
   color: var(--color-inspector-frame) !important;
+  filter: none !important;
 }
 
 .inspector--horizontal .inspector__close-button {
@@ -80,7 +84,11 @@
   padding: 0 .5rem;
 }
 
-@media only screen and (max-width: 799px) {
+.inspector--horizontal .inspector__title h3 {
+  padding: .25rem 0 0 1.75rem;
+}
+
+@media only screen and (orientation: portrait) {
   .inspector__title {
     padding: 0 .5rem;
   }
@@ -97,6 +105,11 @@
   .inspector__close-button .icon {
     display: block;
     transform: rotate(90deg);
+  }
+
+  
+  .inspector__title h3 {
+    padding: .25rem 0 0 1.75rem;
   }
 }
 

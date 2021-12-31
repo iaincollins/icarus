@@ -52,9 +52,27 @@
   --base-font-size: 1.25rem;
   --text-shadow: 0 0 20px;
 
-  /* CSS variables cant' be used with media queries, these are for reference */ 
-  --small-max-breakpoint: 599px;
-  --medium-max-breakpoint: 799px;
-  --large-max-breakpoint: 1023px;
-  --huge-max-breakpoint: 1279px;
+  /*
+    CSS variables cant' be used with media queries, these breakpoints are
+    defined here only for reference.
+
+    Example usage:
+    @media only screen and (max-width: 599px) { } // Tiny
+    @media only screen and (min-width: 600px) { } // Small and larger
+    @media only screen and (max-width: 799px) { } // Small and smaller
+    @media only screen and (min-width: 800px) { } // Medium and larger
+    @media only screen and (max-width: 1023px) { } // Medium and smaller
+    @media only screen and (min-width: 1024px) { } // Large and larger
+    @media only screen and (max-width: 1279px) { } // Large and smaller
+    @media only screen and (min-width: 1280px) { } // Huge
+
+    Where possible, instead use the screen orientation to determine layout.
+    @media only screen and (orientation: portrait) {}
+    @media only screen and (orientation: landscape) {}
+  */
+
+  --breakpoint-small: 600px; /* Where Small starts. Anything below this is Tiny */
+  --breakpoint-medium: 800px; /* Where Medium starts. */
+  --breakpoint-large: 1024px; /* Where Large starts. */
+  --breakpoint-huge: 1280px; /* Where Huge starts. */
 }

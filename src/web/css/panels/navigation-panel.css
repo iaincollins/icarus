@@ -229,7 +229,7 @@
   to { width: 15rem; }
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (orientation: portrait) {
   .navigation-panel__list,
   .navigation-panel__map {
     height: 100%;

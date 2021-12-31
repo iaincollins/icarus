@@ -6,7 +6,7 @@
   margin: 1.5rem 0;
 }
 
-@media only screen and (min-width: 799px) {
+@media only screen and (min-width: 800px) {
   .ship-panel__title {
     margin-right: 13rem;
   }  
@@ -52,7 +52,7 @@
   overflow: hidden;
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (orientation: portrait) {
   .ship-panel__modules--module-inspector {
     bottom: 20.5rem;
   }
@@ -72,7 +72,7 @@
   right: .75rem;
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (orientation: portrait) {
   .ship-panel__ship-pips {
     position: relative;
     top: 0;
@@ -92,7 +92,7 @@
   float: right;
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (orientation: portrait) {
   .ship-panel__ship-pip progress {
     width: 70%;
     margin-right: .25rem;
@@ -105,7 +105,7 @@
   margin-right: .5rem;
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (orientation: portrait) {
   .ship-panel__ship-pip label {
     float: left;
   }
@@ -163,7 +163,7 @@
   position: relative;
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (orientation: portrait) {
   .ship-panel__module-section {
     width: 100%;
     margin-bottom: .25rem;
