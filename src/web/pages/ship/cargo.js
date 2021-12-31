@@ -36,8 +36,6 @@ export default function ShipCargoPage () {
             <h1 className='text-info'>Cargo Manifest</h1>
             <h2 className='text-primary'>{ship?.name}</h2>
             <hr style={{ margin: '1rem 0' }} />
-            <h2 style={{ margin: '1rem 0' }} className='text-primary text-primary'>Inventory</h2>
-            {cargo && !ship.onBoard && <p style={{ marginBottom: '1rem' }} className='text-info text-muted text-uppercase'>Displaying last recorded inventory. Will be updated upon boarding.</p>}
             {cargo && cargo.length === 0 && <p className='text-info text-uppercase'>Cargo hold is empty.</p>}
             {cargo && cargo.length > 0 &&
               <table className='table--animated'>
