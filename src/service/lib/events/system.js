@@ -27,7 +27,7 @@ class NavigationEvents {
     let response = systemCache[systemName] // Use cache
 
     if (!response.name) {
-      response.name = name?.trim() ?? UNKNOWN_VALUE
+      response.name = systemName
       response.unknownSystem = true
     }
 
