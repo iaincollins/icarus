@@ -15,8 +15,8 @@ export default function NavMapPage () {
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
 
-  const getSystem = async (systemName) => {
-    const newSystem = await sendEvent('getSystem', { name: systemName })
+  const getSystem = async (systemName, useCache = true) => {
+    const newSystem = await sendEvent('getSystem', { name: systemName, useCache })
     if (!newSystem) return
     setSystemObject(null)
     setSystem(newSystem)
@@ -34,7 +34,7 @@ export default function NavMapPage () {
 
   useEffect(async () => {
     if (!connected || !router.isReady) return
-    const newSystem = await sendEvent('getSystem', query.system ? { name: query.system } : null)
+    const newSystem = await sendEvent('getSystem', query.system ? { name: query.system, useCache: false } : null)
     if (newSystem) setSystem(newSystem)
 
     if (query.selected) {
@@ -56,14 +56,19 @@ export default function NavMapPage () {
       setSystemObject(null)
       setSystem(newSystem)
     }
-  }), [])
+    // Update map if any of these events are fired
+    if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'Scan'].includes(newLogEntry.event)) {
+      const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
+      if (newSystem) setSystem(newSystem)
+    }
+  }), [system])
 
   useEffect(() => {
     if (!router.isReady) return
     const q = { ...query }
-    if (system) q.system = system.name.toLowerCase()
+    if (system) q.system = system?.name?.toLowerCase()
     if (systemObject) {
-      q.selected = systemObject.name.toLowerCase()
+      q.selected = systemObject?.name?.toLowerCase()
     } else {
       if (q.selected) delete q.selected
     }

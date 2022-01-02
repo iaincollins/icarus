@@ -10,7 +10,7 @@ class NavigationEvents {
     return this
   }
 
-  async getSystem ({ name = null } = {}) {
+  async getSystem ({ name = null, useCache = true } = {}) {
     let systemName = name ? name.trim().toLowerCase() : null
     const FSDJump = await this.eliteLog.getEvent('FSDJump')
 
@@ -19,15 +19,15 @@ class NavigationEvents {
       if (systemName === UNKNOWN_VALUE) return null
     }
 
-    if (!systemCache[systemName]) { // Check for entry in cache
+    if (!systemCache[systemName] || useCache === false) { // Check for entry in cache
       const system = await EDSM.system(systemName)
-      systemCache[systemName] = new SystemMap(system) // Create cache entry
+      systemCache[systemName] = new SystemMap(system) // Create/Update cache entry
     }
 
     let response = systemCache[systemName] // Use cache
 
     if (!response.name) {
-      response.name = name.trim()
+      response.name = name?.trim() ?? UNKNOWN_VALUE
       response.unknownSystem = true
     }
 
