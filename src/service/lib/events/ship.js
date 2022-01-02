@@ -3,7 +3,7 @@ const EDCDShipyard = new (require('../data'))('edcd/fdevids/shipyard')
 const EDCDCommodity = new (require('../data'))('edcd/fdevids/commodity')
 const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
 const CoriolisModules = new (require('../data'))('edcd/coriolis/modules')
-const { UNKNOWN_VALUE } = require('../consts')
+const { UNKNOWN_VALUE } = require('../../../shared/consts')
 
 let lastKnownShipState = null
 

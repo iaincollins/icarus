@@ -5,7 +5,7 @@ const {
   PLANETARY_OUTPOSTS,
   SETTLEMENTS,
   PLANETARY_BASES
-} = require('./consts')
+} = require('../../shared/consts')
 
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true

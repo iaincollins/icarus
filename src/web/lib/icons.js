@@ -1,5 +1,5 @@
 import iconJson from '../public/fonts/icarus-terminal/icarus-terminal.json'
-import { SURFACE_PORTS, PLANETARY_BASES } from '../../service/lib/consts'
+import { SURFACE_PORTS, PLANETARY_BASES } from '../../shared/consts'
 class _Icons {
 
 }

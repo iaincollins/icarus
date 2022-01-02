@@ -1,4 +1,4 @@
-import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../service/lib/consts'
+import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
 
 export default function NavigationInspectorPanel ({ system, systemObject, setSystemObject }) {
   if (!system) return null

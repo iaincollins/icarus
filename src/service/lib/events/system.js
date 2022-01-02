@@ -1,6 +1,6 @@
 const EDSM = require('../edsm')
 const SystemMap = require('../system-map')
-const { UNKNOWN_VALUE } = require('../consts')
+const { UNKNOWN_VALUE } = require('../../../shared/consts')
 
 const systemCache = {}
 

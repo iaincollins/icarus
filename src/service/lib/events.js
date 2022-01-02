@@ -1,5 +1,5 @@
 const os = require('os')
-const { UNKNOWN_VALUE } = require('./consts')
+const { UNKNOWN_VALUE } = require('../../shared/consts')
 
 const {
   PORT,

@@ -1,4 +1,4 @@
-import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../service/lib/consts'
+import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
 import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
 
 export default function NavigationInspectorPanel ({ systemObject, setSystemObjectByName }) {
