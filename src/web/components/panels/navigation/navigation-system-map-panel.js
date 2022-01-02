@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import SystemMap from 'components/system-map/system-map'
+import SystemMap from './system-map'
 
 export default function NavigationSystemMapPanel ({ system, systemObject, setSystemObject, getSystem }) {
   if (!system) return null

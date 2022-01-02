@@ -1,5 +1,5 @@
 import Icons from 'lib/icons'
-import { SURFACE_PORTS, PLANETARY_OUTPOSTS, SETTLEMENTS } from '../../../service/lib/consts'
+import { SURFACE_PORTS, PLANETARY_OUTPOSTS, SETTLEMENTS } from '../../../../service/lib/consts'
 
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true

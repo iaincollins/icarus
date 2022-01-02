@@ -49,17 +49,12 @@ export default function NavMapPage () {
     }
   }, [connected, ready, router.isReady])
 
-  useEffect(() => eventListener('newLogEntry', async (newLogEntry) => {
-    if (newLogEntry.event === 'FSDJump') {
-      const newSystem = await sendEvent('getSystem')
-      if (!newSystem) return
-      setSystemObject(null)
-      setSystem(newSystem)
-    }
-    // Update map if any of these events are fired
-    if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'Scan'].includes(newLogEntry.event)) {
+  useEffect(() => eventListener('newLogEntry', async (log) => {
+    if (['FSDJump', 'FSSDiscoveryScan', 'FSSAllBodiesFound', 'Scan'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
-      if (newSystem) setSystem(newSystem)
+      if (!newSystem) return // If no result, don't update map
+      if (log.event === 'FSDJump') setSystemObject(null) // If FSD Jump, clear selected object
+      setSystem(newSystem)
     }
   }), [system])
 

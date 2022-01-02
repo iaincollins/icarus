@@ -13,12 +13,10 @@ export default function EngineeringMaterialsPage () {
     setMaterials(await sendEvent('getMaterials'))
   }, [connected, ready])
 
-  useEffect(() => eventListener('gameStateChange', async () => {
-    setMaterials(await sendEvent('getMaterials'))
-  }), [])
-
-  useEffect(() => eventListener('newLogEntry', async () => {
-    setMaterials(await sendEvent('getMaterials'))
+  useEffect(() => eventListener('newLogEntry', async (log) => {
+    if (['Materials', 'MaterialCollected', 'MaterialDiscarded'].includes(log.event)) {
+      setMaterials(await sendEvent('getMaterials'))
+    }
   }), [])
 
   return (
@@ -58,11 +56,11 @@ function Materials ({ materialType, materials }) {
                 <h3>{item.name}</h3>
                 <span className='text-muted'>{item.description}</span>
                 <div>
-                  <div style={{width: '30%', display: 'inline-block'}}>
+                  <div style={{ width: '30%', display: 'inline-block' }}>
                     {item.count}<span className='text-muted'>/{item.maxCount}</span>
                   </div>
-                  <div style={{width: '70%', display: 'inline-block'}}>
-                    {<progress style={{ height: '1rem' }} value={item.count} max={item?.maxCount ?? item.count} />}
+                  <div style={{ width: '70%', display: 'inline-block' }}>
+                    <progress style={{ height: '1rem' }} value={item.count} max={item?.maxCount ?? item.count} />
                   </div>
                 </div>
               </td>

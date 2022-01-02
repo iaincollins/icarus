@@ -1,4 +1,4 @@
-import ShipModules from 'components/ship/ship-modules'
+import ShipModules from './ship-modules'
 
 export default function ShipModulesPanel ({ ship, selectedModule, setSelectedModule }) {
   if (!ship) return null
