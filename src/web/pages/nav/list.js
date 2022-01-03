@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
+import { NavPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
-import { NavPanelNavItems } from 'lib/navigation-items'
 import NavigationListPanel from 'components/panels/navigation/navigation-list-panel'
 import NavigationInspectorPanel from 'components/panels/navigation/navigation-inspector-panel'
 

@@ -45,10 +45,20 @@ function NavPanelNavItems (activePanel, query) {
 function EngineeringPanelNavItems (activePanel) {
   const navigationItems = [
     {
-      name: 'Materials',
+      name: 'Raw Materials',
       icon: 'materials',
-      url: '/eng/materials'
-    }
+      url: '/eng/raw-materials'
+    },
+    {
+      name: 'Manufactured Materials',
+      icon: 'materials',
+      url: '/eng/manufactured-materials'
+    },
+    {
+      name: 'Encoded Materials',
+      icon: 'materials',
+      url: '/eng/encoded-materials'
+    },
   ]
   navigationItems.forEach(item => {
     if (item.name.toLowerCase() === activePanel.toLowerCase()) item.active = true
