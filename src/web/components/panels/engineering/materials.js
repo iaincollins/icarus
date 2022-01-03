@@ -8,7 +8,7 @@ export default function Materials ({ materialType, materials }) {
       <thead>
         <tr>
           <th style={{ width: '20rem' }}>{materialType} Material</th>
-          <th className='hidden-small'>Engineering applications</th>
+          <th className='hidden-small'>Applications</th>
           <th className='text-right'>Grade</th>
         </tr>
       </thead>

@@ -21,6 +21,11 @@ table thead tr th {
   user-select: none;
   font-weight: bold;
   text-shadow: 0 0 5px var(--color-primary);
+
+  /* Don't let table heading text wrap (breaks UI) */
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow-x: clip !important; /* avoids clipping text shadow on y axis */
 }
 
 table thead tr {
