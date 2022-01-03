@@ -14,14 +14,13 @@ table {
 table thead tr th {
   text-shadow: var(--text-shadow);
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-info);
   box-shadow: 0 -10px 0 var(--color-primary-dark);
   padding: .6rem 1rem .8rem 1rem;
   text-align: left;
   user-select: none;
   font-weight: bold;
   text-shadow: 0 0 5px var(--color-primary);
-  opacity: 0.5;
 }
 
 table thead tr {

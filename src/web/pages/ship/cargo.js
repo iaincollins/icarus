@@ -35,15 +35,15 @@ export default function ShipCargoPage () {
           <>
             <h2 className='text-info'>Cargo Manifest</h2>
             <h3 className='text-primary'>{ship?.name}</h3>
-            <hr style={{ margin: '1rem 0' }} />
+            <hr style={{ margin: '1rem 0 0 0' }} />
             {ship && cargo && cargo.length === 0 && <p className='text-info text-uppercase'>Cargo hold is empty.</p>}
             {cargo && cargo.length > 0 &&
-              <table className='table--animated'>
+              <table className='table--animated fx-fade-in'>
                 <thead>
                   <tr>
-                    <td style={{ width: '4rem' }} className='text-right'>#</td>
-                    <td>Cargo</td>
-                    <td>Description</td>
+                    <th style={{ width: '4rem' }} className='text-right'>#</th>
+                    <th>Cargo</th>
+                    <th>Description</th>
                   </tr>
                 </thead>
                 <tbody>

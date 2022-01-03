@@ -25,7 +25,7 @@ export default function EngineeringMaterialsPage () {
       <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Encoded Materials')}>
         <h2 className='text-info'>Encoded Materials</h2>
         <h3 className='text-primary'>For engineering and synthesis</h3>
-        <hr style={{ margin: '1rem 0' }} />
+        <hr style={{ margin: '1rem 0 0 0' }} />
         {materials && <Materials materialType='Encoded' materials={materials.filter(item => item.type === 'Encoded')} />}
       </Panel>
     </Layout>

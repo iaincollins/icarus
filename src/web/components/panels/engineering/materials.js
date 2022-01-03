@@ -4,12 +4,12 @@ export default function Materials ({ materialType, materials }) {
   if (materials.length === 0) return (<p className='text-info text-uppercase'>No materials found.</p>)
 
   return (
-    <table className='table--animated'>
+    <table className='table--animated fx-fade-in'>
       <thead>
         <tr>
-          <td style={{ width: '20rem' }}>{materialType} Material</td>
-          <td className='hidden-small'>Engineering applications</td>
-          <td className='text-right'>Grade</td>
+          <th style={{ width: '20rem' }}>{materialType} Material</th>
+          <th className='hidden-small'>Engineering applications</th>
+          <th className='text-right'>Grade</th>
         </tr>
       </thead>
       <tbody>
