@@ -6,7 +6,7 @@ import { useSocket } from 'lib/socket'
 export default function EngineeringPage () {
   const { connected, active } = useSocket()
 
-  if (typeof window !== 'undefined') Router.push('/eng/materials')
+  if (typeof window !== 'undefined') Router.push('/eng/raw-materials')
 
   return (
     <Layout connected={connected} active={active}>

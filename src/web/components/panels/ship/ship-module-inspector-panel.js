@@ -43,7 +43,7 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
               {true &&
                 <div className='ship-panel__module-section--engineering-tab'>
                   <p className='text-primary'>
-                    {module.engineering.name} <span className='text-muted'>engineering</span>
+                    <span className='text-muted'>Blueprint</span> {module.engineering.name}
                     {module.engineering.experimentalEffect &&
                       <>
                         <br />

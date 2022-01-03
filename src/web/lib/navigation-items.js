@@ -46,17 +46,17 @@ function EngineeringPanelNavItems (activePanel) {
   const navigationItems = [
     {
       name: 'Raw Materials',
-      icon: 'materials',
+      icon: 'materials-raw',
       url: '/eng/raw-materials'
     },
     {
       name: 'Manufactured Materials',
-      icon: 'materials',
+      icon: 'materials-manufactured',
       url: '/eng/manufactured-materials'
     },
     {
       name: 'Encoded Materials',
-      icon: 'materials',
+      icon: 'materials-encoded',
       url: '/eng/encoded-materials'
     },
   ]

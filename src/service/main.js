@@ -38,6 +38,7 @@ function getLogDir () {
   }
 
   // TODO Check if the log dir exists and seems valid, try fallback as needed
+  // if (!fs.existsSync(logDir) && fs.existsSync(FALLBACK_LOG_DIR)) return FALLBACK_LOG_DIR
   return logDir
 }
 
