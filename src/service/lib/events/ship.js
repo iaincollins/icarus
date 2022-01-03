@@ -253,7 +253,7 @@ class ShipEvents {
           ? await Promise.all(await Json.Cargo.Inventory.map(async (item) => {
               const commodity = await EDCDCommodity.getBySymbol(item?.Name)
               let description = commodity?.category?.replace(/_/g, ' ')?.replace(/([a-z])([A-Z])/g, '$1 $2')?.trim() ?? ''
-              if (item?.Name === 'drones') description = 'Single use limpet drones'
+              if (item?.Name === 'drones') description = 'Limpet drones'
               return {
                 symbol: item?.Name ?? UNKNOWN_VALUE,
                 name: item?.Name_Localised ?? item?.Name ?? UNKNOWN_VALUE,

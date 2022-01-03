@@ -41,10 +41,15 @@ export default function NavListPage () {
   }, [connected, ready, router.isReady])
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
-    if (['FSDJump', 'FSSDiscoveryScan', 'FSSAllBodiesFound', 'Scan'].includes(log.event)) {
+    if (log.event === 'FSDJump') {
+      const newSystem = await sendEvent('getSystem', { useCache: false })
+      if (!newSystem) return // If no result, don't update map
+      setSystemObject(null) // Clear selected object
+      setSystem(newSystem)
+    }
+    if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'Scan'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
       if (!newSystem) return // If no result, don't update map
-      if (log.event === 'FSDJump') setSystemObject(null) // If FSD Jump, clear selected object
       setSystem(newSystem)
     }
   }), [system])

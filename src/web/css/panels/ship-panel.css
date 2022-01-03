@@ -189,6 +189,12 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
   font-weight: 600;
 }
 
+.ship-panel .icon.icarus-terminal-engineering {
+  /* This is a hack, weird spacing got introduced at some point */
+  width: 2rem !important;
+  display: inline-block;
+}
+
 .ship-panel__module p {
   margin-bottom: 0;
 }

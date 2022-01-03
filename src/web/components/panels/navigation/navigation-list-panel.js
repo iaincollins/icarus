@@ -16,8 +16,8 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
         <table className='table--animated table--interactive fx-fade-in'>
           <thead>
             <tr>
-              <th>Description</th>
-              <th className='text-right'>Distance</th>
+              <th>Location</th>
+              <th className='text-right'>Distance to arrival</th>
             </tr>
           </thead>
           <tbody>

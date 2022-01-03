@@ -7,11 +7,10 @@ const httpProxy = require('http-proxy')
 const proxy = httpProxy.createProxyServer({})
 const WebSocket = require('ws')
 const os = require('os')
+const fs = require('fs')
 const path = require('path')
 const yargs = require('yargs')
 const commandLineArgs = yargs.argv
-
-console.log('commandLineArgs', commandLineArgs)
 
 // Parse command line arguments
 const PORT = commandLineArgs.port || 3300 // Port to listen on
@@ -37,8 +36,9 @@ function getLogDir () {
     logDir = process.env.LOG_DIR.startsWith('/') ? process.env.LOG_DIR : path.join(__dirname, process.env.LOG_DIR)
   }
 
-  // TODO Check if the log dir exists and seems valid, try fallback as needed
-  // if (!fs.existsSync(logDir) && fs.existsSync(FALLBACK_LOG_DIR)) return FALLBACK_LOG_DIR
+  // Check if the log dir exists and seems valid, try fallback as needed
+  if (!fs.existsSync(logDir) && fs.existsSync(FALLBACK_LOG_DIR)) return FALLBACK_LOG_DIR
+
   return logDir
 }
 

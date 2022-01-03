@@ -36,7 +36,7 @@ export default function ShipCargoPage () {
             <h1 className='text-info'>Cargo Manifest</h1>
             <h2 className='text-primary'>{ship?.name}</h2>
             <hr style={{ margin: '1rem 0' }} />
-            {cargo && cargo.length === 0 && <p className='text-info text-uppercase'>Cargo hold is empty.</p>}
+            {ship && cargo && cargo.length === 0 && <p className='text-info text-uppercase'>Cargo hold is empty.</p>}
             {cargo && cargo.length > 0 &&
               <table className='table--animated'>
                 <thead>
