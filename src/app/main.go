@@ -7,6 +7,7 @@ import (
 	"github.com/nvsoft/win"
 	"github.com/phayes/freeport"
 	"github.com/rodolfoag/gow32"
+	"golang.org/x/sys/windows"
 	"github.com/sqweek/dialog"
 	"github.com/webview/webview"
 	"os"
@@ -104,9 +105,13 @@ func main() {
 		}
 	}
 
+	// Use Windows API to get Save Game dir
+	saveGameDirPath, err := windows.KnownFolderPath(windows.FOLDERID_SavedGames, 0)
+
 	// Run service
 	cmdArg0 := fmt.Sprintf("%s%d", "--port=", *portPtr)
-	serviceCmdInstance := exec.Command(SERVICE_EXECUTABLE, cmdArg0)
+	cmdArg1 := fmt.Sprintf("%s%s", "--save-game-dir=", saveGameDirPath)
+	serviceCmdInstance := exec.Command(SERVICE_EXECUTABLE, cmdArg0, cmdArg1)
 	serviceCmdInstance.SysProcAttr = &syscall.SysProcAttr{CreationFlags: 0x08000000, HideWindow: true} // Don't create a visible window for the service process
 	serviceCmdErr := serviceCmdInstance.Start()
 

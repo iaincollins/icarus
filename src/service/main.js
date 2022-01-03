@@ -11,13 +11,36 @@ const path = require('path')
 const yargs = require('yargs')
 const commandLineArgs = yargs.argv
 
+console.log('commandLineArgs', commandLineArgs)
+
 // Parse command line arguments
 const PORT = commandLineArgs.port || 3300 // Port to listen on
 const HTTP_SERVER = commandLineArgs['http-server'] || false // URL of server
-const LOG_DIR = process.env.LOG_DIR
-  ? process.env.LOG_DIR.startsWith('/') ? process.env.LOG_DIR : path.join(__dirname, process.env.LOG_DIR)
-  : path.join(os.homedir(), 'Saved Games', 'Frontier Developments', 'Elite Dangerous')
 const WEB_DIR = 'build/web'
+const LOG_DIR = getLogDir()
+
+function getLogDir () {
+  // Hard coded fallback
+  const FALLBACK_LOG_DIR = path.join(os.homedir(), 'Saved Games', 'Frontier Developments', 'Elite Dangerous')
+  let logDir = FALLBACK_LOG_DIR
+
+  // Use provided Save Game dir as base path to look for the the files we need
+  // This must be obtained via native OS APIs so is typically passed by the client
+  if (commandLineArgs['save-game-dir']) {
+    logDir = path.join(commandLineArgs['save-game-dir'], 'Frontier Developments', 'Elite Dangerous')
+  }
+
+  // For development / Unix platforms, you can use the LOG_DIR environment
+  // variable to specify the direct path (relative or absolute). You can also
+  // use a .env file
+  if (process.env.LOG_DIR) {
+    logDir = process.env.LOG_DIR.startsWith('/') ? process.env.LOG_DIR : path.join(__dirname, process.env.LOG_DIR)
+  }
+
+  // TODO Check if the log dir exists and seems valid, try fallback as needed
+  return logDir
+}
+
 
 // Export globals BEFORE loading libraries that use them
 global.PORT = PORT
