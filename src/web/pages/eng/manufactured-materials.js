@@ -23,8 +23,8 @@ export default function EngineeringMaterialsPage () {
   return (
     <Layout connected={connected} active={active} ready={ready}>
       <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Manufactured Materials')}>
-        <h1 className='text-info'>Manufactured Materials</h1>
-        <h2 className='text-primary'>Materials for engineering and synthesis</h2>
+        <h2 className='text-info'>Manufactured Materials</h2>
+        <h3 className='text-primary'>For engineering and synthesis</h3>
         <hr style={{ margin: '1rem 0' }} />
         {materials && <Materials materialType='Manufactured' materials={materials.filter(item => item.type === 'Manufactured')} />}
       </Panel>

@@ -17,7 +17,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
           <thead>
             <tr>
               <th>Location</th>
-              <th className='text-right'>Distance to arrival</th>
+              <th className='hidden-small text-no-wrap text-right'>Distance to arrival</th>
             </tr>
           </thead>
           <tbody>
@@ -139,7 +139,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
           {systemObject.name}
         </div>
       </td>
-      <td className='text-right text-no-transform'>{systemObject.distanceToArrival ? `${Math.round(systemObject.distanceToArrival)} Ls` : ''}</td>
+      <td className='hidden-small text-right text-no-transform'>{systemObject.distanceToArrival ? `${Math.round(systemObject.distanceToArrival)} Ls` : ''}</td>
     </tr>
   )
 }

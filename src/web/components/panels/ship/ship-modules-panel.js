@@ -7,11 +7,11 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
     <>
       <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
         <div className='ship-panel__title'>
-          <h1 className='text-info'>{ship.name}</h1>
-          <h2 className='text-primary'>IDENT {ship.ident}</h2>
-          <h3 style={{ marginBottom: '.5rem' }} className='text-primary text-muted'>
+          <h2 className='text-info'>{ship.name}</h2>
+          <h3 className='text-primary'>IDENT {ship.ident}</h3>
+          <h4 style={{ marginBottom: '.5rem' }} className='text-primary text-muted'>
             {ship.type}
-          </h3>
+          </h4>
         </div>
         {ship.onBoard &&
           <div className='ship-panel__ship-pips text-uppercase'>

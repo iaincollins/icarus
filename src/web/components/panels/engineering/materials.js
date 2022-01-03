@@ -9,7 +9,7 @@ export default function Materials ({ materialType, materials }) {
         <tr>
           <td style={{ width: '20rem' }}>{materialType} Material</td>
           <td className='hidden-small'>Engineering applications</td>
-          <td className='hidden-small text-right'>Grade</td>
+          <td className='text-right'>Grade</td>
         </tr>
       </thead>
       <tbody>
@@ -45,7 +45,9 @@ export default function Materials ({ materialType, materials }) {
                 .sort()
                 .map((use, i) => <Fragment key={`material_${item.name}_${use}`}>{i === 0 ? '' : <span className='text-muted'>, </span>}<span className='text-muted'>{use}</span></Fragment>)}
             </td>
-            <td className='hidden-small text-right text-no-wrap'><small>{item.rarity}</small></td>
+            <td className='text-right text-no-wrap'>
+              <i style={{fontSize: '3rem'}} className={`icon icarus-terminal-materials-grade-${item.grade}`}/>
+            </td>
           </tr>
         )}
       </tbody>
