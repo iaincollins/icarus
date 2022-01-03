@@ -192,6 +192,7 @@ progress {
   border-radius: 0;
   height: 2rem;
   border: 0;
+  background: var(--color-primary-dark); /* For Firefox */
 }
 
 progress[value] {
@@ -201,6 +202,11 @@ progress[value] {
 
 progress[value]::-webkit-progress-bar {
   background: var(--color-primary-dark);
+  padding: .1rem;
+}
+
+progress[value]::-moz-progress-bar {
+  background: var(--color-primary);
   padding: .1rem;
 }
 
@@ -215,8 +221,8 @@ progress.progress--border {
   border-color: var(--color-primary);
 }
 
-progress.progress--border.progress--secondary {
-  border-color: var(--color-secondary);
+progress.progress--secondary {
+  background: var(--color-secondary-dark); /* For Firefox */
 }
 
 progress.progress--secondary[value]::-webkit-progress-bar {
@@ -224,10 +230,18 @@ progress.progress--secondary[value]::-webkit-progress-bar {
   padding: .1rem;
 }
 
+progress.progress--secondary[value]::-moz-progress-bar {
+  background: var(--color-secondary);
+  padding: .1rem;
+}
+
 progress.progress--secondary[value]::-webkit-progress-value {
   background: var(--color-secondary);
 }
 
+progress.progress--secondary.progress--border {
+  border-color: var(--color-secondary);
+}
 
 form {
   padding: 0;
