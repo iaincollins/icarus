@@ -49,8 +49,7 @@ export default function NavListPage () {
     }
     if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'Scan'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
-      if (!newSystem) return // If no result, don't update map
-      setSystem(newSystem)
+      if (newSystem) setSystem(newSystem)
     }
   }), [system])
 
