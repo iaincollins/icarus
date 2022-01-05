@@ -6,6 +6,10 @@
   margin: 1.5rem 0;
 }
 
+.ship-panel__title {
+  margin-bottom: .5rem;
+}
+
 @media only screen and (min-width: 800px) {
   .ship-panel__title {
     margin-right: 13rem;
