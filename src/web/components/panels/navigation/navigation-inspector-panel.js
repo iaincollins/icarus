@@ -154,10 +154,19 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                 <h4 className='text-primary'>Surface</h4>
                 {systemObject.volcanismType !== 'No volcanism' ? <p className='text-info'>{systemObject.volcanismType}</p> : null}
                 <ul className='text-info'>
-                  {Object.entries(systemObject.solidComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_surface_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
+                  {Object.entries(systemObject.solidComposition).map(e => e[1] > 0 ? <li key={`navigation-inspector_${systemObject.id}_surface_${e[0]}`}>{e[0]} ({e[1]}%)</li> : '')}
                 </ul>
               </div>}
+
           </>}
+
+        {systemObject.materials &&
+          <div className='navigation-panel__inspector-section'>
+            <h4 className='text-primary'>Composition</h4>
+            <ul className='text-info'>
+              {Object.entries(systemObject.materials).map(e => <li key={`navigation-inspector_${systemObject.id}_material_${e[0]}}`}>{e[0]} ({e[1]}%)</li>)}
+            </ul>
+          </div>}
 
         {systemObject.rings &&
           <div className='navigation-panel__inspector-section'>

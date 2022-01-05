@@ -9,7 +9,8 @@ export default function Materials ({ materialType, materials }) {
         <tr>
           <th style={{ width: '20rem' }}>{materialType} Material</th>
           <th className='hidden-small'>Applications</th>
-          <th className='text-right'>Grade</th>
+          <th className='hidden-small text-right'>Category</th>
+          <th className='text-right' style={{width: '3rem'}}>Grade</th>
         </tr>
       </thead>
       <tbody>
@@ -17,8 +18,8 @@ export default function Materials ({ materialType, materials }) {
           <tr key={`material_${materialType}_${item.name}`}>
             <td style={{ width: '20rem' }}>
               <h3>{item.name}</h3>
-              <span className='text-muted'>{item.description}</span>
-              <div>
+              <span className='visible-small text-muted'>{item.description}</span>
+              <div style={{marginTop: '.5rem'}}>
                 <div style={{ width: '30%', display: 'inline-block' }}>
                   {item.count}<span className='text-muted'>/{item.maxCount}</span>
                 </div>
@@ -39,13 +40,17 @@ export default function Materials ({ materialType, materials }) {
                   if (name.includes('Limpet')) name = 'Limpets'
                   if (name === 'FSDinterdictor') name = 'Interdictor'
                   if (name === 'Misc') name = blueprint.symbol.replaceAll('_', '').replace(/([a-z])([A-Z])/g, '$1 $2').trim()
+                  name = name.replace(/misc /ig, '').replace(/ capacity/gi, '')
                   return name
                 })
                 .filter((value, index, self) => self.indexOf(value) === index)
                 .sort()
                 .map((use, i) => <Fragment key={`material_${item.name}_${use}`}>{i === 0 ? '' : <span className='text-muted'>, </span>}<span className='text-muted'>{use}</span></Fragment>)}
             </td>
-            <td className='text-right text-no-wrap'>
+            <td className='hidden-small text-right' style={{verticalAlign: 'middle'}}>
+              <span className='text-no-wrap'>{item.description}</span>
+            </td>
+            <td className='text-right text-no-wrap' style={{width: '3rem',verticalAlign: 'middle'}}>
               <i style={{fontSize: '3rem'}} className={`icon icarus-terminal-materials-grade-${item.grade}`}/>
             </td>
           </tr>

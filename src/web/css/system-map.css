@@ -11,8 +11,8 @@
   margin: 0 0 0 var(--system-map-left-margin);
   padding: 0;
   text-transform: uppercase;
-  font-size: 3rem;
-  line-height: 3rem;
+  font-size: 2.5rem;
+  line-height: 2.75rem;
 }
 
 .system-map h2 {
@@ -26,6 +26,13 @@
   line-height: 1.25rem;
   margin: 0 0 0 var(--system-map-left-margin);
   text-transform: none;
+}
+
+.system-map h1 .icon {
+  position: relative;
+  top: .5rem;
+  margin-right: .5rem;
+  line-height: 3rem;
 }
 
 .system-map__planetary-system {
@@ -62,6 +69,12 @@
 .system-map__planetary-system h2 {
   text-shadow: var(--text-shadow);
   font-size: 2rem;
+  line-height: 2rem;
+}
+
+.system-map__planetary-system h2 .icon {
+  position: relative;
+  top: .25rem;
 }
 
 .system-map__planetary-system h3 {

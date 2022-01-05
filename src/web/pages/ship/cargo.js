@@ -35,6 +35,9 @@ export default function ShipCargoPage () {
           <>
             <h2 className='text-info'>Cargo Manifest</h2>
             <h3 className='text-primary'>{ship?.name}</h3>
+            <h4 style={{ marginBottom: '.5rem' }} className='text-primary text-muted'>
+              {ship?.type}
+            </h4>
             <hr style={{ margin: '1rem 0 0 0' }} />
             {ship && cargo && cargo.length === 0 && <p className='text-info text-uppercase'>Cargo hold is empty.</p>}
             {cargo && cargo.length > 0 &&

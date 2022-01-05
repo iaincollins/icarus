@@ -1,7 +1,7 @@
 export default function ShipModules ({ name, modules, selectedModule, setSelectedModule = () => {} }) {
   return (
     <>
-      <h2 style={{ margin: '1rem 0' }} className='text-info text-muted'>{name}</h2>
+      <h3 style={{ margin: '.5rem 0' }} className='text-info text-muted'>{name}</h3>
       <table className='table--flex-inline table--interactive table--animated'>
         <tbody>
           {modules.sort((a, b) => (b?.class ?? 0) - (a?.class ?? 0)).map(module => {

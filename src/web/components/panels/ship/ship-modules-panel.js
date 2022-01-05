@@ -13,19 +13,19 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             {ship.type}
           </h4>
         </div>
-        {ship.onBoard &&
+        {
           <div className='ship-panel__ship-pips text-uppercase'>
             <div className='ship-panel__ship-pip'>
-              <progress value={ship?.pips?.systems} max={8} />
-              <label className={ship?.pips?.systems > 0 ? 'text-primary' : 'text-primary text-blink'}>Systems</label>
+              <progress value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
+              <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>Systems</label>
             </div>
             <div className='ship-panel__ship-pip'>
-              <progress value={ship?.pips?.engines} max={8} />
-              <label className={ship?.pips?.engines > 0 ? 'text-primary' : 'text-primary text-blink'}>Engines</label>
+              <progress value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
+              <label className={(ship.onBoard &&ship?.pips?.engines > 0) ? 'text-primary' : 'text-primary text-muted'}>Engines</label>
             </div>
             <div className='ship-panel__ship-pip'>
-              <progress value={ship?.pips?.weapons} max={8} />
-              <label className={ship?.pips?.weapons > 0 ? 'text-primary' : 'text-primary text-blink'}>Weapons</label>
+              <progress value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
+              <label className={(ship.onBoard && ship?.pips?.weapons > 0) ? 'text-primary' : 'text-primary text-muted'}>Weapons</label>
             </div>
           </div>}
         <table className='ship-panel__ship-stats'>
@@ -60,7 +60,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             </tr>
           </tbody>
         </table>
-        <hr />
+        <hr style={{margin: '1.5rem 0 1rem 0'}} />
         <ShipModules
           name='Hardpoints'
           modules={
@@ -71,7 +71,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
-        <hr />
+        <hr style={{margin: '1rem 0'}} />
         <ShipModules
           name='Optional Internals'
           modules={
@@ -86,7 +86,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
-        <hr />
+        <hr style={{margin: '1rem 0'}} />
         <ShipModules
           name='Core Internals'
           modules={
@@ -99,7 +99,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
-        <hr />
+        <hr style={{margin: '1rem 0'}} />
         <div style={{ marginBottom: '1rem' }} className='ship-panel__modules--inline'>
           <ShipModules
             name='Utility Mounts'

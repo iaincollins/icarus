@@ -17,7 +17,7 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
       <div className='inspector__contents scrollable'>
         <div className='ship-panel__module-section text-uppercase'>
           <h2 className='text-info' data-module-name={module.name} data-fx-order='3'>
-            {module.size !== 'tiny' ? module.size : ''} {module.mount} {module.name}
+            {module.mount} {module.name}
           </h2>
           <h3 className='text-no-wrap'>
             {module.class}{module.rating} <span className='text-muted'>{module.slotName}</span>

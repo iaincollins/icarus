@@ -157,19 +157,6 @@
   z-index: -1;
 }
 
-.navigation-panel__map h1 .icon {
-  position: relative;
-  top: .5rem;
-  margin-right: .75rem;
-  line-height: 4rem;
-}
-
-.navigation-panel__map h2 .icon {
-  position: relative;
-  top: .3rem;
-  line-height: 3rem;
-}
-
 .system-map__planet-icon {
   height: 100%;
   width: 100%;
