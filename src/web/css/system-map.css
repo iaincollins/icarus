@@ -57,7 +57,7 @@
   animation: svg-fade-in-animation .75s ease-in-out;
   animation-fill-mode: forwards;
   /* Wait until after other animations on page are done for best performance on slow devices */
-  animation-delay: 1s; 
+  animation-delay: .75s; 
 }
 
 @keyframes svg-fade-in-animation {
