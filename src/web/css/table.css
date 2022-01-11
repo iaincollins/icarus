@@ -20,7 +20,7 @@ table thead tr th {
   text-align: left;
   user-select: none;
   font-weight: bold;
-  text-shadow: 0 0 5px var(--color-primary);
+  text-shadow: 0 0 5px var(--color-info);
 
   /* Don't let table heading text wrap (breaks UI) */
   white-space: nowrap !important;

@@ -1,10 +1,10 @@
 @font-face {font-family: "icarus-terminal";
-  src: url('icarus-terminal.eot?t=1641251311134'); /* IE9*/
-  src: url('icarus-terminal.eot?t=1641251311134#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("icarus-terminal.woff2?t=1641251311134") format("woff2"),
-  url("icarus-terminal.woff?t=1641251311134") format("woff"),
-  url('icarus-terminal.ttf?t=1641251311134') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('icarus-terminal.svg?t=1641251311134#icarus-terminal') format('svg'); /* iOS 4.1- */
+  src: url('icarus-terminal.eot?t=1641913621540'); /* IE9*/
+  src: url('icarus-terminal.eot?t=1641913621540#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("icarus-terminal.woff2?t=1641913621540") format("woff2"),
+  url("icarus-terminal.woff?t=1641913621540") format("woff"),
+  url('icarus-terminal.ttf?t=1641913621540') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icarus-terminal.svg?t=1641913621540#icarus-terminal') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
@@ -34,26 +34,27 @@
 .icarus-terminal-materials-grade-5:before { content: "\ea11"; }
 .icarus-terminal-materials-manufactured:before { content: "\ea12"; }
 .icarus-terminal-materials-raw:before { content: "\ea13"; }
-.icarus-terminal-materials:before { content: "\ea14"; }
-.icarus-terminal-megaship:before { content: "\ea15"; }
-.icarus-terminal-ocellus-starport:before { content: "\ea16"; }
-.icarus-terminal-orbis-starport:before { content: "\ea17"; }
-.icarus-terminal-outpost:before { content: "\ea18"; }
-.icarus-terminal-pin-window:before { content: "\ea19"; }
-.icarus-terminal-planet:before { content: "\ea1a"; }
-.icarus-terminal-planetary-port-large:before { content: "\ea1b"; }
-.icarus-terminal-planetary-port:before { content: "\ea1c"; }
-.icarus-terminal-route:before { content: "\ea1d"; }
-.icarus-terminal-search:before { content: "\ea1e"; }
-.icarus-terminal-settlement:before { content: "\ea1f"; }
-.icarus-terminal-ship:before { content: "\ea20"; }
-.icarus-terminal-signal:before { content: "\ea21"; }
-.icarus-terminal-star:before { content: "\ea22"; }
-.icarus-terminal-system-bodies:before { content: "\ea23"; }
-.icarus-terminal-system-orbits:before { content: "\ea24"; }
-.icarus-terminal-table-index:before { content: "\ea25"; }
-.icarus-terminal-table-inspector:before { content: "\ea26"; }
-.icarus-terminal-table-rows:before { content: "\ea27"; }
+.icarus-terminal-materials-xeno:before { content: "\ea14"; }
+.icarus-terminal-materials:before { content: "\ea15"; }
+.icarus-terminal-megaship:before { content: "\ea16"; }
+.icarus-terminal-ocellus-starport:before { content: "\ea17"; }
+.icarus-terminal-orbis-starport:before { content: "\ea18"; }
+.icarus-terminal-outpost:before { content: "\ea19"; }
+.icarus-terminal-pin-window:before { content: "\ea1a"; }
+.icarus-terminal-planet:before { content: "\ea1b"; }
+.icarus-terminal-planetary-port-large:before { content: "\ea1c"; }
+.icarus-terminal-planetary-port:before { content: "\ea1d"; }
+.icarus-terminal-route:before { content: "\ea1e"; }
+.icarus-terminal-search:before { content: "\ea1f"; }
+.icarus-terminal-settlement:before { content: "\ea20"; }
+.icarus-terminal-ship:before { content: "\ea21"; }
+.icarus-terminal-signal:before { content: "\ea22"; }
+.icarus-terminal-star:before { content: "\ea23"; }
+.icarus-terminal-system-bodies:before { content: "\ea24"; }
+.icarus-terminal-system-orbits:before { content: "\ea25"; }
+.icarus-terminal-table-index:before { content: "\ea26"; }
+.icarus-terminal-table-inspector:before { content: "\ea27"; }
+.icarus-terminal-table-rows:before { content: "\ea28"; }
 
 $icarus-terminal-asteroid-base: "\ea01";
 $icarus-terminal-cargo: "\ea02";
@@ -74,24 +75,25 @@ $icarus-terminal-materials-grade-4: "\ea10";
 $icarus-terminal-materials-grade-5: "\ea11";
 $icarus-terminal-materials-manufactured: "\ea12";
 $icarus-terminal-materials-raw: "\ea13";
-$icarus-terminal-materials: "\ea14";
-$icarus-terminal-megaship: "\ea15";
-$icarus-terminal-ocellus-starport: "\ea16";
-$icarus-terminal-orbis-starport: "\ea17";
-$icarus-terminal-outpost: "\ea18";
-$icarus-terminal-pin-window: "\ea19";
-$icarus-terminal-planet: "\ea1a";
-$icarus-terminal-planetary-port-large: "\ea1b";
-$icarus-terminal-planetary-port: "\ea1c";
-$icarus-terminal-route: "\ea1d";
-$icarus-terminal-search: "\ea1e";
-$icarus-terminal-settlement: "\ea1f";
-$icarus-terminal-ship: "\ea20";
-$icarus-terminal-signal: "\ea21";
-$icarus-terminal-star: "\ea22";
-$icarus-terminal-system-bodies: "\ea23";
-$icarus-terminal-system-orbits: "\ea24";
-$icarus-terminal-table-index: "\ea25";
-$icarus-terminal-table-inspector: "\ea26";
-$icarus-terminal-table-rows: "\ea27";
+$icarus-terminal-materials-xeno: "\ea14";
+$icarus-terminal-materials: "\ea15";
+$icarus-terminal-megaship: "\ea16";
+$icarus-terminal-ocellus-starport: "\ea17";
+$icarus-terminal-orbis-starport: "\ea18";
+$icarus-terminal-outpost: "\ea19";
+$icarus-terminal-pin-window: "\ea1a";
+$icarus-terminal-planet: "\ea1b";
+$icarus-terminal-planetary-port-large: "\ea1c";
+$icarus-terminal-planetary-port: "\ea1d";
+$icarus-terminal-route: "\ea1e";
+$icarus-terminal-search: "\ea1f";
+$icarus-terminal-settlement: "\ea20";
+$icarus-terminal-ship: "\ea21";
+$icarus-terminal-signal: "\ea22";
+$icarus-terminal-star: "\ea23";
+$icarus-terminal-system-bodies: "\ea24";
+$icarus-terminal-system-orbits: "\ea25";
+$icarus-terminal-table-index: "\ea26";
+$icarus-terminal-table-inspector: "\ea27";
+$icarus-terminal-table-rows: "\ea28";
 

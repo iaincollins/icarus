@@ -37,67 +37,36 @@ class MaterialsEvents {
       this.eliteLog.getEvent('Materials')
     ])
 
-    if (!Materials) return []
+    const materials = []
+    let materialsInventory = []
+    if (Materials?.Raw) materialsInventory = materialsInventory.concat(Materials?.Raw)
+    if (Materials?.Manufactured) materialsInventory = materialsInventory.concat(Materials?.Manufactured)
+    if (Materials?.Encoded) materialsInventory = materialsInventory.concat(Materials?.Encoded)
 
-    let materials = []
+    EDCDMaterials.data.forEach(material => {
+      const materialUses = MaterialUses.getBySymbol(material.symbol)
+      const materialInInventory = materialsInventory.filter(m => m.Name.toLowerCase() === material.symbol.toLowerCase())[0] // Get existing reference to this material
+      const type = material.category === 'None' ? 'Xeno' : material.type
 
-    await Promise.all(
-      Materials?.Raw?.map(async (item) => {
-        const EDCDMaterial = await EDCDMaterials.getBySymbol(item.Name)
-        const materialUses = await MaterialUses.getBySymbol(item.Name)
-        materials.push({
-          symbol: item.Name,
-          name: item?.Name_Localised ?? item.Name,
-          type: 'Raw',
-          count: item.Count,
-          maxCount: materialGrades[EDCDMaterial?.rarity]?.maxCount ?? null,
-          rarity: materialGrades[EDCDMaterial?.rarity].name ?? '',
-          grade: EDCDMaterial?.rarity ?? 0,
-          description: EDCDMaterial?.category ? `Category ${EDCDMaterial?.category}` : '',
-          blueprints: materialUses?.blueprints ?? []
-        })
-      }) ?? []
-    )
+      let category = (material?.type === 'Raw') ? `Category ${material?.category}` : material?.category
+      if (material.category === 'None') category = material.type
 
-    await Promise.all(
-      Materials?.Manufactured?.map(async (item) => {
-        const EDCDMaterial = await EDCDMaterials.getBySymbol(item.Name)
-        const materialUses = await MaterialUses.getBySymbol(item.Name)
-        materials.push({
-          symbol: item.Name,
-          name: item?.Name_Localised ?? item.Name,
-          type: 'Manufactured',
-          count: item.Count,
-          maxCount: materialGrades[EDCDMaterial?.rarity]?.maxCount ?? null,
-          rarity: materialGrades[EDCDMaterial?.rarity].name ?? '',
-          grade: EDCDMaterial?.rarity ?? 0,
-          description: EDCDMaterial?.category ?? '',
-          blueprints: materialUses?.blueprints ?? []
-        })
-      }) ?? []
-    )
-
-    await Promise.all(
-      Materials?.Encoded?.map(async (item) => {
-        const EDCDMaterial = await EDCDMaterials.getBySymbol(item.Name)
-        const materialUses = await MaterialUses.getBySymbol(item.Name)
-        materials.push({
-          symbol: item.Name,
-          name: item?.Name_Localised ?? item.Name,
-          type: 'Encoded',
-          count: item.Count,
-          maxCount: materialGrades[EDCDMaterial?.rarity]?.maxCount ?? null,
-          rarity: materialGrades[EDCDMaterial?.rarity].name ?? '',
-          grade: EDCDMaterial?.rarity ?? 0,
-          description: EDCDMaterial?.category ?? '',
-          blueprints: materialUses?.blueprints ?? []
-        })
-      }) ?? []
-    )
+      materials.push({
+        symbol: material.symbol,
+        name: material.name,
+        type,
+        grade: material?.rarity ?? 0,
+        rarity: materialGrades[material?.rarity].name ?? '',
+        count: materialInInventory?.Count ?? 0,
+        maxCount: materialGrades[material?.rarity]?.maxCount ?? null,
+        category,
+        blueprints: materialUses?.blueprints ?? []
+      })
+    })
 
     // Get all MaterialCollected and MaterialDiscarded events since the last
     // Materials event was logged (Materials event is only logged at startup)
-    const timestamp = Materials.timestamp
+    const timestamp = Materials?.timestamp
     const materialsCollected = await this.eliteLog.getEventsFromTimestamp('MaterialCollected', timestamp)
     const materialsDiscarded = await this.eliteLog.getEventsFromTimestamp('MaterialDiscarded', timestamp)
 
@@ -107,51 +76,22 @@ class MaterialsEvents {
     const materialEvents = materialsCollected.concat(materialsDiscarded)
     materialEvents.sort((a, b) => Date.parse(a.timestamp) < Date.parse(b.timestamp) ? 1 : -1).reverse()
 
-    for (const item of  materialEvents) {
-      const symbol = item.Name
-      const count = item.Count
-      const eventName = item.event
-      const material = materials.filter(m => m.symbol === symbol)[0] // Get existing reference to this material
-      if (eventName === 'MaterialCollected') {
-        if (material) {
-          material.count += count
-        } else {
-          // If this is a material we do not have any of already, add it
-          // in the same way we add materials above
-          const EDCDMaterial = await EDCDMaterials.getBySymbol(item.Name)
-          const materialUses = await MaterialUses.getBySymbol(item.Name)
-          const description = item.Category === 'Raw'
-            ? EDCDMaterial?.category ? `Category ${EDCDMaterial?.category}` : ''
-            : EDCDMaterial?.category ?? ''
-
-          materials.push({
-            symbol: item.Name,
-            name: item?.Name_Localised ?? item.Name,
-            type: item.Category,
-            count,
-            maxCount: materialGrades[EDCDMaterial?.rarity]?.maxCount ?? null,
-            rarity: materialGrades[EDCDMaterial?.rarity].name ?? '',
-            grade: EDCDMaterial?.rarity ?? 0,
-            description,
-            blueprints: materialUses?.blueprints ?? []
-          })
-        }
+    for (const materialEvent of  materialEvents) {
+      const material = materials.filter(m => m.symbol.toLowerCase() === materialEvent.Name.toLowerCase())[0] // Get existing reference to this material
+      if (!material) {
+        console.log(`Failed to handle event for unknown material`, materialEvent)
+        continue
       }
-      if (eventName === 'MaterialDiscarded') {
-        if (material) {
-          material.count -= count
-        } else {
-          // This should never happen (can't discard material you don't have!)
-        }
+      if (materialEvent.event === 'MaterialCollected') {
+        material.count += materialEvent.Count
+      } else if (eventName === 'MaterialDiscarded') {
+        material.count -= materialEvent.Count
       }
     }
 
-    // Discard materials we don't have any of (e.g. have been discarded to zero)
-    materials = materials.filter(item => item.count > 0)
-
-    // Sort all materials by name (saves having to do it multiple times in UI)
+    // Sort all materials by name (to reduce effort required in UI)
     materials.sort((a, b) => a.name.localeCompare(b.name))
-
+    
     return materials
   }
 }

@@ -3,7 +3,7 @@ module.exports = class Data {
     this.data = require(`../data/${file}.json`)
   }
 
-  async getBySymbol (itemSymbol) {
+  getBySymbol (itemSymbol) {
     let result
     Object.values(this.data).some(item => {
       if (item?.symbol?.toLowerCase() === itemSymbol?.toLowerCase()) {

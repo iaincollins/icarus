@@ -26,7 +26,7 @@ export default function EngineeringMaterialsPage () {
         <h2 className='text-info'>Raw Materials</h2>
         <h3 className='text-primary'>For engineering and synthesis</h3>
         <hr style={{ margin: '1rem 0 0 0' }} />
-        {materials && <Materials materialType='Raw' materials={materials.filter(item => item.type === 'Raw')} />}
+        {materials && <Materials materialType='Raw' materials={materials} />}
       </Panel>
     </Layout>
   )

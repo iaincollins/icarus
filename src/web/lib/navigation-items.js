@@ -59,6 +59,11 @@ function EngineeringPanelNavItems (activePanel) {
       icon: 'materials-encoded',
       url: '/eng/encoded-materials'
     },
+    {
+      name: 'Xeno Materials',
+      icon: 'materials-xeno',
+      url: '/eng/xeno-materials'
+    },
   ]
   navigationItems.forEach(item => {
     if (item.name.toLowerCase() === activePanel.toLowerCase()) item.active = true

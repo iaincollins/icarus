@@ -54,16 +54,16 @@
   /* Don't display map SVG on page load for performance reasons */
   opacity: 0;
   visibility: hidden;
-  animation: svg-fade-in-animation 1s ease-in-out;
+  animation: svg-fade-in-animation .75s ease-in-out;
   animation-fill-mode: forwards;
-  /* Wait until until after other animations on page are done for performance */
-  animation-delay: .5s; 
+  /* Wait until after other animations on page are done for best performance on slow devices */
+  animation-delay: 1s; 
 }
 
 
 @keyframes svg-fade-in-animation {
-  from { filter: contrast(2); visibility: visible; opacity : 0; }
-  to { filter: contrast(1); visibility: visible; opacity: 1; }
+  from { filter: contrast(2) blur(2rem); visibility: visible; opacity : 0; }
+  to { filter: contrast(1) blur(0); visibility: visible; opacity: 1; }
 }
 
 .system-map__planetary-system h2 {
