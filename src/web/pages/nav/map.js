@@ -12,6 +12,7 @@ export default function NavMapPage () {
   const router = useRouter()
   const { query } = router
   const { connected, active, ready } = useSocket()
+  const [componentReady, setComponentReady] = useState(false)
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
 
@@ -47,6 +48,7 @@ export default function NavMapPage () {
       //   if (el) el.focus()
       // }, 750) // Delay to allow map to render
     }
+    setComponentReady(true)
   }, [connected, ready, router.isReady])
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
@@ -75,7 +77,7 @@ export default function NavMapPage () {
   }, [system, systemObject, router.isReady])
 
   return (
-    <Layout connected={connected} active={active} ready={ready}>
+    <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel layout='full-width' navigation={NavPanelNavItems('Map', query)}>
         <NavigationSystemMapPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} getSystem={getSystem} />
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />

@@ -38,7 +38,9 @@ export default function ShipCargoPage () {
               {ship.ident}
               <span className='text-primary text-muted'> {ship.type}</span>
             </h3>
-            {ship && ship.onBoard && <p className='text-info text-muted text-uppercase'>Ship manifest, as stated when last on board.</p>}
+            {ship && ship.onBoard && <p className='text-info text-muted text-uppercase'>
+              Ship manifest is updated on boarding.
+            </p>}
             <hr style={{ margin: '1rem 0 0 0' }} />
             {ship && cargo && cargo.length === 0 && <p className='text-info text-uppercase'>Cargo hold is empty.</p>}
             {cargo && cargo.length > 0 &&

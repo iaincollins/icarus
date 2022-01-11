@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { NavPanelNavItems } from 'lib/navigation-items'
+import Loader from 'components/loader'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
 import NavigationListPanel from 'components/panels/navigation/navigation-list-panel'
@@ -12,6 +13,7 @@ export default function NavListPage () {
   const router = useRouter()
   const { query } = router
   const { connected, active, ready } = useSocket()
+  const [componentReady, setComponentReady] = useState(false)
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
 
@@ -38,6 +40,7 @@ export default function NavListPage () {
         if (el) el.focus()
       }
     }
+    setComponentReady(true)
   }, [connected, ready, router.isReady])
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
@@ -66,7 +69,7 @@ export default function NavListPage () {
   }, [system, systemObject, router.isReady])
 
   return (
-    <Layout connected={connected} active={active} ready={ready}>
+    <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel layout='full-width' navigation={NavPanelNavItems('List', query)}>
         <NavigationListPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} />
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
