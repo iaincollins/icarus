@@ -31,7 +31,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
     <>
       {materialCategory &&
         <div className='tabs'>
-          <h3 className='tab' style={{marginTop: '1rem'}}>{materialCategory}</h3>
+          <h4 className='tab' style={{marginTop: '1rem'}}>{materialCategory}</h4>
         </div>}
       <table className='table--animated fx-fade-in'>
         <thead style={{display: 'none'}}>
