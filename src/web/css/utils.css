@@ -17,3 +17,28 @@
     display: none;
   }
 }
+
+@media only screen and (max-width: 799px) {
+  .hidden-medium {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .visible-medium {
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 1023px) {
+  .hidden-large {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .visible-large {
+    display: none;
+  }
+}

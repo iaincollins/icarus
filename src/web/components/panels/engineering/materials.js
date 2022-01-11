@@ -37,7 +37,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
         <thead style={{display: 'none'}}>
           <tr>
             <th style={{ width: '30rem' }}>{materialType} Material</th>
-            <th className='hidden-small'>Applications</th>
+            <th className='hidden-large'>Applications</th>
             <th className='text-right' style={{width: '3rem'}}>Grade</th>
           </tr>
         </thead>
@@ -46,7 +46,6 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
             <tr key={`material_${materialType}_${materialCategory}_${item.symbol}`}>
               <td style={{ width: '30rem' }}>
                 <h3>{item.name}</h3>
-                <span className='visible-small text-muted'>{item.description}</span>
                 <div style={{marginTop: '.5rem'}}>
                   <div style={{ width: '30%', display: 'inline-block' }}>
                     {item.count}<span className='text-muted'>/{item.maxCount}</span>
@@ -56,7 +55,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
                   </div>
                 </div>
               </td>
-              <td className='hidden-small' style={{verticalAlign: 'middle'}}>
+              <td className='hidden-large' style={{verticalAlign: 'middle'}}>
                 {item.blueprints
                   .map(blueprint => {
                     // TODO Highlight engineering uses relevant to equipped engineered modules
