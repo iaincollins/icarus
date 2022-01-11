@@ -1,6 +1,7 @@
 module.exports = class Data {
-  constructor (file) {
-    this.data = require(`../data/${file}.json`)
+  constructor (asset) {
+    this.asset = asset
+    this.data = require(`../data/${asset}.json`)
   }
 
   getBySymbol (itemSymbol) {
@@ -13,7 +14,7 @@ module.exports = class Data {
       return false
     })
 
-    if (!result) console.error('Outfitting: Failed to lookup item', itemSymbol)
+    if (!result) console.error('Lookup failed', this.asset, itemSymbol)
 
     return result
   }
