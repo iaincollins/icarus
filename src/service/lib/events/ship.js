@@ -158,8 +158,6 @@ class ShipEvents {
         if (outfittingModule.rating) module.rating = outfittingModule.rating
         if (outfittingModule.mount) module.mount = outfittingModule.mount
         if (outfittingModule.guidance) module.guidance = outfittingModule.guidance
-      } else {
-        console.log('Outfitting: No EDCD data for module', module.symbol)
       }
 
       // Each ship has exactly one armour module
@@ -211,8 +209,6 @@ class ShipEvents {
           module.fuelCapacity = parseInt(coriolisModule.fuel)
           totalFuelCapacity += module.fuelCapacity
         }
-      } else {
-        console.log('Outfitting: No Coriolis data for module', module.symbol)
       }
 
       module.slotName = module.slot.replace('_', ' ')
@@ -230,6 +226,7 @@ class ShipEvents {
     const ship = await EDCDShipyard.getBySymbol(Loadout?.Ship)
 
     const shipState = {
+      timestamp: new Date().toISOString(),
       type: ship?.name ?? Loadout?.Ship ?? UNKNOWN_VALUE,
       name: Loadout?.ShipName ?? UNKNOWN_VALUE,
       ident: Loadout?.ShipIdent ?? UNKNOWN_VALUE,
@@ -271,11 +268,11 @@ class ShipEvents {
     }
 
     // If ship type is known, save ship state as last known ship state.
-    // This is used to be able to return the last knwon ship state from memory
+    // This is used to be able to return the last known ship state from memory
     // (including cargo etc) even after leaving the ship and boarding an SRV
     // or disembarking on foot.
     if (shipState.type !== UNKNOWN_VALUE) lastKnownShipState = shipState
-
+    
     return shipState
   }
 }

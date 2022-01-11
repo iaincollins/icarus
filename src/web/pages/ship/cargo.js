@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { ShipPanelNavItems } from 'lib/navigation-items'
+import { eliteDateTime } from 'lib/format'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
 
@@ -38,8 +39,8 @@ export default function ShipCargoPage () {
               {ship.ident}
               <span className='text-primary text-muted'> {ship.type}</span>
             </h3>
-            {ship && ship.onBoard && <p className='text-info text-muted text-uppercase'>
-              Ship manifest is updated on boarding.
+            {(ship && !ship.onBoard) && <p className='text-info text-muted text-uppercase'>
+              Ship inventory last updated {eliteDateTime(ship?.timestamp)}
             </p>}
             <hr style={{ margin: '1rem 0 0 0' }} />
             {ship && cargo && cargo.length === 0 && <p className='text-info text-uppercase'>Cargo hold is empty.</p>}
