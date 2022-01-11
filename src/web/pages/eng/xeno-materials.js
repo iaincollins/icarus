@@ -25,7 +25,6 @@ export default function EngineeringMaterialsPage () {
       <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Xeno Materials')}>
         <h2 className='text-info'>Xeno Materials</h2>
         <h3 className='text-primary'>Classified</h3>
-        <hr style={{ margin: '1rem 0 0 0' }} />
         {materials && <Materials materialType='Xeno' materials={materials} />}
       </Panel>
     </Layout>
