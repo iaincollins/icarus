@@ -29,8 +29,10 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
 
   return (
     <>
-      {materialCategory && <h3 className='text-info text-muted' style={{margin: '1rem 0 .5rem 0'}}>{materialCategory}</h3>}
-      <hr style={{margin: '0'}}/>
+      {materialCategory &&
+        <div className='tabs'>
+          <h3 className='tab' style={{marginTop: '1rem'}}>{materialCategory}</h3>
+        </div>}
       <table className='table--animated fx-fade-in'>
         <thead style={{display: 'none'}}>
           <tr>

@@ -1,0 +1,12 @@
+.tab {
+  background: var(--color-primary);
+  color: var(--color-primary-dark);
+  display: inline-block;
+  padding: .25rem .5rem;
+  position: relative;
+  top: .1rem;
+}
+
+.tabs {
+  border-bottom: .2rem solid var(--color-primary);
+}
