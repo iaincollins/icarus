@@ -35,7 +35,7 @@ export default function NavMapPage () {
 
   useEffect(async () => {
     if (!connected || !router.isReady) return
-    const newSystem = await sendEvent('getSystem', query.system ? { name: query.system, useCache: false } : null)
+    const newSystem = await sendEvent('getSystem', query.system ? { name: query.system, useCache: true } : null)
     if (newSystem) setSystem(newSystem)
 
     if (query.selected) {
