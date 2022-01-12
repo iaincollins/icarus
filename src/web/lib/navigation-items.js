@@ -64,6 +64,11 @@ function EngineeringPanelNavItems (activePanel) {
       icon: 'materials-xeno',
       url: '/eng/xeno-materials'
     },
+    {
+      name: 'Blueprints',
+      icon: 'materials',
+      url: '/eng/blueprints'
+    },
   ]
   navigationItems.forEach(item => {
     if (item.name.toLowerCase() === activePanel.toLowerCase()) item.active = true
