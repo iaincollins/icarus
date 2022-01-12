@@ -11,11 +11,13 @@ const NAV_BUTTONS = [
   // },
   {
     name: 'Ship',
+    abbr: 'Ship',
     path: '/ship',
     enabled: true
   },
   {
     name: 'Navigation',
+    abbr: 'Nav',
     path: '/nav',
     enabled: true
   },
@@ -26,11 +28,13 @@ const NAV_BUTTONS = [
   // },
   {
     name: 'Engineering',
+    abbr: 'Eng',
     path: '/eng',
     enabled: true
   },
   {
     name: 'Log',
+    abbr: 'Log',
     path: '/log',
     enabled: true
   }
@@ -116,7 +120,9 @@ export default function Header ({ connected, active }) {
             disabled={!button.enabled || button.path === currentPath}
             className={button.path === currentPath ? 'button--active' : ''}
             onClick={() => router.push(!button.enabled ? currentPath : button.path)}
-          >{button.name}
+          >
+            <span className='visible-small'>{button.abbr}</span>
+            <span className='hidden-small'>{button.name}</span>
           </button>
         )}
       </div>
