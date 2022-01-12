@@ -13,21 +13,20 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             <span className='text-primary text-muted'> {ship.type}</span>
           </h3>
         </div>
-        {
-          <div className='ship-panel__ship-pips text-uppercase'>
-            <div className='ship-panel__ship-pip'>
-              <progress value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
-              <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>Systems</label>
-            </div>
-            <div className='ship-panel__ship-pip'>
-              <progress value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
-              <label className={(ship.onBoard &&ship?.pips?.engines > 0) ? 'text-primary' : 'text-primary text-muted'}>Engines</label>
-            </div>
-            <div className='ship-panel__ship-pip'>
-              <progress value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
-              <label className={(ship.onBoard && ship?.pips?.weapons > 0) ? 'text-primary' : 'text-primary text-muted'}>Weapons</label>
-            </div>
-          </div>}
+        <div className='ship-panel__ship-pips text-uppercase'>
+          <div className='ship-panel__ship-pip'>
+            <progress value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
+            <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>Systems</label>
+          </div>
+          <div className='ship-panel__ship-pip'>
+            <progress value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
+            <label className={(ship.onBoard && ship?.pips?.engines > 0) ? 'text-primary' : 'text-primary text-muted'}>Engines</label>
+          </div>
+          <div className='ship-panel__ship-pip'>
+            <progress value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
+            <label className={(ship.onBoard && ship?.pips?.weapons > 0) ? 'text-primary' : 'text-primary text-muted'}>Weapons</label>
+          </div>
+        </div>
         <table className='ship-panel__ship-stats'>
           <tbody className='text-info'>
             <tr>
@@ -60,7 +59,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             </tr>
           </tbody>
         </table>
-        <hr style={{margin: '1.5rem 0 1rem 0'}} />
+        <hr style={{ margin: '1.5rem 0 1rem 0' }} />
         <ShipModules
           name='Hardpoints'
           modules={
@@ -71,7 +70,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
-        <hr style={{margin: '1rem 0'}} />
+        <hr style={{ margin: '1rem 0' }} />
         <ShipModules
           name='Optional Internals'
           modules={
@@ -86,7 +85,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
-        <hr style={{margin: '1rem 0'}} />
+        <hr style={{ margin: '1rem 0' }} />
         <ShipModules
           name='Core Internals'
           modules={
@@ -99,7 +98,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
-        <hr style={{margin: '1rem 0'}} />
+        <hr style={{ margin: '1rem 0' }} />
         <div style={{ marginBottom: '1rem' }} className='ship-panel__modules--inline'>
           <ShipModules
             name='Utility Mounts'

@@ -6,21 +6,17 @@ export default function Materials ({ materialType, materials }) {
   const materialsByType = materials.filter(item => item.type === materialType)
 
   const materialCategories = []
-  materialsByType.map(material => {
-    if (!materialCategories.includes(material.category))
-      materialCategories.push(material.category)
+  materialsByType.forEach(material => {
+    if (!materialCategories.includes(material.category)) { materialCategories.push(material.category) }
   })
 
-  return (
-    <>
-      {materialCategories.sort().map(materialCategory => 
-        <MaterialsTable
-          materialType={materialType}
-          materialCategory={materialCategory}
-          materials={materialsByType.filter(item => item.category === materialCategory)}
-          />
-      )}
-  </>
+  return materialCategories.sort().map(materialCategory =>
+    <MaterialsTable
+      key={`materials-table_${materialType}_${materialCategory}`}
+      materialType={materialType}
+      materialCategory={materialCategory}
+      materials={materialsByType.filter(item => item.category === materialCategory)}
+    />
   )
 }
 
@@ -31,14 +27,14 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
     <>
       {materialCategory &&
         <div className='tabs'>
-          <h4 className='tab' style={{marginTop: '1rem'}}>{materialCategory}</h4>
+          <h4 className='tab' style={{ marginTop: '1rem' }}>{materialCategory}</h4>
         </div>}
       <table className='table--animated fx-fade-in'>
-        <thead style={{display: 'none'}}>
+        <thead style={{ display: 'none' }}>
           <tr>
             <th style={{ width: '30rem' }}>{materialType} Material</th>
             <th className='hidden-large'>Applications</th>
-            <th className='text-right' style={{width: '3rem'}}>Grade</th>
+            <th className='text-right' style={{ width: '3rem' }}>Grade</th>
           </tr>
         </thead>
         <tbody>
@@ -46,7 +42,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
             <tr key={`material_${materialType}_${materialCategory}_${item.symbol}`}>
               <td style={{ width: '30rem' }}>
                 <h3>{item.name}</h3>
-                <div style={{marginTop: '.5rem'}}>
+                <div style={{ marginTop: '.5rem' }}>
                   <div style={{ width: '30%', display: 'inline-block' }}>
                     {item.count}<span className='text-muted'>/{item.maxCount}</span>
                   </div>
@@ -55,7 +51,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
                   </div>
                 </div>
               </td>
-              <td className='hidden-large' style={{verticalAlign: 'middle'}}>
+              <td className='hidden-large' style={{ verticalAlign: 'middle' }}>
                 {item.blueprints
                   .map(blueprint => {
                     // TODO Highlight engineering uses relevant to equipped engineered modules
@@ -75,8 +71,8 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
                   .map((use, i) => <Fragment key={`material_${item.name}_${use}`}>{i === 0 ? '' : <span className='text-muted'>, </span>}<span className='text-muted'>{use}</span></Fragment>)}
                 {materialType === 'Xeno' && <span className='text-muted'>Classified</span>}
               </td>
-              <td className='text-right text-no-wrap' style={{width: '3rem',verticalAlign: 'middle'}}>
-                <i style={{fontSize: '3rem'}} className={`icon icarus-terminal-materials-grade-${item.grade}`}/>
+              <td className='text-right text-no-wrap' style={{ width: '3rem', verticalAlign: 'middle' }}>
+                <i style={{ fontSize: '3rem' }} className={`icon icarus-terminal-materials-grade-${item.grade}`} />
               </td>
             </tr>
           )}

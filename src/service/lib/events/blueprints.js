@@ -1,5 +1,5 @@
 
-const EDCDMaterials = new (require('../data'))('edcd/fdevids/material')
+// const EDCDMaterials = new (require('../data'))('edcd/fdevids/material')
 const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
 
 class BlueprintEvents {

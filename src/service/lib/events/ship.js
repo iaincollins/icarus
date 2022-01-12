@@ -272,7 +272,7 @@ class ShipEvents {
     // (including cargo etc) even after leaving the ship and boarding an SRV
     // or disembarking on foot.
     if (shipState.type !== UNKNOWN_VALUE) lastKnownShipState = shipState
-    
+
     return shipState
   }
 }

@@ -20,8 +20,7 @@ export default function SystemMap ({ system, setSystemObject }) {
               {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? ` // ${system.security}` : ''}
               {(system?.government === 'None' && system?.security === 'Anarchy') ? <span className='text-muted'>Uncontrolled system</span> : ''}
             </span>
-          </h2>
-        }
+          </h2>}
         {/*
         <h3 className='text-primary'>
           <span className='fx-animated-text' data-fx-order='3'>

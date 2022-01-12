@@ -32,36 +32,40 @@ export default function EngineeringMaterialsPage () {
         {blueprints && materials &&
           <table>
             <tbody>
-            {blueprints.map(blueprint =>
-              <tr>
-                <td>
-                  <h2 className='text-info'>{blueprint.name}</h2>
-                  <h4>{blueprint.modules.join(', ')}</h4>
-                  <ul>
-                    {Object.keys(blueprint.grades).map(grade =>
-                      <li>
-                        <span className='text-info text-muted'>
-                          Grade {blueprint.grades[grade].grade}
-                        </span>
-                        <ul>
-                          {Object.keys(blueprint.grades[grade].components).map(component => {
-                            const material = materials.filter(m => m.name === component)?.[0] ?? 0
-                            const count = material.count
-                            return <li className={count > 0 ? 'text-primary' : 'text-muted'}>
-                              {component} ({blueprint.grades[grade].components[component]}/{count})
-                            </li>
-                          })}
-                        </ul>
-                      </li>
-                    )}
-                  </ul>
-                  <hr style={{margin: '1rem 0 0 0'}}/>
-                </td>
-              </tr>
-            )}
+              {blueprints.map(blueprint =>
+                <tr key={`blueprint_${blueprint.name}`}>
+                  <td>
+                    <h2 className='text-info'>{blueprint.name}</h2>
+                    <h4>{blueprint.modules.join(', ')}</h4>
+                    <ul>
+                      {Object.keys(blueprint.grades).map(grade =>
+                        <li key={`blueprint_${blueprint.name}_grade_${grade}`}>
+                          <span className='text-info text-muted'>
+                            Grade {blueprint.grades[grade].grade}
+                          </span>
+                          <ul>
+                            {Object.keys(blueprint.grades[grade].components).map(component => {
+                              const material = materials.filter(m => m.name === component)?.[0] ?? 0
+                              const count = material.count
+                              return (
+                                <li
+                                  key={`blueprint_${blueprint.name}_grade_${grade}_component_${component}`}
+                                  className={count > 0 ? 'text-primary' : 'text-muted'}
+                                >
+                                  {component} ({blueprint.grades[grade].components[component]}/{count})
+                                </li>
+                              )
+                            })}
+                          </ul>
+                        </li>
+                      )}
+                    </ul>
+                    <hr style={{ margin: '1rem 0 0 0' }} />
+                  </td>
+                </tr>
+              )}
             </tbody>
-          </table>
-        }
+          </table>}
       </Panel>
     </Layout>
   )

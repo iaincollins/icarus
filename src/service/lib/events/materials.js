@@ -76,22 +76,22 @@ class MaterialsEvents {
     const materialEvents = materialsCollected.concat(materialsDiscarded)
     materialEvents.sort((a, b) => Date.parse(a.timestamp) < Date.parse(b.timestamp) ? 1 : -1).reverse()
 
-    for (const materialEvent of  materialEvents) {
+    for (const materialEvent of materialEvents) {
       const material = materials.filter(m => m.symbol.toLowerCase() === materialEvent.Name.toLowerCase())[0] // Get existing reference to this material
       if (!material) {
-        console.log(`Failed to handle event for unknown material`, materialEvent)
+        console.log('Failed to handle event for unknown material', materialEvent)
         continue
       }
       if (materialEvent.event === 'MaterialCollected') {
         material.count += materialEvent.Count
-      } else if (eventName === 'MaterialDiscarded') {
+      } else if (materialEvent.event === 'MaterialDiscarded') {
         material.count -= materialEvent.Count
       }
     }
 
     // Sort all materials by name (to reduce effort required in UI)
     materials.sort((a, b) => a.name.localeCompare(b.name))
-    
+
     return materials
   }
 }

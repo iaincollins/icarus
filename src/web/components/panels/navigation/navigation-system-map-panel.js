@@ -49,7 +49,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 const el = document.getElementById('navigation-panel__system-map-search-input')
                 el.select()
 
-                // Work around to remove focus from selected item to avoid weird behaviour on mobile devices 
+                // Work around to remove focus from selected item to avoid weird behaviour on mobile devices
                 // as there isn't enough room on screen to also display a panel when there is an on screen
                 // virtual keyboard on screen
                 setSystemObject(null)

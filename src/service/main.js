@@ -42,7 +42,6 @@ function getLogDir () {
   return logDir
 }
 
-
 // Export globals BEFORE loading libraries that use them
 global.PORT = PORT
 global.LOG_DIR = LOG_DIR
