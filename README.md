@@ -76,7 +76,7 @@ You may also need the following dependancies, depending on the build steps you w
 
 There are no dependancies required to install and use the application.
 
-### Building
+### Building on Windows
 
 With the required build tools and dependencies installed (`npm install`) you can build the application in a single step:
 
@@ -103,10 +103,21 @@ You can also generate fast, unoptimized builds to test executables without build
 
 A debug build displays debug information on the console and builds very quickly (1-2 seconds). The functionality should be the same, however builds may be slower and binary sizes are significantly larger.
 
-Notes:
+Note:
 
-* "ICARUS Terminal.exe" depends on "ICARUS Service.exe" being in the same directory to run, or it will exit on startup with a message indicating unable to start the ICARUS Terminal Service, so you must build the service at least before you can launch "ICARUS Terminal.exe" directly.
-* You can also run the service in development mode with `npm run dev:service` together with the web interface started from another terminal with `npm run dev:web`. Both must be running at the same time. You can then interact with the application via browser on `http://localhost:3300`. You can use this to do feature development and testing on any platform (e.g. Mac, Linux).
+"ICARUS Terminal.exe" depends on "ICARUS Service.exe" being in the same directory to run, or it will exit on startup with a message indicating unable to start the ICARUS Terminal Service, so you must build the service at least before you can launch "ICARUS Terminal.exe" directly.
+
+#### Cross platform development
+
+You can also run ICARUS Terminal in development mode, by starting the service with the web interface alongside it. Both must be running at the same time. You can use this to do feature development and testing on any platform (e.g. Windows, Mac, Linux).
+
+All you need installed is Node.js.
+
+* `npm run dev:web` start the web interface (has hot reloading)
+* `npm run dev:service` start the service (does not have hot reloading)
+* You can access the UI via http://localhost:3300
+
+There is currently no one-step build command configured for Unix platforms.
 
 ## Contributing / Feedback
 
