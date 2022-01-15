@@ -8,6 +8,7 @@
     "build:app": "node scripts/build-app.js",
     "build:service": "node scripts/build-service.js",
     "build:package": "node scripts/build-package.js",
+    "build:standalone": "npm run build:web && node scripts/build-standalone.js",
     "build:clean": "node scripts/build-clean.js",
     "build:assets": "node scripts/build-assets.js && npm run build:data",
     "build:data": "node scripts/build-data.js",

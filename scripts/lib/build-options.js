@@ -41,7 +41,7 @@ const SERVICE_BINARY_NAME = 'ICARUS Service.exe'
 const SERVICE_UNOPTIMIZED_BUILD = path.join(BUILD_DIR, `~UNOPT_${safeBinaryName(SERVICE_BINARY_NAME)}`)
 const SERVICE_OPTIMIZED_BUILD = path.join(BUILD_DIR, `~OPT_${safeBinaryName(SERVICE_BINARY_NAME)}`)
 const SERVICE_FINAL_BUILD = path.join(BIN_DIR, SERVICE_BINARY_NAME)
-const SERVICE_STANDALONE_BUILD = path.join(BUILD_DIR, 'standalone/icarus-service')
+const SERVICE_STANDALONE_BUILD = path.join(DIST_DIR, 'icarus-terminal-service')
 const SERVICE_ICON = ICON
 
 const SERVICE_VERSION_INFO = {

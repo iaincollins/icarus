@@ -107,9 +107,29 @@ Note:
 
 "ICARUS Terminal.exe" depends on "ICARUS Service.exe" being in the same directory to run, or it will exit on startup with a message indicating unable to start the ICARUS Terminal Service, so you must build the service at least before you can launch "ICARUS Terminal.exe" directly.
 
+#### Building cross platform (Win/Mac/Linux)
+
+You can also easily build a native standalone binary for Windows, Mac and Linux with:
+
+* `npm install`
+* `npm run build:standalone`
+
+This will create a binary for the platform you are running in `dist/icarus-terminal-service`.
+
+For usage information run `icarus-terminal-service` with `--help`.
+
+Notes:
+
+* Node.js is required for the build step. There are no runtime dependancies.
+* The standalone binary does not feature auto-update notifications.
+* The standalone binary does not have a native UI, you must connect via a browser.
+* Features that depend on native UI (e.g. always on top, borderless) are not supported.
+
+As the game itself is not supported by the developers on Mac or Linux I do not plan to aim for feature parity on these platforms.
+
 #### Cross platform development
 
-You can also run ICARUS Terminal in development mode, by starting the service with the web interface alongside it. Both must be running at the same time. You can use this to do feature development and testing on any platform (e.g. Windows, Mac, Linux).
+You can also run ICARUS Terminal in development mode, by starting the service with the web interface alongside it. Both must be running at the same time. You can use this to do feature development on any platform (e.g. Windows, Mac, Linux).
 
 All you need installed is Node.js.
 

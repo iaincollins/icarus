@@ -86,7 +86,9 @@ class EliteLog {
         
         // Store in human readable timestamp for easier debugging
         // (performance impact is minimal)
-        minTimestamp = new Date(Date.parse(newestTimestamp) - days * 24 * 60 * 60 * 1000).toISOString()
+        if (newestTimestamp) { // Conditonal to suppress errors when no data loaded
+          minTimestamp = new Date(Date.parse(newestTimestamp) - days * 24 * 60 * 60 * 1000).toISOString()
+        }
       }
 
       for (const file of files) {

@@ -1,6 +1,11 @@
+// The standalone build creates cross platform (Win/Mac/Linux) build of the
+// service with nexe. Unlike the full release, this build does not feature
+// an installer, auto-updating or a native UI and must be configured using
+// command line options.
 const fs = require('fs')
 const path = require('path')
 const { compile } = require('nexe')
+const UPX = require('upx')({ brute: false }) // Brute on service seems to hang
 const yargs = require('yargs')
 const commandLineArgs = yargs.argv
 
@@ -12,7 +17,6 @@ const {
   SERVICE_STANDALONE_BUILD,
   SERVICE_ICON,
 } = require('./lib/build-options')
-
 
 const DEBUG_CONSOLE = commandLineArgs.debug || DEBUG_CONSOLE_DEFAULT
 const ENTRY_POINT = path.join(__dirname, '..', 'src', 'service', 'main.js')
@@ -39,10 +43,15 @@ async function build () {
       'src/service/data' // Include dynamically loaded JSON files
     ],
     debug: DEBUG_CONSOLE,
+    target: ['mac-x64-14.15.3', 'linux-x64-14.15.3', 'windows-x86-14.15.3'],
     build: false,
     bundle: true,
     runtime: {
       nodeConfigureOpts: ['--fully-static']
     }
   })
+
+  // await UPX(SERVICE_STANDALONE_BUILD)
+  // .output(SERVICE_STANDALONE_BUILD)
+  // .start()
 }

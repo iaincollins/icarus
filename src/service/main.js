@@ -10,35 +10,70 @@ const os = require('os')
 const fs = require('fs')
 const path = require('path')
 const yargs = require('yargs')
-const commandLineArgs = yargs.argv
+const packageJson = require('../../package.json')
+
+const commandLineArgs = yargs
+  .help()
+  .usage('Usage: $0 --save-game-dir <directory> [--port <port>]')
+  .option('port', {
+    type: 'number',
+    alias: 'p',
+    description: 'Port to listen on (default: 3300)'
+  })
+  .option('save-game-dir', {
+    type: 'string',
+    alias: 's',
+    description: 'Elite Dangerous Save Game Directory'
+  })
+  .version(packageJson.version)
+  .alias('v', 'version')
+  .alias('h', 'help')
+  //.showHelpOnFail(true)
+  .argv
+
+console.log(`ICARUS Terminal Service ${packageJson.version}`)
 
 // Parse command line arguments
-const PORT = commandLineArgs.port || 3300 // Port to listen on
-const HTTP_SERVER = commandLineArgs['http-server'] || false // URL of server
+const PORT = commandLineArgs.port || commandLineArgs.p || 3300 // Port to listen on
+const HTTP_SERVER = commandLineArgs['http-server'] || false // URL of server (used in development only)
 const WEB_DIR = 'build/web'
 const LOG_DIR = getLogDir()
+
+if (!fs.existsSync(LOG_DIR)) {
+  console.error('ERROR: No save game data found in', LOG_DIR, "\n")
+  yargs.showHelp()
+  process.exit(1)
+} else {
+  console.log('Loading save game data from', LOG_DIR)
+}
 
 function getLogDir () {
   // Hard coded fallback
   const FALLBACK_LOG_DIR = path.join(os.homedir(), 'Saved Games', 'Frontier Developments', 'Elite Dangerous')
   let logDir = FALLBACK_LOG_DIR
 
-  // Use provided Save Game dir as base path to look for the the files we need
-  // This must be obtained via native OS APIs so is typically passed by the client
-  if (commandLineArgs['save-game-dir']) {
-    logDir = path.join(commandLineArgs['save-game-dir'], 'Frontier Developments', 'Elite Dangerous')
-  }
-
-  // For development / Unix platforms, you can use the LOG_DIR environment
+  // For development (or on Unix platforms) you can use the LOG_DIR environment
   // variable to specify the direct path (relative or absolute). You can also
-  // use a .env file
+  // use a .env file. This is overriden by command line args.
   if (process.env.LOG_DIR) {
     logDir = process.env.LOG_DIR.startsWith('/') ? process.env.LOG_DIR : path.join(__dirname, process.env.LOG_DIR)
   }
-
-  // Check if the log dir exists and seems valid, try fallback as needed
-  if (!fs.existsSync(logDir) && fs.existsSync(FALLBACK_LOG_DIR)) return FALLBACK_LOG_DIR
-
+  // Use provided Save Game dir as base path to look for the the files we need
+  // This must be obtained via native OS APIs so is typically passed by the client.
+  const commandLineSaveGameDir = commandLineArgs['s'] || commandLineArgs['save-game-dir']
+  if (commandLineSaveGameDir) {
+    // The option can be a path to a Windows Save Game directory (in which case
+    // we append 'Frontier Developments\Elite Dangerous') or the direct path.
+    // If it doesn't look like a valid Save Game dir then it is treated it as a
+    // direct path.
+    const FullPathToSaveGameDir = path.join(commandLineSaveGameDir, 'Frontier Developments', 'Elite Dangerous')
+    if (fs.existsSync(FullPathToSaveGameDir)) {
+      logDir = FullPathToSaveGameDir
+    } else {
+      logDir = commandLineSaveGameDir
+    }
+  }
+  
   return logDir
 }
 
@@ -47,7 +82,7 @@ global.PORT = PORT
 global.LOG_DIR = LOG_DIR
 global.BROADCAST_EVENT = broadcastEvent
 
-const packageJson = require('../../package.json')
+// Don't load events till globals are set
 const { eventHandlers, init } = require('./lib/events')
 
 let httpServer
@@ -97,6 +132,12 @@ function broadcastEvent (name, message) {
       }
     })
     webSocketDebugMessage('WebSocket broadcast sent', name, message)
+
+    // Look for for loadingProgress events and display information about events
+    // loaded to the console when loadingProgress indicates loading is complete
+    if (name == 'loadingProgress' && message.loadingComplete === true) {
+      console.log(`Imported ${message.numberOfEventsImported} events from ${message.numberOfFiles} files`)
+    }
   } catch (e) {
     console.error('ERROR_SOCKET_BROADCAST_EVENT_FAILED', name, message, e)
   }
@@ -110,9 +151,8 @@ webSocketServer.on('error', function (error) {
 })
 
 // Start server
-console.log(`ICARUS Terminal Service ${packageJson.version}`)
 httpServer.listen(PORT)
-console.log(`Listening on port ${PORT}`)
+console.log(`Listening on port ${PORT}…`)
 
 // Initialize app - start parsing data and watching for game state changes
 setTimeout(() => init(), 250)
