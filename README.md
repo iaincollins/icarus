@@ -55,6 +55,8 @@ The web interface is written in Next.js/React and is statically exported and the
 
 All terminals (and any web clients) connect to the same single instance of service which receives and broadcasts messages to all of them using a websocket interface, there should only ever one instance of "ICARUS Service.exe" running at a time
 
+## Building
+
 ### Requirements
 
 To build the entire application you need to be running Microsoft Windows and have the following dependencies installed:
@@ -107,7 +109,7 @@ Note:
 
 "ICARUS Terminal.exe" depends on "ICARUS Service.exe" being in the same directory to run, or it will exit on startup with a message indicating unable to start the ICARUS Terminal Service, so you must build the service at least before you can launch "ICARUS Terminal.exe" directly.
 
-#### Building cross platform (Win/Mac/Linux)
+### Building cross platform (Win/Mac/Linux)
 
 You can also easily build a native standalone binary for Windows, Mac and Linux with:
 
@@ -127,17 +129,15 @@ Notes:
 
 As the game itself is not supported by the developers on Mac or Linux I do not plan to aim for feature parity on these platforms.
 
-#### Cross platform development
+## Development (cross platform)
 
-You can also run ICARUS Terminal in development mode, by starting the service with the web interface alongside it. Both must be running at the same time. You can use this to do feature development on any platform (e.g. Windows, Mac, Linux).
+You can run ICARUS Terminal in development mode by starting the service with the web interface alongside it. Both must be running at the same time. You can use this to do feature development on any platform (e.g. Windows, Mac, Linux).
 
-All you need installed is Node.js.
+All you need installed is Node.js and ideally some save game data.
 
 * `npm run dev:web` start the web interface (has hot reloading)
 * `npm run dev:service` start the service (does not have hot reloading)
 * You can access the UI via http://localhost:3300
-
-There is currently no one-step build command configured for Unix platforms.
 
 ## Contributing / Feedback
 
