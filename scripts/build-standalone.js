@@ -15,7 +15,7 @@ const {
   BUILD_DIR,
   BIN_DIR,
   SERVICE_STANDALONE_BUILD,
-  SERVICE_ICON,
+  SERVICE_ICON
 } = require('./lib/build-options')
 
 const DEBUG_CONSOLE = commandLineArgs.debug || DEBUG_CONSOLE_DEFAULT

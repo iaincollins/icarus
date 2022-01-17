@@ -28,7 +28,6 @@ const commandLineArgs = yargs
   .version(packageJson.version)
   .alias('v', 'version')
   .alias('h', 'help')
-  //.showHelpOnFail(true)
   .argv
 
 console.log(`ICARUS Terminal Service ${packageJson.version}`)
@@ -40,7 +39,7 @@ const WEB_DIR = 'build/web'
 const LOG_DIR = getLogDir()
 
 if (!fs.existsSync(LOG_DIR)) {
-  console.error('ERROR: No save game data found in', LOG_DIR, "\n")
+  console.error('ERROR: No save game data found in', LOG_DIR, '\n')
   yargs.showHelp()
   process.exit(1)
 } else {
@@ -60,7 +59,7 @@ function getLogDir () {
   }
   // Use provided Save Game dir as base path to look for the the files we need
   // This must be obtained via native OS APIs so is typically passed by the client.
-  const commandLineSaveGameDir = commandLineArgs['s'] || commandLineArgs['save-game-dir']
+  const commandLineSaveGameDir = commandLineArgs.s || commandLineArgs['save-game-dir']
   if (commandLineSaveGameDir) {
     // The option can be a path to a Windows Save Game directory (in which case
     // we append 'Frontier Developments\Elite Dangerous') or the direct path.
@@ -73,7 +72,7 @@ function getLogDir () {
       logDir = commandLineSaveGameDir
     }
   }
-  
+
   return logDir
 }
 
