@@ -1,9 +1,3 @@
-############################################################################################
-#      NSIS Installation Script created by NSIS Quick Setup Script Generator v1.09.18
-#               Entirely Edited with NullSoft Scriptable Installation System                
-#              by Vlasis K. Barkas aka Red Wine red_wine@freemail.gr Sep 2006               
-############################################################################################
-
 !define APP_NAME "ICARUS Terminal"
 !define COMP_NAME "ICARUS"
 !define VERSION "${PRODUCT_VERSION}"
@@ -68,7 +62,11 @@ InstallDir "$PROGRAMFILES\ICARUS Terminal"
 
 !insertmacro MUI_PAGE_INSTFILES
 
+# Pass the flag "--install" to let the app know it is being run by the installer
+# after install/update as an easy way to trigger any 'first run' actions.
+# There are better ways to do this, but it's much easier to do it this way.
 !define MUI_FINISHPAGE_RUN "$INSTDIR\${MAIN_APP_EXE}"
+!define MUI_FINISHPAGE_RUN_PARAMETERS "--install"
 !insertmacro MUI_PAGE_FINISH
 
 !insertmacro MUI_UNPAGE_CONFIRM
@@ -173,10 +171,6 @@ RmDir "$SMPROGRAMS\ICARUS Terminal"
 DeleteRegKey ${REG_ROOT} "${REG_APP_PATH}"
 DeleteRegKey ${REG_ROOT} "${UNINSTALL_PATH}"
 SectionEnd
-
-Function .onInit
-
-FunctionEnd
 
 ######################################################################
 

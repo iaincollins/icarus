@@ -12,25 +12,13 @@ import (
 	"golang.org/x/sys/windows"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"syscall"
 	"time"
 	"unsafe"
 )
 
-// Window title declared here as to identify if the app is aleady running
-const ICON = "icon.ico"
-const LAUNCHER_WINDOW_TITLE = "ICARUS Terminal Launcher"
-const TERMINAL_WINDOW_TITLE = "ICARUS Terminal"
-const LPSZ_CLASS_NAME = "IcarusTerminalWindowClass"
-const SERVICE_EXECUTABLE = "ICARUS Service.exe"
-const TERMINAL_EXECUTABLE = "ICARUS Terminal.exe"
-const DEBUGGER = true
-
-const defaultLauncherWindowWidth = int32(900)
-const defaultLauncherWindowHeight = int32(500)
-const defaultWindowWidth = int32(1280)
-const defaultWindowHeight = int32(860)
-
+var dirname = ""
 var defaultPort = 3300 // Set to 0 to be assigned a free high numbered port
 var port int           // Actual port we are running on
 var webViewInstance webview.WebView
@@ -72,14 +60,29 @@ func main() {
 	heightPtr := flag.Int("height", int(windowHeight), "Window height")
 	portPtr := flag.Int("port", defaultPort, "Port service should run on")
 	terminalMode := flag.Bool("terminal", false, "Run in terminal only mode")
+	installMode := flag.Bool("install", false, "First run after install")
 	flag.Parse()
 
 	windowWidth = int32(*widthPtr)
 	windowHeight = int32(*heightPtr)
-
 	port = int(*portPtr)
 	url = fmt.Sprintf("http://localhost:%d", *portPtr)
 	launcherUrl := fmt.Sprintf("http://localhost:%d/launcher", *portPtr)
+
+	pathToExecutable, err := os.Executable()
+	if err != nil {
+		dialog.Message("%s", "Failed to start ICARUS Terminal Service\n\nUnable to determine current directory.").Title("Error").Error()
+		exitApplication(1)
+	}
+	dirname = filepath.Dir(pathToExecutable)
+
+	// Check if is first run after installing, in which case we restart without
+	// elevated privilages to ensure we are not running as the installer, as that
+	// causes problems for things like interacting with windows via SteamVR.
+	if *installMode {
+		runUnelevated(pathToExecutable)
+		return
+	}
 
 	// Check if we are starting in Terminal mode
 	if *terminalMode {
@@ -111,14 +114,15 @@ func main() {
 	// Run service
 	cmdArg0 := fmt.Sprintf("%s%d", "--port=", *portPtr)
 	cmdArg1 := fmt.Sprintf("%s%s", "--save-game-dir=", saveGameDirPath)
-	serviceCmdInstance := exec.Command(SERVICE_EXECUTABLE, cmdArg0, cmdArg1)
-	serviceCmdInstance.SysProcAttr = &syscall.SysProcAttr{CreationFlags: 0x08000000, HideWindow: true} // Don't create a visible window for the service process
+	serviceCmdInstance := exec.Command(filepath.Join(dirname, SERVICE_EXECUTABLE), cmdArg0, cmdArg1)
+	serviceCmdInstance.Dir = dirname
+	serviceCmdInstance.SysProcAttr = &syscall.SysProcAttr{CreationFlags: 0x08000000, HideWindow: true}
 	serviceCmdErr := serviceCmdInstance.Start()
 
 	// Exit if service fails to start
 	if serviceCmdErr != nil {
 		fmt.Println("Error starting service", serviceCmdErr.Error())
-		dialog.Message("%s", "Failed to start ICARUS Terminal Service.").Title("Error").Error()
+		dialog.Message("%s%s", "Failed to start ICARUS Terminal Service.\n\n", serviceCmdErr.Error()).Title("Error").Error()
 		exitApplication(1)
 	}
 
@@ -340,7 +344,8 @@ func bindFunctionsToWebView(w webview.WebView) {
 	})
 
 	w.Bind("icarusTerminal_newWindow", func() int {
-		terminalCmdInstance := exec.Command(TERMINAL_EXECUTABLE, "--terminal=true", fmt.Sprintf("--port=%d", port))
+		terminalCmdInstance := exec.Command(filepath.Join(dirname, TERMINAL_EXECUTABLE), "--terminal=true", fmt.Sprintf("--port=%d", port))
+		terminalCmdInstance.Dir = dirname
 		terminalCmdErr := terminalCmdInstance.Start()
 
 		// Exit if service fails to start

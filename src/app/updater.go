@@ -5,7 +5,6 @@ import (
 	"errors"
 	"github.com/gonutz/w32/v2"
 	"github.com/jmoiron/jsonq"
-	"golang.org/x/sys/windows"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -13,7 +12,6 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
-	"syscall"
 	"time"
 )
 
@@ -46,15 +44,18 @@ func InstallUpdate() {
 }
 
 func GetCurrentAppVersion() string {
-	const path = "ICARUS Terminal.exe"
+	pathToExecutable, err := os.Executable()
+	if err != nil {
+		panic("os.Executable() failed")
+	}
 
-	size := w32.GetFileVersionInfoSize(path)
+	size := w32.GetFileVersionInfoSize(pathToExecutable)
 	if size <= 0 {
 		panic("GetFileVersionInfoSize failed")
 	}
 
 	info := make([]byte, size)
-	ok := w32.GetFileVersionInfo(path, info)
+	ok := w32.GetFileVersionInfo(pathToExecutable, info)
 	if !ok {
 		panic("GetFileVersionInfo failed")
 	}
@@ -170,17 +171,4 @@ func DownloadUpdate(downloadUrl string) (string, error) {
 	_, err = io.Copy(out, resp.Body)
 
 	return tmpfile, nil
-}
-
-func runElevated(pathToExe string) {
-	cwd, _ := os.Getwd()
-	verbPtr, _ := syscall.UTF16PtrFromString("runas")
-	exePtr, _ := syscall.UTF16PtrFromString(pathToExe)
-	cwdPtr, _ := syscall.UTF16PtrFromString(cwd)
-	argPtr, _ := syscall.UTF16PtrFromString("")
-
-	windows.ShellExecute(0, verbPtr, exePtr, argPtr, cwdPtr, int32(1))
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
 }

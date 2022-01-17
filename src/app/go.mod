@@ -1,4 +1,4 @@
-module iaincollins.com/icarus-terminal/v2
+module icarus-terminal
 
 go 1.17
 
