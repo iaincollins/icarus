@@ -10,7 +10,7 @@ const {
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
 const NORMALIZE_VIEWBOX_WIDTH = true
-const MIN_VIEWBOX_WIDTH = 10000
+const MIN_VIEWBOX_WIDTH = 20000
 
 const SOLAR_RADIUS = 696340 // Size of Sol in km
 

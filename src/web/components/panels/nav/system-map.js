@@ -31,7 +31,6 @@ export default function SystemMap ({ system, setSystemObject }) {
           </span>
         </h3>
         */}
-
         {system.faction && system.faction !== 'Unknown' &&
           <h3 className='text-primary'>
             <span className='fx-animated-text' data-fx-order='3'>
