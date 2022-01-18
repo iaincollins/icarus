@@ -65,30 +65,36 @@
   to { filter: contrast(1) blur(0); visibility: visible; opacity: 1; }
 }
 
-.system-map__planetary-system h2 {
-  text-shadow: var(--text-shadow);
+.system-map__planetary-system-star {
+  position: relative;
+}
+
+.system-map__planetary-system-star--icon {
+  padding-left: 5.5rem;
+}
+
+.system-map__planetary-system-star-icon {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.system-map__planetary-system-star h2 {
   font-size: 2rem;
   line-height: 2rem;
 }
 
-.system-map__planetary-system h2 .icon {
+.system-map__planetary-system-star h3,
+.system-map__planetary-system-star h4 {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+
+.system-map__planetary-system-star .icon {
   position: relative;
   top: .25rem;
-}
-
-.system-map__planetary-system h3 {
-  color: var(--color-secondary);
-  text-shadow: var(--text-shadow);
-  font-size: 1.25rem;
-  line-height: 1.25rem;
-}
-
-.system-map__planetary-system h4 {
-  color: var(--color-secondary);
-  text-shadow: var(--text-shadow);
-  font-size: 1.25rem;
-  line-height: 1.25rem;
-  text-transform: none;
 }
 
 .system-map__system-object {
@@ -109,6 +115,12 @@
 
 .system-map__system-object .system-map__planet {
   z-index: 3;
+}
+
+.system-map__planetary-system-star-icon svg {
+  opacity: 1;
+  visibility: visible;
+  animation: none;
 }
 
 .system-map__system-object[data-system-object-type="Planet"]:focus .system-map__planet {
@@ -136,6 +148,11 @@
 
 .system-map__system-object[data-system-object-type="Planet"]:not([data-system-object-atmosphere="No atmosphere"]) .system-map__planet {
 
+}
+
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Supermassive Black Hole" i] .system-map__planet,
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Black Hole" i] .system-map__planet {
+  filter: none !important;
 }
 
 .system-map__system-object[data-system-object-type="Planet"] .system-map__planet {
@@ -181,17 +198,17 @@
 
 .system-map__system-object[data-system-object-type="Star"] .system-map__planet-surface {
   fill: white;
-  filter: grayscale(100%) contrast(0.2) brightness(1.5) drop-shadow(0 0 25rem white);
+  filter: grayscale(100%) contrast(0.2) brightness(1.5) drop-shadow(0 0 15rem white);
   opacity: 1;
   stroke: none;
 }
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Supermassive Black Hole" i] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Black Hole" i] .system-map__planet-surface {
-  fill: black;
-  filter: drop-shadow(0 0 25rem black);
-  stroke-width: 50;
-  stroke: white;
+  fill: black !important;
+  filter: drop-shadow(0 0 25rem black) !important;
+  stroke-width: 100;
+  stroke: white !important;
 }
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="White Dwarf" i] .system-map__planet-surface,
@@ -200,8 +217,7 @@
 }
 
 
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="K "] .system-map__planet-surface,
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="0 "] .system-map__planet-surface,
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="O "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="B "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="A "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="TT "] .system-map__planet-surface,
@@ -209,7 +225,7 @@
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="W "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WC "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WN "] .system-map__planet-surface,
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="W0 "] .system-map__planet-surface {
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WO "] .system-map__planet-surface {
   filter: grayscale(100%) contrast(0.2) brightness(1.8) drop-shadow(0 0 5rem rgb(222, 247, 255)) drop-shadow(0 0 10rem white) drop-shadow(0 0 10rem rgb(108, 196, 255));
 }
 
@@ -220,7 +236,7 @@
 
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Ae "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Be "] .system-map__planet-surface,
-.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="XXXXXXxxxx K "] .system-map__planet-surface,
+.system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="K "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="C "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="CH "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="CHd "] .system-map__planet-surface,

@@ -6,7 +6,7 @@ const SHOW_LABELS = true
 
 // TODO This has been ported to JSX but would be easier to maintain if each
 // type of object was refactored out into it's own component
-export default function SystemMapObject ({ systemObject, setSystemObject, parentSystemObject }) {
+export default function SystemMapObject ({ systemObject, setSystemObject, parentSystemObject, labels = true }) {
   const CLICKABLE_AREA_PADDING = 250
   const MAX_LABEL_WIDTH = 3000
 
@@ -120,7 +120,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
                 r={r + 70}
               />
             </g>}
-          {SHOW_LABELS === true &&
+          {SHOW_LABELS === true && labels === true &&
             <>
               <text
                 className='system-map__planet-name-text'
@@ -286,7 +286,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
         >
           {Icons[systemObject.type]}
         </svg>
-        {SHOW_LABELS === true &&
+        {SHOW_LABELS === true && labels === true &&
           <>
             <text
               className='system-map__planet-name-text'
