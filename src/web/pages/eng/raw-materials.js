@@ -3,7 +3,7 @@ import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { EngineeringPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
-import Materials from 'components/panels/engineering/materials'
+import Materials from 'components/panels/eng/materials'
 
 export default function EngineeringMaterialsPage () {
   const { connected, active, ready } = useSocket()

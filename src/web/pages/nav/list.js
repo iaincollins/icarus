@@ -4,8 +4,8 @@ import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { NavPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
-import NavigationListPanel from 'components/panels/navigation/navigation-list-panel'
-import NavigationInspectorPanel from 'components/panels/navigation/navigation-inspector-panel'
+import NavigationListPanel from 'components/panels/nav/navigation-list-panel'
+import NavigationInspectorPanel from 'components/panels/nav/navigation-inspector-panel'
 
 // TODO Refactor to reduce code duplication
 export default function NavListPage () {

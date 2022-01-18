@@ -4,8 +4,8 @@ import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { NavPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
-import NavigationSystemMapPanel from 'components/panels/navigation/navigation-system-map-panel'
-import NavigationInspectorPanel from 'components/panels/navigation/navigation-inspector-panel'
+import NavigationSystemMapPanel from 'components/panels/nav/navigation-system-map-panel'
+import NavigationInspectorPanel from 'components/panels/nav/navigation-inspector-panel'
 
 // TODO Refactor to reduce code duplication
 export default function NavMapPage () {
