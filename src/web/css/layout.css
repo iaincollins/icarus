@@ -36,10 +36,10 @@
 
 .layout__main {
   position: absolute;
-  top: 10rem;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
+  top: 9.5rem;
+  bottom: .5rem;
+  left: .5rem;
+  right: .5rem;
   transition: .25s ease-in-out;
   opacity: 0;
   overflow: hidden;
@@ -73,7 +73,7 @@
 }
 
 .layout__panel--secondary-navigation {
-  padding-left: 5rem;
+  padding-left: 4.5rem;
   box-sizing: border-box;
 }
 
