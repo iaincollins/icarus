@@ -15,7 +15,7 @@ export default function Materials ({ materialType, materials }) {
       key={`materials-table_${materialType}_${materialCategory}`}
       materialType={materialType}
       materialCategory={materialCategory}
-      materials={materialsByType.filter(item => item.category === materialCategory)}
+      materials={materialsByType.filter(item => item.category === materialCategory).sort((a, b) => a.grade > b.grade ? 1 : -1)}
     />
   )
 }
