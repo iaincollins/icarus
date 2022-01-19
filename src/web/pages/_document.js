@@ -204,6 +204,10 @@ class MyDocument extends Document {
             .system-map__system-object[data-system-object-type="Star"] .system-map__planet-surface {
               fill: url(#svg-pattern__star-surface) !important;
             }
+            
+            .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="Brown dwarf" i] .system-map__planet-surface {
+              fill: url(#svg-pattern__planet-surface--brown-dwarf) !important;
+            }
           </style>
         \`)
       } else {
