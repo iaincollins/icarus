@@ -7,7 +7,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
     <>
       <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
         <div className='ship-panel__title'>
-          <h2 className='text-info'>{ship.name}</h2>
+          <h2>{ship.name}</h2>
           <h3 className='text-primary'>
             {ship.ident}
             <span className='text-primary text-muted'> {ship.type}</span>

@@ -34,7 +34,7 @@ export default function ShipCargoPage () {
       <Panel layout='full-width' scrollable navigation={ShipPanelNavItems('Cargo')}>
         {ship &&
           <>
-            <h2 className='text-info'>Cargo Manifest</h2>
+            <h2>Cargo Manifest</h2>
             <h3 className='text-primary'>
               {ship.ident}
               <span className='text-primary text-muted'> {ship.type}</span>

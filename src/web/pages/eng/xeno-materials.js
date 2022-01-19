@@ -23,7 +23,7 @@ export default function EngineeringMaterialsPage () {
   return (
     <Layout connected={connected} active={active} ready={ready}>
       <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Xeno Materials')}>
-        <h2 className='text-info'>Xeno Materials</h2>
+        <h2>Xeno Materials</h2>
         <h3 className='text-primary'>Classified</h3>
         {materials && <Materials materialType='Xeno' materials={materials} />}
       </Panel>

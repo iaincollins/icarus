@@ -20,8 +20,7 @@
   position: absolute;
 
   /* To avoid clipping text-shadow to left of title text */
-  left: 4rem;
-  padding-left: 1rem;
+  left: 5rem;
 
   top: 0;
   bottom: 0;
