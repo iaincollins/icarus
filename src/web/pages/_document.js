@@ -195,6 +195,9 @@ class MyDocument extends Document {
               <pattern id="svg-pattern__planet-surface--gas-giant" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="4096" height="4096">
                 <image href="/images/textures/gas-giant.jpg" x="0" y="0" width="4096" height="4096"/>
               </pattern>
+              <pattern id="svg-pattern__planet-surface--brown-dwarf" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="8192" height="8192">
+                <image href="/images/textures/gas-giant.jpg" x="0" y="0" width="8192" height="8192"/>
+              </pattern>
             </defs>
           </svg>
           <style>

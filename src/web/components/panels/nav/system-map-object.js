@@ -3,6 +3,7 @@ import { SURFACE_PORTS, PLANETARY_OUTPOSTS, SETTLEMENTS } from '../../../../shar
 
 const USE_ICONS_FOR_PLANETS = false
 const SHOW_LABELS = true
+const DEFAULT_RADIUS = 2000
 
 // TODO This has been ported to JSX but would be easier to maintain if each
 // type of object was refactored out into it's own component
@@ -51,9 +52,9 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
         </>
       )
     } else {
-      const x = systemObject._x
-      const y = systemObject._y
-      const r = systemObject._r
+      const x = systemObject._x || 0
+      const y = systemObject._y || 0
+      const r = systemObject._r || DEFAULT_RADIUS
 
       // An image is used underneath the main SVG to easily add a texture to
       // the planet (could be done without foreignObject, but this is simpler)
@@ -223,7 +224,7 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
     }
   } else {
     // Draw systemObjects that are not planets or stars using icons
-    const r = systemObject._r
+    const r = systemObject._r || DEFAULT_RADIUS
     const CORRECT_FOR_IMAGE_OFFSET = 90
 
     let imageY = (systemObject._y - (r / 2)) - CORRECT_FOR_IMAGE_OFFSET

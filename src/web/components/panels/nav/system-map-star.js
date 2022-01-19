@@ -3,16 +3,24 @@ import SystemMapObject from './system-map-object'
 export default function SystemMapStar ({ star, setSystemObject }) {
   if (star.type === 'Null' && (!star._children || star._children.length === 0)) return null
 
+  let useLargerViewBox = false
+  if (star.rings) useLargerViewBox = true
+  if (star.subType === 'Neutron Star') useLargerViewBox = true
+  if (star?.subType?.startsWith('White Dwarf')) useLargerViewBox = true
+  if (star.subType === 'Black Hole') useLargerViewBox = true
+
   return (
     <div
       className='system-map__planetary-system'
       data-stellar-objects-horizontal={star._children.length}
       data-stellar-objects-vertical={star._maxObjectsInOrbit}
     >
-      <div className={`system-map__planetary-system-star ${ star.id ? 'system-map__planetary-system-star--icon' : '0'}`}>
+      <div 
+        onClick={() => setSystemObject(star)}
+        className={`system-map__planetary-system-star ${ star.id ? 'system-map__planetary-system-star--icon' : '0'}`}>
         {star.id && <div className='system-map__planetary-system-star-icon'>
-            <svg viewBox={star.rings ? '-4500 -4500 8500 8000' : '-2500 -2500 5000 5000'} preserveAspectRatio='xMinYMid meet'>
-              <SystemMapObject systemObject={{...star, _r: 2000}} setSystemObject={setSystemObject} labels={false}/>
+            <svg viewBox={useLargerViewBox ? '-4500 -4500 8500 8000' : '-2500 -2500 5000 5000'} preserveAspectRatio='xMinYMid meet'>
+              <SystemMapObject systemObject={star} setSystemObject={setSystemObject} labels={false}/>
             </svg>
           </div>}
         <h2>
