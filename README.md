@@ -15,7 +15,7 @@ _ICARUS Terminal is an immersive, context-sensitive second screen interface for 
 * You can run ICARUS Terminal in a single window, in multiple windows or connect remotely from another computer, tablet or other device with a browser (or any combination of those) and the information displayed will update in real time.
 * The application checks for new releases when it starts and will give you the option to install the update.
 * The application includes integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/). Data such as your current in-game location will be provided to them order to render information in the interface, but does not include information about you (e.g. your commander name or ship name) or any personally identifiable information.
-* Windows 7 or newer is required. Builds are not currently signed with a code signing certificate.
+* Windows 10 or newer is required. Builds are not currently signed with a code signing certificate.
 
 ----
 
@@ -25,11 +25,7 @@ _This documentation is intended for developers._
 
 ICARUS is a Windows (Win32) application built primarily in JavaScript, using Node.js + WebSockets and Go with a fork of custom [Edge/WebView2 abstraction in C/C++](https://github.com/iaincollins/webview).
 
-This inital public release is focused on sharing the application scaffolding, following development of an earlier (unreleased) proof of concept created in Electron. In comparison to the Electron version, this implementation has a smaller memory footprint and a much smaller package size (~20 MB vs ~200 MB).
-
-This approach means the functionality from the previous version can be ported into this version and that it is easier to leverage existing third party libraries. The trade off is includes additional complexity in the build process and that it required development of custom launcher / application shell in Go/C++ (to take advantage of native Windows APIs) and custom software update mechaism (using NSIS and GitHub Releases).
-
-This release does not currently include the logic or assests developed for the prototype. The intention is to port the existing functionality that has been developed over to this codebase and to publish a public beta when there is minimum viable level of functionality. The first thing to be ported willl be the event handling logic.
+The self-contained installer is around 20 MB and has no dependancies. If you are running an older but supported release of Windows, any missing run time dependancies will be automatically and transparently installed by the bundled Microsft installer.
 
 ## Getting Started
 
@@ -43,17 +39,17 @@ The codebase is split up into three parts:
 
 "ICARUS Terminal.exe" serves as both a launcher and a shell to render the graphical interface. It creates new terminal windows by spawing itself with the `--terminal` and `--port` flags). All terminal processes exit when the launcher terminates. 
 
-"ICARUS Terminal.exe" uses [a fork of a webview wrapper for Go/C++](https://github.com/iaincollins/webview) which uses the Microsoft Edge/Chromium engine to render the interface. This library has been manually bundled with this project in `resources/dll`, along with a suitable loader from Microsoft.
+"ICARUS Terminal.exe" uses [a fork of a webview wrapper for Go/C++](https://github.com/iaincollins/webview) which uses the Microsoft Edge/Chromium engine included in Windows to render the interface. This library has been manually bundled with this project in `resources/dll`, along with a suitable loader from Microsoft. This project does not install it's own webview rendering engine and uses the one built into Windows.
 
-There can be multiple instances of "ICARUS Terminal.exe" running. It designed to allow you to pin multiple windows to a single screen, or run multiple windows across different screens. The first instance will be designated as the "launcher" window. The launcher will have a different interface to the terminal windows and is responsible for starting and stopping the background service, for checking for updates and for shutting down terminal windows when the main window (the launcher) is closed.
+There can be multiple instances of "ICARUS Terminal.exe" running. ICARUS Terminal is designed to allow you to pin multiple windows to a single screen, or run multiple windows across different screens. The first instance will be designated as the "launcher" window. The launcher will have a different interface to the terminal windows and is responsible for starting and stopping the background service, for checking for updates and for shutting down terminal windows when the main window (the launcher) is closed.
 
 ### ICARUS Service.exe
 
-"ICARUS Service.exe" is a self contained service, websocket server and a static webserver. The service interfaces with the game, broadcasts events to terminals and allows the graphical interface to be accessed remotely. It is invoked automatically by "ICARUS Terminal.exe" and stops when "ICARUS Terminal.exe" terminates.
+"ICARUS Service.exe" is a self contained service, websocket server and a static webserver. The service interfaces with the game, broadcasts events to terminals (using a two way socket based API) and allows the graphical interface to be accessed remotely from computers, tablets and phones. ICARUS Service is invoked automatically by "ICARUS Terminal.exe" and is stopped when "ICARUS Terminal.exe" is quit.
 
-The web interface is written in Next.js/React and is statically exported and the assets bundled inside "ICARUS Service.exe", making it a self contained service that can be used without "ICARUS Terminal.exe", by connecting to the service via a web browser - an approach which makes the codebase highly portable, as "ICARUS Terminal.exe" only needs to handle native OS Window management and the software updating mechanism.
+The user interface is written in Next.js/React and is statically exported and the assets bundled inside "ICARUS Service.exe", making it an entirely self contained service that can be used without "ICARUS Terminal.exe", by connecting to the service via a web browser - an approach which makes the codebase highly portable, as it leaves "ICARUS Terminal.exe" to handle interactions with native OS APIs for things like window management and software updates.
 
-All terminals (and any web clients) connect to the same single instance of service which receives and broadcasts messages to all of them using a websocket interface, there should only ever one instance of "ICARUS Service.exe" running at a time
+All terminals (and any web clients) connect to the same single instance of service which receives and broadcasts messages to all of them using a websocket interface. There should only ever one instance of "ICARUS Service.exe" running at a time. It defaults to runnning on port 3300, although this is configurable at run time using command line flags.
 
 ## Building
 
@@ -65,18 +61,12 @@ To build the entire application you need to be running Microsoft Windows and hav
 * [Node.js](https://nodejs.org/en/download/)  to build the socket service (ICARUS Service) and React UI
 * [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io/) to build the Windows installer (can install with `winget install NSIS.NSIS`)
 
-If you are only working on the service and/or the Next.js/React UI then you may only need Node.js installed, allowing for easy cross platform development on Windows/Mac/Linux.
-
-Currently Elite Dangerous is only offically supported on Windows (and consoles) and there are not native Mac or Linux build steps for this application, though the codebase is highly portable and is technically possible. The service is already able to cross-compiled; with modifications to the Window and process handling routines the app shell could be ported to other platforms fairly easily if there is demand.
-
-Currently the intent is to focus on providing option for Elite Dangerous for Windows, though there is an OAuth secured API that could be used to provide some level of functionality to XBox and PlayStation users (in which case something like a Mac version would make more sense).
-
 You may also need the following dependancies, depending on the build steps you wish to run (e.g. if you are building assets):
 
 * [Python 3](https://www.python.org/downloads/) for building assets and binaries
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) or MS Build Tools with "Desktop development with C++" for working with Windows APIs
 
-There are no dependancies required to install and use the application.
+Currently Elite Dangerous is only offically supported on Windows (and consoles) however you can build and run the core cross platform on Windows, Mac and Linux. ICARUS Terminal does not currently support integration with console platforms (XBox and PlayStation) as they use a different implementation of the API.
 
 ### Building on Windows
 
@@ -107,11 +97,13 @@ A debug build displays debug information on the console and builds very quickly 
 
 Note:
 
-"ICARUS Terminal.exe" depends on "ICARUS Service.exe" being in the same directory to run, or it will exit on startup with a message indicating unable to start the ICARUS Terminal Service, so you must build the service at least before you can launch "ICARUS Terminal.exe" directly.
+"ICARUS Terminal.exe" depends on "ICARUS Service.exe" being in the same directory to run, or it will exit on startup with a message indicating unable to start the ICARUS Terminal Service, so you must build the service at least once before you can launch "ICARUS Terminal.exe" directly.
 
 ### Building cross platform (Win/Mac/Linux)
 
-You can also easily build a native standalone binary for Windows, Mac and Linux with:
+The only requirement for building the core service is [Node.js](https://nodejs.org/en/download/).
+
+You can easily build a native standalone binary for Windows, Mac and Linux with:
 
 * `npm install`
 * `npm run build:standalone`
@@ -122,7 +114,6 @@ For usage information run `icarus-terminal-service` with `--help`.
 
 Notes:
 
-* Node.js is required for the build step. There are no runtime dependancies.
 * The standalone binary does not feature auto-update notifications.
 * The standalone binary does not have a native UI, you must connect via a browser.
 * Features that depend on native UI (e.g. always on top, borderless) are not supported.
@@ -131,9 +122,9 @@ As the game itself is not supported by the developers on Mac or Linux I do not p
 
 ## Development (cross platform)
 
-You can run ICARUS Terminal in development mode by starting the service with the web interface alongside it. Both must be running at the same time. You can use this to do feature development on any platform (e.g. Windows, Mac, Linux).
+You can run ICARUS Terminal in development mode by starting the service with the web interface alongside it. Both must be running at the same time for the interface to be accessible. You should start the web inteface first to avoid the service halting because it cannot find the web UI.
 
-All you need installed is Node.js and ideally some save game data.
+All you need installed is Node.js and ideally have configured a `.env` file to point to some save game data.
 
 * `npm run dev:web` start the web interface (has hot reloading)
 * `npm run dev:service` start the service (does not have hot reloading)
