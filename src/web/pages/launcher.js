@@ -38,7 +38,7 @@ export default function IndexPage () {
   return (
     <>
       <Loader visible={!connected} />
-      <div style={{ padding: '.5rem 1rem', opacity: connected ? 1 : 0, zoom: '1.2', fontWeight: 'bold' }}>
+      <div data-fx-crt-text-animated="false" className='xcrt' style={{ padding: '.5rem 1rem', opacity: connected ? 1 : 0, zoom: '1.2', fontWeight: 'bold' }}>
         <h1 className='text-info'>ICARUS</h1>
         <h3 className='text-primary'>ICARUS Terminal</h3>
         <h5 className='text-primary text-muted'>Version {packageJson.version}</h5>
@@ -52,7 +52,7 @@ export default function IndexPage () {
             </p>}
         </div>
         <div
-          className='scrollable text-right text-uppercase' style={{
+          className='scrollable crt text-right text-uppercase' style={{
             position: 'absolute',
             top: '1rem',
             right: '1rem',
@@ -75,7 +75,7 @@ export default function IndexPage () {
               {loadingProgress.loadingComplete === false && <progress value={loadingProgress.numberOfEventsImported} max={loadingProgress.numberOfLogLines} />}
             </div>
           </div>
-          {loadingProgress.loadingComplete === true ? <p>Ready</p> : ''}
+          {loadingProgress.loadingComplete === true ? <p>Ready <span className='text-blink-slow'>_</span></p> : <p className='text-blink-slow'>_</p>}
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
           <button style={{ width: '20rem' }} onClick={newWindow}>New Terminal</button>
