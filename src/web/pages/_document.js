@@ -13,7 +13,7 @@ class MyDocument extends Document {
 
   render () {
     return (
-      <Html lang='en' data-fx-crt='false' data-fx-crt-text='false' data-fx-crt-text-animated='false'>
+      <Html lang='en' data-fx-crt='true' data-fx-crt-text='false' data-fx-crt-text-animated='false'>
         <Head>
           <style dangerouslySetInnerHTML={{
             __html: 'html { background: black; }'
