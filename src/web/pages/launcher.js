@@ -54,7 +54,7 @@ export default function IndexPage () {
             </p>}
         </div>
         <div
-          className='scrollable crt text-right text-uppercase' style={{
+          className='scrollable text-right text-uppercase' style={{
             position: 'absolute',
             top: '1rem',
             right: '1rem',

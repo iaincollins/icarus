@@ -36,6 +36,7 @@ html[data-fx-crt-text="true"] .icon {
   animation: text-refraction-animation 5s infinite;
 }
 
+/*
 .launcher-title *,
 .inspector__title:hover,
 button:hover,
@@ -45,6 +46,7 @@ tr:hover td,
 tr:hover td * {
   animation: text-refraction-animation 5s infinite;
 }
+*/
 
 .crt-fx::after,
 html[data-fx-crt="true"] body::after {
