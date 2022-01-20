@@ -38,10 +38,12 @@ export default function IndexPage () {
   return (
     <>
       <Loader visible={!connected} />
-      <div data-fx-crt-text-animated="false" className='xcrt' style={{ padding: '.5rem 1rem', opacity: connected ? 1 : 0, zoom: '1.2', fontWeight: 'bold' }}>
+      <div style={{ padding: '.5rem 1rem', opacity: connected ? 1 : 0, zoom: '1.2', fontWeight: 'bold' }}>
         <h1 className='text-info'>ICARUS</h1>
-        <h3 className='text-primary'>ICARUS Terminal</h3>
-        <h5 className='text-primary text-muted'>Version {packageJson.version}</h5>
+        <span className='launcher-title'>
+          <h3 className='text-primary'>ICARUS Terminal</h3>
+          <h5 className='text-primary text-muted'>Version {packageJson.version}</h5>
+        </span>
         <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
           <p className='text-muted'>Connect from a browser on</p>
           {hostInfo?.urls?.[0] &&

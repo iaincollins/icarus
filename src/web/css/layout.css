@@ -22,18 +22,6 @@
   line-height: 2rem;
 }
 
-@media only screen and (max-width: 599px) {
-  .layout header h1 {
-    visibility: hidden;
-    height: 2rem;
-  }
-  .layout header h1:before {
-    visibility: visible;
-    content: 'ICARUS';
-    display: block;
-  }
-}
-
 .layout__main {
   position: absolute;
   top: 9.5rem;

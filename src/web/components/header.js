@@ -97,7 +97,7 @@ export default function Header ({ connected, active }) {
   return (
     <header>
       <hr className='small' />
-      <h1 className='text-info' style={{ padding: '.5rem 0' }}> ICARUS Terminal</h1>
+      <h1 className='text-info' style={{ padding: '.5rem 0' }}>ICARUS <span className='hidden-small'>Terminal</span></h1>
       <div style={{ position: 'absolute', top: '1rem', right: '.5rem' }}>
         <h3 className='text-primary' style={{ display: 'inline', position: 'relative', top: '-.5rem', left: '-.5rem' }}>{dateTime}</h3>
         <button disabled className='button--icon button--transparent' style={{ marginRight: '.5rem', opacity: 1, transition: 'all 1s ease-out' }}>

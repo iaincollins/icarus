@@ -17,6 +17,7 @@ html[data-fx-crt-text="true"] .icon {
   text-shadow: 1.1px 0 1px var(--text-shift-right-color), -1.1px 0 1px var(--text-shift-left-color), 0 0 3px;
 }
 
+*[data-fx-crt-text-animated="true"],
 *[data-fx-crt-text-animated="true"] h1,
 *[data-fx-crt-text-animated="true"] h2,
 *[data-fx-crt-text-animated="true"] h3,
@@ -32,6 +33,16 @@ html[data-fx-crt-text="true"] .icon {
 *[data-fx-crt-text-animated="true"] svg text,
 *[data-fx-crt-text-animated="true"] .icon {
   /* Text animation is a big performance hit */
+  animation: text-refraction-animation 5s infinite;
+}
+
+.launcher-title *,
+.inspector__title:hover,
+button:hover,
+td:hover,
+tr:hover,
+tr:hover td,
+tr:hover td * {
   animation: text-refraction-animation 5s infinite;
 }
 
