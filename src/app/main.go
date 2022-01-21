@@ -99,14 +99,14 @@ func main() {
 	}
 
 	// Check for an update before running main launcher code
-	updateAvailable, _ := CheckForUpdate()
-	if updateAvailable {
-		ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nDo you want to install the update?").Title("New version available").YesNo()
-		if ok {
-			InstallUpdate()
-			return
-		}
-	}
+	// updateAvailable, _ := CheckForUpdate()
+	// if updateAvailable {
+	// 	ok := dialog.Message("%s", "A new version of ICARUS Terminal is available.\n\nDo you want to install the update?").Title("New version available").YesNo()
+	// 	if ok {
+	// 		InstallUpdate()
+	// 		return
+	// 	}
+	// }
 
 	// Use Windows API to get Save Game dir
 	saveGameDirPath, err := windows.KnownFolderPath(windows.FOLDERID_SavedGames, 0)

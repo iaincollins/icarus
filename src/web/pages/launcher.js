@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { formatBytes, eliteDateTime } from 'lib/format'
-import { newWindow, checkForUpdate } from 'lib/window'
+import { newWindow, checkForUpdate, installUpdate } from 'lib/window'
 import { useSocket, eventListener, sendEvent } from 'lib/socket'
 import Loader from 'components/loader'
 import packageJson from '../../../package.json'
@@ -18,6 +18,8 @@ const defaultloadingStats = {
 export default function IndexPage () {
   const { connected } = useSocket()
   const [hostInfo, setHostInfo] = useState()
+  const [update, setUpdate] = useState()
+  const [downloadingUpdate, setDownloadingUpdate] = useState(false)
   const [loadingProgress, setLoadingProgress] = useState(defaultloadingStats)
 
   // Display URL (IP address/port) to connect from a browser
@@ -26,9 +28,10 @@ export default function IndexPage () {
   useEffect(async () => {
     const message = await sendEvent('getLoadingStatus')
     setLoadingProgress(message)
-
-    // const update = JSON.parse(await checkForUpdate())
-    // if (update.isUpgrade) { }
+    setTimeout(async () => {
+      const update = await checkForUpdate()
+      setUpdate(update)
+    }, 3000)
   }, [connected])
 
   useEffect(() => eventListener('loadingProgress', (message) => {
@@ -44,6 +47,26 @@ export default function IndexPage () {
           <h3 className='text-primary'>ICARUS Terminal</h3>
           <h5 className='text-primary text-muted'>Version {packageJson.version}</h5>
         </span>
+        {update && update.isUpgrade &&
+          <div className='fx-fade-in'>
+            <a
+              target='_blank'
+              className='text-link'
+              href='https://github.com/iaincollins/icarus/releases/tag/v0.2.24'
+              style={{ margin: '2rem 0 1rem 0', display: 'block', fontWeight: 'normal', fontSize: '1.2rem' }} rel='noreferrer'
+            >
+              <span className='text-link-text'>New version {update?.productVersion} available</span>
+            </a>
+            {!downloadingUpdate &&
+              <button
+                onClick={() => {
+                  setDownloadingUpdate(true)
+                  installUpdate()
+                }}
+              ><i className='icon icarus-terminal-download' /> Install Update
+              </button>}
+            {downloadingUpdate && <p>Downloading update...</p>}
+          </div>}
         <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
           <p className='text-muted'>Connect from a browser on</p>
           {hostInfo?.urls?.[0] &&

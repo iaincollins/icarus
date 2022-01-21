@@ -65,6 +65,10 @@
   box-sizing: border-box;
 }
 
+.layout__panel--secondary-navigation.scrollable {
+  padding-right: .5rem;
+}
+
 .layout__top-half,
 .layout__bottom-half {
   position: absolute;

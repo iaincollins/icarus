@@ -54,6 +54,12 @@ button.button--icon .icon,
   line-height: 3rem;
 }
 
+button:not(.button--icon) .icon,
+.button:not(.button--icon) .icon {
+  float: left;
+  margin-right: .5rem;
+}
+
 button.button--transparent ,
 .button.button--transparent {
   background: none;
