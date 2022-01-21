@@ -65,6 +65,25 @@ table tbody tr {
   background: var(--color-background-panel-translucent);
 }
 
+table tbody tr.table__row--highlighted td {
+  background: var(--color-secondary-dark) !important;
+  color: var(--color-secondary) !important;
+  text-shadow: none;
+}
+
+table tbody tr.table__row--highlighted:hover td {
+  background: var(--color-secondary) !important;
+  color: var(--color-secondary-dark) !important;
+  text-shadow: none;
+}
+
+table tbody tr.table__row--highlight-primary-hover:hover td {
+  background: var(--color-primary) !important;
+  color: var(--color-primary-dark) !important;
+  text-shadow: none;
+}
+
+
 /* 
  Use <td> selector for :hover and :focus states as some older browsers don't 
  let you set a background colour for those states on <tr> elements

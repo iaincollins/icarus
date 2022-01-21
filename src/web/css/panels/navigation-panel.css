@@ -100,7 +100,7 @@
   height: 100%;
 }
 
-.navigation-panel__list .icon {
+.navigation-panel__list table .icon {
   font-size: 2rem;
   margin-left: -2.75rem;
   margin-top: -.35rem;

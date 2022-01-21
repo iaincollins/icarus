@@ -34,6 +34,14 @@ function NavPanelNavItems (activePanel, query) {
         pathname: '/nav/list',
         query
       }
+    },
+    {
+      name: 'Route',
+      icon: 'route',
+      url: {
+        pathname: '/nav/route',
+        query
+      }
     }
   ]
   navigationItems.forEach(item => {

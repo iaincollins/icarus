@@ -7,7 +7,6 @@ import Panel from 'components/panel'
 import NavigationSystemMapPanel from 'components/panels/nav/navigation-system-map-panel'
 import NavigationInspectorPanel from 'components/panels/nav/navigation-inspector-panel'
 
-// TODO Refactor to reduce code duplication
 export default function NavMapPage () {
   const router = useRouter()
   const { query } = router

@@ -129,7 +129,8 @@ const eventHandlers = {
   getSystem: (args) => navigationEvents.getSystem(args),
   getShip: (args) => shipEvents.getShip(args),
   getMaterials: (args) => materialsEvents.getMaterials(args),
-  getBlueprints: (args) => blueprintEvents.getBlueprints(args)
+  getBlueprints: (args) => blueprintEvents.getBlueprints(args),
+  getNavRoute: async (args) => ((await eliteJson.json())?.NavRoute?.Route ?? [])
 }
 
 async function init ({ days = 30 } = {}) {

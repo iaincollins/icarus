@@ -7,7 +7,6 @@ import Panel from 'components/panel'
 import NavigationListPanel from 'components/panels/nav/navigation-list-panel'
 import NavigationInspectorPanel from 'components/panels/nav/navigation-inspector-panel'
 
-// TODO Refactor to reduce code duplication
 export default function NavListPage () {
   const router = useRouter()
   const { query } = router

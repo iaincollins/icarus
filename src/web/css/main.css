@@ -259,11 +259,15 @@ label {
 
 hr {
   border: none;
-  height: .15rem;
+  height: .13rem;
   background: var(--color-primary);
   margin: .5rem 0;
   box-shadow: 0 .03rem .5rem var(--color-primary), 0 0 .7rem -.03rem var(--color-primary) !important;
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+hr.muted {
+  opacity: 0.3;
 }
 
 hr.small {
@@ -272,9 +276,11 @@ hr.small {
 
 hr.large {
   height: 2.5rem;
+  opacity: 1;
 }
 
 hr.bold {
+  height: .15rem;
   box-shadow: 0 .03rem .5rem var(--color-primary), 0 0rem .7rem -.03rem var(--color-primary), 0 0rem 1rem -.01rem var(--color-primary-dark) !important;
   opacity: 1;
 }

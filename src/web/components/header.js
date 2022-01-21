@@ -4,44 +4,37 @@ import { isWindowFullScreen, isWindowPinned, toggleFullScreen, togglePinWindow }
 import { eliteDateTime } from 'lib/format'
 
 const NAV_BUTTONS = [
+  {
+    name: 'Navigation',
+    abbr: 'Nav',
+    path: '/nav'
+  },
   // {
   //   name: 'Cmdr',
   //   path: '/cmdr',
-  //   enabled: false
   // },
   {
     name: 'Ship',
     abbr: 'Ship',
-    path: '/ship',
-    enabled: true
-  },
-  {
-    name: 'Navigation',
-    abbr: 'Nav',
-    path: '/nav',
-    enabled: true
+    path: '/ship'
   },
   // {
   //   name: 'Trade',
   //   path: '/trade',
-  //   enabled: false
   // },
   {
     name: 'Engineering',
     abbr: 'Eng',
-    path: '/eng',
-    enabled: true
+    path: '/eng'
   },
   {
     name: 'Log',
     abbr: 'Log',
-    path: '/log',
-    enabled: true
+    path: '/log'
   }
   // {
   //   name: 'Comms',
   //   path: '/comms',
-  //   enabled: false
   // }
 ]
 
@@ -111,22 +104,22 @@ export default function Header ({ connected, active }) {
           <i className='icon icarus-terminal-fullscreen' style={{ fontSize: '2rem' }} />
         </button>
       </div>
-      <hr className='bold' />
+      <hr />
       <div className='button-group'>
         {NAV_BUTTONS.filter(button => button).map(button =>
           <button
             key={button.name}
             tabIndex='1'
-            disabled={!button.enabled || button.path === currentPath}
+            disabled={button.path === currentPath}
             className={button.path === currentPath ? 'button--active' : ''}
-            onClick={() => router.push(!button.enabled ? currentPath : button.path)}
+            onClick={() => router.push(button.path)}
           >
             <span className='visible-small'>{button.abbr}</span>
             <span className='hidden-small'>{button.name}</span>
           </button>
         )}
       </div>
-      <hr />
+      <hr className='bold' />
     </header>
   )
 }
