@@ -22,6 +22,7 @@
   top: 0;
   bottom: 0;
   height: auto;
+  padding-right: .5rem;
 }
 
 .ship-panel__modules--module-inspector {
@@ -139,14 +140,6 @@
     float: left;
     margin-left: 0;
   }
-}
-
-.ship-panel__modules:first-of-type {
-  padding-left: 0;
-}
-
-.ship-panel__modules:last-of-type {
-  padding-right: 0;
 }
 
 .ship-panel__module-icon {

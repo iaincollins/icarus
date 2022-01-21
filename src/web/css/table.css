@@ -83,6 +83,9 @@ table tbody tr.table__row--highlight-primary-hover:hover td {
   text-shadow: none;
 }
 
+table tbody tr.table__row--selected td:first-of-type {
+  box-shadow: .5rem 0 0 0 var(--color-primary) inset !important;
+}
 
 /* 
  Use <td> selector for :hover and :focus states as some older browsers don't 

@@ -91,6 +91,10 @@
   left: 4.5rem;
 }
 
+.navigation-panel__list .scrollable {
+  padding-right: .5rem;
+}
+
 .navigation-panel__map {
   left: 0;
 }

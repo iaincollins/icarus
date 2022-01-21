@@ -19,11 +19,12 @@ export default function SystemMapStar ({ star, setSystemObject }) {
         onClick={() => setSystemObject(star)}
         className={`system-map__planetary-system-star ${star.id ? 'system-map__planetary-system-star--icon' : '0'}`}
       >
-        {star.id && <div className='system-map__planetary-system-star-icon'>
-          <svg viewBox={useLargerViewBox ? '-4500 -4500 8500 8000' : '-2500 -2500 5000 5000'} preserveAspectRatio='xMinYMid meet'>
-            <SystemMapObject systemObject={star} setSystemObject={setSystemObject} labels={false} />
-          </svg>
-        </div>}
+        {star.id &&
+          <div className='system-map__planetary-system-star-icon'>
+            <svg viewBox={useLargerViewBox ? '-4500 -4500 8500 8000' : '-2500 -2500 5000 5000'} preserveAspectRatio='xMinYMid meet'>
+              <SystemMapObject systemObject={star} setSystemObject={setSystemObject} labels={false} />
+            </svg>
+          </div>}
         <h2>
           <span className='fx-animated-text' data-fx-order='4'>
             {star.type !== 'Null'

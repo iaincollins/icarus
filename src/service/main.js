@@ -134,7 +134,7 @@ function broadcastEvent (name, message) {
 
     // Look for for loadingProgress events and display information about events
     // loaded to the console when loadingProgress indicates loading is complete
-    if (name == 'loadingProgress' && message.loadingComplete === true) {
+    if (name === 'loadingProgress' && message.loadingComplete === true) {
       console.log(`Imported ${message.numberOfEventsImported} events from ${message.numberOfFiles} files`)
     }
   } catch (e) {

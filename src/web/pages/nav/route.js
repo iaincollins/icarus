@@ -60,10 +60,11 @@ export default function NavListPage () {
               <tbody>
                 <tr style={{ background: 'none' }}>
                   <td style={{ width: '50%', padding: 0 }}>
-                    {currentSystem && <>
-                      <h4 className='text-primary'>Current System</h4>
-                      <h3 className='text-info'>{currentSystem?.name}</h3>
-                    </>}
+                    {currentSystem &&
+                      <>
+                        <h4 className='text-primary'>Current System</h4>
+                        <h3 className='text-info'>{currentSystem?.name}</h3>
+                      </>}
                   </td>
                   <td style={{ width: '50%', padding: 0 }} className='text-right'>
                     {system && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem.toLowerCase() !== system?.name?.toLowerCase() &&

@@ -5,12 +5,11 @@
 const fs = require('fs')
 const path = require('path')
 const { compile } = require('nexe')
-const UPX = require('upx')({ brute: false }) // Brute on service seems to hang
+// const UPX = require('upx')({ brute: false }) // Brute on service seems to hang
 const yargs = require('yargs')
 const commandLineArgs = yargs.argv
 
 const {
-  DEVELOPMENT_BUILD: DEVELOPMENT_BUILD_DEFAULT,
   DEBUG_CONSOLE: DEBUG_CONSOLE_DEFAULT,
   BUILD_DIR,
   BIN_DIR,

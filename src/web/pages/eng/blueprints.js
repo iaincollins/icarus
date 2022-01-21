@@ -33,7 +33,7 @@ export default function EngineeringMaterialsPage () {
           <table>
             <tbody>
               {blueprints.map(blueprint =>
-                <tr key={`blueprint_${blueprint.name}`}>
+                <tr key={`blueprint_${blueprint.name}_${blueprint.modules.join(', ')}`}>
                   <td>
                     <h2 className='text-info'>{blueprint.name}</h2>
                     <h4>{blueprint.modules.join(', ')}</h4>
