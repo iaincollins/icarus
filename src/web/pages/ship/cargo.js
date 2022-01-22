@@ -37,12 +37,15 @@ export default function ShipCargoPage () {
             <h2>Cargo Manifest</h2>
             <h3 className='text-primary' style={{overflow: 'auto'}}>
               <progress
-                style={{marginTop: '.5rem', height: '1.5rem', display: 'inline-block', width: '15rem', float: 'left'}}
+                style={{marginTop: '.5rem', height: '1.5rem', display: 'inline-block', width: '12rem', float: 'left'}}
                 value={ship.cargo.count}
                 max={ship.cargo.capacity}
                 className='float-left'
                 />
-              <span className='float-left' style={{display: 'inline-block', padding: '.25rem .5rem'}}>{ship.onBoard ? ship.cargo.count : '-'}/{ship.cargo.capacity} T</span>
+              <span className='float-left' style={{display: 'inline-block', padding: '.25rem .5rem'}}>
+                {ship.cargo.count}/{ship.cargo.capacity} T
+                <span className='text-muted'> ({ship.cargo.capacity - ship.cargo.count} T free)</span>
+              </span>
             </h3>
             {(ship && !ship.onBoard) &&
               <p className='text-info text-muted text-uppercase' style={{margin: '0 0 .5rem 0'}}>
