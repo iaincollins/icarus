@@ -2,7 +2,7 @@ import ShipModules from './ship-modules'
 
 export default function ShipModulesPanel ({ ship, selectedModule, setSelectedModule }) {
   if (!ship) return null
-console.log(ship)
+  
   return (
     <>
       <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
