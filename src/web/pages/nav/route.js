@@ -63,14 +63,14 @@ export default function NavListPage () {
                     {currentSystem &&
                       <>
                         <h4 className='text-primary'>Current System</h4>
-                        <h3 className='text-info'>{currentSystem?.name}</h3>
+                        <h3 className='text-info'><span className='selectable'>{currentSystem?.name}</span></h3>
                       </>}
                   </td>
                   <td style={{ width: '50%', padding: 0 }} className='text-right'>
                     {system && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem.toLowerCase() !== system?.name?.toLowerCase() &&
                       <>
                         <h4 className='text-primary'>Destination</h4>
-                        <h3 className='text-info'>{navRoute[navRoute.length - 1].StarSystem}</h3>
+                        <h3 className='text-info'><span className='selectable'>{navRoute[navRoute.length - 1].StarSystem}</span></h3>
                       </>}
                     {system && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem.toLowerCase() === system?.name?.toLowerCase() &&
                       <>
@@ -81,59 +81,57 @@ export default function NavListPage () {
                 </tr>
               </tbody>
             </table>
-            <hr style={{ marginBottom: 0 }} />
-            <table className='table--animated table--interactive fx-fade-in'>
-              <thead>
-                <tr>
-                  <th className='text-right'>#</th>
-                  <th>System</th>
-                  <th className='hidden-medium'>Primary Star</th>
-                  <th className='text-right'>&nbsp;</th>
-                </tr>
-              </thead>
-              <tbody>
-                {navRoute && navRoute.length > 0 && navRoute.map((route, i) =>
-                  <tr
-                    key={`nav-route_${route.StarSystem}`}
-                    className={`${currentSystem && currentSystem?.name === route.StarSystem ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'} ${system && currentSystem && system?.name !== currentSystem?.name && system?.name === route.StarSystem ? 'table__row--selected' : ''}`}
-                    onClick={() => router.push({ pathname: '/nav/map', query: { system: route.StarSystem.toLowerCase() } })}
-                  >
-                    <td className='text-right' style={{ verticalAlign: 'middle' }}>
-                      {i + 1}
-                    </td>
-                    <td style={{ paddingLeft: '3.5rem', verticalAlign: 'middle' }}>
-                      <i style={{ marginLeft: '-3rem' }} className='icon icarus-terminal-star' />
-                      {route.StarSystem}
-                    </td>
-                    <td style={{ verticalAlign: 'middle' }} className='hidden-medium'>
-                      <span className='text-muted'>{route.StarClass} Class</span><br />
-                      {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
-                    </td>
-                    <td className='text-right' style={{ verticalAlign: 'middle' }}>
-                      <span className='text-muted hidden-medium'>
-                        Address {route.SystemAddress}<br />
-                        {route.StarPos}
-                      </span>
-                      <span className='visible-medium'>
-                        {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
-                        <span className='text-muted'> {route.StarClass}</span>
-                      </span>
-                    </td>
-                  </tr>
-                )}
-                {navRoute && navRoute.length === 0 &&
-                  <tr>
-                    <td colSpan='3' disabled className='text-center' style={{ padding: '2rem .5rem' }}>No route set</td>
-                  </tr>}
-              </tbody>
-            </table>
-            <hr />
+            {navRoute && navRoute.length > 0 &&
+              <>
+                <hr style={{ marginBottom: 0 }} />
+                <table className='table--animated table--interactive fx-fade-in'>
+                  <thead>
+                    <tr>
+                      <th style={{ width: '3rem' }} className='text-right'>#</th>
+                      <th>System</th>
+                      <th className='hidden-medium'>Primary Star</th>
+                      <th className='text-right'>&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {navRoute.map((route, i) =>
+                      <tr
+                        key={`nav-route_${route.StarSystem}`}
+                        className={`${currentSystem && currentSystem?.name === route.StarSystem ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'} ${system && currentSystem && system?.name !== currentSystem?.name && system?.name === route.StarSystem ? 'table__row--selected' : ''}`}
+                        onClick={() => router.push({ pathname: '/nav/map', query: { system: route.StarSystem.toLowerCase() } })}
+                      >
+                        <td className='text-right' style={{ width: '3rem', verticalAlign: 'middle' }}>
+                          {i + 1}888
+                        </td>
+                        <td style={{ paddingLeft: '3.5rem', verticalAlign: 'middle' }}>
+                          <i style={{ marginLeft: '-3rem' }} className='icon icarus-terminal-star' />
+                          {route.StarSystem}
+                        </td>
+                        <td style={{ verticalAlign: 'middle' }} className='hidden-medium'>
+                          <span className='text-muted'>{route.StarClass} Class</span><br />
+                          {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
+                        </td>
+                        <td className='text-right' style={{ verticalAlign: 'middle' }}>
+                          <span className='text-muted hidden-medium'>
+                            Address {route.SystemAddress}<br />
+                            {route.StarPos}
+                          </span>
+                          <span className='visible-medium'>
+                            <span className={route.StarClass.match(/([OBAFGKM])/) ? '' : 'text-muted'}> {route.StarClass}</span>
+                          </span>
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+                <hr />
+              </>}
             {navRoute && navRoute.length > 0 &&
               <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
                 Select system to view stellar cartography
               </p>}
             <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
-              Plan routes using galaxy map
+              Set route using galaxy map
             </p>
           </div>
         </div>

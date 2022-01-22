@@ -9,7 +9,7 @@ export default function SystemMap ({ system, setSystemObject }) {
         <h1>
           <span className='fx-animated-text' data-fx-order='1'>
             <i className='icon icarus-terminal-system-orbits' />
-            {system.name}
+            <span className='selectable'>{system.name}</span>
           </span>
         </h1>
         {system && system.government && system.government !== 'Unknown' && !(system.government === 'None' && system?.security === 'Anarchy') &&

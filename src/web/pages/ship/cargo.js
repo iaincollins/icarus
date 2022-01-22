@@ -49,7 +49,7 @@ export default function ShipCargoPage () {
               <table className='table--animated fx-fade-in'>
                 <thead>
                   <tr>
-                    <th style={{ width: '4rem' }} className='text-right'>#</th>
+                    <th style={{ width: '3rem' }} className='text-right'>#</th>
                     <th>Cargo</th>
                     <th>Description</th>
                   </tr>
@@ -57,12 +57,12 @@ export default function ShipCargoPage () {
                 <tbody>
                   {cargo.map((item, i) =>
                     <tr key={`${ship.name}_cargo_${i}_${item.name}`}>
-                      <td style={{ width: '4rem' }} className='text-right'>{item.count}</td>
-                      <td>{item.name}</td>
+                      <td style={{ width: '3rem' }} className='text-right'>{item.count}</td>
+                      <td><span className='selectable'>{item.name}</span></td>
                       <td>
-                        {item.mission !== false && <span className='text-secondary'>Mission critical </span>}
-                        {item.stolen !== false && <span className='text-danger'>Stolen </span>}
                         <span className='text-muted'>{item.description}</span>
+                        {item.mission !== false && <span className='text-secondary'> Mission</span>}
+                        {item.stolen !== false && <span className='text-danger'> Stolen</span>}
                       </td>
                     </tr>
                   )}
