@@ -90,13 +90,36 @@ html::-webkit-scrollbar,
 }
 
 .selectable {
+  position: relative;
   -webkit-touch-callout: all !important;
   -webkit-user-select: all !important;
   -khtml-user-select: all !important;
   -moz-user-select: all !important;
   -ms-user-select: all !important;
   user-select: all !important;
-  cursor: text;
+  /* cursor: text; */
+}
+
+.selectable::after {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: all .1s ease-in;
+  content: "\ea07";
+  color: var(--color-secondary);
+  bottom: .2rem;
+  right: -1.75rem;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  font-family: 'icarus-terminal' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  pointer-events: none;
+}
+
+.selectable:hover::after {
+  opacity: 1;
 }
 
 .selectable--text {
@@ -110,7 +133,9 @@ html::-webkit-scrollbar,
 
 ::selection {
   background: none;
-  color: var(--color-secondary);
+  background: rgba(255,255,255,.1);
+  color: white;
+  text-shadow: .5rem var(--color-secondary) !important;
 }
 
 html::after {
