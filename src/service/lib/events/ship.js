@@ -133,7 +133,7 @@ class ShipEvents {
     })
 
     let armour = UNKNOWN_VALUE
-    let totalModuleValue = 0
+    let totalMass = 0
     let totalModulePowerDraw = 0
     let totalFuelCapacity = 0
 
@@ -186,10 +186,6 @@ class ShipEvents {
         'Armour'
       ].includes(module.slot)
 
-      // Keep running total of module cost and total power draw
-      if (module.value) totalModuleValue += module.value
-      if (module.power) totalModulePowerDraw += module.power
-
       if (coriolisModule) {
         // Just grab the first line of the description
         const [firstLine] = (coriolisModule?.description ?? '').split('. ')
@@ -211,6 +207,10 @@ class ShipEvents {
         }
       }
 
+      // Keep running total of module cost and total power draw
+      if (module.mass) totalMass += module.mass
+      if (module.power) totalModulePowerDraw += module.power
+
       module.slotName = module.slot.replace('_', ' ')
         .replace(/([0-9]+)/g, ' $1 ')
         .replace(/^Slot ([0-9]+) Size ([0-9]+)/g, '') // "(Max size: $2)")
@@ -221,7 +221,33 @@ class ShipEvents {
         .trim()
     }
 
+    const inventory = (Json?.Cargo?.Inventory)
+      ? await Promise.all(await Json.Cargo.Inventory.map(async (item) => {
+          const commodity = await EDCDCommodity.getBySymbol(item?.Name)
+          let description = commodity?.category?.replace(/_/g, ' ')?.replace(/([a-z])([A-Z])/g, '$1 $2')?.trim() ?? ''
+          if (item?.Name === 'drones') description = 'Limpet drones'
+
+          // Include cargo in mass
+          if (item?.Count) totalMass += item?.Count
+
+          return {
+            symbol: item?.Name ?? UNKNOWN_VALUE,
+            name: item?.Name_Localised ?? item?.Name ?? UNKNOWN_VALUE,
+            count: item?.Count ?? UNKNOWN_VALUE,
+            stolen: Boolean(item?.Stolen) ?? UNKNOWN_VALUE,
+            mission: item?.MissionID ?? false,
+            description
+          }
+        })
+        )
+      : []
+
+    // Include fuel in mass
+    if (Json?.Status?.Fuel?.FuelMain) totalMass += Json?.Status?.Fuel?.FuelMain
+
+    // Format power draw and mass
     totalModulePowerDraw = totalModulePowerDraw?.toFixed(2)?.replace(/\.00$/, '')
+    totalMass = totalMass?.toFixed(2)?.replace(/\.00$/, '')
 
     const ship = await EDCDShipyard.getBySymbol(Loadout?.Ship)
 
@@ -240,28 +266,13 @@ class ShipEvents {
       fuelLevel: Json?.Status?.Fuel?.FuelMain ? parseFloat((Json.Status.Fuel.FuelMain).toFixed(2)) : UNKNOWN_VALUE,
       fuelCapacity: totalFuelCapacity,
       modulePowerDraw: totalModulePowerDraw,
-      moduleValue: totalModuleValue,
+      mass: totalMass,
       rebuy: Loadout?.Rebuy ?? UNKNOWN_VALUE,
       armour,
       cargo: {
         capacity: Loadout?.CargoCapacity ?? UNKNOWN_VALUE,
         count: Json?.Cargo?.Count ?? UNKNOWN_VALUE,
-        inventory: (Json?.Cargo?.Inventory)
-          ? await Promise.all(await Json.Cargo.Inventory.map(async (item) => {
-              const commodity = await EDCDCommodity.getBySymbol(item?.Name)
-              let description = commodity?.category?.replace(/_/g, ' ')?.replace(/([a-z])([A-Z])/g, '$1 $2')?.trim() ?? ''
-              if (item?.Name === 'drones') description = 'Limpet drones'
-              return {
-                symbol: item?.Name ?? UNKNOWN_VALUE,
-                name: item?.Name_Localised ?? item?.Name ?? UNKNOWN_VALUE,
-                count: item?.Count ?? UNKNOWN_VALUE,
-                stolen: Boolean(item?.Stolen) ?? UNKNOWN_VALUE,
-                mission: item?.MissionID ?? false,
-                description
-              }
-            })
-            )
-          : []
+        inventory
       },
       onBoard,
       modules

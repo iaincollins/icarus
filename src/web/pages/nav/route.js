@@ -130,9 +130,10 @@ export default function NavListPage () {
               <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
                 Select system to view stellar cartography
               </p>}
-            <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
+            {navRoute &&
+              <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
               Set route using galaxy map
-            </p>
+              </p>}
           </div>
         </div>
       </Panel>

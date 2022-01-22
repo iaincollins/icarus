@@ -2,7 +2,7 @@ import ShipModules from './ship-modules'
 
 export default function ShipModulesPanel ({ ship, selectedModule, setSelectedModule }) {
   if (!ship) return null
-
+console.log(ship)
   return (
     <>
       <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
@@ -45,16 +45,16 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             </tr>
             <tr>
               <td>
-                <span className='text-muted'>Rebuy value</span>
+                <span className='text-muted'>Insurance Rebuy</span>
                 <span className='value'>{ship.rebuy.toLocaleString()} CR</span>
               </td>
               <td>
-                <span className='text-muted'>Module value</span>
-                <span className='value'>{ship.moduleValue.toLocaleString()} CR</span>
+                <span className='text-muted'>Total mass</span>
+                <span className='value'>{ship.mass} T</span>
               </td>
               <td>
-                <span className='text-muted'>Total power draw</span>
-                <span className='value'>{parseFloat(ship.modulePowerDraw).toFixed(2)} MW</span>
+                <span className='text-muted'>Power draw</span>
+                <span className='value'>{ship.onBoard ? parseFloat(ship.modulePowerDraw).toFixed(2) : '-'} MW</span>
               </td>
             </tr>
           </tbody>
