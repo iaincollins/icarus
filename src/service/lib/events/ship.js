@@ -262,16 +262,16 @@ class ShipEvents {
         weapons: onBoard ? Json?.Status?.Pips?.[2] ?? UNKNOWN_VALUE : UNKNOWN_VALUE
       },
       // Using parseFloat with toFixed
-      maxJumpRange: Loadout?.MaxJumpRange ? parseFloat((Loadout.MaxJumpRange).toFixed(2)) : UNKNOWN_VALUE,
-      fuelLevel: Json?.Status?.Fuel?.FuelMain ? parseFloat((Json.Status.Fuel.FuelMain).toFixed(2)) : UNKNOWN_VALUE,
+      maxJumpRange: Loadout?.MaxJumpRange ? parseFloat((Loadout.MaxJumpRange).toFixed(2)) : null,
+      fuelLevel: Json?.Status?.Fuel?.FuelMain ? parseFloat((Json.Status.Fuel.FuelMain).toFixed(2)) : null,
       fuelCapacity: totalFuelCapacity,
       modulePowerDraw: totalModulePowerDraw,
       mass: totalMass,
       rebuy: Loadout?.Rebuy ?? UNKNOWN_VALUE,
       armour,
       cargo: {
-        capacity: Loadout?.CargoCapacity ?? UNKNOWN_VALUE,
-        count: Json?.Cargo?.Count ?? UNKNOWN_VALUE,
+        capacity: Loadout?.CargoCapacity ?? null,
+        count: Json?.Cargo?.Count ?? null,
         inventory
       },
       onBoard,

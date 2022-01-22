@@ -36,17 +36,17 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
               </td>
               <td>
                 <span className='text-muted'>Fuel (curr/max)</span>
-                <span className='value'>{ship.onBoard ? ship.fuelLevel : '-'}/{ship.fuelCapacity} T</span>
+                <span className='value'>{ship.fuelLevel || '-'}/{ship.fuelCapacity} T</span>
               </td>
               <td>
                 <span className='text-muted'>Cargo (curr/max)</span>
-                <span className='value'>{ship.onBoard ? ship.cargo.count : '-'}/{ship.cargo.capacity} T</span>
+                <span className='value'>{ship.cargo.count || '-'}/{ship.cargo.capacity} T</span>
               </td>
             </tr>
             <tr>
               <td>
                 <span className='text-muted'>Insurance Rebuy</span>
-                <span className='value'>{ship.rebuy.toLocaleString()} CR</span>
+                <span className='value'>{ship.rebuy ? ship.rebuy.toLocaleString() : '-'} CR</span>
               </td>
               <td>
                 <span className='text-muted'>Total mass</span>
@@ -54,7 +54,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
               </td>
               <td>
                 <span className='text-muted'>Power draw</span>
-                <span className='value'>{ship.onBoard ? parseFloat(ship.modulePowerDraw).toFixed(2) : '-'} MW</span>
+                <span className='value'>{ship.modulePowerDraw || '-'} MW</span>
               </td>
             </tr>
           </tbody>
