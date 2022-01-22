@@ -101,7 +101,7 @@ export default function NavListPage () {
                         onClick={() => router.push({ pathname: '/nav/map', query: { system: route.StarSystem.toLowerCase() } })}
                       >
                         <td className='text-right' style={{ width: '3rem', verticalAlign: 'middle' }}>
-                          {i + 1}888
+                          {i + 1}
                         </td>
                         <td style={{ paddingLeft: '3.5rem', verticalAlign: 'middle' }}>
                           <i style={{ marginLeft: '-3rem' }} className='icon icarus-terminal-star' />
