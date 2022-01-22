@@ -52,8 +52,8 @@ export default function IndexPage () {
             <a
               target='_blank'
               className='text-link'
-              href='https://github.com/iaincollins/icarus/releases/tag/v0.2.24'
-              style={{ margin: '2rem 0 1rem 0', display: 'block', fontWeight: 'normal', fontSize: '1.2rem' }} rel='noreferrer'
+              href='https://github.com/iaincollins/icarus/releases'
+              style={{ margin: '2rem 0 1rem 0', display: 'block', fontWeight: 'normal', fontSize: '1.1rem' }} rel='noreferrer'
             >
               <span className='text-link-text'>New version {update?.productVersion} available</span>
             </a>
