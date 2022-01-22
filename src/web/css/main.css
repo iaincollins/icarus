@@ -34,7 +34,8 @@
 
 a,
 * {
-  cursor: url('../public/images/cursor.png'), pointer;
+  /* Don't change the fallback cursor to something like pointer or it causes a screen flash on touch devices like Amazon Fire tablets (bug?!) */
+  cursor: url('../public/images/cursor.png'), crosshair;
 }
 
 ::selection { 
