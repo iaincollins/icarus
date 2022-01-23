@@ -13,7 +13,10 @@ export default function Layout ({ children, connected, active, ready = true, loa
             borderRadius: '0',
             border: '.2rem solid var(--color-primary)',
             background: '#000',
-            color: 'var(--color-info)',
+            color: 'var(--color-primary)',
+            maxWidth: '400px',
+            textAlign: 'left !important',
+            margin: '0 1rem'
           }
         }}
       />

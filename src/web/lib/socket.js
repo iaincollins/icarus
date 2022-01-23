@@ -62,13 +62,13 @@ function connect (socketState, setSocketState) {
           if (message.event === 'Docked') toast(`Docked at ${message.StationName}`)
           if (message.event === 'Undocked') toast(`Now leaving ${message.StationName}`)
           if (message.event === 'ApproachSettlement') toast(`Approaching ${message.Name}`)
-          if (message.event === 'ReceiveText' && message.From) toast(`${message.From_Localised || message.From}: "${message.Message_Localised || message.Message}"`)
+          if (message.event === 'ReceiveText' && message.From) toast(() => <><p style={{marginRight: '.6rem'}}>{message.From_Localised || message.From}:</p><p className='text-info'>{message.Message_Localised || message.Message}</p></>)
           if (message.event === 'MarketBuy') toast(`Bought ${message.Count} T of ${message.Type_Localised || message.Type}`)
           if (message.event === 'MarketSell') toast(`Sold ${message.Count} T of ${message.Type_Localised || message.Type}`)
           if (message.event === 'BuyDrones') toast(`Bought ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)
           if (message.event === 'SellDrones') toast(`Sold ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)
-          if (message.event === 'CargoDepot' && message.UpdateType === 'Collect') toast(`Collected ${message.Count} of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')} mission cargo`)
-          if (message.event === 'CargoDepot' && message.UpdateType === 'Delivered') toast(`Delivered ${message.Count} of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')} mission cargo`)
+          if (message.event === 'CargoDepot' && message.UpdateType === 'Collect') toast(`Collected ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
+          if (message.event === 'CargoDepot' && message.UpdateType === 'Deliver') toast(`Delivered ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
         }
       } catch (e) { console.log('EVENT_TOAST_ERROR', e)}
 
