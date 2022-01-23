@@ -45,7 +45,7 @@ export default function ShipCargoPage () {
                 />
               <span className='float-left' style={{display: 'inline-block', padding: '.25rem .5rem'}}>
                 {ship.cargo.count}/{ship.cargo.capacity} T
-                {ship.cargo.count > 0 && ship.cargo.capacity < ship.cargo.count && <span className='text-muted'> ({ship.cargo.capacity - ship.cargo.count}T free)</span>}
+                {ship.cargo.count > 0 && ship.cargo.count < ship.cargo.capacity && <span className='text-muted'> ({ship.cargo.capacity - ship.cargo.count} free)</span>}
               </span>
             </h4>
             <hr style={{ margin: '.5rem 0 0 0' }} />
