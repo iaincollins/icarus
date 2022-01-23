@@ -1,5 +1,6 @@
 import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
 import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
+import CopyOnClick from 'components/copy-on-click'
 
 export default function NavigationInspectorPanel ({ systemObject, setSystemObjectByName }) {
   if (!systemObject) return <div className='navigation-panel__inspector navigation-panel__inspector--hidden' />
@@ -72,7 +73,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
       <div className='inspector__contents scrollable'>
         <div className='navigation-panel__inspector-heading'>
           <i className={iconClass} />
-          <h2 className='text-info'><span className='selectable'>{systemObject.name}</span></h2>
+          <h2 className='text-info'><CopyOnClick>{systemObject.name}</CopyOnClick></h2>
           <h3 className='text-primary'>{systemObjectSubType}</h3>
         </div>
         <hr />

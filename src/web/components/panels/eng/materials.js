@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import CopyOnClick from 'components/copy-on-click'
 
 export default function Materials ({ materialType, materials }) {
   if (materials.length === 0) return (<p className='text-info text-uppercase'>No materials found.</p>)
@@ -41,7 +42,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
           {materials.map(item =>
             <tr key={`material_${materialType}_${materialCategory}_${item.symbol}`}>
               <td style={{ width: '30rem' }}>
-                <h3><span className='selectable'>{item.name}</span></h3>
+                <h3><CopyOnClick>{item.name}</CopyOnClick></h3>
                 <div style={{ marginTop: '.5rem' }}>
                   <div style={{ width: '30%', display: 'inline-block' }}>
                     {item.count}<span className='text-muted'>/{item.maxCount}</span>

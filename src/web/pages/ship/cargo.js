@@ -4,6 +4,7 @@ import { ShipPanelNavItems } from 'lib/navigation-items'
 import { eliteDateTime } from 'lib/format'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
+import CopyOnClick from 'components/copy-on-click'
 
 export default function ShipCargoPage () {
   const { connected, active, ready } = useSocket()
@@ -62,7 +63,7 @@ export default function ShipCargoPage () {
                   {cargo.map((item, i) =>
                     <tr key={`${ship.name}_cargo_${i}_${item.name}`}>
                       <td style={{ width: '3rem' }} className='text-right'>{item.count}</td>
-                      <td><span className='selectable'>{item.name}</span></td>
+                      <td><CopyOnClick>{item.name}</CopyOnClick></td>
                       <td>
                         <span className='text-muted'>{item.description}</span>
                         {item.mission !== false && <span className='text-secondary'> Mission</span>}

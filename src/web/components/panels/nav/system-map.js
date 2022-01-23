@@ -1,4 +1,5 @@
 import SystemMapStar from './system-map-star'
+import CopyOnClick from 'components/copy-on-click'
 
 export default function SystemMap ({ system, setSystemObject }) {
   if (!system) return null
@@ -9,7 +10,7 @@ export default function SystemMap ({ system, setSystemObject }) {
         <h1>
           <span className='fx-animated-text' data-fx-order='1'>
             <i className='icon icarus-terminal-system-orbits' />
-            <span className='selectable'>{system.name}</span>
+            <CopyOnClick>{system.name}</CopyOnClick>
           </span>
         </h1>
         {system && system.government && system.government !== 'Unknown' && !(system.government === 'None' && system?.security === 'Anarchy') &&

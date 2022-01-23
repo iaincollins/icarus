@@ -4,6 +4,7 @@ import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { NavPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
+import CopyOnClick from 'components/copy-on-click'
 
 export default function NavListPage () {
   const router = useRouter()
@@ -63,14 +64,14 @@ export default function NavListPage () {
                     {currentSystem &&
                       <>
                         <h4 className='text-primary'>Current System</h4>
-                        <h3 className='text-info'><span className='selectable'>{currentSystem?.name}</span></h3>
+                        <h3 className='text-info'><CopyOnClick>{currentSystem?.name}</CopyOnClick></h3>
                       </>}
                   </td>
                   <td style={{ width: '50%', padding: 0 }} className='text-right'>
                     {system && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem.toLowerCase() !== system?.name?.toLowerCase() &&
                       <>
                         <h4 className='text-primary'>Destination</h4>
-                        <h3 className='text-info'><span className='selectable'>{navRoute[navRoute.length - 1].StarSystem}</span></h3>
+                        <h3 className='text-info'><CopyOnClick>{navRoute[navRoute.length - 1].StarSystem}</CopyOnClick></h3>
                       </>}
                     {system && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem.toLowerCase() === system?.name?.toLowerCase() &&
                       <>
