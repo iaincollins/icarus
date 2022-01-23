@@ -8,6 +8,7 @@ export default function Layout ({ children, connected, active, ready = true, loa
       <Toaster
         position='bottom-right'
         toastOptions={{
+          className: 'text-uppercase',
           style: {
             borderRadius: '0',
             border: '.2rem solid var(--color-primary)',
