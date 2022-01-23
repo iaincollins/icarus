@@ -99,8 +99,11 @@
   left: 0;
 }
 
-.navigation-panel__list .scrollable {
+.navigation-panel__map .scrollable {
   overflow: scroll;
+}
+
+.navigation-panel__list .scrollable {
   height: 100%;
 }
 
