@@ -35,22 +35,18 @@ export default function ShipCargoPage () {
         {ship &&
           <>
             <h2>Cargo Manifest</h2>
-            <h3 className='text-primary' style={{overflow: 'auto'}}>
+            <h4 className='text-primary' style={{overflow: 'auto'}}>
               <progress
-                style={{marginTop: '.5rem', height: '1.5rem', display: 'inline-block', width: '12rem', float: 'left'}}
+                style={{marginTop: '.5rem', height: '1.2rem', display: 'inline-block', width: '12rem', float: 'left'}}
                 value={ship.cargo.count}
                 max={ship.cargo.capacity}
                 className='float-left'
                 />
               <span className='float-left' style={{display: 'inline-block', padding: '.25rem .5rem'}}>
                 {ship.cargo.count}/{ship.cargo.capacity} T
-                <span className='text-muted'> ({ship.cargo.capacity - ship.cargo.count} T free)</span>
+                {ship.cargo.count > 0 && ship.cargo.capacity < ship.cargo.count && <span className='text-muted'> ({ship.cargo.capacity - ship.cargo.count}T free)</span>}
               </span>
-            </h3>
-            {(ship && !ship.onBoard) &&
-              <p className='text-info text-muted text-uppercase' style={{margin: '0 0 .5rem 0'}}>
-                Manifest last recorded {eliteDateTime(ship?.timestamp)}
-              </p>}
+            </h4>
             <hr style={{ margin: '.5rem 0 0 0' }} />
             {ship && cargo && cargo.length === 0 && <p className='text-primary text-uppercase'>Cargo hold is empty</p>}
             {cargo && cargo.length > 0 &&
@@ -76,6 +72,11 @@ export default function ShipCargoPage () {
                   )}
                 </tbody>
               </table>}
+              <hr className='small'/>
+              {(!ship.onBoard) &&
+              <p className='text-muted text-primary text-center' style={{ margin: '1rem 0' }}>
+                Cargo manifest as of {eliteDateTime(ship?.timestamp)}
+              </p>}
           </>}
       </Panel>
     </Layout>
