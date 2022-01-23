@@ -4,10 +4,23 @@
 }
 
 .system-map {
-  margin-bottom: 1px;
+  margin-bottom: 2rem;
 }
 
-.system-map h1 {
+.system-map__info {
+  position: absolute;
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+  color: var(--color-info);
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 1rem 1.5rem;
+  z-index: 50;
+  text-align: right;
+  pointer-events: none;
+}
+
+.system-map__title h1 {
   margin: 0 0 0 var(--system-map-left-margin);
   padding: 0;
   text-transform: uppercase;
@@ -15,20 +28,20 @@
   line-height: 2.75rem;
 }
 
-.system-map h2 {
+.system-map__title h2 {
   font-size: 1.5rem;
   line-height: 1.5rem;
   margin: 0 0 0 var(--system-map-left-margin);
 }
 
-.system-map h3 {
+.system-map__title h3 {
   font-size: 1.25rem;
   line-height: 1.25rem;
   margin: 0 0 0 var(--system-map-left-margin);
   text-transform: none;
 }
 
-.system-map h1 .icon {
+.system-map__title h1 .icon {
   position: relative;
   top: .5rem;
   margin-right: .5rem;

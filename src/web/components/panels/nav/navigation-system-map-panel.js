@@ -71,8 +71,28 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
       </form>
       <div className='navigation-panel__map-background'>
         <div className='navigation-panel__map-foreground scrollable'>
-          <SystemMap system={system} setSystemObject={setSystemObject} />
+          <SystemMap system={system} setSystemObject={setSystemObject}/>
         </div>
+        {system.address && system.address !== 'Unknown' && system.position &&
+        <div className='system-map__info fx-fade-in'>
+          <span className='text-muted text-uppercase'>
+            {system.address}
+            <br/>
+            {system.position?.[0]}
+            <br/>
+            {system.position?.[1]}
+            <br/>
+            {system.position?.[2]}
+          </span>
+        </div>}
+        {system.address && system.address === 'Unknown' &&
+          <div className='system-map__info fx-fade-in'>
+            <span className='text-muted text-uppercase'>
+              Stellar cartography from EDSM
+            </span>
+            <br/>
+            <span onClick={() => getSystem()} style={{pointerEvents: 'all'}} className='text-link text-uppercase'><span className='text-link-text'>View current system</span></span>
+          </div>}
       </div>
     </div>
   )
