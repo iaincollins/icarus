@@ -7,12 +7,13 @@ export default function Layout ({ children, connected, active, ready = true, loa
     <div className='layout'>
       <Toaster
         position='bottom-right'
+        duration='5000'
         toastOptions={{
-          className: 'text-uppercase',
+          className: 'text-uppercase text-primary',
           style: {
             borderRadius: '0',
             border: '.2rem solid var(--color-primary)',
-            background: '#000',
+            background: 'var(--color-background-panel)',
             color: 'var(--color-primary)',
             maxWidth: '400px',
             textAlign: 'left !important',
