@@ -15,6 +15,10 @@ export default function NavListPage () {
   const [system, setSystem] = useState()
   const [navRoute, setNavRoute] = useState()
 
+  const search = async (searchInput) => {
+    router.push({ pathname: '/nav/map', query: { system: searchInput.toLowerCase() } })
+  }
+
   useEffect(async () => {
     if (!connected || !router.isReady) return
     const [newCurrentSystem, newSystem, newNavRoute] = await Promise.all([
@@ -53,7 +57,7 @@ export default function NavListPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
-      <Panel layout='full-width' navigation={NavPanelNavItems('Route', query)}>
+      <Panel layout='full-width' navigation={NavPanelNavItems('Route', query)} search={search}>
         <div className='navigation-panel__list'>
           <div className='scrollable'>
             <h2>Route</h2>
@@ -68,12 +72,12 @@ export default function NavListPage () {
                       </>}
                   </td>
                   <td style={{ width: '50%', padding: 0 }} className='text-right'>
-                    {system && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem.toLowerCase() !== system?.name?.toLowerCase() &&
+                    {currentSystem && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem.toLowerCase() !== currentSystem?.name?.toLowerCase() &&
                       <>
                         <h4 className='text-primary'>Destination</h4>
                         <h3 className='text-info'><CopyOnClick>{navRoute[navRoute.length - 1].StarSystem}</CopyOnClick></h3>
                       </>}
-                    {system && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem.toLowerCase() === system?.name?.toLowerCase() &&
+                    {currentSystem && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem.toLowerCase() === currentSystem?.name?.toLowerCase() &&
                       <>
                         <h4>&nbsp;</h4>
                         <h3 className='text-primary text-muted'>At destination</h3>
@@ -115,7 +119,7 @@ export default function NavListPage () {
                         <td className='text-right' style={{ verticalAlign: 'middle' }}>
                           <span className='text-muted hidden-medium'>
                             Address {route.SystemAddress}<br />
-                            {route.StarPos}
+                            {route.StarPos.join(',')}
                           </span>
                           <span className='visible-medium'>
                             <span className={route.StarClass.match(/([OBAFGKM])/) ? '' : 'text-muted'}> {route.StarClass}</span>
@@ -125,15 +129,15 @@ export default function NavListPage () {
                     )}
                   </tbody>
                 </table>
-                <hr />
+                <hr className='small' style={{ marginTop: 0 }} />
               </>}
             {navRoute && navRoute.length > 0 &&
               <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
-                Select system to view stellar cartography
+                Select system to display stellar cartography
               </p>}
             {navRoute &&
               <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
-              Set route using galaxy map
+                Set route using galaxy map
               </p>}
           </div>
         </div>

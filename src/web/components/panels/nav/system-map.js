@@ -15,29 +15,28 @@ export default function SystemMap ({ system, setSystemObject }) {
             </span>
           </h1>
           {system && system.government && system.government !== 'Unknown' && !(system.government === 'None' && system?.security === 'Anarchy') &&
-            <h2 className='text-primary'>
-              <span className='fx-animated-text' data-fx-order='1'>
+            <h3 className='text-primary'>
+              <span className='fx-animated-text' data-fx-order='3'>
                 {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
-                {system.government && system.government !== 'None' && system.government !== 'Unknown' && ` // ${system.government}`}
-                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? ` // ${system.security}` : ''}
+                {system.government && system.government !== 'None' && system.government !== 'Unknown' && <><span className='system-map__seperator' />{system.government}</>}
+                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='system-map__seperator' />{system.security}</> : ''}
               </span>
-            </h2>}
-          {/*
+            </h3>}
           <h3 className='text-primary'>
             <span className='fx-animated-text' data-fx-order='3'>
-              {system.planetaryPorts.length > 0 && <>Starports: {system.starports.length} </>}
-              {system.planetaryPorts.length > 0 && <>Planetary Ports: {system.planetaryPorts.length} </>}
-              {system.planetaryPorts.length > 0 && <>Megaships: {system.megaships.length} </>}
-              {system.population && <>Population: {system.population} </>}
+              {system.detail && system.detail.bodies && <>{system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'Stellar Body' : 'Stellar Bodies'}</>}
+              {system.starports.length > 0 && <><span className='system-map__seperator' />{system.starports.length} {system.starports.length === 1 ? 'Starport' : 'Starports'}</>}
+              {system.planetaryPorts.length > 0 && <><span className='system-map__seperator' />{system.planetaryPorts.length} {system.planetaryPorts.length === 1 ? 'Planetary Port' : 'Planetary Ports'}</>}
+              {system.megaships.length > 0 && <><span className='system-map__seperator' />{system.megaships.length} {system.megaships.length === 1 ? 'Megaship' : 'Megaships'}</>}
             </span>
           </h3>
-          */}
           {system.faction && system.faction !== 'Unknown' &&
             <h3 className='text-primary'>
               <span className='fx-animated-text' data-fx-order='3'>
-                Controlled by {system.faction}
+                <span className='text-muted'>Authority</span> {system.faction}
               </span>
             </h3>}
+          {system.stars.length > 1 && system.address && system.address === 'Unknown' && <h3 className='text-info text-muted'><span className='fx-animated-text' data-fx-order='3'>Visit system for more information</span></h3>}
         </div>
         {system.stars.map(star =>
           <SystemMapStar

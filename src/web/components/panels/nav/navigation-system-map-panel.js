@@ -1,21 +1,7 @@
-import { useState, useEffect } from 'react'
 import SystemMap from './system-map'
 
 export default function NavigationSystemMapPanel ({ system, systemObject, setSystemObject, getSystem }) {
   if (!system) return null
-
-  const [searchValue, setSearchValue] = useState('')
-  const [searchInputVisible, setSearchInputVisible] = useState(false)
-
-  useEffect(() => {
-    document.addEventListener('click', onClickHandler)
-    return () => document.removeEventListener('click', onClickHandler)
-    function onClickHandler (event) {
-      if (!event?.target?.id.startsWith('navigation-panel__system-map-search-')) {
-        setSearchInputVisible(false)
-      }
-    }
-  }, [])
 
   return (
     <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
@@ -26,75 +12,39 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         >
           <h2>No system information</h2>
         </div>}
-      <form
-        id='navigation-panel__system-map-search-form'
-        className='navigation-panel__system-map-search-form'
-        onSubmit={(event) => {
-          event.preventDefault()
-          const el = document.getElementById('navigation-panel__system-map-search-input')
-          getSystem(el.value) // Get system
-          setSearchInputVisible(false) // Hide control after submission
-          setSearchValue() // Reset input contents after submission
-        }}
-        autoComplete='off'
-      >
-        {searchInputVisible &&
-          <>
-            <input
-              id='navigation-panel__system-map-search-input'
-              className='navigation-panel__system-map-search-input input--secondary'
-              type='text'
-              placeholder='Enter system name…'
-              onFocus={() => {
-                const el = document.getElementById('navigation-panel__system-map-search-input')
-                el.select()
-
-                // Work around to remove focus from selected item to avoid weird behaviour on mobile devices
-                // as there isn't enough room on screen to also display a panel when there is an on screen
-                // virtual keyboard on screen
-                setSystemObject(null)
-              }}
-              value={searchValue}
-              autoFocus
-              onChange={(event) => setSearchValue(event.target.value)}
-            />
-            <button id='navigation-panel__system-map-search-button' type='submit' className='button--active button--secondary'>Search</button>
-          </>}
-        {!searchInputVisible &&
-          <button
-            id='navigation-panel__system-map-search-toggle'
-            className='button--icon button--secondary'
-            onClick={() => { setSearchInputVisible(true) }}
-          >
-            <i className='icon icarus-terminal-search' />
-          </button>}
-      </form>
       <div className='navigation-panel__map-background'>
         <div className='navigation-panel__map-foreground scrollable'>
-          <SystemMap system={system} setSystemObject={setSystemObject}/>
+          <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>
         <div className='system-map__info fx-fade-in'>
           {system.address && system.address !== 'Unknown' && system.position &&
-            <span className='text-info text-uppercase'>
-              {system.address}
-              <br/>
-              {system.position?.[0]}
-              <br/>
-              {system.position?.[1]}
-              <br/>
-              {system.position?.[2]}
-            </span>}
-          {system.address && system.address === 'Unknown' &&
             <>
-              <span className='text-info text-uppercase'>
-                Stellar cartography from EDSM
+              <span className='text-secondary text-muted text-uppercase float-left text-left'>
+                {system.position?.[0]}<br />
+                {system.position?.[1]}<br />
+                {system.position?.[2]}
               </span>
-              <br/>
-              <span onClick={() => getSystem()} style={{pointerEvents: 'all'}} className='text-link text-uppercase'>
-                <span className='text-link-text'>View current system</span>
+              <span className='text-uppercase float-right'>
+                <br />
+                <span className='text-primary'>Current System</span><br />
+                <span className='text-secondary text-muted'>Address {system.address}</span>
               </span>
             </>}
-          </div>
+          {system.address && system.address === 'Unknown' &&
+            <>
+              <span className='text-secondary text-muted text-uppercase float-left text-left'>
+                Stellar cartography<br />
+                telemetry from EDSM
+              </span>
+              <span className='text-secondary text-muted text-uppercase'>
+                Remote system
+              </span>
+              <br />
+              <span onClick={() => getSystem()} style={{ pointerEvents: 'all' }} className='text-link text-uppercase'>
+                <span className='text-link-text'>Display current system</span>
+              </span>
+            </>}
+        </div>
       </div>
     </div>
   )

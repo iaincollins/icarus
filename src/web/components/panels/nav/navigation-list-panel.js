@@ -35,8 +35,13 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
             // )}
             // </>
           )} */}
+            {(!system.detail || !system.detail.bodies || system.detail.bodies.length === 0) &&
+              <tr>
+                <td colspan='2' className='text-muted text-center'>&nbsp;</td>
+              </tr>}
           </tbody>
         </table>
+        <hr className='small' style={{ marginTop: 0 }} />
       </div>
     </div>
   )

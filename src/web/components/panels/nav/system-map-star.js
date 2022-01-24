@@ -35,20 +35,25 @@ export default function SystemMapStar ({ star, setSystemObject }) {
         <h3>
           <span className='fx-animated-text text-primary' data-fx-order='5'>
             {star.type === 'Null'
-              ? star.description || ''
-              : `${star.subType} ${star.spectralClass ? `// Class ${star.spectralClass}` : ''} ${star.isScoopable ? '// Fuel Star' : ''}`}
+              ? <>Rogue <span className='text-muted'>//</span> Extrasolar <span className='text-muted'>//</span> Circumbinary</> || ''
+              : <>{star.subType}{star.spectralClass
+                ? <><span className='system-map__seperator' />Class {star.spectralClass}</>
+                : ''}{star.isScoopable
+                  ? ' (Fuel Star)'
+                  : ''}
+              </>}
           </span>
         </h3>
         {star.numberOfPlanets > 0 &&
           <h4>
-            <span className='fx-animated-text text-primary text-muted' data-fx-order='6'>
-              {star.numberOfPlanets === 1 ? '1 orbiting body' : `${star.numberOfPlanets} orbiting bodies`}
+            <span className='fx-animated-text text-primary' data-fx-order='6'>
+              {star.numberOfPlanets === 1 ? '1 body in orbit' : `${star.numberOfPlanets} bodies in orbit`}
             </span>
           </h4>}
         {star.numberOfPlanets === 0 &&
           <h4>
             <span className='fx-animated-text text-primary text-muted' data-fx-order='6'>
-              No orbiting bodies
+              No bodies in orbit
             </span>
           </h4>}
       </div>

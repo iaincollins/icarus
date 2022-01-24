@@ -36,14 +36,14 @@ export default function ShipCargoPage () {
         {ship &&
           <>
             <h2>Cargo Manifest</h2>
-            <h4 className='text-primary' style={{overflow: 'auto'}}>
+            <h4 className='text-primary' style={{ overflow: 'auto' }}>
               <progress
-                style={{marginTop: '.5rem', height: '1.2rem', display: 'inline-block', width: '12rem', float: 'left'}}
+                style={{ marginTop: '.5rem', height: '1.2rem', display: 'inline-block', width: '12rem', float: 'left' }}
                 value={ship.cargo.count}
                 max={ship.cargo.capacity}
                 className='float-left'
-                />
-              <span className='float-left' style={{display: 'inline-block', padding: '.25rem .5rem'}}>
+              />
+              <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem' }}>
                 {ship.cargo.count}/{ship.cargo.capacity} T
                 {ship.cargo.count > 0 && ship.cargo.count < ship.cargo.capacity && <span className='text-muted'> ({ship.cargo.capacity - ship.cargo.count} free)</span>}
               </span>
@@ -73,8 +73,8 @@ export default function ShipCargoPage () {
                   )}
                 </tbody>
               </table>}
-              <hr className='small'/>
-              {(!ship.onBoard) &&
+            <hr className='small' style={{ marginTop: 0 }} />
+            {(!ship.onBoard) &&
               <p className='text-muted text-primary text-center' style={{ margin: '1rem 0' }}>
                 Cargo manifest as of {eliteDateTime(ship?.timestamp)}
               </p>}

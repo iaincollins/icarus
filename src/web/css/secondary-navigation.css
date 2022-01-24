@@ -7,7 +7,7 @@
   z-index: 10;
 }
 
-.secondary-navigation button {
+.secondary-navigation button.button--icon {
   width: 4rem;
   height: 4rem;
   margin-bottom: .5rem;
@@ -15,16 +15,59 @@
   transition: border .25s ease-in-out;
 }
 
-.secondary-navigation button .icon {
+.secondary-navigation button.button--icon .icon {
   position: relative;
   top: .25rem;
   font-size: 2.5rem;
   line-height: 2.5rem;
 }
 
-.secondary-navigation button.button--active,
-.secondary-navigation .button.button--active {
+.secondary-navigation button.button--icon.button--active,
+.secondary-navigation .button.button--icon.button--active {
   background: var(--color-primary-dark);
   color: var(--color-primary);
   border-right: .5rem solid var(--color-primary);
 }
+
+.secondary-navigation button.button--icon.button--selected {
+  background: var(--color-primary) !important;
+  color: var(--color-primary-dark) !important;
+  z-index: 50;
+}
+
+.secondary-navigation input {
+  border-color: var(--color-primary);
+}
+
+#secondary-navigation__search-form {
+  position: absolute;
+  top: 0;
+  left: 4rem;
+  width: 25rem;
+  animation-delay: .25s;
+  animation: search-form-animation .25s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes search-form-animation {
+  from { box-shadow: none; }
+  to { box-shadow: 0 0 1rem black; }
+}
+
+#secondary-navigation__search-input {
+  animation: search-input-animation .25s ease-in-out;
+  animation-fill-mode: forwards;
+  float: left;
+  padding-left: 1rem;
+  height: 3rem;
+}
+
+@keyframes search-input-animation {
+  from { width: 0rem; }
+  to { width: 15rem; }
+}
+
+
+/*
+ box-shadow: 0 0 2rem black; 
+ */

@@ -14,36 +14,26 @@
   bottom: 0;
   right: 1rem;
   left: 0;
-  padding: .75rem .5rem;
+  padding: .5rem .5rem 1rem 0.5rem;
   z-index: 50;
   text-align: right;
   pointer-events: none;
+  font-size: 1rem;
 }
 
 .system-map__info * {
-  text-shadow: 2px 2px .2rem rgba(0,0,0.5), -2px 2px .2rem rgba(0,0,0.5), 2px -2px .2rem rgba(0,0,0.5), -2px -2px .2rem rgba(0,0,0.5) !important;
-  text-shadow: 0 0 .1rem black,  0 0 .2rem black, 0 0 .3rem black !important;
+  text-shadow: 0 0 .1rem black,  0 0 .2rem black, 0 0 .3rem black, 0 0 1rem black, 0 0 1rem black, 0 0 1rem black, 0 0 1rem black !important;
+}
+
+.system-map__title {
+  margin-left: var(--system-map-left-margin);
 }
 
 .system-map__title h1 {
-  margin: 0 0 0 var(--system-map-left-margin);
   padding: 0;
   text-transform: uppercase;
   font-size: 2.5rem;
   line-height: 2.75rem;
-}
-
-.system-map__title h2 {
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  margin: 0 0 0 var(--system-map-left-margin);
-}
-
-.system-map__title h3 {
-  font-size: 1.25rem;
-  line-height: 1.25rem;
-  margin: 0 0 0 var(--system-map-left-margin);
-  text-transform: none;
 }
 
 .system-map__title h1 .icon {
@@ -51,6 +41,41 @@
   top: .5rem;
   margin-right: .5rem;
   line-height: 3rem;
+}
+
+@media only screen and (max-width: 799px) {
+  .system-map__title h1 { 
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+
+  .system-map__title h1 .icon {
+    position: relative;
+    top: .3rem;
+    line-height: 3rem;
+  }
+}
+
+.system-map__title h3 {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+}
+
+.system-map__seperator::before {
+  display: inline-block;
+  padding: 0 .25rem;
+  color: var(--color-primary);
+  opacity: .5;
+  content: '//';
+}
+
+@media only screen and (max-width: 799px) {
+  .system-map__seperator::before {
+    display: none;
+  }
+  .system-map__seperator{
+    display: block;
+  }
 }
 
 .system-map__planetary-system {
@@ -75,7 +100,7 @@
   animation: svg-fade-in-animation .75s ease-in-out;
   animation-fill-mode: forwards;
   /* Wait until after other animations on page are done for best performance on slow devices */
-  animation-delay: .75s; 
+  animation-delay: .5s; 
 }
 
 .system-map__planetary-system-star-icon svg {
@@ -111,6 +136,13 @@
 .system-map__planetary-system-star h2 {
   font-size: 2rem;
   line-height: 2rem;
+}
+
+@media only screen and (max-width: 799px) {
+  .system-map__planetary-system-star h2 { 
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
 }
 
 .system-map__planetary-system-star h3,

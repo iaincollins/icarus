@@ -20,6 +20,11 @@ function ShipPanelNavItems (activePanel) {
 function NavPanelNavItems (activePanel, query) {
   const navigationItems = [
     {
+      name: 'Search',
+      icon: 'search',
+      type: 'SEARCH'
+    },
+    {
       name: 'Map',
       icon: 'system-bodies',
       url: {

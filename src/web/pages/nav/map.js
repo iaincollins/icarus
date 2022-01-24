@@ -15,6 +15,13 @@ export default function NavMapPage () {
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
 
+  const search = async (searchInput) => {
+    const newSystem = await sendEvent('getSystem', { name: searchInput })
+    if (!newSystem) return
+    setSystemObject(null)
+    setSystem(newSystem)
+  }
+
   const getSystem = async (systemName, useCache = true) => {
     const newSystem = await sendEvent('getSystem', { name: systemName, useCache })
     if (!newSystem) return
@@ -77,7 +84,7 @@ export default function NavMapPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
-      <Panel layout='full-width' navigation={NavPanelNavItems('Map', query)}>
+      <Panel layout='full-width' navigation={NavPanelNavItems('Map', query)} search={search}>
         <NavigationSystemMapPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} getSystem={getSystem} />
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>

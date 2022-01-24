@@ -99,10 +99,6 @@
   left: 0;
 }
 
-.navigation-panel__map .scrollable {
-  overflow: scroll;
-}
-
 .navigation-panel__list .scrollable {
   height: 100%;
 }
@@ -120,7 +116,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 10, 0.85);
+  background: rgba(0, 0, 17, 0.85);
 }
 
 .navigation-panel__map-foreground {
@@ -151,7 +147,7 @@
 }
 
 .navigation-panel__map-background::before {
-  background-image: linear-gradient(rgb(58, 58, 58) .1rem, transparent .1rem), linear-gradient(90deg, rgb(58, 58, 58) .1rem, transparent .1rem);
+  background-image: linear-gradient(rgb(70, 70, 70) .1rem, transparent .1rem), linear-gradient(90deg, rgb(70, 70, 70) .1rem, transparent .1rem);
   background-size: 3rem 3rem;
   background-position: -1.5rem;
   content: " ";
@@ -202,28 +198,7 @@
   text-decoration: none !important;
 }
 
-.navigation-panel__system-map-search-form {
-  position: absolute;
-  top: .5rem;
-  right: 1.5rem;
-  z-index: 20;
-}
-
-.navigation-panel__system-map-search-input {
-  padding: .25rem .5rem;
-  width: 0rem;
-  border-right: none;
-  margin-right: -.5rem;
-  animation: navigation-panel__system-map-search-input-animation .25s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes navigation-panel__system-map-search-input-animation {
-  from { width: 0rem; }
-  to { width: 15rem; }
-}
-
-@media only screen and (orientation: portrait) {
+@media only screen and (orientation: portrait), (max-width: 599px) {
   .navigation-panel__list,
   .navigation-panel__map {
     height: 100%;
