@@ -3,10 +3,10 @@
 import toast from 'react-hot-toast'
 
 // Message can be string or JSX
-function notification (message, {id = null}) {
+function notification (message, args) {
   // Always assign ID to avoid duplicate notifications (bug on some platforms?)
   const options = {
-    toastId: id || hash(message) // TODO check hash output for JSX
+    // toastId: args.id || hash(message) // TODO check hash output for JSX
   }
   toast(message, options)
 }

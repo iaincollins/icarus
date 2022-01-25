@@ -1,8 +1,8 @@
 /* global WebSocket, CustomEvent */
 import { createContext, useState, useContext } from 'react'
-import toast from 'react-hot-toast'
+import notification from 'lib/notification'
 
-let socket // Store socket connection
+let socket = null// Store socket connection (defaults to null)
 const callbackHandlers = {} // Store callbacks waiting to be executed (pending response from server)
 const deferredEventQueue = [] // Store events waiting to be sent (used when server is not ready yet or offline)
 let recentBroadcastEvents = 0
@@ -53,22 +53,22 @@ function connect (socketState, setSocketState) {
       // Send Toast Message
       try { // Don't crash if fails because properties are missing
         if (name === 'newLogEntry') {
-          if (message.event === 'StartJump' && message.StarSystem) toast(`Jumping to ${message.StarSystem}`)
-          if (message.event === 'FSDJump') toast(`Arrived in ${message.StarSystem}`)
-          if (message.event === 'ApproachBody') toast(`Approaching ${message.Body}`)
-          if (message.event === 'LeaveBody') toast(`Leaving ${message.Body}`)
-          if (message.event === 'NavRoute') toast('New route plotted')
-          if (message.event === 'DockingGranted') toast(`Docking at ${message.StationName}`)
-          if (message.event === 'Docked') toast(`Docked at ${message.StationName}`)
-          if (message.event === 'Undocked') toast(`Now leaving ${message.StationName}`)
-          if (message.event === 'ApproachSettlement') toast(`Approaching ${message.Name}`)
-          if (message.event === 'ReceiveText' && message.From) toast(() => <><p className='text-primary' style={{ marginRight: '.6rem' }}>{message.From_Localised || message.From}</p><p className='text-info'>{message.Message_Localised || message.Message}</p></>)
-          if (message.event === 'MarketBuy') toast(`Bought ${message.Count} T of ${message.Type_Localised || message.Type}`)
-          if (message.event === 'MarketSell') toast(`Sold ${message.Count} T of ${message.Type_Localised || message.Type}`)
-          if (message.event === 'BuyDrones') toast(`Bought ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)
-          if (message.event === 'SellDrones') toast(`Sold ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)
-          if (message.event === 'CargoDepot' && message.UpdateType === 'Collect') toast(`Collected ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
-          if (message.event === 'CargoDepot' && message.UpdateType === 'Deliver') toast(`Delivered ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
+          if (message.event === 'StartJump' && message.StarSystem) notification(`Jumping to ${message.StarSystem}`)
+          if (message.event === 'FSDJump') notification(`Arrived in ${message.StarSystem}`)
+          if (message.event === 'ApproachBody') notification(`Approaching ${message.Body}`)
+          if (message.event === 'LeaveBody') notification(`Leaving ${message.Body}`)
+          if (message.event === 'NavRoute') notification('New route plotted')
+          if (message.event === 'DockingGranted') notification(`Docking at ${message.StationName}`)
+          if (message.event === 'Docked') notification(`Docked at ${message.StationName}`)
+          if (message.event === 'Undocked') notification(`Now leaving ${message.StationName}`)
+          if (message.event === 'ApproachSettlement') notification(`Approaching ${message.Name}`)
+          if (message.event === 'ReceiveText' && message.From) notification(() => <><p className='text-primary' style={{ marginRight: '.6rem' }}>{message.From_Localised || message.From}</p><p className='text-info'>{message.Message_Localised || message.Message}</p></>)
+          if (message.event === 'MarketBuy') notification(`Bought ${message.Count} T of ${message.Type_Localised || message.Type}`)
+          if (message.event === 'MarketSell') notification(`Sold ${message.Count} T of ${message.Type_Localised || message.Type}`)
+          if (message.event === 'BuyDrones') notification(`Bought ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)
+          if (message.event === 'SellDrones') notification(`Sold ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)
+          if (message.event === 'CargoDepot' && message.UpdateType === 'Collect') notification(`Collected ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
+          if (message.event === 'CargoDepot' && message.UpdateType === 'Deliver') notification(`Delivered ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
         }
       } catch (e) { console.log('EVENT_TOAST_ERROR', e) }
     }
@@ -114,6 +114,7 @@ function connect (socketState, setSocketState) {
     }
   }
   socket.onclose = (e) => {
+    socket = null
     socketDebugMessage('Disconnected from socket server')
     setSocketState(prevState => ({
       ...prevState,
@@ -121,6 +122,7 @@ function connect (socketState, setSocketState) {
       connected: false,
       ready: false
     }))
+    setTimeout(() => { connect(socketState, setSocketState) }, 5000)
   }
 }
 
@@ -129,7 +131,7 @@ const SocketContext = createContext()
 function SocketProvider ({ children }) {
   const [socketState, setSocketState] = useState(defaultSocketState)
 
-  if (typeof WebSocket !== 'undefined' && socketState.connected !== true) {
+  if (socket === null && typeof WebSocket !== 'undefined' && socketState.connected !== true) {
     connect(socketState, setSocketState)
   }
 
