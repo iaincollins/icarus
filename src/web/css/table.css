@@ -71,13 +71,13 @@ table tbody tr.table__row--highlighted td {
   text-shadow: none;
 }
 
-table tbody tr.table__row--highlighted:hover td {
+table:not(.table--inline).table--interactive tbody tr.table__row--highlighted:hover td {
   background: var(--color-secondary) !important;
   color: var(--color-secondary-dark) !important;
   text-shadow: none;
 }
 
-table tbody tr.table__row--highlight-primary-hover:hover td {
+table:not(.table--inline).table--interactive tbody tr.table__row--highlight-primary-hover:hover td {
   background: var(--color-primary) !important;
   color: var(--color-primary-dark) !important;
   text-shadow: none;
@@ -85,6 +85,11 @@ table tbody tr.table__row--highlight-primary-hover:hover td {
 
 table tbody tr.table__row--selected td:first-of-type {
   box-shadow: .5rem 0 0 0 var(--color-primary) inset !important;
+}
+
+table tbody tr.table__row--large td {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
 }
 
 /* 

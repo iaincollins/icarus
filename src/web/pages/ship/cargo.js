@@ -61,7 +61,7 @@ export default function ShipCargoPage () {
                 </thead>
                 <tbody>
                   {cargo.map((item, i) =>
-                    <tr key={`${ship.name}_cargo_${i}_${item.name}`}>
+                    <tr className='table__row--large' key={`${ship.name}_cargo_${i}_${item.name}`}>
                       <td style={{ width: '3rem' }} className='text-right'>{item.count}</td>
                       <td><CopyOnClick>{item.name}</CopyOnClick></td>
                       <td>
