@@ -3,8 +3,8 @@ import { createContext, useState, useContext } from 'react'
 import notification from 'lib/notification'
 
 let socket = null// Store socket connection (defaults to null)
-const callbackHandlers = {} // Store callbacks waiting to be executed (pending response from server)
-const deferredEventQueue = [] // Store events waiting to be sent (used when server is not ready yet or offline)
+let callbackHandlers = {} // Store callbacks waiting to be executed (pending response from server)
+let deferredEventQueue = [] // Store events waiting to be sent (used when server is not ready yet or offline)
 let recentBroadcastEvents = 0
 
 const defaultSocketState = {
@@ -16,6 +16,12 @@ const defaultSocketState = {
 function socketDebugMessage () { /* console.log(...arguments) */ }
 
 function connect (socketState, setSocketState) {
+  if (socket !== null) return
+
+  // Reset on reconnect
+  callbackHandlers = {}
+  deferredEventQueue = []
+
   socket = new WebSocket('ws://' + window.location.host)
   socket.onmessage = (event) => {
     const { requestId, name, message } = JSON.parse(event.data)
@@ -50,7 +56,8 @@ function connect (socketState, setSocketState) {
         }))
       }, 500)
 
-      // Send Toast Message
+      // Trigger notifications for key actions
+      // TODO Refactor out into a seperate handler
       try { // Don't crash if fails because properties are missing
         if (name === 'newLogEntry') {
           if (message.event === 'StartJump' && message.StarSystem) notification(`Jumping to ${message.StarSystem}`)
@@ -69,8 +76,9 @@ function connect (socketState, setSocketState) {
           if (message.event === 'SellDrones') notification(`Sold ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)
           if (message.event === 'CargoDepot' && message.UpdateType === 'Collect') notification(`Collected ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
           if (message.event === 'CargoDepot' && message.UpdateType === 'Deliver') notification(`Delivered ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
+          if (message.event === 'Scanned') notification('Scan detected')
         }
-      } catch (e) { console.log('EVENT_TOAST_ERROR', e) }
+      } catch (e) { console.log('NOTIFICATION_ERROR', e) }
     }
     socketDebugMessage('Message received from socket server', requestId, name, message)
   }
@@ -115,7 +123,7 @@ function connect (socketState, setSocketState) {
   }
   socket.onclose = (e) => {
     socket = null
-    socketDebugMessage('Disconnected from socket server')
+    socketDebugMessage('Disconnected from socket server (will attempt reconnection)')
     setSocketState(prevState => ({
       ...prevState,
       active: socketRequestsPending(),
@@ -124,6 +132,11 @@ function connect (socketState, setSocketState) {
     }))
     setTimeout(() => { connect(socketState, setSocketState) }, 5000)
   }
+
+  socket.onerror = function(err) {
+    socketDebugMessage('Socket error', err.message)
+    socket.close()
+  };
 }
 
 const SocketContext = createContext()
@@ -131,7 +144,7 @@ const SocketContext = createContext()
 function SocketProvider ({ children }) {
   const [socketState, setSocketState] = useState(defaultSocketState)
 
-  if (socket === null && typeof WebSocket !== 'undefined' && socketState.connected !== true) {
+  if (typeof WebSocket !== 'undefined' && socketState.connected !== true) {
     connect(socketState, setSocketState)
   }
 
