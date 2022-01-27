@@ -1,3 +1,8 @@
+# Examples of status.json
+
+Examples of commander states reflected in status.json
+
+Note: Other events (e.g. Disembark) can provide additional contextual information (e.g. if disembarked inside a station)
 
 NOT SIGNED IN
 
@@ -7,18 +12,18 @@ SRV
 
 { "timestamp":"2021-12-15T08:36:43Z", "event":"Status", "Flags":203440392, "Flags2":0, 
   "Pips":[4,4,4], "FireGroup":1, "GuiFocus":0, 
-    "Fuel":{ "FuelMain":0.000000, "FuelReservoir":0.498579 }, 
-    "Cargo":0.000000, "LegalState":"Clean", "Latitude":-72.549675, "Longitude":49.681393, 
-    "Heading":140, "Altitude":0, "BodyName":"Helgoland 6 c", "PlanetRadius":582957.250000, "Balance":153781244 }
+  "Fuel":{ "FuelMain":0.000000, "FuelReservoir":0.498579 }, 
+  "Cargo":0.000000, "LegalState":"Clean", "Latitude":-72.549675, "Longitude":49.681393, 
+  "Heading":140, "Altitude":0, "BodyName":"Helgoland 6 c", "PlanetRadius":582957.250000, "Balance":153781244 }
 
-FOOT (SURFACE)
+ON FOOT (SURFACE)
 
-  { "timestamp":"2021-12-15T08:37:28Z", "event":"Status", "Flags":2097152, "Flags2":33041, 
-    "Oxygen":1.000000, "Health":1.000000, "Temperature":68.986519, "SelectedWeapon":"$humanoid_fists_name;", 
-    "SelectedWeapon_Localised":"Unarmed", "Gravity":0.034220, "LegalState":"Clean", "Latitude":-72.549835, 
-    "Longitude":49.680584, "Heading":140, "BodyName":"Helgoland 6 c", "Balance":153781244 }
+{ "timestamp":"2021-12-15T08:37:28Z", "event":"Status", "Flags":2097152, "Flags2":33041, 
+  "Oxygen":1.000000, "Health":1.000000, "Temperature":68.986519, "SelectedWeapon":"$humanoid_fists_name;", 
+  "SelectedWeapon_Localised":"Unarmed", "Gravity":0.034220, "LegalState":"Clean", "Latitude":-72.549835, 
+  "Longitude":49.680584, "Heading":140, "BodyName":"Helgoland 6 c", "Balance":153781244 }
 
-FOOT (IN STATION)
+ON  FOOT (IN STATION)
 
 { "timestamp":"2022-01-14T13:41:07Z", "event":"Status", "Flags":2097152, "Flags2":81937, "Oxygen":1.000000, "Health":1.000000,
 "Temperature":293.000000, "SelectedWeapon":"", "Gravity":0.107340, "LegalState":"Clean", "Latitude":-18.818960, "Longitude":-105.503677,
