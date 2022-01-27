@@ -16,7 +16,7 @@ export default function SystemMap ({ system, setSystemObject }) {
           </h1>
           {system && system.government && system.government !== 'Unknown' && !(system.government === 'None' && system?.security === 'Anarchy') &&
             <h3 className='text-primary'>
-              <span className='fx-animated-text' data-fx-order='3'>
+              <span className='fx-animated-text' data-fx-order='2'>
                 {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
                 {system.government && system.government !== 'None' && system.government !== 'Unknown' && <><span className='system-map__seperator' />{system.government}</>}
                 {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='system-map__seperator' />{system.security}</> : ''}
@@ -32,11 +32,11 @@ export default function SystemMap ({ system, setSystemObject }) {
           </h3>
           {system.faction && system.faction !== 'Unknown' &&
             <h3 className='text-primary'>
-              <span className='fx-animated-text' data-fx-order='3'>
+              <span className='fx-animated-text' data-fx-order='4'>
                 <span className='text-muted'>Authority</span> {system.faction}
               </span>
             </h3>}
-          {system.stars.length > 1 && system.address && system.address === 'Unknown' && <h3 className='text-info text-muted'><span className='fx-animated-text' data-fx-order='3'>Visit system for more information</span></h3>}
+          {system.stars.length > 1 && system.address && system.address === 'Unknown' && <h3 className='text-info text-muted'><span className='fx-animated-text' data-fx-order='4'>Visit system for more information</span></h3>}
         </div>
         {system.stars.map(star =>
           <SystemMapStar

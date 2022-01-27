@@ -97,16 +97,16 @@
   /* Don't display map SVG on page load for performance reasons */
   opacity: 0;
   visibility: hidden;
-  animation: svg-fade-in-animation .75s ease-in-out;
+  animation: svg-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
   /* Wait until after other animations on page are done for best performance on slow devices */
-  animation-delay: .5s; 
+  animation-delay: .75s; 
 }
 
 .system-map__planetary-system-star-icon svg {
   opacity: 0;
   visibility: hidden;
-  animation: fx-fade-in-animation .75s ease-in-out;
+  animation: fx-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
   /* Wait until after other animations on page are done for best performance on slow devices */
   animation-delay: .5; 
