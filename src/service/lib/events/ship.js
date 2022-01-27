@@ -133,7 +133,7 @@ class ShipEvents {
     })
 
     let armour = UNKNOWN_VALUE
-    let totalMass = 0
+    let totalMass = Loadout?.UnladenMass ?? 0
     let totalModulePowerDraw = 0
     let totalFuelCapacity = 0
 
@@ -207,8 +207,7 @@ class ShipEvents {
         }
       }
 
-      // Keep running total of module cost and total power draw
-      if (module.mass) totalMass += module.mass
+      // Keep running total of total power draw
       if (module.power) totalModulePowerDraw += module.power
 
       module.slotName = module.slot.replace('_', ' ')

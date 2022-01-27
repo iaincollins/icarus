@@ -8,9 +8,6 @@ Some of the features and improvements currently being worked on.
 * Windows should restore to their origional position on screen after exiting fullcreen
 * Windows should go fullscreen on the monitor they are triggered on (not always on the main window)
 * Links from the launcher (software update, remote link) should open the users default external browser
-* Improve UI for viewing systems in Route panel
-* Improve apperance of text copied to clipboard (and include text in notification)
-* Improve system information in System Map
 * Add faction / government information to remote systems to System Map
 * Add faction information to stations/outposts/ports/settlement inspector
 * Show commander credits, status and location in header
