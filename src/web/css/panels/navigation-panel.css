@@ -110,15 +110,6 @@
   position: absolute;
 }
 
-.navigation-panel__map-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 15, 30, .5);
-}
-
 .navigation-panel__map-foreground {
   position: absolute;
   top: 0;
@@ -130,8 +121,16 @@
   height: 100%;
 }
 
+.navigation-panel__map-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 15, 30, .4);
+}
+
 .navigation-panel__map-background::after {
-  /* https://commons.wikimedia.org/wiki/File:Abell315_(ESO).jpg */
   background-color: black;
   background-image: url(/images/textures/stars.jpg);
   background-size: 50rem;
@@ -143,13 +142,13 @@
   bottom: 0;
   right: 0;
   z-index: -2;
-  opacity: .5;
+  opacity: 1.5;
   animation: navigation-panel__map-background-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
 }
 
 @keyframes navigation-panel__map-background-fade-in-animation {
-  from { filter: blur(1rem); }
+  from { filter: blur(2rem); }
   to { filter: blur(0); }
 }
 

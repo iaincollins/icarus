@@ -9,6 +9,13 @@ export default function SystemMapStar ({ star, setSystemObject }) {
   if (star?.subType?.startsWith('White Dwarf')) useLargerViewBox = true
   if (star.subType === 'Black Hole') useLargerViewBox = true
 
+  // Modify subType to include full spectral class where known and matches
+  // e.g. display 'B7 (Blue-White) Star' instead of just 'B (Blue-White) Star'
+  let starDescription =  star?.subType
+  if (star?.subType && star?.spectralClass && String(star?.subType?.charAt(0) + star?.subType?.charAt(1)).trim() === star?.spectralClass?.charAt(0)) {
+    starDescription = <>{star.subType.replace(star.subType.charAt(0), star.spectralClass)}</>
+  }
+
   return (
     <div
       className='system-map__planetary-system'
@@ -35,25 +42,21 @@ export default function SystemMapStar ({ star, setSystemObject }) {
         <h3>
           <span className='fx-animated-text text-primary' data-fx-order='5'>
             {star.type === 'Null'
-              ? <>Rogue <span className='text-muted'>//</span> Extrasolar <span className='text-muted'>//</span> Circumbinary</> || ''
-              : <>{star.subType}{star.spectralClass
-                ? <><span className='system-map__seperator' />Class {star.spectralClass}</>
-                : ''}{star.isScoopable
-                  ? ' (Fuel Star)'
-                  : ''}
-              </>}
+              ? <>Rogue <span className='text-muted'>//</span> Extrasolar <span className='text-muted'>//</span> Circumbinary</>
+              : starDescription
+            }
           </span>
         </h3>
         {star.numberOfPlanets > 0 &&
           <h4>
             <span className='fx-animated-text text-primary' data-fx-order='6'>
-              {star.numberOfPlanets === 1 ? '1 body in orbit' : `${star.numberOfPlanets} bodies in orbit`}
+              {star.numberOfPlanets === 1 ? '1 body found orbit' : `${star.numberOfPlanets} bodies found in orbit`}
             </span>
           </h4>}
         {star.numberOfPlanets === 0 &&
           <h4>
             <span className='fx-animated-text text-primary text-muted' data-fx-order='6'>
-              No bodies in orbit
+              No bodies found in orbit
             </span>
           </h4>}
       </div>

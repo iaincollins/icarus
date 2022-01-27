@@ -75,10 +75,9 @@ html[data-fx-crt="true"] body::before {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(148, 117, 117, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0, 0, 0, .03) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.04), rgba(0, 0, 255, 0.04));
   z-index: 110;
-  background-size: 100% 2px, 2px 100%;
-  zoom: .75;
+  background-size: 100% 3px, 3px 100%;
   pointer-events: none;
 }
 

@@ -30,13 +30,10 @@
 }
 
 .secondary-navigation button.button--icon.button--selected {
-  background: var(--color-primary) !important;
-  color: var(--color-primary-dark) !important;
+  background: var(--color-secondary) !important;
+  color: var(--color-secondary-dark) !important;
   z-index: 50;
-}
-
-.secondary-navigation input {
-  border-color: var(--color-primary);
+  filter: none;
 }
 
 #secondary-navigation__search-form {

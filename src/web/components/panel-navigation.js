@@ -12,6 +12,7 @@ export default function PanelNavigation ({ items = [], search = () => {} }) {
     document.addEventListener('click', onClickHandler)
     return () => document.removeEventListener('click', onClickHandler)
     function onClickHandler (event) {
+      console.log(event)
       if (!event?.target?.id.startsWith('secondary-navigation__search-')) {
         setSearchInputVisible(false)
       }
@@ -28,7 +29,7 @@ export default function PanelNavigation ({ items = [], search = () => {} }) {
                 id='secondary-navigation__search-toggle'
                 tabIndex='2'
                 disabled={search === false}
-                className={`button--icon ${searchInputVisible ? 'button--selected' : ''}`}
+                className={`button--icon ${searchInputVisible ? 'button--selected button--secondary' : ''}`}
                 onClick={() => {
                   setSearchInputVisible(!searchInputVisible)
                 }}
@@ -54,11 +55,12 @@ export default function PanelNavigation ({ items = [], search = () => {} }) {
                     onChange={(event) => setSearchValue(event.target.value)}
                     tabIndex='2'
                     type='text'
+                    className='input--secondary'
                     placeholder='System name…'
                   />
                   <button
                     id='secondary-navigation__search-button'
-                    type='submit' className='button--active'
+                    type='submit' className='button--active button--secondary'
                     style={{ float: 'left', display: 'inline-block', xfontSize: '1.5rem', height: '4rem', width: '8rem' }}
                     tabIndex='2'
                   >Search
@@ -70,7 +72,6 @@ export default function PanelNavigation ({ items = [], search = () => {} }) {
             <button
               tabIndex='2'
               className={`button--icon ${item.active ? 'button--active' : ''}`}
-              disabled={item.active}
               onClick={
                 item.onClick
                   ? item.onClick

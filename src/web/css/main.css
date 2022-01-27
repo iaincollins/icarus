@@ -134,9 +134,8 @@ html::-webkit-scrollbar,
 
 ::selection {
   background: none;
-  background: rgba(255,255,255,.1);
-  color: white;
-  text-shadow: .5rem var(--color-secondary) !important;
+  color: inherit;
+  text-shadow: initial;
 }
 
 html::after {
