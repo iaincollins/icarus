@@ -12,7 +12,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
   if (PLANETARY_BASES.includes(systemObject.type) && !SURFACE_PORTS.includes(systemObject.type)) systemObjectSubType = 'Settlement'
   if (systemObject.type === 'Star') systemObjectSubType = systemObject.subType
   if (systemObject.type === 'Planet') systemObjectSubType = systemObject.subType
-
+  console.log(systemObject)
   // TODO Move to icon class
   let iconClass = 'text-info icon icarus-terminal-'
   switch (systemObject.type.toLowerCase()) {
@@ -185,13 +185,19 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
               <i className='icon icarus-terminal-planet' /> <span className='text-link-text text-no-wrap'>{systemObject.body.name}</span>
             </p>
           </div>}
+
         {systemObject.government &&
           <div className='navigation-panel__inspector-section'>
-            <h4 className='text-primary'>Government</h4>
+            <h4 className='text-primary'>Controlling faction</h4>
+            {systemObject?.controllingFaction?.name &&
+              <p className='text-info text-uppercase'>
+                {systemObject.controllingFaction.name}
+              </p>}
             <p className='text-info'>
-              {systemObject.government}
+              {systemObject?.allegiance ?? ''} {systemObject.government}
             </p>
           </div>}
+
         {systemObject.economy &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Economy</h4>
@@ -203,6 +209,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                 {systemObject.secondEconomy}
               </p>}
           </div>}
+
         {systemObject._shipServices && systemObject._shipServices.length > 0 &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Ship Services</h4>
@@ -210,6 +217,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
               {systemObject._shipServices.map((service, i) => <li key={`navigation-inspector_${systemObject.id}_service_${service}_${i}`}>{service}</li>)}
             </ul>
           </div>}
+
         {systemObject._otherServices && systemObject._otherServices.length > 0 &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Other Services</h4>

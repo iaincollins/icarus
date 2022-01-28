@@ -1,7 +1,7 @@
 .secondary-navigation {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 9.5rem;
+  left: .5rem;
   width: 4rem;
   height: 100%;
   z-index: 10;

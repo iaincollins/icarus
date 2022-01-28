@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { formatBytes, eliteDateTime } from 'lib/format'
-import { newWindow, checkForUpdate, installUpdate } from 'lib/window'
+import { newWindow, checkForUpdate, installUpdate, openReleaseNotes, openTerminalInBrowser } from 'lib/window'
 import { useSocket, eventListener, sendEvent } from 'lib/socket'
 import Loader from 'components/loader'
 import packageJson from '../../../package.json'
@@ -53,14 +53,14 @@ export default function IndexPage () {
         </span>
         {update && update.isUpgrade &&
           <div className='fx-fade-in'>
-            <a
+            <span
               target='_blank'
               className='text-link'
-              href='https://github.com/iaincollins/icarus/releases'
+              onClick={() => openReleaseNotes()}
               style={{ margin: '2rem 0 1rem 0', display: 'block', fontWeight: 'normal', fontSize: '1.1rem' }} rel='noreferrer'
             >
-              <span className='text-link-text'>New version {update?.productVersion} available</span>
-            </a>
+              <span className='text-link-text'>Version {update?.productVersion} release notes</span>
+            </span>
             {!downloadingUpdate &&
               <button
                 onClick={() => {
@@ -69,15 +69,15 @@ export default function IndexPage () {
                 }}
               ><i className='icon icarus-terminal-download' /> Install Update
               </button>}
-            {downloadingUpdate && <p>Downloading update...</p>}
+            {downloadingUpdate && <p className='text-uppercase text-secondary text-blink-slow'>Downloading update</p>}
           </div>}
         <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
           <p className='text-muted'>Connect from a browser on</p>
           {hostInfo?.urls?.[0] &&
             <p>
-              <a className='text-info' href={hostInfo.urls[0]} target='_blank' rel='noreferrer'>
+              <span className='text-info' onClick={() => openTerminalInBrowser()}>
                 {hostInfo.urls[0]}
-              </a>
+              </span>
             </p>}
         </div>
         <div

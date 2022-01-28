@@ -338,11 +338,6 @@ func bindFunctionsToWebView(w webview.WebView) {
 		return isFullScreen
 	})
 
-	w.Bind("icarusTerminal_quit", func() int {
-		exitApplication(0)
-		return 0
-	})
-
 	w.Bind("icarusTerminal_newWindow", func() int {
 		terminalCmdInstance := exec.Command(filepath.Join(dirname, TERMINAL_EXECUTABLE), "--terminal=true", fmt.Sprintf("--port=%d", port))
 		terminalCmdInstance.Dir = dirname
@@ -364,6 +359,14 @@ func bindFunctionsToWebView(w webview.WebView) {
 		return 0
 	})
 
+	w.Bind("icarusTerminal_openReleaseNotes", func() {
+		runUnelevated(RELEASE_NOTES_URL)
+	})
+
+	w.Bind("icarusTerminal_openTerminalInBrowser", func() {
+		runUnelevated(url)
+	})
+
 	// FIXME Broken and sometimes causes crashes on child Windows. Don't know why.
 	// To replicate, open a new window (A), then a second window (B), then close
 	// A using this method then try and close B using this method. B will stop
@@ -371,11 +374,16 @@ func bindFunctionsToWebView(w webview.WebView) {
 	// I have tried multiple approaches to resolve this but I think it's a bug
 	// in the webview library this app imports.
 	/*
-		  w.Bind("icarusTerminal_closeWindow", func() int {
-				w.Terminate()
-		    return 0
-		  })
+		w.Bind("icarusTerminal_closeWindow", func() int {
+			w.Terminate()
+			return 0
+		})
 	*/
+
+	w.Bind("icarusTerminal_quit", func() int {
+		exitApplication(0)
+		return 0
+	})
 }
 
 func exitApplication(exitCode int) {

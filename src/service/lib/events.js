@@ -20,7 +20,7 @@ const eliteLog = new EliteLog(LOG_DIR)
 const navigationEvents = new NavigationEvents({ eliteLog })
 const shipEvents = new ShipEvents({ eliteLog, eliteJson })
 const materialsEvents = new MaterialsEvents({ eliteLog, eliteJson })
-const blueprintEvents = new BlueprintEvents()
+const blueprintEvents = new BlueprintEvents({ materialsEvents, shipEvents })
 
 // TODO Define these in another file / merge with eventHandlers before porting
 // over existing event handlers from the internal build

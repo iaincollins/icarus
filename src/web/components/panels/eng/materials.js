@@ -40,15 +40,18 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
         </thead>
         <tbody>
           {materials.map(item =>
-            <tr key={`material_${materialType}_${materialCategory}_${item.symbol}`}>
+            <tr
+              key={`material_${materialType}_${materialCategory}_${item.symbol}`}
+              className={item.count === item?.maxCount ? 'text-success' : ''}
+            >
               <td style={{ width: '30rem' }}>
-                <h3><CopyOnClick>{item.name}</CopyOnClick></h3>
+                <h3 className={item.count === 0 ? 'text-muted' : ''}><CopyOnClick>{item.name}</CopyOnClick></h3>
                 <div style={{ marginTop: '.5rem' }}>
                   <div style={{ width: '30%', display: 'inline-block' }}>
-                    {item.count}<span className='text-muted'>/{item.maxCount}</span>
+                    <span className={item.count === 0 ? 'text-muted' : ''}>{item.count}</span><span className='text-muted'>/{item.maxCount}</span>
                   </div>
                   <div style={{ width: '70%', display: 'inline-block' }}>
-                    <progress style={{ height: '1.25rem' }} value={item.count} max={item?.maxCount ?? item.count} />
+                    <progress style={{ height: '1.25rem' }} value={item.count} max={item?.maxCount ?? item.count} className={item.count === item?.maxCount ? 'progress--success' : ''} />
                   </div>
                 </div>
               </td>

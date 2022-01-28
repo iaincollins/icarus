@@ -55,8 +55,6 @@ export default function NavListPage () {
     router.push({ query: q }, undefined, { shallow: true })
   }, [system, router.isReady])
 
-  console.log(currentSystem)
-
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel scrollable layout='full-width' navigation={NavPanelNavItems('Route', query)} search={search}>

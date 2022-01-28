@@ -1,6 +1,8 @@
 function isWindowsApp () { return (typeof window !== 'undefined' && typeof window.icarusTerminal_version === 'function') }
 function isWindowFullScreen () { if (isWindowsApp()) { return window.icarusTerminal_isFullScreen() } }
 function isWindowPinned () { if (isWindowsApp()) { return window.icarusTerminal_isPinned() } }
+function openReleaseNotes () { if (isWindowsApp()) { return window.icarusTerminal_openReleaseNotes() } }
+function openTerminalInBrowser () { if (isWindowsApp()) { return window.icarusTerminal_openTerminalInBrowser() } }
 
 function appVersion () {
   if (isWindowsApp()) { return window.icarusTerminal_version() }
@@ -66,6 +68,8 @@ module.exports = {
   isWindowsApp,
   isWindowFullScreen,
   isWindowPinned,
+  openReleaseNotes,
+  openTerminalInBrowser,
   appVersion,
   newWindow,
   closeWindow,

@@ -69,11 +69,12 @@ class MaterialsEvents {
     const timestamp = Materials?.timestamp
     const materialsCollected = await this.eliteLog.getEventsFromTimestamp('MaterialCollected', timestamp)
     const materialsDiscarded = await this.eliteLog.getEventsFromTimestamp('MaterialDiscarded', timestamp)
+    const engineeringCrafted = await this.eliteLog.getEventsFromTimestamp('EngineerCraft', timestamp)
 
     // Combine all collected/discarded events, sort by timestamp and replay them
     // by modifying the material manifest recorded at startup (increasing,
     // decreasing or adding new materials as they are collected or discarded)
-    const materialEvents = materialsCollected.concat(materialsDiscarded)
+    const materialEvents = materialsCollected.concat(materialsDiscarded).concat(engineeringCrafted)
     materialEvents.sort((a, b) => Date.parse(a.timestamp) < Date.parse(b.timestamp) ? 1 : -1).reverse()
 
     for (const materialEvent of materialEvents) {
@@ -84,7 +85,7 @@ class MaterialsEvents {
       }
       if (materialEvent.event === 'MaterialCollected') {
         material.count += materialEvent.Count
-      } else if (materialEvent.event === 'MaterialDiscarded') {
+      } else if (materialEvent.event === 'MaterialDiscarded' || materialEvent.event === 'EngineerCraft') {
         material.count -= materialEvent.Count
       }
     }

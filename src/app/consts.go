@@ -6,6 +6,7 @@ const TERMINAL_WINDOW_TITLE = "ICARUS Terminal"
 const LPSZ_CLASS_NAME = "IcarusTerminalWindowClass"
 const SERVICE_EXECUTABLE = "ICARUS Service.exe"
 const TERMINAL_EXECUTABLE = "ICARUS Terminal.exe"
+const RELEASE_NOTES_URL = "https://github.com/iaincollins/icarus/releases"
 const DEBUGGER = true
 
 const defaultLauncherWindowWidth = int32(900)

@@ -35,7 +35,7 @@ export default function LogPage () {
         <LogListPanel logEntries={logEntries} setSelectedLogEntry={setSelectedLogEntry} />
         {ready && logEntries.length === 0 && <p style={{ margin: '2rem 0' }} className='text-center text-muted'>No recent log entries</p>}
       </Panel>
-      <Panel layout='right-half' scrollable style={{ background: 'var(--linear-gradient-background)' }}>
+      <Panel layout='right-half' scrollable>
         <LogInspectorPanel logEntry={selectedLogEntry} />
       </Panel>
     </Layout>

@@ -2,12 +2,10 @@
 
 Some of the features and improvements currently being worked on.
 
-* Ship mass is incorrect (take value from loadout and add cargo + fuel)
 * Materials not removed during crafting. Listen for EngineerCraft messages and iterate over 'ingredients' to remove items by name (symbol)
 * Blueprint names dp not match names show in game
 * Windows should restore to their origional position on screen after exiting fullcreen
 * Windows should go fullscreen on the monitor they are triggered on (not always on the main window)
-* Links from the launcher (software update, remote link) should open the users default external browser
 * Add faction / government information to remote systems to System Map
 * Add faction information to stations/outposts/ports/settlement inspector
 * Show commander credits, status and location in header

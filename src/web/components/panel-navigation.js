@@ -12,7 +12,6 @@ export default function PanelNavigation ({ items = [], search = () => {} }) {
     document.addEventListener('click', onClickHandler)
     return () => document.removeEventListener('click', onClickHandler)
     function onClickHandler (event) {
-      console.log(event)
       if (!event?.target?.id.startsWith('secondary-navigation__search-')) {
         setSearchInputVisible(false)
       }

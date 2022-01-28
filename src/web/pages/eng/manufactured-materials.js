@@ -15,7 +15,7 @@ export default function EngineeringMaterialsPage () {
   }, [connected, ready])
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
-    if (['Materials', 'MaterialCollected', 'MaterialDiscarded'].includes(log.event)) {
+    if (['Materials', 'MaterialCollected', 'MaterialDiscarded', 'EngineerCraft'].includes(log.event)) {
       setMaterials(await sendEvent('getMaterials'))
     }
   }), [])
