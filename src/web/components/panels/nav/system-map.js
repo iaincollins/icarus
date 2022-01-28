@@ -16,7 +16,7 @@ export default function SystemMap ({ system, setSystemObject }) {
           </h1>
           {system.detail && system.detail.bodies && 
             <h3 className='text-primary'>
-              <span className='fx-animated-text' data-fx-order='3'>
+              <span className='fx-animated-text' data-fx-order='2'>
               {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
               </span>
             </h3>}
@@ -34,16 +34,18 @@ export default function SystemMap ({ system, setSystemObject }) {
             <h3 className='text-primary'>
               <span className='fx-animated-text' data-fx-order='4'>
                 {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
+                {' '}
                 {system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government}
+                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='system-map__seperator' />{system.security}</> : ''} 
               </span>
             </h3>}
           {system.faction && system.faction !== 'Unknown' &&
             <h3 className='text-primary'>
               <span className='fx-animated-text' data-fx-order='5'>
-                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? system.security : ''} {system.faction}
+                {system.faction}
               </span>
             </h3>}
-          {system.stars.length > 1 && system.address && system.address === 'Unknown' && <h3 className='text-info text-muted'><span className='fx-animated-text' data-fx-order='4'>Visit system for more information</span></h3>}
+          {(system.stars.length > 1 && system.address && system.address === 'Unknown') && <h3 className='text-info text-muted'><span className='fx-animated-text' data-fx-order='4'>Visit system for more information</span></h3>}
         </div>
         {system.stars.map(star =>
           <SystemMapStar
