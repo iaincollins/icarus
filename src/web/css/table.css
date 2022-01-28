@@ -183,19 +183,19 @@ table.table--flex-inline tbody tr {
   padding: .1rem .25rem;
 }
 
-@media only screen and (max-width: 1279px) {
+@media only screen and (max-width: 1280px) {
   table.table--flex-inline tbody tr {
     width: 33.33%;
   }
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
   table.table--flex-inline tbody tr {
     width: 50%;
   }
 }
 
-@media only screen and (max-width: 599px) {
+@media only screen and (max-width: 600px) {
   table.table--flex-inline tbody tr {
     width: 100%;
   }

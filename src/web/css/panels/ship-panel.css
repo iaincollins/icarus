@@ -10,7 +10,7 @@
   margin-bottom: .5rem;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 799px) {
   .ship-panel__title {
     margin-right: 13rem;
   }  
@@ -133,7 +133,7 @@
   margin-left: 2rem;
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 1024px) {
   .ship-panel__ship-stats span,
   .ship-panel__ship-stats .value {
     clear: both;

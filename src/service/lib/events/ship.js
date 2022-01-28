@@ -89,7 +89,7 @@ class ShipEvents {
         const blueprint = await CoriolisBlueprints.getBySymbol(module.Engineering.BlueprintName)
 
         const [first, second] = blueprint?.symbol.split('_') ?? UNKNOWN_VALUE
-        const blueprintName = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', '').trim()
+        const blueprintName = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', 'Utility').trim()
 
         modules[slot].engineering = {
           symbol: blueprint.symbol,

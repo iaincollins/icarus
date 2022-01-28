@@ -22,7 +22,7 @@ export default function EngineeringMaterialsPage () {
       const newBlueprints = await sendEvent('getBlueprints')
       setBlueprints(newBlueprints)
       setBlueprintsApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
-      setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
+      setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length === 0))
     }
     setComponentReady(true)
   }, [connected, router.isReady, query])
@@ -40,7 +40,7 @@ export default function EngineeringMaterialsPage () {
       const newBlueprints = await sendEvent('getBlueprints')
       setBlueprints(newBlueprints)
       setBlueprintsApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
-      setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
+      setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length === 0))
     }
   }), [])
 
@@ -48,7 +48,7 @@ export default function EngineeringMaterialsPage () {
     const newBlueprints = await sendEvent('getBlueprints')
     setBlueprints(newBlueprints)
     setBlueprintsApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
-    setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
+    setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length === 0))
   }), [])
 
   return (
@@ -57,11 +57,9 @@ export default function EngineeringMaterialsPage () {
         <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Blueprints')}>
           <h2>Engineering Blueprints</h2>
           <h3 className='text-primary'>Ship weapons and module modification</h3>
-          <hr style={{ margin: '1rem 0 0 0' }} />
 
           {blueprintsApplied && blueprintsApplied.length > 0 &&
             <>
-
               <div className='tabs'>
                 <h4 className='tab' style={{ marginTop: '1rem' }}>Applied Blueprints</h4>
               </div>
@@ -88,6 +86,10 @@ export default function EngineeringMaterialsPage () {
                 <h4 className='tab' style={{ marginTop: '1rem' }}>Other Blueprints</h4>
               </div>
             </>}
+          {blueprintsApplied && blueprintsApplied.length === 0 &&
+            <div className='tabs'>
+              <h4 className='tab' style={{ marginTop: '1rem' }}>Blueprints</h4>
+            </div>}
           {blueprintsNotApplied &&
             <table className='table--interactive table--animated'>
               <tbody>
@@ -120,34 +122,34 @@ export default function EngineeringMaterialsPage () {
                 <h4 className='tab' style={{ marginTop: '1rem' }}>Modules</h4>
               </div>
               <table className='table--animated table-not-sticky'>
-                <thead>
-                  <tr>
-                    <th className='text-left'>Name</th>
-                    <th>Slot</th>
-                    <th className='text-right'>Grade</th>
-                  </tr>
-                </thead>
                 <tbody>
-
                   {selectedBlueprint.appliedToModules.map(module => (
                     <tr
                       key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}`}
                       className='text-uppercase'
                     >
-                      <td>{module.class}{module.rating} {module.name}</td>
-                      <td>{module.slotName}</td>
-                      <td className='text-info text-right'>
-                        {[...Array(module.engineering.level)].map((j, i) =>
-                          <i
-                            style={{ fontSize: '1.5rem', width: '1.5rem', display: 'inline-block', marginRight: '0.1rem' }}
-                            key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}_engineering-grade_${i}`}
-                            className='icon icarus-terminal-engineering'
-                          />
-                        )}
+                      <td style={{ verticalAlign: 'middle' }}>
+                        {module.class}{module.rating} {module.name}
+                        <span className='visible-medium text-muted'><br />{module.slotName}</span>
+                      </td>
+                      <td style={{ verticalAlign: 'middle' }} className='hidden-medium text-muted'>{module.slotName}</td>
+                      <td className='text-info text-no-wrap' style={{ verticalAlign: 'middle' }}>
+                        <span className='visible-medium' style={{ fontSize: '2rem', lineHeight: '2rem' }}>
+                          <span className='float-right'>{module.engineering.level}</span>
+                          <i className='icon icarus-terminal-engineering float-right' style={{ marginRight: '.25rem' }} />
+                        </span>
+                        <span className='hidden-medium float-right'>
+                          {[...Array(module.engineering.level)].map((j, i) =>
+                            <i
+                              style={{ fontSize: '2rem', width: '2rem', display: 'inline-block', marginRight: '0.1rem' }}
+                              key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}_engineering-grade_${i}`}
+                              className='icon icarus-terminal-engineering'
+                            />
+                          )}
+                        </span>
                       </td>
                     </tr>
-                  )
-                  )}
+                  ))}
                 </tbody>
               </table>
             </>}
@@ -167,16 +169,16 @@ export default function EngineeringMaterialsPage () {
                 <h4 className='tab' style={{ marginTop: '1rem' }}>Grade {parseInt(grade) + 1}</h4>
               </div>
 
-              <h4 className='text-info' style={{ position: 'absolute', margin: '.5rem 0 0 0', fontSize: '2rem' }}>
+              <h4 className='text-info' style={{ position: 'absolute', margin: '.5rem 0 0 0' }}>
                 {[...Array(selectedBlueprint.grades[grade].grade)].map((j, i) =>
                   <i
-                    style={{ width: '2rem', display: 'inline-block', marginRight: '0.1rem' }}
+                    style={{ fontSize: '2rem', width: '2rem', display: 'inline-block', marginRight: '0.1rem' }}
                     key={`${selectedBlueprint.symbol}_${grade}_engineering_${i}`}
                     className='icon icarus-terminal-engineering'
                   />
                 )}
               </h4>
-              <div style={{ paddingLeft: '11.5rem' }}>
+              <div className='engineering__blueprint-grade'>
                 <table className='table--animated table-not-sticky'>
                   <thead>
                     <tr>

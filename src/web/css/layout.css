@@ -50,7 +50,7 @@
   float: left;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 799px) {
   .layout__left-half.scrollable {
     overflow-y: scroll;
   }

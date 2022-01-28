@@ -12,7 +12,7 @@ class BlueprintEvents {
     const ship = await this.shipEvents.getShip()
     const blueprints = CoriolisBlueprints.data.map(blueprint => {
       const [first, second] = blueprint.symbol.split('_')
-      const name = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', '').trim()
+      const name = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', 'Utility').trim()
 
       return {
         symbol: blueprint.symbol,

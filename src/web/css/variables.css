@@ -57,14 +57,14 @@
     defined here only for reference.
 
     Example usage:
-    @media only screen and (max-width: 599px) { } // Tiny
-    @media only screen and (min-width: 600px) { } // Small and larger
-    @media only screen and (max-width: 799px) { } // Small and smaller
-    @media only screen and (min-width: 800px) { } // Medium and larger
-    @media only screen and (max-width: 1023px) { } // Medium and smaller
-    @media only screen and (min-width: 1024px) { } // Large and larger
-    @media only screen and (max-width: 1279px) { } // Large and smaller
-    @media only screen and (min-width: 1280px) { } // Huge
+    @media only screen and (max-width: 600px) { } // Tiny only
+    @media only screen and (min-width: 599px) { } // Small and larger
+    @media only screen and (max-width: 800px) { } // Small and smaller
+    @media only screen and (min-width: 799px) { } // Medium and larger
+    @media only screen and (max-width: 1024px) { } // Medium and smaller
+    @media only screen and (min-width: 1023px) { } // Large and larger
+    @media only screen and (max-width: 1280px) { } // Large and smaller
+    @media only screen and (min-width: 1279px) { } // Huge only
 
     Where possible, instead use the screen orientation to determine layout.
     @media only screen and (orientation: portrait) {}
