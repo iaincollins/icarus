@@ -85,8 +85,13 @@ class MaterialsEvents {
       }
       if (materialEvent.event === 'MaterialCollected') {
         material.count += materialEvent.Count
-      } else if (materialEvent.event === 'MaterialDiscarded' || materialEvent.event === 'EngineerCraft') {
+      } else if (materialEvent.event === 'MaterialDiscarded') {
         material.count -= materialEvent.Count
+      } else if (materialEvent.event === 'EngineerCraft') {
+        materialEvent.Ingredients.forEach(ingredient => {
+          const craftingMaterial = materials.filter(m => m.symbol.toLowerCase() === ingredient.Name.toLowerCase())[0] // Get existing reference to this material
+          craftingMaterial.count -= materialEvent.Count
+        })
       }
     }
 
