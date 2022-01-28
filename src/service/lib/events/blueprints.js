@@ -11,7 +11,7 @@ class BlueprintEvents {
       return {
         symbol: blueprint.symbol,
         name: name,
-        shortName: blueprint.name,
+        originalName: blueprint?.name,
         grades: Object.keys(blueprint.grades).map(k => {
           const grade = blueprint.grades[k]
           return {
@@ -23,6 +23,9 @@ class BlueprintEvents {
         modules: blueprint.modulename
       }
     })
+
+    blueprints.sort((a, b) => a.name.localeCompare(b.name))
+
     return blueprints
   }
 }

@@ -156,6 +156,10 @@
   position: relative;
 }
 
+.ship-panel__module-section .text-link {
+  pointer-events: all !important;
+}
+
 @media only screen and (orientation: portrait) {
   .ship-panel__module-section {
     width: 100%;

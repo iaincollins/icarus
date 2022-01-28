@@ -1,4 +1,8 @@
+import { useRouter } from 'next/router'
+
 export default function ShipModuleInspectorPanel ({ module, setSelectedModule }) {
+  const router = useRouter()
+
   if (!module) return (<div className='ship-panel__module-inspector ship-panel__module-inspector--hidden' />)
 
   let inspectorTitle = 'Optional Module'
@@ -43,14 +47,18 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
               {true &&
                 <div className='ship-panel__module-section--engineering-tab'>
                   <p className='text-primary'>
-                    <span className='text-muted'>Blueprint</span> {module.engineering.name}
-                    {module.engineering.experimentalEffect &&
-                      <>
-                        <br />
-                        <span className='text-muted'>experimental</span>
-                        <span> {module.engineering.experimentalEffect}</span>
-                      </>}
-                    <br /><span className='text-muted'>by</span> {module.engineering.engineer}
+                    <span className='text-muted'>Blueprint </span>
+                    <span className='text-link' onClick={() => router.push({ pathname: '/eng/blueprints', query: { symbol: module.engineering.symbol }})}>
+                      <span className='text-link-text'>{module.engineering.originalName}</span>
+                    </span>
+                  </p>
+                  {module.engineering.experimentalEffect &&
+                      <p className='text-primary'>
+                      <span className='text-muted'>experimental</span>
+                      <span> {module.engineering.experimentalEffect}</span>
+                    </p>}
+                  <p className='text-primary'>
+                    <span className='text-muted'>by</span> {module.engineering.engineer}
                   </p>
                   <p style={{ margin: 0, fontSize: '2rem', top: '.25rem', position: 'relative' }}>
                     {[...Array(module.engineering.level)].map((j, i) =>

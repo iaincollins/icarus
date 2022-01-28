@@ -87,8 +87,14 @@ class ShipEvents {
       if (module?.Engineering) {
         // Enrich engineering data as we add it
         const blueprint = await CoriolisBlueprints.getBySymbol(module.Engineering.BlueprintName)
+
+        const [ first, second ] = blueprint?.symbol.split('_') ?? UNKNOWN_VALUE
+        let blueprintName = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', '').trim()
+        
         modules[slot].engineering = {
-          name: blueprint?.name ?? module.Engineering.BlueprintName?.replace(/_/g, ' ')?.replace(/([a-z])([A-Z])/g, '$1 $2')?.trim(),
+          symbol: blueprint.symbol,
+          name: blueprintName,
+          originalName: blueprint.name,
           level: module.Engineering.Level,
           quality: module.Engineering.Quality,
           modifiers: module.Engineering.Modifiers.map(mod => {

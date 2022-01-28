@@ -43,7 +43,7 @@
 }
 
 .text-link .text-link-text {
-  padding-bottom: .15rem;
+  padding-bottom: .05rem;
   border-bottom: .15rem dotted var(--color-secondary);
 }
 
