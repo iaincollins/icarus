@@ -5,8 +5,8 @@ const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
 class BlueprintEvents {
   async getBlueprints () {
     const blueprints = CoriolisBlueprints.data.map(blueprint => {
-      const [ first, second ] = blueprint.symbol.split('_')
-      let name = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', '').trim()
+      const [first, second] = blueprint.symbol.split('_')
+      const name = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', '').trim()
 
       return {
         symbol: blueprint.symbol,

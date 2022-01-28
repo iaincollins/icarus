@@ -14,10 +14,10 @@ export default function SystemMap ({ system, setSystemObject }) {
               <CopyOnClick>{system.name}</CopyOnClick>
             </span>
           </h1>
-          {system.detail && system.detail.bodies && 
+          {system.detail && system.detail.bodies &&
             <h3 className='text-primary'>
               <span className='fx-animated-text' data-fx-order='2'>
-              {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
+                {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
               </span>
             </h3>}
           {(system.starports.length > 0 || system.planetaryPorts.length > system.megaships.length > 0) &&
@@ -36,7 +36,7 @@ export default function SystemMap ({ system, setSystemObject }) {
                 {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
                 {' '}
                 {system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government}
-                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='system-map__seperator' />{system.security}</> : ''} 
+                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='system-map__seperator' />{system.security}</> : ''}
               </span>
             </h3>}
           {system.faction && system.faction !== 'Unknown' &&

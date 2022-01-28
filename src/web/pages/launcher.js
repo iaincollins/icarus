@@ -43,7 +43,8 @@ export default function IndexPage () {
       <Loader visible={!connected} />
       <style dangerouslySetInnerHTML={{
         __html: '.notification { visibility: hidden; }'
-      }}/>
+      }}
+      />
       <div style={{ padding: '.5rem 1rem', opacity: connected ? 1 : 0, zoom: '1.2', fontWeight: 'bold' }}>
         <h1 className='text-info'>ICARUS</h1>
         <span className='launcher-title'>

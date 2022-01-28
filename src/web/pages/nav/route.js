@@ -108,12 +108,12 @@ export default function NavListPage () {
                       {i + 1}
                     </td>
                     <td style={{ paddingLeft: '3.5rem', verticalAlign: 'middle' }}>
-                      <div style={{position: 'relative'}}>
+                      <div style={{ position: 'relative' }}>
                         <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star visible-medium' />
                         <i style={{ position: 'absolute', top: '-.25rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star hidden-medium' />
                         <span>{route.StarSystem}  </span>
                         <span className='visible-medium'>
-                          <br/><span className='text-muted'> {route.StarClass} Class</span>
+                          <br /><span className='text-muted'> {route.StarClass} Class</span>
                         </span>
                       </div>
                     </td>

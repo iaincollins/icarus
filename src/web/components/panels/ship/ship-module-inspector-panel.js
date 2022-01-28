@@ -48,12 +48,12 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
                 <div className='ship-panel__module-section--engineering-tab'>
                   <p className='text-primary'>
                     <span className='text-muted'>Blueprint </span>
-                    <span className='text-link' onClick={() => router.push({ pathname: '/eng/blueprints', query: { symbol: module.engineering.symbol }})}>
+                    <span className='text-link' onClick={() => router.push({ pathname: '/eng/blueprints', query: { symbol: module.engineering.symbol } })}>
                       <span className='text-link-text'>{module.engineering.originalName}</span>
                     </span>
                   </p>
                   {module.engineering.experimentalEffect &&
-                      <p className='text-primary'>
+                    <p className='text-primary'>
                       <span className='text-muted'>experimental</span>
                       <span> {module.engineering.experimentalEffect}</span>
                     </p>}

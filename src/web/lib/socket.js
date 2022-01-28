@@ -133,10 +133,10 @@ function connect (socketState, setSocketState) {
     setTimeout(() => { connect(socketState, setSocketState) }, 5000)
   }
 
-  socket.onerror = function(err) {
+  socket.onerror = function (err) {
     socketDebugMessage('Socket error', err.message)
     socket.close()
-  };
+  }
 }
 
 const SocketContext = createContext()
