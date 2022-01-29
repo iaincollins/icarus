@@ -70,28 +70,36 @@ class MaterialsEvents {
     const materialsCollected = await this.eliteLog.getEventsFromTimestamp('MaterialCollected', timestamp)
     const materialsDiscarded = await this.eliteLog.getEventsFromTimestamp('MaterialDiscarded', timestamp)
     const engineeringCrafted = await this.eliteLog.getEventsFromTimestamp('EngineerCraft', timestamp)
+    const materialTrades = await this.eliteLog.getEventsFromTimestamp('MaterialTrade', timestamp)
 
     // Combine all collected/discarded events, sort by timestamp and replay them
     // by modifying the material manifest recorded at startup (increasing,
     // decreasing or adding new materials as they are collected or discarded)
-    const materialEvents = materialsCollected.concat(materialsDiscarded).concat(engineeringCrafted)
+    const materialEvents = materialsCollected.concat(materialsDiscarded).concat(materialTrades).concat(engineeringCrafted)
     materialEvents.sort((a, b) => Date.parse(a.timestamp) < Date.parse(b.timestamp) ? 1 : -1).reverse()
 
     for (const materialEvent of materialEvents) {
-      const material = materials.filter(m => m.symbol.toLowerCase() === materialEvent.Name.toLowerCase())[0] // Get existing reference to this material
-      if (!material) {
-        console.log('Failed to handle event for unknown material', materialEvent)
-        continue
-      }
-      if (materialEvent.event === 'MaterialCollected') {
-        material.count += materialEvent.Count
-      } else if (materialEvent.event === 'MaterialDiscarded') {
-        material.count -= materialEvent.Count
-      } else if (materialEvent.event === 'EngineerCraft') {
-        materialEvent.Ingredients.forEach(ingredient => {
-          const craftingMaterial = materials.filter(m => m.symbol.toLowerCase() === ingredient.Name.toLowerCase())[0] // Get existing reference to this material
-          craftingMaterial.count -= materialEvent.Count
-        })
+      try {
+        if (materialEvent.event === 'MaterialCollected') {
+          const material = materials.filter(m => m.symbol.toLowerCase() === materialEvent.Name.toLowerCase())[0]
+          material.count += materialEvent.Count
+        } else if (materialEvent.event === 'MaterialDiscarded') {
+          const material = materials.filter(m => m.symbol.toLowerCase() === materialEvent.Name.toLowerCase())[0]
+          material.count -= materialEvent.Count
+        } else if (materialEvent.event === 'EngineerCraft') {
+          materialEvent.Ingredients.forEach(ingredient => {
+            const craftingMaterial = materials.filter(m => m.symbol.toLowerCase() === ingredient.Name.toLowerCase())[0]
+            craftingMaterial.count -= ingredient.Count
+            console.log('ITERATE')
+          })
+        } else if (materialEvent.event === 'MaterialTrade') {
+          const materialTradePaid = materials.filter(m => m.symbol.toLowerCase() === materialEvent.Paid.Material.toLowerCase())[0]
+          materialTradePaid.count -= materialEvent.Paid.Quantity
+          const materialTradeReceived = materials.filter(m => m.symbol.toLowerCase() === materialEvent.Received.Material.toLowerCase())[0]
+          materialTradeReceived.count += materialEvent.Received.Quantity
+        }
+      } catch (err) {
+        console.log('Error handling material event', err, materialEvent)
       }
     }
 
