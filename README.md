@@ -6,7 +6,7 @@ _ICARUS Terminal is an immersive, context-sensitive second screen interface for 
 
 **[Download the latest preview release.](https://github.com/iaincollins/icarus/releases/latest)**
 
-![Screenshot](https://user-images.githubusercontent.com/595695/151108764-1880d101-059b-4936-b71a-94ba163e9ca5.PNG)
+![Screenshot](https://user-images.githubusercontent.com/595695/151645855-3d23d14d-174d-4dc8-8ace-2710db0e83f9.JPG)
 
 ## About ICARUS Terminal
 
