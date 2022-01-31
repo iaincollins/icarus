@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1000 1000"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="color-picker.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.873"
+     inkscape:cx="488.54525"
+     inkscape:cy="533.79152"
+     inkscape:window-width="1801"
+     inkscape:window-height="1338"
+     inkscape:window-x="1440"
+     inkscape:window-y="450"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4"
+     showguides="false" />
+  <path
+     id="path1860"
+     style="fill:#000000;fill-rule:evenodd;stroke-width:125.06;paint-order:fill markers stroke"
+     d="M 516.60938,19.789062 V 225.55078 a 284.97464,284.97464 0 0 1 172.13281,72.13281 L 832.78125,153.64453 A 481.04968,481.04968 0 0 0 516.60938,19.789062 Z m -24.05469,0.236329 A 481.04968,481.04968 0 0 0 174.77344,149.33984 L 316.5293,291.0957 A 284.97464,284.97464 0 0 1 492.55469,225.3418 Z M 157.02148,165.60742 A 481.04968,481.04968 0 0 0 21.460938,487.98242 H 215.17383 a 284.97464,284.97464 0 0 1 83.77148,-180.45117 z m 692.7168,5.09961 -143.80664,143.80664 a 284.97464,284.97464 0 0 1 76.69727,173.46875 H 981.85547 A 481.04968,481.04968 0 0 0 849.73828,170.70703 Z M 21.460938,512.03711 A 481.04968,481.04968 0 0 0 155.00391,831.42188 L 286.56836,699.85742 A 284.97464,284.97464 0 0 1 213.76172,512.03711 Z m 761.941402,0 a 284.97464,284.97464 0 0 1 -66.0332,179.89844 L 853.06836,827.63477 A 481.04968,481.04968 0 0 0 981.83789,512.03711 Z M 700.93359,709.51953 A 284.97464,284.97464 0 0 1 516.60938,793.56836 V 980.66992 A 481.04968,481.04968 0 0 0 836.08789,844.67383 Z M 303.57812,716.86719 172.05273,848.39258 A 481.04968,481.04968 0 0 0 492.55469,981.01953 V 794.42773 A 284.97464,284.97464 0 0 1 303.57812,716.86719 Z" />
+</svg>

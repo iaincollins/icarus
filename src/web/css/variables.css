@@ -1,22 +1,41 @@
 :root {
-  /* Customisation options (used to define primary and secondary theme colors) */
-  --color-primary-r: 251;
-  --color-primary-g: 142;
-  --color-primary-b: 0;
-  --color-primary-dark-adjust: 200;
+  /* Default values to allow for theme reset */
+  --color-default-primary-r: 253;
+  --color-default-primary-g: 135;
+  --color-default-primary-b: 0;
+  --color-default-primary-dark-modifier: 200;
   
-  --color-secondary-r: 100;
-  --color-secondary-g: 215;
-  --color-secondary-b: 255;
-  --color-secondary-dark-factor: 180;
+  --color-default-secondary-r: 117;
+  --color-default-secondary-g: 202;
+  --color-default-secondary-b: 255;
+  --color-default-secondary-dark-modifier: 200;
 
+  /* Customisation options (used to define primary and secondary theme colors) */
+  --color-primary-r: var(--color-default-primary-r);
+  --color-primary-g: var(--color-default-primary-g);
+  --color-primary-b: var(--color-default-primary-b);
+
+  --color-secondary-r: var(--color-default-secondary-r);
+  --color-secondary-g: var(--color-default-secondary-g);
+  --color-secondary-b: var(--color-default-secondary-b);
+  
   /* Advanced theme customisation options (internal use only) */
+  --color-primary-dark-modifier: var(--color-default-primary-dark-modifier);
+  --color-primary-dark-r: calc(var(--color-primary-r) - var(--color-primary-dark-modifier));
+  --color-primary-dark-g: calc(var(--color-primary-g) - var(--color-primary-dark-modifier));
+  --color-primary-dark-b: calc(var(--color-primary-b) - var(--color-primary-dark-modifier));
+
+  --color-secondary-dark-modifier: var(--color-default-secondary-dark-modifier);
+  --color-secondary-dark-r: calc(var(--color-secondary-r) - var(--color-secondary-dark-modifier));
+  --color-secondary-dark-g: calc(var(--color-secondary-g) - var(--color-secondary-dark-modifier));
+  --color-secondary-dark-b: calc(var(--color-secondary-b) - var(--color-secondary-dark-modifier));
+
   --color-primary: rgb(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b));
-  --color-primary-dark: rgb(calc(var(--color-primary-r) - var(--color-primary-dark-adjust)), calc(var(--color-primary-g) - var(--color-primary-dark-adjust)), calc(var(--color-primary-b) - var(--color-primary-dark-adjust)));
+  --color-primary-dark: rgb(var(--color-primary-dark-r), var(--color-primary-dark-g), var(--color-primary-dark-b));
 
   --color-secondary: rgb(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b));
-  --color-secondary-dark: rgb(calc(var(--color-secondary-r) - var(--color-secondary-dark-factor)), calc(var(--color-secondary-g) - var(--color-secondary-dark-factor)), calc(var(--color-secondary-b) - var(--color-secondary-dark-factor)));
-  
+  --color-secondary-dark: rgb(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b));
+
   --color-danger: rgb(252, 72, 72);
   --color-success: rgb(77, 255, 201);
   --color-info: rgb(206, 237, 255);
@@ -26,14 +45,8 @@
 
   --color-background: var(--color-primary-dark);
 
-  --color-background-panel-dark-adjust: calc(var(--color-primary-dark-adjust) + 20);
-  --color-background-panel: rgb(calc(var(--color-primary-r) - var(--color-background-panel-dark-adjust)), calc(var(--color-primary-g) - var(--color-background-panel-dark-adjust)), calc(var(--color-primary-b) - var(--color-background-panel-dark-adjust)), 1);
-  --color-background-panel-translucent: rgb(calc(var(--color-primary-r) - 200), calc(var(--color-primary-g) - 200), calc(var(--color-primary-b) - 200), .4);
-
-  --color-inspector-frame-dark-adjust: 180;
-  --color-inspector-frame: rgb(calc(var(--color-primary-r) - var(--color-inspector-frame-dark-adjust)), calc(var(--color-primary-g) - var(--color-inspector-frame-dark-adjust)), calc(var(--color-primary-b) - var(--color-inspector-frame-dark-adjust)), 1);
-  --color-inspector-text: var(--color-primary);
-  --color-inspector-background: var(--linear-gradient-background);
+  --color-background-panel: rgb(var( --color-primary-dark-r), var( --color-primary-dark-g), var( --color-primary-dark-b));
+  --color-background-panel-translucent: rgba(var( --color-primary-dark-r), var( --color-primary-dark-g), var( --color-primary-dark-b), .4);
 
   --linear-gradient-background: linear-gradient(var(--color-primary-dark), transparent);
 

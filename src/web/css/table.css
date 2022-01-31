@@ -53,8 +53,8 @@ table td {
   overflow: hidden;
   text-shadow: var(--text-shadow);
   text-transform: uppercase;
-  vertical-align: top;
   font-weight: bold;
+  vertical-align: middle;
 }
 
 table tbody tr {
@@ -66,9 +66,8 @@ table tbody tr {
 }
 
 table tbody tr.table__row--highlighted td {
-  background: var(--color-secondary-dark) !important;
+  background: rgb(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .4) !important;
   color: var(--color-secondary) !important;
-  text-shadow: none;
 }
 
 table:not(.table--inline).table--interactive tbody tr.table__row--highlighted:hover td {
@@ -223,10 +222,10 @@ table.table--flex-inline.table--interactive tbody tr:not(.table__row--active):ho
 }
 
 table.table--animated tbody tr {
-  animation: fx-fade-in-animation .5s;
+  /* animation: fx-fade-in-animation .5s;
   animation-fill-mode: forwards;
   animation-delay: 0.5s;
-  opacity: 0;
+  opacity: 0; */
 }
 
 table.table--animated tbody tr:nth-child(1) {

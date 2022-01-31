@@ -22,7 +22,7 @@
 }
 
 .system-map__info * {
-  text-shadow: 0 0 .1rem black,  0 0 .2rem black, 0 0 .3rem black, 0 0 1rem black, 0 0 1rem black, 0 0 1rem black, 0 0 1rem black !important;
+  text-shadow: none;
 }
 
 .system-map__title {

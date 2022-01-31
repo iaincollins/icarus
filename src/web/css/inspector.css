@@ -1,29 +1,12 @@
 .inspector {
   padding: .5rem;
-  background: var(--color-inspector-background);
+  background: black var(--linear-gradient-background);
   box-sizing: border-box;
 }
 
-.inspector.scrollable::-webkit-scrollbar {
-
-}
-
-.inspector.scrollable::-webkit-scrollbar-track {
-
-}
-
-
-.inspector--hidden {
-
-}
-
-.inspector--hidden > * {
-
-}
-
 .inspector__title {
-  background: var(--color-inspector-frame);
-  color: var(--color-inspector-text);
+  background: var(--color-primary-dark);
+  color: var(--color-primary);
   margin: -.5rem -1rem 1rem -.5rem;
   height: 2.25rem;
   z-index: 10;
@@ -32,14 +15,14 @@
   position: absolute;
 }
 
-.inspector__title:hover,
-.inspector__title:hover .icon {
-  background: var(--color-inspector-text);
-  color: var(--color-inspector-frame);
+.inspector__title:hover {
+  background: var(--color-primary);
+  color: var(--color-primary-dark);
+  filter: var(--filter-hover-element);
 }
 
-.inspector__title:hover {
-  filter: var(--filter-hover-element);
+.inspector__title:hover .icon {
+  color: var(--color-primary-dark);
 }
 
 .inspector__title > * {
@@ -54,7 +37,7 @@
 
 .inspector__close-button {
   background: transparent !important;
-  color: var(--color-inspector-text) !important;
+  color: var(--color-primary) !important;
   padding: 0 .5rem;
   pointer-events: all !important;
   text-shadow: none;
@@ -63,11 +46,12 @@
 }
 
 .inspector__close-button .icon {
+  background: transparent !important;
   line-height: 2.25rem;
 }
 
 .inspector__close-button:hover {
-  color: var(--color-inspector-frame) !important;
+  color: var(--color-primary-dark) !important;
   filter: none !important;
 }
 

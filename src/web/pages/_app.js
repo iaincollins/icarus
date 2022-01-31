@@ -1,30 +1,45 @@
 import { Toaster } from 'react-hot-toast'
+import { SocketProvider } from 'lib/socket'
+import App from 'next/app'
+import { loadSavedColorSettings } from 'components/color-picker'
 import '../public/fonts/icarus-terminal/icarus-terminal.css'
 import '../css/main.css'
 
-import { SocketProvider } from 'lib/socket'
+export default class MyApp extends App {
+  constructor (props) {
+    super(props)
+    if (typeof window !== 'undefined') {
+      loadSavedColorSettings()
+      window.addEventListener('storage', (event) => {
+        if (event.key === 'color-settings') { loadSavedColorSettings() }
+      })
+    }
+  }
 
-export default function MyApp ({ Component, pageProps }) {
-  return (
-    <SocketProvider>
-      <Toaster
-        position='bottom-right'
-        toastOptions={{
-          duration: 8000,
-          className: 'notification text-uppercase text-primary',
-          style: {
-            borderRadius: '0',
-            border: '.2rem solid var(--color-primary)',
-            background: 'var(--color-background-panel)',
-            color: 'var(--color-info)',
-            minWidth: '300px',
-            maxWidth: '420px',
-            textAlign: 'left !important',
-            margin: '0 1rem'
-          }
-        }}
-      />
-      <Component {...pageProps} />
-    </SocketProvider>
-  )
+  render () {
+    const { Component, pageProps } = this.props
+    return (
+      <SocketProvider>
+        <Toaster
+          position='bottom-right'
+          toastOptions={{
+            duration: 8000,
+            className: 'notification text-uppercase text-primary',
+            style: {
+              borderRadius: '0',
+              border: '.2rem solid var(--color-primary)',
+              background: 'var(--color-background-panel)',
+              color: 'var(--color-info)',
+              minWidth: '300px',
+              maxWidth: '420px',
+              textAlign: 'left !important',
+              margin: '0 1rem',
+              boxShadow: '0 0 1rem black'
+            }
+          }}
+        />
+        <Component {...pageProps} />
+      </SocketProvider>
+    )
+  }
 }

@@ -171,6 +171,19 @@
   margin: 0.25rem 0;
 }
 
+/* Safari 10.1+ */
+@media not all and (min-resolution:.001dpcm) {
+  @media {
+    table.ship-panel_modules-table.table--interactive tbody tr,
+    table.ship-panel_modules-table.table--flex-inline.table--interactive tbody tr td {
+      animation: none !important;
+      opacity: 1 !important;
+      animation-fill-mode: none !important;
+      animation-delay: 0 !important;
+    }
+  }
+}
+
 table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module .ship-panel__module-icon,
 table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module .ship-panel__module-icon,
 table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-panel__module .ship-panel__module-icon {

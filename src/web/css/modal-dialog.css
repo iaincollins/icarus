@@ -1,0 +1,13 @@
+.modal-dialog {
+  z-index: 1000;
+  border: .2rem solid var(--color-primary);
+  background: black var(--linear-gradient-background);
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28rem;
+  height: auto;
+  box-shadow: 0 0 5rem black, 0 0 10rem black;
+  padding: 0.5rem;
+}

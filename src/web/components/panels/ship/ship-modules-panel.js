@@ -59,7 +59,6 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             </tr>
           </tbody>
         </table>
-        <hr style={{ margin: '1.5rem 0 1rem 0' }} />
         <ShipModules
           name='Hardpoints'
           modules={
@@ -70,7 +69,6 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
-        <hr style={{ margin: '1rem 0' }} />
         <ShipModules
           name='Optional Internals'
           modules={
@@ -85,7 +83,6 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
-        <hr style={{ margin: '1rem 0' }} />
         <ShipModules
           name='Core Internals'
           modules={
@@ -98,19 +95,16 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
-        <hr style={{ margin: '1rem 0' }} />
-        <div style={{ marginBottom: '1rem' }} className='ship-panel__modules--inline'>
-          <ShipModules
-            name='Utility Mounts'
-            modules={
-              Object.values(ship.modules)
-                .filter(module => ['tiny']
-                  .includes(module?.size))
-            }
-            selectedModule={selectedModule}
-            setSelectedModule={setSelectedModule}
-          />
-        </div>
+        <ShipModules
+          name='Utility Mounts'
+          modules={
+            Object.values(ship.modules)
+              .filter(module => ['tiny']
+                .includes(module?.size))
+          }
+          selectedModule={selectedModule}
+          setSelectedModule={setSelectedModule}
+        />
       </div>
     </>
   )

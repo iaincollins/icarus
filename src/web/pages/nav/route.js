@@ -87,25 +87,18 @@ export default function NavListPage () {
         {navRoute && navRoute.length > 0 &&
           <>
             <hr style={{ marginBottom: 0 }} />
-            <table className='table--animated table--interactive fx-fade-in'>
-              <thead>
-                <tr>
-                  <th style={{ width: '3rem' }} className='text-right'>#</th>
-                  <th>System</th>
-                  <th className='hidden-medium text-right'>Primary Star</th>
-                </tr>
-              </thead>
-              <tbody>
+            <table className='table--animated table--interactive'>
+              <tbody className='fx-fade-in'>
                 {navRoute.map((route, i) =>
                   <tr
                     key={`nav-route_${route.StarSystem}`}
                     className={`${currentSystem && currentSystem?.name.toLowerCase() === route.StarSystem.toLowerCase() ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'} ${system && currentSystem && system?.name?.toLowerCase() !== currentSystem?.name?.toLowerCase() && system?.name?.toLowerCase() === route.StarSystem.toLowerCase() ? 'table__row--selected' : ''}`}
                     onClick={() => router.push({ pathname: '/nav/map', query: { system: route.StarSystem.toLowerCase() } })}
                   >
-                    <td className='text-right' style={{ width: '3rem', verticalAlign: 'middle' }}>
+                    <td className='text-center' style={{ width: '3rem' }}>
                       {i + 1}
                     </td>
-                    <td style={{ paddingLeft: '3.5rem', verticalAlign: 'middle' }}>
+                    <td style={{ paddingLeft: '3.5rem' }}>
                       <div style={{ position: 'relative' }}>
                         <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star visible-medium' />
                         <i style={{ position: 'absolute', top: '-.25rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star hidden-medium' />
@@ -115,7 +108,7 @@ export default function NavListPage () {
                         </span>
                       </div>
                     </td>
-                    <td style={{ verticalAlign: 'middle' }} className='hidden-medium text-right'>
+                    <td className='hidden-medium text-right'>
                       <span className='text-muted'>{route.StarClass} Class</span><br />
                       {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
                     </td>

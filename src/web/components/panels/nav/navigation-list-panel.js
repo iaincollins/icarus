@@ -13,14 +13,14 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
           <h2>No system information</h2>
         </div>}
       <div className='scrollable'>
-        <table className='table--animated table--interactive fx-fade-in'>
+        <table className='table--animated table--interactive'>
           <thead>
             <tr>
               <th>Location</th>
               <th className='hidden-small text-no-wrap text-right'>Distance to arrival</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='fx-fade-in'>
             <NavigationTableBody system={system} setSystemObject={setSystemObject} />
             {/* {system.stars.map(star => <NavigationTableRow key={`${star.name}_${star.bodyId}`} systemObject={star}/>
             // <>

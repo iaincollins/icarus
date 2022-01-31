@@ -40,6 +40,7 @@
 
 .text-link {
   color: var(--color-secondary);
+  text-shadow: var(--text-shadow);
 }
 
 .text-link .text-link-text {
@@ -50,6 +51,7 @@
 .text-link:hover,
 .text-link:focus {
   color: var(--color-secondary);
+  text-shadow: var(--text-shadow);
 }
 
 .text-link:hover .text-link-text,

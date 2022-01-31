@@ -75,7 +75,10 @@ export default function EngineeringMaterialsPage () {
                       }}
                     >
                       <td>
-                        <h3>{blueprint.name}</h3>
+                        <h4>{blueprint.name}</h4>
+                        <h4 className='text-muted visible-medium'>{blueprint.originalName}</h4>
+                      </td>
+                      <td className='text-right hidden-medium'>
                         <h4 className='text-muted'>{blueprint.originalName}</h4>
                       </td>
                     </tr>
@@ -103,7 +106,10 @@ export default function EngineeringMaterialsPage () {
                     }}
                   >
                     <td>
-                      <h3>{blueprint.name}</h3>
+                      <h4>{blueprint.name}</h4>
+                      <h4 className='text-muted visible-medium'>{blueprint.originalName}</h4>
+                    </td>
+                    <td className='text-right hidden-medium'>
                       <h4 className='text-muted'>{blueprint.originalName}</h4>
                     </td>
                   </tr>
@@ -119,29 +125,31 @@ export default function EngineeringMaterialsPage () {
           {selectedBlueprint.appliedToModules.length > 0 &&
             <>
               <div className='tabs'>
-                <h4 className='tab' style={{ marginTop: '1rem' }}>Modules</h4>
+                <h4 className='tab' style={{ marginTop: '1rem' }}>Engineered Modules</h4>
               </div>
               <table className='table--animated table-not-sticky'>
                 <tbody>
                   {selectedBlueprint.appliedToModules.map(module => (
                     <tr
                       key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}`}
-                      className='text-uppercase'
+                      className='table__row--highlighted'
                     >
-                      <td style={{ verticalAlign: 'middle' }}>
+                      <td>
                         {module.class}{module.rating} {module.name}
                         <span className='visible-medium text-muted'><br />{module.slotName}</span>
                       </td>
-                      <td style={{ verticalAlign: 'middle' }} className='hidden-medium text-muted'>{module.slotName}</td>
-                      <td className='text-info text-no-wrap' style={{ verticalAlign: 'middle' }}>
-                        <span className='visible-medium' style={{ fontSize: '2rem', lineHeight: '2rem' }}>
-                          <span className='float-right'>{module.engineering.level}</span>
-                          <i className='icon icarus-terminal-engineering float-right' style={{ marginRight: '.25rem' }} />
+                      <td className='hidden-medium'>
+                        <span className='text-muted'>{module.slotName}</span>
+                      </td>
+                      <td className='text-info text-no-wrap' style={{ minWidth: '3rem' }}>
+                        <span className='visible-medium' style={{ fontSize: '1.75rem', lineHeight: '1.75rem' }}>
+                          <i className='icon icarus-terminal-engineering float-right' />
+                          <span className='float-right' style={{ marginRight: '.25rem' }}>{module.engineering.level}</span>
                         </span>
                         <span className='hidden-medium float-right'>
                           {[...Array(module.engineering.level)].map((j, i) =>
                             <i
-                              style={{ fontSize: '2rem', width: '2rem', display: 'inline-block', marginRight: '0.1rem' }}
+                              style={{ fontSize: '1.75rem', width: '1.75rem', display: 'inline-block', marginRight: '0.1rem' }}
                               key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}_engineering-grade_${i}`}
                               className='icon icarus-terminal-engineering'
                             />
@@ -165,8 +173,9 @@ export default function EngineeringMaterialsPage () {
           {Object.keys(selectedBlueprint.grades).map(grade =>
             <div style={{ position: 'relative' }} key={`${selectedBlueprint.symbol}_${grade}_materials`}>
 
-              <div className='tabs'>
-                <h4 className='tab' style={{ marginTop: '1rem' }}>Grade {parseInt(grade) + 1}</h4>
+              <div className='tabs' style={{ marginTop: '1rem' }}>
+                <h4 className='tab'>Grade {parseInt(grade) + 1}</h4>
+                <h4 className='text-info text-muted float-right'>Cost / Inventory</h4>
               </div>
 
               <h4 className='text-info' style={{ position: 'absolute', margin: '.5rem 0 0 0' }}>
@@ -180,13 +189,17 @@ export default function EngineeringMaterialsPage () {
               </h4>
               <div className='engineering__blueprint-grade'>
                 <table className='table--animated table-not-sticky'>
+                  {/*
                   <thead>
                     <tr>
                       <th className='text-left' colSpan={2}>Material</th>
                       <th>Cost</th>
-                      <th className='text-muted'>Current</th>
+                      <th>
+                        <span className='text-muted'>Current</span>
+                      </th>
                     </tr>
                   </thead>
+                  */}
                   <tbody>
                     {selectedBlueprint.grades[grade].components.map(component => {
                       return (
@@ -194,14 +207,14 @@ export default function EngineeringMaterialsPage () {
                           key={`blueprint_${selectedBlueprint.name}_grade_${grade}_component_${component.name}`}
                           className={component.count > 0 ? 'text-primary' : 'text-muted'}
                         >
-                          <td className='text-right' style={{ background: 'var(--color-primary-dark)', width: '2rem', verticalAlign: 'middle', padding: '0 .25rem' }}>
+                          <td className='text-right' style={{ background: 'var(--color-primary-dark)', width: '2rem', padding: '0 .25rem' }}>
                             <i className={`icon icarus-terminal-materials-grade-${component.grade}`} style={{ fontSize: '2rem' }} />
                           </td>
-                          <td style={{ background: 'var(--color-primary-dark)', verticalAlign: 'middle' }}>
+                          <td style={{ background: 'var(--color-primary-dark)' }}>
                             {component.name}
                           </td>
-                          <td className='text-right' style={{ width: '4rem', verticalAlign: 'middle' }}>{component.cost}</td>
-                          <td className='text-right text-muted' style={{ width: '4rem', verticalAlign: 'middle' }}>{component.count}</td>
+                          <td className='text-right' style={{ width: '3rem' }}>{component.cost}</td>
+                          <td className='text-right text-muted' style={{ width: '3rem' }}>{component.count}</td>
                         </tr>
                       )
                     })}

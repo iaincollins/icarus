@@ -127,7 +127,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 15, 30, .6);
+  xbackground: rgba(0, 15, 30, .6);
+  background: linear-gradient(rgba(0,0,0,.25), var(--color-secondary-dark));
+  background: linear-gradient(rgba(0,0,0,.25), rgba(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b), .1));
+  background: rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .5);
+  background: linear-gradient(rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .1), rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .5));
+  /* background: linear-gradient(rgba(${color.r}, ${color.g}, ${color.b}, 0), rgba(${color.r}, ${color.g}, ${color.b}, 0.25)); */
 }
 
 .navigation-panel__map-background::after {

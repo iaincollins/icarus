@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { isWindowFullScreen, isWindowPinned, toggleFullScreen, togglePinWindow } from 'lib/window'
 import { eliteDateTime } from 'lib/format'
+import { ColorPicker } from 'components/color-picker'
 
 const NAV_BUTTONS = [
   {
@@ -9,19 +10,11 @@ const NAV_BUTTONS = [
     abbr: 'Nav',
     path: '/nav'
   },
-  // {
-  //   name: 'Cmdr',
-  //   path: '/cmdr',
-  // },
   {
     name: 'Ship',
     abbr: 'Ship',
     path: '/ship'
   },
-  // {
-  //   name: 'Trade',
-  //   path: '/trade',
-  // },
   {
     name: 'Engineering',
     abbr: 'Eng',
@@ -32,10 +25,6 @@ const NAV_BUTTONS = [
     abbr: 'Log',
     path: '/log'
   }
-  // {
-  //   name: 'Comms',
-  //   path: '/comms',
-  // }
 ]
 
 export default function Header ({ connected, active }) {
@@ -44,6 +33,7 @@ export default function Header ({ connected, active }) {
   const [isWindowsApp, setIsWindowsApp] = useState(false)
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [isPinned, setIsPinned] = useState(false)
+  const [colorPickerVisible, setColorPickerVisible] = useState(false)
 
   async function fullScreen () {
     const newFullScreenState = await toggleFullScreen()
@@ -59,10 +49,10 @@ export default function Header ({ connected, active }) {
   }
 
   useEffect(async () => {
-    // icarusTerminal_* methods are not always accessible while the app is loading. This
-    // handles that by calling them when the component is mounted then the
-    // component tracks the state  in it's local state. If the window is
-    // reloadedm this is ensure the window state is still tracked properly.
+    // icarusTerminal_* methods are not always accessible while the app is loading.
+    // This handles that by calling them when the component is mounted then the
+    // component tracks the state in it's local state. If the window is
+    // reloaded this ensures the window state is still tracked properly.
     if (typeof window === 'undefined') return setIsWindowsApp(false)
     setIsWindowsApp(typeof window !== 'undefined' && typeof window.icarusTerminal_version === 'function')
     setIsFullScreen(await isWindowFullScreen())
@@ -100,6 +90,14 @@ export default function Header ({ connected, active }) {
           <button tabIndex='1' onClick={pinWindow} className={`button--icon ${isPinned ? 'button--transparent' : ''}`} style={{ marginRight: '.5rem' }} disabled={isFullScreen}>
             <i className='icon icarus-terminal-pin-window' style={{ fontSize: '2rem' }} />
           </button>}
+
+        <button
+          tabIndex='1' className='button--icon'
+          style={{ marginRight: '.5rem' }}
+          onClick={() => { setColorPickerVisible(!colorPickerVisible); document.activeElement.blur() }}
+        >
+          <i className='icon icarus-terminal-color-picker' style={{ fontSize: '2rem' }} />
+        </button>
         <button tabIndex='1' onClick={fullScreen} className='button--icon'>
           <i className='icon icarus-terminal-fullscreen' style={{ fontSize: '2rem' }} />
         </button>
@@ -120,6 +118,7 @@ export default function Header ({ connected, active }) {
         )}
       </div>
       <hr className='bold' />
+      <ColorPicker visible={colorPickerVisible} toggleVisible={() => setColorPickerVisible(!colorPickerVisible)} />
     </header>
   )
 }

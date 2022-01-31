@@ -113,13 +113,15 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
           onFocus={() => setSystemObject(systemObject)}
         >
           {(systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere') &&
-            <g className='system-map__planet'>
-              <circle
-                className='system-map__planet-atmosphere'
-                cx={x - 0}
-                cy={y - 0}
-                r={r + 70}
-              />
+            <g className='system-map__body'>
+              <g className='system-map__planet'>
+                <circle
+                  className='system-map__planet-atmosphere'
+                  cx={x - 0}
+                  cy={y - 0}
+                  r={r + 70}
+                />
+              </g>
             </g>}
           {SHOW_LABELS === true && labels === true &&
             <>
@@ -140,85 +142,87 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
                 {textDistanceContents}
               </text>
             </>}
-          <g className='system-map__planet'>
-            <circle
-              id={`navigation-panel__${systemObject.id}`}
-              cx={x}
-              cy={y}
-              r={r}
-            />
-            <circle
-              className='system-map__planet-surface'
-              cx={x}
-              cy={y}
-              r={r}
-            />
-            {systemObject.rings &&
-              <>
-                <defs>
-                  <mask
-                    id={`planet-ring-mask-${systemObject.id}`}
-                    className='system-map__planet-ring-mask'
-                  >
-                    <ellipse
-                      cx={x}
-                      cy={y}
-                      rx={r * 2}
-                      ry={r / 3}
-                      fill='white'
-                    />
-                    <ellipse
-                      cx={x}
-                      cy={y - (r / 5)}
-                      rx={r}
-                      ry={r / 3}
-                      fill='black'
-                    />
-                    <ellipse
-                      cx={x}
-                      cy={y - (r / 15)}
-                      rx={r * 1.2}
-                      ry={r / 5}
-                      fill='black'
-                    />
-                  </mask>
-                </defs>
-                <ellipse
-                  className='system-map__planet-ring'
-                  cx={x}
-                  cy={y}
-                  rx={r * 2}
-                  ry={r / 3}
-                  mask={`url(#planet-ring-mask-${systemObject.id})`}
-                  opacity='1'
-                />
-                <ellipse
-                  className='system-map__planet-ring'
-                  cx={x}
-                  cy={y - (r / 80)}
-                  rx={r * 1.85}
-                  ry={r / 4.2}
-                  mask={`url(#planet-ring-mask-${systemObject.id})`}
-                  opacity='.25'
-                />
-              </>}
+          <g className='system-map__body'>
+            <g className='system-map__planet'>
+              <circle
+                id={`navigation-panel__${systemObject.id}`}
+                cx={x}
+                cy={y}
+                r={r}
+              />
+              <circle
+                className='system-map__planet-surface'
+                cx={x}
+                cy={y}
+                r={r}
+              />
+              {systemObject.rings &&
+                <>
+                  <defs>
+                    <mask
+                      id={`planet-ring-mask-${systemObject.id}`}
+                      className='system-map__planet-ring-mask'
+                    >
+                      <ellipse
+                        cx={x}
+                        cy={y}
+                        rx={r * 2}
+                        ry={r / 3}
+                        fill='white'
+                      />
+                      <ellipse
+                        cx={x}
+                        cy={y - (r / 5)}
+                        rx={r}
+                        ry={r / 3}
+                        fill='black'
+                      />
+                      <ellipse
+                        cx={x}
+                        cy={y - (r / 15)}
+                        rx={r * 1.2}
+                        ry={r / 5}
+                        fill='black'
+                      />
+                    </mask>
+                  </defs>
+                  <ellipse
+                    className='system-map__planet-ring'
+                    cx={x}
+                    cy={y}
+                    rx={r * 2}
+                    ry={r / 3}
+                    mask={`url(#planet-ring-mask-${systemObject.id})`}
+                    opacity='1'
+                  />
+                  <ellipse
+                    className='system-map__planet-ring'
+                    cx={x}
+                    cy={y - (r / 80)}
+                    rx={r * 1.85}
+                    ry={r / 4.2}
+                    mask={`url(#planet-ring-mask-${systemObject.id})`}
+                    opacity='.25'
+                  />
+                </>}
+            </g>
+            {hasPlanetaryFacilities && !hasPlanetaryPort &&
+              <svg
+                className='system-map__planetary-facility-icon'
+                x={imageX}
+                y={imageY}
+              >
+                {Icons.Settlement}
+              </svg>}
+            {hasPlanetaryPort &&
+              <svg
+                className='system-map__planetary-port-icon'
+                x={imageX}
+                y={imageY - 100}
+              >
+                {Icons['Planetary Port']}
+              </svg>}
           </g>
-          {hasPlanetaryFacilities && !hasPlanetaryPort &&
-            <svg
-              className='system-map__planetary-facility-icon'
-              x={imageX}
-              y={imageY}
-            >
-              {Icons.Settlement}
-            </svg>}
-          {hasPlanetaryPort &&
-            <svg
-              className='system-map__planetary-port-icon'
-              x={imageX}
-              y={imageY - 100}
-            >
-              {Icons['Planetary Port']}
-            </svg>}
         </g>
       )
     }

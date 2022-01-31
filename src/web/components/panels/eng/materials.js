@@ -42,7 +42,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
           {materials.map(item =>
             <tr
               key={`material_${materialType}_${materialCategory}_${item.symbol}`}
-              className={item.count === item?.maxCount ? 'text-success' : ''}
+              className={item.count === item?.maxCount ? 'text-secondary' : ''}
             >
               <td style={{ width: '30rem' }}>
                 <h3 className={item.count === 0 ? 'text-muted' : ''}><CopyOnClick>{item.name}</CopyOnClick></h3>
@@ -51,31 +51,33 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
                     <span className={item.count === 0 ? 'text-muted' : ''}>{item.count}</span><span className='text-muted'>/{item.maxCount}</span>
                   </div>
                   <div style={{ width: '70%', display: 'inline-block' }}>
-                    <progress style={{ height: '1.25rem' }} value={item.count} max={item?.maxCount ?? item.count} className={item.count === item?.maxCount ? 'progress--success' : ''} />
+                    <progress style={{ height: '1.25rem' }} value={item.count} max={item?.maxCount ?? item.count} className={item.count === item?.maxCount ? 'progress--secondary' : ''} />
                   </div>
                 </div>
               </td>
-              <td className='hidden-large' style={{ verticalAlign: 'middle' }}>
-                {item.blueprints
-                  .map(blueprint => {
+              <td className='hidden-large'>
+                <span style={{ fontSize: '1rem' }} className={item.count === 0 ? 'text-muted' : ''}>
+                  {item.blueprints
+                    .map(blueprint => {
                     // TODO Highlight engineering uses relevant to equipped engineered modules
                     // TODO Highlight engineering uses relevant to pinned engineering blueprints
-                    let name = blueprint.symbol.replace(/_(.*?)$/, '').replace(/([a-z])([A-Z])/g, '$1 $2').trim()
-                    if (name === 'MC') name = 'Weapons'
-                    if (name === 'Weapon') name = 'Weapons'
-                    if (name === 'Engine') name = 'Engines'
-                    if (name.includes('Limpet')) name = 'Limpets'
-                    if (name === 'FSDinterdictor') name = 'Interdictor'
-                    if (name === 'Misc') name = blueprint.symbol.replaceAll('_', '').replace(/([a-z])([A-Z])/g, '$1 $2').trim()
-                    name = name.replace(/misc /ig, '').replace(/ capacity/gi, '')
-                    return name
-                  })
-                  .filter((value, index, self) => self.indexOf(value) === index)
-                  .sort()
-                  .map((use, i) => <Fragment key={`material_${item.name}_${use}`}>{i === 0 ? '' : <span className='text-muted'>, </span>}<span className='text-muted'>{use}</span></Fragment>)}
-                {materialType === 'Xeno' && <span className='text-muted'>Classified</span>}
+                      let name = blueprint.symbol.replace(/_(.*?)$/, '').replace(/([a-z])([A-Z])/g, '$1 $2').trim()
+                      if (['Weapon', 'Engine', 'Sensor'].includes(name)) name = `${name}s`
+                      if (name === 'AFM') name = 'AFMU'
+                      if (name === 'MC') name = 'Weapons'
+                      if (name.includes('Limpet')) name = 'Limpets'
+                      if (name === 'FSDinterdictor') name = 'Interdictor'
+                      if (name === 'Misc') name = blueprint.symbol.replaceAll('_', '').replace(/([a-z])([A-Z])/g, '$1 $2').trim()
+                      name = name.replace(/misc /ig, '').replace(/ capacity/gi, '')
+                      return name
+                    })
+                    .filter((value, index, self) => self.indexOf(value) === index)
+                    .sort()
+                    .map((use, i) => <Fragment key={`material_${item.name}_${use}`}>{i === 0 ? '' : <span className='text-muted'>, </span>}<span>{use}</span></Fragment>)}
+                  {materialType === 'Xeno' && <span className='text-muted'>Classified</span>}
+                </span>
               </td>
-              <td className='text-right text-no-wrap' style={{ width: '3rem', verticalAlign: 'middle' }}>
+              <td className='text-right text-no-wrap' style={{ width: '3rem' }}>
                 <i style={{ fontSize: '3rem' }} className={`icon icarus-terminal-materials-grade-${item.grade}`} />
               </td>
             </tr>

@@ -39,16 +39,8 @@
 #secondary-navigation__search-form {
   position: absolute;
   top: 0;
-  left: 4rem;
-  width: 25rem;
-  animation-delay: .25s;
-  animation: search-form-animation .25s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes search-form-animation {
-  from { box-shadow: none; }
-  to { box-shadow: 0 0 1rem black; }
+  left: 3.8rem;
+  width: 25.2rem;
 }
 
 #secondary-navigation__search-input {
@@ -57,6 +49,7 @@
   float: left;
   padding-left: 1rem;
   height: 3rem;
+  box-shadow: 0 0 1rem black, 0 0 2rem black;
 }
 
 @keyframes search-input-animation {

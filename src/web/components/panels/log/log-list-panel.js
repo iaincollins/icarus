@@ -5,14 +5,14 @@ export default function LogPanel ({ logEntries, setSelectedLogEntry }) {
 
   return (
     <div style={{ paddingRight: '0.5rem' }}>
-      <table className='table--animated table--interactive fx-fade-in'>
+      <table className='table--animated table--interactive'>
         <thead>
           <tr>
             <th>Event</th>
             <th className='text-right'>Time</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='fx-fade-in'>
           {logEntries && logEntries.map(logEntry =>
             <tr key={`${logEntry._checksum}`} tabIndex='2' onFocus={() => setSelectedLogEntry(logEntry)}>
               <td>
