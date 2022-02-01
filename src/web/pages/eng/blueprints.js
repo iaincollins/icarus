@@ -127,7 +127,7 @@ export default function EngineeringMaterialsPage () {
               <div className='tabs'>
                 <h4 className='tab' style={{ marginTop: '1rem' }}>Engineered Modules</h4>
               </div>
-              <table className='table--animated table-not-sticky'>
+              <table className='table--animated'>
                 <tbody>
                   {selectedBlueprint.appliedToModules.map(module => (
                     <tr
@@ -178,7 +178,7 @@ export default function EngineeringMaterialsPage () {
                 <h4 className='text-info text-muted float-right'>Cost / Inventory</h4>
               </div>
 
-              <h4 className='text-info' style={{ position: 'absolute', margin: '.5rem 0 0 0' }}>
+              <h4 className='text-info hidden-medium' style={{ position: 'absolute', margin: '.5rem 0 0 0' }}>
                 {[...Array(selectedBlueprint.grades[grade].grade)].map((j, i) =>
                   <i
                     style={{ fontSize: '2rem', width: '2rem', display: 'inline-block', marginRight: '0.1rem' }}
@@ -188,7 +188,7 @@ export default function EngineeringMaterialsPage () {
                 )}
               </h4>
               <div className='engineering__blueprint-grade'>
-                <table className='table--animated table-not-sticky'>
+                <table className='table--animated'>
                   {/*
                   <thead>
                     <tr>

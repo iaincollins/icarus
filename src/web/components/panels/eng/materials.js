@@ -55,8 +55,8 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
                   </div>
                 </div>
               </td>
-              <td className='hidden-large'>
-                <span style={{ fontSize: '1rem' }} className={item.count === 0 ? 'text-muted' : ''}>
+              <td className='hidden-large text-no-transform'>
+                <span style={{ xfontSize: '1rem' }} className={item.count === 0 ? 'text-muted' : ''}>
                   {item.blueprints
                     .map(blueprint => {
                     // TODO Highlight engineering uses relevant to equipped engineered modules
@@ -67,6 +67,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
                       if (name === 'MC') name = 'Weapons'
                       if (name.includes('Limpet')) name = 'Limpets'
                       if (name === 'FSDinterdictor') name = 'Interdictor'
+                      if (name.startsWith('Hull ')) name = 'Hull'
                       if (name === 'Misc') name = blueprint.symbol.replaceAll('_', '').replace(/([a-z])([A-Z])/g, '$1 $2').trim()
                       name = name.replace(/misc /ig, '').replace(/ capacity/gi, '')
                       return name
@@ -77,7 +78,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
                   {materialType === 'Xeno' && <span className='text-muted'>Classified</span>}
                 </span>
               </td>
-              <td className='text-right text-no-wrap' style={{ width: '3rem' }}>
+              <td className={`text-right text-no-wrap ${item.count === 0 ? 'text-muted' : ''}`} style={{ width: '3rem' }}>
                 <i style={{ fontSize: '3rem' }} className={`icon icarus-terminal-materials-grade-${item.grade}`} />
               </td>
             </tr>
