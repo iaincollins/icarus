@@ -133,7 +133,7 @@ const eventHandlers = {
   getNavRoute: async (args) => ((await eliteJson.json())?.NavRoute?.Route ?? [])
 }
 
-async function init ({ days = 30 } = {}) {
+async function init ({ days = 7 } = {}) {
   // If already run (or already started) don't run again
   if (loadingComplete || loadingInProgress) return getLoadingStatus()
 
