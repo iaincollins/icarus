@@ -53,14 +53,17 @@ export default function IndexPage () {
         </span>
         {update && update.isUpgrade &&
           <div className='fx-fade-in'>
-            <span
-              target='_blank'
-              className='text-link'
-              onClick={() => openReleaseNotes()}
-              style={{ margin: '2rem 0 1rem 0', display: 'block', fontWeight: 'normal', fontSize: '1.1rem' }} rel='noreferrer'
-            >
-              <span className='text-link-text'>Version {update?.productVersion} release notes</span>
-            </span>
+            <div>
+              <h4 style={{ marginTop: '1.5rem', fontSize: '1.2rem' }} className='text-info'>New Version Available</h4>
+              <span
+                target='_blank'
+                className='text-link'
+                onClick={() => openReleaseNotes()}
+                style={{ margin: '0 0 1rem 0', display: 'inline-block', fontWeight: 'normal', fontSize: '1.1rem' }} rel='noreferrer'
+              >
+                <span className='text-link-text'>Version {update?.productVersion} release notes</span>
+              </span>
+            </div>
             {!downloadingUpdate &&
               <button
                 onClick={() => {
@@ -98,13 +101,15 @@ export default function IndexPage () {
             <p>{formatBytes(loadingProgress.logSizeInBytes)} of data</p>
             <p>{loadingProgress.numberOfLogLines.toLocaleString()} recent log entries</p>
             <p>{loadingProgress.numberOfEventsImported.toLocaleString()} events imported</p>
-            {loadingProgress.loadingComplete === true ? <p>Last activity {eliteDateTime(loadingProgress.lastActivity)}</p> : ''}
+            {loadingProgress.loadingComplete === true ? <p>Last active {eliteDateTime(loadingProgress.lastActivity).dateTime}</p> : ''}
             {/* <p>Load time: {parseInt(loadingProgress.loadingTime / 1000)} seconds</p> */}
             <div style={{ position: 'absolute', bottom: '.5rem', left: '.5rem', right: '.5rem' }}>
               {loadingProgress.loadingComplete === false && <progress value={loadingProgress.numberOfEventsImported} max={loadingProgress.numberOfLogLines} />}
             </div>
           </div>
-          {loadingProgress.loadingComplete === true ? <p>Ready <span className='text-blink-slow'>_</span></p> : <p className='text-blink-slow'>_</p>}
+          {loadingProgress.loadingComplete === true
+            ? <p>Ready <span className='text-blink-slow'>_</span></p>
+            : <p>Scanning log <span className='text-blink-slow'>_</span></p>}
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
           <button style={{ width: '20rem' }} onClick={newWindow}>New Terminal</button>

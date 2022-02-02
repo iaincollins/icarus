@@ -146,10 +146,10 @@ export default function EngineeringMaterialsPage () {
                           <i className='icon icarus-terminal-engineering float-right' />
                           <span className='float-right' style={{ marginRight: '.25rem' }}>{module.engineering.level}</span>
                         </span>
-                        <span className='hidden-medium float-right'>
+                        <span className='hidden-medium float-right' style={{height: '1.75rem'}}>
                           {[...Array(module.engineering.level)].map((j, i) =>
                             <i
-                              style={{ fontSize: '1.75rem', width: '1.75rem', display: 'inline-block', marginRight: '0.1rem' }}
+                              style={{ fontSize: '1.75rem', lineHeight: '1.75rem', width: '1.75rem', display: 'inline-block', marginRight: '0.1rem' }}
                               key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}_engineering-grade_${i}`}
                               className='icon icarus-terminal-engineering'
                             />

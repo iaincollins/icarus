@@ -79,7 +79,7 @@ function EngineeringPanelNavItems (activePanel) {
     },
     {
       name: 'Blueprints',
-      icon: 'materials',
+      icon: 'engineering',
       url: '/eng/blueprints'
     }
   ]

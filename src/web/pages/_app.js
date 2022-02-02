@@ -1,7 +1,7 @@
 import { Toaster } from 'react-hot-toast'
 import { SocketProvider } from 'lib/socket'
 import App from 'next/app'
-import { loadSavedColorSettings } from 'components/color-picker'
+import { loadColorSettings } from 'components/color-picker'
 import '../public/fonts/icarus-terminal/icarus-terminal.css'
 import '../css/main.css'
 
@@ -9,9 +9,12 @@ export default class MyApp extends App {
   constructor (props) {
     super(props)
     if (typeof window !== 'undefined') {
-      loadSavedColorSettings()
+      // Load settings at startup
+      loadColorSettings()
+
+      // Update settings in this window when they are changed in another window
       window.addEventListener('storage', (event) => {
-        if (event.key === 'color-settings') { loadSavedColorSettings() }
+        if (event.key === 'color-settings') { loadColorSettings() }
       })
     }
   }

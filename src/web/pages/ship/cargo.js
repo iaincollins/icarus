@@ -76,7 +76,7 @@ export default function ShipCargoPage () {
             <hr className='small' style={{ marginTop: 0 }} />
             {(!ship.onBoard) &&
               <p className='text-muted text-primary text-center' style={{ margin: '1rem 0' }}>
-                Cargo manifest as of {eliteDateTime(ship?.timestamp)}
+                Cargo manifest as of {eliteDateTime(ship?.timestamp).dateTime}
               </p>}
           </>}
       </Panel>

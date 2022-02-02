@@ -46,7 +46,6 @@
 }
 
 .ship-panel__module-inspector--hidden {
-  background: var(--color-background-panel);
   height: 0;
   padding: 0;
   border-color: transparent;

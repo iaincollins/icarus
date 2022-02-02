@@ -29,7 +29,6 @@
 .navigation-panel__inspector--hidden {
   right: -21.5rem;
   padding: 0;
-  background: var(--color-background-panel);
   animation-delay: 0;
 }
 
@@ -127,12 +126,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  xbackground: rgba(0, 15, 30, .6);
-  background: linear-gradient(rgba(0,0,0,.25), var(--color-secondary-dark));
-  background: linear-gradient(rgba(0,0,0,.25), rgba(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b), .1));
-  background: rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .5);
-  background: linear-gradient(rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .1), rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .5));
-  /* background: linear-gradient(rgba(${color.r}, ${color.g}, ${color.b}, 0), rgba(${color.r}, ${color.g}, ${color.b}, 0.25)); */
+  background: linear-gradient(rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .1), rgba(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b), .1));
 }
 
 .navigation-panel__map-background::after {
@@ -147,18 +141,17 @@
   bottom: 0;
   right: 0;
   z-index: -2;
-  opacity: 1.5;
   animation: navigation-panel__map-background-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
 }
 
 @keyframes navigation-panel__map-background-fade-in-animation {
-  from { filter: blur(2rem); }
-  to { filter: blur(0); }
+  from { filter: blur(2rem) brightness(200%); }
+  to { filter: blur(0) brightness(50%); }
 }
 
 .navigation-panel__map-background::before {
-  background-image: linear-gradient(rgb(20, 20, 20) .1rem, transparent .1rem), linear-gradient(90deg, rgb(20, 20, 20) .1rem, transparent .1rem);
+  background-image: linear-gradient(rgb(10, 10, 10) .1rem, transparent .1rem), linear-gradient(90deg, rgb(10, 10, 10) .1rem, transparent .1rem);
   background-size: 3rem 3rem;
   background-position: -1.5rem 1.5rem;
   content: " ";

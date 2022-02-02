@@ -69,7 +69,7 @@ function connect (socketState, setSocketState) {
           if (message.event === 'Docked') notification(`Docked at ${message.StationName}`)
           if (message.event === 'Undocked') notification(`Now leaving ${message.StationName}`)
           if (message.event === 'ApproachSettlement') notification(`Approaching ${message.Name}`)
-          if (message.event === 'ReceiveText' && message.From) notification(() => <><p className='text-primary' style={{ marginRight: '.6rem' }}>{message.From_Localised || message.From}</p><p className='text-info'>{message.Message_Localised || message.Message}</p></>)
+          if (message.event === 'ReceiveText' && message.From) notification(() => <><p className='text-primary text-right' style={{ marginRight: '1rem' }}>{message.From_Localised || message.From}</p><p className='text-info text-no-transform'>{message.Message_Localised || message.Message}</p></>)
           if (message.event === 'MarketBuy') notification(`Bought ${message.Count} T of ${message.Type_Localised || message.Type}`)
           if (message.event === 'MarketSell') notification(`Sold ${message.Count} T of ${message.Type_Localised || message.Type}`)
           if (message.event === 'BuyDrones') notification(`Bought ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)

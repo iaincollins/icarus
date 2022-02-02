@@ -4,17 +4,17 @@
 }
 
 .system-map {
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 .system-map__info {
   position: absolute;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,20,30,.25), rgba(0,20,30,.75));
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.25), rgba(0,0,0,.75));
   color: var(--color-info);
   bottom: 0;
-  right: 1rem;
+  right: 0rem;
   left: 0;
-  padding: .5rem .5rem 1rem 0.5rem;
+  padding: 3rem 1.5rem 1rem 0.5rem;
   z-index: 50;
   text-align: right;
   pointer-events: none;

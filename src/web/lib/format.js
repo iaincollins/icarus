@@ -18,11 +18,19 @@ function formatBytes (bytes) {
 function eliteDateTime (timestamp = Date.now()) {
   const date = new Date(timestamp)
   date.setFullYear(date.getFullYear() + 1286) // We are living in the future
-  return date.toUTCString()
+  const dateTimeString = date.toUTCString()
     .replace(' GMT', '') // Time in the Elite universe is always in UTC
     .replace(/(.*), /, '') // Strip day of week
     .replace(/:[0-9]{2}$/, '') // Strip seconds
     .replace(/^0/, '') // Strip leading zeros from day of month
+
+  const dateTimeObject = {
+    date: dateTimeString.split(/^(.*)? (\d\d:\d\d)/)[1],
+    time: dateTimeString.split(/^(.*)? (\d\d:\d\d)/)[2],
+    dateTime: dateTimeString
+  }
+
+  return dateTimeObject
 }
 
 function objectToHtml (obj, depth = 0, type = null, previousPropertyName) {
@@ -43,7 +51,7 @@ function objectToHtml (obj, depth = 0, type = null, previousPropertyName) {
 
     if (propertyName === 'timestamp') {
       propertyName = 'Time'
-      propertyValue = eliteDateTime(propertyValue)
+      propertyValue = eliteDateTime(propertyValue).dateTime
     }
 
     let propertyLabel

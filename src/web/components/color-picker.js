@@ -1,12 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import packageJson from '../../../package.json'
 
-//  onClick={() =>document.getElementById('primaryColorPicker').click() }
 function ColorPicker ({ visible, toggleVisible = () => {} }) {
   const [primaryColor, setPrimaryColor] = useState(getPrimaryColorAsHex())
   const [primaryColorModifier, setPrimaryColorModifier] = useState(getPrimaryColorModifier())
   const [secondaryColor, setSecondaryColor] = useState(getSecondaryColorAsHex())
   const [secondaryColorModifier, setSecondaryColorModifier] = useState(getSecondaryColorModifier())
+
+  // Update this component if another window updates the theme settings
+  const storageEventHandler = (event) => {
+    if (event.key === 'color-settings') {
+      setPrimaryColor(getPrimaryColorAsHex())
+      setPrimaryColorModifier(getPrimaryColorModifier())
+      setSecondaryColor(getSecondaryColorAsHex())
+      setSecondaryColorModifier(getSecondaryColorModifier())
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('storage', storageEventHandler)
+    return () => window.removeEventListener('storage', storageEventHandler)
+  }, [])
 
   return (
     <div className='modal-dialog' style={{ display: visible ? 'block' : 'none' }}>
@@ -102,37 +116,17 @@ function ColorPicker ({ visible, toggleVisible = () => {} }) {
       <hr style={{ margin: '1rem 0 .5rem 0' }} />
       <button
         className='text-info' onClick={() => {
-          const defaultPrimaryColor = {
-            r: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-primary-r'),
-            g: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-primary-g'),
-            b: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-primary-b')
+          try {
+            loadDefaultColorSettings()
+            setPrimaryColor(getPrimaryColorAsHex())
+            setPrimaryColorModifier(getPrimaryColorModifier())
+            setSecondaryColor(getSecondaryColorAsHex())
+            setSecondaryColorModifier(getSecondaryColorModifier())
+            window.localStorage.removeItem('color-settings')
+            document.activeElement.blur()
+          } catch (err) {
+            console.error('Unable to reset color settings', err)
           }
-          setPrimaryColor(rgb2hex(defaultPrimaryColor.r, defaultPrimaryColor.g, defaultPrimaryColor.b))
-          document.documentElement.style.setProperty('--color-primary-r', defaultPrimaryColor.r)
-          document.documentElement.style.setProperty('--color-primary-g', defaultPrimaryColor.g)
-          document.documentElement.style.setProperty('--color-primary-b', defaultPrimaryColor.b)
-
-          const defaultPrimaryColorModifier = window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-primary-dark-modifier')
-          setPrimaryColorModifier(defaultPrimaryColorModifier)
-          document.documentElement.style.setProperty('--color-primary-dark-modifier', defaultPrimaryColorModifier)
-
-          const defaultSecondaryColor = {
-            r: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-secondary-r'),
-            g: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-secondary-g'),
-            b: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-secondary-b')
-          }
-          setSecondaryColor(rgb2hex(defaultSecondaryColor.r, defaultSecondaryColor.g, defaultSecondaryColor.b))
-          document.documentElement.style.setProperty('--color-secondary-r', defaultSecondaryColor.r)
-          document.documentElement.style.setProperty('--color-secondary-g', defaultSecondaryColor.g)
-          document.documentElement.style.setProperty('--color-secondary-b', defaultSecondaryColor.b)
-
-          const defaultSecondaryColorModifier = window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-secondary-dark-modifier')
-          setSecondaryColorModifier(defaultSecondaryColorModifier)
-          document.documentElement.style.setProperty('--color-secondary-dark-modifier', defaultSecondaryColorModifier)
-
-          saveColorSettings()
-
-          document.activeElement.blur()
         }}
       >
         Reset to defaults
@@ -205,10 +199,17 @@ const saveColorSettings = () => {
   }
 }
 
-const loadSavedColorSettings = () => {
+const loadColorSettings = () => {
   try {
     const colorSettings = JSON.parse(window.localStorage.getItem('color-settings'))
-    if (!colorSettings) return
+    if (!colorSettings) return loadDefaultColorSettings() // If no save settings, load defaults
+    // If older than v0.3.6 then erase color settings and load defaults as
+    // breaking theme changes in v0.3.6
+    if (!colorSettings.version || compareVersions('0.3.6', colorSettings.version) === 1) {
+      window.localStorage.removeItem('color-settings')
+      return loadDefaultColorSettings()
+    }
+
     document.documentElement.style.setProperty('--color-primary-r', colorSettings.primaryColor.r)
     document.documentElement.style.setProperty('--color-primary-g', colorSettings.primaryColor.g)
     document.documentElement.style.setProperty('--color-primary-b', colorSettings.primaryColor.b)
@@ -219,10 +220,53 @@ const loadSavedColorSettings = () => {
     document.documentElement.style.setProperty('--color-secondary-dark-modifier', colorSettings.secondaryColor.modifier)
   } catch (err) {
     console.error('Unable to read color settings from localStorage', err)
+    return loadDefaultColorSettings()
   }
+}
+
+const loadDefaultColorSettings = () => {
+  const defaultPrimaryColor = {
+    r: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-primary-r'),
+    g: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-primary-g'),
+    b: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-primary-b')
+  }
+
+  document.documentElement.style.setProperty('--color-primary-r', defaultPrimaryColor.r)
+  document.documentElement.style.setProperty('--color-primary-g', defaultPrimaryColor.g)
+  document.documentElement.style.setProperty('--color-primary-b', defaultPrimaryColor.b)
+
+  const defaultPrimaryColorModifier = window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-primary-dark-modifier')
+  document.documentElement.style.setProperty('--color-primary-dark-modifier', defaultPrimaryColorModifier)
+
+  const defaultSecondaryColor = {
+    r: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-secondary-r'),
+    g: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-secondary-g'),
+    b: window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-secondary-b')
+  }
+
+  document.documentElement.style.setProperty('--color-secondary-r', defaultSecondaryColor.r)
+  document.documentElement.style.setProperty('--color-secondary-g', defaultSecondaryColor.g)
+  document.documentElement.style.setProperty('--color-secondary-b', defaultSecondaryColor.b)
+
+  const defaultSecondaryColorModifier = window.getComputedStyle(document.documentElement).getPropertyValue('--color-default-secondary-dark-modifier')
+  document.documentElement.style.setProperty('--color-secondary-dark-modifier', defaultSecondaryColorModifier)
+}
+
+// Returns: 1 = v1 is bigger, 0 = same version, -1 = v1 is smaller
+function compareVersions (v1, v2) {
+  const v1Parts = v1.split('.')
+  const v2Parts = v2.split('.')
+  const length = Math.max(v1Parts.length, v2Parts.length)
+  for (let i = 0; i < length; i++) {
+    const value = (parseInt(v1Parts[i]) || 0) - (parseInt(v2Parts[i]) || 0)
+    if (value < 0) return -1
+    if (value > 0) return 1
+  }
+  return 0
 }
 
 module.exports = {
   ColorPicker,
-  loadSavedColorSettings
+  loadColorSettings,
+  loadDefaultColorSettings
 }

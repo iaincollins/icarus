@@ -12,7 +12,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
   if (PLANETARY_BASES.includes(systemObject.type) && !SURFACE_PORTS.includes(systemObject.type)) systemObjectSubType = 'Settlement'
   if (systemObject.type === 'Star') systemObjectSubType = systemObject.subType
   if (systemObject.type === 'Planet') systemObjectSubType = systemObject.subType
-  console.log(systemObject)
+
   // TODO Move to icon class
   let iconClass = 'text-info icon icarus-terminal-'
   switch (systemObject.type.toLowerCase()) {

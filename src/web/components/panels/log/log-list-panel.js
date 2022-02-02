@@ -19,7 +19,7 @@ export default function LogPanel ({ logEntries, setSelectedLogEntry }) {
                 {logEntry.event.replace(/([a-z])([A-Z])/g, '$1 $2')}
               </td>
               <td className='text-no-wrap text-right'>
-                {eliteDateTime(logEntry.timestamp)}
+                {eliteDateTime(logEntry.timestamp).dateTime}
               </td>
             </tr>
           )}

@@ -79,10 +79,17 @@ export default function Header ({ connected, active }) {
 
   return (
     <header>
-      <hr className='small' />
-      <h1 className='text-info' style={{ padding: '.5rem 0' }}>ICARUS <span className='hidden-small'>Terminal</span></h1>
+      <hr className='small'  />
+      <h1 className='text-info' style={{ padding: '.6rem 0 .25rem 0' }}>ICARUS <span className='hidden-small'>Terminal</span></h1>
       <div style={{ position: 'absolute', top: '1rem', right: '.5rem' }}>
-        <h3 className='text-primary' style={{ display: 'inline', position: 'relative', top: '-.5rem', left: '-.5rem' }}>{dateTime}</h3>
+        <p
+          className='text-primary text-right text-uppercase text-muted'
+          style={{ display: 'inline-block', margin: 0, padding: 0, marginRight: '.5rem', fontSize: '1.25rem', lineHeight: '1.25rem' }}
+        >
+          {dateTime.time}
+          <br />
+          {dateTime.date}
+        </p>
         <button disabled className='button--icon button--transparent' style={{ marginRight: '.5rem', opacity: 1, transition: 'all 1s ease-out' }}>
           <i className={signalClassName} style={{ transition: 'all .25s ease', fontSize: '2rem' }} />
         </button>

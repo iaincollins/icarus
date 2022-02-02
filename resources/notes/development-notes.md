@@ -2,13 +2,13 @@
 
 Some of the features and improvements currently being worked on.
 
-* Materials not removed during crafting. Listen for EngineerCraft messages and iterate over 'ingredients' to remove items by name (symbol)
-* Blueprint names dp not match names show in game
-* Windows should restore to their origional position on screen after exiting fullcreen
+* Add ability to pin Materials and Blueprints
+* Blueprint names do not match names show in game
+* Windows should restore to their origional position on screen after exiting fullscreen mode
 * Windows should go fullscreen on the monitor they are triggered on (not always on the main window)
-* Add faction / government information to remote systems to System Map
-* Add faction information to stations/outposts/ports/settlement inspector
-* Show commander credits, status and location in header
+* Add faction information for remote systems to System Map
+* Find somewhere to list all factions present on the System Map
+* Show commander location / status / credits / bounties in header
 * Show current bounty status in current system
 * Show current bounty status at facilities
 * Show when docking and limpet controller but no limpets

@@ -1,13 +1,13 @@
 :root {
   /* Default values to allow for theme reset */
-  --color-default-primary-r: 253;
+  --color-default-primary-r: 250;
   --color-default-primary-g: 135;
   --color-default-primary-b: 0;
   --color-default-primary-dark-modifier: 200;
   
-  --color-default-secondary-r: 117;
-  --color-default-secondary-g: 202;
-  --color-default-secondary-b: 255;
+  --color-default-secondary-r: 80;
+  --color-default-secondary-g: 180;
+  --color-default-secondary-b: 240;
   --color-default-secondary-dark-modifier: 200;
 
   /* Customisation options (used to define primary and secondary theme colors) */

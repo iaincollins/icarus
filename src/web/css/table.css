@@ -66,7 +66,7 @@ table tbody tr {
 }
 
 table tbody tr.table__row--highlighted td {
-  background: rgb(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .4) !important;
+  background: var(--color-secondary-dark) !important;
   color: var(--color-secondary) !important;
 }
 
