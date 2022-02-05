@@ -12,6 +12,7 @@ button,
   text-shadow: var(--text-shadow);
   font-size: inherit;
   outline: none;
+  box-shadow: 0 0 1.5rem .5rem rgba(var(--color-primary-r),var(--color-primary-g),var(--color-primary-b),.05) inset;
 }
 
 button:disabled:not(.button--active),
@@ -26,6 +27,7 @@ button:active:not([disabled]),
   background: var(--color-primary);
   color: var(--color-primary-dark);
   text-shadow: none;
+  box-shadow: 0 0 1.5rem .5rem rgba(var(--color-primary-dark-r),var(--color-primary-dark-g),var(--color-primary-dark-b),.3) inset;
 }
 
 button:hover:not([disabled]):not(.button--active),
@@ -36,6 +38,7 @@ button:focus:not([disabled]):not(.button--active),
   color: var(--color-primary-dark);
   text-shadow: none;
   filter: var(--filter-hover-element);
+  box-shadow: 0 0 1.5rem .5rem rgba(var(--color-primary-dark-r),var(--color-primary-dark-g),var(--color-primary-dark-b),.3) inset;
 }
 
 button.button--icon,
@@ -69,6 +72,7 @@ button.button--secondary,
 .button.button--secondary {
   background: var(--color-secondary-dark);
   color: var(--color-secondary);
+  box-shadow: none;
 }
 
 button.button--active.button--secondary,

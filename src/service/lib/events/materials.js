@@ -55,11 +55,11 @@ class MaterialsEvents {
         symbol: material.symbol,
         name: material.name,
         type,
+        category,
         grade: material?.rarity ?? 0,
         rarity: materialGrades[material?.rarity].name ?? '',
         count: materialInInventory?.Count ?? 0,
         maxCount: materialGrades[material?.rarity]?.maxCount ?? null,
-        category,
         blueprints: materialUses?.blueprints ?? []
       })
     })
@@ -90,7 +90,6 @@ class MaterialsEvents {
           materialEvent.Ingredients.forEach(ingredient => {
             const craftingMaterial = materials.filter(m => m.symbol.toLowerCase() === ingredient.Name.toLowerCase())[0]
             craftingMaterial.count -= ingredient.Count
-            console.log('ITERATE')
           })
         } else if (materialEvent.event === 'MaterialTrade') {
           const materialTradePaid = materials.filter(m => m.symbol.toLowerCase() === materialEvent.Paid.Material.toLowerCase())[0]

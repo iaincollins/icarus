@@ -16,7 +16,10 @@ const {
   APP_OPTIMIZED_BUILD,
   APP_FINAL_BUILD,
   APP_ICON,
-  APP_VERSION_INFO
+  APP_VERSION_INFO,
+  PATH_TO_SIGNTOOL,
+  PATH_TO_CERTIFICATE,
+  SIGN_BUILD
 } = require('./lib/build-options')
 
 const DEVELOPMENT_BUILD = commandLineArgs.debug || DEVELOPMENT_BUILD_DEFAULT
@@ -68,6 +71,10 @@ async function build () {
   // Apply icon and resource changes after optimization
   await changeExe.icon(APP_OPTIMIZED_BUILD, APP_ICON)
   await changeExe.versionInfo(APP_OPTIMIZED_BUILD, APP_VERSION_INFO)
+
+  if (SIGN_BUILD) {
+    execSync(`${PATH_TO_SIGNTOOL} sign /f ${PATH_TO_CERTIFICATE} /tr http://timestamp.sectigo.com ${APP_OPTIMIZED_BUILD}`)
+  }
 }
 
 function copy () {

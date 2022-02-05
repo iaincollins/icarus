@@ -13,6 +13,7 @@
   margin-bottom: .5rem;
   text-shadow: none;
   transition: border .25s ease-in-out;
+  box-shadow: 0 0 1.5rem .5rem rgba(var(--color-primary-r),var(--color-primary-g),var(--color-primary-b),.15) inset !important;
 }
 
 .secondary-navigation button.button--icon .icon {
@@ -34,6 +35,7 @@
   color: var(--color-secondary-dark) !important;
   z-index: 50;
   filter: none;
+  box-shadow: none !important;
 }
 
 #secondary-navigation__search-form {

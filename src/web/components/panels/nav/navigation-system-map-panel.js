@@ -1,7 +1,19 @@
+import { useEffect } from 'react'
 import SystemMap from './system-map'
 
 export default function NavigationSystemMapPanel ({ system, systemObject, setSystemObject, getSystem }) {
   if (!system) return null
+
+  /*
+  const onScroll = (event) => {
+    document.getElementById('navigation-panel__map-background').style.setProperty('--background-position-y-offset-stars', '-'+(event.target.scrollTop / 20)+'px')
+    document.getElementById('navigation-panel__map-background').style.setProperty('--background-position-y-offset-grid', '-'+(event.target.scrollTop / 10)+'px')
+  }
+
+  useEffect(() => {
+    document.getElementById('navigation-panel__map-foreground').addEventListener('scroll', onScroll);
+  },[])
+  */
 
   return (
     <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
@@ -12,8 +24,8 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         >
           <h2>No system information</h2>
         </div>}
-      <div className='navigation-panel__map-background'>
-        <div className='navigation-panel__map-foreground scrollable'>
+      <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
+        <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
           <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>
         <div className='system-map__info fx-fade-in'>
@@ -33,8 +45,8 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           {system.address && system.address === 'Unknown' &&
             <>
               <span className='text-secondary text-muted text-uppercase float-left text-left'>
-                Stellar cartography<br />
-                telemetry from EDSM
+                <br />
+                Telemetry from EDSM
               </span>
               <span className='text-secondary text-muted text-uppercase'>
                 Remote system
