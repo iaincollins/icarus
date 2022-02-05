@@ -135,7 +135,8 @@ function broadcastEvent (name, message) {
     // Look for for loadingProgress events and display information about events
     // loaded to the console when loadingProgress indicates loading is complete
     if (name === 'loadingProgress' && message.loadingComplete === true) {
-      console.log(`Imported ${message.numberOfEventsImported} events from ${message.numberOfFiles} files`)
+      console.log(`Scanned ${message.numberOfFiles} files`)
+      console.log(`Imported ${message.numberOfEventsImported} events`)
     }
   } catch (e) {
     console.error('ERROR_SOCKET_BROADCAST_EVENT_FAILED', name, message, e)
@@ -154,4 +155,4 @@ httpServer.listen(PORT)
 console.log(`Listening on port ${PORT}…`)
 
 // Initialize app - start parsing data and watching for game state changes
-setTimeout(() => init(), 250)
+setTimeout(() => init(), 500)

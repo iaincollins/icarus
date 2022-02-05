@@ -121,6 +121,8 @@
 }
 
 .navigation-panel__map-background {
+  --background-position-y-offset-stars: 0px;
+  --background-position-y-offset-grid: 0px;
   position: absolute;
   top: 0;
   left: 0;
@@ -133,6 +135,7 @@
   background-color: black;
   background-image: url(/images/textures/stars.jpg);
   background-size: 50rem;
+  background-position-y: var(--background-position-y-offset-stars);
   content: " ";
   display: block;
   position: absolute;
@@ -153,7 +156,8 @@
 .navigation-panel__map-background::before {
   background-image: linear-gradient(rgb(10, 10, 10) .1rem, transparent .1rem), linear-gradient(90deg, rgb(10, 10, 10) .1rem, transparent .1rem);
   background-size: 3rem 3rem;
-  background-position: -1.5rem 1.5rem;
+  background-position: -1.5rem 0;
+  background-position-y: var(--background-position-y-offset-grid);
   content: " ";
   display: block;
   position: absolute;

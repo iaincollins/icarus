@@ -1,4 +1,5 @@
 const fs = require('fs')
+const { execSync } = require('child_process')
 const NSIS = require('makensis')
 
 const {
@@ -6,7 +7,11 @@ const {
   DIST_DIR,
   INSTALLER_NSI,
   INSTALLER_EXE,
-  PRODUCT_VERSION
+  PRODUCT_VERSION,
+  DEVELOPMENT_BUILD,
+  PATH_TO_SIGNTOOL,
+  PATH_TO_CERTIFICATE,
+  SIGN_BUILD
 } = require('./lib/build-options')
 
 ;(async () => {
@@ -31,4 +36,8 @@ async function build () {
     }
   })
   console.log(installerOutput)
+
+  if (SIGN_BUILD) {
+    execSync(`${PATH_TO_SIGNTOOL} sign /f ${PATH_TO_CERTIFICATE} /tr http://timestamp.sectigo.com ${INSTALLER_EXE}`)
+  }
 }

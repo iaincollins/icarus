@@ -64,7 +64,7 @@ export default function EngineeringMaterialsPage () {
                 <h4 className='tab' style={{ marginTop: '1rem' }}>Applied Blueprints</h4>
               </div>
               <table className='table--interactive table--animated'>
-                <tbody>
+                <tbody className='fx-fade-in'>
                   {blueprintsApplied.map(blueprint =>
                     <tr
                       key={`blueprint_${blueprint.name}_${blueprint.modules.join(', ')}`}
@@ -128,7 +128,7 @@ export default function EngineeringMaterialsPage () {
                 <h4 className='tab' style={{ marginTop: '1rem' }}>Engineered Modules</h4>
               </div>
               <table className='table--animated'>
-                <tbody>
+                <tbody className='fx-fade-in'>
                   {selectedBlueprint.appliedToModules.map(module => (
                     <tr
                       key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}`}
@@ -207,11 +207,14 @@ export default function EngineeringMaterialsPage () {
                           key={`blueprint_${selectedBlueprint.name}_grade_${grade}_component_${component.name}`}
                           className={component.count > 0 ? 'text-primary' : 'text-muted'}
                         >
-                          <td className='text-right' style={{ background: 'var(--color-primary-dark)', width: '2rem', padding: '0 .25rem' }}>
+                          <td className='text-right' style={{ background: 'var(--color-primary-dark)', width: '2rem' }}>
                             <i className={`icon icarus-terminal-materials-grade-${component.grade}`} style={{ fontSize: '2rem' }} />
                           </td>
                           <td style={{ background: 'var(--color-primary-dark)' }}>
                             {component.name}
+                            <div className='text-muted'>
+                              {component.type}
+                            </div>
                           </td>
                           <td className='text-right' style={{ width: '3rem' }}>{component.cost}</td>
                           <td className='text-right text-muted' style={{ width: '3rem' }}>{component.count}</td>

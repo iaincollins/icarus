@@ -237,6 +237,7 @@ progress {
   height: 2rem;
   border: 0;
   background: var(--color-primary-dark); /* For Firefox */
+  transition: opacity .25s ease-out;
 }
 
 progress[value] {

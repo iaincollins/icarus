@@ -28,6 +28,10 @@ export default function IndexPage () {
   useEffect(async () => {
     const message = await sendEvent('getLoadingStatus')
     setLoadingProgress(message)
+    if (message?.loadingComplete === true) {
+      document.getElementById('loadingProgressBar')?.style?.opacity = 0
+    }
+
     setTimeout(async () => {
       const update = await checkForUpdate()
       setUpdate(update)
@@ -36,6 +40,9 @@ export default function IndexPage () {
 
   useEffect(() => eventListener('loadingProgress', (message) => {
     setLoadingProgress(message)
+    if (message?.loadingComplete === true) {
+      setTimeout(() => document.getElementById('loadingProgressBar')?.style?.opacity = 0, 500)
+    }
   }), [])
 
   return (
@@ -49,7 +56,7 @@ export default function IndexPage () {
         <h1 className='text-info'>ICARUS</h1>
         <span className='launcher-title'>
           <h3 className='text-primary'>ICARUS Terminal</h3>
-          <h5 className='text-primary text-muted'>Version {packageJson.version}</h5>
+          <h4 className='text-primary text-muted'>Version {packageJson.version}</h4>
         </span>
         {update && update.isUpgrade &&
           <div className='fx-fade-in'>
@@ -74,7 +81,7 @@ export default function IndexPage () {
               </button>}
             {downloadingUpdate && <p className='text-uppercase text-secondary text-blink-slow'>Downloading update</p>}
           </div>}
-        <div style={{ position: 'absolute', bottom: '1rem', left: '1rem' }}>
+        <div style={{ position: 'absolute', bottom: '.5rem', left: '1rem' }}>
           <p className='text-muted'>Connect from a browser on</p>
           {hostInfo?.urls?.[0] &&
             <p>
@@ -96,20 +103,20 @@ export default function IndexPage () {
           }}
         >
           <div className={loadingProgress.loadingComplete ? 'text-muted' : ''}>
-            {loadingProgress.loadingComplete === false ? <p>Loading...</p> : <p>Loaded</p>}
-            <p>{loadingProgress.numberOfFiles.toLocaleString()} log files</p>
-            <p>{formatBytes(loadingProgress.logSizeInBytes)} of data</p>
+            {loadingProgress.loadingComplete === false && <p>Loading...</p>}
+            {/* <p>Scanned {loadingProgress.numberOfFiles.toLocaleString()} log files</p> */}
+            <p>Imported {formatBytes(loadingProgress.logSizeInBytes)} of data</p>
             <p>{loadingProgress.numberOfLogLines.toLocaleString()} recent log entries</p>
-            <p>{loadingProgress.numberOfEventsImported.toLocaleString()} events imported</p>
-            {loadingProgress.loadingComplete === true ? <p>Last active {eliteDateTime(loadingProgress.lastActivity).dateTime}</p> : ''}
-            {/* <p>Load time: {parseInt(loadingProgress.loadingTime / 1000)} seconds</p> */}
-            <div style={{ position: 'absolute', bottom: '.5rem', left: '.5rem', right: '.5rem' }}>
-              {loadingProgress.loadingComplete === false && <progress value={loadingProgress.numberOfEventsImported} max={loadingProgress.numberOfLogLines} />}
-            </div>
+            {/* <p>{loadingProgress.numberOfEventsImported.toLocaleString()} events imported</p> */}
+            {loadingProgress.loadingComplete === true && <p>Completed in {(loadingProgress.loadingTime / 1000).toFixed(2)} seconds</p>}
+            {loadingProgress.loadingComplete === true && <p>Last activity {eliteDateTime(loadingProgress.lastActivity).dateTime}</p>}
           </div>
           {loadingProgress.loadingComplete === true
             ? <p>Ready <span className='text-blink-slow'>_</span></p>
-            : <p>Scanning log <span className='text-blink-slow'>_</span></p>}
+            : <p>Importing data <span className='text-blink-slow'>_</span></p>}
+          <div style={{ position: 'absolute', bottom: '.5rem', left: '.5rem', right: '.5rem' }}>
+            {<progress id='loadingProgressBar' value={loadingProgress.numberOfEventsImported} max={loadingProgress.numberOfLogLines} />}
+          </div>
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>
           <button style={{ width: '20rem' }} onClick={newWindow}>New Terminal</button>

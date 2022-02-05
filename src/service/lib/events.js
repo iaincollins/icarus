@@ -142,7 +142,7 @@ async function init ({ days = 7 } = {}) {
   loadingEndTime = null // Reset
 
   loadingProgressEvent() // Fire first event
-  loadingProgressInterval = setInterval(loadingProgressEvent, 200)
+  loadingProgressInterval = setInterval(loadingProgressEvent, 100)
 
   await eliteJson.load() // Load JSON files then watch for changes
   eliteJson.watch(eliteJsonCallback) // @TODO Pass a callback to handle new messages

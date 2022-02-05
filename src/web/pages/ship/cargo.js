@@ -49,7 +49,7 @@ export default function ShipCargoPage () {
               </span>
             </h4>
             <hr style={{ margin: '.5rem 0 0 0' }} />
-            {ship && cargo && cargo.length === 0 && <p className='text-primary text-uppercase'>Cargo hold is empty</p>}
+            {ship && cargo && cargo.length === 0 && <p className='text-primary text-uppercase text-center' style={{padding: '1rem 0'}}>Cargo hold is empty</p>}
             {cargo && cargo.length > 0 &&
               <table className='table--animated fx-fade-in'>
                 <thead>
@@ -66,7 +66,7 @@ export default function ShipCargoPage () {
                       <td><CopyOnClick>{item.name}</CopyOnClick></td>
                       <td>
                         <span className='text-muted'>{item.description}</span>
-                        {item.mission !== false && <span className='text-secondary'> Mission</span>}
+                        {item.mission !== false && <span className='text-secondary'> Mission Critical</span>}
                         {item.stolen !== false && <span className='text-danger'> Stolen</span>}
                       </td>
                     </tr>

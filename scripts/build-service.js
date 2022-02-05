@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { execSync } = require('child_process')
 const { compile } = require('nexe')
 const changeExe = require('changeexe')
 const UPX = require('upx')({ brute: false }) // Brute on service seems to hang
@@ -15,7 +16,10 @@ const {
   SERVICE_OPTIMIZED_BUILD,
   SERVICE_FINAL_BUILD,
   SERVICE_ICON,
-  SERVICE_VERSION_INFO
+  SERVICE_VERSION_INFO,
+  PATH_TO_SIGNTOOL,
+  PATH_TO_CERTIFICATE,
+  SIGN_BUILD
 } = require('./lib/build-options')
 
 const DEVELOPMENT_BUILD = commandLineArgs.debug || DEVELOPMENT_BUILD_DEFAULT
@@ -69,5 +73,9 @@ async function build () {
       .start()
     console.log('Optimization', optimisationStats)
     fs.copyFileSync(SERVICE_OPTIMIZED_BUILD, SERVICE_FINAL_BUILD)
+  }
+
+  if (SIGN_BUILD) {
+    execSync(`${PATH_TO_SIGNTOOL} sign /f ${PATH_TO_CERTIFICATE} /tr http://timestamp.sectigo.com ${SERVICE_FINAL_BUILD}`)
   }
 }
