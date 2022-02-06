@@ -15,6 +15,12 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
   },[])
   */
 
+  const coriolisStarports = system?.spaceStations?.filter(station => station?.type === 'Coriolis Starport').length
+  const ocellusStarports = system?.spaceStations?.filter(station => station?.type === 'Ocellus Starport').length
+  const orbisStarports = system?.spaceStations?.filter(station => station?.type === 'Orbis Starport').length
+  const asteroidBases = system?.spaceStations?.filter(station => station?.type === 'Asteroid base').length
+  const outposts = system?.spaceStations?.filter(station => station?.type === 'Outpost').length
+
   return (
     <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
       {(!system.stars || system.stars.length < 2) &&
@@ -29,33 +35,57 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>
         <div className='system-map__info fx-fade-in'>
-          {system.address && system.address !== 'Unknown' && system.position &&
-            <>
-              <span className='text-secondary text-muted text-uppercase float-left text-left'>
-                {system.position?.[0]}<br />
-                {system.position?.[1]}<br />
-                {system.position?.[2]}
-              </span>
-              <span className='text-uppercase float-right'>
-                <br />
-                <span className='text-primary'>Current System</span><br />
-                <span className='text-secondary text-muted'>Address {system.address}</span>
-              </span>
-            </>}
+          <table>
+            {(system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0) &&
+              <tr>
+                <td colSpan={2} className='system-map__info-contents text-left'>
+                  <h3>
+                    {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport'/>{coriolisStarports}</span>}
+                    {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport'/>{ocellusStarports}</span>}
+                    {orbisStarports > 0 && <span className='system-map__info-icon'><i  className='icon icarus-terminal-orbis-starport'/>{orbisStarports}</span>}
+                    {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base'/>{asteroidBases}</span>}
+                    {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost'/>{outposts}</span>}
+                    {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship'/>{system.megaships.length}</span>}
+                    {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port'/>{system.planetaryPorts.length}</span>}
+                    {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement'/>{system.settlements.length}</span>}
+                  </h3>
+                </td>
+              </tr>}
+
+            {system.address && system.address !== 'Unknown' && system.position &&
+              <tr>
+                <td className='system-map__info-contents text-left'>
+                  <span className='text-secondary text-muted text-uppercase '>
+                    Location {system.position?.[0]}, 
+                    {system.position?.[1]}, 
+                    {system.position?.[2]}
+                  </span>
+                </td>
+                <td className='system-map__info-contents'>
+                  <span className='text-secondary text-muted text-uppercase'>
+                    <span>Address {system.address}</span>
+                  </span>
+                </td>
+              </tr>}
+          </table>
+
           {system.address && system.address === 'Unknown' &&
-            <>
-              <span className='text-secondary text-muted text-uppercase float-left text-left'>
-                <br />
-                Telemetry from EDSM
-              </span>
-              <span className='text-secondary text-muted text-uppercase'>
-                Remote system
-              </span>
-              <br />
-              <span onClick={() => getSystem()} style={{ pointerEvents: 'all' }} className='text-link text-uppercase'>
-                <span className='text-link-text'>Display current system</span>
-              </span>
-            </>}
+            <table>
+              <tr>
+                <td className='system-map__info-contents text-left'>
+                  <span onClick={() => getSystem()} style={{ pointerEvents: 'all', display: 'inline-block', paddingBottom: '.25rem' }} className='text-link text-uppercase'>
+                    <i style={{position: 'relative', top: '.25rem', marginRight: '.25rem'}} className='icon icarus-terminal-chevron-left'/>
+                    <span className='text-link-text'>Current system</span>
+                    <br/>
+                  </span>
+                </td>
+                <td className='system-map__info-contents text-right'>
+                  <span className='text-secondary text-muted text-uppercase'>
+                    Telemetry from EDSM
+                  </span>
+                </td>
+              </tr>
+            </table>}
         </div>
       </div>
     </div>

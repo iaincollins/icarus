@@ -1,6 +1,6 @@
 const {
   MEGASHIPS,
-  STARPORTS,
+  SPACE_STATIONS,
   SURFACE_PORTS,
   PLANETARY_OUTPOSTS,
   SETTLEMENTS,
@@ -42,7 +42,7 @@ class SystemMap {
 
     this.stars = bodies.filter(body => body?._type === 'Star')
     this.planets = bodies.filter(body => body?._type === 'Planet')
-    this.starports = stations.filter(station => STARPORTS.includes(station.type))
+    this.spaceStations = stations.filter(station => SPACE_STATIONS.includes(station.type))
     this.planetaryPorts = stations.filter(station => SURFACE_PORTS.includes(station.type))
     this.planetaryOutposts = stations.filter(station => PLANETARY_OUTPOSTS.includes(station.type))
     this.settlements = stations.filter(station => SETTLEMENTS.includes(station.type))
@@ -140,7 +140,7 @@ class SystemMap {
       // co-ordiantes for values, which are used to draw the map). The approach
       // here may not always be technically correct, but it's good enough for
       // our map and should render meaningfully.
-      if (!systemObject.parents && systemObject.type && STARPORTS.concat(PLANETARY_BASES).concat(MEGASHIPS).includes(systemObject.type)) {
+      if (!systemObject.parents && systemObject.type && SPACE_STATIONS.concat(PLANETARY_BASES).concat(MEGASHIPS).includes(systemObject.type)) {
         // Find planet with closest similar distance to sun
         // This could be the wrong choice in edge cases, but is good enough.
         const nearestPlanet = this.getNearestPlanet(systemObject)
@@ -390,7 +390,7 @@ class SystemMap {
       })
   }
 
-  getChildren (targetBody, immediateChildren = true, filter = ['Planet'].concat(STARPORTS).concat(MEGASHIPS)) {
+  getChildren (targetBody, immediateChildren = true, filter = ['Planet'].concat(SPACE_STATIONS).concat(MEGASHIPS)) {
     const children = []
     if (!targetBody?._type) return []
 

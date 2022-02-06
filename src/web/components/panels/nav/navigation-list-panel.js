@@ -1,4 +1,4 @@
-import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
+import { SPACE_STATIONS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
 
 export default function NavigationInspectorPanel ({ system, systemObject, setSystemObject }) {
   if (!system) return null
@@ -95,7 +95,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
     }
   }
 
-  const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
+  const isLandable = systemObject.isLandable || SPACE_STATIONS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
 
   // TODO Move to icon class
   let iconClass = 'icon icarus-terminal-'

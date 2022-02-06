@@ -6,12 +6,12 @@ const MEGASHIPS = [
   'Carrier Construction Dock'
 ]
 
-const STARPORTS = [
-  'Outpost',
-  'Orbis Starport',
-  'Ocellus Starport',
+const SPACE_STATIONS = [
   'Coriolis Starport',
-  'Asteroid base'
+  'Ocellus Starport',
+  'Orbis Starport',
+  'Asteroid base',
+  'Outpost'
 ]
 
 // Ports with services like shipyards
@@ -42,7 +42,7 @@ const UNKNOWN_VALUE = 'Unknown'
 
 module.exports = {
   MEGASHIPS,
-  STARPORTS,
+  SPACE_STATIONS,
   SURFACE_PORTS,
   PLANETARY_OUTPOSTS,
   SETTLEMENTS,

@@ -1,11 +1,11 @@
-import { STARPORTS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
+import { SPACE_STATIONS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
 import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
 import CopyOnClick from 'components/copy-on-click'
 
 export default function NavigationInspectorPanel ({ systemObject, setSystemObjectByName }) {
   if (!systemObject) return <div className='navigation-panel__inspector navigation-panel__inspector--hidden' />
 
-  const isLandable = systemObject.isLandable || STARPORTS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
+  const isLandable = systemObject.isLandable || SPACE_STATIONS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
 
   let systemObjectSubType = systemObject.subType || systemObject.type
   if (SURFACE_PORTS.includes(systemObject.type)) systemObjectSubType = 'Planetary Port'
@@ -53,8 +53,8 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
 
   let inspectorTitle = systemObjectSubType
   if (['Planet', 'Star'].includes(systemObject.type)) inspectorTitle = systemObject.type
-  if (STARPORTS.includes(systemObject.type)) inspectorTitle = 'Starport'
-  if (STARPORTS.includes(systemObject.type) && systemObjectSubType === 'Outpost') inspectorTitle = 'Orbital Outpost'
+  if (SPACE_STATIONS.includes(systemObject.type)) inspectorTitle = 'Starport'
+  if (SPACE_STATIONS.includes(systemObject.type) && systemObjectSubType === 'Outpost') inspectorTitle = 'Orbital Outpost'
 
   const surfacePorts = []
   const settlements = []

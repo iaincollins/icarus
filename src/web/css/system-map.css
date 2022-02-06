@@ -4,25 +4,51 @@
 }
 
 .system-map {
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 
 .system-map__info {
   position: absolute;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.25), rgba(0,0,0,.75));
+  background: rgba(0,0,0,.8);
   color: var(--color-info);
-  bottom: 0;
-  right: 0rem;
-  left: 0;
-  padding: 3rem 1.5rem 1rem 0.5rem;
+  bottom: 1rem;
   z-index: 50;
   text-align: right;
   pointer-events: none;
   font-size: 1rem;
+  left: 4rem;
+  width: calc(100% - 8rem);
+  padding: .5rem 0;
+  overflow: hidden;
+}
+
+.system-map__info-contents td {
+  vertical-align: middle;
+}
+
+.system-map__info-contents {
+  padding: 0 .5rem;
 }
 
 .system-map__info * {
   text-shadow: none;
+}
+
+.system-map__info-icon {
+  color: var(--color-secondary);
+  text-shadow: var(--text-shadow);
+  margin-right: 1rem;
+  position: relative;
+  top: -.25rem;
+}
+
+.system-map__info-icon .icon {
+  position: relative;
+  top: .25rem;
+  margin-right: .25rem;
+  opacity: .5;
+  font-size: 1.5rem;
+  text-shadow: var(--text-shadow);
 }
 
 .system-map__title {
