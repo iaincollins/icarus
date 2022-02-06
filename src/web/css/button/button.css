@@ -75,7 +75,7 @@ button.button--secondary,
 .button.button--secondary {
   background: var(--color-secondary-dark);
   color: var(--color-secondary);
-  box-shadow: none;
+
 }
 
 button.button--active.button--secondary,
@@ -84,6 +84,8 @@ button.button--secondary:active:not([disabled]),
 .button.button--secondary:active:not(.button--disabled) {
   background: var(--color-secondary);
   color: var(--color-secondary-dark);
+  text-shadow: 0 0 1rem var(--color-secondary-dark);
+  box-shadow: none;
 }
 
 button.button--secondary:hover:not([disabled]):not(.button--active),
