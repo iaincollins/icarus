@@ -1,5 +1,5 @@
 .modal-dialog {
-  z-index: 90;
+  z-index: 2000;
   border: .2rem solid var(--color-primary);
   background: black var(--linear-gradient-background);
   position: fixed; 
