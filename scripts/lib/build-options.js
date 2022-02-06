@@ -1,4 +1,6 @@
 const path = require('path')
+const yargs = require('yargs')
+const commandLineArgs = yargs.argv
 const packageJson = require('../../package.json')
 
 const PRODUCT_VERSION = `${packageJson.version}.0`
@@ -7,7 +9,7 @@ const SERVICE_FILE_VERSION = PRODUCT_VERSION
 
 const PATH_TO_SIGNTOOL = '../code-signing/signtool.exe'
 const PATH_TO_CERTIFICATE = '../code-signing/certifiate.pfx'
-const SIGN_BUILD = false
+const SIGN_BUILD = commandLineArgs.sign || false
 
 // Development builds are faster, larger and can contain debug routines
 const DEVELOPMENT_BUILD = process.env.DEVELOPMENT || false
