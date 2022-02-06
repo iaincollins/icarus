@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import SystemMap from './system-map'
 
 export default function NavigationSystemMapPanel ({ system, systemObject, setSystemObject, getSystem }) {

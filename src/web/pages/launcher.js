@@ -29,7 +29,7 @@ export default function IndexPage () {
     const message = await sendEvent('getLoadingStatus')
     setLoadingProgress(message)
     if (message?.loadingComplete === true) {
-      document.getElementById('loadingProgressBar')?.style?.opacity = 0
+      document.getElementById('loadingProgressBar').style.opacity = 0
     }
 
     setTimeout(async () => {
@@ -41,7 +41,7 @@ export default function IndexPage () {
   useEffect(() => eventListener('loadingProgress', (message) => {
     setLoadingProgress(message)
     if (message?.loadingComplete === true) {
-      setTimeout(() => document.getElementById('loadingProgressBar')?.style?.opacity = 0, 500)
+      setTimeout(() => { document.getElementById('loadingProgressBar').style.opacity = 0 }, 500)
     }
   }), [])
 
@@ -114,7 +114,7 @@ export default function IndexPage () {
             ? <p>Ready <span className='text-blink-slow'>_</span></p>
             : <p>Loading <span className='text-blink-slow'>_</span></p>}
           <div style={{ position: 'absolute', bottom: '.5rem', left: '.5rem', right: '.5rem' }}>
-            {<progress id='loadingProgressBar' value={loadingProgress.numberOfEventsImported} max={loadingProgress.numberOfLogLines} />}
+            <progress id='loadingProgressBar' value={loadingProgress.numberOfEventsImported} max={loadingProgress.numberOfLogLines} />
           </div>
         </div>
         <div style={{ position: 'absolute', bottom: '1rem', right: '1rem' }}>

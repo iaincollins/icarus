@@ -79,7 +79,7 @@ export default function Header ({ connected, active }) {
 
   return (
     <header>
-      <hr className='small'  />
+      <hr className='small' />
       <h1 className='text-info' style={{ padding: '.6rem 0 .25rem 0' }}>ICARUS <span className='hidden-small'>Terminal</span></h1>
       <div style={{ position: 'absolute', top: '1rem', right: '.5rem' }}>
         <p

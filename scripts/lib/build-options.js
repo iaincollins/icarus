@@ -5,8 +5,8 @@ const PRODUCT_VERSION = `${packageJson.version}.0`
 const APP_FILE_VERSION = PRODUCT_VERSION
 const SERVICE_FILE_VERSION = PRODUCT_VERSION
 
-const PATH_TO_SIGNTOOL = `../code-signing/signtool.exe`
-const PATH_TO_CERTIFICATE = `../code-signing/certifiate.pfx`
+const PATH_TO_SIGNTOOL = '../code-signing/signtool.exe'
+const PATH_TO_CERTIFICATE = '../code-signing/certifiate.pfx'
 const SIGN_BUILD = false
 
 // Development builds are faster, larger and can contain debug routines
