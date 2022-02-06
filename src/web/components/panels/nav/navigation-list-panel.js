@@ -10,7 +10,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
           className='text-primary text-blink-slow text-center text-center-vertical'
           style={{ zIndex: '30', pointerEvents: 'none' }}
         >
-          <h2>No system information</h2>
+          <h2 style={{ marginTop: '2em', marginRight: '4.5rem' }}>No system information</h2>
         </div>}
       <div className='scrollable'>
         <table className='table--animated table--interactive'>

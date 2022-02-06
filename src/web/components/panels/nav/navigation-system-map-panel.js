@@ -22,7 +22,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           className='text-primary text-blink-slow text-center text-center-vertical'
           style={{ zIndex: '30', pointerEvents: 'none' }}
         >
-          <h2>No system information</h2>
+          <h2 style={{ marginTop: '2em' }}>No system information</h2>
         </div>}
       <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
         <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
