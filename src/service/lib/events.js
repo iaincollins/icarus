@@ -9,18 +9,18 @@ const {
 
 const EliteJson = require('./elite-json')
 const EliteLog = require('./elite-log')
-const NavigationEvents = require('./events/system')
-const ShipEvents = require('./events/ship')
-const MaterialsEvents = require('./events/materials')
-const BlueprintEvents = require('./events/blueprints')
+const NavigationModel = require('./models/system')
+const ShipModel = require('./models/ship')
+const MaterialsModel = require('./models/materials')
+const BlueprintModel = require('./models/blueprints')
 
 // Instances that can be used to query game state
 const eliteJson = new EliteJson(LOG_DIR)
 const eliteLog = new EliteLog(LOG_DIR)
-const navigationEvents = new NavigationEvents({ eliteLog })
-const shipEvents = new ShipEvents({ eliteLog, eliteJson })
-const materialsEvents = new MaterialsEvents({ eliteLog, eliteJson })
-const blueprintEvents = new BlueprintEvents({ materialsEvents, shipEvents })
+const navigationModel = new NavigationModel({ eliteLog })
+const shipModel = new ShipModel({ eliteLog, eliteJson })
+const materialsModel = new MaterialsModel({ eliteLog, eliteJson })
+const blueprintModel = new BlueprintModel({ materialsModel, shipModel })
 
 // TODO Define these in another file / merge with eventHandlers before porting
 // over existing event handlers from the internal build
@@ -126,10 +126,10 @@ const eventHandlers = {
       return await eliteLog.getNewest(count)
     }
   },
-  getSystem: (args) => navigationEvents.getSystem(args),
-  getShip: (args) => shipEvents.getShip(args),
-  getMaterials: (args) => materialsEvents.getMaterials(args),
-  getBlueprints: (args) => blueprintEvents.getBlueprints(args),
+  getSystem: (args) => navigationModel.getSystem(args),
+  getShip: (args) => shipModel.getShip(args),
+  getMaterials: (args) => materialsModel.getMaterials(args),
+  getBlueprints: (args) => blueprintModel.getBlueprints(args),
   getNavRoute: async (args) => ((await eliteJson.json())?.NavRoute?.Route ?? [])
 }
 

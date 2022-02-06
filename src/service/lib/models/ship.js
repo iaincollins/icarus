@@ -7,7 +7,7 @@ const { UNKNOWN_VALUE } = require('../../../shared/consts')
 
 let lastKnownShipState = null
 
-class ShipEvents {
+class ShipModel {
   constructor ({ eliteLog, eliteJson }) {
     this.eliteLog = eliteLog
     this.eliteJson = eliteJson
@@ -293,4 +293,4 @@ class ShipEvents {
   }
 }
 
-module.exports = ShipEvents
+module.exports = ShipModel

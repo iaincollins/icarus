@@ -25,7 +25,7 @@ const materialGrades = {
   }
 }
 
-class MaterialsEvents {
+class MaterialsModel {
   constructor ({ eliteLog, eliteJson }) {
     this.eliteLog = eliteLog
     this.eliteJson = eliteJson
@@ -109,4 +109,4 @@ class MaterialsEvents {
   }
 }
 
-module.exports = MaterialsEvents
+module.exports = MaterialsModel

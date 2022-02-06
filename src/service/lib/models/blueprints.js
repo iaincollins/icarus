@@ -1,15 +1,15 @@
 const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
 
-class BlueprintEvents {
-  constructor ({ materialsEvents, shipEvents }) {
-    this.materialsEvents = materialsEvents
-    this.shipEvents = shipEvents
+class BlueprintModel {
+  constructor ({ materialsModel, shipModel }) {
+    this.materialsModel = materialsModel
+    this.shipModel = shipModel
     return this
   }
 
   async getBlueprints () {
-    const materials = await this.materialsEvents.getMaterials()
-    const ship = await this.shipEvents.getShip()
+    const materials = await this.materialsModel.getMaterials()
+    const ship = await this.shipModel.getShip()
     const blueprints = CoriolisBlueprints.data.map(blueprint => {
       const [first, second] = blueprint.symbol.split('_')
       const name = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', 'Utility').trim()
@@ -46,4 +46,4 @@ class BlueprintEvents {
   }
 }
 
-module.exports = BlueprintEvents
+module.exports = BlueprintModel

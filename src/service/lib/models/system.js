@@ -4,7 +4,7 @@ const { UNKNOWN_VALUE } = require('../../../shared/consts')
 
 const systemCache = {}
 
-class NavigationEvents {
+class NavigationModel {
   constructor ({ eliteLog }) {
     this.eliteLog = eliteLog
     return this
@@ -71,4 +71,4 @@ class NavigationEvents {
   }
 }
 
-module.exports = NavigationEvents
+module.exports = NavigationModel
