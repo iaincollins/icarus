@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { socketOptions } from 'lib/socket'
 import { isWindowFullScreen, isWindowPinned, toggleFullScreen, togglePinWindow } from 'lib/window'
 import { eliteDateTime } from 'lib/format'
 import { ColorPicker } from 'components/color-picker'
+import notification from 'lib/notification'
 
 const NAV_BUTTONS = [
   {
@@ -33,6 +35,7 @@ export default function Header ({ connected, active }) {
   const [isWindowsApp, setIsWindowsApp] = useState(false)
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [isPinned, setIsPinned] = useState(false)
+  const [messagesVisible, setMessagesVisible] = useState(socketOptions.messages)
   const [colorPickerVisible, setColorPickerVisible] = useState(false)
 
   async function fullScreen () {
@@ -45,6 +48,17 @@ export default function Header ({ connected, active }) {
   async function pinWindow () {
     const newPinState = await togglePinWindow()
     setIsPinned(newPinState)
+    document.activeElement.blur()
+  }
+
+  function toggleNotifications() {
+    if (messagesVisible) {
+      notification('Notifications disabled')
+    } else {
+      notification('Notifications enabled')
+    }
+    socketOptions.messages = !messagesVisible
+    setMessagesVisible(!messagesVisible)
     document.activeElement.blur()
   }
 
@@ -90,6 +104,7 @@ export default function Header ({ connected, active }) {
           <br />
           {dateTime.date}
         </p>
+
         <button disabled className='button--icon button--transparent' style={{ marginRight: '.5rem', opacity: 1, transition: 'all 1s ease-out' }}>
           <i className={signalClassName} style={{ transition: 'all .25s ease', fontSize: '2rem' }} />
         </button>
@@ -99,9 +114,11 @@ export default function Header ({ connected, active }) {
             <i className='icon icarus-terminal-pin-window' style={{ fontSize: '2rem' }} />
           </button>}
 
-        <button
-          tabIndex='1' className='button--icon'
-          style={{ marginRight: '.5rem' }}
+        <button tabIndex='1' onClick={toggleNotifications} className={`button--icon ${!messagesVisible ? 'button--transparent text-muted': ''}`} style={{ marginRight: '.5rem' }}>
+          <i className={`icon icarus-terminal-${messagesVisible ? 'notifications' : 'notifications-disabled'}`} style={{ fontSize: '2rem' }} />
+        </button>
+
+        <button tabIndex='1' className='button--icon' style={{ marginRight: '.5rem' }}
           onClick={() => { setColorPickerVisible(!colorPickerVisible); document.activeElement.blur() }}
         >
           <i className='icon icarus-terminal-color-picker' style={{ fontSize: '2rem' }} />

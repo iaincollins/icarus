@@ -13,11 +13,15 @@ const defaultSocketState = {
   ready: false // Boolean to indicate if the service is ready and loaded
 }
 
+const socketOptions = {
+  messages: true
+}
+
 function socketDebugMessage () { /* console.log(...arguments) */ }
 
 function connect (socketState, setSocketState) {
   if (socket !== null) return
-
+  
   // Reset on reconnect
   callbackHandlers = {}
   deferredEventQueue = []
@@ -59,7 +63,7 @@ function connect (socketState, setSocketState) {
       // Trigger notifications for key actions
       // TODO Refactor out into a seperate handler
       try { // Don't crash if fails because properties are missing
-        if (name === 'newLogEntry') {
+        if (socketOptions.notifications === true && name === 'newLogEntry') {
           if (message.event === 'StartJump' && message.StarSystem) notification(`Jumping to ${message.StarSystem}`)
           if (message.event === 'FSDJump') notification(`Arrived in ${message.StarSystem}`)
           if (message.event === 'ApproachBody') notification(`Approaching ${message.Body}`)
@@ -197,5 +201,6 @@ module.exports = {
   SocketProvider,
   useSocket,
   sendEvent,
-  eventListener
+  eventListener,
+  socketOptions
 }
