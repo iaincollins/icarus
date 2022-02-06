@@ -43,6 +43,7 @@
   text-shadow: none;
   position: absolute;
   left: 0rem;
+  box-shadow: none;
 }
 
 .inspector__close-button .icon {
@@ -53,6 +54,7 @@
 .inspector__close-button:hover {
   color: var(--color-primary-dark) !important;
   filter: none !important;
+  box-shadow: none !important;
 }
 
 .inspector--horizontal .inspector__close-button {

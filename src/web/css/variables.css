@@ -53,7 +53,8 @@
   --color-icon: var(--color-info);
   --color-icon-focus: var(--color-secondary);
 
-  --filter-hover-element: contrast(1.1) brightness(1.1);
+  --filter-hover-element: contrast(1.05) brightness(1.05);
+  --filter-active-element: contrast(1.1) brightness(1.1);
 
     /* These are only used by the system map */
   --color-system-map-line: var(--color-info);

@@ -66,7 +66,7 @@ export default function Header ({ connected, active }) {
     return () => clearInterval(dateTimeInterval)
   }, [])
 
-  let signalClassName = 'icarus-terminal-signal '
+  let signalClassName = 'icon icarus-terminal-signal '
   if (!connected) {
     signalClassName += 'text-primary text-muted'
   } else if (active) {
@@ -93,6 +93,7 @@ export default function Header ({ connected, active }) {
         <button disabled className='button--icon button--transparent' style={{ marginRight: '.5rem', opacity: 1, transition: 'all 1s ease-out' }}>
           <i className={signalClassName} style={{ transition: 'all .25s ease', fontSize: '2rem' }} />
         </button>
+
         {isWindowsApp &&
           <button tabIndex='1' onClick={pinWindow} className={`button--icon ${isPinned ? 'button--transparent' : ''}`} style={{ marginRight: '.5rem' }} disabled={isFullScreen}>
             <i className='icon icarus-terminal-pin-window' style={{ fontSize: '2rem' }} />

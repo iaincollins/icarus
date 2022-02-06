@@ -12,7 +12,7 @@ button,
   text-shadow: var(--text-shadow);
   font-size: inherit;
   outline: none;
-  box-shadow: 0 0 1.5rem .5rem rgba(var(--color-primary-r),var(--color-primary-g),var(--color-primary-b),.05) inset;
+  box-shadow: 0 0 1.5rem .5rem rgba(0,0,0,.3) inset;
 }
 
 button:disabled:not(.button--active),
@@ -26,8 +26,9 @@ button:active:not([disabled]),
 .button:active:not(.button--disabled) {
   background: var(--color-primary);
   color: var(--color-primary-dark);
-  text-shadow: none;
+  text-shadow: 0 0 1rem var(--color-primary-dark), 0 0 2rem var(--color-primary-dark);
   box-shadow: 0 0 1.5rem .5rem rgba(var(--color-primary-dark-r),var(--color-primary-dark-g),var(--color-primary-dark-b),.3) inset;
+  filter: var(--filter-active-element);
 }
 
 button:hover:not([disabled]):not(.button--active),
@@ -36,9 +37,9 @@ button:focus:not([disabled]):not(.button--active),
 .button:focus:not(.button--disabled):not(.button--active) {
   background: var(--color-primary);
   color: var(--color-primary-dark);
-  text-shadow: none;
-  filter: var(--filter-hover-element);
+  text-shadow: 0 0 1rem var(--color-primary-dark), 0 0 2rem var(--color-primary-dark);
   box-shadow: 0 0 1.5rem .5rem rgba(var(--color-primary-dark-r),var(--color-primary-dark-g),var(--color-primary-dark-b),.3) inset;
+  filter: var(--filter-hover-element);
 }
 
 button.button--icon,
@@ -55,6 +56,7 @@ button.button--icon .icon,
 .button.button--icon .icon {
   font-size: 1.5rem;
   line-height: 3rem;
+  text-shadow: 0 0 1rem rgba(var(--color-primary-r),var(--color-primary-g),var(--color-primary-b),.5);
 }
 
 button:not(.button--icon) .icon,
@@ -66,6 +68,7 @@ button:not(.button--icon) .icon,
 button.button--transparent ,
 .button.button--transparent {
   background: none;
+  box-shadow: none;
 }
 
 button.button--secondary,
