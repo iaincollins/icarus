@@ -21,7 +21,7 @@ function socketDebugMessage () { /* console.log(...arguments) */ }
 
 function connect (socketState, setSocketState) {
   if (socket !== null) return
-  
+
   // Reset on reconnect
   callbackHandlers = {}
   deferredEventQueue = []

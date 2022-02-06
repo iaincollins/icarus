@@ -51,7 +51,7 @@ export default function Header ({ connected, active }) {
     document.activeElement.blur()
   }
 
-  function toggleNotifications() {
+  function toggleNotifications () {
     if (messagesVisible) {
       notification('Notifications disabled')
     } else {
@@ -114,11 +114,12 @@ export default function Header ({ connected, active }) {
             <i className='icon icarus-terminal-pin-window' style={{ fontSize: '2rem' }} />
           </button>}
 
-        <button tabIndex='1' onClick={toggleNotifications} className={`button--icon ${!messagesVisible ? 'button--transparent text-muted': ''}`} style={{ marginRight: '.5rem' }}>
+        <button tabIndex='1' onClick={toggleNotifications} className={`button--icon ${!messagesVisible ? 'button--transparent text-muted' : ''}`} style={{ marginRight: '.5rem' }}>
           <i className={`icon icarus-terminal-${messagesVisible ? 'notifications' : 'notifications-disabled'}`} style={{ fontSize: '2rem' }} />
         </button>
 
-        <button tabIndex='1' className='button--icon' style={{ marginRight: '.5rem' }}
+        <button
+          tabIndex='1' className='button--icon' style={{ marginRight: '.5rem' }}
           onClick={() => { setColorPickerVisible(!colorPickerVisible); document.activeElement.blur() }}
         >
           <i className='icon icarus-terminal-color-picker' style={{ fontSize: '2rem' }} />

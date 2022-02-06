@@ -40,14 +40,14 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               <tr>
                 <td colSpan={2} className='system-map__info-contents text-left'>
                   <h3>
-                    {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport'/>{coriolisStarports}</span>}
-                    {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport'/>{ocellusStarports}</span>}
-                    {orbisStarports > 0 && <span className='system-map__info-icon'><i  className='icon icarus-terminal-orbis-starport'/>{orbisStarports}</span>}
-                    {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base'/>{asteroidBases}</span>}
-                    {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost'/>{outposts}</span>}
-                    {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship'/>{system.megaships.length}</span>}
-                    {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port'/>{system.planetaryPorts.length}</span>}
-                    {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement'/>{system.settlements.length}</span>}
+                    {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' />{coriolisStarports}</span>}
+                    {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' />{ocellusStarports}</span>}
+                    {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' />{orbisStarports}</span>}
+                    {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' />{asteroidBases}</span>}
+                    {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' />{outposts}</span>}
+                    {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' />{system.megaships.length}</span>}
+                    {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' />{system.planetaryPorts.length}</span>}
+                    {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' />{system.settlements.length}</span>}
                   </h3>
                 </td>
               </tr>}
@@ -56,8 +56,8 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               <tr>
                 <td className='system-map__info-contents text-left'>
                   <span className='text-secondary text-muted text-uppercase '>
-                    Location {system.position?.[0]}, 
-                    {system.position?.[1]}, 
+                    Location {system.position?.[0]},
+                    {system.position?.[1]},
                     {system.position?.[2]}
                   </span>
                 </td>
@@ -74,9 +74,9 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               <tr>
                 <td className='system-map__info-contents text-left'>
                   <span onClick={() => getSystem()} style={{ pointerEvents: 'all', display: 'inline-block', paddingBottom: '.25rem' }} className='text-link text-uppercase'>
-                    <i style={{position: 'relative', top: '.25rem', marginRight: '.25rem'}} className='icon icarus-terminal-chevron-left'/>
+                    <i style={{ position: 'relative', top: '.25rem', marginRight: '.25rem' }} className='icon icarus-terminal-chevron-left' />
                     <span className='text-link-text'>Current system</span>
-                    <br/>
+                    <br />
                   </span>
                 </td>
                 <td className='system-map__info-contents text-right'>
