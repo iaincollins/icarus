@@ -17,7 +17,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
           <thead>
             <tr>
               <th>Location</th>
-              <th className='hidden-small text-no-wrap text-right'>Distance to arrival</th>
+              <th className='hidden-small text-no-wrap text-right'>&nbsp;</th>
             </tr>
           </thead>
           <tbody className='fx-fade-in'>

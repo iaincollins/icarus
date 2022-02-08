@@ -14,7 +14,7 @@ const defaultSocketState = {
 }
 
 const socketOptions = {
-  messages: true
+  notifications: true
 }
 
 function socketDebugMessage () { /* console.log(...arguments) */ }

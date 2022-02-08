@@ -1,6 +1,6 @@
 # Development notes
 
-Some of the features and improvements currently being worked on.
+Some of the features and improvements currently being worked on:
 
 * Add ability to pin Materials and Blueprints
 * Blueprint names do not match names show in game
@@ -15,3 +15,7 @@ Some of the features and improvements currently being worked on.
 * Show body types on System Map by class (similar to FSS view)
 * Show Route summary and Next/Prev systems on route in the System Map view when in a system that is on a plotted route
 * Improve blend of local map data with EDSM data in Navigation panel
+* Add labels-on-hover to secondary navigation buttons (as seen in maps in game)
+* Improve quality of animation FX on long data tables
+* Improve application icon
+* Add exit button on bottom left of Map and List views

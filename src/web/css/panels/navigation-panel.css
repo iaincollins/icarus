@@ -206,7 +206,7 @@
   text-decoration: none !important;
 }
 
-@media only screen and (orientation: portrait), (max-width: 600px) {
+@media only screen and (orientation: portrait), (max-width: 599px) {
   .navigation-panel__list,
   .navigation-panel__map {
     height: 100%;

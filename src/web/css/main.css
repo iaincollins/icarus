@@ -170,13 +170,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 799px) {
   body {
     zoom: 0.8;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 599px) {
   body {
     zoom: 0.7;
   }
@@ -235,9 +235,9 @@ progress {
   width: 100%;
   border-radius: 0;
   height: 2rem;
-  border: 0;
   background: var(--color-primary-dark); /* For Firefox */
   transition: opacity .25s ease-out;
+  border: 0;
 }
 
 progress[value] {
@@ -247,12 +247,10 @@ progress[value] {
 
 progress[value]::-webkit-progress-bar {
   background: var(--color-primary-dark);
-  padding: .1rem;
 }
 
 progress[value]::-moz-progress-bar {
   background: var(--color-primary);
-  padding: .1rem;
 }
 
 progress[value]::-webkit-progress-value {

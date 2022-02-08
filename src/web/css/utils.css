@@ -6,7 +6,7 @@
   float: left;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 599px) {
   .hidden-small {
     display: none;
   }
@@ -18,7 +18,7 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 799px) {
   .hidden-medium {
     display: none;
   }
@@ -31,7 +31,7 @@
 }
 
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
   .hidden-large {
     display: none;
   }

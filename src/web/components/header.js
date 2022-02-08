@@ -35,7 +35,7 @@ export default function Header ({ connected, active }) {
   const [isWindowsApp, setIsWindowsApp] = useState(false)
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [isPinned, setIsPinned] = useState(false)
-  const [messagesVisible, setMessagesVisible] = useState(socketOptions.messages)
+  const [notificationsVisible, setNotificationsVisible] = useState(socketOptions.notifications)
   const [colorPickerVisible, setColorPickerVisible] = useState(false)
 
   async function fullScreen () {
@@ -52,13 +52,13 @@ export default function Header ({ connected, active }) {
   }
 
   function toggleNotifications () {
-    if (messagesVisible) {
+    if (notificationsVisible) {
       notification('Notifications disabled')
     } else {
       notification('Notifications enabled')
     }
-    socketOptions.messages = !messagesVisible
-    setMessagesVisible(!messagesVisible)
+    socketOptions.notifications = !notificationsVisible
+    setNotificationsVisible(!notificationsVisible)
     document.activeElement.blur()
   }
 
@@ -114,8 +114,8 @@ export default function Header ({ connected, active }) {
             <i className='icon icarus-terminal-pin-window' style={{ fontSize: '2rem' }} />
           </button>}
 
-        <button tabIndex='1' onClick={toggleNotifications} className={`button--icon ${!messagesVisible ? 'button--transparent text-muted' : ''}`} style={{ marginRight: '.5rem' }}>
-          <i className={`icon icarus-terminal-${messagesVisible ? 'notifications' : 'notifications-disabled'}`} style={{ fontSize: '2rem' }} />
+        <button tabIndex='1' onClick={toggleNotifications} className='button--icon' style={{ marginRight: '.5rem' }}>
+          <i className={`icon ${notificationsVisible ? 'icarus-terminal-notifications' : 'icarus-terminal-notifications-disabled text-muted'}`} style={{ fontSize: '2rem' }} />
         </button>
 
         <button

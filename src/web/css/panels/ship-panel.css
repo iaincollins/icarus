@@ -132,7 +132,7 @@
   margin-left: 2rem;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
   .ship-panel__ship-stats span,
   .ship-panel__ship-stats .value {
     clear: both;

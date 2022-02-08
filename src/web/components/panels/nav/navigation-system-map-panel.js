@@ -56,14 +56,12 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               <tr>
                 <td className='system-map__info-contents text-left'>
                   <span className='text-secondary text-muted text-uppercase '>
-                    Location {system.position?.[0]},
-                    {system.position?.[1]},
-                    {system.position?.[2]}
+                    POS {system.position?.[0]}, {system.position?.[1]}, {system.position?.[2]}
                   </span>
                 </td>
                 <td className='system-map__info-contents'>
                   <span className='text-secondary text-muted text-uppercase'>
-                    <span>Address {system.address}</span>
+                    <span>ID {system.address}</span>
                   </span>
                 </td>
               </tr>}
@@ -72,16 +70,15 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           {system.address && system.address === 'Unknown' &&
             <table>
               <tr>
-                <td className='system-map__info-contents text-left'>
-                  <span onClick={() => getSystem()} style={{ pointerEvents: 'all', display: 'inline-block', paddingBottom: '.25rem' }} className='text-link text-uppercase'>
-                    <i style={{ position: 'relative', top: '.25rem', marginRight: '.25rem' }} className='icon icarus-terminal-chevron-left' />
+                <td className='system-map__info-contents text-left' style={{ overflow: 'visible', paddingLeft: '1.75rem' }} >
+                  <span onClick={() => getSystem()} style={{ pointerEvents: 'all' }} className='text-link text-uppercase'>
+                    <i style={{ position: 'absolute', top: '.25rem', left: '.25rem', lineHeight: '1rem' }} className='icon icarus-terminal-chevron-left' />
                     <span className='text-link-text'>Current system</span>
-                    <br />
                   </span>
                 </td>
                 <td className='system-map__info-contents text-right'>
                   <span className='text-secondary text-muted text-uppercase'>
-                    Telemetry from EDSM
+                    EDSM Telemetry 
                   </span>
                 </td>
               </tr>
