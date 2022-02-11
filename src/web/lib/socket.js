@@ -74,12 +74,12 @@ function connect (socketState, setSocketState) {
           if (message.event === 'Undocked') notification(`Now leaving ${message.StationName}`)
           if (message.event === 'ApproachSettlement') notification(`Approaching ${message.Name}`)
           if (message.event === 'ReceiveText' && message.From) notification(() => <><p className='text-primary text-right' style={{ marginRight: '1rem' }}>{message.From_Localised || message.From}</p><p className='text-info text-no-transform'>{message.Message_Localised || message.Message}</p></>)
-          if (message.event === 'MarketBuy') notification(`Bought ${message.Count} T of ${message.Type_Localised || message.Type}`)
-          if (message.event === 'MarketSell') notification(`Sold ${message.Count} T of ${message.Type_Localised || message.Type}`)
-          if (message.event === 'BuyDrones') notification(`Bought ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)
-          if (message.event === 'SellDrones') notification(`Sold ${message.Count} Limpet ${message.Count === 1 ? 'Done' : 'Dones'}`)
-          if (message.event === 'CargoDepot' && message.UpdateType === 'Collect') notification(`Collected ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
-          if (message.event === 'CargoDepot' && message.UpdateType === 'Deliver') notification(`Delivered ${message.Count} T of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
+          if (message.event === 'MarketBuy') notification(`Bought ${message.Type_Localised || message.Type} (${message.Count})`)
+          if (message.event === 'MarketSell') notification(`Sold ${message.Type_Localised || message.Type} (${message.Count})`)
+          if (message.event === 'BuyDrones') notification(`Bought Limpet ${message.Count === 1 ? 'Drone' : `Drones (${message.Count})`}`)
+          if (message.event === 'SellDrones') notification(`Sold Limpet ${message.Count === 1 ? 'Drone' : `Drones (${message.Count})`}`)
+          if (message.event === 'CargoDepot' && message.UpdateType === 'Collect') notification(`Collected ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')} (${message.Count})`)
+          if (message.event === 'CargoDepot' && message.UpdateType === 'Deliver') notification(`Delivered ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')} (${message.Count})`)
           if (message.event === 'Scanned') notification('Scan detected')
         }
       } catch (e) { console.log('NOTIFICATION_ERROR', e) }

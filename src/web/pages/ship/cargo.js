@@ -37,7 +37,7 @@ export default function ShipCargoPage () {
           <>
             <h2>Cargo Manifest</h2>
             <h4 className='text-primary' style={{ overflow: 'auto' }}>
-              <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem' }}>
+              <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem .25rem 0' }}>
                 <span className={`${ship.cargo.count === 0 ? 'text-muted' : ''}`}>{ship.cargo.count}</span>
                 <span className='text-muted'>/{ship.cargo.capacity}</span>
               </span>
