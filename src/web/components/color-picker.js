@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { sendEvent, eventListener } from 'lib/socket'
 import packageJson from '../../../package.json'
 
 function ColorPicker ({ visible, toggleVisible = () => {} }) {
@@ -21,6 +22,15 @@ function ColorPicker ({ visible, toggleVisible = () => {} }) {
     window.addEventListener('storage', storageEventHandler)
     return () => window.removeEventListener('storage', storageEventHandler)
   }, [])
+
+  useEffect(() => eventListener('syncMessage', async (event) => {
+    if (event.name === 'colorSettings') {
+      setPrimaryColor(getPrimaryColorAsHex())
+      setPrimaryColorModifier(getPrimaryColorModifier())
+      setSecondaryColor(getSecondaryColorAsHex())
+      setSecondaryColorModifier(getSecondaryColorModifier())
+    }
+  }), [])
 
   return (
     <div className='modal-dialog' style={{ display: visible ? 'block' : 'none' }}>
@@ -110,12 +120,43 @@ function ColorPicker ({ visible, toggleVisible = () => {} }) {
       </table>
 
       <p style={{ fontSize: '1rem' }}>
-        Settings apply to all terminals on this computer / device. Different devices can be configured to use different colors.
+        Settings apply to all terminals on this computer / device.
+        Different devices can be configured to use different colors.
+      </p>
+      <p style={{ fontSize: '1rem' }}>
+
+        You can Sync All Devices to have all connected devices
+        (computers, tablets, phones, etc) use this theme.
       </p>
 
+      <button
+        style={{ width: '100%' }}
+        onClick={() => {
+          const colorSettings = {
+            primaryColor: {
+              r: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-r')),
+              g: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-g')),
+              b: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-b')),
+              modifier: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-dark-modifier'))
+            },
+            secondaryColor: {
+              r: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-r')),
+              g: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-g')),
+              b: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-b')),
+              modifier: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-dark-modifier'))
+            }
+          }
+          sendEvent('syncMessage', { name: 'colorSettings', message: colorSettings })
+          document.activeElement.blur()
+        }}
+      >
+        <i className='icon icarus-terminal-sync' /> Sync all devices
+      </button>
       <hr style={{ margin: '1rem 0 .5rem 0' }} />
       <button
-        className='text-info' onClick={() => {
+        className='text-info'
+        style={{ color: 'white', background: 'rgba(0,0,0,0.8)', textShadow: 'none', boxShadow: 'none' }}
+        onClick={() => {
           try {
             loadDefaultColorSettings()
             setPrimaryColor(getPrimaryColorAsHex())
@@ -268,5 +309,6 @@ function compareVersions (v1, v2) {
 module.exports = {
   ColorPicker,
   loadColorSettings,
-  loadDefaultColorSettings
+  loadDefaultColorSettings,
+  saveColorSettings
 }

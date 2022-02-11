@@ -21,21 +21,24 @@ export default function SystemMap ({ system, setSystemObject }) {
               </span>
             </h3>}
           {system && system.government && system.government !== 'Unknown' && !(system.government === 'None' && system?.security === 'Anarchy') &&
-            <h3 className='text-primary'>
+            <h3 className='text-primary text-muted'>
               <span className='fx-animated-text' data-fx-order='3'>
+                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <>{system.security}<span className='system-map__seperator' /></> : ''}
                 {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
                 {' '}
                 {system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government}
-                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='system-map__seperator' />{system.security}</> : ''}
               </span>
             </h3>}
           {system.faction && system.faction !== 'Unknown' &&
-            <h3 className='text-primary'>
+            <h3 className='text-primary text-muted'>
               <span className='fx-animated-text' data-fx-order='4'>
                 {system.faction}
               </span>
             </h3>}
-          {(system.stars.length > 1 && system.address && system.address === 'Unknown') && <h3 className='text-secondary text-muted'><span className='fx-animated-text' data-fx-order='5'>Visit system for more information</span></h3>}
+          {(system.stars.length > 1 && system.address && system.address === 'Unknown') &&
+            <h3 className='text-secondary text-muted'>
+              <span className='fx-animated-text' data-fx-order='5'>Remote telemetry from EDSM</span>
+            </h3>}
         </div>
         {system.stars.map(star =>
           <SystemMapStar

@@ -1,7 +1,7 @@
 import { Toaster } from 'react-hot-toast'
-import { SocketProvider } from 'lib/socket'
+import { SocketProvider, eventListener } from 'lib/socket'
 import App from 'next/app'
-import { loadColorSettings } from 'components/color-picker'
+import { loadColorSettings, saveColorSettings } from 'components/color-picker'
 import '../public/fonts/icarus-terminal/icarus-terminal.css'
 import '../css/main.css'
 
@@ -15,6 +15,22 @@ export default class MyApp extends App {
       // Update settings in this window when they are changed in another window
       window.addEventListener('storage', (event) => {
         if (event.key === 'color-settings') { loadColorSettings() }
+      })
+
+      // Update theme settings (and save them) when sync message received
+      eventListener('syncMessage', (event) => {
+        if (event.name === 'colorSettings') {
+          const colorSettings = event.message
+          document.documentElement.style.setProperty('--color-primary-r', colorSettings.primaryColor.r)
+          document.documentElement.style.setProperty('--color-primary-g', colorSettings.primaryColor.g)
+          document.documentElement.style.setProperty('--color-primary-b', colorSettings.primaryColor.b)
+          document.documentElement.style.setProperty('--color-primary-dark-modifier', colorSettings.primaryColor.modifier)
+          document.documentElement.style.setProperty('--color-secondary-r', colorSettings.secondaryColor.r)
+          document.documentElement.style.setProperty('--color-secondary-g', colorSettings.secondaryColor.g)
+          document.documentElement.style.setProperty('--color-secondary-b', colorSettings.secondaryColor.b)
+          document.documentElement.style.setProperty('--color-secondary-dark-modifier', colorSettings.secondaryColor.modifier)
+          saveColorSettings()
+        }
       })
     }
   }

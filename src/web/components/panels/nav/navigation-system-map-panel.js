@@ -57,23 +57,6 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' />{system.settlements.length}</span>}
               </h3>
             </div>}
-
-          {/* system.address && system.address === 'Unknown' &&
-            <table>
-              <tr>
-                <td className='system-map__info-contents text-left' style={{ overflow: 'visible', paddingLeft: '1.75rem' }} >
-                  <span onClick={() => getSystem()} style={{ pointerEvents: 'all' }} className='text-link text-uppercase'>
-                    <i style={{ position: 'absolute', top: '.25rem', left: '.25rem', lineHeight: '1rem' }} className='icon icarus-terminal-chevron-left' />
-                    <span className='text-link-text'>Current System</span>
-                  </span>
-                </td>
-                <td className='system-map__info-contents text-right'>
-                  <span className='text-secondary text-muted text-uppercase'>
-                    EDSM Telemetry
-                  </span>
-                </td>
-              </tr>
-            </table> */}
         </div>
       </div>
     </div>

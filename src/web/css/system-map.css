@@ -94,7 +94,6 @@
 .system-map__seperator::before {
   display: inline-block;
   padding: 0 .25rem;
-  color: var(--color-primary);
   opacity: .5;
   content: '//';
 }

@@ -1,11 +1,11 @@
 @font-face {
   font-family: "icarus-terminal";
-  src: url('icarus-terminal.eot?t=1644501577801'); /* IE9*/
-  src: url('icarus-terminal.eot?t=1644501577801#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("icarus-terminal.woff2?t=1644501577801") format("woff2"),
-  url("icarus-terminal.woff?t=1644501577801") format("woff"),
-  url('icarus-terminal.ttf?t=1644501577801') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('icarus-terminal.svg?t=1644501577801#icarus-terminal') format('svg'); /* iOS 4.1- */
+  src: url('icarus-terminal.eot?t=1644601834251'); /* IE9*/
+  src: url('icarus-terminal.eot?t=1644601834251#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("icarus-terminal.woff2?t=1644601834251") format("woff2"),
+  url("icarus-terminal.woff?t=1644601834251") format("woff"),
+  url('icarus-terminal.ttf?t=1644601834251') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icarus-terminal.svg?t=1644601834251#icarus-terminal') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
@@ -59,8 +59,9 @@
 .icarus-terminal-ship:before { content: "\ea28"; }
 .icarus-terminal-signal:before { content: "\ea29"; }
 .icarus-terminal-star:before { content: "\ea2a"; }
-.icarus-terminal-system-bodies:before { content: "\ea2b"; }
-.icarus-terminal-system-orbits:before { content: "\ea2c"; }
-.icarus-terminal-table-index:before { content: "\ea2d"; }
-.icarus-terminal-table-inspector:before { content: "\ea2e"; }
-.icarus-terminal-table-rows:before { content: "\ea2f"; }
+.icarus-terminal-sync:before { content: "\ea2b"; }
+.icarus-terminal-system-bodies:before { content: "\ea2c"; }
+.icarus-terminal-system-orbits:before { content: "\ea2d"; }
+.icarus-terminal-table-index:before { content: "\ea2e"; }
+.icarus-terminal-table-inspector:before { content: "\ea2f"; }
+.icarus-terminal-table-rows:before { content: "\ea30"; }

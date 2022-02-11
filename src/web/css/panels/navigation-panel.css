@@ -78,7 +78,7 @@
   height: 100%;
   z-index: 3;
   overflow: hidden;
-  Xtransition: right .5s ease-in-out;
+  transition: right .5s ease-in-out;
 }
 
 .navigation-panel__list--inspector,
@@ -211,6 +211,7 @@
   .navigation-panel__map {
     height: 100%;
     bottom: 0;
+    transition: height .5s ease-in-out;
   }
   .navigation-panel__list--inspector,
   .navigation-panel__map--inspector {
@@ -229,7 +230,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    transition: top .5s ease;
+    transition: top .5s ease-in-out;
   }
 
   .navigation-panel__inspector > * {

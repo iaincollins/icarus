@@ -64,7 +64,7 @@ export default function ShipModules ({ name, modules, selectedModule, setSelecte
                   {module?.mass > 0 && <p><span className='text-muted'>Mass</span> {module.mass} T</p>}
                   */}
                   {module.engineering &&
-                    <div className='ship-panel__engineering'>
+                    <div className='ship-panel__engineering text-secondary'>
                       {[...Array(module.engineering.level)].map((j, i) =>
                         <i
                           key={`${name}_${module.name}_${module.slot}_engineering_${i}`}

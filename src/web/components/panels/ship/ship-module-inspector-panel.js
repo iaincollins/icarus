@@ -60,7 +60,7 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
                   <p className='text-primary'>
                     <span className='text-muted'>by</span> {module.engineering.engineer}
                   </p>
-                  <p style={{ margin: 0, fontSize: '2rem', top: '.25rem', position: 'relative' }}>
+                  <p className='text-secondary' style={{ margin: 0, fontSize: '2rem', top: '.25rem', position: 'relative' }}>
                     {[...Array(module.engineering.level)].map((j, i) =>
                       <i
                         key={`${module.name}_${module.slot}_engineering_${i}`}

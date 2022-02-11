@@ -209,6 +209,7 @@ table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module
 table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-panel__module .ship-panel__engineering .icon {
   color: var(--color-primary-dark);
   font-weight: 600;
+  text-shadow: none;
 }
 
 .ship-panel .icon.icarus-terminal-engineering {
@@ -231,7 +232,6 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
   bottom: 0.25rem;
   font-size: 2rem;
   line-height: 2rem;
-  color: var(--color-info);
 }
 
 .ship-panel__engineering .icon {

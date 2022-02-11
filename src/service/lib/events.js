@@ -130,7 +130,8 @@ const eventHandlers = {
   getShip: (args) => shipModel.getShip(args),
   getMaterials: (args) => materialsModel.getMaterials(args),
   getBlueprints: (args) => blueprintModel.getBlueprints(args),
-  getNavRoute: async (args) => ((await eliteJson.json())?.NavRoute?.Route ?? [])
+  getNavRoute: async (args) => ((await eliteJson.json())?.NavRoute?.Route ?? []),
+  syncMessage: (message) => broadcastEvent('syncMessage', message)
 }
 
 async function init ({ days = 7 } = {}) {
