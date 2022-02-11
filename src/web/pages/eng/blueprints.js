@@ -207,8 +207,8 @@ export default function EngineeringMaterialsPage () {
                           key={`blueprint_${selectedBlueprint.name}_grade_${grade}_component_${component.name}`}
                           className={component.count > 0 ? 'text-primary' : 'text-muted'}
                         >
-                          <td className='text-right' style={{ background: 'var(--color-primary-dark)', width: '2rem' }}>
-                            <i className={`icon icarus-terminal-materials-grade-${component.grade}`} style={{ fontSize: '2rem' }} />
+                          <td className='text-center' style={{ background: 'var(--color-primary-dark)', width: '1rem' }}>
+                            <i className={`icon icarus-terminal-materials-grade-${component.grade}`} style={{ fontSize: '2.5rem' }} />
                           </td>
                           <td style={{ background: 'var(--color-primary-dark)' }}>
                             {component.name}
