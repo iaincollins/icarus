@@ -83,7 +83,7 @@ export default function PanelNavigation ({ items = [], search = () => {}, exit }
       )}
       {exit &&
         <button className='button--icon secondary-navigation__exit-button fx-fade-in' onClick={exit}>
-          <i className='icon icarus-terminal-exit'/>
+          <i className='icon icarus-terminal-exit' />
         </button>}
     </div>
   )

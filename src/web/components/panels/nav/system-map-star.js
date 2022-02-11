@@ -33,14 +33,14 @@ export default function SystemMapStar ({ star, setSystemObject }) {
             </svg>
           </div>}
         <h2>
-          <span className='fx-animated-text' data-fx-order='4'>
+          <span className='fx-animated-text' data-fx-order='3'>
             {star.type !== 'Null'
               ? '' // <i className='icon icarus-terminal-star' />
               : <i className='icon icarus-terminal-system-bodies' />} {star.name}
           </span>
         </h2>
         <h3>
-          <span className='fx-animated-text text-primary' data-fx-order='5'>
+          <span className='fx-animated-text text-primary' data-fx-order='7'>
             {star.type === 'Null'
               ? <>Rogue <span className='text-muted'>//</span> Extrasolar <span className='text-muted'>//</span> Circumbinary</>
               : starDescription}
@@ -48,13 +48,13 @@ export default function SystemMapStar ({ star, setSystemObject }) {
         </h3>
         {star.numberOfPlanets > 0 &&
           <h4>
-            <span className='fx-animated-text text-primary' data-fx-order='6'>
+            <span className='fx-animated-text text-primary' data-fx-order='8'>
               {star.numberOfPlanets === 1 ? '1 body found orbit' : `${star.numberOfPlanets} bodies found in orbit`}
             </span>
           </h4>}
         {star.numberOfPlanets === 0 &&
           <h4>
-            <span className='fx-animated-text text-primary text-muted' data-fx-order='6'>
+            <span className='fx-animated-text text-primary text-muted' data-fx-order='8'>
               No bodies found in orbit
             </span>
           </h4>}

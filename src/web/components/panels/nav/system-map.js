@@ -16,13 +16,13 @@ export default function SystemMap ({ system, setSystemObject }) {
           </h1>
           {system.detail && system.detail.bodies &&
             <h3 className='text-primary'>
-              <span className='fx-animated-text' data-fx-order='4'>
+              <span className='fx-animated-text' data-fx-order='2'>
                 {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
               </span>
             </h3>}
           {system && system.government && system.government !== 'Unknown' && !(system.government === 'None' && system?.security === 'Anarchy') &&
             <h3 className='text-primary'>
-              <span className='fx-animated-text' data-fx-order='2'>
+              <span className='fx-animated-text' data-fx-order='3'>
                 {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
                 {' '}
                 {system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government}
@@ -31,7 +31,7 @@ export default function SystemMap ({ system, setSystemObject }) {
             </h3>}
           {system.faction && system.faction !== 'Unknown' &&
             <h3 className='text-primary'>
-              <span className='fx-animated-text' data-fx-order='3'>
+              <span className='fx-animated-text' data-fx-order='4'>
                 {system.faction}
               </span>
             </h3>}

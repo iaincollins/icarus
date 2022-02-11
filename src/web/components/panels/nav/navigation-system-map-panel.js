@@ -35,29 +35,28 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>
         {system.address && system.address !== 'Unknown' && system.position &&
-     <div className='system-map__location text-secondary text-muted text-no-wrap fx-fade-in'>
-                    {system.position?.[0]}, {system.position?.[1]}, {system.position?.[2]}
-                    <br/>
-                    {system.address}
-                    </div>}
- 
+          <div className='system-map__location text-secondary text-muted text-no-wrap fx-fade-in hidden-small'>
+            {system.position?.[0]}, {system.position?.[1]}, {system.position?.[2]}
+            <br />
+            {system.address}
+          </div>}
+
         <div className='system-map__info fx-fade-in'>
 
-            {(system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0) &&
-              <div className='system-map__info-contents'>
+          {(system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0) &&
+            <div className='system-map__info-contents'>
 
-                  <h3>
-                    {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' />{coriolisStarports}</span>}
-                    {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' />{ocellusStarports}</span>}
-                    {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' />{orbisStarports}</span>}
-                    {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' />{asteroidBases}</span>}
-                    {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' />{outposts}</span>}
-                    {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' />{system.megaships.length}</span>}
-                    {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' />{system.planetaryPorts.length}</span>}
-                    {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' />{system.settlements.length}</span>}
-                  </h3>
-              </div>}
-
+              <h3>
+                {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' />{coriolisStarports}</span>}
+                {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' />{ocellusStarports}</span>}
+                {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' />{orbisStarports}</span>}
+                {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' />{asteroidBases}</span>}
+                {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' />{outposts}</span>}
+                {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' />{system.megaships.length}</span>}
+                {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' />{system.planetaryPorts.length}</span>}
+                {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' />{system.settlements.length}</span>}
+              </h3>
+            </div>}
 
           {/* system.address && system.address === 'Unknown' &&
             <table>
@@ -70,7 +69,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 </td>
                 <td className='system-map__info-contents text-right'>
                   <span className='text-secondary text-muted text-uppercase'>
-                    EDSM Telemetry 
+                    EDSM Telemetry
                   </span>
                 </td>
               </tr>
