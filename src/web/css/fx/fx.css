@@ -60,7 +60,7 @@ html[data-fx-crt="true"] body::after {
   right: 0;
   background: rgba(18, 16, 16, 0.1);
   opacity: 0;
-  z-index: 4002;
+  z-index: 1002;
   pointer-events: none;
   animation: text-flicker-animation 5s infinite;
   */
@@ -76,7 +76,7 @@ html[data-fx-crt="true"] body::before {
   bottom: 0;
   right: 0;
   background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0, 0, 0, .03) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.04), rgba(0, 0, 255, 0.04));
-  z-index: 4010;
+  z-index: 10010; /* 10000 and above so is on top of notifications */
   background-size: 100% 3px, 3px 100%;
   pointer-events: none;
 }
