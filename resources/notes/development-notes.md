@@ -13,9 +13,17 @@ Some of the features and improvements currently being worked on:
 * Show current bounty status at facilities
 * Show when docking and limpet controller but no limpets
 * Show body types on System Map by class (similar to FSS view)
+* Show Bodies Scanned / Not Scanned on System Map
+* Move text for number of bodies in system on System Map back to top
+* Expand data shown in Navigation List View (planet type, etc)
+* Revert vertical centering No System Information text
+* Show interesting bodies in system (features, atmospheres, bodies in close orbit, etc)
 * Show Route summary and Next/Prev systems on route in the System Map view when in a system that is on a plotted route
 * Improve blend of local map data with EDSM data in Navigation panel
 * Add labels-on-hover to secondary navigation buttons (as seen in maps in game)
 * Improve quality of animation FX on long data tables
 * Improve application icon
 * Add exit button on bottom left of Map and List views
+* Update time in header using ref instead of hook
+* Add option to sync themes across devices (push from any device)
+* Fix for systems like EOL PROU RI-Q C6-9 with (a) multiple Null orbits and (b) stars orbiting Null points http://localhost:3300/nav/map?system=eol+prou+ri-q+c6-9

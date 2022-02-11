@@ -3,7 +3,7 @@ import { useState, useEffect, Fragment } from 'react'
 
 import { useRouter } from 'next/router'
 
-export default function PanelNavigation ({ items = [], search = () => {} }) {
+export default function PanelNavigation ({ items = [], search = () => {}, exit }) {
   const router = useRouter()
   const [searchValue, setSearchValue] = useState('')
   const [searchInputVisible, setSearchInputVisible] = useState(false)
@@ -81,6 +81,10 @@ export default function PanelNavigation ({ items = [], search = () => {} }) {
             </button>}
         </Fragment>
       )}
+      {exit &&
+        <button className='button--icon secondary-navigation__exit-button fx-fade-in' onClick={exit}>
+          <i className='icon icarus-terminal-exit'/>
+        </button>}
     </div>
   )
 }

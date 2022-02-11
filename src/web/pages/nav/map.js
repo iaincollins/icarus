@@ -84,7 +84,7 @@ export default function NavMapPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
-      <Panel layout='full-width' navigation={NavPanelNavItems('Map', query)} search={search}>
+      <Panel layout='full-width' navigation={NavPanelNavItems('Map', query)} search={search} exit={system?.address === 'Unknown' ? () => getSystem() : null}>
         <NavigationSystemMapPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} getSystem={getSystem} />
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>

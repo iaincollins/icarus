@@ -9,21 +9,17 @@
 
 .system-map__info {
   position: absolute;
-  background: rgba(0,0,0,.8);
   color: var(--color-info);
-  bottom: 1rem;
+  bottom: 0;
   z-index: 50;
-  text-align: right;
+  text-align: center;
   pointer-events: none;
   font-size: 1rem;
-  left: 4rem;
-  width: calc(100% - 8rem);
+  left: 4.5rem;
+  width: calc(100% - 9rem);
   padding: .5rem 0;
   overflow: hidden;
-}
-
-.system-map__info-contents td {
-  vertical-align: middle;
+  box-sizing: border-box;
 }
 
 .system-map__info-contents {
@@ -49,6 +45,14 @@
   opacity: .5;
   font-size: 1.5rem;
   text-shadow: var(--text-shadow);
+}
+
+.system-map__location {
+  position: absolute;
+  top: .5rem;
+  right: 1.5rem;
+  text-align: right;
+  font-size: 1rem;
 }
 
 .system-map__title {

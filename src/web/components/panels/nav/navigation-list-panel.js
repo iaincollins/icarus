@@ -10,7 +10,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
           className='text-primary text-blink-slow text-center text-center-vertical'
           style={{ zIndex: '30', pointerEvents: 'none' }}
         >
-          <h2 style={{ marginTop: '2em', marginRight: '4.5rem' }}>No system information</h2>
+          <h2 style={{ marginRight: '4.5rem' }}>No system information</h2>
         </div>}
       <div className='scrollable'>
         <table className='table--animated table--interactive'>
@@ -134,7 +134,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
       }
   }
 
-  if (isLandable) { iconClass += ' text-info' }
+  if (isLandable) { iconClass += ' text-secondary' }
 
   return (
     <tr data-system-object-name={systemObject.name} tabIndex='2' onFocus={() => setSystemObject(systemObject)}>

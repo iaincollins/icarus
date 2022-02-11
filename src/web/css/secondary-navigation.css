@@ -1,9 +1,9 @@
 .secondary-navigation {
-  position: fixed;
-  top: 9.5rem;
-  left: .5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 4rem;
-  height: 100%;
+  bottom: 0;
   z-index: 10;
 }
 
@@ -18,6 +18,21 @@
   top: .25rem;
   font-size: 2.5rem;
   line-height: 2.5rem;
+}
+
+.secondary-navigation__exit-button {
+  position: absolute !important;
+  z-index: 9;
+  bottom: -.5rem;
+  left: 0;
+  margin: 0;
+}
+
+@media only screen and (orientation: portrait), (max-width: 599px) {
+  .secondary-navigation__exit-button {
+    position: relative !important;
+    bottom: 0;
+  }
 }
 
 .secondary-navigation button.button--icon.button--active,

@@ -15,6 +15,13 @@ export default function NavListPage () {
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
 
+  const getSystem = async (systemName, useCache = true) => {
+    const newSystem = await sendEvent('getSystem', { name: systemName, useCache })
+    if (!newSystem) return
+    setSystemObject(null)
+    setSystem(newSystem)
+  }
+
   const search = async (searchInput) => {
     const newSystem = await sendEvent('getSystem', { name: searchInput })
     if (!newSystem) return
@@ -75,7 +82,7 @@ export default function NavListPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
-      <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search}>
+      <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={system?.address === 'Unknown' ? () => getSystem() : null}>
         <NavigationListPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} />
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>
