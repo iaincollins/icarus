@@ -37,6 +37,10 @@ export default function ShipCargoPage () {
           <>
             <h2>Cargo Manifest</h2>
             <h4 className='text-primary' style={{ overflow: 'auto' }}>
+              <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem' }}>
+              <span className={`${ship.cargo.count === 0 ? 'text-muted' : ''}`}>{ship.cargo.count}</span>
+              <span className='text-muted'>/{ship.cargo.capacity}</span>
+              </span>
               <progress
                 style={{ marginTop: '.5rem', height: '1.2rem', display: 'inline-block', width: '12rem', float: 'left' }}
                 value={ship.cargo.count}
@@ -44,8 +48,7 @@ export default function ShipCargoPage () {
                 className='float-left'
               />
               <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem' }}>
-                {ship.cargo.count}/{ship.cargo.capacity} T
-                {ship.cargo.count > 0 && ship.cargo.count < ship.cargo.capacity && <span className='text-muted'> ({ship.cargo.capacity - ship.cargo.count} free)</span>}
+                {ship.cargo.count > 0 && ship.cargo.count < ship.cargo.capacity && <span className='text-muted'> {ship.cargo.capacity - ship.cargo.count} free</span>}
               </span>
             </h4>
             <hr style={{ margin: '.5rem 0 0 0' }} />
