@@ -200,6 +200,7 @@
   stroke-width: 100 !important;
   stroke: var(--color-system-map-focus) !important;
   transition: all .1s ease;
+  vector-effect: non-scaling-stroke;
 }
 
 .system-map__system-object .system-map__planet {
