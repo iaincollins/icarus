@@ -1,12 +1,12 @@
 # ICARUS Terminal
 
-_ICARUS Terminal is an immersive, context-sensitive second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/)._
+_ICARUS Terminal is an immersive, context-sensitive companion app and second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/)._
 
 **ICARUS Terminal is currently in early access.**
 
 **[Download the latest preview release.](https://github.com/iaincollins/icarus/releases/latest)**
 
-![Screenshot](https://user-images.githubusercontent.com/595695/153534956-03f6d8fd-5a5c-4db2-aac4-a15d483a5cba.png)
+![Screenshot](https://user-images.githubusercontent.com/595695/153655036-7dcd389f-56c8-4024-80cf-7d8d3b63a12f.png)
 
 ## About ICARUS Terminal
 
