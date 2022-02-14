@@ -25,5 +25,5 @@ Some of the features and improvements currently being worked on:
 * Improve application icon
 * Add exit button on bottom left of Map and List views
 * Update time in header using ref instead of hook
-* Add option to sync themes across devices (push from any device)
 * Fix for systems like EOL PROU RI-Q C6-9 with (a) multiple Null orbits and (b) stars orbiting Null points http://localhost:3300/nav/map?system=eol+prou+ri-q+c6-9
+* Listen for Set User Ship Name
