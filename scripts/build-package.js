@@ -9,8 +9,9 @@ const {
   INSTALLER_EXE,
   PRODUCT_VERSION,
   PATH_TO_SIGNTOOL,
-  PATH_TO_CERTIFICATE,
-  SIGN_BUILD
+  SIGN_BUILD,
+  SIGN_CERT_NAME,
+  SIGN_TIME_SERVER
 } = require('./lib/build-options')
 
 ;(async () => {
@@ -37,6 +38,6 @@ async function build () {
   console.log(installerOutput)
 
   if (SIGN_BUILD) {
-    execSync(`${PATH_TO_SIGNTOOL} sign /f ${PATH_TO_CERTIFICATE} /tr http://timestamp.sectigo.com ${INSTALLER_EXE}`)
+    execSync(`"${PATH_TO_SIGNTOOL}" sign /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${INSTALLER_EXE}"`)
   }
 }

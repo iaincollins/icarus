@@ -2,6 +2,8 @@
 
 _ICARUS Terminal is an immersive, context-sensitive companion app and second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/)._
 
+ You can run ICARUS Terminal in a single window (or multiple windows/displays), or connect remotely from another computer, tablet, phone or other device or use it as an overlayed Window in VR.
+
 **ICARUS Terminal is currently in early access.**
 
 **[Download the latest preview release.](https://github.com/iaincollins/icarus/releases/latest)**
@@ -10,11 +12,23 @@ _ICARUS Terminal is an immersive, context-sensitive companion app and second scr
 
 ## About ICARUS Terminal
 
-* ICARUS Terminal is currently in early access and is incomplete.
-* You can run ICARUS Terminal in a single window, in multiple windows or connect remotely from another computer, tablet or other device with a browser (or any combination of those) and the information displayed will update in real time.
-* The application checks for new releases when it starts and will give you the option to install the update.
-* The application includes integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/). Data such as your current in-game location will be provided to them order to render information in the interface, but does not include information about you (e.g. your commander name or ship name) or any personally identifiable information.
-* Windows 10 or newer is required. Builds are not currently signed with a code signing certificate.
+Windows 10 or newer is required.
+
+ICARUS Terminal application checks for new releases and will link to the release notes and give you the option to install the update if there is one.
+
+ICARUS Terminal includes integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/). Data such as your current in-game location, cargo, etc. may be sent to them order to render information in the interface, but this does not include personally identifiable information (e.g. commander name or ship name).
+
+As of v0.4.0 all releases are signed with a code signing certificate.
+
+ICARUS Terminal is free and open-source software.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
 
 ----
 

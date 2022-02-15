@@ -1,6 +1,6 @@
+require('dotenv').config()
+
 const path = require('path')
-const yargs = require('yargs')
-const commandLineArgs = yargs.argv
 const packageJson = require('../../package.json')
 
 const PRODUCT_VERSION = `${packageJson.version}.0`
@@ -8,8 +8,9 @@ const APP_FILE_VERSION = PRODUCT_VERSION
 const SERVICE_FILE_VERSION = PRODUCT_VERSION
 
 const PATH_TO_SIGNTOOL = '../code-signing/signtool.exe'
-const PATH_TO_CERTIFICATE = '../code-signing/certifiate.pfx'
-const SIGN_BUILD = commandLineArgs.sign || false
+const SIGN_BUILD = process.env?.SIGN_BUILD === 'true' ? true : false
+const SIGN_CERT_NAME = process.env?.SIGN_CERT_NAME ?? "Open Source Developer, Iain Collins"
+const SIGN_TIME_SERVER = process.env?.SIGN_TIME_SERVER ?? "http://time.certum.pl"
 
 // Development builds are faster, larger and can contain debug routines
 const DEVELOPMENT_BUILD = process.env.DEVELOPMENT || false
@@ -90,6 +91,7 @@ module.exports = {
   INSTALLER_EXE,
   PRODUCT_VERSION,
   PATH_TO_SIGNTOOL,
-  PATH_TO_CERTIFICATE,
-  SIGN_BUILD
+  SIGN_BUILD,
+  SIGN_CERT_NAME,
+  SIGN_TIME_SERVER
 }

@@ -18,8 +18,9 @@ const {
   APP_ICON,
   APP_VERSION_INFO,
   PATH_TO_SIGNTOOL,
-  PATH_TO_CERTIFICATE,
-  SIGN_BUILD
+  SIGN_BUILD,
+  SIGN_CERT_NAME,
+  SIGN_TIME_SERVER
 } = require('./lib/build-options')
 
 const DEVELOPMENT_BUILD = commandLineArgs.debug || DEVELOPMENT_BUILD_DEFAULT
@@ -73,7 +74,7 @@ async function build () {
   await changeExe.versionInfo(APP_OPTIMIZED_BUILD, APP_VERSION_INFO)
 
   if (SIGN_BUILD) {
-    execSync(`${PATH_TO_SIGNTOOL} sign /f ${PATH_TO_CERTIFICATE} /tr http://timestamp.sectigo.com ${APP_OPTIMIZED_BUILD}`)
+    execSync(`"${PATH_TO_SIGNTOOL}" sign /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${APP_OPTIMIZED_BUILD}"`)
   }
 }
 
