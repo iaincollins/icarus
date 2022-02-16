@@ -8,7 +8,7 @@ _ICARUS Terminal is an immersive, context-sensitive companion app and second scr
 
 **[Download the latest preview release.](https://github.com/iaincollins/icarus/releases/latest)**
 
-![Screenshot](https://user-images.githubusercontent.com/595695/153655036-7dcd389f-56c8-4024-80cf-7d8d3b63a12f.png)
+![Screenshot](https://user-images.githubusercontent.com/595695/154366836-90f476d1-6fb4-4cb9-995b-d808f4b6fc1c.png)
 
 ## About ICARUS Terminal
 
