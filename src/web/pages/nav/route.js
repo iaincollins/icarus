@@ -118,7 +118,11 @@ export default function NavListPage () {
             </table>
             <hr className='small' style={{ marginTop: 0 }} />
           </>}
-        {navRoute &&
+        {navRoute && navRoute.length === 0 && 
+          <p className='text-info text-muted text-center' style={{ margin: '1rem 0' }}>
+            No route set
+          </p>}
+        {navRoute && 
           <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
             Set route using galaxy map
           </p>}
