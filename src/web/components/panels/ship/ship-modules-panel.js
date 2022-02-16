@@ -1,7 +1,19 @@
+import { UNKNOWN_VALUE } from '../../../../shared/consts'
 import ShipModules from './ship-modules'
 
 export default function ShipModulesPanel ({ ship, selectedModule, setSelectedModule }) {
   if (!ship) return null
+
+  if (ship.type === UNKNOWN_VALUE && ship.name === UNKNOWN_VALUE && ship.ident === UNKNOWN_VALUE) {
+    return (
+      <div
+        className='text-primary text-blink-slow text-center text-center-vertical'
+        style={{ zIndex: '30', pointerEvents: 'none' }}
+      >
+        <h2>No ship found</h2>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -32,7 +44,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             <tr>
               <td>
                 <span className='text-muted'>Max jump range</span>
-                <span className='value'>{ship.maxJumpRange} Ly</span>
+                <span className='value'>{ship.maxJumpRange || '-'} Ly</span>
               </td>
               <td>
                 <span className='text-muted'>Fuel (curr/max)</span>

@@ -38,13 +38,13 @@ export default function ShipCargoPage () {
             <h2>Cargo Manifest</h2>
             <h4 className='text-primary' style={{ overflow: 'auto' }}>
               <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem .25rem 0' }}>
-                <span className={`${ship.cargo.count === 0 ? 'text-muted' : ''}`}>{ship.cargo.count}</span>
-                <span className='text-muted'>/{ship.cargo.capacity}</span>
+                <span className={`${ship.cargo.count > 0 ? '' : 'text-muted'}`}>{ship.cargo.count ?? 0}</span>
+                <span className='text-muted'>/{ship.cargo.capacity ?? 0}</span>
               </span>
               <progress
                 style={{ marginTop: '.5rem', height: '1.2rem', display: 'inline-block', width: '12rem', float: 'left' }}
-                value={ship.cargo.count}
-                max={ship.cargo.capacity}
+                value={ship.cargo.count ?? 0}
+                max={ship.cargo.capacity ?? 0}
                 className='float-left'
               />
               <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem' }}>
