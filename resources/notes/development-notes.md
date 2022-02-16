@@ -28,5 +28,5 @@ Some of the features and improvements currently being worked on:
 * Fix for systems like EOL PROU RI-Q C6-9 with (a) multiple Null orbits and (b) stars orbiting Null points http://localhost:3300/nav/map?system=eol+prou+ri-q+c6-9
 * Listen for Set User Ship Name event and update name/ident when it changes
 * Improve loading apperance (UI scaling, theme application) to reduce jankiness
-* Improve handling in Launcher, Nav and Ship Panels when no journal entries found
-* Add distance to systems in Navigation Panel map and Route list
+* Show distance from systems in currently plotted route
+* Show distance from remote systems being viewed in System Map
