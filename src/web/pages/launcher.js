@@ -108,7 +108,8 @@ export default function IndexPage () {
             <p>{loadingProgress.numberOfLogLines.toLocaleString()} recent log entries</p>
             {/* <p>{loadingProgress.numberOfEventsImported.toLocaleString()} events imported</p> */}
             {loadingProgress.loadingComplete === true && <p>Completed in {(loadingProgress.loadingTime / 1000).toFixed(2)} seconds</p>}
-            {loadingProgress.loadingComplete === true && <p>Last activity {eliteDateTime(loadingProgress.lastActivity).dateTime}</p>}
+            {loadingProgress.loadingComplete === true && loadingProgress.numberOfLogLines > 0 && <p>Last activity {eliteDateTime(loadingProgress.lastActivity).dateTime}</p>}
+            {loadingProgress.loadingComplete === true && loadingProgress.numberOfLogLines === 0 && <p>No recent activity found</p>}
           </div>
           {loadingProgress.loadingComplete === true
             ? <p>Ready <span className='text-blink-slow'>_</span></p>
