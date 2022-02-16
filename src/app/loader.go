@@ -16,9 +16,22 @@ func LoadUrl(url string) string {
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <style>
       :root {
-        --color-primary: rgb(235, 125, 0);
-				--color-primary-dark: rgb(58, 12, 0);
-				--color-background: var(--color-primary-dark);
+        --color-default-primary-r: 250;
+        --color-default-primary-g: 135;
+        --color-default-primary-b: 0;
+        --color-default-primary-dark-modifier: 200;
+
+        --color-primary-r: var(--color-default-primary-r);
+        --color-primary-g: var(--color-default-primary-g);
+        --color-primary-b: var(--color-default-primary-b);
+        --color-primary-dark-modifier: var(--color-default-primary-dark-modifier);
+
+        --color-primary-dark-r: calc(var(--color-primary-r) - var(--color-primary-dark-modifier));
+        --color-primary-dark-g: calc(var(--color-primary-g) - var(--color-primary-dark-modifier));
+        --color-primary-dark-b: calc(var(--color-primary-b) - var(--color-primary-dark-modifier));
+
+        --color-primary: rgb(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b));
+        --color-primary-dark: rgb(var(--color-primary-dark-r), var(--color-primary-dark-g), var(--color-primary-dark-b));
       }
 
       html {
@@ -70,7 +83,7 @@ func LoadUrl(url string) string {
         width: 100%;
         height: 100%;
         content: " ";
-        background: radial-gradient(circle, var(--color-background) 0%, rgba(0, 0, 0, 1) 100%);
+        background: radial-gradient(circle, var(--color-primary-dark) 0%, rgba(0, 0, 0, 1) 100%);
         z-index: -1;
         opacity: 0.8;
       }

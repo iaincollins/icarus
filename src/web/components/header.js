@@ -29,10 +29,11 @@ const NAV_BUTTONS = [
   }
 ]
 
+let IS_WINDOWS_APP = false
+
 export default function Header ({ connected, active }) {
   const router = useRouter()
   const [dateTime, setDateTime] = useState(eliteDateTime())
-  const [isWindowsApp, setIsWindowsApp] = useState(false)
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [isPinned, setIsPinned] = useState(false)
   const [notificationsVisible, setNotificationsVisible] = useState(socketOptions.notifications)
@@ -64,11 +65,11 @@ export default function Header ({ connected, active }) {
 
   useEffect(async () => {
     // icarusTerminal_* methods are not always accessible while the app is loading.
-    // This handles that by calling them when the component is mounted then the
-    // component tracks the state in it's local state. If the window is
-    // reloaded this ensures the window state is still tracked properly.
-    if (typeof window === 'undefined') return setIsWindowsApp(false)
-    setIsWindowsApp(typeof window !== 'undefined' && typeof window.icarusTerminal_version === 'function')
+    // This handles that by calling them when the component is mounted.
+    // It uses a global for isWindowsApp to reduce UI flicker.
+    if (typeof window !== 'undefined' && typeof window.icarusTerminal_version === 'function') {
+      IS_WINDOWS_APP = true
+    }
     setIsFullScreen(await isWindowFullScreen())
     setIsPinned(await isWindowPinned())
   }, [])
@@ -109,7 +110,7 @@ export default function Header ({ connected, active }) {
           <i className={signalClassName} style={{ transition: 'all .25s ease', fontSize: '2rem' }} />
         </button>
 
-        {isWindowsApp &&
+        {IS_WINDOWS_APP &&
           <button tabIndex='1' onClick={pinWindow} className={`button--icon ${isPinned ? 'button--transparent' : ''}`} style={{ marginRight: '.5rem' }} disabled={isFullScreen}>
             <i className='icon icarus-terminal-pin-window' style={{ fontSize: '2rem' }} />
           </button>}
