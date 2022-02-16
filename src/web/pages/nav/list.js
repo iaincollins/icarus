@@ -42,7 +42,7 @@ export default function NavListPage () {
 
   useEffect(async () => {
     if (!connected || !router.isReady) return
-    
+
     const newSystem = await sendEvent('getSystem', query.system ? { name: query.system, useCache: true } : null)
     if (newSystem) {
       setSystem(newSystem)
@@ -88,7 +88,7 @@ export default function NavListPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
-      <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={system?.address === 'Unknown' ? () => getSystem() : null}>
+      <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={system?.isCurrentLocation === false ? () => getSystem() : null}>
         <NavigationListPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} />
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>

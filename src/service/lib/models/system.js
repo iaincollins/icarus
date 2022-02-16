@@ -1,6 +1,7 @@
 const EDSM = require('../edsm')
 const SystemMap = require('../system-map')
 const { UNKNOWN_VALUE } = require('../../../shared/consts')
+const distance = require('../../../shared/distance')
 
 const systemCache = {}
 
@@ -21,7 +22,13 @@ class NavigationModel {
 
     if (!systemCache[systemName] || useCache === false) { // Check for entry in cache
       const system = await EDSM.system(systemName)
-      systemCache[systemName] = new SystemMap(system) // Create/Update cache entry
+      const systemMap = new SystemMap(system)
+
+      // Create/Update cache entry
+      systemCache[systemName] = {
+        ...system,
+        ...systemMap
+      }
     }
 
     let response = systemCache[systemName] // Use cache
@@ -45,6 +52,8 @@ class NavigationModel {
         },
         population: FSDJump?.Population ?? UNKNOWN_VALUE,
         faction: FSDJump?.SystemFaction?.Name ?? UNKNOWN_VALUE,
+        state: FSDJump?.SystemFaction?.FactionState ?? UNKNOWN_VALUE,
+        distance: 0,
         isCurrentLocation: true
       }
     } else {
@@ -52,17 +61,7 @@ class NavigationModel {
       // lookup via an API) to get most recent info for this system
       response = {
         ...response,
-        address: UNKNOWN_VALUE,
-        position: UNKNOWN_VALUE,
-        allegiance: UNKNOWN_VALUE,
-        government: UNKNOWN_VALUE,
-        security: UNKNOWN_VALUE,
-        economy: {
-          primary: UNKNOWN_VALUE,
-          secondary: UNKNOWN_VALUE
-        },
-        population: UNKNOWN_VALUE,
-        faction: UNKNOWN_VALUE,
+        distance: distance(response.position, FSDJump?.StarPos),
         isCurrentLocation: false
       }
     }

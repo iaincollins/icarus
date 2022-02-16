@@ -21,7 +21,7 @@ function socketDebugMessage () { /* console.log(...arguments) */ }
 
 function connect (socketState, setSocketState) {
   if (socket !== null) return
-  
+
   // Reset on reconnect
   callbackHandlers = {}
   deferredEventQueue = []
@@ -73,7 +73,7 @@ function connect (socketState, setSocketState) {
           if (message.event === 'Docked') notification(`Docked at ${message.StationName}`)
           if (message.event === 'Undocked') notification(`Now leaving ${message.StationName}`)
           if (message.event === 'ApproachSettlement') notification(`Approaching ${message.Name}`)
-          if (message.event === 'ReceiveText' && message.From) notification(() => <p style={{width: '100%'}}><span className='text-primary'>{message.From_Localised || message.From}</span><br/><span className='text-info text-no-transform'>{message.Message_Localised || message.Message}</span></p>)
+          if (message.event === 'ReceiveText' && message.From) notification(() => <p style={{ width: '100%' }}><span className='text-primary'>{message.From_Localised || message.From}</span><br /><span className='text-info text-no-transform'>{message.Message_Localised || message.Message}</span></p>)
           if (message.event === 'MarketBuy') notification(`Bought ${message.Type_Localised || message.Type} (${message.Count})`)
           if (message.event === 'MarketSell') notification(`Sold ${message.Type_Localised || message.Type} (${message.Count})`)
           if (message.event === 'BuyDrones') notification(`Bought Limpet ${message.Count === 1 ? 'Drone' : `Drones (${message.Count})`}`)

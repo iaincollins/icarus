@@ -16,8 +16,8 @@
 .secondary-navigation button.button--icon .icon {
   position: relative;
   top: .25rem;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 2rem;
+  line-height: 2.25rem;
 }
 
 .secondary-navigation__exit-button {

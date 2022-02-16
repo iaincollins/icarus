@@ -129,7 +129,7 @@ function ColorPicker ({ visible, toggleVisible = () => {} }) {
         (computers, tablets, phones, etc) use this theme.
       </p>
 
-      <div className='text-center'>
+      <div className='text-center' style={{ paddingTop: '0.25rem' }}>
         <button
           onClick={() => {
             const colorSettings = {

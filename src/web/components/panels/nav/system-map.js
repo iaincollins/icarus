@@ -14,30 +14,35 @@ export default function SystemMap ({ system, setSystemObject }) {
               <CopyOnClick>{system.name}</CopyOnClick>
             </span>
           </h1>
-          {system.detail && system.detail.bodies &&
+          {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
             <h3 className='text-primary'>
               <span className='fx-animated-text' data-fx-order='2'>
                 {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
               </span>
             </h3>}
-          {system && system.government && system.government !== 'Unknown' && !(system.government === 'None' && system?.security === 'Anarchy') &&
-            <h3 className='text-primary text-muted'>
+          {system.faction && system.faction !== 'Unknown' &&
+            <h3 className='text-info text-muted'>
               <span className='fx-animated-text' data-fx-order='3'>
-                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <>{system.security}<span className='system-map__seperator' /></> : ''}
+                Controlled by {system.faction}
+              </span>
+            </h3>}
+          {system.allegiance && system.allegiance !== 'Unknown' &&
+            <h3 className='text-info text-muted'>
+              <span className='fx-animated-text' data-fx-order='4'>
                 {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
                 {' '}
                 {system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government}
+                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='system-map__seperator' />{system.security}</> : ''}
               </span>
             </h3>}
-          {system.faction && system.faction !== 'Unknown' &&
-            <h3 className='text-primary text-muted'>
-              <span className='fx-animated-text' data-fx-order='4'>
-                {system.faction}
+          {system.economy && system.economy.primary !== 'Unknown' &&
+            <h3 className='text-info text-muted'>
+              <span className='fx-animated-text' data-fx-order='5'>
+                {system.economy && system.economy.primary !== 'Unknown' && system.economy.primary}
+                {system.economy && system.economy.secondary !== 'Unknown' && system.economy.secondary !== 'None' && ` & ${system.economy.secondary}`}
+                {' '}Economy
+                {system.state && system.state !== 'Unknown' && system.state !== 'None' && <><span className='system-map__seperator' />{system.state}</>}
               </span>
-            </h3>}
-          {(system.stars.length > 1 && system.address && system.address === 'Unknown') &&
-            <h3 className='text-secondary text-muted'>
-              <span className='fx-animated-text' data-fx-order='5'>Remote telemetry from EDSM</span>
             </h3>}
         </div>
         {system.stars.map(star =>

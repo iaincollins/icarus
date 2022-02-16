@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import distance from '../../../shared/distance'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { NavPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
@@ -101,16 +102,18 @@ export default function NavListPage () {
                     <td style={{ paddingLeft: '3.5rem' }}>
                       <div style={{ position: 'relative' }}>
                         <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star visible-medium' />
-                        <i style={{ position: 'absolute', top: '-.25rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star hidden-medium' />
-                        <span>{route.StarSystem}  </span>
+                        <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star hidden-medium' />
+                        <span>{route.StarSystem} </span>
+                        <br /><span className='text-muted'>{route.StarClass} Class</span>
+                        <span className='text-muted'> | </span>
+                        {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
                         <span className='visible-medium'>
-                          <br /><span className='text-muted'> {route.StarClass} Class</span>
+                          {system.position && route.StarPos && system?.name !== route?.StarSystem && <span><br />{distance(system.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
                         </span>
                       </div>
                     </td>
                     <td className='hidden-medium text-right'>
-                      <span className='text-muted'>{route.StarClass} Class</span><br />
-                      {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
+                      {system.position && route.StarPos && system?.name !== route?.StarSystem && <span>{distance(system.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
                     </td>
                   </tr>
                 )}
@@ -118,11 +121,11 @@ export default function NavListPage () {
             </table>
             <hr className='small' style={{ marginTop: 0 }} />
           </>}
-        {navRoute && navRoute.length === 0 && 
+        {navRoute && navRoute.length === 0 &&
           <p className='text-info text-muted text-center' style={{ margin: '1rem 0' }}>
             No route set
           </p>}
-        {navRoute && 
+        {navRoute &&
           <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
             Set route using galaxy map
           </p>}

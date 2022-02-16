@@ -34,7 +34,7 @@
 
 .navigation-panel__inspector .navigation-panel__inspector-heading .icon {
   position: absolute;
-  top: .25rem;
+  top: -.25rem;
   left: 0;
   bottom: 0;
   width: 4rem;
@@ -54,10 +54,13 @@
 
 .navigation-panel__inspector-heading h2 {
   font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .navigation-panel__inspector-heading h3 {
   font-size: 1.25rem;
+  line-height: 1.25rem;
 }
 
 #navigation-panel[data-view="navigation-panel__list"] .navigation-panel__map {

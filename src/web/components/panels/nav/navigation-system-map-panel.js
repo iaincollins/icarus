@@ -34,18 +34,21 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
           <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>
-        {system.address && system.address !== 'Unknown' && system.position &&
-          <div className='system-map__location text-secondary text-muted text-no-wrap fx-fade-in hidden-small'>
-            {system.position?.[0]}, {system.position?.[1]}, {system.position?.[2]}
-            <br />
-            {system.address}
+        {system.position &&
+          <div className='system-map__location text-secondary text-muted text-no-wrap fx-fade-in'>
+            {system.position?.[0]}<br />{system.position?.[1]}<br />{system.position?.[2]}
           </div>}
-
         <div className='system-map__info fx-fade-in'>
-
-          {(system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0) &&
-            <div className='system-map__info-contents'>
-
+          <div className='system-map__info-contents'>
+            {system?.distance > 0 &&
+              <h3 className='text-secondary text-muted' style={{ marginBottom: '.5rem' }}>
+                {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY from current system
+              </h3>}
+            {system?.distance === 0 &&
+              <h3 className='text-primary' style={{ marginBottom: '.5rem' }}>
+                Current system
+              </h3>}
+            {(system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0) &&
               <h3>
                 {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' />{coriolisStarports}</span>}
                 {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' />{ocellusStarports}</span>}
@@ -55,8 +58,8 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' />{system.megaships.length}</span>}
                 {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' />{system.planetaryPorts.length}</span>}
                 {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' />{system.settlements.length}</span>}
-              </h3>
-            </div>}
+              </h3>}
+          </div>
         </div>
       </div>
     </div>
