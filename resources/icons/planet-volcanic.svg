@@ -23,17 +23,16 @@
      showgrid="false"
      showguides="false"
      inkscape:zoom="0.873"
-     inkscape:cx="500"
-     inkscape:cy="501.14548"
+     inkscape:cx="438.71707"
+     inkscape:cy="483.96334"
      inkscape:window-width="2211"
      inkscape:window-height="1541"
-     inkscape:window-x="312"
-     inkscape:window-y="324"
+     inkscape:window-x="222"
+     inkscape:window-y="441"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg4" />
   <path
-     id="path954"
+     id="path2039"
      style="fill:#000000;fill-rule:evenodd;stroke-width:86.9416;paint-order:fill markers stroke"
-     d="m 507.27734,121.4375 v 87.48047 h -79.90625 v 87.48242 h 79.90625 v 87.48242 h 79.90821 V 296.40039 H 507.2793 v -87.48242 h 79.90625 V 121.4375 Z m -135.5957,349.875 -183.35352,464.26562 h 95.83204 L 428.3125,557.74805 h 154.86523 l 144.15235,377.83007 h 95.83008 L 639.80859,471.3125 Z"
-     sodipodi:nodetypes="cccccccccccccccccccccc" />
+     d="m 431.84375,128.875 v 93.92969 h 93.92969 V 128.875 Z m 93.92969,93.92969 v 93.92773 h 93.92968 v -93.92773 z m 0,93.92773 h -93.92969 v 93.92969 h 93.92969 z M 371.68164,491.3125 188.32812,955.57812 h 95.83204 L 428.3125,577.74805 h 154.86523 l 144.15235,377.83007 h 95.83008 L 639.80859,491.3125 Z" />
 </svg>
