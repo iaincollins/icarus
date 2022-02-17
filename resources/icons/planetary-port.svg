@@ -4,7 +4,7 @@
    preserveAspectRatio="xMidYMid meet"
    version="1.1"
    id="svg8"
-   sodipodi:docname="planetary-port-small.svg"
+   sodipodi:docname="planetary-port.svg"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -26,12 +26,12 @@
      inkscape:cy="501.14548"
      inkscape:window-width="2045"
      inkscape:window-height="1177"
-     inkscape:window-x="1451"
-     inkscape:window-y="689"
+     inkscape:window-x="820"
+     inkscape:window-y="561"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg8" />
   <path
      id="path4957"
-     style="stroke-width:11.6474;paint-order:fill markers stroke"
-     d="M 195.87695,126.29297 V 670.09375 H 86.773438 V 823.5625 h -29.78125 v 60.35352 H 931.97266 V 823.5625 H 901.9082 V 539.40039 H 608.06836 V 126.29297 H 243.98633 Z m 48.10938,48.10937 H 559.95898 V 539.40039 H 437.6582 V 670.09375 H 243.98633 V 384.1875 H 485.50195 V 334.93164 H 243.98633 v -54 H 485.50195 V 231.67773 H 243.98633 Z M 487.27539,592.2793 h 365.01367 v 60.39258 H 592.44531 v 49.25585 h 259.84375 v 50.41797 71.2168 H 487.27539 Z M 136.22656,714.74414 H 437.6582 V 822.75195 H 136.22656 Z" />
+     style="stroke-width:13.2354;paint-order:fill markers stroke"
+     d="M 160.48925,77.792879 V 695.73316 H 36.511025 V 870.1252 H 2.6695246 v 68.58186 H 996.94115 V 870.1252 H 962.77782 V 547.22162 H 628.8771 V 77.792879 H 215.15767 Z m 54.66842,54.668401 H 574.20868 V 547.22162 H 435.23393 V 695.73316 H 215.15767 V 370.84767 h 274.44284 v -55.9712 H 215.15767 V 253.51434 H 489.60051 V 197.54535 H 215.15767 Z m 276.45805,474.84855 h 414.7781 v 68.62624 H 611.12407 v 55.97118 H 906.39382 V 789.199 870.1252 H 491.61572 Z M 92.706377,746.471 H 435.23393 V 869.20415 H 92.706377 Z" />
 </svg>

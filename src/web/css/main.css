@@ -107,7 +107,7 @@ html::-webkit-scrollbar,
   position: absolute;
   opacity: 0;
   transition: all .1s ease-in;
-  content: "\ea08";
+  content: "\ea09";
   color: var(--color-secondary);
   text-shadow: .1rem .1rem 0 var(--color-secondary-dark);
   bottom: .2rem;

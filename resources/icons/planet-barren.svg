@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1000 1000"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="planet-barren.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.873"
+     inkscape:cx="431.27148"
+     inkscape:cy="556.70103"
+     inkscape:window-width="1969"
+     inkscape:window-height="1310"
+     inkscape:window-x="1662"
+     inkscape:window-y="168"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4" />
+  <path
+     id="path900"
+     style="color:#000000;fill:#000000;fill-rule:evenodd;-inkscape-stroke:none;paint-order:fill markers stroke"
+     d="m 503.16406,34.638672 c -122.95463,0 -240.90951,48.858729 -327.85156,135.800778 -86.942054,86.94206 -135.80078,204.89694 -135.800781,327.85157 0,122.95463 48.858727,240.9095 135.800781,327.85156 86.94205,86.94205 204.89693,135.80078 327.85156,135.80078 122.95463,0 240.90951,-48.85873 327.85156,-135.80078 C 917.95768,739.20052 966.81641,621.24565 966.81641,498.29102 966.8164,375.33639 917.95768,257.38151 831.01562,170.43945 744.07357,83.497401 626.11869,34.638672 503.16406,34.638672 Z m 0,69.558598 c 104.53363,0 204.74958,41.51129 278.66602,115.42773 73.91644,73.91644 115.42773,174.13239 115.42773,278.66602 0,104.53363 -41.51129,204.74957 -115.42773,278.66601 -73.91644,73.91644 -174.13239,115.42774 -278.66602,115.42774 -104.53363,0 -204.75153,-41.5113 -278.66797,-115.42774 -73.91644,-73.91644 -115.42773,-174.13238 -115.42773,-278.66601 0,-104.53363 41.51129,-204.75153 115.42773,-278.66797 73.91644,-73.91644 174.13434,-115.42578 278.66797,-115.42578 z" />
+</svg>

@@ -17,7 +17,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
           <thead>
             <tr>
               <th>Location</th>
-              <th className='hidden-small text-no-wrap text-right'>&nbsp;</th>
+              <th style={{width: '1rem'}} className='hidden-small text-no-wrap text-right'>&nbsp;</th>
             </tr>
           </thead>
           <tbody className='fx-fade-in'>
@@ -98,7 +98,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
   const isLandable = systemObject.isLandable || SPACE_STATIONS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
 
   // TODO Move to icon class
-  let iconClass = 'icon icarus-terminal-'
+  let iconClass = 'icon system-object-icon icarus-terminal-'
   switch (systemObject.type.toLowerCase()) {
     case 'star':
       iconClass += 'star'
@@ -135,16 +135,26 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
   }
 
   if (isLandable) { iconClass += ' text-secondary' }
-
   return (
     <tr data-system-object-name={systemObject.name} tabIndex='2' onFocus={() => setSystemObject(systemObject)}>
       <td>
-        <div style={{ paddingLeft: `${(depth * 1.5) + 2}rem` }} className='text-no-wrap'>
+        <div style={{ paddingLeft: `${(depth * 0.8) + 2}rem`, paddingRight: '.75rem' }} className='text-no-wrap'>
           <i className={iconClass} />
-          {systemObject.name}
+          {systemObject.type === 'Planet' ? systemObject.label : systemObject.name}
+
+          <span className={systemObject.isLandable ? 'text-secondary' : ''}>
+            {systemObject.isLandable === true && <i title="Landable" className='float-right icon icarus-terminal-planet-lander'/>}
+            {systemObject?.subType?.toLowerCase() === 'earth-like world' && <i className='float-right icon icarus-terminal-planet-earthlike'/>}
+            {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && systemObject.terraformingState !== 'Terraformed' && <i className='float-right icon icarus-terminal-planet-terraformable'/>}
+            {systemObject?.subType?.toLowerCase() === 'water world' && <i className='float-right icon icarus-terminal-planet-water-world'/>}
+            {systemObject?.subType?.toLowerCase() === 'high metal content world' && <i className='float-right icon icarus-terminal-planet-high-metal-content'/>}
+            {systemObject.volcanismType && systemObject.volcanismType !== 'No volcanism' && <i className='float-right icon icarus-terminal-planet-volcanic'/>}
+            {systemObject.atmosphereComposition && <i className='float-right icon icarus-terminal-planet-atmosphere'/>}
+          </span>
         </div>
       </td>
-      <td className='hidden-small text-right text-no-transform'>{systemObject.distanceToArrival ? `${Math.round(systemObject.distanceToArrival)} Ls` : ''}</td>
+      <td
+       className='hidden-small text-right text-no-transform text-no-wrap'>{systemObject.distanceToArrival ? `${systemObject.distanceToArrival.toLocaleString(undefined, { maximumFractionDigits: 0 })} Ls` : ''}</td>
     </tr>
   )
 }

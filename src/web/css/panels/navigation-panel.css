@@ -107,9 +107,14 @@
 
 .navigation-panel__list table .icon {
   font-size: 2rem;
-  margin-left: -2.75rem;
-  margin-top: -.35rem;
+  line-height: 1rem;
+  margin: 0;
+  padding: .225rem 0;
+}
+
+.navigation-panel__list table .icon.system-object-icon {
   position: absolute;
+  margin-left: -3rem;
 }
 
 .navigation-panel__map-foreground {
