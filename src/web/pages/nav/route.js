@@ -108,12 +108,12 @@ export default function NavListPage () {
                         <span className='text-muted'> | </span>
                         {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
                         <span className='visible-medium'>
-                          {system.position && route.StarPos && system?.name !== route?.StarSystem && <span><br />{distance(system.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                          {currentSystem.position && route.StarPos && currentSystem?.name !== route?.StarSystem && <span><br />{distance(currentSystem.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
                         </span>
                       </div>
                     </td>
                     <td className='hidden-medium text-right'>
-                      {system.position && route.StarPos && system?.name !== route?.StarSystem && <span>{distance(system.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                      {currentSystem.position && route.StarPos && currentSystem?.name !== route?.StarSystem && <span>{distance(currentSystem.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
                     </td>
                   </tr>
                 )}

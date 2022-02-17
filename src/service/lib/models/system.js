@@ -22,7 +22,7 @@ class NavigationModel {
 
     if (!systemCache[systemName] || useCache === false) { // Check for entry in cache
       const system = await EDSM.system(systemName)
-      const systemMap = new SystemMap(system)
+      const systemMap =  new SystemMap(system)
 
       // Create/Update cache entry
       systemCache[systemName] = {
@@ -33,7 +33,7 @@ class NavigationModel {
 
     let response = systemCache[systemName] // Use cache
 
-    if (!response.name) {
+    if (!response.name || response.name === UNKNOWN_VALUE) {
       response.name = systemName
       response.unknownSystem = true
     }

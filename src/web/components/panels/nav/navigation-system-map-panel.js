@@ -45,7 +45,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY from current system
               </h3>}
             {system?.distance === 0 && system.isCurrentLocation === false &&
-              <h3 className='text-secondary' style={{ marginBottom: '.5rem' }}>
+              <h3 className='text-secondary text-muted' style={{ marginBottom: '.5rem' }}>
                 Unknown system
               </h3>}
             {system.isCurrentLocation === true &&
