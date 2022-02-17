@@ -35,11 +35,11 @@ export default function SystemMap ({ system, setSystemObject }) {
                 {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='system-map__seperator' />{system.security}</> : ''}
               </span>
             </h3>}
-          {system.economy && system.economy.primary !== 'Unknown' &&
+          {system.economy && system.economy?.primary !== 'Unknown' && system?.economy?.primary !== 'None' &&
             <h3 className='text-info text-muted'>
               <span className='fx-animated-text' data-fx-order='5'>
-                {system.economy && system.economy.primary !== 'Unknown' && system.economy.primary}
-                {system.economy && system.economy.secondary !== 'Unknown' && system.economy.secondary !== 'None' && ` & ${system.economy.secondary}`}
+                {system.economy.primary}
+                {system.economy.secondary && system.economy.secondary !== 'Unknown' && system.economy.secondary !== 'None' && ` & ${system.economy.secondary}`}
                 {' '}Economy
                 {system.state && system.state !== 'Unknown' && system.state !== 'None' && <><span className='system-map__seperator' />{system.state}</>}
               </span>
