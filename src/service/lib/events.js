@@ -13,6 +13,7 @@ const NavigationModel = require('./models/system')
 const ShipModel = require('./models/ship')
 const MaterialsModel = require('./models/materials')
 const BlueprintModel = require('./models/blueprints')
+const InventoryModel = require('./models/inventory')
 
 // Instances that can be used to query game state
 const eliteJson = new EliteJson(LOG_DIR)
@@ -21,6 +22,7 @@ const navigationModel = new NavigationModel({ eliteLog })
 const shipModel = new ShipModel({ eliteLog, eliteJson })
 const materialsModel = new MaterialsModel({ eliteLog, eliteJson })
 const blueprintModel = new BlueprintModel({ materialsModel, shipModel })
+const inventoryModel = new InventoryModel({ eliteLog, eliteJson })
 
 // TODO Define these in another file / merge with eventHandlers before porting
 // over existing event handlers from the internal build
@@ -130,8 +132,8 @@ const eventHandlers = {
   getShip: (args) => shipModel.getShip(args),
   getMaterials: (args) => materialsModel.getMaterials(args),
   getBlueprints: (args) => blueprintModel.getBlueprints(args),
-  getNavRoute: async (args) => ((await eliteJson.json())?.NavRoute?.Route ?? []),
-  getShipLocker: async () => ((await eliteJson.json())?.ShipLocker ?? null),
+  getNavRoute: async () => ((await eliteJson.json())?.NavRoute?.Route ?? []),
+  getInventory: (args) => inventoryModel.getInventory(args),
   syncMessage: (message) => broadcastEvent('syncMessage', message)
 }
 
