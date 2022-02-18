@@ -144,13 +144,13 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
 
           <span className={systemObject.isLandable ? 'text-secondary' : ''}>
             {systemObject.isLandable === true && <i title="Landable" className='float-right icon icarus-terminal-planet-lander'/>}
-            {systemObject?.subType?.toLowerCase() === 'earth-like world' && <i className='float-right icon icarus-terminal-planet-earthlike'/>}
+            {systemObject.atmosphereComposition && <i className='float-right icon icarus-terminal-planet-atmosphere'/>}
+            {systemObject.volcanismType && systemObject.volcanismType !== 'No volcanism' && <i className='float-right icon icarus-terminal-planet-volcanic'/>}
             {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && systemObject.terraformingState !== 'Terraformed' && <i className='float-right icon icarus-terminal-planet-terraformable'/>}
+            {systemObject?.subType?.toLowerCase() === 'earth-like world' && <i className='float-right icon icarus-terminal-planet-earthlike'/>}
             {systemObject?.subType?.toLowerCase() === 'water world' && <i className='float-right icon icarus-terminal-planet-water-world'/>}
             {systemObject?.subType?.toLowerCase() === 'high metal content world' && <i className='float-right icon icarus-terminal-planet-high-metal-content'/>}
-            {systemObject.volcanismType && systemObject.volcanismType !== 'No volcanism' && <i className='float-right icon icarus-terminal-planet-volcanic'/>}
-            {systemObject.atmosphereComposition && <i className='float-right icon icarus-terminal-planet-atmosphere'/>}
-          </span>
+         </span>
         </div>
       </td>
       <td
