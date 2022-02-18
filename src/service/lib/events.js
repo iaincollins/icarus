@@ -131,6 +131,7 @@ const eventHandlers = {
   getMaterials: (args) => materialsModel.getMaterials(args),
   getBlueprints: (args) => blueprintModel.getBlueprints(args),
   getNavRoute: async (args) => ((await eliteJson.json())?.NavRoute?.Route ?? []),
+  getShipLocker: async () => ((await eliteJson.json())?.ShipLocker ?? null),
   syncMessage: (message) => broadcastEvent('syncMessage', message)
 }
 

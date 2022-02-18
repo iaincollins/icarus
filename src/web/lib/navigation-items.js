@@ -9,6 +9,11 @@ function ShipPanelNavItems (activePanel) {
       name: 'Cargo',
       icon: 'cargo',
       url: '/ship/cargo'
+    },
+    {
+      name: 'Inventory',
+      icon: 'inventory',
+      url: '/ship/inventory'
     }
   ]
   navigationItems.forEach(item => {
