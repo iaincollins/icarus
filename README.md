@@ -7,7 +7,7 @@ You can run ICARUS Terminal in a single window (or multiple windows/displays), c
 
 **ICARUS Terminal is currently in early access.**
 
-**[<img src="https://user-images.githubusercontent.com/595695/154779038-c9365581-af5d-4da2-a301-499bcdeff898.svg" height="18" width="auto"/>  Download the latest release](https://github.com/iaincollins/icarus/release)**
+**[<img src="https://user-images.githubusercontent.com/595695/154779038-c9365581-af5d-4da2-a301-499bcdeff898.svg" height="18" width="auto"/>  Download the latest release](https://github.com/iaincollins/icarus/releases)**
 
 ![Screenshot](https://user-images.githubusercontent.com/595695/154366836-90f476d1-6fb4-4cb9-995b-d808f4b6fc1c.png)
 
