@@ -27,8 +27,7 @@ function clean () {
 
 async function build () {
   // Convert icon.png to icon.ico (used for windows app icon)
-  // TODO Refactor build steps for icon (NB: should be 256x256 bitmap)
-  const files = [fs.readFileSync(path.join(RESOURCES_DIR, 'icon.png'))]
+  const files = [fs.readFileSync(path.join(RESOURCES_DIR, 'logo.png'))]
   const buf = await toIco(files)
   fs.writeFileSync(path.join(ASSETS_DIR, 'icon.ico'), buf)
   fse.copySync(path.join(ASSETS_DIR, 'icon.ico'), 'src/web/public/favicon.ico')
