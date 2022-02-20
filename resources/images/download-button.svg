@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1000 300"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="download-button.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   width="1000"
+   height="300"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient13493">
+      <stop
+         style="stop-color:#ff9f00;stop-opacity:1"
+         offset="0"
+         id="stop13489" />
+      <stop
+         style="stop-color:#ea7800;stop-opacity:1"
+         offset="1"
+         id="stop13491" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient13493"
+       id="radialGradient13495"
+       cx="373.05237"
+       cy="-61.202835"
+       fx="373.05237"
+       fy="-61.202835"
+       r="500"
+       gradientTransform="matrix(-1.5670103,0.02978235,-0.00571836,-0.29994548,1103.1273,125.17129)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.873"
+     inkscape:cx="372.2795"
+     inkscape:cy="118.5567"
+     inkscape:window-width="2229"
+     inkscape:window-height="1353"
+     inkscape:window-x="333"
+     inkscape:window-y="532"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg10" />
+  <rect
+     style="fill:url(#radialGradient13495);fill-rule:evenodd;stroke:none;stroke-width:84.153;paint-order:fill markers stroke;fill-opacity:1"
+     id="rect847"
+     width="1000"
+     height="300"
+     x="0"
+     y="0" />
+  <path
+     id="path1214"
+     style="fill:#552200;stroke-width:0.248159"
+     d="m 94.292494,91.418851 v 35.412159 l -37.190649,0.30948 37.190649,37.19066 5.01778,5.01778 16.080266,16.08027 21.09805,-21.09805 37.79559,-37.79559 -0.3678,-0.36779 -37.42779,0.31165 V 91.418851 Z M 57.146365,196.91514 v 16.94435 H 173.91638 v -16.94435 z" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:86.4552px;line-height:1.25;font-family:sans-serif;fill:#552200;fill-opacity:1;stroke:none;stroke-width:1.01315"
+     x="212.70456"
+     y="124.78532"
+     id="text2343"
+     transform="scale(1.0131469,0.98702369)"><tspan
+       sodipodi:role="line"
+       id="tspan2341"
+       x="212.70456"
+       y="124.78532"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:86.4552px;font-family:'Euro Caps';-inkscape-font-specification:'Euro Caps';fill:#552200;stroke-width:1.01315">Download Latest</tspan><tspan
+       sodipodi:role="line"
+       x="212.70456"
+       y="233.69861"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:86.4552px;font-family:'Euro Caps';-inkscape-font-specification:'Euro Caps';fill:#552200;stroke-width:1.01315"
+       id="tspan11087">Preview Release</tspan></text>
+</svg>
