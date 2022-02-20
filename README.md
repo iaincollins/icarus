@@ -1,4 +1,6 @@
-<img alt="ICARUS Terminal" src="https://user-images.githubusercontent.com/595695/154846763-97b19433-5f41-4b73-85dc-74e0ef781a51.svg" height="120" width="auto"/>
+<img alt="ICARUS Terminal" src="https://user-images.githubusercontent.com/595695/154860679-b02a1f8b-edb2-4fb5-a75f-4074ad9fd193.svg" height="100" width="auto"/>
+
+## About ICARUS Terminal
 
 _ICARUS Terminal is a free, immersive, context-sensitive companion app and second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/)._
 
@@ -6,13 +8,11 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
 
 ICARUS Terminal includes integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/). Data such as your current in-game location, cargo, etc. may be sent to them order to render information in the interface, but this does not include personally identifiable information (e.g. commander name or ship name).
 
-## Download
-
-**⚠️ ICARUS Terminal is currently in early access.**
+<p align="center">⚠️ ICARUS Terminal is currently in early access.</p>
 
 <p align="center">
   <a href="https://github.com/iaincollins/icarus/releases">
-    <img alt="Download" src="https://user-images.githubusercontent.com/595695/154845313-721e02aa-19c4-4ba8-99c0-0fd1bbbb805d.svg" height="90" width="auto"/>
+    <img alt="Download" src="https://user-images.githubusercontent.com/595695/154860799-5b7f86df-1f26-4d89-bde4-04c2e0503704.svg" height="80" width="auto"/>
   </a>
 </p>
  
@@ -20,17 +20,19 @@ ICARUS Terminal includes integrations with services like [EDSM](https://www.edsm
   
 ![Screenshot](https://user-images.githubusercontent.com/595695/154845792-a945697d-5a76-4317-b13a-af94d2383fd7.png)
 
-## About ICARUS Terminal
+## More Information
 
-ICARUS Terminal is free and open-source software.
+ICARUS Terminal is free, open-source software.
 
-The application checks for new releases and will give you the option to install updates when available.
+The application checks for new releases and will give you the option to install updates when they available.
 
 As of v0.4.0 all releases are signed with a code signing certificate.
 
-Windows 10 or newer is required for the Windows version.
+Windows 10 or newer is required.
 
-Instructions for a one-step build process for native versions on Linux and MacOS X (or older versions of Windows) are included.
+Instructions for a one-step build process for native versions on Linux and MacOS X (or older versions of Windows) can be found below.
+
+Elite Dangerous is copyright Frontier Developments plc. This software is not endorsed by nor reflects the views or opinions of Frontier Developments and no employee of Frontier Developments was involved in the making of it.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
 REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
@@ -42,7 +44,7 @@ PERFORMANCE OF THIS SOFTWARE.
 
 ----
 
-## Overview
+## Documentation
 
 _This documentation is intended for developers._
 
@@ -169,9 +171,9 @@ _ICARUS Terminal would not be possible without work from dozens of enthusiasts a
 
 The name ICARUS was suggested by [SpaceNinjaBear](https://www.reddit.com/user/SpaceNinjaBear) on Reddit.
 
-Loading animation by James Panter (http://codepen.io/jpanter/pen/PWWQXK).
+Loading animation by [James Panter](http://codepen.io/jpanter/pen/PWWQXK).
 
-Includes origional icons, icons inspired by those found in Elite Dangerous and icons based on those from https://edassets.org (see https://github.com/SpyTec/EDAssets for contributors).
+Includes origional icons, icons inspired by those found in Elite Dangerous and icons based on those from [edassets.org](https://edassets.org).
 
 Uses stellar cartography data from the wonderful [EDSM API](https://www.edsm.net).
 
@@ -181,6 +183,6 @@ The [Jura font](https://fonts.google.com/specimen/Jura#glyphs) is included under
 
 Thank you to [Serge Zaitsev](https://github.com/zserge) for his work on the WebView library.
 
-ICARUS Terminal uses imagery from Elite Dangerous, which copyright Frontier Developments plc. This software is not endorsed by nor reflects the views or opinions of Frontier Developments and no employee of Frontier Developments was involved in the making of it.
+ICARUS Terminal uses imagery from/inspired by Elite Dangerous, which is copyright Frontier Developments plc. This software is not endorsed by nor reflects the views or opinions of Frontier Developments and no employee of Frontier Developments was involved in the making of it.
 
-Thank you to all those who have created and supported libraries on which this software depends.
+Thank you to all those who have created and supported libraries on which this software depends and to Frontier Developments plc for supporting third party tools.
