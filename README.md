@@ -2,8 +2,7 @@
 
 _ICARUS Terminal is an immersive, context-sensitive companion app and second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/)._
 
-You can run ICARUS Terminal in a single window (or multiple windows/displays), connect remotely from another computer/tablet/phone/other device or use it as an overlayed window if playing with a VR headset.
- 
+You can run ICARUS Terminal in a native window, on multiple windows/displays, connect remotely in a browser from another computer/tablet/phone/other device or use it as an overlayed window in top of the game if playing with a VR headset or on an ultra-wide display.
 
 **ICARUS Terminal is currently in early access.**
 
