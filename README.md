@@ -1,26 +1,36 @@
-# <img src="https://user-images.githubusercontent.com/595695/154779107-8a3d2b32-c1d6-4544-af76-11033e4d532a.svg" height="32" width="auto"/> ICARUS Terminal
+<img alt="ICARUS Terminal" src="https://user-images.githubusercontent.com/595695/154846763-97b19433-5f41-4b73-85dc-74e0ef781a51.svg" height="120" width="auto"/>
 
-_ICARUS Terminal is an immersive, context-sensitive companion app and second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/)._
+_ICARUS Terminal is a free, immersive, context-sensitive companion app and second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/)._
 
-You can run ICARUS Terminal in a native window, on multiple windows/displays, connect remotely in a browser from another computer/tablet/phone/other device or use it as an overlayed window in top of the game if playing with a VR headset or on an ultra-wide display.
-
-**ICARUS Terminal is currently in early access.**
-
-**[<img src="https://user-images.githubusercontent.com/595695/154779038-c9365581-af5d-4da2-a301-499bcdeff898.svg" height="18" width="auto"/>  Download the latest release](https://github.com/iaincollins/icarus/releases)**
-
-![Screenshot](https://user-images.githubusercontent.com/595695/154366836-90f476d1-6fb4-4cb9-995b-d808f4b6fc1c.png)
-
-## About ICARUS Terminal
-
-Windows 10 or newer is required.
-
-ICARUS Terminal application checks for new releases and will link to the release notes and give you the option to install the update if there is one.
+You can run ICARUS Terminal in a native window, on multiple windows/displays, as an overlayed window in top of the game if playing with a VR headset or on an ultra-wide display or connect remotely in a browser from another computer/tablet/phone/other device (e.g. Andriod Phone, Amazon Fire Tablet); the UI is specifically designed to adapt the layout of panels to both landscape and portrait displays both large and small as well as being fully scalable.
 
 ICARUS Terminal includes integrations with services like [EDSM](https://www.edsm.net), [EDDB](https://eddb.io/) and [INARA](https://inara.cz/). Data such as your current in-game location, cargo, etc. may be sent to them order to render information in the interface, but this does not include personally identifiable information (e.g. commander name or ship name).
 
-As of v0.4.0 all releases are signed with a code signing certificate.
+## Download
+
+**⚠️ ICARUS Terminal is currently in early access.**
+
+<p align="center">
+  <a href="https://github.com/iaincollins/icarus/releases">
+    <img alt="Download" src="https://user-images.githubusercontent.com/595695/154845313-721e02aa-19c4-4ba8-99c0-0fd1bbbb805d.svg" height="90" width="auto"/>
+  </a>
+</p>
+ 
+## Screenshot
+  
+![Screenshot](https://user-images.githubusercontent.com/595695/154845792-a945697d-5a76-4317-b13a-af94d2383fd7.png)
+
+## About ICARUS Terminal
 
 ICARUS Terminal is free and open-source software.
+
+The application checks for new releases and will give you the option to install updates when available.
+
+As of v0.4.0 all releases are signed with a code signing certificate.
+
+Windows 10 or newer is required for the Windows version.
+
+Instructions for a one-step build process for native versions on Linux and MacOS X (or older versions of Windows) are included.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
 REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
