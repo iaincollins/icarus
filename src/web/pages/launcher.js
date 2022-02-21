@@ -53,8 +53,8 @@ export default function IndexPage () {
       }}
       />
       <div style={{ padding: '.5rem 1rem', opacity: connected ? 1 : 0, zoom: '1.2', fontWeight: 'bold' }}>
-        <h1 className='text-info' style={{marginBottom: '.5rem'}}>
-          <i className='icon icarus-terminal-logo' style={{position: 'relative', top: '.75rem'}}/>ICARUS
+        <h1 className='text-info' style={{ marginBottom: '.5rem' }}>
+          <i className='icon icarus-terminal-logo' style={{ position: 'relative', top: '.75rem' }} />ICARUS
         </h1>
         <span className='launcher-title'>
           <h3 className='text-primary'>ICARUS Terminal</h3>

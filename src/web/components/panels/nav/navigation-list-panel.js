@@ -1,6 +1,6 @@
 import { SPACE_STATIONS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
 
-export default function NavigationInspectorPanel ({ system, systemObject, setSystemObject }) {
+export default function NavigationInspectorPanel ({ system, systemObject, setSystemObject, showHelp }) {
   if (!system) return null
 
   return (
@@ -13,11 +13,17 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
           <h2 style={{ marginRight: '4.5rem' }}>No system information</h2>
         </div>}
       <div className='scrollable'>
+        <div
+          className='button button--transparent button--icon' onClick={showHelp}
+          style={{ position: 'absolute', top: '0rem', right: '1.5rem', height: '2.5rem', width: '2.5rem', zIndex: 20 }}
+        >
+          <i style={{ fontSize: '2rem', lineHeight: '2.6rem' }} className='icon icarus-terminal-help' />
+        </div>
         <table className='table--animated table--interactive'>
           <thead>
             <tr>
               <th>Location</th>
-              <th style={{ width: '1rem' }} className='hidden-small text-no-wrap text-right'>&nbsp;</th>
+              <th style={{ width: '1rem' }} className='hidden-small'>&nbsp;</th>
             </tr>
           </thead>
           <tbody className='fx-fade-in'>
@@ -144,12 +150,16 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
 
           <span className={systemObject.isLandable ? 'text-secondary' : ''}>
             {systemObject.isLandable === true && <i title='Landable' className='float-right icon icarus-terminal-planet-lander' />}
-            {systemObject.atmosphereComposition && <i className='float-right icon icarus-terminal-planet-atmosphere' />}
+            {(systemObject.atmosphereComposition && !systemObject?.subType?.toLowerCase()?.includes('gas giant')) && <i className='float-right icon icarus-terminal-planet-atmosphere' />}
             {systemObject.volcanismType && systemObject.volcanismType !== 'No volcanism' && <i className='float-right icon icarus-terminal-planet-volcanic' />}
             {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && systemObject.terraformingState !== 'Terraformed' && <i className='float-right icon icarus-terminal-planet-terraformable' />}
             {systemObject?.subType?.toLowerCase() === 'earth-like world' && <i className='float-right icon icarus-terminal-planet-earthlike' />}
             {systemObject?.subType?.toLowerCase() === 'water world' && <i className='float-right icon icarus-terminal-planet-water-world' />}
             {systemObject?.subType?.toLowerCase() === 'high metal content world' && <i className='float-right icon icarus-terminal-planet-high-metal-content' />}
+            {systemObject?.subType?.toLowerCase()?.includes('gas giant') && <i className='float-right icon icarus-terminal-planet-gas-giant' />}
+            {systemObject?.subType?.toLowerCase()?.includes('water-based life') && <i className='float-right icon icarus-terminal-planet-water-based-life' />}
+            {systemObject?.subType?.toLowerCase()?.includes('ammonia-based life') && <i className='float-right icon icarus-terminal-planet-ammonia-based-life' />}
+            {systemObject.rings && <i className='float-right icon icarus-terminal-planet-ringed' />}
           </span>
         </div>
       </td>

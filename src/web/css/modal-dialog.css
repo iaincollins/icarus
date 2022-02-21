@@ -2,7 +2,7 @@
   z-index: 2000;
   border: .2rem solid var(--color-primary);
   background: black var(--linear-gradient-background);
-  position: fixed; 
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

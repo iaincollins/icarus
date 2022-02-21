@@ -16,11 +16,7 @@ const {
   SERVICE_OPTIMIZED_BUILD,
   SERVICE_FINAL_BUILD,
   SERVICE_ICON,
-  SERVICE_VERSION_INFO,
-  PATH_TO_SIGNTOOL,
-  SIGN_BUILD,
-  SIGN_CERT_NAME,
-  SIGN_TIME_SERVER
+  SERVICE_VERSION_INFO
 } = require('./lib/build-options')
 
 const DEVELOPMENT_BUILD = commandLineArgs.debug || DEVELOPMENT_BUILD_DEFAULT
@@ -74,9 +70,5 @@ async function build () {
       .start()
     console.log('Optimization', optimisationStats)
     fs.copyFileSync(SERVICE_OPTIMIZED_BUILD, SERVICE_FINAL_BUILD)
-  }
-
-  if (SIGN_BUILD) {
-    execSync(`"${PATH_TO_SIGNTOOL}" sign /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${SERVICE_FINAL_BUILD}"`)
   }
 }

@@ -96,7 +96,7 @@ export default function Header ({ connected, active }) {
     <header>
       <hr className='small' />
       <h1 className='text-info' style={{ padding: '.6rem 0 .25rem 3.75rem' }}>
-        <i className='icon icarus-terminal-logo' style={{position: 'absolute', fontSize: '3rem', left: 0}}/>ICARUS <span className='hidden-small'>Terminal</span>
+        <i className='icon icarus-terminal-logo' style={{ position: 'absolute', fontSize: '3rem', left: 0 }} />ICARUS <span className='hidden-small'>Terminal</span>
       </h1>
       <div style={{ position: 'absolute', top: '1rem', right: '.5rem' }}>
         <p

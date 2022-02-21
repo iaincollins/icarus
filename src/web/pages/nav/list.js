@@ -14,6 +14,7 @@ export default function NavListPage () {
   const [componentReady, setComponentReady] = useState(false)
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
+  const [helpVisible, setHelpVisible] = useState(false)
 
   const getSystem = async (systemName, useCache = true) => {
     const newSystem = await sendEvent('getSystem', { name: systemName, useCache })
@@ -87,11 +88,56 @@ export default function NavListPage () {
   }, [system, systemObject, router.isReady])
 
   return (
-    <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
-      <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={system?.isCurrentLocation === false ? () => getSystem() : null}>
-        <NavigationListPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} />
-        <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
-      </Panel>
-    </Layout>
+    <>
+      <div className='modal-dialog' style={{ display: helpVisible ? 'block' : 'none' }}>
+        <h3 className='text-primary'>Key</h3>
+        <hr />
+        <div className='text-primary text-uppercase navigation-panel__legend'>
+          <p>
+            <i className='icon icarus-terminal-planet-lander text-secondary' /> Landable
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-atmosphere' /> Atmosphere
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-volcanic' /> Volcanic activity
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-terraformable' /> Terraformable
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-earthlike' /> Earthlike
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-water-world' /> Water World
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-high-metal-content' /> High metal content
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-gas-giant' /> Gas Giant
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-water-based-life' /> Water based life
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-ammonia-based-life' /> Ammonia based life
+          </p>
+          <p>
+            <i className='icon icarus-terminal-planet-ringed' /> Ringed
+          </p>
+        </div>
+        <hr style={{ margin: '1rem 0 .5rem 0' }} />
+        <button className='float-right' onClick={() => setHelpVisible(false)}>
+          Close
+        </button>
+      </div>
+      <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
+        <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={system?.isCurrentLocation === false ? () => getSystem() : null}>
+          <NavigationListPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} showHelp={() => setHelpVisible(true)} />
+          <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
+        </Panel>
+      </Layout>
+    </>
   )
 }

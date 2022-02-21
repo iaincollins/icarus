@@ -241,14 +241,18 @@
     transition: top .5s ease-in-out;
   }
 
-  .navigation-panel__inspector > * {
-    xmargin-left: 1rem !important;
-  }
-
   .navigation-panel__inspector--hidden {
     top: 100%;
     height: 0;
     padding: 0;
     overflow: hidden;
   }
+}
+
+.navigation-panel__legend .icon {
+  font-size: 2rem;
+  line-height: 2rem;
+  position: relative;
+  top: .5rem;
+  margin-right: .25rem;
 }
