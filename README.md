@@ -1,4 +1,4 @@
-<img alt="ICARUS Terminal" src="https://user-images.githubusercontent.com/595695/154860679-b02a1f8b-edb2-4fb5-a75f-4074ad9fd193.svg" height="100" width="auto"/>
+<img alt="ICARUS Terminal" src="https://user-images.githubusercontent.com/595695/155009133-c3a3adbf-6027-4fc7-9c9a-aaa5f1300433.svg" height="100" width="auto"/>
 
 ## About ICARUS Terminal
 
