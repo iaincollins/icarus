@@ -30,3 +30,4 @@ Some of the features and improvements currently being worked on:
 * Improve loading apperance (UI scaling, theme application) to reduce jankiness
 * Show distance from systems in currently plotted route
 * Show distance from remote systems being viewed in System Map
+* Use Location event to determine current system, then override with FSD event if newer (other events can come later). Location is fired at startup and after respawning.

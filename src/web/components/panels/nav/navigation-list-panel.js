@@ -13,16 +13,17 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
           <h2 style={{ marginRight: '4.5rem' }}>No system information</h2>
         </div>}
       <div className='scrollable'>
-        <div
-          className='button button--transparent button--icon' onClick={showHelp}
+        <button
+          className='button button-transparent button--icon circle' onClick={showHelp}
+          tabIndex={3}
           style={{ position: 'absolute', top: '0rem', right: '1.5rem', height: '2.5rem', width: '2.5rem', zIndex: 20 }}
         >
           <i style={{ fontSize: '2rem', lineHeight: '2.6rem' }} className='icon icarus-terminal-help' />
-        </div>
+        </button>
         <table className='table--animated table--interactive'>
           <thead>
             <tr>
-              <th>Location</th>
+              <th><i style={{ fontSize: '1.5rem', marginRight: '.25rem' }} className='float-left icarus-terminal-system-orbits' />{system.name}</th>
               <th style={{ width: '1rem' }} className='hidden-small'>&nbsp;</th>
             </tr>
           </thead>

@@ -6,6 +6,10 @@
   float: left;
 }
 
+.circle {
+  border-radius: 100rem;
+}
+
 @media only screen and (max-width: 599px) {
   .hidden-small {
     display: none;
