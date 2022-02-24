@@ -133,7 +133,7 @@ export default function NavListPage () {
         </button>
       </div>
       <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
-        <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={system?.isCurrentLocation === false ? () => getSystem() : null}>
+        <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={(system?.isCurrentLocation === false || system?.unknownSystem === true) ? () => getSystem() : null}>
           <NavigationListPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} showHelp={() => setHelpVisible(true)} />
           <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
         </Panel>

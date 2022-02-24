@@ -20,7 +20,7 @@
   padding: .5rem 0 .25rem 0;
   overflow: hidden;
   box-sizing: border-box;
-  background: radial-gradient(circle, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0) 100%);
+  background: radial-gradient(circle, rgba(0,0,0,.8) 30%, rgba(0,0,0,0) 100%);
 }
 
 .system-map__info-contents {
@@ -91,22 +91,6 @@
 .system-map__title h3 {
   font-size: 1.25rem;
   line-height: 1.25rem;
-}
-
-.system-map__seperator::before {
-  display: inline-block;
-  padding: 0 .5rem;
-  opacity: .5;
-  content: '|';
-}
-
-@media only screen and (max-width: 799px) {
-  .system-map__seperator::before {
-    display: none;
-  }
-  .system-map__seperator{
-    display: block;
-  }
 }
 
 .system-map__planetary-system {

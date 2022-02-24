@@ -16,9 +16,9 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
         <button
           className='button button-transparent button--icon circle' onClick={showHelp}
           tabIndex={3}
-          style={{ position: 'absolute', top: '0rem', right: '1.5rem', height: '2.5rem', width: '2.5rem', zIndex: 20 }}
+          style={{ position: 'absolute', top: '0rem', right: '1.5rem', height: '2.25rem', width: '2.25rem', zIndex: 20 }}
         >
-          <i style={{ fontSize: '2rem', lineHeight: '2.6rem' }} className='icon icarus-terminal-help' />
+          <i style={{ fontSize: '1.8rem', lineHeight: '2.3rem' }} className='icon icarus-terminal-help' />
         </button>
         <table className='table--animated table--interactive'>
           <thead>
@@ -44,7 +44,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
           )} */}
             {(!system.detail || !system.detail.bodies || system.detail.bodies.length === 0) &&
               <tr>
-                <td colspan='2' className='text-muted text-center'>&nbsp;</td>
+                <td colSpan='2' className='text-muted text-center'>&nbsp;</td>
               </tr>}
           </tbody>
         </table>
@@ -56,6 +56,8 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
 
 function NavigationTableBody ({ system, setSystemObject }) {
   let tableRows = []
+
+  if (!system?.stars) return tableRows // Handle unknown systems
 
   for (const star of system.stars) {
     tableRows.push(<NavigationTableRow key={`${star.name}_${star.id}`} systemObject={star} setSystemObject={setSystemObject} />)
@@ -155,11 +157,12 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
             {systemObject.volcanismType && systemObject.volcanismType !== 'No volcanism' && <i className='float-right icon icarus-terminal-planet-volcanic' />}
             {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && systemObject.terraformingState !== 'Terraformed' && <i className='float-right icon icarus-terminal-planet-terraformable' />}
             {systemObject?.subType?.toLowerCase() === 'earth-like world' && <i className='float-right icon icarus-terminal-planet-earthlike' />}
-            {systemObject?.subType?.toLowerCase() === 'water world' && <i className='float-right icon icarus-terminal-planet-water-world' />}
+            {(systemObject?.subType?.toLowerCase()?.includes('water world') || systemObject?.subType?.toLowerCase()?.includes('water giant')) && <i className='float-right icon icarus-terminal-planet-water-world' />}
             {systemObject?.subType?.toLowerCase() === 'high metal content world' && <i className='float-right icon icarus-terminal-planet-high-metal-content' />}
             {systemObject?.subType?.toLowerCase()?.includes('gas giant') && <i className='float-right icon icarus-terminal-planet-gas-giant' />}
             {systemObject?.subType?.toLowerCase()?.includes('water-based life') && <i className='float-right icon icarus-terminal-planet-water-based-life' />}
             {systemObject?.subType?.toLowerCase()?.includes('ammonia-based life') && <i className='float-right icon icarus-terminal-planet-ammonia-based-life' />}
+            {systemObject?.subType?.toLowerCase()?.includes('with life') && <i className='float-right icon icarus-terminal-planet-life' />}
             {systemObject.rings && <i className='float-right icon icarus-terminal-planet-ringed' />}
           </span>
         </div>

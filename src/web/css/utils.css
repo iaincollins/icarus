@@ -10,6 +10,23 @@
   border-radius: 100rem;
 }
 
+.seperator::before {
+  display: inline-block;
+  padding: 0 .5rem;
+  opacity: .5;
+  content: '//';
+}
+
+@media only screen and (max-width: 799px) {
+  .seperator::before {
+    display: none;
+  }
+  .seperator {
+    display: block;
+  }
+}
+
+
 @media only screen and (max-width: 599px) {
   .hidden-small {
     display: none;

@@ -32,7 +32,7 @@ export default function SystemMap ({ system, setSystemObject }) {
                 {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
                 {' '}
                 {system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government}
-                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='system-map__seperator' />{system.security}</> : ''}
+                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='seperator' />{system.security}</> : ''}
               </span>
             </h3>}
           {system.economy && system.economy?.primary !== 'Unknown' && system?.economy?.primary !== 'None' &&
@@ -41,11 +41,11 @@ export default function SystemMap ({ system, setSystemObject }) {
                 {system.economy.primary}
                 {system.economy.secondary && system.economy.secondary !== 'Unknown' && system.economy.secondary !== 'None' && ` & ${system.economy.secondary}`}
                 {' '}Economy
-                {system.state && system.state !== 'Unknown' && system.state !== 'None' && <><span className='system-map__seperator' />{system.state}</>}
+                {system.state && system.state !== 'Unknown' && system.state !== 'None' && <><span className='seperator' />{system.state}</>}
               </span>
             </h3>}
         </div>
-        {system.stars.map(star =>
+        {system?.stars?.map(star =>
           <SystemMapStar
             key={`system-map_${system.name}_${star.name}_${star.id}`}
             star={star}

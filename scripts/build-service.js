@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const { execSync } = require('child_process')
 const { compile } = require('nexe')
 const changeExe = require('changeexe')
 const UPX = require('upx')({ brute: false }) // Brute on service seems to hang

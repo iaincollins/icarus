@@ -15,21 +15,32 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
   },[])
   */
 
-  const coriolisStarports = system?.spaceStations?.filter(station => station?.type === 'Coriolis Starport').length
-  const ocellusStarports = system?.spaceStations?.filter(station => station?.type === 'Ocellus Starport').length
-  const orbisStarports = system?.spaceStations?.filter(station => station?.type === 'Orbis Starport').length
-  const asteroidBases = system?.spaceStations?.filter(station => station?.type === 'Asteroid base').length
-  const outposts = system?.spaceStations?.filter(station => station?.type === 'Outpost').length
-
-  return (
-    <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
-      {(!system.stars || system.stars.length < 2) &&
+  if (!system.stars || system.stars.length < 2) {
+    return (
+      <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
         <div
           className='text-primary text-blink-slow text-center text-center-vertical'
           style={{ zIndex: '30', pointerEvents: 'none' }}
         >
           <h2>No system information</h2>
-        </div>}
+        </div>
+        <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
+          <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
+            <SystemMap system={system} setSystemObject={setSystemObject} />
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const coriolisStarports = system?.spaceStations?.filter(station => station?.type === 'Coriolis Starport')?.length ?? 0
+  const ocellusStarports = system?.spaceStations?.filter(station => station?.type === 'Ocellus Starport')?.length ?? 0
+  const orbisStarports = system?.spaceStations?.filter(station => station?.type === 'Orbis Starport')?.length ?? 0
+  const asteroidBases = system?.spaceStations?.filter(station => station?.type === 'Asteroid base')?.length ?? 0
+  const outposts = system?.spaceStations?.filter(station => station?.type === 'Outpost')?.length ?? 0
+
+  return (
+    <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
       <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
         <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
           <SystemMap system={system} setSystemObject={setSystemObject} />

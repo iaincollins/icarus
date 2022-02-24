@@ -15,7 +15,7 @@ table thead tr th {
   text-shadow: var(--text-shadow);
   text-transform: uppercase;
   color: var(--color-info);
-  padding: .6rem 1rem .8rem 1rem;
+  padding: .5rem .5rem .9rem .5rem;
   text-align: left;
   user-select: none;
   font-weight: bold;

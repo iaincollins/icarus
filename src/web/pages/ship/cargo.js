@@ -68,9 +68,9 @@ export default function ShipCargoPage () {
                       <td style={{ width: '3rem' }} className='text-right'>{item.count}</td>
                       <td><CopyOnClick>{item.name}</CopyOnClick></td>
                       <td>
+                        {item.mission !== false && <span className='text-secondary'>Mission Critical </span>}
+                        {item.stolen !== false && <span className='text-danger'>Stolen </span>}
                         <span className='text-muted'>{item.description}</span>
-                        {item.mission !== false && <span className='text-secondary'> Mission Critical</span>}
-                        {item.stolen !== false && <span className='text-danger'> Stolen</span>}
                       </td>
                     </tr>
                   )}

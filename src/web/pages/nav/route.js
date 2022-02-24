@@ -105,7 +105,7 @@ export default function NavListPage () {
                         <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star hidden-medium' />
                         <span>{route.StarSystem} </span>
                         <br /><span className='text-muted'>{route.StarClass} Class</span>
-                        <span className='text-muted'> | </span>
+                        <span className='seperator' />
                         {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
                         <span className='visible-medium'>
                           {currentSystem.position && route.StarPos && currentSystem?.name !== route?.StarSystem && <span><br />{distance(currentSystem.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
@@ -114,6 +114,7 @@ export default function NavListPage () {
                     </td>
                     <td className='hidden-medium text-right'>
                       {currentSystem.position && route.StarPos && currentSystem?.name !== route?.StarSystem && <span>{distance(currentSystem.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                      {currentSystem.position && route.StarPos && currentSystem?.name === route?.StarSystem && <span className='text-muted'>Current System</span>}
                     </td>
                   </tr>
                 )}
