@@ -45,7 +45,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
               className={item.count === item?.maxCount ? 'text-secondary' : ''}
             >
               <td style={{ width: '30rem' }}>
-                <h3 className={item.count === 0 ? 'text-muted' : ''}><CopyOnClick>{item.name}</CopyOnClick></h3>
+                <h4 className={item.count === 0 ? 'text-muted' : ''}><CopyOnClick>{item.name}</CopyOnClick></h4>
                 <div style={{ marginTop: '.5rem' }}>
                   <div style={{ width: '30%', display: 'inline-block' }}>
                     <span className={item.count === 0 ? 'text-muted' : ''}>{item.count}</span><span className='text-muted'>/{item.maxCount}</span>
