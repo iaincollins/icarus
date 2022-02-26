@@ -5,4 +5,5 @@ temp/
 src/web/.next
 .DS_Store
 .env
+.next
 *.log
