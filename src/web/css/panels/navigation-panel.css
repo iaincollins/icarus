@@ -136,7 +136,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .1), rgba(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b), .1));
+  background: linear-gradient(rgba(0,0,0,0), rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .1));
 }
 
 .navigation-panel__map-background::after {
