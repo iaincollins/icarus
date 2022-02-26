@@ -39,7 +39,7 @@
     "react-hot-toast": "^2.2.0",
     "standard": "^16.0.4",
     "svgtofont": "^3.12.9",
-    "to-ico": "^1.1.5",
+    "to-ico": "^1.0.1",
     "upx": "^1.0.6"
   },
   "dependencies": {
