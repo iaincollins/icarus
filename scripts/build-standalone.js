@@ -13,6 +13,7 @@ const {
   DEBUG_CONSOLE: DEBUG_CONSOLE_DEFAULT,
   BUILD_DIR,
   BIN_DIR,
+  DIST_DIR,
   SERVICE_STANDALONE_BUILD,
   SERVICE_ICON
 } = require('./lib/build-options')
@@ -28,7 +29,7 @@ const ENTRY_POINT = path.join(__dirname, '..', 'src', 'service', 'main.js')
 function clean () {
   if (!fs.existsSync(BUILD_DIR)) fs.mkdirSync(BUILD_DIR, { recursive: true })
   if (!fs.existsSync(BIN_DIR)) fs.mkdirSync(BIN_DIR, { recursive: true })
-  if (fs.existsSync(SERVICE_STANDALONE_BUILD)) fs.unlinkSync(SERVICE_STANDALONE_BUILD)
+  if (fs.existsSync(DIST_DIR)) fs.rmdirSync(DIST_DIR, { recursive: true })
 }
 
 async function build () {
@@ -36,21 +37,51 @@ async function build () {
     name: 'ICARUS Service',
     ico: SERVICE_ICON,
     input: ENTRY_POINT,
-    output: SERVICE_STANDALONE_BUILD,
+    output: SERVICE_STANDALONE_BUILD+'-linux',
     resources: [
       path.join(BUILD_DIR, 'web'), // Include web UI
       'src/service/data' // Include dynamically loaded JSON files
     ],
     debug: DEBUG_CONSOLE,
-    target: ['mac-x64-14.15.3', 'linux-x64-14.15.3', 'windows-x86-14.15.3'],
+    target: 'linux-x64-14.15.3',
     build: false,
     bundle: true,
     runtime: {
       nodeConfigureOpts: ['--fully-static']
     }
   })
-
-  // await UPX(SERVICE_STANDALONE_BUILD)
-  // .output(SERVICE_STANDALONE_BUILD)
-  // .start()
+  await compile({
+    name: 'ICARUS Service',
+    ico: SERVICE_ICON,
+    input: ENTRY_POINT,
+    output: SERVICE_STANDALONE_BUILD+'-mac',
+    resources: [
+      path.join(BUILD_DIR, 'web'), // Include web UI
+      'src/service/data' // Include dynamically loaded JSON files
+    ],
+    debug: DEBUG_CONSOLE,
+    target: 'mac-x64-14.15.3',
+    build: false,
+    bundle: true,
+    runtime: {
+      nodeConfigureOpts: ['--fully-static']
+    }
+  })
+  await compile({
+    name: 'ICARUS Service',
+    ico: SERVICE_ICON,
+    input: ENTRY_POINT,
+    output: SERVICE_STANDALONE_BUILD+'-windows',
+    resources: [
+      path.join(BUILD_DIR, 'web'), // Include web UI
+      'src/service/data' // Include dynamically loaded JSON files
+    ],
+    debug: DEBUG_CONSOLE,
+    target: 'windows-x86-14.15.3',
+    build: false,
+    bundle: true,
+    runtime: {
+      nodeConfigureOpts: ['--fully-static']
+    }
+  })
 }
