@@ -126,6 +126,8 @@ Note:
 
 ### Building cross platform (Win/Mac/Linux)
 
+ICARUS Terminal can also be run as a native, standalone application (without an installer) on Windows, Mac and Linux. Elite Dangerous is not offically supported on Linux or Mac and neither is ICARUS Terminal. I strongly recommend running the Windows version of ICARUS Terminal under the same emulation/compatibility layer as you are using for Elite Dangerous, but this option is provided for completeness.
+
 The only requirement for building the core service is [Node.js](https://nodejs.org/en/download/).
 
 You can easily build a native standalone binary for Windows, Mac and Linux with:
@@ -133,15 +135,17 @@ You can easily build a native standalone binary for Windows, Mac and Linux with:
 * `npm install`
 * `npm run build:standalone`
 
-This will create a binary for the platform you are running in `dist/icarus-terminal-service`.
+This will build cross platform binaries for Windows (x86), Mac (x64) and Linux (x64) in the `dist/` directory.
 
-For usage information run `icarus-terminal-service` with `--help`.
+For usage information run the binary with the `--help` flag.
 
 Notes:
 
 * The standalone binary does not feature auto-update notifications.
 * The standalone binary does not have a native UI, you must connect via a browser.
 * Features that depend on native UI (e.g. always on top, borderless) are not supported.
+* If you wish to build for other architure (e.g. arm64) edit the target value for your platform in `scripts\build-standalone.js`.
+* On Linux, due to what seems to bug in the complier not bundling resources correctly, the binary needs to be executed from the dist directory (i.e. `dist/icaurs-terminal-service-linux`) and it may not work correctly if it is moved to another location.
 
 As the game itself is not supported by the developers on Mac or Linux I do not plan to aim for feature parity on these platforms.
 
