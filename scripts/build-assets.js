@@ -2,6 +2,7 @@
 // service executable, but it may be used again in future.
 const fs = require('fs')
 const path = require('path')
+const { execSync } = require('child_process')
 const fse = require('fs-extra')
 const toIco = require('to-ico')
 const svgtofont = require('svgtofont')
@@ -30,7 +31,9 @@ async function build () {
   const files = [fs.readFileSync(path.join(RESOURCES_DIR, 'images/logo.png'))]
   const buf = await toIco(files)
   fs.writeFileSync(path.join(ASSETS_DIR, 'icon.ico'), buf)
-  fse.copySync(path.join(ASSETS_DIR, 'icon.ico'), 'src/web/public/favicon.ico')
+
+  // Note: Overrides Maskable Icon
+  execSync(`npx generate-icons --manifest src/web/public/manifest.json resources/images/logo.svg`)
 
   // Build icon font
   await svgtofont({
@@ -63,4 +66,7 @@ function copy () {
     'icarus-terminal.svg',
     'icarus-terminal.json'
   ].forEach(fontAsset => fse.copySync(path.join(ASSETS_DIR, 'icon-font', fontAsset), `src/web/public/fonts/icarus-terminal/${fontAsset}`))
+
+  fse.copySync(path.join(ASSETS_DIR, 'icon.ico'), 'src/web/public/favicon.ico')
+  fse.copySync(path.join(RESOURCES_DIR, 'images/icon-maskable.png'), 'src/web/public/icon-maskable.png')
 }

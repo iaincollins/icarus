@@ -20,7 +20,7 @@
     "lint": "npm run lint:go && npm run lint:javascript",
     "lint:go": "go fmt src/app/main.go",
     "lint:javascript": "npx standard --fix",
-    "compress-web-images": "npx imagemin src/web/public/images/ --out-dir src/web/public/images"
+    "compress-web-images": "npx imagemin src/web/public/images/** --out-dir src/web/public/images/"
   },
   "keywords": [],
   "author": "",
@@ -29,10 +29,12 @@
     "changeexe": "^1.0.2",
     "csvtojson": "^2.0.10",
     "fs-extra": "^10.0.0",
+    "generate-icons": "^0.1.10",
     "imagemin-cli": "^7.0.0",
     "makensis": "^1.1.1",
     "nexe": "^4.0.0-beta.19",
     "next": "^12.0.4",
+    "next-pwa": "^5.4.4",
     "nodemon": "^2.0.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
