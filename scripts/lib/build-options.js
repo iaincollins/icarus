@@ -22,10 +22,10 @@ const BIN_DIR = path.join(BUILD_DIR, 'bin') // For final binary build
 const DIST_DIR = path.join(ROOT_DIR, 'dist') // For distributable build
 const RESOURCES_DIR = path.join(ROOT_DIR, 'resources')
 const ASSETS_DIR = path.join(RESOURCES_DIR, 'assets')
+const ICON = path.join(ASSETS_DIR, 'icon.ico')
 
 const INSTALLER_NSI = path.join(RESOURCES_DIR, 'installer', 'installer.nsi') // Installer config
 const INSTALLER_EXE = path.join(DIST_DIR, 'ICARUS Setup.exe') // Should match INSTALLER_NAME in .nsi
-const ICON = path.join(ASSETS_DIR, 'icon.ico')
 
 const APP_BINARY_NAME = 'ICARUS Terminal.exe'
 const APP_UNOPTIMIZED_BUILD = path.join(BUILD_DIR, `~UNOPT_${safeBinaryName(APP_BINARY_NAME)}`)
@@ -76,6 +76,7 @@ module.exports = {
   DIST_DIR,
   RESOURCES_DIR,
   ASSETS_DIR,
+  ICON,
   APP_UNOPTIMIZED_BUILD,
   APP_OPTIMIZED_BUILD,
   APP_FINAL_BUILD,

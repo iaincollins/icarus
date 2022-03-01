@@ -16,7 +16,7 @@ class MyDocument extends Document {
       <Html lang='en' data-fx-crt='true' data-fx-crt-text='false' data-fx-crt-text-animated='false'>
         <Head>
           <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="/icon.png"></link>
+          <link rel="apple-touch-icon" izes="180x180" href="/icons/icon-180x180.png"></link>
           <meta name="theme-color" content="#000" />
           <style dangerouslySetInnerHTML={{
             __html: 'html { background: black; }'
@@ -30,14 +30,6 @@ class MyDocument extends Document {
             <!-- SVG filters and effects used for styling icons (e.g. sytem map) -->
     <svg style="position: absolute; height: 0; margin: 0; padding: 0; top: -100px;">
       <defs>
-        <!-- For star icon (TODO: create new icon using path that doesn't need this) -->
-        <mask id="svg-mask__star-icon">
-          <circle r="600" cy="455" cx="470" fill="white" />
-          <circle r="415" cy="50" cx="60" fill="black" />
-          <circle r="415" cy="50" cx="880" fill="black" />
-          <circle r="415" cy="870" cx="60" fill="black" />
-          <circle r="415" cy="870" cx="880" fill="black" />
-        </mask>
         <!-- For planet icons in system map -->
         <clipPath id="svg-clip-path__planet">
           <rect x="400" y="0" width="500" height="1000" />
@@ -151,18 +143,18 @@ class MyDocument extends Document {
       const isIOSChrome = window.navigator.userAgent.match("CriOS")
       const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1
 
-      // Google Chrome support filters on SVG textures in this way but not all
+      // Google Chrome supports filters on SVG textures in this way but not all
       // imitation Chrome browsers do and some look terrible as a result because
       // of how the fail at rendering.
       // 
       // Firefox supports this feature too, though doesn't support focus events
       // on the SVGs so the map view isn't actually interactive on Firefox.
       //
-      // This is all so that the map doesn't look bad on cheap tablets, like the
+      // This check is all so the map doesn't look bad on cheap tablets like the
       // Amazon Fire, which Amazon recently forceably purged side loaded Google
       // Chrome from and replaced it with less capeable version of Amazon's 
       // Silk browser which uses Google Inc. as the vendor name but isn't
-      // actually from Google.
+      // actually from Google and it does not have feature parity with Chrome.
       let ENABLE_PLANET_TEXTURES = false
       if (isIOSChrome || isSafari || isIEedge || isFirefox) {
         ENABLE_PLANET_TEXTURES = true
@@ -214,6 +206,8 @@ class MyDocument extends Document {
           </style>
         \`)
       } else {
+        // If the device is not kown to support textures, use a different effect
+        // to render stars that works without textures (uses a radial gradient)
         document.write(\`
           <style>
             .system-map__system-object[data-system-object-type="Star"] .system-map__planet {

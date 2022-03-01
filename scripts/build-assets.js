@@ -10,10 +10,12 @@ const packageJson = require('../package.json')
 
 const {
   ASSETS_DIR,
-  RESOURCES_DIR
+  RESOURCES_DIR,
+  ICON
 } = require('./lib/build-options')
 
 const ICON_FONT_DIR = path.join(ASSETS_DIR, 'icon-font')
+const ICONS_DIR = path.join(ASSETS_DIR, 'icons')
 
 ;(async () => {
   clean()
@@ -23,17 +25,29 @@ const ICON_FONT_DIR = path.join(ASSETS_DIR, 'icon-font')
 
 function clean () {
   if (!fs.existsSync(ASSETS_DIR)) fs.mkdirSync(ASSETS_DIR, { recursive: true })
+  if (!fs.existsSync(ICONS_DIR)) fs.mkdirSync(ICONS_DIR, { recursive: true })
   if (fs.existsSync(ICON_FONT_DIR)) fs.rmdirSync(ICON_FONT_DIR, { recursive: true })
 }
 
 async function build () {
-  // Convert icon.png to icon.ico (used for windows app icon)
-  const files = [fs.readFileSync(path.join(RESOURCES_DIR, 'images/logo.png'))]
-  const buf = await toIco(files)
-  fs.writeFileSync(path.join(ASSETS_DIR, 'icon.ico'), buf)
 
-  // Note: Overrides Maskable Icon
-  execSync(`npx generate-icons --manifest src/web/public/manifest.json resources/images/logo.svg`)
+  // Note: Overrides maskable icon, so put back the right icon afterwords
+  execSync(`npx generate-icons --manifest ${path.join(ASSETS_DIR, 'icon-manifest.json')} ${path.join(RESOURCES_DIR, 'images/icon.svg')}`)
+  fse.copySync(
+    path.join(RESOURCES_DIR, 'images/icon-maskable.png'), 
+    path.join(ICONS_DIR, 'icon-maskable.png')
+  )
+  
+  // Convert icon.png to icon.ico (used for windows app icon)
+  const iconFiles = [
+    fs.readFileSync(path.join(ICONS_DIR, 'icon-256x256.png')),
+  ]
+  const buf = await toIco(iconFiles, { 
+    resize: true,
+    sizes: [16, 24, 32, 48, 64, 128, 256]
+  })
+  fs.writeFileSync(ICON, buf)
+  fse.copySync(ICON, 'src/web/public/favicon.ico')
 
   // Build icon font
   await svgtofont({
@@ -67,6 +81,5 @@ function copy () {
     'icarus-terminal.json'
   ].forEach(fontAsset => fse.copySync(path.join(ASSETS_DIR, 'icon-font', fontAsset), `src/web/public/fonts/icarus-terminal/${fontAsset}`))
 
-  fse.copySync(path.join(ASSETS_DIR, 'icon.ico'), 'src/web/public/favicon.ico')
-  fse.copySync(path.join(RESOURCES_DIR, 'images/icon-maskable.png'), 'src/web/public/icon-maskable.png')
+  fse.copySync(path.join(ASSETS_DIR, 'icons'), `src/web/public/icons`)
 }
