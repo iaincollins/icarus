@@ -55,27 +55,34 @@ function LockerItems ({ heading, items }) {
         </h4>
       </div>
       <table className='table--animated fx-fade-in'>
-        <thead>
-          <tr>
-            <th className='text-right' style={{ width: '3rem' }}>#</th>
-            <th style={{ width: '25rem' }}>{heading.replace(/s$/, '')}</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map(item => (
-            <tr key={`inventory_${item.name}`}>
-              <td className='text-right' style={{ width: '3rem' }}>{item.count}</td>
-              <td style={{ width: '25rem' }}>
-                <CopyOnClick>{item.name}</CopyOnClick>
-              </td>
-              <td>
-                {item.mission > 0 && <span className='text-secondary'> {item.mission} Mission Critical</span>}
-                {item.stolen > 0 && <span className='text-danger'> {item.stolen} Stolen</span>}
-              </td>
-            </tr>
-          ))}
-        </tbody>
+        {items.length === 0 && 
+          <tbody><tr><td colSpan={3} style={{paddingTop: '1rem', paddingBottom: '1rem'}} className='text-center text-muted'>No {heading}</td></tr></tbody>
+        }
+        {items.length > 0 && 
+          <>
+            <thead>
+              <tr>
+                <th className='text-right' style={{ width: '3rem' }}>#</th>
+                <th style={{ width: '25rem' }}>{heading.replace(/s$/, '')}</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map(item => (
+                <tr key={`inventory_${item.name}`}>
+                  <td className='text-right' style={{ width: '3rem' }}>{item.count}</td>
+                  <td style={{ width: '25rem' }}>
+                    <CopyOnClick>{item.name}</CopyOnClick>
+                  </td>
+                  <td>
+                    {item.mission > 0 && <span className='text-secondary'> {item.mission} Mission Critical</span>}
+                    {item.stolen > 0 && <span className='text-danger'> {item.stolen} Stolen</span>}
+                  </td>
+                </tr>
+              ))}
+             </tbody>
+          </>
+          }
       </table>
     </>
   )

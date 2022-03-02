@@ -52,7 +52,7 @@ export default function ShipCargoPage () {
               </span>
             </h4>
             <hr style={{ margin: '.5rem 0 0 0' }} />
-            {ship && cargo && cargo.length === 0 && <p className='text-primary text-uppercase text-center' style={{ padding: '1rem 0' }}>Cargo hold is empty</p>}
+            {ship && cargo && cargo.length === 0 && <p className='text-primary text-muted text-uppercase text-center' style={{ padding: '1rem 0' }}>Cargo hold is empty</p>}
             {cargo && cargo.length > 0 &&
               <table className='table--animated fx-fade-in'>
                 <thead>

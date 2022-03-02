@@ -52,8 +52,9 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         <div className='system-map__info fx-fade-in'>
           <div className='system-map__info-contents'>
             {system?.distance > 0 &&
-              <h3 className='text-secondary text-muted' style={{ marginBottom: '.5rem' }}>
-                {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY from current system
+              <h3 className='text-secondary text-mutedx' style={{ marginBottom: '.5rem' }}>
+                <span className='text-muted'>Distance </span>
+                 {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY
               </h3>}
             {system?.distance === 0 && system.isCurrentLocation === false &&
               <h3 className='text-secondary text-muted' style={{ marginBottom: '.5rem' }}>
@@ -65,14 +66,14 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               </h3>}
             {(system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0) &&
               <h3>
-                {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' />{coriolisStarports}</span>}
-                {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' />{ocellusStarports}</span>}
-                {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' />{orbisStarports}</span>}
-                {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' />{asteroidBases}</span>}
-                {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' />{outposts}</span>}
-                {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' />{system.megaships.length}</span>}
-                {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' />{system.planetaryPorts.length}</span>}
-                {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' />{system.settlements.length}</span>}
+                {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' /><span className='count'>{coriolisStarports}</span></span>}
+                {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' /><span className='count'>{ocellusStarports}</span></span>}
+                {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' /><span className='count'>{orbisStarports}</span></span>}
+                {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' /><span className='count'>{asteroidBases}</span></span>}
+                {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' /><span className='count'>{outposts}</span></span>}
+                {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
+                {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
+                {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
               </h3>}
           </div>
         </div>

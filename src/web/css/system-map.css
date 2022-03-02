@@ -43,9 +43,12 @@
   position: relative;
   top: .25rem;
   margin-right: .25rem;
-  opacity: .5;
   font-size: 1.5rem;
   text-shadow: var(--text-shadow);
+}
+
+.system-map__info-icon .count {
+  opacity: .5;
 }
 
 .system-map__location {
