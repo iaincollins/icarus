@@ -1,4 +1,4 @@
-<img alt="ICARUS Terminal" src="https://user-images.githubusercontent.com/595695/155009133-c3a3adbf-6027-4fc7-9c9a-aaa5f1300433.svg" height="100" width="auto"/>
+<img alt="ICARUS Terminal" src="https://user-images.githubusercontent.com/595695/156449445-855d12f5-4f91-4a6f-ab24-a137572df4f7.svg" height="100" width="auto"/>
 
 ## About ICARUS Terminal
 
@@ -12,7 +12,7 @@ ICARUS Terminal includes integrations with services like [EDSM](https://www.edsm
 
 <p align="center">
   <a href="https://github.com/iaincollins/icarus/releases">
-    <img alt="Download" src="https://user-images.githubusercontent.com/595695/154860799-5b7f86df-1f26-4d89-bde4-04c2e0503704.svg" height="80" width="auto"/>
+    <img alt="Download" src="https://user-images.githubusercontent.com/595695/156449436-a2452073-ca27-4916-b21f-6eb1e7370bf2.svg" height="80" width="auto"/>
   </a>
 </p>
  
