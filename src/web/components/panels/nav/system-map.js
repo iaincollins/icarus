@@ -32,7 +32,7 @@ export default function SystemMap ({ system, setSystemObject }) {
                 {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
                 {' '}
                 {system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government}
-                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.security !== system.government) ? <><span className='seperator' />{system.security}</> : ''}
+                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government !== 'Anarchy' && system.security !== system.government) ? <><span className='seperator' />{system.security}</> : ''}
               </span>
             </h3>}
           {system.economy && system.economy?.primary !== 'Unknown' && system?.economy?.primary !== 'None' &&
