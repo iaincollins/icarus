@@ -329,6 +329,57 @@ table.table--animated tbody tr:nth-child(20) {
   animation-fill-mode: forwards;
   animation-delay: .475s;
 }
+table.table--animated tbody tr:nth-child(21) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .5s;
+}
+table.table--animated tbody tr:nth-child(22) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .525s;
+}
+table.table--animated tbody tr:nth-child(23) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .55s;
+}
+table.table--animated tbody tr:nth-child(24) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .575s;
+}
+table.table--animated tbody tr:nth-child(25) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .6s;
+}
+table.table--animated tbody tr:nth-child(26) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .625s;
+}
+table.table--animated tbody tr:nth-child(27) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .65s;
+}
+table.table--animated tbody tr:nth-child(28) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .675s;
+}
+table.table--animated tbody tr:nth-child(29) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .7s;
+}
+table.table--animated tbody tr:nth-child(30) {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  animation-delay: .725s;
+}
+
 
 
 table.table--flex-inline.table--animated tbody tr {

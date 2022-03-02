@@ -16,11 +16,23 @@
   pointer-events: none;
   font-size: 1rem;
   left: 4.5rem;
-  width: calc(100% - 9rem);
+  width: calc(100% - 5rem);
   padding: .5rem 0 .25rem 0;
   overflow: hidden;
   box-sizing: border-box;
-  background: radial-gradient(circle, rgba(0,0,0,.8) 30%, rgba(0,0,0,0) 100%);
+  background: radial-gradient(circle, rgba(0,0,0,.8) 60%, rgba(0,0,0,0) 100%);
+}
+
+.system-map__info::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  height: .1rem;
+  width: 100%;
+  content: '';
+  background: radial-gradient(circle, var(--color-secondary) 40%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .system-map__info-contents {
@@ -41,7 +53,7 @@
 
 .system-map__info-icon .icon {
   position: relative;
-  top: .25rem;
+  top: .35rem;
   margin-right: .25rem;
   font-size: 1.5rem;
   text-shadow: var(--text-shadow);
