@@ -18,7 +18,7 @@ ICARUS Terminal includes integrations with services like [EDSM](https://www.edsm
  
 ## Screenshot
   
-![Screenshot](https://user-images.githubusercontent.com/595695/154845792-a945697d-5a76-4317-b13a-af94d2383fd7.png)
+![Screenshot](https://user-images.githubusercontent.com/595695/156479498-928d6cc1-c7ba-4d22-9a5c-553a94c035e7.png)
 
 ## More Information
 
