@@ -104,8 +104,7 @@ export default function NavListPage () {
                         <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star visible-medium' />
                         <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star hidden-medium' />
                         <span>{route.StarSystem} </span>
-                        <br /><span className='text-muted'>{route.StarClass} Class</span>
-                        <span className='seperator' />
+                        <br /><span className='text-muted'>{route.StarClass} Class </span>
                         {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
                         <span className='visible-medium'>
                           {currentSystem.position && route.StarPos && currentSystem?.name !== route?.StarSystem && <span><br />{distance(currentSystem.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
