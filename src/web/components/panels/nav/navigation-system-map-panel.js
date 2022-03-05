@@ -46,7 +46,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>
         {system.position &&
-          <div className='system-map__location text-secondary text-muted text-no-wrap fx-fade-in'>
+          <div className='system-map__location text-info text-muted text-no-wrap fx-fade-in'>
             {system.position?.[0]}<br />{system.position?.[1]}<br />{system.position?.[2]}
           </div>}
         <div className='system-map__info fx-fade-in'>
@@ -62,7 +62,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               </h3>}
             {system.isCurrentLocation === true &&
               <h3 className='text-secondary'>
-                Current system
+                Current location
               </h3>}
             {((system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0))
               ? <h3 style={{ marginTop: '.25rem' }}>
@@ -75,7 +75,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                   {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
                   {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
                 </h3>
-              : <h3 style={{ marginTop: '.25rem' }} className='text-secondary text-muted'>No known settlements</h3>
+              : <h3 style={{ marginTop: '.25rem' }} className='text-secondary text-muted'>No known stations or settlements</h3>
           }
           </div>
         </div>
