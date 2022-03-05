@@ -48,11 +48,11 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
               </td>
               <td>
                 <span className='text-muted'>Fuel (curr/max)</span>
-                <span className='value'>{ship.fuelLevel || '-'}/{ship.fuelCapacity} T</span>
+                <span className='value'>{typeof ship?.fuelLevel === 'number' ? ship.fuelLevel : '-'}/{ship.fuelCapacity} T</span>
               </td>
               <td>
                 <span className='text-muted'>Cargo (curr/max)</span>
-                <span className='value'>{ship.cargo.count || '-'}/{ship.cargo.capacity} T</span>
+                <span className='value'>{typeof ship?.cargo?.count === 'number' ? ship.cargo.count : '-'}/{ship.cargo.capacity} T</span>
               </td>
             </tr>
             <tr>
