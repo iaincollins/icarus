@@ -46,7 +46,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>
         {system.position &&
-          <div className='system-map__location text-info text-muted text-no-wrap fx-fade-in'>
+          <div className='fade-in system-map__location text-info text-no-wrap fx-fade-in'>
             {system.position?.[0]}<br />{system.position?.[1]}<br />{system.position?.[2]}
           </div>}
         <div className='system-map__info fx-fade-in'>

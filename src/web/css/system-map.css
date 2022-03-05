@@ -86,6 +86,7 @@
   right: 1.5rem;
   text-align: right;
   font-size: 1rem;
+  opacity: .25 !important;
 }
 
 .system-map__title {
