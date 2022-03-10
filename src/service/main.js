@@ -1,14 +1,16 @@
 require('dotenv').config()
 
+const os = require('os')
+const fs = require('fs')
+const path = require('path')
+const exec = require('child_process').exec
 const connect = require('connect')
 const serveStatic = require('serve-static')
 const http = require('http')
 const httpProxy = require('http-proxy')
 const proxy = httpProxy.createProxyServer({})
 const WebSocket = require('ws')
-const os = require('os')
-const fs = require('fs')
-const path = require('path')
+
 const yargs = require('yargs')
 const packageJson = require('../../package.json')
 
@@ -34,7 +36,7 @@ console.log(`ICARUS Terminal Service ${packageJson.version}`)
 
 // Parse command line arguments
 const PORT = commandLineArgs.port || commandLineArgs.p || 3300 // Port to listen on
-const HTTP_SERVER = commandLineArgs['http-server'] || false // URL of server (used in development only)
+const DEVELOPMENT = commandLineArgs.dev || false // Development mode
 const WEB_DIR = 'build/web'
 const LOG_DIR = getLogDir()
 
@@ -85,13 +87,14 @@ global.BROADCAST_EVENT = broadcastEvent
 const { eventHandlers, init } = require('./lib/events')
 
 let httpServer
-if (HTTP_SERVER) {
-  // If HTTP_SERVER is specified (i.e. in development) then HTTP requests
-  // other than web socket requests will be forwarded to it. This is useful
-  // for inteface development, to allow hot reloading of the UI.
-  httpServer = http.createServer((req, res) => proxy.web(req, res, { target: HTTP_SERVER }))
+if (DEVELOPMENT) {
+  // If DEVELOPMENT is specified then HTTP requests other than web socket
+  // requests will be forwarded to a web server which is started on localhost
+  // to allow UI changes to be tested without rebuilding the app.
+  exec('npx next src/web')
+  httpServer = http.createServer((req, res) => proxy.web(req, res, { target: 'http://localhost:3000' }))
 } else {
-  // The default behaviour (i.e. production) to serve static assets. When the
+  // The default behaviour (i.e. production) is to serve static assets. When the
   // application is compiled to a native executable these assets will be bundled
   // with the executable in a virtual file system.
   const webServer = connect().use(serveStatic(WEB_DIR, { extensions: ['html'] }))

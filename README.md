@@ -151,13 +151,16 @@ As the game itself is not supported by the developers on Mac or Linux I do not p
 
 ## Development (cross platform)
 
-You can run ICARUS Terminal in development mode by starting the service with the web interface alongside it. Both must be running at the same time for the interface to be accessible. You should start the web inteface first to avoid the service halting because it cannot find the web UI.
+You can run ICARUS Terminal in development mode, without buiding a native binary.
 
-All you need installed is Node.js and ideally have configured a `.env` file to point to some save game data.
+All you need installed is Node.js installed.
 
-* `npm run dev:web` start the web interface (has hot reloading)
-* `npm run dev:service` start the service (does not have hot reloading)
-* You can access the UI via http://localhost:3300
+* `npm install`
+* `npm run dev`
+
+You can access the UI via http://localhost:3300
+
+Note: You may also need to create a `.env` file with a `LOG_DIR` entry so it can find your game data - see `.env-example`.
 
 ## Contributing / Feedback
 
