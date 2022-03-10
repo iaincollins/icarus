@@ -24,7 +24,7 @@ const shipModel = new ShipModel({ eliteLog, eliteJson })
 const materialsModel = new MaterialsModel({ eliteLog, eliteJson })
 const blueprintModel = new BlueprintModel({ materialsModel, shipModel })
 const inventoryModel = new InventoryModel({ eliteLog, eliteJson })
-const cmdrStatusModel = new CmdrStatusModel({ eliteJson })
+const cmdrStatusModel = new CmdrStatusModel({ eliteLog, eliteJson })
 
 // TODO Define these in another file / merge with eventHandlers before porting
 // over existing event handlers from the internal build

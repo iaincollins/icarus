@@ -144,7 +144,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
   }
 
   if (isLandable) { iconClass += ' text-secondary' }
-  
+
   return (
     <tr data-system-object-name={systemObject.name} tabIndex='2' onFocus={() => setSystemObject(systemObject)}>
       <td>
@@ -152,11 +152,10 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
           <i className={iconClass} />
           {systemObject.type === 'Planet'
             ? <>
-                <span className='visible-medium'>{systemObject.label}</span>
-                <span className='hidden-medium'>{systemObject.name}</span>
+              <span className='visible-medium'>{systemObject.label}</span>
+              <span className='hidden-medium'>{systemObject.name}</span>
               </>
             : systemObject.name}
-
           <span className={systemObject.isLandable ? 'text-secondary' : ''}>
             {systemObject.isLandable === true && <i title='Landable' className='float-right icon icarus-terminal-planet-lander' />}
             {(systemObject.atmosphereComposition && !systemObject?.subType?.toLowerCase()?.includes('gas giant')) && <i className='float-right icon icarus-terminal-planet-atmosphere' />}

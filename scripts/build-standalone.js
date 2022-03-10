@@ -37,7 +37,7 @@ async function build () {
     name: 'ICARUS Service',
     ico: SERVICE_ICON,
     input: ENTRY_POINT,
-    output: SERVICE_STANDALONE_BUILD+'-linux',
+    output: SERVICE_STANDALONE_BUILD + '-linux',
     resources: [
       path.join(BUILD_DIR, 'web'), // Include web UI
       'src/service/data' // Include dynamically loaded JSON files
@@ -54,7 +54,7 @@ async function build () {
     name: 'ICARUS Service',
     ico: SERVICE_ICON,
     input: ENTRY_POINT,
-    output: SERVICE_STANDALONE_BUILD+'-mac',
+    output: SERVICE_STANDALONE_BUILD + '-mac',
     resources: [
       path.join(BUILD_DIR, 'web'), // Include web UI
       'src/service/data' // Include dynamically loaded JSON files
@@ -71,7 +71,7 @@ async function build () {
     name: 'ICARUS Service',
     ico: SERVICE_ICON,
     input: ENTRY_POINT,
-    output: SERVICE_STANDALONE_BUILD+'-windows',
+    output: SERVICE_STANDALONE_BUILD + '-windows',
     resources: [
       path.join(BUILD_DIR, 'web'), // Include web UI
       'src/service/data' // Include dynamically loaded JSON files

@@ -3,6 +3,7 @@ const EDCDShipyard = new (require('../data'))('edcd/fdevids/shipyard')
 const EDCDCommodity = new (require('../data'))('edcd/fdevids/commodity')
 const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
 const CoriolisModules = new (require('../data'))('edcd/coriolis/modules')
+const CmdrStatusModel = require('./cmdr-status')
 const { UNKNOWN_VALUE } = require('../../../shared/consts')
 
 let lastKnownShipState = null
@@ -11,6 +12,7 @@ class ShipModel {
   constructor ({ eliteLog, eliteJson }) {
     this.eliteLog = eliteLog
     this.eliteJson = eliteJson
+    this.cmdrStatusModel = new CmdrStatusModel({ eliteLog, eliteJson })
     return this
   }
 
@@ -20,40 +22,25 @@ class ShipModel {
       this.eliteJson.json()
     ])
 
+
     // The Loadout event is written on load, after switching ships and after
     // using Outfitting. This logic used to use ModulesInfo.json but it is not
-    // updated as often and I haven't found a good use for ModulesInfo.json.
-    // NB: Other events like ModuleSwap, ModuleBuy are also issued *during&
+    // updated as often and I haven't found a good use for ModulesInfo.json yet.
+    //
+    // NB: Other events like ModuleSwap, ModuleBuy are also issued *during*
     // outfitting but handling all those would add extra work and just using
-    // for Loadout events is fine for now as it's fired after Outfitting.
+    // for Loadout events is good enough for now as is fired after Outfitting.
     const loadoutModules = Loadout?.Modules ?? []
     const modules = {}
-
-    // If Fuel does not exist, then we are on foot (and not on board)
-    // If FuelMain exists but is zero, we are in an SVR (and not on board)
-    // If FuelMain exists and greater than zero we are in a ship
-    //
-    // TODO Check if we are onboard a Taxi or Frontline ship (taxi: true)
-    // and if so set onBoard to false, as Cargo and Fuel will refer to the
-    // taxi *not* the players ship.
-    const onBoard = !!((Json?.Status?.Fuel?.FuelMain > 0 ?? false))
-
-    /*
-    if (Embark?.timestamp > Loadout && Embark?.Taxi === true) {
-      // We could be in a taxi
-      if (!Disembark?.timestamp || Disembark?.timestamp < Embark?.timestamp) {
-        // We are in a taxi and not really onboard the ship
-        onBoard = false
-      }
-    }
-    */
+    const cmdrStatus = await this.cmdrStatusModel.getCmdrStatus()
+    const onBoard = cmdrStatus?.flags?.inMainShip ?? false
 
     // If we are not onboard, and we have a last known ship state, return
     // the last known state (cargo, fuel levels, etc) but set the onBoard flag
     // to false to note that we are not onboard.
     //
     // TODO Ideally persist this last known ship state to disk (seperately for
-    // each ship) so ship states are easily trackable across game sessions.
+    // each ship) so all player owned ships can be accessed, across sessions.
     if (!onBoard && lastKnownShipState !== null) {
       return {
         ...lastKnownShipState,

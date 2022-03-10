@@ -55,10 +55,9 @@ function LockerItems ({ heading, items }) {
         </h4>
       </div>
       <table className='table--animated fx-fade-in'>
-        {items.length === 0 && 
-          <tbody><tr><td colSpan={3} style={{paddingTop: '1rem', paddingBottom: '1rem'}} className='text-center text-muted'>No {heading}</td></tr></tbody>
-        }
-        {items.length > 0 && 
+        {items.length === 0 &&
+          <tbody><tr><td colSpan={3} style={{ paddingTop: '1rem', paddingBottom: '1rem' }} className='text-center text-muted'>No {heading}</td></tr></tbody>}
+        {items.length > 0 &&
           <>
             <thead>
               <tr>
@@ -80,9 +79,8 @@ function LockerItems ({ heading, items }) {
                   </td>
                 </tr>
               ))}
-             </tbody>
-          </>
-          }
+            </tbody>
+          </>}
       </table>
     </>
   )

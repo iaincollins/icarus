@@ -3,40 +3,40 @@ import CopyOnClick from 'components/copy-on-click'
 
 const factionState = {
   Expansion: {
-    description: "Controlling faction expanding influence"
+    description: 'Controlling faction expanding influence'
   },
   Investment: {
-    description: "Ongoing investment, expansion anticipated"
+    description: 'Ongoing investment, expansion anticipated'
   },
   War: {
-    description: "War, combat missions available"
+    description: 'War, combat missions available'
   },
-  "Civil War": {
-    description: "Civil war, combat missions available"
+  'Civil War': {
+    description: 'Civil war, combat missions available'
   },
   Elections: {
-    description: "Elections underway"
+    description: 'Elections underway'
   },
   Boom: {
-    description: "Economy booming"
+    description: 'Economy booming'
   },
   Bust: {
-    description: "Economy bust"
+    description: 'Economy bust'
   },
-  "Civil Unrest": {
-    description: "Civil Unrest, reduced security, bounty missions"
+  'Civil Unrest': {
+    description: 'Civil Unrest, reduced security, bounty missions'
   },
   Famine: {
-    description: "Famine, high demand for food"
+    description: 'Famine, high demand for food'
   },
   Outbreak: {
-    description: "Outbreak, high demand for medicines"
+    description: 'Outbreak, high demand for medicines'
   },
   Lockdown: {
-    description: "Lockdown, station services restricted"
+    description: 'Lockdown, station services restricted'
   },
   Retreat: {
-    description: "Controlling faction retreating from system"
+    description: 'Controlling faction retreating from system'
   }
 }
 
@@ -62,7 +62,7 @@ export default function SystemMap ({ system, setSystemObject }) {
           {system.state && system.state !== 'Unknown' && system.state !== 'None' &&
             <h3 className='text-info'>
               <span className='fx-animated-text' data-fx-order='3'>
-                { factionState[system.state]?.description ? <>{factionState[system.state].description}</> : system.state}
+                {factionState[system.state]?.description ? <>{factionState[system.state].description}</> : system.state}
               </span>
             </h3>}
           {system.allegiance && system.allegiance !== 'Unknown' &&

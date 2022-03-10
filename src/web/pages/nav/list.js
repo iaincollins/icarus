@@ -63,7 +63,7 @@ export default function NavListPage () {
   }, [connected, ready, router.isReady])
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
-    if (log.event === 'FSDJump') {
+    if (['Location', 'FSDJump'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem', { useCache: false })
       if (!newSystem) return // If no result, don't update map
       setSystemObject(null) // Clear selected object

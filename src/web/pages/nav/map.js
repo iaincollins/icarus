@@ -14,6 +14,7 @@ export default function NavMapPage () {
   const [componentReady, setComponentReady] = useState(false)
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
+  const [cmdrStatus, setCmdrStatus] = useState()
 
   const search = async (searchInput) => {
     const newSystem = await sendEvent('getSystem', { name: searchInput })
@@ -42,6 +43,8 @@ export default function NavMapPage () {
   useEffect(async () => {
     if (!connected || !router.isReady) return
 
+    setCmdrStatus(await sendEvent('getCmdrStatus'))
+
     const newSystem = await sendEvent('getSystem', query.system ? { name: query.system, useCache: true } : null)
     if (newSystem) {
       setSystem(newSystem)
@@ -60,11 +63,13 @@ export default function NavMapPage () {
       //   if (el) el.focus()
       // }, 750) // Delay to allow map to render
     }
+
     setComponentReady(true)
   }, [connected, ready, router.isReady])
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
-    if (log.event === 'FSDJump') {
+    if (['Location', 'FSDJump'].includes(log.event)) {
+      setCmdrStatus(await sendEvent('getCmdrStatus'))
       const newSystem = await sendEvent('getSystem', { useCache: false })
       if (!newSystem) return // If no result, don't update map
       setSystemObject(null) // Clear selected object
@@ -75,6 +80,10 @@ export default function NavMapPage () {
       if (newSystem) setSystem(newSystem)
     }
   }), [system])
+
+  useEffect(() => eventListener('gameStateChange', async (log) => {
+    setCmdrStatus(await sendEvent('getCmdrStatus'))
+  }))
 
   useEffect(() => {
     if (!router.isReady) return
@@ -91,7 +100,7 @@ export default function NavMapPage () {
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel layout='full-width' navigation={NavPanelNavItems('Map', query)} search={search} exit={(system?.isCurrentLocation === false || system?.unknownSystem === true) ? () => getSystem() : null}>
-        <NavigationSystemMapPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} getSystem={getSystem} />
+        <NavigationSystemMapPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} getSystem={getSystem} cmdrStatus={cmdrStatus}/>
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>
     </Layout>

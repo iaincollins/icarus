@@ -1,3 +1,4 @@
+const NavigationModel = require('./system')
 class CmdrStatusModel {
   flags = {
     docked: 1,
@@ -54,8 +55,10 @@ class CmdrStatusModel {
     breathableAtmosphere: 65536
   }
 
-  constructor ({ eliteJson }) {
+  constructor ({ eliteJson, eliteLog }) {
     this.eliteJson = eliteJson
+    this.eliteLog = eliteLog
+    this.navigationModel = new NavigationModel({ eliteLog })
     return this
   }
 
@@ -87,6 +90,7 @@ class CmdrStatusModel {
 
   async getCmdrStatus() {
     const StatusJson = (await this.eliteJson.json()).Status
+    const currentSystem = await this.navigationModel.getSystem()
 
     const cmdrStatus = {}
 
@@ -100,6 +104,121 @@ class CmdrStatusModel {
 
     // Parse and combine Flags and Flags2 into boolean key/value pairs
     cmdrStatus.flags = await this.getStatusFlags(StatusJson)
+
+    // Override bad flag behaviour
+    // If you are in a taxi you are by definition not in your main ship!
+    if (cmdrStatus.flags.inTaxi) cmdrStatus.flags.inMainShip = false
+
+    // Determine current location
+
+    /*
+    cmdrStatus.location = {
+      name: [],
+      system: null,
+      planet: null,
+      facility: null,
+    }
+    */
+    
+    const location = []
+
+    // We use Body Name > 
+    if (cmdrStatus?.bodyname) location.push(cmdrStatus.bodyname)
+
+    const dockedEvent = await this.eliteLog.getEvent('Docked')
+    const embarkEvent = await this.eliteLog.getEvent('Embark')
+    const touchdownEvent = await this.eliteLog.getEvent('Touchdown')
+    const supercruiseExitEvent = await this.eliteLog.getEvent('SupercruiseExit')
+
+    if (cmdrStatus?.flags?.onFootInPlanet) {
+      if (cmdrStatus?.flags?.onFootSocialSpace) {
+        // If on foot on a planet and in a social space we are at a port
+        if (dockedEvent && dockedEvent.StationName && dockedEvent?.StarSystem == currentSystem?.name) {
+          location.push(dockedEvent.StationName)
+        }
+      } else {
+        // If not in a social space then we are at a settlement
+        if (dockedEvent && dockedEvent.StationName && dockedEvent?.StarSystem == currentSystem?.name) {
+          if (touchdownEvent && Date.parse(touchdownEvent?.timestamp) > Date.parse(dockedEvent?.timestamp)) {
+            if (touchdownEvent?.NearestDestination) location.push(touchdownEvent.NearestDestination)
+          } else {
+            location.push(dockedEvent.StationName)
+          }
+        }
+      }
+    }
+    
+    if (cmdrStatus?.flags?.onFootInStation || cmdrStatus?.flags?.onFootInPlanet) {
+      if (cmdrStatus?.flags?.onFootInHanger) {
+        location.push('Ship Hanger')
+      } else if (cmdrStatus?.flags?.onFootSocialSpace) {
+        location.push('Main Concourse')
+      }
+    }
+    
+    if (cmdrStatus?.flags?.docked && cmdrStatus?.flags?.onFoot === false) {
+      // If docked and not on foot get the last Embark/Docked event to find out what station we are on
+      if (!dockedEvent && embarkEvent?.StationName) location.push(embarkEvent.StationName)
+      if (!embarkEvent && dockedEvent?.StationName) location.push(dockedEvent.StationName)
+      if (!embarkEvent && !dockedEvent && touchdownEvent?.NearestDestination) location.push(touchdownEvent.NearestDestination)
+
+      if (dockedEvent && embarkEvent) {
+        if (touchdownEvent
+            && Date.parse(touchdownEvent?.timestamp) > Date.parse(dockedEvent?.timestamp)
+            && Date.parse(touchdownEvent?.timestamp) > Date.parse(embarkEvent?.timestamp) 
+           ) {
+          if (touchdownEvent?.NearestDestination) location.push(touchdownEvent.NearestDestination)
+        } else if (embarkEvent?.StationName && dockedEvent?.StationName) {
+          // If we have both a Docked event and an Embark event with a station
+          // name, use the newest value
+          if (Date.parse(dockedEvent?.timestamp) > Date.parse(embarkEvent?.timestamp)) {
+            location.push(dockedEvent.StationName)
+          } else {
+            location.push(embarkEvent.StationName)
+          }
+        } else if (dockedEvent?.StationName) {
+          // If the Embark event doesn't have a Station Name we fallback to Docked event
+          // This can happen when embarking at a settlement (even when on a landing pad,
+          // the Embark event when at a Settlement is not always populated).
+          // FIXME As a simple sanity check, we at least verify the event was 
+          // triggered in the same system (crude, but hopefully good enough).
+          if (dockedEvent?.StarSystem == currentSystem?.name) {
+           location.push(dockedEvent.StationName)
+          }
+        }
+      }
+    }
+
+    // If we are not in supercruise, not docked and not landed then we are in space
+    // If the last Supercruise Exit event matches the current system (it should)
+    // then use the Body from that event as our location, if we don't already know our
+    // location. This is useful for scenarios like exiting supercruise near a station
+    // as otherwise the game doesn't know where we are. Note that it returns the
+    // name of the station as a Body (with BodyType: Station) and does not
+    // specify Station Name as you migth expect.
+    if (cmdrStatus?.flags?.supercruise === false && cmdrStatus?.flags?.docked === false && cmdrStatus?.flags?.landed === false) {
+      if (supercruiseExitEvent?.Body && supercruiseExitEvent?.StarSystem == currentSystem?.name) {
+        if (!location.includes(supercruiseExitEvent.Body)) location.push(supercruiseExitEvent.Body)
+      }
+    }
+
+    // If we don't have a more specific location (planet, station) use the 
+    // system name as the location
+    if (location.length === 0 && currentSystem?.name) {
+      location.push(currentSystem.name)
+    }
+
+    if (cmdrStatus?.flags?.inTaxi) {
+      if (cmdrStatus?.flags?.docked) {
+        // If we are in a taxi that is docked at our destination, get the station name
+        if (dockedEvent?.StationName && dockedEvent.StationName == cmdrStatus?.destination?.Name) {
+          if (!location.includes(dockedEvent.StationName)) location.push(dockedEvent.StationName)
+        }
+      }
+      // Indicate that we are onboard a shuttle (e.g. Apex, Frontline Solutions)
+      location.push('Shuttle')
+    }
+    cmdrStatus._location = location
 
     return cmdrStatus
   }

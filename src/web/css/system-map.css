@@ -10,50 +10,47 @@
 .system-map__info {
   position: absolute;
   color: var(--color-info);
+  left: 1rem;
+  right: 1rem;
   bottom: 0;
   z-index: 50;
   text-align: center;
   pointer-events: none;
   font-size: 1rem;
-  left: 4.5rem;
-  width: calc(100% - 6rem);
   overflow: hidden;
   box-sizing: border-box;
-  background: radial-gradient(circle, rgba(0,0,0,.8) 60%, rgba(0,0,0,0) 100%);
 }
 
+.system-map__info h3 {
+  background: radial-gradient(circle, rgba(0,0,0,1), rgba(0,0,0,.1) 100%);
+  display: inline-block;
+  padding: .4rem 1rem .5rem 1.5rem;
+  position: relative;
+  left: 1rem;
+}
+
+/*
 @media only screen and (orientation: portrait) {
   .system-map__info {
-    left: 1rem;
-    width: calc(100% - 2rem);
+
   }
 }
+*/
 
-.system-map__info::before {
-  content: '';
+.system-map__info h3::before {
   display: block;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: var(--color-secondary-dark);
-  opacity: .25;
-  background: radial-gradient(circle, var(--color-secondary-dark) 60%, rgba(0,0,0,0) 100%);
-}
-
-.system-map__info::after {
-  display: block;
-  position: absolute;
-  top: 0;
   height: .1rem;
-  width: 100%;
+  position: relative;
+  top: -.4rem;
   content: '';
-  background: radial-gradient(circle, var(--color-secondary) 40%, rgba(0,0,0,0) 100%);
+  background: radial-gradient(circle, var(--color-secondary) 60%, rgba(0,0,0,0) 100%);
   pointer-events: none;
   opacity: 0.5;
+  margin: 0 -1rem 0 -1.5rem;
 }
 
 .system-map__info-contents {
-  padding: .5rem 0;
+  padding: .5rem 0 .25rem 0;
 }
 
 .system-map__info * {
@@ -69,7 +66,7 @@
 
 .system-map__info-icon .icon {
   position: relative;
-  top: .35rem;
+  top: .25rem;
   margin-right: .25rem;
   font-size: 1.25rem;
   line-height: 1rem;
@@ -81,6 +78,25 @@
 }
 
 .system-map__location {
+  position: absolute;
+  bottom: 3rem;
+  z-index: 50;
+  text-align: center;
+  pointer-events: none;
+  font-size: 1rem;
+  left: 4.5rem;
+  width: calc(100% - 6rem);
+}
+
+.system-map__location h3 {
+  background: rgba(0,0,0,.8);
+  display: inline-block;
+  border-radius: 10rem;
+  padding: .25rem .75rem .25rem .75rem;
+  line-height: 1.5rem;
+}
+
+.system-map__system-position {
   position: absolute;
   top: .5rem;
   right: 1.5rem;

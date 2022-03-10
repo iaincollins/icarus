@@ -15,9 +15,9 @@ class MyDocument extends Document {
     return (
       <Html lang='en' data-fx-crt='true' data-fx-crt-text='false' data-fx-crt-text-animated='false'>
         <Head>
-          <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" izes="180x180" href="/icons/icon-180x180.png"></link>
-          <meta name="theme-color" content="#000" />
+          <link rel='manifest' href='/manifest.json' />
+          <link rel='apple-touch-icon' izes='180x180' href='/icons/icon-180x180.png' />
+          <meta name='theme-color' content='#000' />
           <style dangerouslySetInnerHTML={{
             __html: 'html { background: black; }'
           }}

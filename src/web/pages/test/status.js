@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import { sendEvent, eventListener } from 'lib/socket'
 
 export default function StatusPage () {
@@ -8,6 +8,12 @@ export default function StatusPage () {
     setCmdrStatus(await sendEvent('getCmdrStatus'))
   }, [])
 
+  useEffect(() => eventListener('newLogEntry', async (log) => {
+    if (['Location', 'FSDJump'].includes(log.event)) {
+      setCmdrStatus(await sendEvent('getCmdrStatus'))
+    }
+  }))
+
   useEffect(() => eventListener('gameStateChange', async (log) => {
     setCmdrStatus(await sendEvent('getCmdrStatus'))
   }), [])
@@ -16,16 +22,28 @@ export default function StatusPage () {
     <>
       <div style={{ padding: '1rem' }}>
         <h1>Cmdr Status</h1>
+        <p>
+          balance: {cmdrStatus?.balance && `${cmdrStatus.balance?.toLocaleString()} CR`}
+        </p>
+        <p>
+        location: {cmdrStatus?._location && cmdrStatus._location.map((loc, i) => {
+          return <>
+            { i > 0 && <span className='seperator'/>}
+            {loc}
+          </>
+        })}
+        </p>
+        <hr/>
         {cmdrStatus && Object.keys(cmdrStatus).map(key =>
-          <>
+          <Fragment key={key}>
             {key !== 'flags' &&
               <p className='text-primary'>
-                {key}: <span className='text-info'>{cmdrStatus[key]}</span>
+                {key}: <span className='text-info'>{JSON.stringify(cmdrStatus[key])}</span>
               </p>}
-          </>
+          </Fragment>
         )}
         {cmdrStatus && Object.keys(cmdrStatus.flags).map(flag =>
-          <p className='text-primary'>
+          <p key={flag} className='text-primary'>
             {flag}:
             {cmdrStatus.flags[flag] === true && <span className='text-success'>true</span>}
             {cmdrStatus.flags[flag] === false && <span className='text-danger'>false</span>}

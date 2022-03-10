@@ -34,7 +34,7 @@ export default function NavListPage () {
   }, [connected, ready, router.isReady])
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
-    if (log.event === 'FSDJump') {
+    if (['Location', 'FSDJump'].includes(log.event)) {
       const newCurrentSystem = await sendEvent('getSystem')
       if (newCurrentSystem) setCurrentSystem(newCurrentSystem)
       if (newCurrentSystem) setSystem(newCurrentSystem)
@@ -108,6 +108,7 @@ export default function NavListPage () {
                         {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
                         <span className='visible-medium'>
                           {currentSystem.position && route.StarPos && currentSystem?.name !== route?.StarSystem && <span><br />{distance(currentSystem.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                          {currentSystem.position && route.StarPos && currentSystem?.name === route?.StarSystem && <span className='text-muted'><br/>Current System</span>}
                         </span>
                       </div>
                     </td>
