@@ -61,7 +61,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
             </h3>}
           {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === false &&
             <h3 className='text-secondary'>
-              <i className='icon text-secondary icarus-terminal-location-filled' style={{position: 'relative', top: '.2rem', lineHeight: '1rem'}}/>
+              <i className='icon text-secondary icarus-terminal-location-filled' style={{position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem'}}/>
               {(cmdrStatus?._location) 
                 ? cmdrStatus._location.map((loc, i) =>
                     <span className='text-muted'>
@@ -73,7 +73,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               }
             </h3>}
             {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true && 
-              <h3 className='text-blink text-info'>Frame Shift Drive Jumping</h3>
+              <h3 className='text-blink text-info'>Frame Shift Drive Active</h3>
             }
         </div>
         <div className='system-map__info fx-fade-in'>
