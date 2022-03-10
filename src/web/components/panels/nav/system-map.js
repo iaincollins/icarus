@@ -84,7 +84,7 @@ export default function SystemMap ({ system, setSystemObject }) {
           {system.faction && system.faction !== 'Unknown' &&
             <h3 className='text-info text-muted'>
               <span className='fx-animated-text' data-fx-order='6'>
-                Controlled by {system.faction}
+                Authority: {system.faction}
               </span>
             </h3>}
         </div>

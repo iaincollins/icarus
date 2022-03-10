@@ -142,6 +142,13 @@
   line-height: 1.25rem;
 }
 
+@media only screen and (max-width: 799px) {
+  .system-map__title h3 {
+    line-height: 1.7rem;
+    margin: -.5rem 0;
+  }
+}
+
 .system-map__planetary-system {
   position: relative;
   display: block;
