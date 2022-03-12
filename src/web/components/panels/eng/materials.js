@@ -42,13 +42,14 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
           {materials.map(item =>
             <tr
               key={`material_${materialType}_${materialCategory}_${item.symbol}`}
-              className={item.count === item?.maxCount ? 'text-secondary' : ''}
+              className={`${item.count === item?.maxCount ? 'text-secondary' : ''} ${item.count === 0 ? 'text-muted text-danger' : ''}`}
             >
               <td style={{ width: '30rem' }}>
-                <h4 className={item.count === 0 ? 'text-muted' : ''}><CopyOnClick>{item.name}</CopyOnClick></h4>
+                <h4><CopyOnClick>{item.name}</CopyOnClick></h4>
                 <div style={{ marginTop: '.5rem' }}>
                   <div style={{ width: '30%', display: 'inline-block' }}>
-                    <span className={item.count === 0 ? 'text-muted' : ''}>{item.count}</span><span className='text-muted'>/{item.maxCount}</span>
+                    <span>{item.count}</span>
+                    <span className='text-muted'>/{item.maxCount}</span>
                   </div>
                   <div style={{ width: '70%', display: 'inline-block' }}>
                     <progress style={{ height: '1.25rem' }} value={item.count} max={item?.maxCount ?? item.count} className={item.count === item?.maxCount ? 'progress--secondary' : ''} />
@@ -56,7 +57,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
                 </div>
               </td>
               <td className='hidden-large text-no-transform'>
-                <span style={{ xfontSize: '1rem' }} className={item.count === 0 ? 'text-muted' : ''}>
+                <span>
                   {item.blueprints
                     .map(blueprint => {
                     // TODO Highlight engineering uses relevant to equipped engineered modules
@@ -78,7 +79,7 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
                   {materialType === 'Xeno' && <span className='text-muted'>Classified</span>}
                 </span>
               </td>
-              <td className={`text-right text-no-wrap ${item.count === 0 ? 'text-muted' : ''}`} style={{ width: '3rem' }}>
+              <td className='text-right text-no-wrap' style={{ width: '3rem' }}>
                 <i style={{ fontSize: '3rem' }} className={`icon icarus-terminal-materials-grade-${item.grade}`} />
               </td>
             </tr>

@@ -61,12 +61,12 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                 <span className='value'>{ship.rebuy ? ship.rebuy.toLocaleString() : '-'} CR</span>
               </td>
               <td>
-                <span className='text-muted'>Total mass</span>
-                <span className='value'>{ship.mass} T</span>
+                <span className='text-muted'>Fuel Reservoir</span>
+                <span className='value'>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
               </td>
               <td>
-                <span className='text-muted'>Power draw</span>
-                <span className='value'>{ship.modulePowerDraw || '-'} MW</span>
+              <span className='text-muted'>Total mass</span>
+                <span className='value'>{ship.mass} T</span>
               </td>
             </tr>
           </tbody>

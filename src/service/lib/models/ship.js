@@ -22,7 +22,6 @@ class ShipModel {
       this.eliteJson.json()
     ])
 
-
     // The Loadout event is written on load, after switching ships and after
     // using Outfitting. This logic used to use ModulesInfo.json but it is not
     // updated as often and I haven't found a good use for ModulesInfo.json yet.
@@ -256,6 +255,7 @@ class ShipModel {
       // Using parseFloat with toFixed
       maxJumpRange: Loadout?.MaxJumpRange ? parseFloat((Loadout.MaxJumpRange).toFixed(2)) : null,
       fuelLevel: Json?.Status?.Fuel?.FuelMain ? parseFloat((Json.Status.Fuel.FuelMain).toFixed(2)) : null,
+      fuelReservoir: Json?.Status?.Fuel?.FuelReservoir ? parseFloat((Json.Status.Fuel.FuelReservoir).toFixed(2)) : null,
       fuelCapacity: totalFuelCapacity,
       modulePowerDraw: totalModulePowerDraw,
       mass: totalMass,

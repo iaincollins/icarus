@@ -61,20 +61,18 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
             </h3>}
           {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === false &&
             <h3 className='text-secondary'>
-              <i className='icon text-secondary icarus-terminal-location-filled' style={{position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem'}}/>
-              {(cmdrStatus?._location) 
+              <i className='icon text-secondary icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem' }} />
+              {(cmdrStatus?._location)
                 ? cmdrStatus._location.map((loc, i) =>
-                    <span className='text-muted'>
-                      { i > 0 && <span className='seperator'/>}
-                      {loc}
-                    </span>
+                  <span className='text-muted' key={`location_${loc}_${i}`}>
+                    {i > 0 && <i className='icon icarus-terminal-chevron-right text-muted' style={{ fontSize: '.8rem', margin: '0 .25rem' }} />}
+                    {loc}
+                  </span>
                   )
-              : 'Current location'
-              }
+                : 'Current location'}
             </h3>}
-            {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true && 
-              <h3 className='text-blink text-info'>Frame Shift Drive Active</h3>
-            }
+          {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
+            <h3 className='text-blink-slow text-secondary'>Frame Shift Drive Active</h3>}
         </div>
         <div className='system-map__info fx-fade-in'>
           <div className='system-map__info-contents'>

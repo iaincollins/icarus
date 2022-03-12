@@ -4,6 +4,7 @@ import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { EngineeringPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
+import CopyOnClick from 'components/copy-on-click'
 
 export default function EngineeringMaterialsPage () {
   const router = useRouter()
@@ -14,7 +15,7 @@ export default function EngineeringMaterialsPage () {
   const [blueprintsApplied, setBlueprintsApplied] = useState()
   const [blueprintsNotApplied, setBlueprintsNotApplied] = useState()
   const [selectedBlueprint, setSelectedBlueprint] = useState()
-
+  console.log(selectedBlueprint)
   useEffect(async () => {
     if (!connected) return
     if (!router.isReady) return
@@ -171,7 +172,7 @@ export default function EngineeringMaterialsPage () {
             </>}
 
           {Object.keys(selectedBlueprint.grades).map(grade =>
-            <div style={{ position: 'relative' }} key={`${selectedBlueprint.symbol}_${grade}_materials`}>
+            <div className='engineering__blueprint-grade' style={{ position: 'relative' }} key={`${selectedBlueprint.symbol}_${grade}_materials`}>
 
               <div className='tabs' style={{ marginTop: '1rem' }}>
                 <h4 className='tab'>Grade {parseInt(grade) + 1}</h4>
@@ -187,7 +188,20 @@ export default function EngineeringMaterialsPage () {
                   />
                 )}
               </h4>
-              <div className='engineering__blueprint-grade'>
+              <div className='engineering__blueprint-features text-uppercase'>
+                {Object.entries(selectedBlueprint.grades[grade]?.features).map(([k, v]) => {
+                  return (
+                    <p key={`feature_${k}_${v}`}>
+                      <span className='text-muted'>{k}</span>
+                      <span className={`float-right ${v.improvement ? 'text-success' : 'text-danger'}`}>
+                        {v.value[0] === v.value[1] && <>{v.value[0] >= 0 && '+'}{v.value[0]}</>}
+                        {v.value[0] !== v.value[1] && <>{v.value[0] >= 0 && '+'}{v.value[0]} <span className='text-muted'>—</span> {v.value[1] >= 0 && '+'}{v.value[1]}</>}
+                      </span>
+                    </p>
+                  )
+                })}
+              </div>
+              <div className='engineering__blueprint-components'>
                 <table className='table--animated'>
                   {/*
                   <thead>
@@ -205,13 +219,13 @@ export default function EngineeringMaterialsPage () {
                       return (
                         <tr
                           key={`blueprint_${selectedBlueprint.name}_grade_${grade}_component_${component.name}`}
-                          className={component.count > 0 ? 'text-primary' : 'text-muted'}
+                          className={component.count > 0 ? 'text-primary' : 'text-muted text-danger'}
                         >
                           <td className='text-center' style={{ background: 'var(--color-primary-dark)', width: '1rem' }}>
                             <i className={`icon icarus-terminal-materials-grade-${component.grade}`} style={{ fontSize: '2.5rem' }} />
                           </td>
                           <td style={{ background: 'var(--color-primary-dark)' }}>
-                            {component.name}
+                            <CopyOnClick>{component.name}</CopyOnClick>
                             <div className='text-muted'>
                               {component.type}
                             </div>

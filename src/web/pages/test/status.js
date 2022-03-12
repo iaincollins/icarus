@@ -26,14 +26,16 @@ export default function StatusPage () {
           balance: {cmdrStatus?.balance && `${cmdrStatus.balance?.toLocaleString()} CR`}
         </p>
         <p>
-        location: {cmdrStatus?._location && cmdrStatus._location.map((loc, i) => {
-          return <>
-            { i > 0 && <span className='seperator'/>}
-            {loc}
-          </>
+          location: {cmdrStatus?._location && cmdrStatus._location.map((loc, i) => {
+          return (
+            <Fragment key={`location_${loc}_${i}`}>
+              {i > 0 && <span className='seperator' />}
+              {loc}
+            </Fragment>
+          )
         })}
         </p>
-        <hr/>
+        <hr />
         {cmdrStatus && Object.keys(cmdrStatus).map(key =>
           <Fragment key={key}>
             {key !== 'flags' &&
