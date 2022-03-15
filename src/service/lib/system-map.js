@@ -22,7 +22,7 @@ class SystemMap {
   constructor (system) {
     this.detail = system
     const { name = '', bodies: _bodies, stations = [] } = this.detail
-    this.name = name
+    this.name = this.getSystemObjectName(name)
 
     // On the map, we draw a system view for each Star in a system, as that's
     // a great way to organise the information to make it easy to read.
@@ -132,9 +132,9 @@ class SystemMap {
     for (const systemObject of this.objectsInSystem) {
       if (!systemObject._type) systemObject._type = systemObject.type
       
-      // Attach name to system name
-      // alert(escapeRegExp(this.detail.name))
-      systemObject.label = this.getSystemObjectLabel(systemObject)
+      systemObject.name = this.getSystemObjectName(systemObject.name)
+      systemObject.label = this.getSystemObjectLabelFromSystemObject(systemObject)
+
       // Loop through and find all stations / ships / etc and assign parents
       // value based on whatever planet they are nearest to (before calculating
       // co-ordiantes for values, which are used to draw the map). The approach
@@ -461,12 +461,36 @@ class SystemMap {
   // screen space, but do include still include it in things like station names.
   // e.g "Colonia 5" is fine with the label "5" in the system map, but the name
   // "Colonia Outpost" should not be truncated to "Outpost".
-  getSystemObjectLabel (systemObject) {
+  getSystemObjectLabelFromSystemObject (systemObject) {
     if (systemObject._type && systemObject._type === 'Planet') {
-      return systemObject.name.replace(new RegExp(`^${escapeRegExp(this.name)} `, 'i'), '')
+      return systemObject.name
+        // Next line is special case handling for renamed systems in Witch Head
+        // Sector, it needs to be ahead of the line that strips the name as
+        // some systems in Witch Head have bodies that start with name name of
+        // the star as well but some don't (messy!)
+        .replace(/Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+) /i, '')
+        .replace(new RegExp(`^${escapeRegExp(this.name)} `, 'i'), '')
+        .trim()
+    } else if (systemObject._type && systemObject._type === 'Star') {
+      let systemObjectLabel = systemObject.name || ''
+      // If the label contains 'Witch Head Sector' but does not start with it
+      // then it is a renamed system and the Witch Head Sector bit is stripped
+      if (systemObjectLabel.match(/Witch Head Sector/i) && !systemObjectLabel.match(/^Witch Head Sector/i)) {
+        systemObjectLabel = systemObjectLabel.replace(/ Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+)/i, '').trim()
+      }
+      return systemObjectLabel
     } else {
       return systemObject.name
     }
+  }
+
+  getSystemObjectName (systemObjectName) {
+    // If the name contains 'Witch Head Sector' but does not start with it
+    // then it is a renamed system and the Witch Head Sector bit is stripped
+    if (systemObjectName.match(/Witch Head Sector/i) && !systemObjectName.match(/^Witch Head Sector/i)) {
+      return systemObjectName.replace(/ Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+)/i, '').trim()
+    }
+    return systemObjectName
   }
 }
 

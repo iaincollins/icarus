@@ -150,7 +150,7 @@ function NavigationTableRow ({ systemObject, depth = 0, setSystemObject }) {
       <td>
         <div style={{ paddingLeft: `${(depth * 0.8) + 2}rem`, paddingRight: '.75rem' }} className='text-no-wrap'>
           <i className={iconClass} />
-          {systemObject.type === 'Planet'
+          {systemObject.label
             ? <>
               <span className='visible-medium'>{systemObject.label}</span>
               <span className='hidden-medium'>{systemObject.name}</span>
