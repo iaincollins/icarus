@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import distance from '../../../shared/distance'
+
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { NavPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
@@ -12,9 +12,8 @@ export default function NavListPage () {
   const { query } = router
   const { connected, active, ready } = useSocket()
   const [componentReady, setComponentReady] = useState(false)
-  const [currentSystem, setCurrentSystem] = useState()
-  const [system, setSystem] = useState()
   const [navRoute, setNavRoute] = useState()
+  const [system, setSystem] = useState()
 
   const search = async (searchInput) => {
     router.push({ pathname: '/nav/map', query: { system: searchInput.toLowerCase() } })
@@ -22,12 +21,10 @@ export default function NavListPage () {
 
   useEffect(async () => {
     if (!connected || !router.isReady) return
-    const [newCurrentSystem, newSystem, newNavRoute] = await Promise.all([
-      sendEvent('getSystem'),
+    const [newSystem, newNavRoute] = await Promise.all([
       sendEvent('getSystem', query.system ? { name: query.system, useCache: true } : null),
       sendEvent('getNavRoute')
     ])
-    if (newCurrentSystem) setCurrentSystem(newCurrentSystem)
     if (newSystem) setSystem(newSystem)
     if (newNavRoute) setNavRoute(newNavRoute)
     setComponentReady(true)
@@ -35,9 +32,8 @@ export default function NavListPage () {
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
     if (['Location', 'FSDJump'].includes(log.event)) {
-      const newCurrentSystem = await sendEvent('getSystem')
-      if (newCurrentSystem) setCurrentSystem(newCurrentSystem)
-      if (newCurrentSystem) setSystem(newCurrentSystem)
+      const newNavRoute = await sendEvent('getNavRoute')
+      if (newNavRoute) setNavRoute(newNavRoute)
     }
   }))
 
@@ -59,73 +55,75 @@ export default function NavListPage () {
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel scrollable layout='full-width' navigation={NavPanelNavItems('Route', query)} search={search}>
-        <h2>Route</h2>
         <table>
           <tbody>
             <tr style={{ background: 'none' }}>
               <td style={{ width: '50%', padding: 0 }}>
-                {currentSystem &&
+                {navRoute?.currentSystem &&
                   <>
-                    <h4 className='text-primary'>Current System</h4>
-                    <h3 className='text-info'><CopyOnClick>{currentSystem?.name}</CopyOnClick></h3>
+                    <h3 className='text-primary'>
+                      Location
+                    </h3>
+                    <h2 className='text-info'><CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick></h2>
                   </>}
               </td>
               <td style={{ width: '50%', padding: 0 }} className='text-right'>
-                {currentSystem && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem?.toLowerCase() !== currentSystem?.name?.toLowerCase() &&
+                {navRoute?.destination?.distance > 0 &&
                   <>
-                    <h4 className='text-primary'>Destination</h4>
-                    <h3 className='text-info'><CopyOnClick>{navRoute[navRoute.length - 1].StarSystem}</CopyOnClick></h3>
-                  </>}
-                {currentSystem && navRoute && navRoute.length > 0 && navRoute[navRoute.length - 1].StarSystem?.toLowerCase() === currentSystem?.name?.toLowerCase() &&
-                  <>
-                    <h4>&nbsp;</h4>
-                    <h3 className='text-primary text-muted'>At destination</h3>
+                    <h3 className='text-primary'>
+                      Destination
+                    </h3>
+                    <h2 className='text-info'><CopyOnClick>{navRoute?.destination?.system}</CopyOnClick></h2>
                   </>}
               </td>
             </tr>
           </tbody>
         </table>
-        {navRoute && navRoute.length > 0 &&
+        {navRoute && navRoute.route.length > 0 && navRoute?.jumpsToDestination > 0 &&
+          <p className='text-primary text-uppercase text-center' style={{ margin: '1rem 0' }}>
+            {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}  / {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly to {navRoute.destination.system}
+          </p>}
+        {navRoute && navRoute.route.length > 0 &&
           <>
             <hr style={{ marginBottom: 0 }} />
             <table className='table--animated table--interactive'>
               <tbody className='fx-fade-in'>
-                {navRoute.map((route, i) =>
-                  <tr
-                    key={`nav-route_${route.StarSystem}`}
-                    className={`${currentSystem && currentSystem?.name.toLowerCase() === route.StarSystem.toLowerCase() ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'} ${system && currentSystem && system?.name?.toLowerCase() !== currentSystem?.name?.toLowerCase() && system?.name?.toLowerCase() === route.StarSystem.toLowerCase() ? 'table__row--selected' : ''}`}
-                    onClick={() => router.push({ pathname: '/nav/map', query: { system: route.StarSystem.toLowerCase() } })}
-                  >
-                    <td className='text-center' style={{ width: '3rem' }}>
-                      {i + 1}
-                    </td>
-                    <td style={{ paddingLeft: '3.5rem' }}>
-                      <div style={{ position: 'relative' }}>
-                        <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star visible-medium' />
-                        <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className='icon icarus-terminal-star hidden-medium' />
-                        <span>{route.StarSystem} </span>
-                        <br /><span className='text-muted'>{route.StarClass} Class </span>
-                        {route.StarClass.match(/([OBAFGKM])/) ? 'Scoopable' : <span className='text-muted'>Not Scoopable</span>}
-                        <span className='visible-medium'>
-                          {currentSystem.position && route.StarPos && currentSystem?.name !== route?.StarSystem && <span><br />{distance(currentSystem.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                          {currentSystem.position && route.StarPos && currentSystem?.name === route?.StarSystem && <span className='text-muted'><br />Current System</span>}
-                        </span>
-                      </div>
-                    </td>
-                    <td className='hidden-medium text-right'>
-                      {currentSystem.position && route.StarPos && currentSystem?.name !== route?.StarSystem && <span>{distance(currentSystem.position, route.StarPos).toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                      {currentSystem.position && route.StarPos && currentSystem?.name === route?.StarSystem && <span className='text-muted'>Current System</span>}
-                    </td>
-                  </tr>
-                )}
+                {navRoute.route.map((route, i) => {
+                  const icon = route.isCurrentSystem ? 'icarus-terminal-location-filled' : 'icarus-terminal-star'
+
+                  return (
+                    <tr
+                      key={`nav-route_${route.system}`}
+                      className={`${route.isCurrentSystem ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'}`}
+                      onClick={() => router.push({ pathname: '/nav/map', query: { system: route?.system?.toLowerCase() } })}
+                    >
+                      <td className='text-center' style={{ width: '3rem' }}>
+                        {i + 1}
+                      </td>
+                      <td style={{ paddingLeft: '3.5rem' }}>
+                        <div style={{ position: 'relative' }}>
+                          <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} visible-medium`} />
+                          <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} hidden-medium`} />
+                          <span>{route.system} </span>
+                          <br /><span className='text-muted'>{route.starClass} Class, </span>
+                          {route.starClass.match(/([OBAFGKM])/) ? 'Fuel Star' : <span className='text-muted'>Not Fuel Star</span>}
+                          <span className='visible-medium'>
+                            {route.isCurrentSystem === false && <span><br />{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                            {route.isCurrentSystem === true && <span className='text-muted'><br />Current Location</span>}
+                          </span>
+                        </div>
+                      </td>
+                      <td className='hidden-medium text-right'>
+                        {route.isCurrentSystem === false && <span>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                        {route.isCurrentSystem === true && <span className='text-muted'>Current Location</span>}
+                      </td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
             <hr className='small' style={{ marginTop: 0 }} />
           </>}
-        {navRoute && navRoute.length === 0 &&
-          <p className='text-info text-muted text-center' style={{ margin: '1rem 0' }}>
-            No route set
-          </p>}
         {navRoute &&
           <p className='text-primary text-muted text-center' style={{ margin: '1rem 0' }}>
             Set route using galaxy map

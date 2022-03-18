@@ -3,20 +3,20 @@ const EDCDShipyard = new (require('../data'))('edcd/fdevids/shipyard')
 const EDCDCommodity = new (require('../data'))('edcd/fdevids/commodity')
 const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
 const CoriolisModules = new (require('../data'))('edcd/coriolis/modules')
-const CmdrStatusModel = require('./cmdr-status')
+const CmdrStatus = require('./cmdr-status')
 const { UNKNOWN_VALUE } = require('../../../shared/consts')
 
 let lastKnownShipState = null
 
-class ShipModel {
+class ShipStatus {
   constructor ({ eliteLog, eliteJson }) {
     this.eliteLog = eliteLog
     this.eliteJson = eliteJson
-    this.cmdrStatusModel = new CmdrStatusModel({ eliteLog, eliteJson })
+    this.cmdrStatus = new CmdrStatus({ eliteLog, eliteJson })
     return this
   }
 
-  async getShip () {
+  async getShipStatus () {
     const [Loadout, Json] = await Promise.all([
       this.eliteLog.getEvent('Loadout'),
       this.eliteJson.json()
@@ -31,7 +31,7 @@ class ShipModel {
     // for Loadout events is good enough for now as is fired after Outfitting.
     const loadoutModules = Loadout?.Modules ?? []
     const modules = {}
-    const cmdrStatus = await this.cmdrStatusModel.getCmdrStatus()
+    const cmdrStatus = await this.cmdrStatus.getCmdrStatus()
     const onBoard = cmdrStatus?.flags?.inMainShip ?? false
 
     // If we are not onboard, and we have a last known ship state, return
@@ -280,4 +280,4 @@ class ShipModel {
   }
 }
 
-module.exports = ShipModel
+module.exports = ShipStatus

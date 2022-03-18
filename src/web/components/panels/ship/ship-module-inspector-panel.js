@@ -73,23 +73,35 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
             <div className='ship-panel__module-section ship-panel__module-section--engineering text-uppercase'>
               {true &&
                 <div className='ship-panel__module-section--engineering-tab'>
-                  <ul>
-                    {module.engineering.modifiers.map(modifier =>
-                      <li
-                        key={`${module.name}_${module.slot}_engineering_modifier_${modifier.name}`}
-                        className='text-primary'
-                      >
-                        {modifier.name}
-                        <span style={{ marginLeft: '.5rem' }}>
-                          <span className={modifier.improvement ? 'text-success' : 'text-danger'}>{modifier.difference}</span>
-                        </span>
-                      </li>
-                    )}
-                  </ul>
+                  {module.engineering.modifiers.map(modifier =>
+                    modifier.improvement ? <EngineeringModifier modifier={modifier} /> : null
+                  )}
+                  {module.engineering.modifiers.map(modifier =>
+                    !modifier.improvement ? <EngineeringModifier modifier={modifier} /> : null
+                  )}
                 </div>}
             </div>
           </>}
       </div>
     </div>
+  )
+}
+
+function EngineeringModifier ({ modifier }) {
+  return (
+    <p
+      key={`${module.name}_${module.slot}_engineering_modifier_${modifier.name}`}
+      className={modifier.improvement ? 'text-success' : 'text-danger'}
+      style={{ margin: 0, padding: 0 }}
+    >
+      <icon
+        className={`icon icarus-terminal-chevron-${modifier.improvement ? 'up' : 'down'}`}
+        style={{ marginRight: '.25rem', fontSize: '1rem', position: 'relative', top: '.1rem' }}
+      />
+      {modifier.name}
+      <span style={{ marginLeft: '.5rem' }}>
+        <span className={modifier.improvement ? 'text-success' : 'text-danger'}>{modifier.difference}</span>
+      </span>
+    </p>
   )
 }

@@ -1,15 +1,15 @@
 const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
 
-class BlueprintModel {
-  constructor ({ materialsModel, shipModel }) {
-    this.materialsModel = materialsModel
-    this.shipModel = shipModel
+class Blueprints {
+  constructor ({ materials, shipStatus }) {
+    this.materials = materials
+    this.shipStatus = shipStatus
     return this
   }
 
   async getBlueprints () {
-    const materials = await this.materialsModel.getMaterials()
-    const ship = await this.shipModel.getShip()
+    const materials = await this.materials.getMaterials()
+    const ship = await this.shipStatus.getShipStatus()
     const blueprints = CoriolisBlueprints.data.map(blueprint => {
       const [first, second] = blueprint.symbol.split('_')
       const name = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', 'Utility').trim()
@@ -36,7 +36,8 @@ class BlueprintModel {
           }
         }),
         modules: blueprint.modulename,
-        appliedToModules: Object.values(ship?.modules ?? []).filter(module => module.engineering.symbol === blueprint.symbol)
+        appliedToModules: Object.values(ship?.modules ?? []).filter(module => module.engineering.symbol === blueprint.symbol),
+        engineers: blueprint.engineers
       }
     })
 
@@ -46,4 +47,4 @@ class BlueprintModel {
   }
 }
 
-module.exports = BlueprintModel
+module.exports = Blueprints

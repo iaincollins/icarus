@@ -13,19 +13,19 @@ export default function ShipCargoPage () {
 
   useEffect(async () => {
     if (!connected) return
-    const newShip = await sendEvent('getShip')
+    const newShip = await sendEvent('getShipStatus')
     setShip(newShip)
     setCargo(newShip?.cargo?.inventory ?? [])
   }, [connected, ready])
 
   useEffect(() => eventListener('gameStateChange', async () => {
-    const newShip = await sendEvent('getShip')
+    const newShip = await sendEvent('getShipStatus')
     setShip(newShip)
     setCargo(newShip?.cargo?.inventory ?? [])
   }), [])
 
   useEffect(() => eventListener('newLogEntry', async () => {
-    const newShip = await sendEvent('getShip')
+    const newShip = await sendEvent('getShipStatus')
     setShip(newShip)
     setCargo(newShip?.cargo?.inventory ?? [])
   }), [])

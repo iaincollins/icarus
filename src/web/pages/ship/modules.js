@@ -13,15 +13,15 @@ export default function ShipModulesPage () {
 
   useEffect(async () => {
     if (!connected) return
-    setShip(await sendEvent('getShip'))
+    setShip(await sendEvent('getShipStatus'))
   }, [connected, ready])
 
   useEffect(() => eventListener('gameStateChange', async () => {
-    setShip(await sendEvent('getShip'))
+    setShip(await sendEvent('getShipStatus'))
   }), [])
 
   useEffect(() => eventListener('newLogEntry', async () => {
-    setShip(await sendEvent('getShip'))
+    setShip(await sendEvent('getShipStatus'))
   }), [])
 
   return (

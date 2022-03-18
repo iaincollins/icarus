@@ -146,7 +146,24 @@
       "AFMU"
     ],
     "name": "Shielded",
-    "symbol": "AFM_Shielded"
+    "symbol": "AFM_Shielded",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    }
   },
   {
     "fdname": "Armour_Advanced",
@@ -190,7 +207,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Thermal Resistance": {
             "value": [
@@ -244,7 +261,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Thermal Resistance": {
             "value": [
@@ -299,7 +316,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Thermal Resistance": {
             "value": [
@@ -354,7 +371,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Thermal Resistance": {
             "value": [
@@ -409,7 +426,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Thermal Resistance": {
             "value": [
@@ -430,7 +447,23 @@
       "Armour"
     ],
     "name": "Lightweight",
-    "symbol": "Armour_Advanced"
+    "symbol": "Armour_Advanced",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Armour_Explosive",
@@ -623,7 +656,23 @@
       "Armour"
     ],
     "name": "Blast resistant",
-    "symbol": "Armour_Explosive"
+    "symbol": "Armour_Explosive",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Armour_HeavyDuty",
@@ -907,7 +956,23 @@
       "Armour"
     ],
     "name": "Heavy duty",
-    "symbol": "Armour_HeavyDuty"
+    "symbol": "Armour_HeavyDuty",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Armour_Kinetic",
@@ -1101,7 +1166,23 @@
       "Armour"
     ],
     "name": "Kinetic resistant",
-    "symbol": "Armour_Kinetic"
+    "symbol": "Armour_Kinetic",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Armour_Thermic",
@@ -1295,7 +1376,23 @@
       "Armour"
     ],
     "name": "Thermal resistant",
-    "symbol": "Armour_Thermic"
+    "symbol": "Armour_Thermic",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Misc_LightWeight",
@@ -1321,7 +1418,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "5ebd5d76-7bb8-4958-9cc3-f5e2176f2b5e"
@@ -1348,7 +1445,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "c49d42a8-cd8f-4576-9c60-85725f635185"
@@ -1376,7 +1473,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "bc048a95-b5aa-4f6c-a696-6c40b87a1606"
@@ -1404,7 +1501,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "4f9467f7-0c5f-4ab3-856b-aaad019bd79d"
@@ -1432,7 +1529,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "15d2a67d-71b5-405a-ba21-4f94583064a3"
@@ -1453,7 +1550,45 @@
       "Point defence"
     ],
     "name": "Lightweight",
-    "symbol": "Misc_LightWeight"
+    "symbol": "Misc_LightWeight",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "1",
+          "2"
+        ]
+      }
+    }
   },
   {
     "fdname": "Misc_Reinforced",
@@ -1611,7 +1746,45 @@
       "Point defence"
     ],
     "name": "Reinforced",
-    "symbol": "Misc_Reinforced"
+    "symbol": "Misc_Reinforced",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "1",
+          "2"
+        ]
+      }
+    }
   },
   {
     "fdname": "Misc_Shielded",
@@ -1769,7 +1942,45 @@
       "Point defence"
     ],
     "name": "Shielded",
-    "symbol": "Misc_Shielded"
+    "symbol": "Misc_Shielded",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "1",
+          "2"
+        ]
+      }
+    }
   },
   {
     "fdname": "Misc_ChaffCapacity",
@@ -1817,7 +2028,19 @@
       "Chaff launcher"
     ],
     "name": "Ammo capacity",
-    "symbol": "Misc_ChaffCapacity"
+    "symbol": "Misc_ChaffCapacity",
+    "engineers": {
+      "Petra Olmanova": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Ram Tah": {
+        "grades": [
+          "1"
+        ]
+      }
+    }
   },
   {
     "fdname": "CollectionLimpet_LightWeight",
@@ -1843,7 +2066,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "40d015c8-e3c3-4e6c-8703-0e5dc0c0ca7a"
@@ -1870,7 +2093,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "4f4f23cf-fb43-4542-8d60-c96cf884c3c9"
@@ -1898,7 +2121,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "9c4ebeff-12e1-4f0e-a972-bb8d4d7e4f08"
@@ -1926,7 +2149,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "befa7711-25fa-49d2-97fb-3f8a4cc8b91e"
@@ -1954,7 +2177,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "d5c4d258-6597-4557-bc1b-b4afc7b59784"
@@ -1965,7 +2188,35 @@
       "Collector limpet controller"
     ],
     "name": "Lightweight",
-    "symbol": "CollectionLimpet_LightWeight"
+    "symbol": "CollectionLimpet_LightWeight",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "CollectionLimpet_Reinforced",
@@ -2113,7 +2364,35 @@
       "Collector limpet controller"
     ],
     "name": "Reinforced",
-    "symbol": "CollectionLimpet_Reinforced"
+    "symbol": "CollectionLimpet_Reinforced",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "CollectionLimpet_Shielded",
@@ -2261,7 +2540,35 @@
       "Collector limpet controller"
     ],
     "name": "Shielded",
-    "symbol": "CollectionLimpet_Shielded"
+    "symbol": "CollectionLimpet_Shielded",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Engine_Dirty",
@@ -2545,7 +2852,31 @@
       "Engines"
     ],
     "name": "Dirty",
-    "symbol": "Engine_Dirty"
+    "symbol": "Engine_Dirty",
+    "engineers": {
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      "Felicty Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Professor Palin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Engine_Reinforced",
@@ -2580,7 +2911,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "21503395-f165-4340-91c7-07d062895eae"
@@ -2616,7 +2947,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "452e2359-5804-4de1-94bf-d16c9d512cc4"
@@ -2653,7 +2984,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "ae1a71bb-e025-4268-aa7f-fd4063945beb"
@@ -2690,7 +3021,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "4bc0b925-dd64-41da-a653-f15acf108f23"
@@ -2727,7 +3058,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "88aef454-76f6-48a3-a66c-958e50c92e7c"
@@ -2739,7 +3070,31 @@
       "Engines"
     ],
     "name": "Reinforced",
-    "symbol": "Engine_Reinforced"
+    "symbol": "Engine_Reinforced",
+    "engineers": {
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      "Felicty Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Professor Palin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Engine_Tuned",
@@ -2774,7 +3129,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "5b32dae1-7c4a-4760-8c48-0d9a9fa2758d"
@@ -2828,7 +3183,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "5382eecb-c840-4613-99c1-9bcbdb8d7760"
@@ -2883,7 +3238,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "0c58a5c8-0bf9-4a2c-baf0-b14228f236df"
@@ -2938,7 +3293,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "afb2b22e-ab30-4195-8bfe-ae81ea6067f3"
@@ -2993,7 +3348,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "74e6e223-c709-4c91-88d5-c55f9dfdf722"
@@ -3005,7 +3360,31 @@
       "Engines"
     ],
     "name": "Clean",
-    "symbol": "Engine_Tuned"
+    "symbol": "Engine_Tuned",
+    "engineers": {
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2"
+        ]
+      },
+      "Felicty Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Professor Palin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "FSD_FastBoot",
@@ -3022,7 +3401,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -3067,7 +3446,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -3113,7 +3492,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -3159,7 +3538,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -3205,7 +3584,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -3244,7 +3623,41 @@
       "FSD"
     ],
     "name": "Faster boot sequence",
-    "symbol": "FSD_FastBoot"
+    "symbol": "FSD_FastBoot",
+    "engineers": {
+      "Colonel Bris Dekker": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Professor Palin": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "FSD_LongRange",
@@ -3483,7 +3896,41 @@
       "FSD"
     ],
     "name": "Increased range",
-    "symbol": "FSD_LongRange"
+    "symbol": "FSD_LongRange",
+    "engineers": {
+      "Colonel Bris Dekker": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Professor Palin": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "FSD_Shielded",
@@ -3527,7 +3974,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "0bf46ac9-dfcd-49c3-bcef-db93ba04ed97"
@@ -3572,7 +4019,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "2858e680-b675-4ee9-9c24-04e8dd2bfe85"
@@ -3618,7 +4065,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "f836e994-c19f-4ed0-926d-fbcc75f136c0"
@@ -3664,7 +4111,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "fe30a1a0-3644-4411-af1f-59bae0a565b9"
@@ -3710,7 +4157,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "eba5e423-bba4-40c1-aafb-e954881f9f2c"
@@ -3722,7 +4169,41 @@
       "FSD"
     ],
     "name": "Shielded",
-    "symbol": "FSD_Shielded"
+    "symbol": "FSD_Shielded",
+    "engineers": {
+      "Colonel Bris Dekker": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Professor Palin": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "FSDinterdictor_Expanded",
@@ -3879,7 +4360,29 @@
       "FSDI"
     ],
     "name": "Expanded capture arc",
-    "symbol": "FSDinterdictor_Expanded"
+    "symbol": "FSDinterdictor_Expanded",
+    "engineers": {
+      "Colonel Bris Dekker": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "FSDinterdictor_LongRange",
@@ -4118,7 +4621,29 @@
       "FSDI"
     ],
     "name": "Long range",
-    "symbol": "FSDinterdictor_LongRange"
+    "symbol": "FSDinterdictor_LongRange",
+    "engineers": {
+      "Colonel Bris Dekker": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "FuelScoop_Shielded",
@@ -4266,7 +4791,24 @@
       "Fuel scoop"
     ],
     "name": "Shielded",
-    "symbol": "FuelScoop_Shielded"
+    "symbol": "FuelScoop_Shielded",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    }
   },
   {
     "fdname": "FuelTransferLimpet_LightWeight",
@@ -4292,7 +4834,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "b4abda7b-ac4c-4ddf-ac76-f3d9640e217b"
@@ -4319,7 +4861,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "7bae1015-d4b9-4c33-8286-79c93386cf33"
@@ -4347,7 +4889,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "b69e0eb2-67c4-402a-8b4d-69d64c899fdc"
@@ -4375,7 +4917,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "36d13200-4c1d-4d49-9936-af8562a6fbce"
@@ -4403,7 +4945,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "e7ac0755-b319-4e35-b736-8235b68a1b09"
@@ -4414,7 +4956,35 @@
       "Fuel transfer limpet controller"
     ],
     "name": "Lightweight",
-    "symbol": "FuelTransferLimpet_LightWeight"
+    "symbol": "FuelTransferLimpet_LightWeight",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "FuelTransferLimpet_Reinforced",
@@ -4562,7 +5132,35 @@
       "Fuel transfer limpet controller"
     ],
     "name": "Reinforced",
-    "symbol": "FuelTransferLimpet_Reinforced"
+    "symbol": "FuelTransferLimpet_Reinforced",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "FuelTransferLimpet_Shielded",
@@ -4710,7 +5308,35 @@
       "Fuel transfer limpet controller"
     ],
     "name": "Shielded",
-    "symbol": "FuelTransferLimpet_Shielded"
+    "symbol": "FuelTransferLimpet_Shielded",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "HatchBreakerLimpet_LightWeight",
@@ -4736,7 +5362,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "3434789e-7555-4bca-a901-09ddbae0d323"
@@ -4763,7 +5389,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "c62a09da-8157-474e-8b8f-04b43792a372"
@@ -4791,7 +5417,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "ad0166b8-9313-4c7a-a95c-5e4b0e53fc40"
@@ -4819,7 +5445,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "cf482f0a-de37-4fec-8bcd-f087203e0f2d"
@@ -4847,7 +5473,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "80d2445b-47ef-4738-8729-152f45c732f9"
@@ -4858,7 +5484,35 @@
       "Hatch breaker limpet controller"
     ],
     "name": "Lightweight",
-    "symbol": "HatchBreakerLimpet_LightWeight"
+    "symbol": "HatchBreakerLimpet_LightWeight",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "HatchBreakerLimpet_Reinforced",
@@ -5006,7 +5660,35 @@
       "Hatch breaker limpet controller"
     ],
     "name": "Reinforced",
-    "symbol": "HatchBreakerLimpet_Reinforced"
+    "symbol": "HatchBreakerLimpet_Reinforced",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "HatchBreakerLimpet_Shielded",
@@ -5154,7 +5836,35 @@
       "Hatch breaker limpet controller"
     ],
     "name": "Shielded",
-    "symbol": "HatchBreakerLimpet_Shielded"
+    "symbol": "HatchBreakerLimpet_Shielded",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Misc_HeatSinkCapacity",
@@ -5202,7 +5912,19 @@
       "Heat sink launcher"
     ],
     "name": "Ammo capacity",
-    "symbol": "Misc_HeatSinkCapacity"
+    "symbol": "Misc_HeatSinkCapacity",
+    "engineers": {
+      "Petra Olmanova": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Ram Tah": {
+        "grades": [
+          "1"
+        ]
+      }
+    }
   },
   {
     "fdname": "HullReinforcement_Advanced",
@@ -5237,7 +5959,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "8405c035-bf65-47d1-bdbe-5253b5c0a98b"
@@ -5273,7 +5995,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "a8dad054-0392-460a-934e-27d40f65e1fc"
@@ -5310,7 +6032,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "ee887ba1-c66f-4002-97cb-5169201324af"
@@ -5347,7 +6069,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "8912615d-e711-4e5d-a08f-739cbf372963"
@@ -5384,7 +6106,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "371f79dc-6387-40eb-9d98-be915ae4413d"
@@ -5397,7 +6119,23 @@
       "HRP"
     ],
     "name": "Lightweight",
-    "symbol": "HullReinforcement_Advanced"
+    "symbol": "HullReinforcement_Advanced",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "HullReinforcement_Explosive",
@@ -5637,7 +6375,23 @@
       "HRP"
     ],
     "name": "Blast resistant",
-    "symbol": "HullReinforcement_Explosive"
+    "symbol": "HullReinforcement_Explosive",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "HullReinforcement_HeavyDuty",
@@ -5922,7 +6676,23 @@
       "HRP"
     ],
     "name": "Heavy duty",
-    "symbol": "HullReinforcement_HeavyDuty"
+    "symbol": "HullReinforcement_HeavyDuty",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "HullReinforcement_Kinetic",
@@ -6162,7 +6932,23 @@
       "HRP"
     ],
     "name": "Kinetic resistant",
-    "symbol": "HullReinforcement_Kinetic"
+    "symbol": "HullReinforcement_Kinetic",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "HullReinforcement_Thermic",
@@ -6402,7 +7188,23 @@
       "HRP"
     ],
     "name": "Thermal resistant",
-    "symbol": "HullReinforcement_Thermic"
+    "symbol": "HullReinforcement_Thermic",
+    "engineers": {
+      "Liz Ryder": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Selene Jean": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "LifeSupport_LightWeight",
@@ -6428,7 +7230,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "e1e1bd93-3a3f-4454-bfe3-0e2b6840b43a"
@@ -6455,7 +7257,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "aaf29592-df21-4b4c-aeac-20252e75b8aa"
@@ -6483,7 +7285,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "8876b27a-2c31-49f0-8a47-c11acd801c2b"
@@ -6511,7 +7313,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "b7672f07-e10e-4371-989c-dd49e28c4b79"
@@ -6539,7 +7341,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "ec9b7ac2-7a99-4f96-8bf1-061df58dba79"
@@ -6550,7 +7352,29 @@
       "Life support"
     ],
     "name": "Lightweight",
-    "symbol": "LifeSupport_LightWeight"
+    "symbol": "LifeSupport_LightWeight",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "LifeSupport_Reinforced",
@@ -6698,7 +7522,29 @@
       "Life support"
     ],
     "name": "Reinforced",
-    "symbol": "LifeSupport_Reinforced"
+    "symbol": "LifeSupport_Reinforced",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "LifeSupport_Shielded",
@@ -6846,7 +7692,29 @@
       "Life support"
     ],
     "name": "Shielded",
-    "symbol": "LifeSupport_Shielded"
+    "symbol": "LifeSupport_Shielded",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Misc_PointDefenseCapacity",
@@ -6894,7 +7762,19 @@
       "Point defence"
     ],
     "name": "Ammo capacity",
-    "symbol": "Misc_PointDefenseCapacity"
+    "symbol": "Misc_PointDefenseCapacity",
+    "engineers": {
+      "Petra Olmanova": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Ram Tah": {
+        "grades": [
+          "1"
+        ]
+      }
+    }
   },
   {
     "fdname": "PowerDistributor_HighCapacity",
@@ -7268,7 +8148,32 @@
       "Distributor"
     ],
     "name": "High charge capacity",
-    "symbol": "PowerDistributor_HighCapacity"
+    "symbol": "PowerDistributor_HighCapacity",
+    "engineers": {
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Marco Qwent": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "PowerDistributor_HighFrequency",
@@ -7597,7 +8502,32 @@
       "Distributor"
     ],
     "name": "Charge enhanced",
-    "symbol": "PowerDistributor_HighFrequency"
+    "symbol": "PowerDistributor_HighFrequency",
+    "engineers": {
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Marco Qwent": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "PowerDistributor_PriorityEngines",
@@ -7926,7 +8856,32 @@
       "Distributor"
     ],
     "name": "Engine focused",
-    "symbol": "PowerDistributor_PriorityEngines"
+    "symbol": "PowerDistributor_PriorityEngines",
+    "engineers": {
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Marco Qwent": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "PowerDistributor_PrioritySystems",
@@ -8255,7 +9210,32 @@
       "Distributor"
     ],
     "name": "System focused",
-    "symbol": "PowerDistributor_PrioritySystems"
+    "symbol": "PowerDistributor_PrioritySystems",
+    "engineers": {
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Marco Qwent": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "PowerDistributor_PriorityWeapons",
@@ -8584,7 +9564,32 @@
       "Distributor"
     ],
     "name": "Weapon focused",
-    "symbol": "PowerDistributor_PriorityWeapons"
+    "symbol": "PowerDistributor_PriorityWeapons",
+    "engineers": {
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Marco Qwent": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "PowerDistributor_Shielded",
@@ -8619,7 +9624,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "05883145-2407-46a1-9eea-5a56ac549cfd"
@@ -8655,7 +9660,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "5822ff0c-fa6c-4072-95be-e2534f37be00"
@@ -8692,7 +9697,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "d5040eac-fa75-4613-828d-ea71aefd9051"
@@ -8729,7 +9734,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "32c94fd6-71c3-461b-80ed-bfe1543f9651"
@@ -8766,7 +9771,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "1b073867-c10f-474b-88d7-5fb6c602b838"
@@ -8778,7 +9783,32 @@
       "Distributor"
     ],
     "name": "Shielded",
-    "symbol": "PowerDistributor_Shielded"
+    "symbol": "PowerDistributor_Shielded",
+    "engineers": {
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Marco Qwent": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "PowerPlant_Armoured",
@@ -8795,7 +9825,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -8840,7 +9870,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -8886,7 +9916,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -8932,7 +9962,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -8978,7 +10008,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -9016,7 +10046,31 @@
       "Power plant"
     ],
     "name": "Armoured",
-    "symbol": "PowerPlant_Armoured"
+    "symbol": "PowerPlant_Armoured",
+    "engineers": {
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Marco Qwent": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    }
   },
   {
     "fdname": "PowerPlant_Boosted",
@@ -9209,7 +10263,31 @@
       "Power plant"
     ],
     "name": "Overcharged",
-    "symbol": "PowerPlant_Boosted"
+    "symbol": "PowerPlant_Boosted",
+    "engineers": {
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Marco Qwent": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    }
   },
   {
     "fdname": "PowerPlant_Stealth",
@@ -9226,7 +10304,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -9262,7 +10340,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -9299,7 +10377,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -9336,7 +10414,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -9373,7 +10451,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -9402,7 +10480,31 @@
       "Power plant"
     ],
     "name": "Low emissions",
-    "symbol": "PowerPlant_Stealth"
+    "symbol": "PowerPlant_Stealth",
+    "engineers": {
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Marco Qwent": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    }
   },
   {
     "fdname": "ProspectingLimpet_LightWeight",
@@ -9428,7 +10530,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "bb27a6b6-5c10-41e8-a6b3-3abc8a4ed23e"
@@ -9455,7 +10557,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "95af3c55-ec45-4f5d-848d-1639307fee41"
@@ -9483,7 +10585,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "a3b84b26-d67e-4d8c-9653-f23181cce9f8"
@@ -9511,7 +10613,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "363a9543-4072-4211-8c89-8e9477fa72eb"
@@ -9539,7 +10641,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "4de10a2c-e440-4b2e-95fb-e1121bff19a4"
@@ -9550,7 +10652,35 @@
       "Prospector limpet controller"
     ],
     "name": "Lightweight",
-    "symbol": "ProspectingLimpet_LightWeight"
+    "symbol": "ProspectingLimpet_LightWeight",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "ProspectingLimpet_Reinforced",
@@ -9698,7 +10828,35 @@
       "Prospector limpet controller"
     ],
     "name": "Reinforced",
-    "symbol": "ProspectingLimpet_Reinforced"
+    "symbol": "ProspectingLimpet_Reinforced",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "ProspectingLimpet_Shielded",
@@ -9846,7 +11004,35 @@
       "Prospector limpet controller"
     ],
     "name": "Shielded",
-    "symbol": "ProspectingLimpet_Shielded"
+    "symbol": "ProspectingLimpet_Shielded",
+    "engineers": {
+      "Ram Tah": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Refineries_Shielded",
@@ -9994,7 +11180,24 @@
       "Refinery"
     ],
     "name": "Shielded",
-    "symbol": "Refineries_Shielded"
+    "symbol": "Refineries_Shielded",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      }
+    }
   },
   {
     "fdname": "Sensor_FastScan",
@@ -10029,7 +11232,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "8e2046eb-06bf-44e4-8fad-981f24d68340"
@@ -10065,7 +11268,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "953bcfbf-a46d-45e2-90c7-f727e641edc3"
@@ -10102,7 +11305,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "bed8bdc6-ef45-450e-aa7f-802cea642b2d"
@@ -10139,7 +11342,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "610ba60e-d0e3-42c2-9269-c67bafb25546"
@@ -10176,7 +11379,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "64b8d29d-de5c-4b50-bd77-ae7cb3c78ed6"
@@ -10192,7 +11395,45 @@
       "Manifest scanner"
     ],
     "name": "Fast scan",
-    "symbol": "Sensor_FastScan"
+    "symbol": "Sensor_FastScan",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "1",
+          "2"
+        ]
+      }
+    }
   },
   {
     "fdname": "Scanner_LongRange",
@@ -10390,7 +11631,45 @@
       "Manifest scanner"
     ],
     "name": "Long range",
-    "symbol": "Scanner_LongRange"
+    "symbol": "Scanner_LongRange",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "1",
+          "2"
+        ]
+      }
+    }
   },
   {
     "fdname": "Scanner_WideAngle",
@@ -10588,7 +11867,45 @@
       "Manifest scanner"
     ],
     "name": "Wide angle",
-    "symbol": "Scanner_WideAngle"
+    "symbol": "Scanner_WideAngle",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "1",
+          "2"
+        ]
+      }
+    }
   },
   {
     "fdname": "Sensor_LightWeight",
@@ -10614,7 +11931,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Scan Angle": {
             "value": [
@@ -10650,7 +11967,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Scan Angle": {
             "value": [
@@ -10687,7 +12004,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Scan Angle": {
             "value": [
@@ -10724,7 +12041,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Scan Angle": {
             "value": [
@@ -10761,7 +12078,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Scan Angle": {
             "value": [
@@ -10781,7 +12098,75 @@
       "Sensors"
     ],
     "name": "Lightweight",
-    "symbol": "Sensor_LightWeight"
+    "symbol": "Sensor_LightWeight",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Sensor_LongRange",
@@ -10974,7 +12359,75 @@
       "Sensors"
     ],
     "name": "Long range",
-    "symbol": "Sensor_LongRange"
+    "symbol": "Sensor_LongRange",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Sensor_WideAngle",
@@ -11167,7 +12620,75 @@
       "Sensors"
     ],
     "name": "Wide angle",
-    "symbol": "Sensor_WideAngle"
+    "symbol": "Sensor_WideAngle",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Hera Tani": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Etienne Dorn": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Sensor_Expanded",
@@ -11316,7 +12837,59 @@
       "DSS"
     ],
     "name": "Expanded Probe Scanning Radius",
-    "symbol": "Sensor_Expanded"
+    "symbol": "Sensor_Expanded",
+    "engineers": {
+      "Bill Turner": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Juri Ishmaak": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Tiana Fortune": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldBooster_Explosive",
@@ -11509,7 +13082,30 @@
       "Shield booster"
     ],
     "name": "Blast resistant",
-    "symbol": "ShieldBooster_Explosive"
+    "symbol": "ShieldBooster_Explosive",
+    "engineers": {
+      "Didi Vatermann": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldBooster_HeavyDuty",
@@ -11747,7 +13343,30 @@
       "Shield booster"
     ],
     "name": "Heavy duty",
-    "symbol": "ShieldBooster_HeavyDuty"
+    "symbol": "ShieldBooster_HeavyDuty",
+    "engineers": {
+      "Didi Vatermann": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldBooster_Kinetic",
@@ -11940,7 +13559,30 @@
       "Shield booster"
     ],
     "name": "Kinetic resistant",
-    "symbol": "ShieldBooster_Kinetic"
+    "symbol": "ShieldBooster_Kinetic",
+    "engineers": {
+      "Didi Vatermann": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldBooster_Resistive",
@@ -12223,7 +13865,30 @@
       "Shield booster"
     ],
     "name": "Resistance augmented",
-    "symbol": "ShieldBooster_Resistive"
+    "symbol": "ShieldBooster_Resistive",
+    "engineers": {
+      "Didi Vatermann": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldBooster_Thermic",
@@ -12416,7 +14081,30 @@
       "Shield booster"
     ],
     "name": "Thermal resistant",
-    "symbol": "ShieldBooster_Thermic"
+    "symbol": "ShieldBooster_Thermic",
+    "engineers": {
+      "Didi Vatermann": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Felicity Farseer": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldCellBank_Rapid",
@@ -12460,7 +14148,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "8f315143-e256-41c2-8833-f35d12e47dce"
@@ -12505,7 +14193,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "f983d8e1-9a38-425c-a5bb-3881c5e0f14d"
@@ -12551,7 +14239,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "f1cc436c-d2f0-4b79-a832-5fafd62ab5d8"
@@ -12597,7 +14285,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "3f4ce660-9aea-4fe3-abe8-00b9408b4a66"
@@ -12609,7 +14297,26 @@
       "SCB"
     ],
     "name": "Rapid charge",
-    "symbol": "ShieldCellBank_Rapid"
+    "symbol": "ShieldCellBank_Rapid",
+    "engineers": {
+      "Elvira Martuuk": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Mel Brandon": {
+        "grades": [
+          "4"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldCellBank_Specialised",
@@ -12626,7 +14333,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -12662,7 +14369,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "3aa962e3-48f8-4305-829a-717dbead2830"
@@ -12680,7 +14387,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -12716,7 +14423,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "53d40533-967f-4792-b938-421f7a938540"
@@ -12735,7 +14442,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -12771,7 +14478,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "0648b687-cf76-4953-a531-7eca944ec325"
@@ -12790,7 +14497,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -12826,7 +14533,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "4766533c-3dff-4871-8c5f-3a1338c88cd2"
@@ -12838,7 +14545,26 @@
       "SCB"
     ],
     "name": "Specialised",
-    "symbol": "ShieldCellBank_Specialised"
+    "symbol": "ShieldCellBank_Specialised",
+    "engineers": {
+      "Elvira Martuuk": {
+        "grades": [
+          "1"
+        ]
+      },
+      "Lori Jameson": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Mel Brandon": {
+        "grades": [
+          "4"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldGenerator_Kinetic",
@@ -13032,7 +14758,32 @@
       "Shields"
     ],
     "name": "Kinetic resistant",
-    "symbol": "ShieldGenerator_Kinetic"
+    "symbol": "ShieldGenerator_Kinetic",
+    "engineers": {
+      "Didi Vatermann": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldGenerator_Optimised",
@@ -13058,7 +14809,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Optimal Mass": {
             "value": [
@@ -13085,7 +14836,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "598e0c47-ecd2-4cfa-93d1-08bbda4cd765"
@@ -13112,7 +14863,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Optimal Mass": {
             "value": [
@@ -13139,7 +14890,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "605d6333-c544-425e-96c6-a76b6b839e2c"
@@ -13167,7 +14918,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Optimal Mass": {
             "value": [
@@ -13194,7 +14945,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "db5f0467-5bdc-433e-986d-031bbd48067b"
@@ -13222,7 +14973,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Optimal Mass": {
             "value": [
@@ -13249,7 +15000,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "88987ab7-b759-4cda-acbb-726bd0ad17c7"
@@ -13277,7 +15028,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Optimal Mass": {
             "value": [
@@ -13304,7 +15055,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "cf878a5a-542b-46e8-8b56-4d179eac3f46"
@@ -13316,7 +15067,32 @@
       "Shields"
     ],
     "name": "Enhanced low power",
-    "symbol": "ShieldGenerator_Optimised"
+    "symbol": "ShieldGenerator_Optimised",
+    "engineers": {
+      "Didi Vatermann": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldGenerator_Reinforced",
@@ -13645,7 +15421,32 @@
       "Shields"
     ],
     "name": "Reinforced",
-    "symbol": "ShieldGenerator_Reinforced"
+    "symbol": "ShieldGenerator_Reinforced",
+    "engineers": {
+      "Didi Vatermann": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "ShieldGenerator_Thermic",
@@ -13839,7 +15640,32 @@
       "Shields"
     ],
     "name": "Thermal resistant",
-    "symbol": "ShieldGenerator_Thermic"
+    "symbol": "ShieldGenerator_Thermic",
+    "engineers": {
+      "Didi Vatermann": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Elvira Martuuk": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Lei Cheung": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_DoubleShot",
@@ -14077,7 +15903,25 @@
       "Weapon"
     ],
     "name": "Double shot",
-    "symbol": "Weapon_DoubleShot"
+    "symbol": "Weapon_DoubleShot",
+    "engineers": {
+      "Tod McQuinn": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Zacariah Nemo": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_Efficient",
@@ -14103,7 +15947,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "3fbcc9dc-169a-4cd3-b945-cedc55882cd3"
@@ -14130,7 +15974,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Power Draw": {
             "value": [
@@ -14139,7 +15983,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Thermal Load": {
             "value": [
@@ -14148,7 +15992,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "a35a0c80-784d-4125-b858-fdee45750269"
@@ -14176,7 +16020,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Power Draw": {
             "value": [
@@ -14185,7 +16029,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Thermal Load": {
             "value": [
@@ -14194,7 +16038,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "a429328b-11f4-402d-9909-2c6190505966"
@@ -14222,7 +16066,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Power Draw": {
             "value": [
@@ -14231,7 +16075,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Thermal Load": {
             "value": [
@@ -14240,7 +16084,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "8c364495-468c-4ab1-9baf-079917a6cf9a"
@@ -14268,7 +16112,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Power Draw": {
             "value": [
@@ -14277,7 +16121,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Thermal Load": {
             "value": [
@@ -14286,7 +16130,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "5ac92753-1c19-4ae8-8b12-c6f130bda4a5"
@@ -14297,7 +16141,25 @@
       "Weapon"
     ],
     "name": "Efficient",
-    "symbol": "Weapon_Efficient"
+    "symbol": "Weapon_Efficient",
+    "engineers": {
+      "Broo Tarquin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_Focused",
@@ -14580,7 +16442,25 @@
       "Weapon"
     ],
     "name": "Focused",
-    "symbol": "Weapon_Focused"
+    "symbol": "Weapon_Focused",
+    "engineers": {
+      "Broo Tarquin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_HighCapacity",
@@ -14633,7 +16513,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "f622da45-ef05-4a9f-bdcb-879b5933b869"
@@ -14687,7 +16567,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "c2cf2614-1a13-4b8d-81eb-d4eaf76257d0"
@@ -14742,7 +16622,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "e37a6dba-669e-4ce6-bb3d-e831bdd656c0"
@@ -14797,7 +16677,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "8800433a-2061-4776-9821-5dc04772b963"
@@ -14852,7 +16732,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "4b3f4f18-a517-4354-a02d-de46b3cd4efc"
@@ -14863,7 +16743,25 @@
       "Weapon"
     ],
     "name": "High capacity",
-    "symbol": "Weapon_HighCapacity"
+    "symbol": "Weapon_HighCapacity",
+    "engineers": {
+      "The Sarge": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "Tod McQuinn": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_LightWeight",
@@ -14889,7 +16787,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "d5a539c5-120a-450f-bb68-e10abbeca8a9"
@@ -14907,7 +16805,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -14925,7 +16823,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Power Draw": {
             "value": [
@@ -14934,7 +16832,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "b6a80556-c22a-466e-931c-239c208c9890"
@@ -14953,7 +16851,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -14971,7 +16869,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Power Draw": {
             "value": [
@@ -14980,7 +16878,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "cbec8003-80e4-455a-84fe-257d2018386e"
@@ -14999,7 +16897,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -15017,7 +16915,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Power Draw": {
             "value": [
@@ -15026,7 +16924,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "3a57effa-ccac-448d-8d1c-3e0966042e24"
@@ -15045,7 +16943,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Integrity": {
             "value": [
@@ -15063,7 +16961,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Power Draw": {
             "value": [
@@ -15072,7 +16970,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "89f5d8e2-4f4c-4ef0-9e74-9f0691244b22"
@@ -15083,7 +16981,25 @@
       "Weapon"
     ],
     "name": "Lightweight",
-    "symbol": "Weapon_LightWeight"
+    "symbol": "Weapon_LightWeight",
+    "engineers": {
+      "Broo Tarquin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_LongRange",
@@ -15099,7 +17015,8 @@
               0.2
             ],
             "type": "numeric",
-            "method": "overwrite"
+            "method": "overwrite",
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -15152,7 +17069,8 @@
               0.4
             ],
             "type": "numeric",
-            "method": "overwrite"
+            "method": "overwrite",
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -15206,7 +17124,8 @@
               0.6
             ],
             "type": "numeric",
-            "method": "overwrite"
+            "method": "overwrite",
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -15260,7 +17179,8 @@
               0.8
             ],
             "type": "numeric",
-            "method": "overwrite"
+            "method": "overwrite",
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -15314,7 +17234,8 @@
               1
             ],
             "type": "numeric",
-            "method": "overwrite"
+            "method": "overwrite",
+            "improvement": true
           },
           "Mass": {
             "value": [
@@ -15361,7 +17282,25 @@
       "Weapon"
     ],
     "name": "Long range",
-    "symbol": "Weapon_LongRange"
+    "symbol": "Weapon_LongRange",
+    "engineers": {
+      "Broo Tarquin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "MC_Overcharged",
@@ -15599,7 +17538,25 @@
       "Weapon"
     ],
     "name": "Overcharged",
-    "symbol": "MC_Overcharged"
+    "symbol": "MC_Overcharged",
+    "engineers": {
+      "Tod McQuinn": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "Zacariah Nemo": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_Overcharged",
@@ -15792,7 +17749,25 @@
       "Weapon"
     ],
     "name": "Overcharged",
-    "symbol": "Weapon_Overcharged"
+    "symbol": "Weapon_Overcharged",
+    "engineers": {
+      "Broo Tarquin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_RapidFire",
@@ -15827,7 +17802,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Rate of Fire": {
             "value": [
@@ -15836,7 +17811,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "a7ca2bf6-14be-41ed-8bfb-c7348fda7713"
@@ -15863,7 +17838,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Jitter": {
             "value": [
@@ -15881,7 +17856,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Rate of Fire": {
             "value": [
@@ -15890,7 +17865,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "0008257b-ea33-48ea-a18e-56cc6cf98a77"
@@ -15918,7 +17893,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Jitter": {
             "value": [
@@ -15936,7 +17911,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Rate of Fire": {
             "value": [
@@ -15945,7 +17920,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "f3338d38-f944-4841-b350-09755e1b615d"
@@ -15973,7 +17948,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Jitter": {
             "value": [
@@ -15991,7 +17966,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Rate of Fire": {
             "value": [
@@ -16000,7 +17975,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "d2bdb568-725a-44bf-9328-ba72d2988acd"
@@ -16028,7 +18003,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Jitter": {
             "value": [
@@ -16046,7 +18021,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           },
           "Rate of Fire": {
             "value": [
@@ -16055,7 +18030,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "b1792824-0e96-42a3-9d3a-0b41d5ef83e0"
@@ -16066,7 +18041,25 @@
       "Weapon"
     ],
     "name": "Rapid fire",
-    "symbol": "Weapon_RapidFire"
+    "symbol": "Weapon_RapidFire",
+    "engineers": {
+      "Broo Tarquin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_ShortRange",
@@ -16250,7 +18243,25 @@
       "Weapon"
     ],
     "name": "Short range",
-    "symbol": "Weapon_ShortRange"
+    "symbol": "Weapon_ShortRange",
+    "engineers": {
+      "Broo Tarquin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   },
   {
     "fdname": "Weapon_Sturdy",
@@ -16294,7 +18305,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "3ac55eb7-0a45-440b-8c59-6ead43c7ef49"
@@ -16339,7 +18350,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "53c131ab-cd66-4919-b49b-c1435362c8ff"
@@ -16385,7 +18396,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "2d1873d4-6d38-4d39-b4c5-ea199be2bd6a"
@@ -16431,7 +18442,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "4ceeab9c-7a85-4553-9fa4-81ebc6e88d4f"
@@ -16477,7 +18488,7 @@
             ],
             "type": "percentage",
             "method": "multiplicative",
-            "improvement": false
+            "improvement": true
           }
         },
         "uuid": "53ab027e-1c5f-404b-82e3-0bc4c55c71af"
@@ -16488,6 +18499,24 @@
       "Weapon"
     ],
     "name": "Sturdy",
-    "symbol": "Weapon_Sturdy"
+    "symbol": "Weapon_Sturdy",
+    "engineers": {
+      "Broo Tarquin": {
+        "grades": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "The Dweller": {
+        "grades": [
+          "1",
+          "2",
+          "3"
+        ]
+      }
+    }
   }
 ]

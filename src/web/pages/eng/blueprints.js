@@ -15,7 +15,7 @@ export default function EngineeringMaterialsPage () {
   const [blueprintsApplied, setBlueprintsApplied] = useState()
   const [blueprintsNotApplied, setBlueprintsNotApplied] = useState()
   const [selectedBlueprint, setSelectedBlueprint] = useState()
-  console.log(selectedBlueprint)
+
   useEffect(async () => {
     if (!connected) return
     if (!router.isReady) return
@@ -51,7 +51,7 @@ export default function EngineeringMaterialsPage () {
     setBlueprintsApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
     setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length === 0))
   }), [])
-
+  console.log(selectedBlueprint)
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       {!selectedBlueprint &&
@@ -171,6 +171,31 @@ export default function EngineeringMaterialsPage () {
               <p className='text-muted text-primary'>Not applied to any equipped modules</p>
             </>}
 
+          <div className='tabs'>
+            <h4 className='tab' style={{ marginTop: '1rem' }}>Engineers</h4>
+          </div>
+          <table className='table--animated'>
+            <tbody className='fx-fade-in'>
+              {Object.keys(selectedBlueprint?.engineers ?? []).map(engineer => (
+                <tr key={`engineer_${engineer}`}>
+                  <td>
+                    {engineer}
+                  </td>
+                  <td className='text-right'>
+                    {
+                      Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) !== Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
+                      `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)} — ${Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
+                    }
+                    {
+                      Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) === Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
+                      `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
+                    }
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
           {Object.keys(selectedBlueprint.grades).map(grade =>
             <div className='engineering__blueprint-grade' style={{ position: 'relative' }} key={`${selectedBlueprint.symbol}_${grade}_materials`}>
 
@@ -190,12 +215,27 @@ export default function EngineeringMaterialsPage () {
               </h4>
               <div className='engineering__blueprint-features text-uppercase'>
                 {Object.entries(selectedBlueprint.grades[grade]?.features).map(([k, v]) => {
+                  if (!v.improvement) return null
                   return (
-                    <p key={`feature_${k}_${v}`}>
-                      <span className='text-muted'>{k}</span>
-                      <span className={`float-right ${v.improvement ? 'text-success' : 'text-danger'}`}>
+                    <p key={`feature_${k}_${v}`} className='text-success'>
+                      <i className='icon icarus-terminal-chevron-up' style={{ marginRight: '.2rem', position: 'relative', top: '.1rem' }} />
+                      {k}
+                      <span className='float-right'>
                         {v.value[0] === v.value[1] && <>{v.value[0] >= 0 && '+'}{v.value[0]}</>}
-                        {v.value[0] !== v.value[1] && <>{v.value[0] >= 0 && '+'}{v.value[0]} <span className='text-muted'>—</span> {v.value[1] >= 0 && '+'}{v.value[1]}</>}
+                        {v.value[0] !== v.value[1] && <>{v.value[0] !== 0 && <>{v.value[0] >= 0 && '+'}{v.value[0]} <span className='text-info text-muted'>—</span></>} {v.value[1] >= 0 && '+'}{v.value[1]}</>}
+                      </span>
+                    </p>
+                  )
+                })}
+                {Object.entries(selectedBlueprint.grades[grade]?.features).map(([k, v]) => {
+                  if (v.improvement) return null
+                  return (
+                    <p key={`feature_${k}_${v}`} className='text-danger'>
+                      <i className='icon icarus-terminal-chevron-down' style={{ marginRight: '.2rem', position: 'relative', top: '.1rem' }} />
+                      {k}
+                      <span className='float-right'>
+                        {v.value[0] === v.value[1] && <>{v.value[0] >= 0 && '+'}{v.value[0]}</>}
+                        {v.value[0] !== v.value[1] && <>{v.value[0] !== 0 && <>{v.value[0] >= 0 && '+'}{v.value[0]} <span className='text-info text-muted'>—</span></>} {v.value[1] >= 0 && '+'}{v.value[1]}</>}
                       </span>
                     </p>
                   )

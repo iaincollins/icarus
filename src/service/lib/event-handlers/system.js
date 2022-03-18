@@ -5,7 +5,7 @@ const distance = require('../../../shared/distance')
 
 const systemCache = {}
 
-class NavigationModel {
+class System {
   constructor ({ eliteLog }) {
     this.eliteLog = eliteLog
     return this
@@ -138,4 +138,4 @@ class NavigationModel {
   }
 }
 
-module.exports = NavigationModel
+module.exports = System

@@ -65,7 +65,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                 <span className='value'>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
               </td>
               <td>
-              <span className='text-muted'>Total mass</span>
+                <span className='text-muted'>Total mass</span>
                 <span className='value'>{ship.mass} T</span>
               </td>
             </tr>

@@ -1,5 +1,5 @@
 
-class InventoryModel {
+class Inventory {
   constructor ({ eliteLog, eliteJson }) {
     this.eliteLog = eliteLog
     this.eliteJson = eliteJson
@@ -90,4 +90,4 @@ class InventoryModel {
   }
 }
 
-module.exports = InventoryModel
+module.exports = Inventory

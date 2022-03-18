@@ -26,12 +26,12 @@
 }
 
 .ship-panel__modules--module-inspector {
-  bottom: 14rem;
+  bottom: 15rem;
 }
 
 .ship-panel__module-inspector {
   position: absolute;
-  height: 13.5rem;
+  height: 14.5rem;
   bottom: 0;
   width: 100%;
   z-index: 20;

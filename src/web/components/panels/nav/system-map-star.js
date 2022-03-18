@@ -49,7 +49,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
         {star.numberOfPlanets > 0 &&
           <h4>
             <span className='fx-animated-text text-primary' data-fx-order='8'>
-              {star.numberOfPlanets === 1 ? '1 body found orbit' : `${star.numberOfPlanets} bodies found in orbit`}
+              {star.numberOfPlanets === 1 ? '1 body found in orbit' : `${star.numberOfPlanets} bodies found in orbit`}
             </span>
           </h4>}
         {star.numberOfPlanets === 0 &&

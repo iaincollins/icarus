@@ -2,40 +2,40 @@ import SystemMapStar from './system-map-star'
 import CopyOnClick from 'components/copy-on-click'
 
 const factionState = {
-  Expansion: {
+  expansion: {
     description: 'Controlling faction expanding influence'
   },
-  Investment: {
+  investment: {
     description: 'Ongoing investment, expansion anticipated'
   },
-  War: {
+  war: {
     description: 'War, combat missions available'
   },
-  'Civil War': {
+  'civil war': {
     description: 'Civil war, combat missions available'
   },
-  Elections: {
+  elections: {
     description: 'Elections underway'
   },
-  Boom: {
+  boom: {
     description: 'Economy booming'
   },
-  Bust: {
+  bust: {
     description: 'Economy bust'
   },
-  'Civil Unrest': {
+  'civil unrest': {
     description: 'Civil Unrest, reduced security, bounty missions'
   },
-  Famine: {
+  famine: {
     description: 'Famine, high demand for food'
   },
-  Outbreak: {
+  outbreak: {
     description: 'Outbreak, high demand for medicines'
   },
-  Lockdown: {
+  lockdown: {
     description: 'Lockdown, station services restricted'
   },
-  Retreat: {
+  retreat: {
     description: 'Controlling faction retreating from system'
   }
 }
@@ -62,7 +62,7 @@ export default function SystemMap ({ system, setSystemObject }) {
           {system.state && system.state !== 'Unknown' && system.state !== 'None' &&
             <h3 className='text-info'>
               <span className='fx-animated-text' data-fx-order='3'>
-                {factionState[system.state]?.description ? <>{factionState[system.state].description}</> : system.state}
+                {factionState[system.state.toLowerCase()]?.description ? <>{factionState[system.state.toLowerCase()].description}</> : system.state}
               </span>
             </h3>}
           {system.allegiance && system.allegiance !== 'Unknown' &&

@@ -1,9 +1,10 @@
-const NavigationModel = require('./system')
-class CmdrStatusModel {
+const System = require('./system')
+
+class CmdrStatus {
   constructor ({ eliteJson, eliteLog }) {
     this.eliteJson = eliteJson
     this.eliteLog = eliteLog
-    this.navigationModel = new NavigationModel({ eliteLog })
+    this.system = new System({ eliteLog })
     this.flags = {
       docked: 1,
       landed: 2,
@@ -88,7 +89,7 @@ class CmdrStatusModel {
 
   async getCmdrStatus () {
     const StatusJson = (await this.eliteJson.json()).Status
-    const currentSystem = await this.navigationModel.getSystem()
+    const currentSystem = await this.system.getSystem()
 
     const cmdrStatus = {}
 
@@ -222,4 +223,4 @@ class CmdrStatusModel {
   }
 }
 
-module.exports = CmdrStatusModel
+module.exports = CmdrStatus

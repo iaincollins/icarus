@@ -1,5 +1,8 @@
 const os = require('os')
-const { UNKNOWN_VALUE } = require('../../shared/consts')
+
+const EliteLog = require('./elite-log')
+const EliteJson = require('./elite-json')
+const EventHandlers = require('./event-handlers')
 
 const {
   PORT,
@@ -7,24 +10,21 @@ const {
   BROADCAST_EVENT: broadcastEvent
 } = global
 
-const EliteJson = require('./elite-json')
-const EliteLog = require('./elite-log')
-const NavigationModel = require('./models/system')
-const ShipModel = require('./models/ship')
-const MaterialsModel = require('./models/materials')
-const BlueprintModel = require('./models/blueprints')
-const InventoryModel = require('./models/inventory')
-const CmdrStatusModel = require('./models/cmdr-status')
-
 // Instances that can be used to query game state
-const eliteJson = new EliteJson(LOG_DIR)
 const eliteLog = new EliteLog(LOG_DIR)
-const navigationModel = new NavigationModel({ eliteLog })
-const shipModel = new ShipModel({ eliteLog, eliteJson })
-const materialsModel = new MaterialsModel({ eliteLog, eliteJson })
-const blueprintModel = new BlueprintModel({ materialsModel, shipModel })
-const inventoryModel = new InventoryModel({ eliteLog, eliteJson })
-const cmdrStatusModel = new CmdrStatusModel({ eliteLog, eliteJson })
+const eliteJson = new EliteJson(LOG_DIR)
+const eventHandlers = (new EventHandlers({ eliteLog, eliteJson })).getEventHandlers()
+
+// Extend game logic related event handlers with app logic related handlers
+eventHandlers.hostInfo = () => {
+  const urls = Object.values(os.networkInterfaces())
+    .flat()
+    .filter(({ family, internal }) => family === 'IPv4' && !internal)
+    .map(({ address }) => `http://${address}:${PORT}`)
+  return { urls }
+}
+eventHandlers.getLoadingStatus = () => getLoadingStatus()
+eventHandlers.syncMessage = (message) => broadcastEvent('syncMessage', message)
 
 // TODO Define these in another file / merge with eventHandlers before porting
 // over existing event handlers from the internal build
@@ -104,41 +104,6 @@ const logEventCallback = (log) => {
 eliteJson.loadFileCallback = loadFileCallback
 eliteLog.loadFileCallback = loadFileCallback
 eliteLog.logEventCallback = logEventCallback
-
-const eventHandlers = {
-  hostInfo: () => {
-    const urls = Object.values(os.networkInterfaces())
-      .flat()
-      .filter(({ family, internal }) => family === 'IPv4' && !internal)
-      .map(({ address }) => `http://${address}:${PORT}`)
-    return {
-      urls
-    }
-  },
-  getLoadingStatus: () => getLoadingStatus(),
-  getCommander: async () => {
-    const [LoadGame] = await Promise.all([eliteLog.getEvent('LoadGame')])
-    return {
-      commander: LoadGame?.Commander ?? UNKNOWN_VALUE,
-      credits: LoadGame?.Credits ?? UNKNOWN_VALUE
-    }
-  },
-  getLogEntries: async ({ count = 100, timestamp }) => {
-    if (timestamp) {
-      return await eliteLog.getFromTimestamp(timestamp)
-    } else {
-      return await eliteLog.getNewest(count)
-    }
-  },
-  getSystem: (args) => navigationModel.getSystem(args),
-  getShip: (args) => shipModel.getShip(args),
-  getMaterials: (args) => materialsModel.getMaterials(args),
-  getBlueprints: (args) => blueprintModel.getBlueprints(args),
-  getNavRoute: async () => ((await eliteJson.json())?.NavRoute?.Route ?? []),
-  getInventory: (args) => inventoryModel.getInventory(args),
-  syncMessage: (message) => broadcastEvent('syncMessage', message),
-  getCmdrStatus: (args) => cmdrStatusModel.getCmdrStatus(args)
-}
 
 async function init ({ days = 7 } = {}) {
   // If already run (or already started) don't run again

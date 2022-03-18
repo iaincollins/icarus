@@ -37,21 +37,41 @@ function coriolisDataBlueprints () {
   fs.mkdirSync(outputDir, { recursive: true })
   const blueprints = JSON.parse(fs.readFileSync(`${ROOT_INPUT_DATA_DIR}/${dataDir}/blueprints.json`))
   const modifications = JSON.parse(fs.readFileSync(`${ROOT_INPUT_DATA_DIR}/${dataDir}/modifications.json`))
+  const modules = JSON.parse(fs.readFileSync(`${ROOT_INPUT_DATA_DIR}/${dataDir}/modules.json`))
+
+  const moduleBlueprints = {}
+  Object.keys(modules).forEach(module => {
+    Object.keys(modules[module].blueprints).forEach(blueprintName => {
+      moduleBlueprints[blueprintName] = modules[module].blueprints[blueprintName]
+    })
+  })
+
   const output = []
   Object.keys(blueprints).forEach(blueprintSymbol => {
     const blueprint = blueprints[blueprintSymbol]
     blueprint.symbol = blueprintSymbol
+    blueprint.engineers = {}
 
     Object.keys(blueprint.grades).forEach(grade => {
       const features = {}
+
+      // Get all engineers who can make this grade
+      moduleBlueprints?.[blueprintSymbol]?.grades[grade]?.engineers.forEach(engineer => {
+        if (!blueprint.engineers[engineer]) {
+          blueprint.engineers[engineer] = { grades: [] }
+        }
+        blueprint.engineers[engineer].grades.push(grade)
+      })
+
       Object.entries(blueprint.grades[grade].features).forEach(([k, v]) => {
         features[getEngineeringPropertyName(k)] = {
           value: v,
           type: modifications[k].type,
           method: modifications[k].method,
-          improvement: v[1] > 0 && modifications[k].higherbetter
+          improvement: ((Math.max(...v) > 0 && modifications[k].higherbetter === true) || (Math.min(...v) < 0 && modifications[k].higherbetter === false))
         }
       })
+
       blueprint.grades[grade].features = features
     })
 
