@@ -500,14 +500,32 @@ class SystemMap {
   getSystemObjectLabelFromSystemObject (systemObject) {
     if (systemObject._type && systemObject._type === 'Planet') {
       return systemObject.name
+        // Next line is special case handling for renamed systems in Witch Head
+        // Sector, it needs to be ahead of the line that strips the name as
+        // some systems in Witch Head have bodies that start with name name of
+        // the star as well but some don't (messy!)
+        //.replace(/Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+) /i, '')
         .replace(new RegExp(`^${escapeRegExp(this.name)} `, 'i'), '')
         .trim()
+    } else if (systemObject._type && systemObject._type === 'Star') {
+      //let systemObjectLabel = systemObject.name || ''
+      // If the label contains 'Witch Head Sector' but does not start with it
+      // then it is a renamed system and the Witch Head Sector bit is stripped
+      //if (systemObjectLabel.match(/Witch Head Sector/i) && !systemObjectLabel.match(/^Witch Head Sector/i)) {
+      //  systemObjectLabel = systemObjectLabel.replace(/ Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+)/i, '').trim()
+      //}
+      return systemObject.name
     } else {
       return systemObject.name
     }
   }
 
   getSystemObjectName (systemObjectName) {
+    // If the name contains 'Witch Head Sector' but does not start with it
+    // then it is a renamed system and the Witch Head Sector bit is stripped
+    //if (systemObjectName.match(/Witch Head Sector/i) && !systemObjectName.match(/^Witch Head Sector/i)) {
+    //  return systemObjectName.replace(/ Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+)/i, '').trim()
+    //}
     return systemObjectName
   }
 }
