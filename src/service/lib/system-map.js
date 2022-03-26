@@ -65,8 +65,44 @@ class SystemMap {
     this.init()
   }
 
-  #getUniqueObjectsByProperty(arr, key) {
-    return [...new Map(arr.map(item => [item[key], item])).values()]
+  #getUniqueObjectsByProperty(arrayOfSystemObjects, key) {
+    const systemObjectsBy64BitId = {}
+
+    // The EDSM API sometimes returns data for multiple planets in a system
+    // with the same body ID, this is likely if a planet has changed over time
+    // (e.g. if it has been renamed or made a landable planet in an update).
+    //
+    // Loop through all objects and assign them a timestamp based on discovered date
+    // TODO In future may expand this to use other properties for different types
+    // of objects (e.g. stations/ships with the most recent dates).
+    //
+    // The primary purpose of this is to de-dupe duplicate planets from EDSM
+    // by only using the most recent data for an object, but the intention is to
+    // expand this to merge in data from ship scans and Full Spectrum Scans 
+    // performed by players locally and display a unified view in the UI.
+    arrayOfSystemObjects.forEach(systemObject => {
+      const systemObjectWithTimestamp = JSON.parse(JSON.stringify(systemObject))
+      systemObjectWithTimestamp.timestamp = systemObject?.discovery?.date
+
+      // This should never happen
+      if (!systemObjectWithTimestamp.hasOwnProperty('id64'))
+        return console.log('#getUniqueObjectsByProperty error - systemObject does not have id64 property', systemObject)
+
+      if (systemObjectsBy64BitId[systemObjectWithTimestamp.id64]) {
+        // If this item is newer, replace it with the one we already have
+        if (Date.parse(systemObjectWithTimestamp.timestamp) > Date.parse(systemObjectsBy64BitId[systemObjectWithTimestamp.id64]?.discovery?.date)) {
+          systemObjectsBy64BitId[systemObjectWithTimestamp.id64] = systemObjectWithTimestamp
+        }
+      } else {
+        systemObjectsBy64BitId[systemObjectWithTimestamp.id64] = systemObjectWithTimestamp
+      }
+    })
+
+    const prunedArrayOfSystemObjects = [
+      ...Object.keys(systemObjectsBy64BitId).map(id64 => systemObjectsBy64BitId[id64])
+    ]
+
+    return [...new Map(prunedArrayOfSystemObjects.map(item => [item[key], item])).values()]
   }
 
   #findStarsOrbitingOtherStarsLikePlanets (_bodies) {
@@ -468,17 +504,17 @@ class SystemMap {
         // Sector, it needs to be ahead of the line that strips the name as
         // some systems in Witch Head have bodies that start with name name of
         // the star as well but some don't (messy!)
-        .replace(/Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+) /i, '')
+        //.replace(/Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+) /i, '')
         .replace(new RegExp(`^${escapeRegExp(this.name)} `, 'i'), '')
         .trim()
     } else if (systemObject._type && systemObject._type === 'Star') {
-      let systemObjectLabel = systemObject.name || ''
+      //let systemObjectLabel = systemObject.name || ''
       // If the label contains 'Witch Head Sector' but does not start with it
       // then it is a renamed system and the Witch Head Sector bit is stripped
-      if (systemObjectLabel.match(/Witch Head Sector/i) && !systemObjectLabel.match(/^Witch Head Sector/i)) {
-        systemObjectLabel = systemObjectLabel.replace(/ Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+)/i, '').trim()
-      }
-      return systemObjectLabel
+      //if (systemObjectLabel.match(/Witch Head Sector/i) && !systemObjectLabel.match(/^Witch Head Sector/i)) {
+      //  systemObjectLabel = systemObjectLabel.replace(/ Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+)/i, '').trim()
+      //}
+      return systemObject.name
     } else {
       return systemObject.name
     }
@@ -487,9 +523,9 @@ class SystemMap {
   getSystemObjectName (systemObjectName) {
     // If the name contains 'Witch Head Sector' but does not start with it
     // then it is a renamed system and the Witch Head Sector bit is stripped
-    if (systemObjectName.match(/Witch Head Sector/i) && !systemObjectName.match(/^Witch Head Sector/i)) {
-      return systemObjectName.replace(/ Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+)/i, '').trim()
-    }
+    //if (systemObjectName.match(/Witch Head Sector/i) && !systemObjectName.match(/^Witch Head Sector/i)) {
+    //  return systemObjectName.replace(/ Witch Head Sector ([A-z0-9\-]+) ([A-z0-9\-]+)/i, '').trim()
+    //}
     return systemObjectName
   }
 }
