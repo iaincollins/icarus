@@ -52,6 +52,10 @@ export default function NavListPage () {
     router.push({ query: q }, undefined, { shallow: true })
   }, [system, router.isReady])
 
+  // FIXME When entering an undiscovered system and it is the destination system
+  // all systems on the route list show as the 'current system' and are
+  // highlighted in the secondary theme color.
+
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel scrollable layout='full-width' navigation={NavPanelNavItems('Route', query)} search={search}>
