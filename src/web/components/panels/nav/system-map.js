@@ -49,7 +49,7 @@ const factionStates = {
 export default function SystemMap ({ system, setSystemObject }) {
   if (!system) return null
 
-  let factionStateDescription = system.state.replace(/([a-z])([A-Z])/g, '$1 $2')
+  let factionStateDescription = system?.state?.replace(/([a-z])([A-Z])/g, '$1 $2')
 
   if (system.state) {
     Object.keys(factionStates).some(factionState => {
