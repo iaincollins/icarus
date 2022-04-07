@@ -1,7 +1,7 @@
 import SystemMapStar from './system-map-star'
 import CopyOnClick from 'components/copy-on-click'
 
-const factionState = {
+const factionStates = {
   expansion: {
     description: 'Controlling faction expanding influence'
   },
@@ -11,7 +11,7 @@ const factionState = {
   war: {
     description: 'War, combat missions available'
   },
-  'civil war': {
+  civilWar: {
     description: 'Civil war, combat missions available'
   },
   elections: {
@@ -23,25 +23,42 @@ const factionState = {
   bust: {
     description: 'Economy bust'
   },
-  'civil unrest': {
-    description: 'Civil Unrest, reduced security, bounty missions'
+  civilUnrest: {
+    description: 'Civil Unrest, reduced security, support & bounty missions'
   },
   famine: {
-    description: 'Famine, high demand for food'
+    description: 'Famine, high demand for food, support missions'
   },
   outbreak: {
-    description: 'Outbreak, high demand for medicines'
+    description: 'Outbreak, high demand for medicines, support missions'
   },
   lockdown: {
-    description: 'Lockdown, station services restricted'
+    description: 'Lockdown, services restricted, support missions'
   },
   retreat: {
     description: 'Controlling faction retreating from system'
-  }
+  },
+  naturalDisaster: {
+    description: 'Natural disaster, support missions available'
+  },
+  pirateAttack: {
+    description: 'Pirate attack, support & bounty missions'
+  },
 }
 
 export default function SystemMap ({ system, setSystemObject }) {
   if (!system) return null
+
+  let factionStateDescription = system.state.replace(/([a-z])([A-Z])/g, '$1 $2')
+
+  if (system.state) {
+    Object.keys(factionStates).some(factionState => {
+      if (system.state.replace(/ /g, '').toLowerCase() === factionState.toLowerCase()) {
+        factionStateDescription = factionStates[factionState].description
+        return true
+      }
+    })
+  }
 
   return (
     <>
@@ -59,16 +76,16 @@ export default function SystemMap ({ system, setSystemObject }) {
                 {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
               </span>
             </h3>}
-          {system.state && system.state !== 'Unknown' && system.state !== 'None' &&
+          {system.state && system.state !== 'Unknown' && system.state !== 'None' && factionStateDescription && 
             <h3 className='text-info'>
               <span className='fx-animated-text' data-fx-order='3'>
-                {factionState[system.state.toLowerCase()]?.description ? <>{factionState[system.state.toLowerCase()].description}</> : system.state}
+                {factionStateDescription}
               </span>
             </h3>}
           {system.allegiance && system.allegiance !== 'Unknown' &&
             <h3 className='text-info text-muted'>
               <span className='fx-animated-text' data-fx-order='4'>
-                {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance}
+                {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance.replace(/([a-z])([A-Z])/g, '$1 $2')}
                 {system.government && system.government !== 'None' && system.government !== 'Unknown' && <><span className='seperator' />{system.government}</>}
                 {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government !== 'Anarchy' && system.security !== system.government) ? <><span className='seperator' />{system.security}</> : ''}
               </span>
