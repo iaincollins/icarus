@@ -49,6 +49,7 @@ a,
 html {
   zoom: 100%;
   background: black;
+  filter: saturate(1.1);
 }
 
 html,
@@ -165,21 +166,34 @@ body {
   font-weight: bold;
   padding: 0;
   margin: 0;
-  zoom: 0.9;
+  zoom: 0.8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 @media only screen and (max-width: 799px) {
   body {
-    zoom: 0.8;
+    zoom: 0.7;
   }
 }
 
 @media only screen and (max-width: 599px) {
   body {
-    zoom: 0.7;
+    zoom: 0.6;
   }
+}
+
+body::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+  background: rgba(0,0,255,.06);
+  pointer-events: none;
 }
 
 header {
