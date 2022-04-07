@@ -136,7 +136,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(rgba(0,0,0,0), rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .1));
+  background: linear-gradient(rgba(0,0,0,0), rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .15));
 }
 
 .navigation-panel__map-background::after {
@@ -162,7 +162,7 @@
 }
 
 .navigation-panel__map-background::before {
-  background-image: linear-gradient(rgb(10, 10, 10) .1rem, transparent .1rem), linear-gradient(90deg, rgb(10, 10, 10) .1rem, transparent .1rem);
+  background-image: linear-gradient(rgb(10, 10, 20) .1rem, transparent .1rem), linear-gradient(90deg, rgb(10, 10, 20) .1rem, transparent .1rem);
   background-size: 3rem 3rem;
   background-position: -1.5rem 0;
   background-position-y: var(--background-position-y-offset-grid);
