@@ -72,7 +72,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 : 'Current location'}
             </h3>}
           {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
-            <h3 className='text-blink-slow text-secondary'>Frame Shift Drive Active</h3>}
+            <h3 className='text-blink-slow text-primary' style={{background: 'transparent'}}>Frame Shift Drive Active</h3>}
         </div>
         <div className='system-map__info fx-fade-in'>
           <div className='system-map__info-contents'>

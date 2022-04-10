@@ -45,7 +45,8 @@ export default function NavMapPage () {
 
     setCmdrStatus(await sendEvent('getCmdrStatus'))
 
-    const newSystem = await sendEvent('getSystem', query.system ? { name: query.system, useCache: true } : null)
+    const newSystem = await sendEvent('getSystem', query.system ? { name: query.system, useCache: true } : { useCache: true })
+
     if (newSystem) {
       setSystem(newSystem)
     } else {
