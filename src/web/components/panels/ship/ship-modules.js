@@ -4,6 +4,10 @@ export default function ShipModules ({ name, modules, selectedModule, setSelecte
       <div className='tabs' style={{ margin: '1rem 0 .25rem 0' }}>
         <h4 className='tab'>{name}</h4>
       </div>
+      {modules.length === 0 && 
+        <p className='text-muted text-uppercase' style={{margin: '1rem 0'}}>
+          No {name.toLowerCase()} installed
+        </p>}
       <table className='ship-panel_modules-table table--flex-inline table--interactive table--animated'>
         <tbody>
           {modules.sort((a, b) => (b?.class ?? 0) - (a?.class ?? 0)).map(module => {
