@@ -189,7 +189,7 @@ table.table--flex-inline tbody tr {
   }
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 799px) {
   table.table--flex-inline tbody tr {
     width: 50%;
   }
