@@ -90,7 +90,7 @@ class System {
     // Check for entry in cache in case we have it already
     // Note: System names are unique (they can change, but will still be unique)
     // so is okay to use them as a key.
-    if (!systemCache[systemName] || useCache === false) {
+    if (!systemCache[systemName.toLowerCase()] || useCache === false) {
       // Get system from EDSM
       const system = await EDSM.system(systemName)
 
@@ -103,13 +103,13 @@ class System {
       const systemMap = new SystemMap(system)
 
       // Create/Update cache entry with merged system and system map data
-      systemCache[systemName] = {
+      systemCache[systemName.toLowerCase()] = {
         ...system,
         ...systemMap
       }
     }
 
-    const cacheResponse = systemCache[systemName] // Get entry from cache
+    const cacheResponse = systemCache[systemName.toLowerCase()] // Get entry from cache
 
     // If we don't know what system this is, return empty object
     if (!cacheResponse.name || cacheResponse.name === UNKNOWN_VALUE) {
