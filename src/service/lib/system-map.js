@@ -56,7 +56,7 @@ class SystemMap {
     this.stars.push({
       bodyId: 0,
       name: 'Additional Objects',
-      description: 'Rogue // Extrasolar // Circumbinary',
+      description: 'Objects not directly orbiting a star',
       type: 'Null',
       _type: 'Null',
       _children: []
