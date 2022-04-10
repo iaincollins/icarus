@@ -11,16 +11,20 @@ class NavRoute {
 
   async getNavRoute () {
     const currentSystem = await this.system.getSystem()
-
     let jumpsToDestination = null
 
     const route = ((await this.eliteJson.json())?.NavRoute?.Route ?? []).map(system => {
       const distanceToHop = distance(currentSystem.position, system.StarPos)
-      const isCurrentSystem = (distanceToHop === 0)
+
+      // Replaced logic as currentSystem.position (and hence distanceToHop)
+      // is not known. Using the name like this should work, although there may
+      // be edge cases where the names don't match, may have to watch for that.
+      //const isCurrentSystem = (distanceToHop === 0)
+      const isCurrentSystem = (system?.StarSystem?.toLowerCase() === currentSystem?.name?.toLowerCase())
 
       if (isCurrentSystem) {
         jumpsToDestination = 0
-      } else if (isCurrentSystem !== null) {
+      } else {
         jumpsToDestination++
       }
 

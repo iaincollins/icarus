@@ -93,12 +93,12 @@ export default function NavListPage () {
             <table className='table--animated table--interactive'>
               <tbody className='fx-fade-in'>
                 {navRoute.route.map((route, i) => {
-                  const icon = route.isCurrentSystem ? 'icarus-terminal-location-filled' : 'icarus-terminal-star'
+                  const icon = route?.isCurrentSystem === true ? 'icarus-terminal-location-filled' : 'icarus-terminal-star'
 
                   return (
                     <tr
                       key={`nav-route_${route.system}`}
-                      className={`${route.isCurrentSystem ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'}`}
+                      className={`${route?.isCurrentSystem === true ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'}`}
                       onClick={() => router.push({ pathname: '/nav/map', query: { system: route?.system?.toLowerCase() } })}
                     >
                       <td className='text-center' style={{ width: '3rem' }}>
@@ -112,14 +112,14 @@ export default function NavListPage () {
                           <br /><span className='text-muted'>{route.starClass} Class, </span>
                           {route.starClass.match(/([OBAFGKM])/) ? 'Fuel Star' : <span className='text-muted'>Not Fuel Star</span>}
                           <span className='visible-medium'>
-                            {route.isCurrentSystem === false && <span><br />{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                            {route.isCurrentSystem === true && <span className='text-muted'><br />Current Location</span>}
+                            {route?.isCurrentSystem === false && <span><br />{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                            {route?.isCurrentSystem === true && <span className='text-muted'><br />Current Location</span>}
                           </span>
                         </div>
                       </td>
                       <td className='hidden-medium text-right'>
-                        {route.isCurrentSystem === false && <span>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                        {route.isCurrentSystem === true && <span className='text-muted'>Current Location</span>}
+                        {route?.isCurrentSystem === false && <span>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                        {route?.isCurrentSystem === true && <span className='text-muted'>Current Location</span>}
                       </td>
                     </tr>
                   )
