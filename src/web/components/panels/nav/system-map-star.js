@@ -11,7 +11,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
 
   // Modify subType to include full spectral class where known and matches
   // e.g. display 'B7 (Blue-White) Star' instead of just 'B (Blue-White) Star'
-  let starDescription = star?.subType
+  let starDescription = star?.description ?? star?.subType
   if (star?.subType && star?.spectralClass && String(star?.subType?.charAt(0) + star?.subType?.charAt(1)).trim() === star?.spectralClass?.charAt(0)) {
     starDescription = <>{star.subType.replace(star.subType.charAt(0), star.spectralClass)}</>
   }
@@ -41,21 +41,19 @@ export default function SystemMapStar ({ star, setSystemObject }) {
         </h2>
         <h3>
           <span className='fx-animated-text text-primary' data-fx-order='7'>
-            {star.type === 'Null'
-              ? <>Rogue <span className='text-muted'>//</span> Extrasolar <span className='text-muted'>//</span> Circumbinary</>
-              : starDescription}
+            {starDescription}
           </span>
         </h3>
         {star.numberOfPlanets > 0 &&
           <h4>
             <span className='fx-animated-text text-primary' data-fx-order='8'>
-              {star.numberOfPlanets === 1 ? '1 body found in orbit' : `${star.numberOfPlanets} bodies found in orbit`}
+              {star.numberOfPlanets === 1 ? '1 body found' : `${star.numberOfPlanets} bodies found`}
             </span>
           </h4>}
         {star.numberOfPlanets === 0 &&
           <h4>
             <span className='fx-animated-text text-primary text-muted' data-fx-order='8'>
-              No bodies found in orbit
+              No bodies found
             </span>
           </h4>}
       </div>
