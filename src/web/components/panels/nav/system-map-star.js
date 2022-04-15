@@ -36,7 +36,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
           <span className='fx-animated-text' data-fx-order='3'>
             {star.type !== 'Null'
               ? '' // <i className='icon icarus-terminal-star' />
-              : <i className='icon icarus-terminal-system-bodies' />} {star.name}
+              : <i className='icon icarus-terminal-system-bodies' />} {star.name}&nbsp;
           </span>
         </h2>
         <h3>

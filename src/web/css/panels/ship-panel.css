@@ -170,18 +170,6 @@
   margin: 0.25rem 0;
 }
 
-/* Safari 10.1+ */
-@media not all and (min-resolution:.001dpcm) {
-  @media {
-    table.ship-panel_modules-table.table--interactive tbody tr,
-    table.ship-panel_modules-table.table--flex-inline.table--interactive tbody tr td {
-      animation: none !important;
-      opacity: 1 !important;
-      animation-fill-mode: none !important;
-      animation-delay: 0 !important;
-    }
-  }
-}
 table.table--flex-inline.table--interactive tbody tr td.ship-panel__module {
   box-shadow: 0 0 1.5rem .5rem rgba(var(--color-primary-dark-r),var(--color-primary-dark-g),var(--color-primary-dark-b),.3) inset;
 }

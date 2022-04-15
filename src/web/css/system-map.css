@@ -305,6 +305,12 @@
 .system-map__system-object[data-system-object-type="Planet"]:not([data-system-object-atmosphere="No atmosphere"])[data-system-object-landable="true"][data-system-object-small="true"] .system-map__planet {
 }
 
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Water giant"] .system-map__planet-surface,
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Water world"] .system-map__planet-surface,
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Earth-like world"] .system-map__planet-surface {
+  fill: url(#svg-pattern__planet-surface--clouds);
+}
+
 .system-map__system-object[data-system-object-type="Star"] .system-map__planet {
   filter: url(#svg-filter__star-glow--light);
 }
@@ -468,10 +474,6 @@
 }
 
 .system-map__planet-ring {
-  display: none;
-}
-
-.system-map__planet-ring {
   display: block;
   fill: transparent;
   stroke: rgba(160, 255, 246, 0.2) !important;
@@ -491,8 +493,9 @@
   stroke-width: 0 !important;
 }
 
+.system-map__planetary-facility-icon,
 .system-map__planetary-port-icon,
-.system-map__planetary-facility-icon {
+.system-map__planetary-lander-icon {
   pointer-events: none;
   overflow: visible;
   z-index: 5;
@@ -501,8 +504,9 @@
   filter: drop-shadow(0 0 5rem var(--color-secondary)) drop-shadow(0 0 10rem var(--color-secondary)) drop-shadow(0 0 10rem var(--color-secondary-dark)) !important;
  }
 
+ .system-map__system-object:focus .system-map__planetary-facility-icon,
  .system-map__system-object:focus .system-map__planetary-port-icon,
- .system-map__system-object:focus .system-map__planetary-facility-icon {
+ .system-map__system-object:focus .system-map__planetary-lander-icon {
   filter: drop-shadow(0 0 5rem var(--color-primary)) drop-shadow(0 0 10rem var(--color-primary)) !important;
  }
 

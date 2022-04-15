@@ -60,7 +60,7 @@
   --color-system-map-line: var(--color-info);
   --color-system-map-focus: var(--color-primary);
   --color-system-map-planet-atmosphere: #00b3f7;
-  --filter-system-map-planet-not-landable: contrast(1.08);
+  --filter-system-map-planet-not-landable: contrast(1.07);
   --filter-system-map-planet-landable: contrast(1.15) brightness(1.2);
   
   --base-font-size: 1.25rem;

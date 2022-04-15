@@ -222,6 +222,14 @@ export default function SystemMapObject ({ systemObject, setSystemObject, parent
               >
                 {Icons['Planetary Port']}
               </svg>}
+            {!hasPlanetaryFacilities && !hasPlanetaryPort && systemObject.isLandable &&
+              <svg
+                className='system-map__planetary-lander-icon'
+                x={imageX}
+                y={imageY - 100}
+              >
+                {Icons['Planet Lander']}
+              </svg>}
           </g>
         </g>
       )

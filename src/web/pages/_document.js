@@ -156,7 +156,12 @@ class MyDocument extends Document {
       // Silk browser which uses Google Inc. as the vendor name but isn't
       // actually from Google and it does not have feature parity with Chrome.
       let ENABLE_PLANET_TEXTURES = false
-      if (isIOSChrome || isSafari || isIEedge || isFirefox) {
+
+      // Note: Safari supports SVG textures, but needs special handling as it
+      // doesn't support filters on SVG elements (textured or otherwise), so
+      // they are not enabled on Safari for now (unless/until Apple address the
+      // limitation).
+      if (isIOSChrome || isIEedge || isFirefox) { 
         ENABLE_PLANET_TEXTURES = true
       } else if (
         // Check is Google Chrome (and not impostor)

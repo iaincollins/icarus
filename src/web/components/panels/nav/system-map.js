@@ -24,13 +24,13 @@ const factionStates = {
     description: 'Economy bust'
   },
   civilUnrest: {
-    description: 'Civil Unrest, reduced security, support & bounty missions'
+    description: 'Civil Unrest ,support & bounty missions'
   },
   famine: {
-    description: 'Famine, high demand for food, support missions'
+    description: 'Famine, demand for food, support missions'
   },
   outbreak: {
-    description: 'Outbreak, high demand for medicines, support missions'
+    description: 'Outbreak, demand for medicines, support missions'
   },
   lockdown: {
     description: 'Lockdown, services restricted, support missions'
@@ -67,7 +67,7 @@ export default function SystemMap ({ system, setSystemObject }) {
           <h1>
             <span className='fx-animated-text' data-fx-order='1'>
               <i className='icon icarus-terminal-system-orbits' />
-              <CopyOnClick>{system.name}</CopyOnClick>
+              <CopyOnClick>{system.name}</CopyOnClick>&nbsp;
             </span>
           </h1>
           {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&

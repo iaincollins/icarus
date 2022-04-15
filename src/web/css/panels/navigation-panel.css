@@ -144,6 +144,9 @@
   background-image: url(/images/textures/stars.jpg);
   background-size: 50rem;
   background-position-y: var(--background-position-y-offset-stars);
+  background-image: url(/images/textures/galaxy.jpg);
+  background-position: center center;
+  background-size: cover;
   content: " ";
   display: block;
   position: absolute;
@@ -151,6 +154,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+  xwidth: 170vw;
   z-index: -2;
   animation: navigation-panel__map-background-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
@@ -162,7 +166,8 @@
 }
 
 .navigation-panel__map-background::before {
-  background-image: linear-gradient(rgb(10, 10, 20) .1rem, transparent .1rem), linear-gradient(90deg, rgb(10, 10, 20) .1rem, transparent .1rem);
+  --color-map-background-grid: rgba(30, 30, 30, .15);
+  background-image: linear-gradient(var(--color-map-background-grid) .1rem, transparent .1rem), linear-gradient(90deg, var(--color-map-background-grid) .1rem, transparent .1rem);
   background-size: 3rem 3rem;
   background-position: -1.5rem 0;
   background-position-y: var(--background-position-y-offset-grid);
