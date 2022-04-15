@@ -1,4 +1,6 @@
-const CoriolisBlueprints = new (require('../data'))('edcd/coriolis/blueprints')
+const DataLoader = require('../data')
+const coriolisBlueprints = new DataLoader('edcd/coriolis/blueprints').data
+const engineers = new DataLoader('engineers').data
 
 class Blueprints {
   constructor ({ materials, shipStatus }) {
@@ -10,9 +12,19 @@ class Blueprints {
   async getBlueprints () {
     const materials = await this.materials.getMaterials()
     const ship = await this.shipStatus.getShipStatus()
-    const blueprints = CoriolisBlueprints.data.map(blueprint => {
+    const blueprints = coriolisBlueprints.map(blueprint => {
       const [first, second] = blueprint.symbol.split('_')
       const name = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', 'Utility').trim()
+
+      // FIXME Could do with optimising (not urgent)
+      for (const engineerName in blueprint.engineers) {
+        const engineereDetails = engineers.filter(e => e.name.toLowerCase() === engineerName.toLowerCase())?.[0] ?? {}
+        blueprint.engineers[engineerName] = {
+          ...blueprint.engineers[engineerName],
+          system: engineereDetails.systemName,
+          location: engineereDetails.systemPosition
+        }
+      }
 
       return {
         symbol: blueprint.symbol,

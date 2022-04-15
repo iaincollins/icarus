@@ -1,4 +1,5 @@
 import { useState, useEffect, Fragment } from 'react'
+import distance from '../../../shared/distance'
 import { useRouter } from 'next/router'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { EngineeringPanelNavItems } from 'lib/navigation-items'
@@ -10,6 +11,7 @@ export default function EngineeringMaterialsPage () {
   const router = useRouter()
   const { query } = router
   const { connected, active, ready } = useSocket()
+  const [currentSystem, setCurrentSystem] = useState()
   const [blueprints, setBlueprints] = useState()
   const [componentReady, setComponentReady] = useState(false)
   const [blueprintsApplied, setBlueprintsApplied] = useState()
@@ -25,6 +27,8 @@ export default function EngineeringMaterialsPage () {
       setBlueprintsApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
       setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length === 0))
     }
+    const newSystem = await sendEvent('getSystem')
+    if (newSystem) setCurrentSystem(newSystem)
     setComponentReady(true)
   }, [connected, router.isReady, query])
 
@@ -34,6 +38,11 @@ export default function EngineeringMaterialsPage () {
       ? blueprints?.filter(blueprint => query?.symbol.toLowerCase() === blueprint.symbol.toLowerCase())?.[0] ?? null
       : null
     setSelectedBlueprint(newSelectedBlueprint)
+    if (!currentSystem) {
+      const newSystem = await sendEvent('getSystem')
+      if (newSystem) setCurrentSystem(newSystem)
+    }
+    setComponentReady(true)
   }, [blueprints, query])
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
@@ -43,6 +52,10 @@ export default function EngineeringMaterialsPage () {
       setBlueprintsApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
       setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length === 0))
     }
+    if (['Location', 'FSDJump'].includes(log.event)) {
+      const newSystem = await sendEvent('getSystem')
+      if (newSystem) setCurrentSystem(newSystem)
+    }
   }), [])
 
   useEffect(() => eventListener('gameStateChange', async () => {
@@ -51,7 +64,7 @@ export default function EngineeringMaterialsPage () {
     setBlueprintsApplied(newBlueprints.filter(b => b.appliedToModules.length > 0))
     setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length === 0))
   }), [])
-  console.log(selectedBlueprint)
+
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       {!selectedBlueprint &&
@@ -179,9 +192,10 @@ export default function EngineeringMaterialsPage () {
               {Object.keys(selectedBlueprint?.engineers ?? []).map(engineer => (
                 <tr key={`engineer_${engineer}`}>
                   <td>
-                    {engineer}
-                  </td>
-                  <td className='text-right'>
+                    <span className='text-info'>
+                      <CopyOnClick>{engineer}</CopyOnClick>
+                    </span>
+                    <br/>
                     {
                       Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) !== Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
                       `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)} — ${Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
@@ -190,6 +204,14 @@ export default function EngineeringMaterialsPage () {
                       Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) === Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
                       `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
                     }
+                  </td>
+                  <td className='text-right'>
+
+                    <CopyOnClick>{selectedBlueprint?.engineers[engineer]?.system}</CopyOnClick>
+                      {(currentSystem?.position && selectedBlueprint?.engineers[engineer]?.location) && <>
+                        <br/>
+                        {distance(currentSystem.position, selectedBlueprint?.engineers[engineer]?.location).toLocaleString(undefined, { maximumFractionDigits: 0 })} LY
+                      </>}
                   </td>
                 </tr>
               ))}

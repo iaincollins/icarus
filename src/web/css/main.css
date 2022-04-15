@@ -129,6 +129,11 @@ html::-webkit-scrollbar,
   pointer-events: none;
 }
 
+.text-right > .selectable::after {
+  right: initial;
+  left: -1.75rem;
+}
+
 .selectable:hover::after {
   opacity: 1;
 }
