@@ -1,0 +1,36 @@
+/* Safari 10.1+ */
+@media not all and (min-resolution:.001dpcm) {
+  @media {
+    body {
+      font-synthesis: none
+    }
+  
+    /* Safari doesn't apply filters to SVG correctly, so we color all stars
+      orange. May do more work to color them correctly in a future update,
+      assuming Apple don't improve Safari anyway. */
+    .system-map__system-object[data-system-object-type="Star"] .system-map__planet-surface {
+      fill: orange;
+    }
+
+    /* Safari doesn't apply filters to SVG correctly, sp we apply a simple
+       fitler to these container classes. */
+    .system-map__planetary-system-star-icon,
+    .system-map__planetary-system-map {
+      filter: contrast(1.5) !important;
+    }
+  
+    /* Safari positions wrings wrongly, so just hide them */
+    .system-map__planet-ring {
+      display: none;
+    }
+
+    /* Safari staight up mangles the rendering of this table */
+    table.ship-panel_modules-table.table--interactive tbody tr,
+    table.ship-panel_modules-table.table--flex-inline.table--interactive tbody tr td {
+      animation: none !important;
+      opacity: 1 !important;
+      animation-fill-mode: none !important;
+      animation-delay: 0 !important;
+    }
+  }
+}
