@@ -18,13 +18,16 @@ class Blueprints {
 
       // FIXME Could do with optimising (not urgent)
       for (const engineerName in blueprint.engineers) {
-        const engineereDetails = engineers.filter(e => e.name.toLowerCase() === engineerName.toLowerCase())?.[0] ?? {}
+        const engineer = engineers.filter(e => e.name.toLowerCase().trim() === engineerName.toLowerCase().trim())?.[0] ?? {}
         blueprint.engineers[engineerName] = {
           ...blueprint.engineers[engineerName],
-          system: engineereDetails.systemName,
-          location: engineereDetails.systemPosition
+          system: engineer.systemName,
+          location: engineer.systemPosition
         }
+        if (!engineer) console.log('Failed to lookup engineer', engineerName)
       }
+
+      //console.log( blueprint.engineers)
 
       return {
         symbol: blueprint.symbol,

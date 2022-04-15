@@ -19,8 +19,8 @@ export default function EngineeringMaterialsPage () {
   const [selectedBlueprint, setSelectedBlueprint] = useState()
 
   useEffect(async () => {
-    if (!connected) return
-    if (!router.isReady) return
+    if (!connected || !router.isReady) return
+    
     if (!blueprints) {
       const newBlueprints = await sendEvent('getBlueprints')
       setBlueprints(newBlueprints)
