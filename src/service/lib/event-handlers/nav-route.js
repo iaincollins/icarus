@@ -11,6 +11,8 @@ class NavRoute {
 
   async getNavRoute () {
     const currentSystem = await this.system.getSystem()
+    
+    let inSystemOnRoute = false
     let jumpsToDestination = null
 
     const route = ((await this.eliteJson.json())?.NavRoute?.Route ?? []).map(system => {
@@ -22,6 +24,9 @@ class NavRoute {
       //const isCurrentSystem = (distanceToHop === 0)
       const isCurrentSystem = (system?.StarSystem?.toLowerCase() === currentSystem?.name?.toLowerCase())
 
+      if (isCurrentSystem)
+        inSystemOnRoute = true
+      
       if (isCurrentSystem) {
         jumpsToDestination = 0
       } else {
@@ -42,7 +47,8 @@ class NavRoute {
       currentSystem,
       destination: route?.[route.length - 1] ?? [],
       jumpsToDestination,
-      route
+      route,
+      inSystemOnRoute
     }
 
     return navRoute

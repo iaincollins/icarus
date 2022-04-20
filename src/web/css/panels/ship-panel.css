@@ -112,7 +112,9 @@
 }
 
 .ship-panel__ship-stats {
-  width: auto;
+  max-width: 60rem;
+  margin: auto;
+  border: .5rem solid transparent;
 }
 
 .ship-panel__ship-stats tbody tr,
@@ -179,11 +181,9 @@ table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module
   filter: var(--filter-hover-element);
 }
 
-
 table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-panel__module {
  filter: var(--filter-active-element);
 }
-
 
 table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module .ship-panel__module-icon,
 table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module .ship-panel__module-icon,
@@ -225,4 +225,64 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
 
 .ship-panel__engineering .icon {
   font-weight: 500;
+}
+
+.ship-panel__light--off,
+.ship-panel__light--info,
+.ship-panel__light--danger,
+.ship-panel__light--secondary {
+  border: .2rem solid var(--color-primary);
+  background-color: var(--color-primary-dark);
+  color: var(--color-primary);
+  display: block;
+  padding: 0.25rem;
+  height: 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.ship-panel__light--info {
+  opacity: 1;
+  border-color: var(--color-info);
+  color: var(--color-info);
+  background-color: transparent;
+  box-shadow: inset 0 0 3rem var(--color-info);
+  text-shadow: 0 0 3rem black;
+}
+
+.ship-panel__light--secondary {
+  opacity: 1;
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+  background-color: transparent;
+  box-shadow: inset 0 0 3rem var(--color-secondary);
+  text-shadow: 0 0 3rem black;
+}
+
+.ship-panel__light--danger {
+  opacity: 1;
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  background-color: transparent;
+  box-shadow: inset 0 0 3rem var(--color-danger);
+  text-shadow: 0 0 3rem black;
+}
+
+.ship-panel__light--danger .ship-panel__light-text {
+  animation: text-blink-animation .75s ease-in-out infinite;
+}
+
+.ship-panel--status {
+  max-width: 80rem;
+  margin: auto;
+}
+
+@media only screen and (max-width: 799px) {
+  .ship-panel--status {
+    font-size: 1rem;
+  }
 }

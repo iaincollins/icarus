@@ -77,17 +77,25 @@ export default function NavListPage () {
                     <h3 className='text-primary'>
                       Destination
                     </h3>
-                    <h2 className='text-info'><CopyOnClick>{navRoute?.destination?.system}</CopyOnClick></h2>
+                    <h2 className='text-info text-right'><CopyOnClick>{navRoute?.destination?.system}</CopyOnClick></h2>
                   </>}
               </td>
             </tr>
           </tbody>
         </table>
-        {navRoute && navRoute.route.length > 0 && navRoute?.jumpsToDestination > 0 &&
+        {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
           <p className='text-primary text-uppercase text-center' style={{ margin: '1rem 0' }}>
-            {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}  / {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly to {navRoute.destination.system}
+            {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly
+            {' '}
+            {navRoute.inSystemOnRoute && 
+            <>({navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`})</>}
+            {' '}to destination
           </p>}
-        {navRoute && navRoute.route.length > 0 &&
+        {navRoute?.inSystemOnRoute === false &&
+          <p className='text-info text-center' style={{ margin: '1rem 0' }}>
+            Use the galaxy map to plot a new route.
+          </p>}
+        {navRoute?.route?.length > 0 &&
           <>
             <hr style={{ marginBottom: 0 }} />
             <table className='table--animated table--interactive'>
@@ -113,13 +121,13 @@ export default function NavListPage () {
                           {route.starClass.match(/([OBAFGKM])/) ? 'Fuel Star' : <span className='text-muted'>Not Fuel Star</span>}
                           <span className='visible-medium'>
                             {route?.isCurrentSystem === false && <span><br />{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                            {route?.isCurrentSystem === true && <span className='text-muted'><br />Current Location</span>}
+                            {route?.isCurrentSystem === true && <><br />Current Location</>}
                           </span>
                         </div>
                       </td>
                       <td className='hidden-medium text-right'>
-                        {route?.isCurrentSystem === false && <span>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                        {route?.isCurrentSystem === true && <span className='text-muted'>Current Location</span>}
+                        {route?.isCurrentSystem === false && <span className='text-no-transform'>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                        {route?.isCurrentSystem === true && <>Current Location</>}
                       </td>
                     </tr>
                   )

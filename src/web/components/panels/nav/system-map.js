@@ -3,7 +3,7 @@ import CopyOnClick from 'components/copy-on-click'
 
 const factionStates = {
   expansion: {
-    description: 'Controlling faction expanding influence'
+    description: 'Faction expanding influence'
   },
   investment: {
     description: 'Ongoing investment, expansion anticipated'
@@ -24,7 +24,7 @@ const factionStates = {
     description: 'Economy bust'
   },
   civilUnrest: {
-    description: 'Civil Unrest ,support & bounty missions'
+    description: 'Civil Unrest, support & bounty missions'
   },
   famine: {
     description: 'Famine, demand for food, support missions'
@@ -36,7 +36,7 @@ const factionStates = {
     description: 'Lockdown, services restricted, support missions'
   },
   retreat: {
-    description: 'Controlling faction retreating from system'
+    description: 'Faction retreating from system'
   },
   naturalDisaster: {
     description: 'Natural disaster, support missions available'
@@ -65,9 +65,9 @@ export default function SystemMap ({ system, setSystemObject }) {
       <div className='system-map'>
         <div className='system-map__title'>
           <h1>
-            <span className='fx-animated-text' data-fx-order='1'>
+            <span className='fx-animated-text' data-fx-order='1' style={{paddingRight: '1rem'}}>
               <i className='icon icarus-terminal-system-orbits' />
-              <CopyOnClick>{system.name}</CopyOnClick>&nbsp;
+              <CopyOnClick>{system.name}</CopyOnClick>
             </span>
           </h1>
           {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&

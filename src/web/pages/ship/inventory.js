@@ -28,17 +28,17 @@ export default function ShipInventoryPage () {
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel layout='full-width' scrollable navigation={ShipPanelNavItems('Inventory')}>
         <>
-          <h2>Inventory</h2>
+          <h2>Item Storage</h2>
           <h3 className='text-primary'>
             Ship Locker
           </h3>
           <hr style={{ margin: '.5rem 0 0 0' }} />
           {inventory &&
             <>
-              <LockerItems heading='Consumables' items={inventory.filter(item => item.type === 'Consumable')} />
-              <LockerItems heading='Goods' items={inventory.filter(item => item.type === 'Goods')} />
-              <LockerItems heading='Components' items={inventory.filter(item => item.type === 'Component')} />
-              <LockerItems heading='Data' items={inventory.filter(item => item.type === 'Data')} />
+              <LockerItems heading='Consumables' max='100' items={inventory.items.filter(item => item.type === 'Consumable')} />
+              <LockerItems heading='Goods' count={inventory.counts.goods} items={inventory.items.filter(item => item.type === 'Goods')} />
+              <LockerItems heading='Assets' count={inventory.counts.components} items={inventory.items.filter(item => item.type === 'Component')} />
+              <LockerItems heading='Data' count={inventory.counts.data} items={inventory.items.filter(item => item.type === 'Data')} />
             </>}
         </>
       </Panel>
@@ -46,14 +46,28 @@ export default function ShipInventoryPage () {
   )
 }
 
-function LockerItems ({ heading, items }) {
+function LockerItems ({ heading, items, count = false, max = false }) {
   return (
     <>
       <div className='tabs'>
         <h4 className='tab' style={{ marginTop: '1rem' }}>
           {heading}
         </h4>
+        {count !== false &&
+          <h4 className='float-right text-primary' style={{paddingTop: '.75rem'}}>
+            <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem .25rem 0' }}>
+              <span className={`${count > 0 ? '' : 'text-muted'}`}>{count}</span>
+              <span className='text-muted'>/1000</span>
+            </span>
+            <progress
+              style={{ marginTop: '.5rem', height: '1.2rem', display: 'inline-block', width: '8rem', float: 'left' }}
+              value={count}
+              max={1000}
+              className='float-left'
+            />
+          </h4>}
       </div>
+    
       <table className='table--animated fx-fade-in'>
         {items.length === 0 &&
           <tbody><tr><td colSpan={3} style={{ paddingTop: '1rem', paddingBottom: '1rem' }} className='text-center text-muted'>No {heading}</td></tr></tbody>}
@@ -69,7 +83,10 @@ function LockerItems ({ heading, items }) {
             <tbody>
               {items.map(item => (
                 <tr key={`inventory_${item.name}`}>
-                  <td className='text-right' style={{ width: '3rem' }}>{item.count}</td>
+                  <td className='text-right' style={{ width: '3rem' }}>
+                    <span className={`${item.count > 0 ? '' : 'text-muted'}`}>{item.count}</span>
+                    {max !== false && <span className='text-muted'>/{max}</span>}
+                  </td>
                   <td style={{ width: '25rem' }}>
                     <CopyOnClick>{item.name}</CopyOnClick>
                   </td>
@@ -82,6 +99,7 @@ function LockerItems ({ heading, items }) {
             </tbody>
           </>}
       </table>
+      <hr className='small' style={{margin: '0 0 .5rem 0'}}/>
     </>
   )
 }

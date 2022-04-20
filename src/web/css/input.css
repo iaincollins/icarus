@@ -38,3 +38,61 @@ input.input--secondary:hover,
 .input--secondary:hover {
   border-color: var(--color-secondary);
 }
+
+
+.checkbox {
+  position: relative;
+  height: 4.4rem;
+  display: block;
+  text-align: center;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+@media only screen and (max-width: 799px) {
+  .checkbox .checkbox__text {
+    font-size: 1rem;
+  }
+}
+
+.checkbox .checkbox__control {
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  right: 0;
+  clear: both;
+  margin: auto;
+  height: 2rem;
+  width: 6rem;
+  background-color: var(--color-primary-dark);
+  border: .2rem solid var(--color-primary);
+  opacity: .5;
+}
+
+.checkbox .checkbox__control:after {
+  content: "";
+  position: absolute;
+  top: .2rem;
+  left: .2rem;
+  height: 1.6rem;
+  width: 2.8rem;
+  background-color: var(--color-primary);
+  opacity: .5;
+}
+
+.checkbox input:checked ~ .checkbox__control {
+  opacity: 1;
+}
+
+.checkbox input:checked ~ .checkbox__control:after {
+  right: .2rem;
+  left: initial;
+  background-color: var(--color-primary);
+  opacity: 1;
+}

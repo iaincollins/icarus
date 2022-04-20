@@ -126,6 +126,7 @@ table ul {
 
 table.table--layout {
   margin: .5rem 0;
+  table-layout: fixed;
 }
 
 table.table--layout tbody tr {
@@ -134,6 +135,8 @@ table.table--layout tbody tr {
 
 table.table--layout tbody tr td {
   padding: 0;
+  border: .5rem solid transparent;
+  vertical-align: middle;
 }
 
 table.table__bordered {

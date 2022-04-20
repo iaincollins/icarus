@@ -28,7 +28,7 @@ export default function EngineeringMaterialsPage () {
       setBlueprintsNotApplied(newBlueprints.filter(b => b.appliedToModules.length === 0))
     }
     const newSystem = await sendEvent('getSystem')
-    if (newSystem) setCurrentSystem(newSystem)
+    if (newSystem?.address) setCurrentSystem(newSystem)
     setComponentReady(true)
   }, [connected, router.isReady, query])
 
@@ -38,11 +38,8 @@ export default function EngineeringMaterialsPage () {
       ? blueprints?.filter(blueprint => query?.symbol.toLowerCase() === blueprint.symbol.toLowerCase())?.[0] ?? null
       : null
     setSelectedBlueprint(newSelectedBlueprint)
-    if (!currentSystem) {
-      const newSystem = await sendEvent('getSystem')
-      if (newSystem) setCurrentSystem(newSystem)
-    }
-    setComponentReady(true)
+    const newSystem = await sendEvent('getSystem')
+    if (newSystem?.address) setCurrentSystem(newSystem)
   }, [blueprints, query])
 
   useEffect(() => eventListener('newLogEntry', async (log) => {
@@ -54,7 +51,7 @@ export default function EngineeringMaterialsPage () {
     }
     if (['Location', 'FSDJump'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem')
-      if (newSystem) setCurrentSystem(newSystem)
+      if (newSystem?.address) setCurrentSystem(newSystem)
     }
   }), [])
 
@@ -148,12 +145,12 @@ export default function EngineeringMaterialsPage () {
                       key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}`}
                       className='table__row--highlighted'
                     >
-                      <td>
-                        {module.class}{module.rating} {module.name}
-                        <span className='visible-medium text-muted'><br />{module.slotName}</span>
+                     <td className='hidden-medium' style={{width: '12rem'}}>
+                        <span>{module.slotName}</span>
                       </td>
-                      <td className='hidden-medium'>
-                        <span className='text-muted'>{module.slotName}</span>
+                      <td>
+                        <span className='visible-medium'>{module.slotName}<br/></span>
+                        <span className='text-info'>{module.class}{module.rating} {module.name}</span>
                       </td>
                       <td className='text-info text-no-wrap' style={{ minWidth: '3rem' }}>
                         <span className='visible-medium' style={{ fontSize: '1.75rem', lineHeight: '1.75rem' }}>
@@ -187,15 +184,27 @@ export default function EngineeringMaterialsPage () {
           <div className='tabs'>
             <h4 className='tab' style={{ marginTop: '1rem' }}>Engineers</h4>
           </div>
-          <table className='table--animated'>
+          <table className='table--animated' style={{tableLayout: 'fixed'}}>
             <tbody className='fx-fade-in'>
               {Object.keys(selectedBlueprint?.engineers ?? []).map(engineer => (
                 <tr key={`engineer_${engineer}`}>
                   <td>
                     <span className='text-info'>
                       <CopyOnClick>{engineer}</CopyOnClick>
+                      <span className='visible-medium text-primary'>
+                        <br/>
+                          {
+                            Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) !== Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
+                            `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)} — ${Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
+                          }
+                          {
+                            Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) === Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
+                            `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
+                          }
+                      </span>
                     </span>
-                    <br/>
+                  </td>
+                  <td className='text-right hidden-medium'>
                     {
                       Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) !== Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
                       `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)} — ${Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
@@ -206,12 +215,15 @@ export default function EngineeringMaterialsPage () {
                     }
                   </td>
                   <td className='text-right'>
-
-                    <CopyOnClick>{selectedBlueprint?.engineers[engineer]?.system}</CopyOnClick>
-                      {(currentSystem?.position && selectedBlueprint?.engineers[engineer]?.location) && <>
-                        <br/>
-                        {distance(currentSystem.position, selectedBlueprint?.engineers[engineer]?.location).toLocaleString(undefined, { maximumFractionDigits: 0 })} LY
-                      </>}
+                    <span className='text-right'>
+                      <CopyOnClick>{selectedBlueprint?.engineers[engineer]?.system}</CopyOnClick>
+                    </span>
+                    {(currentSystem?.position && selectedBlueprint?.engineers[engineer]?.location) &&
+                      <span className='text-muted text-no-transform'>
+                        <span className='visible-medium'><br/></span>
+                        {' '}
+                        {distance(currentSystem.position, selectedBlueprint?.engineers[engineer]?.location).toLocaleString(undefined, { maximumFractionDigits: 0 })} Ly
+                      </span>}
                   </td>
                 </tr>
               ))}

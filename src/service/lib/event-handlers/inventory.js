@@ -10,10 +10,10 @@ class Inventory {
     const shipLocker = (await this.eliteJson.json()).ShipLocker
     if (!shipLocker) return []
 
-    const inventory = []
+    const inventoryItems = []
 
     shipLocker.Consumables.forEach(item => {
-      let itemInInventory = inventory.filter(i => i.name === (item?.Name_Localised ?? item.Name))[0]
+      let itemInInventory = inventoryItems.filter(i => i.name === (item?.Name_Localised ?? item.Name))[0]
       if (!itemInInventory) {
         itemInInventory = {
           name: item?.Name_Localised ?? item.Name,
@@ -22,7 +22,7 @@ class Inventory {
           stolen: 0,
           count: 0
         }
-        inventory.push(itemInInventory)
+        inventoryItems.push(itemInInventory)
       }
 
       itemInInventory.count += item.Count
@@ -31,7 +31,7 @@ class Inventory {
     })
 
     shipLocker.Items.forEach(item => {
-      let itemInInventory = inventory.filter(i => i.name === (item?.Name_Localised ?? item.Name))[0]
+      let itemInInventory = inventoryItems.filter(i => i.name === (item?.Name_Localised ?? item.Name))[0]
       if (!itemInInventory) {
         itemInInventory = {
           name: item?.Name_Localised ?? item.Name,
@@ -40,7 +40,7 @@ class Inventory {
           stolen: 0,
           count: 0
         }
-        inventory.push(itemInInventory)
+        inventoryItems.push(itemInInventory)
       }
 
       itemInInventory.count += item.Count
@@ -49,7 +49,7 @@ class Inventory {
     })
 
     shipLocker.Components.forEach(item => {
-      let itemInInventory = inventory.filter(i => i.name === (item?.Name_Localised ?? item.Name))[0]
+      let itemInInventory = inventoryItems.filter(i => i.name === (item?.Name_Localised ?? item.Name))[0]
       if (!itemInInventory) {
         itemInInventory = {
           name: item?.Name_Localised ?? item.Name,
@@ -58,7 +58,7 @@ class Inventory {
           stolen: 0,
           count: 0
         }
-        inventory.push(itemInInventory)
+        inventoryItems.push(itemInInventory)
       }
 
       itemInInventory.count += item.Count
@@ -67,7 +67,7 @@ class Inventory {
     })
 
     shipLocker.Data.forEach(item => {
-      let itemInInventory = inventory.filter(i => i.name === (item?.Name_Localised ?? item.Name))[0]
+      let itemInInventory = inventoryItems.filter(i => i.name === (item?.Name_Localised ?? item.Name))[0]
       if (!itemInInventory) {
         itemInInventory = {
           name: item?.Name_Localised ?? item.Name,
@@ -76,7 +76,7 @@ class Inventory {
           stolen: 0,
           count: 0
         }
-        inventory.push(itemInInventory)
+        inventoryItems.push(itemInInventory)
       }
 
       itemInInventory.count += item.Count
@@ -84,9 +84,22 @@ class Inventory {
       if (item.OwnerID > 0) itemInInventory.stolen += item.Count
     })
 
-    inventory.sort((a, b) => a.name.localeCompare(b.name))
+    inventoryItems.sort((a, b) => a.name.localeCompare(b.name))
 
-    return inventory
+    const counts = {
+      goods: 0,
+      components: 0,
+      data: 0,
+    }
+
+    inventoryItems.filter(i => i.type === 'Goods').forEach(item => counts.goods += item.count)
+    inventoryItems.filter(i => i.type === 'Component').forEach(item => counts.components += item.count)
+    inventoryItems.filter(i => i.type === 'Data').forEach(item => counts.data += item.count)
+
+    return {
+      counts,
+      items: inventoryItems
+    }
   }
 }
 
