@@ -43,7 +43,7 @@ const factionStates = {
   },
   pirateAttack: {
     description: 'Pirate attack, support & bounty missions'
-  },
+  }
 }
 
 export default function SystemMap ({ system, setSystemObject }) {
@@ -65,7 +65,7 @@ export default function SystemMap ({ system, setSystemObject }) {
       <div className='system-map'>
         <div className='system-map__title'>
           <h1>
-            <span className='fx-animated-text' data-fx-order='1' style={{paddingRight: '1rem'}}>
+            <span className='fx-animated-text' data-fx-order='1' style={{ paddingRight: '1rem' }}>
               <i className='icon icarus-terminal-system-orbits' />
               <CopyOnClick>{system.name}</CopyOnClick>
             </span>
@@ -76,7 +76,7 @@ export default function SystemMap ({ system, setSystemObject }) {
                 {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
               </span>
             </h3>}
-          {system.state && system.state !== 'Unknown' && system.state !== 'None' && factionStateDescription && 
+          {system.state && system.state !== 'Unknown' && system.state !== 'None' && factionStateDescription &&
             <h3 className='text-info'>
               <span className='fx-animated-text' data-fx-order='3'>
                 {factionStateDescription}

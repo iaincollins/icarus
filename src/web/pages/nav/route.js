@@ -87,8 +87,8 @@ export default function NavListPage () {
           <p className='text-primary text-uppercase text-center' style={{ margin: '1rem 0' }}>
             {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly
             {' '}
-            {navRoute.inSystemOnRoute && 
-            <>({navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`})</>}
+            {navRoute.inSystemOnRoute &&
+              <>({navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`})</>}
             {' '}to destination
           </p>}
         {navRoute?.inSystemOnRoute === false &&

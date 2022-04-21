@@ -54,7 +54,7 @@ function LockerItems ({ heading, items, count = false, max = false }) {
           {heading}
         </h4>
         {count !== false &&
-          <h4 className='float-right text-primary' style={{paddingTop: '.75rem'}}>
+          <h4 className='float-right text-primary' style={{ paddingTop: '.75rem' }}>
             <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem .25rem 0' }}>
               <span className={`${count > 0 ? '' : 'text-muted'}`}>{count}</span>
               <span className='text-muted'>/1000</span>
@@ -67,7 +67,7 @@ function LockerItems ({ heading, items, count = false, max = false }) {
             />
           </h4>}
       </div>
-    
+
       <table className='table--animated fx-fade-in'>
         {items.length === 0 &&
           <tbody><tr><td colSpan={3} style={{ paddingTop: '1rem', paddingBottom: '1rem' }} className='text-center text-muted'>No {heading}</td></tr></tbody>}
@@ -99,7 +99,7 @@ function LockerItems ({ heading, items, count = false, max = false }) {
             </tbody>
           </>}
       </table>
-      <hr className='small' style={{margin: '0 0 .5rem 0'}}/>
+      <hr className='small' style={{ margin: '0 0 .5rem 0' }} />
     </>
   )
 }

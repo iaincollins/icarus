@@ -11,7 +11,7 @@ class NavRoute {
 
   async getNavRoute () {
     const currentSystem = await this.system.getSystem()
-    
+
     let inSystemOnRoute = false
     let jumpsToDestination = null
 
@@ -21,12 +21,11 @@ class NavRoute {
       // Replaced logic as currentSystem.position (and hence distanceToHop)
       // is not known. Using the name like this should work, although there may
       // be edge cases where the names don't match, may have to watch for that.
-      //const isCurrentSystem = (distanceToHop === 0)
+      // const isCurrentSystem = (distanceToHop === 0)
       const isCurrentSystem = (system?.StarSystem?.toLowerCase() === currentSystem?.name?.toLowerCase())
 
-      if (isCurrentSystem)
-        inSystemOnRoute = true
-      
+      if (isCurrentSystem) { inSystemOnRoute = true }
+
       if (isCurrentSystem) {
         jumpsToDestination = 0
       } else {

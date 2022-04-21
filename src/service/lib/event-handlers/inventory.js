@@ -89,7 +89,7 @@ class Inventory {
     const counts = {
       goods: 0,
       components: 0,
-      data: 0,
+      data: 0
     }
 
     inventoryItems.filter(i => i.type === 'Goods').forEach(item => counts.goods += item.count)

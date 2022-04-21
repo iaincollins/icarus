@@ -27,8 +27,6 @@ class Blueprints {
         if (!engineer) console.log('Failed to lookup engineer', engineerName)
       }
 
-      //console.log( blueprint.engineers)
-
       return {
         symbol: blueprint.symbol,
         name: name,

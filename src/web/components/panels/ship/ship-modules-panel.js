@@ -26,7 +26,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           </h3>
         </div>
         <div className='ship-panel__ship-pips text-uppercase visible-medium'>
-          <h4 className='text-muted' style={{marginBottom: '1rem'}}>Power Distribution</h4>
+          <h4 className='text-muted' style={{ marginBottom: '1rem' }}>Power Distribution</h4>
           <div className='ship-panel__ship-pip'>
             <progress value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
             <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>SYS</label>
@@ -50,9 +50,10 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                     position: 'relative',
                     border: '.2rem solid var(--color-primary-dark)',
                     padding: '.25rem .5rem',
-                    background:'var(--color-background-panel-translucent)'
-                  }}>
-                    <h4 className='text-muted text-center' style={{margin: '.5rem 0'}}>Power Distribution</h4>
+                    background: 'var(--color-background-panel-translucent)'
+                  }}
+                  >
+                    <h4 className='text-muted text-center' style={{ margin: '.5rem 0' }}>Power Distribution</h4>
                     <div className='ship-panel__ship-pips text-uppercase'>
                       <div className='ship-panel__ship-pip'>
                         <progress value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
@@ -126,31 +127,31 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             <tbody>
               <tr>
                 <td>
-                <label className='checkbox'>
-                  <span className='checkbox__text'>Ship Lights</span>
-                  <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.lightsOn} />
-                  <span class='checkbox__control'/>
-                </label>
+                  <label className='checkbox'>
+                    <span className='checkbox__text'>Ship Lights</span>
+                    <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.lightsOn} />
+                    <span class='checkbox__control' />
+                  </label>
                 </td>
                 <td>
-                <label className='checkbox'>
-                  <span className='checkbox__text'>Night Vision</span>
-                  <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.nightVision} />
-                  <span class='checkbox__control'/>
-                </label>
+                  <label className='checkbox'>
+                    <span className='checkbox__text'>Night Vision</span>
+                    <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.nightVision} />
+                    <span class='checkbox__control' />
+                  </label>
                 </td>
                 <td>
                   <label className='checkbox'>
                     <span className='checkbox__text'>Hardpoints</span>
                     <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.hardpointsDeployed} />
-                    <span class='checkbox__control'/>
+                    <span class='checkbox__control' />
                   </label>
                 </td>
                 <td>
                   <label className='checkbox'>
                     <span className='checkbox__text'>Landing Gear</span>
                     <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.landingGearDown} />
-                    <span class='checkbox__control'/>
+                    <span class='checkbox__control' />
                   </label>
                 </td>
               </tr>
