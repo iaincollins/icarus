@@ -4,6 +4,8 @@
 ![GitHub License](https://img.shields.io/github/license/iaincollins/icarus?color=cf7500&style=for-the-badge)
 ![GitHub Downloads](https://img.shields.io/github/downloads/iaincollins/icarus/total?color=cf7500&style=for-the-badge)
 
+_ICARUS Terminal is currently in early access._
+
 ## About ICARUS Terminal
 
 _ICARUS Terminal is a free, immersive, context-sensitive companion app and second screen interface for the game [Elite Dangerous](https://www.elitedangerous.com/)._
@@ -18,13 +20,11 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
   </a>
 </p>
 
-<p align="center">
-  <i>ICARUS Terminal is currently in early access.</i>
-</p>
+## Screenshots
 
-## Screenshot
-  
-![Screenshot](https://user-images.githubusercontent.com/595695/162256600-d8bf5fff-1f5c-4c9c-b338-aa80d164b967.png)
+![v0-11-1-nav](https://user-images.githubusercontent.com/595695/164384065-2c1fb67b-1c82-4594-8848-b36b10fff8a5.png)
+![v0-11-1-ship](https://user-images.githubusercontent.com/595695/164384056-f8d3ef18-b881-4fe6-b2db-5961cbcec68a.png)
+![v0-11-1-eng](https://user-images.githubusercontent.com/595695/164384368-21b7d70d-6857-4742-80b0-f784815f49aa.png)
 
 ## More Information
 
