@@ -55,6 +55,10 @@ input.input--secondary:hover,
   width: 0;
 }
 
+.checkbox .checkbox__text {
+  font-size: 1.25rem;
+}
+
 @media only screen and (max-width: 799px) {
   .checkbox .checkbox__text {
     font-size: 1rem;

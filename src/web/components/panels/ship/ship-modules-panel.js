@@ -25,24 +25,51 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             <span className='text-primary text-muted'> {ship.type}</span>
           </h3>
         </div>
-        <div className='ship-panel__ship-pips text-uppercase'>
+        <div className='ship-panel__ship-pips text-uppercase visible-medium'>
+          <h4 className='text-muted' style={{marginBottom: '1rem'}}>Power Distribution</h4>
           <div className='ship-panel__ship-pip'>
             <progress value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
-            <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>Systems</label>
+            <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>SYS</label>
           </div>
           <div className='ship-panel__ship-pip'>
             <progress value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
-            <label className={(ship.onBoard && ship?.pips?.engines > 0) ? 'text-primary' : 'text-primary text-muted'}>Engines</label>
+            <label className={(ship.onBoard && ship?.pips?.engines > 0) ? 'text-primary' : 'text-primary text-muted'}>ENG</label>
           </div>
           <div className='ship-panel__ship-pip'>
             <progress value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
-            <label className={(ship.onBoard && ship?.pips?.weapons > 0) ? 'text-primary' : 'text-primary text-muted'}>Weapons</label>
+            <label className={(ship.onBoard && ship?.pips?.weapons > 0) ? 'text-primary' : 'text-primary text-muted'}>WEP</label>
           </div>
         </div>
 
         <div className='ship-panel--status'>
           <table className='ship-panel__ship-stats'>
             <tbody className='text-info'>
+              <tr className='hidden-medium'>
+                <td rowSpan={4}>
+                  <div style={{
+                    position: 'relative',
+                    border: '.2rem solid var(--color-primary-dark)',
+                    padding: '.25rem .5rem',
+                    background:'var(--color-background-panel-translucent)'
+                  }}>
+                    <h4 className='text-muted text-center' style={{margin: '.5rem 0'}}>Power Distribution</h4>
+                    <div className='ship-panel__ship-pips text-uppercase'>
+                      <div className='ship-panel__ship-pip'>
+                        <progress value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
+                        <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>SYS</label>
+                      </div>
+                      <div className='ship-panel__ship-pip'>
+                        <progress value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
+                        <label className={(ship.onBoard && ship?.pips?.engines > 0) ? 'text-primary' : 'text-primary text-muted'}>ENG</label>
+                      </div>
+                      <div className='ship-panel__ship-pip'>
+                        <progress value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
+                        <label className={(ship.onBoard && ship?.pips?.weapons > 0) ? 'text-primary' : 'text-primary text-muted'}>WEP</label>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
               <tr>
                 <td>
                   <span className='text-muted'>Max jump range</span>
@@ -59,8 +86,15 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
               </tr>
               <tr>
                 <td>
+                  {/*
                   <span className='text-muted'>Insurance Rebuy</span>
                   <span className='value'>{ship.rebuy ? ship.rebuy.toLocaleString() : '-'} CR</span>
+                  */}
+                  <span className='text-muted'>HUD Targeting</span>
+                  <span className='value'>
+                    {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode ? 'Analysis Mode' : 'Combat Mode')}
+                    {!ship.onBoard && '-'}
+                  </span>
                 </td>
                 <td>
                   <span className='text-muted'>Fuel Reservoir</span>
@@ -71,6 +105,20 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   <span className='value'>{ship.mass} T</span>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <span className='text-muted'>Lat/Lon</span>
+                  <span className='value'>{ship.onBoard ? `${cmdrStatus?.latitude ?? '-'}/${cmdrStatus?.longitude ?? '-'}` : '-/-'}</span>
+                </td>
+                <td>
+                  <span className='text-muted'>Heading</span>
+                  <span className='value'>{ship.onBoard ? cmdrStatus?.heading ?? '-' : '-'} DEG</span>
+                </td>
+                <td>
+                  <span className='text-muted'>Altitude</span>
+                  <span className='value'>{ship.onBoard ? cmdrStatus?.altitude?.toLocaleString() ?? '-' : '-'} M</span>
+                </td>
+              </tr>
             </tbody>
           </table>
 
@@ -79,16 +127,16 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
               <tr>
                 <td>
                 <label className='checkbox'>
-                    <span className='checkbox__text'>Ship Lights</span>
-                    <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.lightsOn} />
-                    <span class='checkbox__control'/>
+                  <span className='checkbox__text'>Ship Lights</span>
+                  <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.lightsOn} />
+                  <span class='checkbox__control'/>
                 </label>
                 </td>
                 <td>
                 <label className='checkbox'>
-                    <span className='checkbox__text'>Night Vision</span>
-                    <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.nightVision} />
-                    <span class='checkbox__control'/>
+                  <span className='checkbox__text'>Night Vision</span>
+                  <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.nightVision} />
+                  <span class='checkbox__control'/>
                 </label>
                 </td>
                 <td>
@@ -99,11 +147,11 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   </label>
                 </td>
                 <td>
-                <label className='checkbox'>
+                  <label className='checkbox'>
                     <span className='checkbox__text'>Landing Gear</span>
                     <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.landingGearDown} />
                     <span class='checkbox__control'/>
-                </label>
+                  </label>
                 </td>
               </tr>
             </tbody>
@@ -122,7 +170,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'ship-panel__light--secondary' : 'ship-panel__light--off'}>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
                     <span className='ship-panel__light-text'>Fuel Low</span>
                   </span>
                 </td>
@@ -149,7 +197,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdJump ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdJump ? 'ship-panel__light--secondary' : 'ship-panel__light--off'}>
                     <span className='ship-panel__light-text'>Frame Shift Jumping</span>
                   </span>
                 </td>
@@ -166,12 +214,12 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.scoopingFuel ? 'ship-panel__light--secondary' : 'ship-panel__light--off'}>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.scoopingFuel ? 'ship-panel__light--info' : 'ship-panel__light--off'}>
                     <span className='ship-panel__light-text'>Fuel Scooping</span>
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.flightAssistOff ? 'ship-panel__light--secondary' : 'ship-panel__light--off'}>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.flightAssistOff ? 'ship-panel__light--info' : 'ship-panel__light--off'}>
                     <span className='ship-panel__light-text'>Flight Assist Off</span>
                   </span>
                 </td>
