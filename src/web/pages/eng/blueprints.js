@@ -145,12 +145,12 @@ export default function EngineeringMaterialsPage () {
                       key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}`}
                       className='table__row--highlighted'
                     >
-                     <td className='hidden-medium' style={{width: '12rem'}}>
-                        <span>{module.slotName}</span>
-                      </td>
                       <td>
-                        <span className='visible-medium'>{module.slotName}<br/></span>
                         <span className='text-info'>{module.class}{module.rating} {module.name}</span>
+                        <span className='visible-medium'><br/>{module.slotName}</span>
+                      </td>
+                      <td className='hidden-medium' style={{width: '12rem'}}>
+                        <span>{module.slotName}</span>
                       </td>
                       <td className='text-info text-no-wrap' style={{ minWidth: '3rem' }}>
                         <span className='visible-medium' style={{ fontSize: '1.75rem', lineHeight: '1.75rem' }}>
