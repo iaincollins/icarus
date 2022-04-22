@@ -254,12 +254,15 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
   font-weight: 500;
 }
 
+table.ship-panel__lights td {
+  overflow: visible;
+  padding: 0 .25rem;
+}
+
 .ship-panel__light--off,
-.ship-panel__light--info,
-.ship-panel__light--danger,
-.ship-panel__light--secondary {
-  border: .15rem solid var(--color-primary);
-  background: linear-gradient(transparent, var(--color-primary-dark));
+.ship-panel__light--on,
+.ship-panel__light--danger {
+  background: var(--color-background-panel);
   color: var(--color-primary);
   display: block;
   padding: 0.25rem;
@@ -270,22 +273,21 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
   justify-content: center;
   text-align: center;
   opacity: 0.5;
-  border-radius: .25rem;
+  border-radius: .15rem;
 }
 
-.ship-panel__light--info {
+.ship-panel__light--on {
   opacity: 1;
-  border-color: var(--color-info);
   color: var(--color-info);
-  background-color: transparent;
-  box-shadow: inset 0 0 2rem var(--color-info);
-  text-shadow: 0 0 .5rem black, 0 0 5rem black;
-  filter: contrast(1.5);
+  filter: saturate(1.25) contrast(1.5);
+  color: black;
+  text-shadow: 0 0 .5rem white, 0 0 1rem black, 0 0 2rem black;
+  box-shadow: inset 0 0 2rem var(--color-info), 0 0 .2rem var(--color-info);
+  border-radius: .15rem;
 }
 
-.ship-panel__light--info::before {
+.ship-panel__light--on::before {
   content: '';
-  background: linear-gradient(transparent, var(--color-info));
   top: 0;
   left: 0;
   width: 100%;
@@ -294,55 +296,68 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
   position: absolute;
   opacity: .5;
   z-index: -1;
+  border-radius: .15rem;
+  background-color: var(--color-info);
 }
 
-.ship-panel__light--secondary {
-  opacity: 1;
-  border-color: var(--color-secondary);
-  color: var(--color-secondary);
-  background-color: transparent;
-  box-shadow: inset 0 0 2rem var(--color-secondary);
-  text-shadow: 0 0 .5rem black, 0 0 5rem black;
-  filter: contrast(1.5);
-}
-
-.ship-panel__light--secondary::before {
+.ship-panel__light--on::after {
   content: '';
-  background: linear-gradient(transparent, var(--color-secondary));
+  background: linear-gradient(transparent, white);
+  filter: brightness(1.1) saturate(2);
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: block;
   position: absolute;
-  opacity: .5;
-  z-index: -1;
+  opacity: .3;
+  z-index: 2;
+  border-radius: .15rem;
+  box-shadow: inset 0 0 1rem rgb(0,0,0,.75);
 }
 
 .ship-panel__light--danger {
   opacity: 1;
-  border-color: var(--color-danger);
   color: var(--color-danger);
   background-color: transparent;
   box-shadow: inset 0 0 2rem var(--color-danger);
   text-shadow: 0 0 .5rem black, 0 0 5rem black;
-  filter: contrast(1.5);
+  filter: saturate(1.8) contrast(1.5);
+  color: white;
+  text-shadow: 0 0 .5rem var(--color-danger), 0 0 2rem var(--color-danger);
+  text-shadow: 0 0 .5rem var(--color-danger), 0 0 1rem black, 0 0 2rem black;
+  box-shadow: inset 0 0 2rem var(--color-danger), 0 0 .5rem var(--color-danger);
 }
 
 .ship-panel__light--danger::before {
   content: '';
   background: linear-gradient(transparent, var(--color-danger));
+  background: var(--color-danger);
+  filter: brightness(.4) saturate(1);
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: block;
   position: absolute;
-  opacity: .5;
+  opacity: .75;
   z-index: -1;
+  border-radius: .15rem;
 }
 
-.ship-panel__light--danger .ship-panel__light-text {
+.ship-panel__light--danger::after {
+  content: '';
+  background: var(--color-danger);
+  filter: brightness(.5) saturate(1);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  opacity: .25;
+  z-index: 2;
+  border-radius: .15rem;
   animation: text-blink-animation .75s ease-in-out infinite;
 }
 
@@ -353,6 +368,6 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
 
 @media only screen and (max-width: 799px) {
   .ship-panel--status {
-    font-size: 1rem;
+    font-size: .8rem;
   }
 }

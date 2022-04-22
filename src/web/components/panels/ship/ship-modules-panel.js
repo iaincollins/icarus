@@ -28,15 +28,15 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
         <div className='ship-panel__ship-pips text-uppercase visible-medium'>
           <h4 className='text-muted' style={{ marginBottom: '1rem' }}>Power Distribution</h4>
           <div className='ship-panel__ship-pip'>
-            <progress value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
+            <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
             <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>SYS</label>
           </div>
           <div className='ship-panel__ship-pip'>
-            <progress value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
+            <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
             <label className={(ship.onBoard && ship?.pips?.engines > 0) ? 'text-primary' : 'text-primary text-muted'}>ENG</label>
           </div>
           <div className='ship-panel__ship-pip'>
-            <progress value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
+            <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
             <label className={(ship.onBoard && ship?.pips?.weapons > 0) ? 'text-primary' : 'text-primary text-muted'}>WEP</label>
           </div>
         </div>
@@ -56,15 +56,15 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                     <h4 className='text-muted text-center' style={{ margin: '.5rem 0' }}>Power Distribution</h4>
                     <div className='ship-panel__ship-pips text-uppercase'>
                       <div className='ship-panel__ship-pip'>
-                        <progress value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
+                        <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
                         <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>SYS</label>
                       </div>
                       <div className='ship-panel__ship-pip'>
-                        <progress value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
+                        <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
                         <label className={(ship.onBoard && ship?.pips?.engines > 0) ? 'text-primary' : 'text-primary text-muted'}>ENG</label>
                       </div>
                       <div className='ship-panel__ship-pip'>
-                        <progress value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
+                        <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
                         <label className={(ship.onBoard && ship?.pips?.weapons > 0) ? 'text-primary' : 'text-primary text-muted'}>WEP</label>
                       </div>
                     </div>
@@ -142,8 +142,8 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                 </td>
                 <td>
                   <label className='checkbox'>
-                    <span className='checkbox__text'>Hardpoints</span>
-                    <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.hardpointsDeployed} />
+                    <span className='checkbox__text'>Cargo Hatch</span>
+                    <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.cargoScoopDeployed} />
                     <span class='checkbox__control' />
                   </label>
                 </td>
@@ -154,10 +154,17 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                     <span class='checkbox__control' />
                   </label>
                 </td>
+                <td>
+                  <label className='checkbox'>
+                    <span className='checkbox__text'>Hardpoints</span>
+                    <input type='checkbox' checked={ship.onBoard && cmdrStatus?.flags?.hardpointsDeployed} />
+                    <span class='checkbox__control' />
+                  </label>
+                </td>
               </tr>
             </tbody>
           </table>
-          <table className='table--layout'>
+          <table className='table--layout ship-panel__lights'>
             <tbody>
               <tr>
                 <td>
@@ -167,61 +174,80 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                 </td>
                 <td>
                   <span className={ship.onBoard && cmdrStatus?.flags?.beingInterdicted ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                    <span className='ship-panel__light-text'>Interdiction Detected</span>
-                  </span>
-                </td>
-                <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                    <span className='ship-panel__light-text'>Fuel Low</span>
+                    <span className='ship-panel__light-text'>Interdiction</span>
                   </span>
                 </td>
                 <td>
                   <span className={ship.onBoard && cmdrStatus?.flags?.inDanger ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                    <span className='ship-panel__light-text'>Danger</span>
+                    <span className='ship-panel__light-text'>Hazard</span>
+                  </span>
+                </td>
+                <td>
+                  <span className={ship.onBoard && (!cmdrStatus?.flags?.landingGearDown && cmdrStatus?.altitude < 100) ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>Low Altitude</span>
+                  </span>
+                </td>
+                <td>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>Low Fuel</span>
                   </span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdMassLocked ? 'ship-panel__light--secondary' : 'ship-panel__light--off'}>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdMassLocked ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
                     <span className='ship-panel__light-text'>Mass Locked</span>
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdCooldown ? 'ship-panel__light--secondary' : 'ship-panel__light--off'}>
-                    <span className='ship-panel__light-text'>Frame Shift Cooldown</span>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.supercruise ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>Supercruise</span>
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdCharging ? 'ship-panel__light--secondary' : 'ship-panel__light--off'}>
-                    <span className='ship-panel__light-text'>Frame Shift Charging</span>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdCooldown ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>FSD Cooldown</span>
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdJump ? 'ship-panel__light--secondary' : 'ship-panel__light--off'}>
-                    <span className='ship-panel__light-text'>Frame Shift Jumping</span>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdCharging ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>FSD Charging</span>
+                  </span>
+                </td>
+                <td>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.fsdJump ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>FSD Jumping</span>
                   </span>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span className={ship.onBoard && (cmdrStatus?.flags?.docked || cmdrStatus?.flags?.landed) ? 'ship-panel__light--info' : 'ship-panel__light--off'}>
-                    <span className='ship-panel__light-text'>Docked</span>
+                  <span className={ship.onBoard && (cmdrStatus?.flags?.docked || cmdrStatus?.flags?.landed) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>
+                      {cmdrStatus?.flags?.docked && 'Docked'}
+                      {cmdrStatus?.flags?.landed && 'Landed'}
+                      {(!cmdrStatus?.flags?.docked && !cmdrStatus?.flags?.landed) && 'Docked / Landed'}
+                    </span>
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.supercruise ? 'ship-panel__light--info' : 'ship-panel__light--off'}>
-                    <span className='ship-panel__light-text'>Supercruise</span>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.glideMode ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>Glide Mode</span>
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.scoopingFuel ? 'ship-panel__light--info' : 'ship-panel__light--off'}>
-                    <span className='ship-panel__light-text'>Fuel Scooping</span>
-                  </span>
-                </td>
-                <td>
-                  <span className={ship.onBoard && cmdrStatus?.flags?.flightAssistOff ? 'ship-panel__light--info' : 'ship-panel__light--off'}>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.flightAssistOff ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
                     <span className='ship-panel__light-text'>Flight Assist Off</span>
+                  </span>
+                </td>
+                <td>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.silentRunning ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>Silent Running</span>
+                  </span>
+                </td>
+                <td>
+                  <span className={ship.onBoard && cmdrStatus?.flags?.scoopingFuel ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                    <span className='ship-panel__light-text'>Fuel Scooping</span>
                   </span>
                 </td>
               </tr>
