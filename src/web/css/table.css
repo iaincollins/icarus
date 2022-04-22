@@ -137,6 +137,7 @@ table.table--layout tbody tr td {
   padding: 0;
   border: .5rem solid transparent;
   vertical-align: middle;
+  overflow: visible;
 }
 
 table.table__bordered {
@@ -219,6 +220,7 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td {
   color: var(--color-primary-dark) !important;
   opacity: 1;
   text-shadow: none;
+  border-radius: .1rem;
 }
 
 table.table--flex-inline.table--interactive tbody tr:not(.table__row--active):hover td {

@@ -42,9 +42,8 @@ input.input--secondary:hover,
 
 .checkbox {
   position: relative;
-  height: 4.4rem;
+  height: 5rem;
   display: block;
-  text-align: center;
 }
 
 .checkbox input {
@@ -56,12 +55,25 @@ input.input--secondary:hover,
 }
 
 .checkbox .checkbox__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
   font-size: 1.25rem;
 }
 
 @media only screen and (max-width: 799px) {
+  .checkbox {
+    height: 6rem;
+  }
   .checkbox .checkbox__text {
     font-size: 1rem;
+    line-height: 1.25rem;
   }
 }
 
@@ -73,10 +85,11 @@ input.input--secondary:hover,
   clear: both;
   margin: auto;
   height: 2rem;
-  width: 6rem;
+  max-width: 6rem;
   background-color: var(--color-primary-dark);
   border: .2rem solid var(--color-primary);
   opacity: .5;
+  border-radius: .1rem;
 }
 
 .checkbox .checkbox__control:after {
@@ -85,9 +98,11 @@ input.input--secondary:hover,
   top: .2rem;
   left: .2rem;
   height: 1.6rem;
-  width: 2.8rem;
+  width: 50%;
+  max-width: 3rem;
   background-color: var(--color-primary);
   opacity: .5;
+  border-radius: .1rem;
 }
 
 .checkbox input:checked ~ .checkbox__control {
@@ -99,4 +114,5 @@ input.input--secondary:hover,
   left: initial;
   background-color: var(--color-primary);
   opacity: 1;
+  box-shadow: 0 0 .5rem var(--color-primary);
 }

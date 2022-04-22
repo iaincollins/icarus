@@ -280,6 +280,13 @@ progress[value]::-moz-progress-bar {
 progress[value]::-webkit-progress-value {
   background: var(--color-primary);
   transition: width .25s ease;
+  box-shadow: inset 0 0 .1rem var(--color-primary-dark), 0 0 .1rem var(--color-primary);
+  border-radius: .1rem;
+}
+
+progress[value].progress--gradient::-webkit-progress-value {
+  background: linear-gradient(to right, var(--color-primary-dark), var(--color-primary));
+  box-shadow: inset 0 0 .25rem var(--color-primary-dark);
 }
 
 progress.progress--border {
@@ -304,6 +311,7 @@ progress.progress--secondary[value]::-moz-progress-bar {
 
 progress.progress--secondary[value]::-webkit-progress-value {
   background: var(--color-secondary);
+  box-shadow: inset 0 0 .1rem var(--color-secondary-dark), 0 0 .1rem var(--color-secondary);
 }
 
 progress.progress--secondary.progress--border {
