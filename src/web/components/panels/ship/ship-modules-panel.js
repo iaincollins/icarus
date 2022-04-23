@@ -127,38 +127,38 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             <tbody>
               <tr>
                 <td>
-                  <label className='checkbox'>
+                  <label className='checkbox' onClick={() => toogleSwitch('lights')}>
                     <span className='checkbox__text'>Ship Lights</span>
                     <input type='checkbox' checked={ship.onBoard && toggleSwitches?.lights} />
-                    <span class='checkbox__control' onClick={() => toogleSwitch('lights')} />
+                    <span class='checkbox__control' />
                   </label>
                 </td>
                 <td>
-                  <label className='checkbox'>
+                  <label className='checkbox' onClick={() => toogleSwitch('nightVision')} >
                     <span className='checkbox__text'>Night Vision</span>
                     <input type='checkbox' checked={ship.onBoard && toggleSwitches?.nightVision} />
-                    <span class='checkbox__control' onClick={() => toogleSwitch('nightVision')} />
+                    <span class='checkbox__control'/>
                   </label>
                 </td>
                 <td>
-                  <label className='checkbox'>
+                  <label className='checkbox' onClick={() => toogleSwitch('cargoHatch')}>
                     <span className='checkbox__text'>Cargo Hatch</span>
                     <input type='checkbox' checked={ship.onBoard && toggleSwitches?.cargoHatch} />
-                    <span class='checkbox__control' onClick={() => toogleSwitch('cargoHatch')} />
+                    <span class='checkbox__control'/>
                   </label>
                 </td>
                 <td>
-                  <label className='checkbox'>
+                  <label className='checkbox' onClick={() => toogleSwitch('landingGear')}>
                     <span className='checkbox__text'>Landing Gear</span>
                     <input type='checkbox' checked={ship.onBoard && toggleSwitches?.landingGear} />
-                    <span class='checkbox__control'onClick={() => toogleSwitch('landingGear')}  />
+                    <span class='checkbox__control'/>
                   </label>
                 </td>
                 <td>
-                  <label className='checkbox'>
+                  <label className='checkbox' onClick={() => toogleSwitch('hardpoints')}>
                     <span className='checkbox__text'>Hardpoints</span>
                     <input type='checkbox' checked={ship.onBoard && toggleSwitches?.hardpoints} />
-                    <span class='checkbox__control' onClick={() => toogleSwitch('hardpoints')} />
+                    <span class='checkbox__control'/>
                   </label>
                 </td>
               </tr>
