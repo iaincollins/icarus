@@ -11,6 +11,12 @@ export default function ShipModulesPage () {
   const [ship, setShip] = useState()
   const [selectedModule, setSelectedModule] = useState()
   const [cmdrStatus, setCmdrStatus] = useState()
+
+  // Using state for toggle switches like this allow us to have the UI
+  // respond immediately to the input from the user, even if it takes the game
+  // API a second or two to callback and update us with the new state.
+  // It also means that even if they do go out of sync, the UI in ICARUS 
+  // Terminal will correctly reflect the in game state after a second or two.
   const [toggleSwitches, setToggleSwitches] = useState({
     lights: false,
     nightVision: false,
@@ -25,7 +31,7 @@ export default function ShipModulesPage () {
     setCmdrStatus(await sendEvent('getCmdrStatus'))
   }, [connected, ready])
 
-  const toogleSwitch = async (switchName) => {
+  const toggleSwitch = async (switchName) => {
     // Only toggle switch value if we think it was successful
     const switchToggled =  await sendEvent('toggleSwitch', { switchName })
 
@@ -63,7 +69,7 @@ export default function ShipModulesPage () {
         <ShipModulesPanel ship={ship}
           cmdrStatus={cmdrStatus}
           toggleSwitches={toggleSwitches}
-          toogleSwitch={toogleSwitch}
+          toggleSwitch={toggleSwitch}
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />
