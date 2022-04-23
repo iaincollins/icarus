@@ -3,17 +3,18 @@
 @import "utils.css";
 @import "fx/fx.css";
 @import "fx/crt.css";
-@import "layout.css";
-@import "loader.css";
-@import "button/button.css";
-@import "button/button-group.css";
-@import "input.css";
+@import "ui/layout.css";
+@import "ui/loader.css";
+@import "ui/inspector.css";
+@import "ui/tabs.css";
+@import "ui/modal-dialog.css";
+@import "ui/secondary-navigation.css";
+@import "form/button.css";
+@import "form/button-group.css";
+@import "form/input.css";
+@import "form/checkbox.css";
 @import "text.css";
 @import "table.css";
-@import "secondary-navigation.css";
-@import "inspector.css";
-@import "tabs.css";
-@import "modal-dialog.css";
 
 @import "system-map.css";
 /* @import "system-map-realistic-planets.css"; */

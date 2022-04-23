@@ -1,0 +1,40 @@
+input {
+  border: .25rem solid var(--color-primary-dark);
+  background: var(--color-primary-dark);
+  color: var(--color-icon);
+  font-size: 1.25rem;
+  line-height: 2rem;
+  outline: 0;
+  padding: .25rem .5rem;
+  text-transform: uppercase;
+  font-family: "Jura", sans-serif;
+  font-weight: 900;
+}
+
+input::placeholder {
+  color: var(--color-primary);
+  opacity: 0.5;
+}
+
+input:focus,
+input:hover {
+  border-color: var(--color-primary);
+}
+
+.input--secondary {
+  border-color: var(--color-secondary);
+  background: var(--color-secondary-dark);
+}
+
+input.input--secondary::placeholder,
+.input--secondary::placeholder {
+  color: var(--color-secondary);
+  opacity: 0.5;
+}
+
+input.input--secondary:focus,
+input.input--secondary:hover,
+.input--secondary:focus,
+.input--secondary:hover {
+  border-color: var(--color-secondary);
+}
