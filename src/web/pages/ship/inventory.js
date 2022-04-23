@@ -33,7 +33,7 @@ export default function ShipInventoryPage () {
             Ship Locker
           </h3>
           <hr style={{ margin: '.5rem 0 0 0' }} />
-          {inventory &&
+          {inventory?.items &&
             <>
               <LockerItems heading='Consumables' max='100' items={inventory.items.filter(item => item.type === 'Consumable')} />
               <LockerItems heading='Goods' count={inventory.counts.goods} items={inventory.items.filter(item => item.type === 'Goods')} />
