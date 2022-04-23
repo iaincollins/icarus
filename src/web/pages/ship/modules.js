@@ -11,12 +11,39 @@ export default function ShipModulesPage () {
   const [ship, setShip] = useState()
   const [selectedModule, setSelectedModule] = useState()
   const [cmdrStatus, setCmdrStatus] = useState()
+  const [toggleSwitches, setToggleSwitches] = useState({
+    lights: false,
+    nightVision: false,
+    cargoHatch: false,
+    landingGear: false,
+    hardpoints: false
+  })
 
   useEffect(async () => {
     if (!connected) return
     setShip(await sendEvent('getShipStatus'))
     setCmdrStatus(await sendEvent('getCmdrStatus'))
   }, [connected, ready])
+
+  const toogleSwitch = async (switchName) => {
+    // Only toggle switch value if we think it was successful
+    const switchToggled =  await sendEvent('toggleSwitch', { switchName })
+
+    setToggleSwitches({
+      ...toggleSwitches,
+      [switchName]: switchToggled ? !toggleSwitches[switchName] : toggleSwitches[switchName]
+    })
+  }
+
+  useEffect(async () => {
+    setToggleSwitches({
+      lights: cmdrStatus?.flags?.lightsOn ?? false,
+      nightVision: cmdrStatus?.flags?.nightVision ?? false,
+      cargoHatch: cmdrStatus?.flags?.cargoScoopDeployed ?? false,
+      landingGear: cmdrStatus?.flags?.landingGearDown ?? false,
+      hardpoints: cmdrStatus?.flags?.hardpointsDeployed ?? false
+    })
+  }, [cmdrStatus])
 
   useEffect(() => eventListener('gameStateChange', async () => {
     setShip(await sendEvent('getShipStatus'))
@@ -33,7 +60,13 @@ export default function ShipModulesPage () {
   return (
     <Layout connected={connected} active={active} ready={ready} className='ship-panel'>
       <Panel navigation={ShipPanelNavItems('Modules')} scrollable>
-        <ShipModulesPanel ship={ship} cmdrStatus={cmdrStatus} selectedModule={selectedModule} setSelectedModule={setSelectedModule} />
+        <ShipModulesPanel ship={ship}
+          cmdrStatus={cmdrStatus}
+          toggleSwitches={toggleSwitches}
+          toogleSwitch={toogleSwitch}
+          selectedModule={selectedModule}
+          setSelectedModule={setSelectedModule}
+        />
       </Panel>
       <Panel>
         <ShipModuleInspectorPanel module={selectedModule} setSelectedModule={setSelectedModule} />

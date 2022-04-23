@@ -48,7 +48,11 @@ class EventHandlers {
         getInventory: (args) => this.inventory.getInventory(args),
         getCmdrStatus: (args) => this.cmdrStatus.getCmdrStatus(args),
         getBlueprints: (args) => this.blueprints.getBlueprints(args),
-        getNavRoute: (args) => this.navRoute.getNavRoute(args)
+        getNavRoute: (args) => this.navRoute.getNavRoute(args),
+        toggleSwitch: ({switchName}) => { 
+          console.log('Toggle Switch', switchName)
+          return true
+        }
       }
     }
     return this.eventHandlers
