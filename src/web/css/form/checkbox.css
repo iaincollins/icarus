@@ -52,15 +52,6 @@
   border-radius: .1rem;
 }
 
-.checkbox .checkbox__control:hover {
-  opacity: 1;
-}
-
-
-.checkbox .checkbox__control:hover:after {
-  opacity: 1;
-}
-
 .checkbox .checkbox__control:after {
   content: "";
   position: absolute;
