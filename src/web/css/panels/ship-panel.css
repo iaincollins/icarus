@@ -66,11 +66,6 @@
   }
 }
 
-.ship-panel__ship-pips {
-  xposition: absolute;
-  xtop: .25rem;
-  xright: .75rem;
-}
 
 .ship-panel__ship-pips {
   position: relative;
@@ -79,16 +74,6 @@
   xleft: 1rem;
   padding: .5rem;
 }
-
-/* @media only screen and (orientation: portrait) {
-  .ship-panel__ship-pips {
-    position: relative;
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-  }
-} */
 
 .ship-panel__ship-pip {
   height: 2rem;
@@ -106,14 +91,6 @@
   xmargin-right: .25rem;
 }
 
-/* 
-@media only screen and (orientation: portrait) {
-  .ship-panel__ship-pip progress {
-    width: 70%;
-    margin-right: .25rem;
-  }
-} */
-
 .ship-panel__ship-pip label {
   float: right;
   font-size: 1.25rem;
@@ -124,11 +101,24 @@
   float: left;
 }
 
-/* @media only screen and (orientation: portrait) {
-  .ship-panel__ship-pip label {
-    float: left;
+@media only screen and (min-width: 799px) {
+  .ship-panel__ship-pips {
+    transform: rotate(270deg);
+    width: 14rem;
+    top: 2rem;
+    left: -2rem;
   }
-} */
+  .ship-panel__ship-pip label {
+    transform: rotate(45deg);
+    font-size: 1rem !important;
+    position: relative;
+    left: 1.5rem;
+  }
+  .ship-panel__ship-pip progress {
+    height: 2rem !important;
+    margin-bottom: 1rem;
+  }
+}
 
 .ship-panel__ship-stats {
   width: 100%;
@@ -149,26 +139,18 @@
   text-shadow: none;
 }
 
-.ship-panel__ship-stats .value {
-  float: right;
-  margin-left: 2rem;
+.ship-panel__ship-stats td > .value {
+  margin-bottom: .5rem;
 }
 
-.ship-panel__ship-stats span,
-.ship-panel__ship-stats .value {
+.ship-panel__ship-stats td > progress,
+.ship-panel__ship-stats td > span,
+.ship-panel__ship-stats td > .value {
   clear: both;
-  float: left;
-  margin-left: 0;
+  xfloat: left;
+  display: block;
+  text-align: center;
 }
-
-/* @media only screen and (max-width: 1023px) {
-  .ship-panel__ship-stats span,
-  .ship-panel__ship-stats .value {
-    clear: both;
-    float: left;
-    margin-left: 0;
-  }
-} */
 
 .ship-panel__module-icon {
   background: var(--color-primary-dark);
@@ -257,6 +239,12 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
 table.ship-panel__lights td {
   overflow: visible;
   padding: 0 .25rem;
+}
+
+@media only screen and (max-width: 799px) {
+  .ship-panel__lights {
+    font-size: .8rem;
+  }
 }
 
 .ship-panel__light--off,
@@ -366,8 +354,3 @@ table.ship-panel__lights td {
   margin: auto;
 }
 
-@media only screen and (max-width: 799px) {
-  .ship-panel--status {
-    font-size: .8rem;
-  }
-}

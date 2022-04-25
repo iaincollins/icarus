@@ -32,6 +32,7 @@ export default function ShipModulesPage () {
   }, [connected, ready])
 
   const toggleSwitch = async (switchName) => {
+    return
     // Only toggle switch value if we think it was successful
     const switchToggled =  await sendEvent('toggleSwitch', { switchName })
 

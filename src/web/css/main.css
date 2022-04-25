@@ -287,7 +287,7 @@ progress[value]::-webkit-progress-value {
 
 progress[value].progress--gradient::-webkit-progress-value {
   background: linear-gradient(to right, var(--color-primary-dark), var(--color-primary));
-  box-shadow: inset 0 0 .25rem var(--color-primary-dark);
+  box-shadow: none;
 }
 
 progress.progress--border {
@@ -336,6 +336,7 @@ progress.progress--info[value]::-moz-progress-bar {
 
 progress.progress--info[value]::-webkit-progress-value {
   background: var(--color-info);
+  box-shadow: 0 0 .1rem var(--color-info);
 }
 
 progress.progress--info.progress--border {
@@ -364,6 +365,27 @@ progress.progress--success.progress--border {
   border-color: var(--color-success);
 }
 
+progress.progress--danger {
+  background: var(--color-primary-dark); /* For Firefox */
+}
+
+progress.progress--danger[value]::-webkit-progress-bar {
+  background: var(--color-primary-dark);
+  padding: .1rem;
+}
+
+progress.progress--danger[value]::-moz-progress-bar {
+  background: var(--color-danger);
+  padding: .1rem;
+}
+
+progress.progress--danger[value]::-webkit-progress-value {
+  background: var(--color-danger);
+}
+
+progress.progress--danger.progress--border {
+  border-color: var(--color-danger);
+}
 
 form {
   padding: 0;
