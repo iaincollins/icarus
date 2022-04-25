@@ -5,13 +5,14 @@ const fs = require('fs')
 const path = require('path')
 
 const pjXML = require('pjxml')
-const sendKeys = require('sendkeys-js')
+//const sendKeys = require('sendkeys-js')
+//const { SendInput } = require('sendinput')
 
-const TARGET_WINDOW_TITLE = 'Elite - Dangerous (CLIENT)'
+//const TARGET_WINDOW_TITLE = 'Elite - Dangerous (CLIENT)'
 const KEYBINDS_DIR = path.join(os.homedir(), 'AppData', 'Local', 'Frontier Developments', 'Elite Dangerous', 'Options', 'Bindings')
 
 // Prefer Keybinds v4 file
-// TODO Check what version of game player has active!
+// TODO Check what version of game player has active
 const KEYBINDS_FILE_V3 = path.join(KEYBINDS_DIR, 'Custom.3.0.binds') // Horizons
 const KEYBINDS_FILE_V4 = path.join(KEYBINDS_DIR, 'Custom.4.0.binds') // Odyssey
 
@@ -74,6 +75,8 @@ class EventHandlers {
         getBlueprints: (args) => this.blueprints.getBlueprints(args),
         getNavRoute: (args) => this.navRoute.getNavRoute(args),
         toggleSwitch: async ({switchName}) => {
+          return false
+          /*
           // TODO Refactor this out into a dedicated library
           try {
             let KEYBINDS_FILE
@@ -125,8 +128,8 @@ class EventHandlers {
             const keyAsKeycode = convertKeyToKeycode(keyToSend) 
             //const modifierKeyAsKeycode =  keycode.codes[modifierKey?.toLowerCase()]
 
-            //console.log('KEYBINDS_MAP[switchName]', switchName, KEYBINDS_MAP[switchName])
-            //console.log('Key', keyToSend, keyAsKeycode) // modifierKey, modifierKeyAsKeycode)
+            console.log('KEYBINDS_MAP[switchName]', switchName, KEYBINDS_MAP[switchName])
+            console.log('Key', keyToSend, keyAsKeycode) // modifierKey, modifierKeyAsKeycode)
 
             // Set Elite Dangerous as the active window
             await sendKeys.activate(TARGET_WINDOW_TITLE)
@@ -135,7 +138,16 @@ class EventHandlers {
             // down, then send the main key we want then release the modifer)
             //if (modifierKeyAsKeycode === 'shift') KeyToggle(VK_LSHIFT, "down")
             
-            KeyTap(keyAsKeycode)
+
+            // SendInput({
+            //   up: false,
+            //   val: keyAsKeycode,
+            //   type: 0
+            // })
+
+            // console.log('Triggered SendInput')
+            
+            //KeyTap(keyAsKeycode)
 
             //if (modifierKeyAsKeycode === 'shift') KeyToggle(VK_LSHIFT, "up")
 
@@ -145,6 +157,7 @@ class EventHandlers {
             console.error('ERROR_SENDING_KEY', switchName, e.toString())
             return false
           }
+          */
         }
       }
     }
@@ -161,22 +174,27 @@ function convertEliteDangerousKeyBindingToInputKey(rawKeyValue) {
   if (key === 'semicolon') return ';'
   if (key === 'rightbracket') return ']'
   if (key === 'leftbracket') return '['
-  if (key === 'hash') return '#'
-  if (key === 'backslash') return '\\'
+
+  // if (key === 'hash') return '#'
+  // if (key === 'backslash') return '\\'
   return key
 }
 
 function convertKeyToKeycode(key) {
   let keyCode = keycode.codes[key?.toLowerCase()]
-  if (key === '#') keyCode = 35 // Should work, but doesn't :-(
-  if (key === '\\') keyCode = 92 // Should work, but doesn't :-(
+  //if (key === '#') keyCode = 35 // Should work, but doesn't :-(
+  //if (key === '\\') keyCode = 92 // Should work, but doesn't :-(
+    // 94 or 51 MIGHT also work 
   return keyCode
 }
 
 
+
 // TODO Move all this out into a dedicated class and clean it up
 // https://stackoverflow.com/questions/41350341/using-sendinput-in-node-ffi
-const keycode = require("keycode");
+// const keycode = require("keycode");
+
+/*
 const ffi = require( "ffi-napi");
 const ref = require( "ref-napi");
 //const os = require( "os");
@@ -278,5 +296,6 @@ function KeyTap(keyCode, opt) {
 function ConvertKeyCodeToScanCode(keyCode) {
   return user32.MapVirtualKeyExA(keyCode, 0, 0)
 }
+*/
 
 module.exports = EventHandlers
