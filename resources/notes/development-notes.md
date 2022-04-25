@@ -22,3 +22,4 @@ Some of the features and improvements currently being worked on:
 * Fix for systems like EOL PROU RI-Q C6-9 with (a) multiple Null orbits and (b) stars orbiting Null points http://localhost:3300/nav/map?system=eol+prou+ri-q+c6-9
 * Listen for Set User Ship Name event and update name/ident when it changes
 * Parse current state, location, etc from Status.json and display some of that info in header
+* Test https://github.com/micmonay/keybd_event
