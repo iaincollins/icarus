@@ -6,7 +6,7 @@ const factionStates = {
     description: 'Faction expanding influence'
   },
   investment: {
-    description: 'Ongoing investment, expansion anticipated'
+    description: 'Increased investment, expansion anticipated'
   },
   war: {
     description: 'War, combat missions available'

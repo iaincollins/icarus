@@ -25,6 +25,12 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           <h2>No system information</h2>
         </div>
         <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
+          <div className='navigation-panel__map-frame'>
+            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-left'/>
+            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-right'/>
+            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-left'/>
+            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-right'/>
+          </div>
           <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
             <SystemMap system={system} setSystemObject={setSystemObject} />
           </div>
@@ -42,6 +48,12 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
   return (
     <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
       <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
+        <div className='navigation-panel__map-frame'>
+          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-left'/>
+          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-right'/>
+          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-left'/>
+          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-right'/>
+        </div>
         <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
           <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>

@@ -12,7 +12,7 @@
   color: var(--color-info);
   left: 1rem;
   right: 1rem;
-  bottom: 0;
+  bottom: .5rem;
   z-index: 50;
   text-align: center;
   pointer-events: none;
@@ -22,11 +22,12 @@
 }
 
 .system-map__info h3 {
-  background: radial-gradient(circle, rgba(0,0,0,1), rgba(0,0,0,.1) 100%);
+  background: radial-gradient(circle, rgba(0,0,0,.8), rgba(0,0,0,.6) 100%);
   display: inline-block;
   padding: .4rem 1rem .5rem 1rem;
   position: relative;
   left: 1rem;
+  border-radius: 0.3rem;
 }
 
 .system-map__info h3::before {
@@ -37,7 +38,7 @@
   content: '';
   background: radial-gradient(circle, var(--color-secondary) 60%, rgba(0,0,0,0) 100%);
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 1;
   margin: 0 -1rem 0 -1rem;
 }
 
@@ -71,7 +72,7 @@
 
 .system-map__location {
   position: absolute;
-  bottom: 3rem;
+  bottom: 3.5rem;
   z-index: 50;
   text-align: center;
   pointer-events: none;
@@ -83,15 +84,15 @@
 .system-map__location h3 {
   background: rgba(0,0,0,.8);
   display: inline-block;
-  border-radius: 10rem;
+  border-radius: .3rem;
   padding: .25rem .9rem .3rem .75rem;
   line-height: 1.5rem;
 }
 
 .system-map__system-position {
   position: absolute;
-  top: .5rem;
-  right: 1.5rem;
+  top: 1rem;
+  right: 3rem;
   text-align: right;
   font-size: 1rem;
   opacity: .25 !important;
@@ -100,6 +101,7 @@
 .system-map__title {
   margin-left: var(--system-map-left-margin);
   display: inline-block;
+  overflow-x: visible;
 }
 
 .system-map__title h1 {
