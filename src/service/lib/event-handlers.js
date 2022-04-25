@@ -2,11 +2,11 @@ const os = require('os')
 const fs = require('fs')
 const path = require('path')
 const pjXML = require('pjxml')
-//const sendKeys = require('sendkeys-js')
-//onst keycode = require('keycodes')
+// const sendKeys = require('sendkeys-js')
+// onst keycode = require('keycodes')
 const { UNKNOWN_VALUE } = require('../../shared/consts')
 
-//const TARGET_WINDOW_TITLE = 'Elite - Dangerous (CLIENT)'
+// const TARGET_WINDOW_TITLE = 'Elite - Dangerous (CLIENT)'
 const KEYBINDS_DIR = path.join(os.homedir(), 'AppData', 'Local', 'Frontier Developments', 'Elite Dangerous', 'Options', 'Bindings')
 
 // Prefer Keybinds v4 file
@@ -72,7 +72,7 @@ class EventHandlers {
         getCmdrStatus: (args) => this.cmdrStatus.getCmdrStatus(args),
         getBlueprints: (args) => this.blueprints.getBlueprints(args),
         getNavRoute: (args) => this.navRoute.getNavRoute(args),
-        toggleSwitch: async ({switchName}) => {
+        toggleSwitch: async ({ switchName }) => {
           return false
           /*
           // TODO Refactor this out into a dedicated library
@@ -112,7 +112,7 @@ class EventHandlers {
                 }
             }
 
-            // If the secondary key is a single keystroke (with modifer) and the 
+            // If the secondary key is a single keystroke (with modifer) and the
             // primary key is not then prefer the secondary key as it's more
             // likely to work as it won't have to rely on special key mapping.
             if (primaryKey && secondaryKey && primaryKey.length > 1 && !secondaryElementModifier) {
@@ -123,7 +123,7 @@ class EventHandlers {
             // TODO Support Control and Alt modifiers
             if (modifierKey?.toLowerCase()?.includes('shift')) modifierKey = 'shift'
 
-            const keyAsKeycode = convertKeyToKeycode(keyToSend) 
+            const keyAsKeycode = convertKeyToKeycode(keyToSend)
             //const modifierKeyAsKeycode =  keycode.codes[modifierKey?.toLowerCase()]
 
             console.log('KEYBINDS_MAP[switchName]', switchName, KEYBINDS_MAP[switchName])

@@ -57,6 +57,7 @@ export default function SystemMap ({ system, setSystemObject }) {
         factionStateDescription = factionStates[factionState].description
         return true
       }
+      return false
     })
   }
 

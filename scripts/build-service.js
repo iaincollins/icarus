@@ -44,7 +44,7 @@ async function build () {
     target: 'windows-x86-14.15.3', // from https://github.com/nexe/nexe/releases/tag/v3.3.3
     resources: [
       path.join(BUILD_DIR, 'web'), // Include web UI
-      'src/service/data', // Include dynamically loaded JSON files
+      'src/service/data' // Include dynamically loaded JSON files
     ],
     debug: DEBUG_CONSOLE,
     build: false,

@@ -25,16 +25,16 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
             <span className='text-primary text-muted'> {ship.type}</span>
           </h3>
         </div>
-        <div className='visible-medium' style={{padding: '1rem 0'}}>
-          <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus}/>
+        <div className='visible-medium' style={{ padding: '1rem 0' }}>
+          <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
         </div>
 
         <div className='ship-panel--status'>
           <table className='ship-panel__ship-stats'>
             <tbody className='text-info'>
               <tr className='hidden-medium'>
-                <td rowSpan={4} style={{padding: 0, overflow: 'visible'}}>
-                  <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus}/>
+                <td rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
+                  <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
                 </td>
               </tr>
               <tr>
@@ -46,8 +46,8 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   <span className='text-muted'>Fuel Reservoir</span>
                   <span className='value'>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
                 </td>
-                <td rowSpan={4} className='hidden-medium' style={{padding: 0}}>
-                  <PowerDistribution ship={ship}/>
+                <td rowSpan={4} className='hidden-medium' style={{ padding: 0 }}>
+                  <PowerDistribution ship={ship} />
                 </td>
               </tr>
               <tr>
@@ -60,20 +60,19 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   <span className='value'>
                     {typeof ship?.fuelLevel === 'number'
                       ? <>
-                          <progress
-                              style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem' }}
-                              value={ship?.fuelLevel ?? 0}
-                              max={ship?.fuelCapacity ?? 0}
-                              className={`progress--border ${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'progress--danger' : 'progress--info'}`} 
-                            />
-                          {/* <br/>
+                        <progress
+                          style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem' }}
+                          value={ship?.fuelLevel ?? 0}
+                          max={ship?.fuelCapacity ?? 0}
+                          className={`progress--border ${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'progress--danger' : 'progress--info'}`}
+                        />
+                        {/* <br/>
                           <span className={`${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'text-danger' : ''}`}>
                             <span>{ship?.fuelLevel ?? 0}</span>
                             <span className='text-muted'>/{ship?.fuelCapacity ?? 0}</span> T
                           </span> */}
                       </>
-                      : <>-</>
-                    }
+                      : <>-</>}
                   </span>
                 </td>
               </tr>
@@ -84,10 +83,10 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   <span className='value'>{ship.rebuy ? ship.rebuy.toLocaleString() : '-'} CR</span>
                   */}
                   <span className='text-muted'>HUD Mode</span>
-                    <h3 className='value' style={{padding: '.25rem 0', height: '1.5rem'}}>
-                      {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
-                      {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-primary'>Combat</span>}
-                      {(!ship.onBoard || !cmdrStatus) && '-'}
+                  <h3 className='value' style={{ padding: '.25rem 0', height: '1.5rem' }}>
+                    {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
+                    {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-primary'>Combat</span>}
+                    {(!ship.onBoard || !cmdrStatus) && '-'}
                   </h3>
                 </td>
                 <td>
@@ -95,20 +94,19 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   <span className='value'>
                     {typeof ship?.cargo?.count === 'number'
                       ? <>
-                          <progress
-                               style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem' }}
-                              value={ship?.cargo?.count ?? 0}
-                              max={ship?.cargo?.capacity ?? 0}
-                              className='progress--border progress--info'
-                            />
-                          {/* <br/>
+                        <progress
+                          style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem' }}
+                          value={ship?.cargo?.count ?? 0}
+                          max={ship?.cargo?.capacity ?? 0}
+                          className='progress--border progress--info'
+                        />
+                        {/* <br/>
                           <span>
                             <span className={`${ship?.cargo?.count > 0 ? '' : 'text-muted'}`}>{ship?.cargo?.count ?? 0}</span>
                             <span className='text-muted'>/{ship?.cargo?.capacity ?? 0}</span> T
                           </span> */}
                       </>
-                      : <>-</>
-                    }
+                      : <>-</>}
                   </span>
                 </td>
               </tr>
@@ -116,7 +114,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
           </table>
 
           <div className='visible-medium'>
-            <PowerDistribution ship={ship}/>
+            <PowerDistribution ship={ship} />
           </div>
 
           <table className='table--layout'>
@@ -125,56 +123,61 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                 <td>
                   <label className='checkbox'>
                     <span className='checkbox__text'>Ship Lights</span>
-                    <input type='checkbox'
+                    <input
+                      type='checkbox'
                       checked={ship.onBoard && toggleSwitches?.lights}
                       onChange={() => toggleSwitch('lights')}
                       disabled
-                      />
+                    />
                     <span class='checkbox__control' />
                   </label>
                 </td>
                 <td>
                   <label className='checkbox'>
                     <span className='checkbox__text'>Night Vision</span>
-                    <input type='checkbox'
+                    <input
+                      type='checkbox'
                       checked={ship.onBoard && toggleSwitches?.nightVision}
                       onChange={() => toggleSwitch('nightVision')}
                       disabled
                     />
-                    <span class='checkbox__control'/>
+                    <span class='checkbox__control' />
                   </label>
                 </td>
                 <td>
                   <label className='checkbox'>
                     <span className='checkbox__text'>Cargo Hatch</span>
-                    <input type='checkbox'
+                    <input
+                      type='checkbox'
                       checked={ship.onBoard && toggleSwitches?.cargoHatch}
                       onChange={() => toggleSwitch('cargoHatch')}
                       disabled
-                      />
-                    <span class='checkbox__control'/>
+                    />
+                    <span class='checkbox__control' />
                   </label>
                 </td>
                 <td>
                   <label className='checkbox'>
                     <span className='checkbox__text'>Landing Gear</span>
-                    <input type='checkbox'
+                    <input
+                      type='checkbox'
                       checked={ship.onBoard && toggleSwitches?.landingGear}
                       onChange={() => toggleSwitch('landingGear')}
                       disabled
-                      />
-                    <span class='checkbox__control'/>
+                    />
+                    <span class='checkbox__control' />
                   </label>
                 </td>
                 <td>
                   <label className='checkbox'>
                     <span className='checkbox__text'>Hardpoints</span>
-                    <input type='checkbox'
+                    <input
+                      type='checkbox'
                       checked={ship.onBoard && toggleSwitches?.hardpoints}
                       onChange={() => toggleSwitch('hardpoints')}
                       disabled
-                      />
-                    <span class='checkbox__control'/>
+                    />
+                    <span class='checkbox__control' />
                   </label>
                 </td>
               </tr>
@@ -221,7 +224,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                   </span>
                 </td>
                 <td>
-                  <span className={ship.onBoard &&  (cmdrStatus?.flags?.supercruise && !cmdrStatus?.flags?.fsdJump) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className={ship.onBoard && (cmdrStatus?.flags?.supercruise && !cmdrStatus?.flags?.fsdJump) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
                     <span className='ship-panel__light-text'>Supercruise</span>
                   </span>
                 </td>
@@ -325,7 +328,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
 function NavigationInstrumentation ({ ship, cmdrStatus }) {
   return (
     <div className='text-uppercase' style={{ position: 'relative' }}>
-       <div style={{
+      <div style={{
         position: 'absolute',
         left: 0,
         right: 0,
@@ -337,8 +340,9 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         background: 'var(--color-background-panel-translucent)',
         border: '.5rem double var(--color-info)',
         transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
-        borderRadius: '100rem',
-      }}>
+        borderRadius: '100rem'
+      }}
+      >
         <div style={{
           position: 'absolute',
           top: '-.8rem',
@@ -350,7 +354,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           width: '1.25rem',
           borderRadius: '100rem',
           display: ship.onBoard && typeof cmdrStatus?.heading === 'number' ? ' block' : 'none'
-        }}/>
+        }}
+        />
       </div>
       <div style={{
         display: 'block',
@@ -359,7 +364,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         aspectRatio: '1/1',
         border: '.5rem double transparent',
         borderRadius: '100rem'
-      }}>
+      }}
+      >
         <div style={{
           position: 'relative',
           top: '-.25rem',
@@ -368,29 +374,31 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           justifyContent: 'center',
           textAlign: 'center',
           height: '100%'
-        }}>
-          <h2 style={{padding: 0, margin: '0 0 .5rem 0'}}>
+        }}
+        >
+          <h2 style={{ padding: 0, margin: '0 0 .5rem 0' }}>
             <span className='value'>{ship.onBoard ? cmdrStatus?.heading ?? '-' : '-'}°</span>
           </h2>
-          <p style={{padding: 0, margin: '.15rem 0'}}>
+          <p style={{ padding: 0, margin: '.15rem 0' }}>
             <span className='text-muted'>LAT</span>
             {' '}
             <span className='value'>{ship.onBoard ? cmdrStatus?.latitude ?? '-' : '-'}°</span>
           </p>
-          <p style={{padding: 0, margin: '.15rem 0'}}>
+          <p style={{ padding: 0, margin: '.15rem 0' }}>
             <span className='text-muted'>LON</span>
             {' '}
             <span className='value'>{ship.onBoard ? cmdrStatus?.longitude ?? '-' : '-'}°</span>
           </p>
-          <p style={{padding: 0, margin: '.15rem 0 0 0'}}>
+          <p style={{ padding: 0, margin: '.15rem 0 0 0' }}>
             <span className='text-muted'>ALT</span>
             {' '}
-            <span className='value'>{ship.onBoard ? <>
-              {cmdrStatus?.altitude > 10000
-                ? <>{(cmdrStatus.altitude / 1000).toLocaleString(undefined, { maximumFractionDigits: 0}) ?? '-' } KM</>
-                : <>{cmdrStatus?.altitude?.toLocaleString() ?? '-' } M</>
-              }
-            </> : '-'}
+            <span className='value'>{ship.onBoard
+              ? <>
+                {cmdrStatus?.altitude > 10000
+                  ? <>{(cmdrStatus.altitude / 1000).toLocaleString(undefined, { maximumFractionDigits: 0 }) ?? '-'} KM</>
+                  : <>{cmdrStatus?.altitude?.toLocaleString() ?? '-'} M</>}
+              </>
+              : '-'}
             </span>
           </p>
         </div>
@@ -405,7 +413,7 @@ function PowerDistribution ({ ship }) {
       className='ship-panel__ship-pips'
       style={{
         position: 'relative',
-        padding: '.25rem .5rem',
+        padding: '.25rem .5rem'
       }}
     >
       <div className='text-uppercase'>

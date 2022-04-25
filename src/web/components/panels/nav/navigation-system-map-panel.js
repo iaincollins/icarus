@@ -26,10 +26,10 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         </div>
         <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
           <div className='navigation-panel__map-frame'>
-            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-left'/>
-            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-right'/>
-            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-left'/>
-            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-right'/>
+            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-left' />
+            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-right' />
+            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-left' />
+            <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-right' />
           </div>
           <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
             <SystemMap system={system} setSystemObject={setSystemObject} />
@@ -49,10 +49,10 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
     <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
       <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
         <div className='navigation-panel__map-frame'>
-          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-left'/>
-          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-right'/>
-          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-left'/>
-          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-right'/>
+          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-left' />
+          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-top-right' />
+          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-left' />
+          <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-right' />
         </div>
         <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
           <SystemMap system={system} setSystemObject={setSystemObject} />
@@ -98,7 +98,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
                 {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
                 {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
-              </h3>
+                </h3>
               : <h3 className='text-secondary text-muted'>No known stations or settlements</h3>}
           </div>
         </div>
