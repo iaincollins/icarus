@@ -47,7 +47,6 @@ class SystemMap {
     this.planetaryOutposts = stations.filter(station => PLANETARY_OUTPOSTS.includes(station.type))
     this.settlements = stations.filter(station => SETTLEMENTS.includes(station.type))
     this.megaships = stations.filter(station => MEGASHIPS.includes(station.type))
-    //this.objectsInSystem = bodies.concat(stations).sort((a, b) => (a.distanceToArrival - b.distanceToArrival))
     this.objectsInSystem = bodies.concat(stations).sort((a, b) => (a.bodyId - b.bodyId))
 
     // This object will be used to contain all on the map not directly oribiting
@@ -111,6 +110,12 @@ class SystemMap {
     const starsOrbitingStarsLikePlanets = []
 
     bodies.forEach((body, i) => {
+      // TODO Refactor this out to a function
+      // This shouldn't be the case, but for some reason the main star in some
+      // systems in the Formidine Rift have a null Body ID in EDSM (SPOOKY!)
+      // None of the logic in this class will work if we don't patch this.
+      if (body.type === 'Star' && body.bodyId === null) body.bodyId = 0
+
       body._type = body.type
 
       // Only applies to stars
