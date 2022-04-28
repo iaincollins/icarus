@@ -7,4 +7,12 @@
   .system-map__planetary-system-map {
    filter: contrast(1.5) !important;
   }
+
+  progress {
+    background: var(--color-primary-dark);
+  }
+
+  progress.progress--gradient {
+    background: transparent;
+  }
 }

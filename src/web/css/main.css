@@ -260,7 +260,6 @@ progress {
   width: 100%;
   border-radius: 0;
   height: 2rem;
-  background: var(--color-primary-dark); /* For Firefox */
   transition: opacity .25s ease-out;
   border: 0;
 }
@@ -283,6 +282,14 @@ progress[value]::-webkit-progress-value {
   transition: width .25s ease;
   box-shadow: inset 0 0 .1rem var(--color-primary-dark), 0 0 .1rem var(--color-primary);
   border-radius: .1rem;
+}
+
+progress.progress--gradient[value]::-webkit-progress-bar {
+  background: transparent;
+}
+
+progress[value].progress--gradient::-moz-progress-bar {
+  background: linear-gradient(to right, var(--color-primary-dark), var(--color-primary));
 }
 
 progress[value].progress--gradient::-webkit-progress-value {

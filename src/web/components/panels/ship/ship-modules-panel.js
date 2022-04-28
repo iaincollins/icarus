@@ -129,7 +129,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                       onChange={() => toggleSwitch('lights')}
                       disabled
                     />
-                    <span class='checkbox__control' />
+                    <span className='checkbox__control' />
                   </label>
                 </td>
                 <td>
@@ -141,7 +141,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                       onChange={() => toggleSwitch('nightVision')}
                       disabled
                     />
-                    <span class='checkbox__control' />
+                    <span className='checkbox__control' />
                   </label>
                 </td>
                 <td>
@@ -153,7 +153,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                       onChange={() => toggleSwitch('cargoHatch')}
                       disabled
                     />
-                    <span class='checkbox__control' />
+                    <span className='checkbox__control' />
                   </label>
                 </td>
                 <td>
@@ -165,7 +165,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                       onChange={() => toggleSwitch('landingGear')}
                       disabled
                     />
-                    <span class='checkbox__control' />
+                    <span className='checkbox__control' />
                   </label>
                 </td>
                 <td>
@@ -177,7 +177,7 @@ export default function ShipModulesPanel ({ ship, selectedModule, setSelectedMod
                       onChange={() => toggleSwitch('hardpoints')}
                       disabled
                     />
-                    <span class='checkbox__control' />
+                    <span className='checkbox__control' />
                   </label>
                 </td>
               </tr>
@@ -337,10 +337,12 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         maxHeight: '12rem',
         margin: 'auto',
         aspectRatio: '1',
-        background: 'var(--color-background-panel-translucent)',
         border: '.5rem double var(--color-info)',
         transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
-        borderRadius: '100rem'
+        opacity: ship.onBoard ? 1 : '.5',
+        borderRadius: '100rem',
+        boxShadow: 'inset 0 0 .25rem var(--color-info), 0 0 .25rem var(--color-info)',
+        transition: 'opacity .25s ease-in-out'
       }}
       >
         <div style={{
@@ -353,6 +355,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           height: '1.25rem',
           width: '1.25rem',
           borderRadius: '100rem',
+          boxShadow: '0 0 .5rem var(--color-info)',
           display: ship.onBoard && typeof cmdrStatus?.heading === 'number' ? ' block' : 'none'
         }}
         />
@@ -408,6 +411,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
 }
 
 function PowerDistribution ({ ship }) {
+
   return (
     <div
       className='ship-panel__ship-pips'
