@@ -309,6 +309,7 @@
 
 .system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Water giant"] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Water world"] .system-map__planet-surface,
+.system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Ammonia world"] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Earth-like world"] .system-map__planet-surface {
   fill: url(#svg-pattern__planet-surface--clouds);
 }

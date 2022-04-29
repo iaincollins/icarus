@@ -112,6 +112,9 @@ export default function NavListPage () {
             <i className='icon icarus-terminal-planet-water-world' /> Water World
           </p>
           <p>
+            <i className='icon icarus-terminal-planet-ammonia-world' /> Ammonia World
+          </p>
+          <p>
             <i className='icon icarus-terminal-planet-high-metal-content' /> High metal content
           </p>
           <p>
