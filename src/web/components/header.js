@@ -10,17 +10,17 @@ const NAV_BUTTONS = [
   {
     name: 'Navigation',
     abbr: 'Nav',
-    path: '/nav/map'
+    path: '/nav'
   },
   {
     name: 'Ship',
     abbr: 'Ship',
-    path: '/ship/status'
+    path: '/ship'
   },
   {
     name: 'Engineering',
     abbr: 'Eng',
-    path: '/eng/raw-materials'
+    path: '/eng'
   },
   {
     name: 'Log',
