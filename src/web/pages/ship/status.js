@@ -3,10 +3,10 @@ import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { ShipPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
-import ShipModulesPanel from 'components/panels/ship/ship-modules-panel'
+import ShipModulesPanel from 'components/panels/ship/ship-status-panel'
 import ShipModuleInspectorPanel from 'components/panels/ship/ship-module-inspector-panel'
 
-export default function ShipModulesPage () {
+export default function ShipStatusPage () {
   const { connected, active, ready } = useSocket()
   const [ship, setShip] = useState()
   const [selectedModule, setSelectedModule] = useState()

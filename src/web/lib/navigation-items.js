@@ -1,9 +1,9 @@
 function ShipPanelNavItems (activePanel) {
   const navigationItems = [
     {
-      name: 'Modules',
+      name: 'Status',
       icon: 'ship',
-      url: '/ship/modules'
+      url: '/ship/status'
     },
     {
       name: 'Cargo',

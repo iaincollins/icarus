@@ -6,7 +6,7 @@ import { useSocket } from 'lib/socket'
 export default function ShipPage () {
   const { connected, active } = useSocket()
 
-  if (typeof window !== 'undefined') Router.push('/ship/modules')
+  if (typeof window !== 'undefined') Router.push('/ship/status')
 
   return (
     <Layout connected={connected} active={active}>

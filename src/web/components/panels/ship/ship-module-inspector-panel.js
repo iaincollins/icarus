@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router'
+import EngineeringModifier from 'components/panels/ship/ship-status/engineering-modifer'
 
 export default function ShipModuleInspectorPanel ({ module, setSelectedModule }) {
   const router = useRouter()
-
+  
   if (!module) return (<div className='ship-panel__module-inspector ship-panel__module-inspector--hidden' />)
 
   let inspectorTitle = 'Optional Module'
@@ -27,11 +28,6 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
             {module.class}{module.rating} <span className='text-muted'>{module.slotName}</span>
           </h3>
           <div className='text-primary'>
-            {/*
-            {module.ammoTotal && <p><span className='text-muted'>Ammo</span> {module.ammoTotal}</p>}
-            {module.passengers && <p><span className='text-muted'>Passengers</span> {module.passengers}</p>}
-            {module.heatsinks && <p><span className='text-muted'>Heatsinks</span> {module.heatsinks}</p>}
-            */}
             {module?.power > 0 && <p><span className='text-muted'>Power</span> {module.power} MW</p>}
             {module?.mass > 0 && <p><span className='text-muted'>Mass</span> {module.mass} T</p>}
             {module.description &&
@@ -44,7 +40,6 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
           <>
             <div className='ship-panel__module-section ship-panel__module-section--engineering text-uppercase'>
               <h3 className='text-muted'>Engineering</h3>
-              {true &&
                 <div className='ship-panel__module-section--engineering-tab'>
                   <p className='text-primary'>
                     <span className='text-muted'>Blueprint </span>
@@ -68,40 +63,20 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
                       />
                     )}
                   </p>
-                </div>}
+                </div>
             </div>
             <div className='ship-panel__module-section ship-panel__module-section--engineering text-uppercase'>
-              {true &&
-                <div className='ship-panel__module-section--engineering-tab'>
-                  {module.engineering.modifiers.map(modifier =>
-                    modifier.improvement ? <EngineeringModifier modifier={modifier} /> : null
-                  )}
-                  {module.engineering.modifiers.map(modifier =>
-                    !modifier.improvement ? <EngineeringModifier modifier={modifier} /> : null
-                  )}
-                </div>}
+              <div className='ship-panel__module-section--engineering-tab'>
+                {module.engineering.modifiers.map(modifier =>
+                  modifier.improvement ? <EngineeringModifier module={module} modifier={modifier} /> : null
+                )}
+                {module.engineering.modifiers.map(modifier =>
+                  !modifier.improvement ? <EngineeringModifier module={module} modifier={modifier} /> : null
+                )}
+              </div>
             </div>
           </>}
       </div>
     </div>
-  )
-}
-
-function EngineeringModifier ({ modifier }) {
-  return (
-    <p
-      key={`${module.name}_${module.slot}_engineering_modifier_${modifier.name}`}
-      className={modifier.improvement ? 'text-success' : 'text-danger'}
-      style={{ margin: 0, padding: 0 }}
-    >
-      <icon
-        className={`icon icarus-terminal-chevron-${modifier.improvement ? 'up' : 'down'}`}
-        style={{ marginRight: '.25rem', fontSize: '1rem', position: 'relative', top: '.1rem' }}
-      />
-      {modifier.name}
-      <span style={{ marginLeft: '.5rem' }}>
-        <span className={modifier.improvement ? 'text-success' : 'text-danger'}>{modifier.difference}</span>
-      </span>
-    </p>
   )
 }
