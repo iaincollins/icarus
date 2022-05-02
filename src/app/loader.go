@@ -38,15 +38,6 @@ func LoadUrl(url string) string {
         zoom: 100%;
       }
 
-      .not-selectable {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
       html::after {
         content: " ";
         display: block;
@@ -71,9 +62,43 @@ func LoadUrl(url string) string {
         zoom: 0.8;
       }
 
+      @media only screen and (max-width: 799px) {
+        body {
+          zoom: 0.7;
+        }
+      }
+
+      @media only screen and (max-width: 599px) {
+        body {
+          zoom: 0.6;
+        }
+      }
+
+      body::after {
+        content: " ";
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 10000;
+        background: rgba(0,0,255,.06);
+        pointer-events: none;
+      }
+
       html,
       body {
         -ms-content-zooming: none;
+      }
+
+      .not-selectable {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
 
       #background {
