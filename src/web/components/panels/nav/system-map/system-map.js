@@ -1,50 +1,6 @@
-import SystemMapStar from './system-map-star'
+import SystemMapStar from 'components/panels/nav/system-map/system-map-star'
 import CopyOnClick from 'components/copy-on-click'
-
-const factionStates = {
-  expansion: {
-    description: 'Faction expanding influence'
-  },
-  investment: {
-    description: 'Increased investment, expansion anticipated'
-  },
-  war: {
-    description: 'War, combat missions available'
-  },
-  civilWar: {
-    description: 'Civil war, combat missions available'
-  },
-  elections: {
-    description: 'Elections underway'
-  },
-  boom: {
-    description: 'Economy booming'
-  },
-  bust: {
-    description: 'Economy bust'
-  },
-  civilUnrest: {
-    description: 'Civil Unrest, support & bounty missions'
-  },
-  famine: {
-    description: 'Famine, demand for food, support missions'
-  },
-  outbreak: {
-    description: 'Outbreak, demand for medicines, support missions'
-  },
-  lockdown: {
-    description: 'Lockdown, services restricted, support missions'
-  },
-  retreat: {
-    description: 'Faction retreating from system'
-  },
-  naturalDisaster: {
-    description: 'Natural disaster, support missions available'
-  },
-  pirateAttack: {
-    description: 'Pirate attack, support & bounty missions'
-  }
-}
+import factionStates from '../../../../../shared/faction-states'
 
 export default function SystemMap ({ system, setSystemObject }) {
   if (!system) return null

@@ -1,5 +1,5 @@
 // import { useEffect } from 'react'
-import SystemMap from './system-map'
+import SystemMap from 'components/panels/nav/system-map/system-map'
 
 export default function NavigationSystemMapPanel ({ system, systemObject, setSystemObject, getSystem, cmdrStatus }) {
   if (!system) return null
@@ -57,10 +57,15 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
           <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>
-        {system.position &&
-          <div className='fade-in system-map__system-position text-info text-no-wrap fx-fade-in'>
-            {system.position?.[0]}<br />{system.position?.[1]}<br />{system.position?.[2]}
-          </div>}
+        <div className='text-muted'>
+          <div className='system-map__system-telemetry text-info text-muted text-uppercase text-no-wrap fx-fade-in'>
+            EDSM Telemetry
+          </div>
+          {system.position &&
+            <div className='system-map__system-position text-info text-muted text-no-wrap fx-fade-in'>
+              {system.position?.[0]}<br />{system.position?.[1]}<br />{system.position?.[2]}
+            </div>}
+        </div>
         <div className='system-map__location fx-fade-in'>
           {system?.distance > 0 &&
             <h3 className='text-secondary'>

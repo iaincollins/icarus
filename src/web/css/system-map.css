@@ -95,7 +95,14 @@
   right: 3rem;
   text-align: right;
   font-size: 1rem;
-  opacity: .25 !important;
+}
+
+.system-map__system-telemetry {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 3rem;
+  text-align: right;
+  font-size: 1rem;
 }
 
 .system-map__title {
