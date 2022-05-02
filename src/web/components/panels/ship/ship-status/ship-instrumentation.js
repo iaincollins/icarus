@@ -340,18 +340,18 @@ function PowerDistribution ({ ship }) {
         padding: '.25rem .5rem'
       }}
     >
-      <h4 className='text-center text-muted' style={{marginBottom: '1rem', marginLeft: '2rem'}}>Pwr Distribution</h4>
+      <h4 className='text-center text-muted' style={{marginBottom: '1.5rem', marginLeft: '2rem'}}>Pwr Distribution</h4>
       <div className='text-uppercase'>
         <div className='ship-panel__ship-pip'>
-          <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
+          <progress className={ship.onBoard ? 'progress--gradient' : ''} value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
           <label className={(ship.onBoard && ship?.pips?.systems) > 0 ? 'text-primary' : 'text-primary text-muted'}>SYS</label>
         </div>
         <div className='ship-panel__ship-pip'>
-          <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
+          <progress className={ship.onBoard ? 'progress--gradient' : ''} value={ship.onBoard ? ship?.pips?.engines : 0} max={8} />
           <label className={(ship.onBoard && ship?.pips?.engines > 0) ? 'text-primary' : 'text-primary text-muted'}>ENG</label>
         </div>
         <div className='ship-panel__ship-pip'>
-          <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
+          <progress className={ship.onBoard ? 'progress--gradient' : ''} value={ship.onBoard ? ship?.pips?.weapons : 0} max={8} />
           <label className={(ship.onBoard && ship?.pips?.weapons > 0) ? 'text-primary' : 'text-primary text-muted'}>WEP</label>
         </div>
       </div>
