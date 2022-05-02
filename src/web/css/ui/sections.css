@@ -1,0 +1,14 @@
+.section-heading__text {
+  color: var(--color-primary);
+  text-shadow: var(--text-shadow);
+  display: inline-block;
+  position: relative;
+  top: .1rem;
+  margin-bottom: .5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.section-heading {
+  border-bottom: .2rem solid var(--color-primary);
+}

@@ -27,8 +27,8 @@ function MaterialsTable ({ materialType, materialCategory, materials }) {
   return (
     <>
       {materialCategory &&
-        <div className='tabs'>
-          <h4 className='tab' style={{ marginTop: '1rem' }}>{materialCategory}</h4>
+        <div className='section-heading'>
+          <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>{materialCategory}</h4>
         </div>}
       <table className='table--animated fx-fade-in'>
         <thead style={{ display: 'none' }}>

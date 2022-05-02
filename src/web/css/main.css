@@ -6,9 +6,9 @@
 @import "ui/layout.css";
 @import "ui/loader.css";
 @import "ui/inspector.css";
-@import "ui/tabs.css";
 @import "ui/modal-dialog.css";
 @import "ui/secondary-navigation.css";
+@import "ui/sections.css";
 @import "form/button.css";
 @import "form/button-group.css";
 @import "form/input.css";

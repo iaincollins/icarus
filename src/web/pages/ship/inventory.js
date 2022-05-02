@@ -48,8 +48,8 @@ export default function ShipInventoryPage () {
 function LockerItems ({ heading, items, count = false, max = false }) {
   return (
     <>
-      <div className='tabs'>
-        <h4 className='tab' style={{ marginTop: '1rem' }}>
+      <div className='section-heading'>
+        <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>
           {heading}
         </h4>
         {count !== false &&

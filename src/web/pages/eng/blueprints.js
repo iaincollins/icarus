@@ -71,8 +71,8 @@ export default function EngineeringMaterialsPage () {
 
           {blueprintsApplied && blueprintsApplied.length > 0 &&
             <>
-              <div className='tabs'>
-                <h4 className='tab' style={{ marginTop: '1rem' }}>Applied Blueprints</h4>
+              <div className='section-heading'>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Applied Blueprints</h4>
               </div>
               <table className='table--interactive table--animated'>
                 <tbody className='fx-fade-in'>
@@ -96,13 +96,13 @@ export default function EngineeringMaterialsPage () {
                   )}
                 </tbody>
               </table>
-              <div className='tabs'>
-                <h4 className='tab' style={{ marginTop: '1rem' }}>Other Blueprints</h4>
+              <div className='section-heading'>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Other Blueprints</h4>
               </div>
             </>}
           {blueprintsApplied && blueprintsApplied.length === 0 &&
-            <div className='tabs'>
-              <h4 className='tab' style={{ marginTop: '1rem' }}>Blueprints</h4>
+            <div className='section-heading'>
+              <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Blueprints</h4>
             </div>}
           {blueprintsNotApplied &&
             <table className='table--interactive table--animated'>
@@ -135,8 +135,8 @@ export default function EngineeringMaterialsPage () {
 
           {selectedBlueprint.appliedToModules.length > 0 &&
             <>
-              <div className='tabs'>
-                <h4 className='tab' style={{ marginTop: '1rem' }}>Engineered Modules</h4>
+              <div className='section-heading'>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineered Modules</h4>
               </div>
               <table className='table--animated'>
                 <tbody className='fx-fade-in'>
@@ -175,14 +175,14 @@ export default function EngineeringMaterialsPage () {
 
           {selectedBlueprint.appliedToModules.length === 0 &&
             <>
-              <div className='tabs'>
-                <h4 className='tab' style={{ marginTop: '1rem' }}>Modules</h4>
+              <div className='section-heading'>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Modules</h4>
               </div>
               <p className='text-muted text-primary'>Not applied to any equipped modules</p>
             </>}
 
-          <div className='tabs'>
-            <h4 className='tab' style={{ marginTop: '1rem' }}>Engineers</h4>
+          <div className='section-heading'>
+            <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineers</h4>
           </div>
           <table className='table--animated' style={{ tableLayout: 'fixed' }}>
             <tbody className='fx-fade-in'>
@@ -233,8 +233,8 @@ export default function EngineeringMaterialsPage () {
           {Object.keys(selectedBlueprint.grades).map(grade =>
             <div className='engineering__blueprint-grade' style={{ position: 'relative' }} key={`${selectedBlueprint.symbol}_${grade}_materials`}>
 
-              <div className='tabs' style={{ marginTop: '1rem' }}>
-                <h4 className='tab'>Grade {parseInt(grade) + 1}</h4>
+              <div className='section-heading' style={{ marginTop: '1rem' }}>
+                <h4 className='section-heading__text'>Grade {parseInt(grade) + 1}</h4>
                 <h4 className='text-info text-muted float-right'>Cost / Inventory</h4>
               </div>
 

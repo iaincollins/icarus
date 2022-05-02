@@ -1,8 +1,8 @@
 export default function ShipModules ({ name, modules, selectedModule, setSelectedModule = () => {} }) {
   return (
     <>
-      <div className='tabs' style={{ margin: '1rem 0 .25rem 0' }}>
-        <h4 className='tab'>{name}</h4>
+      <div className='section-heading' style={{ margin: '1rem 0 .25rem 0' }}>
+        <h4 className='section-heading__text'>{name}</h4>
       </div>
       {modules.length === 0 &&
         <p className='text-muted text-uppercase' style={{ margin: '1rem 0' }}>
