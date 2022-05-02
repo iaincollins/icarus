@@ -36,7 +36,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                 <span className='value'>
                   {typeof ship?.fuelLevel === 'number'
                     ? <progress
-                        style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem' }}
+                        style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : .5 }}
                         value={ship?.fuelLevel ?? 0}
                         max={ship?.fuelCapacity ?? 0}
                         className={`progress--border ${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'progress--danger' : 'progress--info'}`}
@@ -59,7 +59,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                 <span className='value'>
                   {typeof ship?.cargo?.count === 'number'
                     ? <progress
-                        style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem' }}
+                        style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : .5 }}
                         value={ship?.cargo?.count ?? 0}
                         max={ship?.cargo?.capacity ?? 0}
                         className='progress--border progress--info'
@@ -80,7 +80,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
             <tr>
               <td>
                 <label className='checkbox'>
-                  <span className='checkbox__text'>Ship Lights</span>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.lights) && 'text-muted'}`}>
+                    Ship Lights
+                  </span>
                   <input
                     type='checkbox'
                     checked={ship.onBoard && toggleSwitches?.lights}
@@ -92,7 +94,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <label className='checkbox'>
-                  <span className='checkbox__text'>Night Vision</span>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.nightVision) && 'text-muted'}`}>
+                    Night Vision
+                  </span>
                   <input
                     type='checkbox'
                     checked={ship.onBoard && toggleSwitches?.nightVision}
@@ -104,7 +108,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <label className='checkbox'>
-                  <span className='checkbox__text'>Cargo Hatch</span>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.cargoHatch) && 'text-muted'}`}>
+                    Cargo Hatch
+                  </span>
                   <input
                     type='checkbox'
                     checked={ship.onBoard && toggleSwitches?.cargoHatch}
@@ -116,7 +122,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <label className='checkbox'>
-                  <span className='checkbox__text'>Landing Gear</span>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.landingGear) && 'text-muted'}`}>
+                    Landing Gear
+                  </span>
                   <input
                     type='checkbox'
                     checked={ship.onBoard && toggleSwitches?.landingGear}
@@ -128,7 +136,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <label className='checkbox'>
-                  <span className='checkbox__text'>Hardpoints</span>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.hardpoints) && 'text-muted'}`}>
+                    Hardpoints
+                  </span>
                   <input
                     type='checkbox'
                     checked={ship.onBoard && toggleSwitches?.hardpoints}
@@ -330,6 +340,7 @@ function PowerDistribution ({ ship }) {
         padding: '.25rem .5rem'
       }}
     >
+      <h4 className='text-center text-muted' style={{marginBottom: '1rem', marginLeft: '2rem'}}>Pwr Distribution</h4>
       <div className='text-uppercase'>
         <div className='ship-panel__ship-pip'>
           <progress className='progress--gradient' value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
