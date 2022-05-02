@@ -79,7 +79,7 @@ class System {
     // If no system name was specified, get the star system the player is in
     const systemName = name?.trim() ?? currentLocation?.name ?? null
 
-    // If no system name was provided don't know the players location
+    // If no system name was provided amd we don't know the players location
     if (!systemName || systemName === UNKNOWN_VALUE) {
       return {
         name: UNKNOWN_VALUE,
@@ -115,7 +115,8 @@ class System {
     if (!cacheResponse.name || cacheResponse.name === UNKNOWN_VALUE) {
       return {
         name: systemName,
-        unknownSystem: true
+        unknownSystem: true,
+        isCurrentLocation: (systemName.toLowerCase() === currentLocation?.name?.toLowerCase())
       }
     }
 
