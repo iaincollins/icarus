@@ -12,9 +12,9 @@ export default function EngineeringEngineersPage () {
   const router = useRouter()
   const { query } = router
   const { connected, active, ready } = useSocket()
+  const [componentReady, setComponentReady] = useState(false)
   const [currentSystem, setCurrentSystem] = useState()
   const [engineers, setEngineers] = useState()
-  const [componentReady, setComponentReady] = useState(false)
 
   useEffect(async () => {
     if (!connected || !router.isReady) return
@@ -49,57 +49,87 @@ export default function EngineeringEngineersPage () {
         {engineers && engineers.length > 0 &&
           <>
             <div className='section-heading'>
-              <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineers</h4>
+              <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Unlocked Engineers</h4>
             </div>
-            <table className='table--animated'>
-              <tbody className='fx-fade-in'>
-                {engineers.map(engineer =>
-                  <tr
-                    key={`engineer_${engineer.name}`}
-                    tabIndex={2}
-                    //className='table__row--highlighted'
-                    onFocus={() => {
-                      ///router.push({ pathname: '/eng/blueprints', query: { symbol: blueprint.symbol } })
-                    }}
-                  >
-                    <td>
-                      <h4 className={engineer.progress.rank > 0 ? 'text-primary' : 'text-muted'}>
-                        <CopyOnClick>{engineer.name}</CopyOnClick>
-                      </h4>
-                      {engineer.progress.rank === 0 && <>
-                        {engineer.progress.status === UNKNOWN_VALUE
-                          ? <p className='text-danger text-muted'>Locked</p>
-                          : <p className='text-info text-muted'>{engineer.progress.status}</p>
-                        }
-                      </>}
-                      {engineer.progress.rank > 0 &&
-                        <h4 className='text-secondary'>
-                          {[...Array(engineer.progress.rank)].map((j, i) =>
-                            <i
-                              style={{ fontSize: '1.5rem', width: '1.5rem', display: 'inline-block', marginRight: '0.1rem', marginTop: '.25rem' }}
-                              key={`${engineer.name}_rank_${i}`}
-                              className='icon icarus-terminal-engineering'
-                            />
-                          )}
-                        </h4>
-                      }
-                    </td>
-                    <td className='text-right'>
-                      <span className='text-right'>
-                        <CopyOnClick>{engineer.system.name}</CopyOnClick>
-                      </span>
-                      {currentSystem?.position &&
-                        <span className='text-muted text-no-transform'>
-                          <br/>
-                          {distance(currentSystem.position, engineer.system.position).toLocaleString(undefined, { maximumFractionDigits: 0 })} Ly
-                        </span>}
-                      </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+            <ListEngineers
+              engineers={engineers.filter(e => e.progress.status !== UNKNOWN_VALUE)}
+              currentSystem={currentSystem}
+              />
+            <div className='section-heading'>
+              <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Locked Engineers</h4>
+            </div>
+            <ListEngineers
+              engineers={engineers.filter(e => e.progress.status === UNKNOWN_VALUE)}
+              currentSystem={currentSystem}
+              />
           </>}
       </Panel>
     </Layout>
+  )
+}
+
+function ListEngineers({engineers, currentSystem}) {
+  return (
+    <>
+      <table className='table--animated'>
+        <tbody className='fx-fade-in'>
+          {engineers?.length === 0 &&
+            <tr>
+              <td className='text-muted'>None</td>
+            </tr>
+          }
+          {engineers?.length > 0 && engineers.map(engineer =>
+            <tr
+              key={`engineer_${engineer.name}`}
+              tabIndex={2}
+              //className='table__row--highlighted'
+              onFocus={() => {
+                ///router.push({ pathname: '/eng/blueprints', query: { symbol: blueprint.symbol } })
+              }}
+            >
+              <td className={`text-primary text-center ${engineer.progress.rank > 0 ? '' : 'text-muted'}`} style={{width: '2rem'}}>
+                <i
+                  className='icon icarus-terminal-engineer'
+                  style={{ fontSize: '1.75rem', lineHeight: '2rem', width: '2rem', display: 'inline-block'}}
+                 />
+              </td>
+              <td>
+                <h4 className={engineer.progress.rank > 0 ? 'text-info' : 'text-info text-muted'}>
+                  <CopyOnClick>{engineer.name}</CopyOnClick>
+                </h4>
+                {engineer.progress.rank === 0 && <>
+                  {engineer.progress.status === UNKNOWN_VALUE
+                    ? <p className='text-danger text-muted'>Locked</p>
+                    : <p className='text-primary text-muted'>{engineer.progress.status}</p>
+                  }
+                </>}
+                {engineer.progress.rank > 0 &&
+                  <h4 className='text-secondary'>
+                    {[...Array(engineer.progress.rank)].map((j, i) =>
+                      <i
+                        style={{ fontSize: '1.5rem', width: '1.5rem', display: 'inline-block', marginRight: '0.1rem', marginTop: '.25rem' }}
+                        key={`${engineer.name}_rank_${i}`}
+                        className='icon icarus-terminal-engineering'
+                      />
+                    )}
+                  </h4>
+                }
+              </td>
+              <td className='text-right'>
+                <span className='text-right'>
+                  <CopyOnClick>{engineer.system.name}</CopyOnClick>
+                </span>
+                {currentSystem?.position &&
+                  <span className='text-muted text-no-transform'>
+                    <br/>
+                    {distance(currentSystem.position, engineer.system.position).toLocaleString(undefined, { maximumFractionDigits: 0 })} Ly
+                  </span>}
+                </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+      <hr className='small' style={{ marginTop: 0 }} />
+    </>
   )
 }

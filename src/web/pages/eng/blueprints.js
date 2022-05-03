@@ -90,6 +90,15 @@ export default function EngineeringMaterialsPage () {
                         router.push({ pathname: '/eng/blueprints', query: { symbol: blueprint.symbol } })
                       }}
                     >
+                      <td
+                        className='text-center text-info'
+                        style={{width: '1rem'}}
+                      >
+                        <i
+                          className='icon icarus-terminal-wrench'
+                          style={{ position: 'relative', top: '.15rem'}}
+                        />
+                      </td>
                       <td>
                         <h4>{blueprint.name}</h4>
                         <h4 className='text-muted visible-medium'>{blueprint.originalName}</h4>
@@ -121,6 +130,15 @@ export default function EngineeringMaterialsPage () {
                       router.push({ pathname: '/eng/blueprints', query: { symbol: blueprint.symbol } })
                     }}
                   >
+                    <td
+                      className='text-center text-primary'
+                      style={{width: '1rem'}}
+                    >
+                      <i
+                        className='icon icarus-terminal-wrench'
+                        style={{ position: 'relative', top: '.15rem'}}
+                      />
+                    </td>
                     <td>
                       <h4>{blueprint.name}</h4>
                       <h4 className='text-muted visible-medium'>{blueprint.originalName}</h4>
@@ -137,7 +155,6 @@ export default function EngineeringMaterialsPage () {
         <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Blueprints')}>
           <h2>{selectedBlueprint.name}</h2>
           <h3 className='text-primary'>{selectedBlueprint.originalName}</h3>
-
           {selectedBlueprint.appliedToModules.length > 0 &&
             <>
               <div className='section-heading'>
@@ -150,6 +167,15 @@ export default function EngineeringMaterialsPage () {
                       key={`engineering_${module.engineering.symbol}_applied-to_${module.name}_slot_${module.slot}`}
                       className='table__row--highlighted'
                     >
+                      <td
+                        className='text-center text-info'
+                        style={{width: '1rem'}}
+                      >
+                        <i
+                          className='icon icarus-terminal-wrench'
+                          style={{ position: 'relative', top: '.15rem'}}
+                        />
+                      </td>
                       <td>
                         <span className='text-info'>{module.class}{module.rating} {module.name}</span>
                         <span className='visible-medium'><br />{module.slotName}</span>
@@ -181,9 +207,9 @@ export default function EngineeringMaterialsPage () {
           {selectedBlueprint.appliedToModules.length === 0 &&
             <>
               <div className='section-heading'>
-                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Modules</h4>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Applied Modules</h4>
               </div>
-              <p className='text-muted text-primary'>Not applied to any equipped modules</p>
+              <p className='text-muted text-primary'>Blueprint not applied to any equipped modules</p>
             </>}
 
           <div className='section-heading'>
@@ -193,10 +219,18 @@ export default function EngineeringMaterialsPage () {
             <tbody className='fx-fade-in'>
               {Object.keys(selectedBlueprint?.engineers ?? []).map(engineer => (
                 <tr key={`engineer_${engineer}`}>
+                 <td
+                  className={`text-center ${selectedBlueprint?.engineers[engineer]?.rank === 0 ? 'text-info text-muted' : 'text-info'}`}
+                  style={{width: '1rem'}}
+                  >
+                    <i
+                      className='icon icarus-terminal-engineer'
+                      style={{ position: 'relative', top: '.15rem'}}
+                    />
+                  </td>
                   <td>
                     <span className={selectedBlueprint?.engineers[engineer]?.rank === 0 ? 'text-info text-muted' : 'text-info'}>
                       <CopyOnClick>{engineer}</CopyOnClick>
-
                       <span className='visible-medium text-primary'>
                         <br />
                         {
