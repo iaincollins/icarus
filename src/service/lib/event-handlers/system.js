@@ -124,6 +124,7 @@ class System {
       if (isCurrentLocation && currentLocation?.position && currentLocation?.address) {
         response.position = currentLocation.position
         response.address = currentLocation.address
+        response.distance = 0
       }
 
       return response
