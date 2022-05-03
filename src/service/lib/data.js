@@ -14,7 +14,7 @@ module.exports = class Data {
       return false
     })
 
-    if (!result) console.error('Lookup failed', this.asset, itemSymbol)
+    //if (!result) console.error('Lookup failed', this.asset, itemSymbol)
 
     return result
   }

@@ -27,6 +27,7 @@ const System = require('./event-handlers/system')
 const ShipStatus = require('./event-handlers/ship-status')
 const Materials = require('./event-handlers/materials')
 const Blueprints = require('./event-handlers/blueprints')
+const Engineers = require('./event-handlers/engineers')
 const Inventory = require('./event-handlers/inventory')
 const CmdrStatus = require('./event-handlers/cmdr-status')
 const NavRoute = require('./event-handlers/nav-route')
@@ -39,10 +40,11 @@ class EventHandlers {
     this.system = new System({ eliteLog })
     this.shipStatus = new ShipStatus({ eliteLog, eliteJson })
     this.materials = new Materials({ eliteLog, eliteJson })
+    this.engineers = new Engineers({ eliteLog, eliteJson })
     this.inventory = new Inventory({ eliteLog, eliteJson })
     this.cmdrStatus = new CmdrStatus({ eliteLog, eliteJson })
 
-    this.blueprints = new Blueprints({ materials: this.materials, shipStatus: this.shipStatus })
+    this.blueprints = new Blueprints({ engineers: this.engineers, materials: this.materials, shipStatus: this.shipStatus })
     this.navRoute = new NavRoute({ eliteLog, eliteJson, system: this.system })
 
     return this
@@ -69,6 +71,7 @@ class EventHandlers {
         getShipStatus: (args) => this.shipStatus.getShipStatus(args),
         getMaterials: (args) => this.materials.getMaterials(args),
         getInventory: (args) => this.inventory.getInventory(args),
+        getEngineers: (args) => this.engineers.getEngineers(args),
         getCmdrStatus: (args) => this.cmdrStatus.getCmdrStatus(args),
         getBlueprints: (args) => this.blueprints.getBlueprints(args),
         getNavRoute: (args) => this.navRoute.getNavRoute(args),

@@ -1,15 +1,16 @@
 const DataLoader = require('../data')
 const coriolisBlueprints = new DataLoader('edcd/coriolis/blueprints').data
-const engineers = new DataLoader('engineers').data
 
 class Blueprints {
-  constructor ({ materials, shipStatus }) {
+  constructor ({ engineers, materials, shipStatus }) {
+    this.engineers = engineers
     this.materials = materials
     this.shipStatus = shipStatus
     return this
   }
 
   async getBlueprints () {
+    const engineers = await this.engineers.getEngineers()
     const materials = await this.materials.getMaterials()
     const ship = await this.shipStatus.getShipStatus()
     const blueprints = coriolisBlueprints.map(blueprint => {
@@ -18,13 +19,21 @@ class Blueprints {
 
       // FIXME Could do with optimising (not urgent)
       for (const engineerName in blueprint.engineers) {
-        const engineer = engineers.filter(e => e.name.toLowerCase().trim() === engineerName.toLowerCase().trim())?.[0] ?? {}
+        const engineer = engineers?.filter(e => e.name.toLowerCase().trim() === engineerName.toLowerCase().trim())?.[0]
+
+        // May fail to look them up if app is still loading when called
+        if (!engineer) {
+          console.error('Failed to lookup engineer', engineerName)
+          continue
+        }
+
         blueprint.engineers[engineerName] = {
           ...blueprint.engineers[engineerName],
-          system: engineer.systemName,
-          location: engineer.systemPosition
+          system: engineer.system.name,
+          location: engineer.system.position,
+          rank: engineer.progress.rank,
+          progress: engineer.progress.status
         }
-        if (!engineer) console.log('Failed to lookup engineer', engineerName)
       }
 
       return {

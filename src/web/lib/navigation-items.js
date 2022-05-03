@@ -63,6 +63,16 @@ function NavPanelNavItems (activePanel, query) {
 function EngineeringPanelNavItems (activePanel) {
   const navigationItems = [
     {
+      name: 'Blueprints',
+      icon: 'engineering',
+      url: '/eng/blueprints'
+    },
+    {
+      name: 'Engineers',
+      icon: 'engineer',
+      url: '/eng/engineers'
+    },
+    {
       name: 'Raw Materials',
       icon: 'materials-raw',
       url: '/eng/raw-materials'
@@ -81,11 +91,6 @@ function EngineeringPanelNavItems (activePanel) {
       name: 'Xeno Materials',
       icon: 'materials-xeno',
       url: '/eng/xeno-materials'
-    },
-    {
-      name: 'Blueprints',
-      icon: 'engineering',
-      url: '/eng/blueprints'
     }
   ]
   navigationItems.forEach(item => {

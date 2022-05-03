@@ -1,6 +1,7 @@
 import { useState, useEffect, Fragment } from 'react'
-import distance from '../../../shared/distance'
 import { useRouter } from 'next/router'
+import { UNKNOWN_VALUE } from '../../../shared/consts'
+import distance from '../../../shared/distance'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { EngineeringPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
@@ -66,8 +67,8 @@ export default function EngineeringMaterialsPage () {
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       {!selectedBlueprint &&
         <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Blueprints')}>
-          <h2>Engineering Blueprints</h2>
-          <h3 className='text-primary'>Ship weapons and module modification</h3>
+          <h2>Blueprints</h2>
+          <h3 className='text-primary'>Ship weapon &amp; module modifications</h3>
 
           {blueprintsApplied && blueprintsApplied.length > 0 &&
             <>
@@ -189,8 +190,9 @@ export default function EngineeringMaterialsPage () {
               {Object.keys(selectedBlueprint?.engineers ?? []).map(engineer => (
                 <tr key={`engineer_${engineer}`}>
                   <td>
-                    <span className='text-info'>
+                    <span className={selectedBlueprint?.engineers[engineer]?.rank === 0 ? 'text-info text-muted' : 'text-info'}>
                       <CopyOnClick>{engineer}</CopyOnClick>
+
                       <span className='visible-medium text-primary'>
                         <br />
                         {
@@ -205,14 +207,25 @@ export default function EngineeringMaterialsPage () {
                     </span>
                   </td>
                   <td className='text-right hidden-medium'>
-                    {
-                      Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) !== Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
-                      `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)} — ${Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
-                    }
-                    {
-                      Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) === Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
-                      `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
-                    }
+                    <span className={selectedBlueprint?.engineers[engineer]?.rank === 0 ? 'text-primary text-muted' : 'text-primary'}>
+                      {
+                        Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) !== Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
+                        `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)} — ${Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
+                      }
+                      {
+                        Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades) === Math.max(...selectedBlueprint?.engineers?.[engineer]?.grades) &&
+                        `Grade ${Math.min(...selectedBlueprint?.engineers?.[engineer]?.grades)}`
+                      }
+                    </span>
+                  </td>
+                  <td>
+                    {selectedBlueprint?.engineers[engineer]?.rank === 0 && <>
+                      {selectedBlueprint?.engineers[engineer]?.progress === UNKNOWN_VALUE
+                          ? <span className='text-danger text-muted'>Locked</span>
+                          : <span className='text-info text-muted'>{selectedBlueprint?.engineers[engineer]?.progress}</span>
+                        }
+                    </>}
+                    {selectedBlueprint?.engineers[engineer]?.rank > 0 && <span className='text-secondary'> Grade {selectedBlueprint?.engineers[engineer]?.rank} Unlocked</span>}
                   </td>
                   <td className='text-right'>
                     <span className='text-right'>
