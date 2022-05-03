@@ -43,7 +43,7 @@ export default function EngineeringEngineersPage () {
         <h3 className='text-primary'>Engineers &amp; Workshops</h3>
 
         <p>
-          Engineers can use Blueprints and Experimental Engineering to improve ships.
+          Engineers can use Blueprints and Experimental Effects to improve ships.
         </p>
 
         {engineers && engineers.length > 0 &&
@@ -90,8 +90,7 @@ export default function EngineeringEngineersPage () {
                       </span>
                       {currentSystem?.position &&
                         <span className='text-muted text-no-transform'>
-                          <span className='visible-medium'><br /></span>
-                          {' '}
+                          <br/>
                           {distance(currentSystem.position, engineer.system.position).toLocaleString(undefined, { maximumFractionDigits: 0 })} Ly
                         </span>}
                       </td>
