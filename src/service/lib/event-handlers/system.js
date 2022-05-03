@@ -111,13 +111,22 @@ class System {
 
     const cacheResponse = systemCache[systemName.toLowerCase()] // Get entry from cache
 
-    // If we don't know what system this is, return empty object
+    // If we don't know what system this is return what we have
     if (!cacheResponse.name || cacheResponse.name === UNKNOWN_VALUE) {
-      return {
+      const isCurrentLocation = (systemName.toLowerCase() === currentLocation?.name?.toLowerCase())
+      
+      let response = {
         name: systemName,
         unknownSystem: true,
-        isCurrentLocation: (systemName.toLowerCase() === currentLocation?.name?.toLowerCase())
+        isCurrentLocation
       }
+
+      if (isCurrentLocation && currentLocation?.position && currentLocation?.address) {
+        response.position = currentLocation.position
+        response.address = currentLocation.address
+      }
+
+      return response
     }
 
     if (systemName.toLowerCase() === currentLocation?.name?.toLowerCase()) {

@@ -19,10 +19,13 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
     return (
       <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
         <div
-          className='text-primary text-blink-slow text-center text-center-vertical'
+          className='text-center text-center-vertical'
           style={{ zIndex: '30', pointerEvents: 'none' }}
         >
-          <h2>No system information</h2>
+          <h2>
+            <span className='text-primary text-blink-slow'>No system information</span><br/>
+            <span className='text-info text-muted' style={{fontSize: '1.5rem'}}>EDSM Telemetry Unavailable</span>
+          </h2>
         </div>
         <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
           <div className='navigation-panel__map-frame'>
@@ -33,6 +36,15 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           </div>
           <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
             <SystemMap system={system} setSystemObject={setSystemObject} />
+          </div>
+          <div className='text-muted'>
+            <div className='system-map__system-telemetry text-danger text-muted text-uppercase text-no-wrap fx-fade-in'>
+              No Telemetry
+            </div>
+            {system.position &&
+              <div className='system-map__system-position text-info text-muted text-no-wrap fx-fade-in'>
+                {system.position?.[0]}<br />{system.position?.[1]}<br />{system.position?.[2]}
+              </div>}
           </div>
         </div>
       </div>
