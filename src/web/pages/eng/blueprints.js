@@ -70,6 +70,10 @@ export default function EngineeringMaterialsPage () {
           <h2>Blueprints</h2>
           <h3 className='text-primary'>Ship weapon &amp; module modifications</h3>
 
+          <p>
+            Blueprints can be used to improve ship weapons and modules.
+          </p>
+
           {blueprintsApplied && blueprintsApplied.length > 0 &&
             <>
               <div className='section-heading'>
@@ -137,7 +141,7 @@ export default function EngineeringMaterialsPage () {
           {selectedBlueprint.appliedToModules.length > 0 &&
             <>
               <div className='section-heading'>
-                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineered Modules</h4>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Applied Modules</h4>
               </div>
               <table className='table--animated'>
                 <tbody className='fx-fade-in'>

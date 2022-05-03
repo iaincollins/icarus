@@ -25,6 +25,9 @@ export default function EngineeringMaterialsPage () {
       <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Encoded Materials')}>
         <h2>Encoded Materials</h2>
         <h3 className='text-primary'>For engineering and synthesis</h3>
+        <p>
+          Encoded Materials are used in engineering and synthesis and can be exchanged at Encoded Material Traders.
+        </p>
         {materials && <Materials materialType='Encoded' materials={materials} />}
       </Panel>
     </Layout>

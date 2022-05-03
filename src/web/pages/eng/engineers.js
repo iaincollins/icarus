@@ -40,7 +40,11 @@ export default function EngineeringEngineersPage () {
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Engineers')}>
         <h2>Engineers</h2>
-        <h3 className='text-primary'>Ship weapons and module modification</h3>
+        <h3 className='text-primary'>Engineers &amp; Workshops</h3>
+
+        <p>
+          Engineers can use Blueprints and Experimental Engineering to improve ships.
+        </p>
 
         {engineers && engineers.length > 0 &&
           <>
