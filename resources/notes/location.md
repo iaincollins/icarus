@@ -1,10 +1,11 @@
-# Location
+# Location Event
 
 Note: Similar to FSDJump.
 
 When written: at startup, or when being resurrected at a station
 
 Parameters:
+
  * StarSystem: name of destination starsystem
  * SystemAddress
  * StarPos: star position, as a Json array [x, y, z], in light years

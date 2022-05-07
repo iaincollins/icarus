@@ -6,40 +6,44 @@ the game.
 
 This has a similar format to a line in the journal, but the whole file is replaced every time. It has a
 timestamp like the journal, and "event":"Status"
-Parameters:
-o Flags: multiple flags encoded as bits in an integer (see below)
-o Flags2: more flags, mainly for when on foot
-o Pips: an array of 3 integers representing energy distribution (in half-pips)
-o Firegroup: the currently selected firegroup number
-o GuiFocus: the selected GUI screen
-o Fuel: { FuelMain, FuelReservoir} – both mass in tons
-o Cargo: mass in tons
-o LegalState
-o Latitude (if on or near a planet)
-o Altitude
-o Longitude
-o Heading
-o BodyName
-o PlanetRadius
 
-LegalState: one of:
-"Clean",
-"IllegalCargo",
-"Speeding",
-"Wanted",
-"Hostile",
-"PassengerWanted",
-"Warrant"
+Parameters:
+
+* Flags: multiple flags encoded as bits in an integer (see below)
+* Flags2: more flags, mainly for when on foot
+* Pips: an array of 3 integers representing energy distribution (in half-pips)
+* Firegroup: the currently selected firegroup number
+* GuiFocus: the selected GUI screen
+* Fuel: { FuelMain, FuelReservoir} – both mass in tons
+* Cargo: mass in tons
+* LegalState
+* Latitude (if on or near a planet)
+* Altitude
+* Longitude
+* Heading
+* BodyName
+* PlanetRadius
+
+LegalState is one of:
+
+* "Clean",
+* "IllegalCargo",
+* "Speeding",
+* "Wanted",
+* "Hostile",
+* "PassengerWanted",
+*  "Warrant"
 
 Additional values when on foot:
- Oxygen: (0.0 .. 1.0)
- Health: (0.0 .. 1.0)
- Temperature (kelvin)
- SelectedWeapon: name
- Gravity: (relative to 1G) 
 
+* Oxygen: (0.0 .. 1.0)
+* Health: (0.0 .. 1.0)
+* Temperature (kelvin)
+* SelectedWeapon: name
+* Gravity: (relative to 1G) 
 
-Bit Value Hex Meaning
+Bit Value Hex Meaning:
+
 0 1 0000 0001 Docked, (on a landing pad)
 1 2 0000 0002 Landed, (on planet surface)
 2 4 0000 0004 Landing Gear Down
@@ -74,6 +78,7 @@ Bit Value Hex Meaning
 31 2147483648 8000 0000 srvHighBeam
 
 Flags2 bits:
+
 Bit value hex meaning
 0 1 0001 OnFoot
 1 2 0002 InTaxi (or dropship/shuttle)
@@ -94,6 +99,7 @@ Bit value hex meaning
 16 65536 0001 0001 BreathableAtmosphere
 
 Examples:
+
 { "timestamp":"2017-12-07T10:31:37Z", "event":"Status", "Flags":16842765, "Pips":[2,8,2], "FireGroup":0,
 "Fuel":{ "FuelMain":15.146626, "FuelReservoir":0.382796 }, "GuiFocus":5 }
 { "timestamp":"2017-12-07T12:03:14Z", "event":"Status", "Flags":18874376, "Pips":[4,8,0], "FireGroup":0,
@@ -103,21 +109,23 @@ In the first example above 16842765 (0x0101000d) has flags 24, 16, 3, 2, 0: In m
 locked, Shields up, Landing gear down, Docked 
 
 GuiFocus values:
- 0 NoFocus
- 1 InternalPanel (right hand side)
- 2 ExternalPanel (left hand side)
- 3 CommsPanel (top)
- 4 RolePanel (bottom)
- 5 StationServices
- 6 GalaxyMap
- 7 SystemMap
- 8 Orrery
- 9 FSS mode
- 10 SAA mode
- 11 Codex
-The latitude or longitude need to change by 0.02 degrees to trigger an update when flying, or by
-0.0005 degrees when in the SRV
-If the bit29 is set, the altitude value is based on the planet’s average radius (used at higher altitudes)
-If the bit29 is not set, the Altitude value is based on a raycast to the actual surface below the
-ship/srv 
+
+* 0 NoFocus
+* 1 InternalPanel (right hand side)
+* 2 ExternalPanel (left hand side)
+* 3 CommsPanel (top)
+* 4 RolePanel (bottom)
+* 5 StationServices
+* 6 GalaxyMap
+* 7 SystemMap
+* 8 Orrery
+* 9 FSS mode
+* 10 SAA mode
+* 11 Codex
+
+Notes:
+
+* The latitude or longitude need to change by 0.02 degrees to trigger an update when flying, or by 0.0005 degrees when in the SRV
+* If the bit29 is set, the altitude value is based on the planet’s average radius (used at higher altitudes)
+* If the bit29 is not set, the Altitude value is based on a raycast to the actual surface below the ship/srv 
 
