@@ -35,28 +35,31 @@ export default class MyApp extends App {
     }
   }
 
+
   render () {
     const { Component, pageProps } = this.props
     return (
       <SocketProvider>
-        <Toaster
-          position='bottom-right'
-          toastOptions={{
-            duration: 8000,
-            className: 'notification text-uppercase text-primary',
-            style: {
-              borderRadius: '0',
-              border: '.2rem solid var(--color-primary)',
-              background: 'var(--color-background-panel)',
-              color: 'var(--color-info)',
-              minWidth: '300px',
-              maxWidth: '420px',
-              textAlign: 'left !important',
-              margin: '0 1rem',
-              boxShadow: '0 0 1rem black'
-            }
-          }}
-        />
+        <div id='notifications' style={{transition: '1s all ease-in-out', position: 'fixed', zIndex: 9999}}>
+          <Toaster
+            position='bottom-right'
+            toastOptions={{
+              duration: 8000,
+              className: 'notification text-uppercase text-primary',
+              style: {
+                borderRadius: '0',
+                border: '.2rem solid var(--color-primary)',
+                background: 'var(--color-background-panel)',
+                color: 'var(--color-info)',
+                minWidth: '300px',
+                maxWidth: '420px',
+                textAlign: 'left !important',
+                margin: '0 1rem',
+                boxShadow: '0 0 1rem black',
+              }
+            }}
+          />
+        </div>
         <Component {...pageProps} />
       </SocketProvider>
     )

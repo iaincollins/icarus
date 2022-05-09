@@ -53,13 +53,25 @@ export default function Header ({ connected, active }) {
   }
 
   function toggleNotifications () {
-    if (notificationsVisible) {
-      notification('Notifications disabled')
-    } else {
-      notification('Notifications enabled')
-    }
     socketOptions.notifications = !notificationsVisible
-    setNotificationsVisible(!notificationsVisible)
+    setNotificationsVisible(socketOptions.notifications)
+    // FIXME Uses document.getElementById('notifications') hack to force
+    // hiding of all notifications when muted as the toast library can be
+    // buggy. It needs swapping out for a different approach but this is a
+    // workaround for now.
+    if (socketOptions.notifications) {
+      notification('Notifications enabled', {id: 'notification-status'})
+      document.getElementById('notifications').style.opacity = '1'
+    } else {
+      notification('Notifications disabled', {id: 'notification-status'})
+      // Use a setTimeout so that the user has time to read the notificaiton
+      // before they are all hidden. Uses a conditional so that if the user
+      // rapidly clicks the toggle it doesn't end up in a weird state.
+      setTimeout(() => {
+        if (socketOptions.notifications === false)
+          document.getElementById('notifications').style.opacity = '0'
+      }, 2000)
+    }
     document.activeElement.blur()
   }
 

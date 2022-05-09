@@ -5,14 +5,24 @@ import toast from 'react-hot-toast'
 
 // Message can be string or JSX
 function notification (message, args = {}) {
-  const toastId = args.id || (typeof message === 'string')
-    ? fastHash(message)
-    : fastHash(ReactDOMServer.renderToStaticMarkup(message))
+  let toastId = args?.id
+  
+  if (!toastId) {
+    toastId = typeof message === 'string'
+      ? fastHash(message)
+      : fastHash(ReactDOMServer.renderToStaticMarkup(message))
+  }
+  
+  // FIXME Limitation in toast library that it cannot update existing toasts in
+  // in the way we need it do, and there is a bug in the toast library with
+  // removing toasts by ID so we can't just remove them either. Looks like it
+  // is worth exploring other libraries.
 
   // Always assign ID to avoid duplicate notifications (bug on some platforms?)
   const options = {
     toastId
   }
+  
   toast(message, options)
 }
 
