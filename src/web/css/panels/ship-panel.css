@@ -241,39 +241,68 @@ table.ship-panel__lights td {
   padding: 0 .25rem;
 }
 
+.ship-panel__light-text {
+  margin-left: 3rem;
+  display: block;
+  width: 7rem;
+  font-size: 1.1rem;
+  line-height: 1.25rem;
+  text-align: left;
+}
+
 @media only screen and (max-width: 799px) {
-  .ship-panel__lights {
+  .ship-panel__light-text {
+    margin-left: 0;
+    width: auto;
+    text-align: center;
+    line-height: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .ship-panel__light-text {
     font-size: .8rem;
   }
 }
 
-.ship-panel__light--off,
+.ship-panel__light--off,  
 .ship-panel__light--on,
 .ship-panel__light--danger {
   background: var(--color-background-panel);
   color: var(--color-primary);
   display: block;
   padding: 0.25rem;
-  height: 3rem;
+  height: 2rem;
+  width: 2rem;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   opacity: 0.5;
-  border: .2rem solid transparent;
+  border: .2rem solid var(--color-primary);
   border-radius: .15rem;
   transition: all .25s ease-in-out;
+}
+
+@media only screen and (max-width: 799px) {
+  .ship-panel__light--off,
+  .ship-panel__light--on,
+  .ship-panel__light--danger {
+    height: 3rem;
+    width: auto;
+    overflow: hidden;
+  }
 }
 
 .ship-panel__light--on {
   opacity: 1;
   color: var(--color-info);
-  color: var(--color-info);
   border-color: var(--color-info);
   border-radius: .25rem;
   background-color: transparent;
-  box-shadow: inset 0 0 .25rem var(--color-info), 0 0 .25rem var(--color-info);
+  box-shadow: inset 0 0 1rem var(--color-secondary), 0 0 .25rem var(--color-secondary);
 }
 
 .ship-panel__light--on::before {
@@ -284,11 +313,10 @@ table.ship-panel__lights td {
   height: 100%;
   display: block;
   position: absolute;
-  filter: brightness(.4) saturate(1);
-  opacity: .25;
+  background-color: var(--color-secondary);
   z-index: -1;
   border-radius: .15rem;
-  background-color: var(--color-info);
+  opacity: .5;
 }
 
 .ship-panel__light--danger {
@@ -296,25 +324,41 @@ table.ship-panel__lights td {
   color: var(--color-danger);
   background-color: transparent;
   filter: saturate(1.8) contrast(1.5);
-  box-shadow: inset 0 0 .25rem var(--color-danger), 0 0 .25rem var(--color-danger);
+  box-shadow: inset 0 0 1rem var(--color-danger), 0 0 .25rem var(--color-danger);
   border-color: var(--color-danger);
-
 }
 
 .ship-panel__light--danger::before {
   content: '';
-  background: var(--color-danger);
-  filter: brightness(.4) saturate(1);
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: block;
   position: absolute;
-  opacity: .25;
+  opacity: .3;
   z-index: -1;
   border-radius: .15rem;
-  animation: text-blink-animation 1s ease-in-out infinite;
+  background: var(--color-danger);
+}
+
+.ship-panel__light--danger::after {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  opacity: .6;
+  z-index: 1;
+  border-radius: .15rem;
+  animation: light-blink-animation .75s ease-in-out infinite;
+  box-shadow: inset 0 0 2rem black;
+}
+
+@keyframes light-blink-animation {
+  50% { opacity: .5; }
 }
 
 .ship-panel--status {

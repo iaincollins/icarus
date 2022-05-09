@@ -15,11 +15,11 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
             </tr>
             <tr>
               <td>
-                <span className='text-muted'>Max jump range</span>
+                <span className='text-muted'>Max jump dist</span>
                 <span className='value'>{ship.maxJumpRange || '-'} Ly</span>
               </td>
               <td>
-                <span className='text-muted'>Fuel Reservoir</span>
+                <span className='text-muted'>Fuel reservoir</span>
                 <span className='value'>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
               </td>
               <td rowSpan={4} className='hidden-medium' style={{ padding: 0 }}>
@@ -32,7 +32,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                 <span className='value'>{ship.mass} T</span>
               </td>
               <td>
-                <span className='text-muted'>Total Fuel</span>
+                <span className='text-muted'>Total fuel</span>
                 <span className='value'>
                   {typeof ship?.fuelLevel === 'number'
                     ? <progress
@@ -47,7 +47,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
             </tr>
             <tr>
               <td>
-                <span className='text-muted'>HUD Mode</span>
+                <span className='text-muted'>HUD mode</span>
                 <h3 className='value' style={{ padding: '.25rem 0', height: '1.5rem' }}>
                   {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
                   {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-primary'>Combat</span>}
@@ -55,7 +55,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                 </h3>
               </td>
               <td>
-                <span className='text-muted'>Cargo Hold</span>
+                <span className='text-muted'>Cargo hold</span>
                 <span className='value'>
                   {typeof ship?.cargo?.count === 'number'
                     ? <progress
@@ -81,7 +81,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               <td>
                 <label className='checkbox'>
                   <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.lights) && 'text-muted'}`}>
-                    Ship Lights
+                    Ship lights
                   </span>
                   <input
                     type='checkbox'
@@ -95,7 +95,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               <td>
                 <label className='checkbox'>
                   <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.nightVision) && 'text-muted'}`}>
-                    Night Vision
+                    Night vision
                   </span>
                   <input
                     type='checkbox'
@@ -109,7 +109,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               <td>
                 <label className='checkbox'>
                   <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.cargoHatch) && 'text-muted'}`}>
-                    Cargo Hatch
+                    Cargo hatch
                   </span>
                   <input
                     type='checkbox'
@@ -123,7 +123,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               <td>
                 <label className='checkbox'>
                   <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.landingGear) && 'text-muted'}`}>
-                    Landing Gear
+                    Landing gear
                   </span>
                   <input
                     type='checkbox'
@@ -136,12 +136,12 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <label className='checkbox'>
-                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.hardpoints) && 'text-muted'}`}>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.hardpoints || cmdrStatus?.flags?.supercruise) ? 'text-muted' : ''}`}>
                     Hardpoints
                   </span>
                   <input
                     type='checkbox'
-                    checked={ship.onBoard && toggleSwitches?.hardpoints}
+                    checked={ship.onBoard && cmdrStatus?.flags?.supercruise === false && toggleSwitches?.hardpoints}
                     onChange={() => toggleSwitch('hardpoints')}
                     disabled
                   />
@@ -171,24 +171,24 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <span className={ship.onBoard && (!cmdrStatus?.flags?.landingGearDown && cmdrStatus?.altitude < 100) ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Low Altitude</span>
+                  <span className='ship-panel__light-text'>Low altitude</span>
                 </span>
               </td>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Low Fuel</span>
+                  <span className='ship-panel__light-text'>Low fuel</span>
                 </span>
               </td>
             </tr>
             <tr>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.fsdMassLocked ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Mass Locked</span>
+                  <span className='ship-panel__light-text'>Mass locked</span>
                 </span>
               </td>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.fsdCooldown ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>FSD Cooldown</span>
+                  <span className='ship-panel__light-text'>FSD cooldown</span>
                 </span>
               </td>
               <td>
@@ -198,12 +198,12 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <span className={ship.onBoard && (cmdrStatus?.flags?.fsdCharging && !cmdrStatus?.flags?.fsdJump) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>FSD Charging</span>
+                  <span className='ship-panel__light-text'>FSD charging</span>
                 </span>
               </td>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.fsdJump ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>FSD Jumping</span>
+                  <span className='ship-panel__light-text'>FSD jumping</span>
                 </span>
               </td>
             </tr>
@@ -219,22 +219,22 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.flightAssistOff ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Flight Assist Off</span>
+                  <span className='ship-panel__light-text'>Flight assist off</span>
                 </span>
               </td>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.glideMode ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Glide Mode</span>
+                  <span className='ship-panel__light-text'>Glide mode</span>
                 </span>
               </td>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.silentRunning ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Silent Running</span>
+                  <span className='ship-panel__light-text'>Silent running</span>
                 </span>
               </td>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.scoopingFuel ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Fuel Scooping</span>
+                  <span className='ship-panel__light-text'>Fuel scooping</span>
                 </span>
               </td>
             </tr>
@@ -256,13 +256,14 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         display: 'block',
         height: '100%',
         maxHeight: '12rem',
+        maxWidth: '12rem',
         margin: 'auto',
         aspectRatio: '1',
         border: '.5rem double var(--color-info)',
         transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
         opacity: ship.onBoard ? 1 : '.5',
         borderRadius: '100rem',
-        boxShadow: 'inset 0 0 .25rem var(--color-info), 0 0 .25rem var(--color-info)',
+        boxShadow: ship.onBoard ? 'inset 0 0 .25rem var(--color-info), 0 0 .25rem var(--color-secondary), inset 0 0 1rem var(--color-secondary)' : '',
         transition: 'opacity .25s ease-in-out'
       }}
       >
@@ -276,7 +277,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           height: '1.25rem',
           width: '1.25rem',
           borderRadius: '100rem',
-          boxShadow: '0 0 .5rem var(--color-info)',
+          boxShadow: '0 0 .5rem var(--color-info), 0 0 .25rem var(--color-secondary)',
           display: ship.onBoard && typeof cmdrStatus?.heading === 'number' ? ' block' : 'none'
         }}
         />
@@ -284,6 +285,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
       <div style={{
         display: 'block',
         maxHeight: '12rem',
+        maxWidth: '12rem',
         margin: 'auto',
         aspectRatio: '1/1',
         border: '.5rem double transparent',
