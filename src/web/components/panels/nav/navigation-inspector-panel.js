@@ -1,4 +1,4 @@
-import { SPACE_STATIONS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
+import { SPACE_STATIONS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS, SOL_RADIUS_IN_KM } from '../../../../shared/consts'
 import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
 import CopyOnClick from 'components/copy-on-click'
 
@@ -85,12 +85,13 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
 
         {systemObject.type === 'Star' &&
           <div className='navigation-panel__inspector-section'>
-            <h4 className='text-primary'>Characteristics</h4>
+            <h4 className='text-primary'>Stellar Properties</h4>
             {systemObject.isScoopable ? <p className='text-info'>Fuel Star (Scoopable)</p> : <p className='text-info text-muted'>Not Scoopable</p>}
             {systemObject.spectralClass && <p className='text-info'>Class {systemObject.spectralClass} Star </p>}
-            <p className='text-info'>{systemObject.solarMasses.toFixed(2)} Solar masses</p>
+            <p className='text-info'>Luminosity {systemObject.luminosity}</p>
+            {systemObject.solarRadius && <p className='text-info'>Radius {(systemObject.solarRadius * SOL_RADIUS_IN_KM).toLocaleString(undefined, { maximumFractionDigits: 0 })} Km</p>}
+            <p className='text-info'>Solar Masses {systemObject.solarMasses.toFixed(2)}</p>
             <p className='text-info'>Temperature {systemObject.surfaceTemperature} K</p>
-            {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toFixed(0)} Km</p>}
           </div>}
 
         {systemObject.type === 'Planet' &&
@@ -104,7 +105,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                   Temperature {systemObject.surfaceTemperature}K
                   ({kelvinToCelius(systemObject.surfaceTemperature)}C/{kelvinToFahrenheit(systemObject.surfaceTemperature)}F)
                 </p>}
-              {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toFixed(0)} Km</p>}
+              {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toLocaleString(undefined, { maximumFractionDigits: 0 })} Km</p>}
               {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && <p className='text-info'>{systemObject.terraformingState}</p>}
             </div>
 
@@ -225,6 +226,20 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
               {systemObject._otherServices.map((service, i) => <li key={`navigation-inspector_${systemObject.id}_other-service_${service}_${i}`}>{service}</li>)}
             </ul>
           </div>}
+
+        {systemObject.hasOwnProperty('rotationalPeriod') && 
+          <div className='navigation-panel__inspector-section'>
+            <h4 className='text-primary'>Orbit</h4>
+            {systemObject.hasOwnProperty('rotationalPeriodTidallyLocked') && <p className='text-info'><span className='text-muted'>Tidally Locked</span><br/>{systemObject.rotationalPeriodTidallyLocked ? 'Yes' : 'No'}</p>}
+            {systemObject?.rotationalPeriod !== null && <p className='text-info'><span className='text-muted'>Rotational Period</span><br/>{systemObject.rotationalPeriod}</p>}
+            {systemObject?.orbitalEccentricity !== null  && <p className='text-info'><span className='text-muted'>Orbital Eccentricity</span><br/>{systemObject.orbitalEccentricity}</p>}
+            {systemObject?.orbitalInclination !== null && <p className='text-info'><span className='text-muted'>Orbital Inclination</span><br/>{systemObject.orbitalInclination}</p>}
+            {systemObject?.orbitalPeriod !== null && <p className='text-info'><span className='text-muted'>Orbital Period</span><br/>{systemObject.orbitalPeriod}</p>}
+            {systemObject?.axialTilt !== null && <p className='text-info'><span className='text-muted'>Axial Tilt</span><br/>{systemObject.axialTilt}</p>}
+            {systemObject?.semiMajorAxis !== null && <p className='text-info'><span className='text-muted'>Semi-Major Axis</span><br/>{systemObject.semiMajorAxis}</p>}
+            {systemObject?.argOfPeriapsis !== null && <p className='text-info'><span className='text-muted'>Argument of Periapsis</span><br/>{systemObject.argOfPeriapsis}</p>}
+          </div>
+        }
       </div>
     </div>
   )

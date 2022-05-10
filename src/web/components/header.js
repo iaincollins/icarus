@@ -63,13 +63,15 @@ export default function Header ({ connected, active }) {
       notification('Notifications enabled', {id: 'notification-status'})
       document.getElementById('notifications').style.opacity = '1'
     } else {
+      
       notification('Notifications disabled', {id: 'notification-status'})
       // Use a setTimeout so that the user has time to read the notificaiton
       // before they are all hidden. Uses a conditional so that if the user
       // rapidly clicks the toggle it doesn't end up in a weird state.
       setTimeout(() => {
-        if (socketOptions.notifications === false)
+        if (socketOptions.notifications === false) {
           document.getElementById('notifications').style.opacity = '0'
+        }
       }, 2000)
     }
     document.activeElement.blur()

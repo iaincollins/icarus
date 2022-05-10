@@ -7,7 +7,7 @@
 }
 
 .circle {
-  border-radius: 100rem;
+  border-radius: 100rem !important;
 }
 
 .seperator::before {

@@ -7,7 +7,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
     <div className={`navigation-panel__list ${systemObject ? 'navigation-panel__list--inspector' : ''}`}>
       {(!system.stars || system.stars.length < 2) &&
           <div
-          className='text-center text-center-vertical'
+          className='text-center-both'
           style={{ zIndex: '30', pointerEvents: 'none' }}
         >
           <h2>
@@ -17,9 +17,9 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
         </div>}
       <div className='scrollable'>
         <button
-          className='button button-transparent button--icon circle' onClick={showHelp}
+          className='button button--transparent button--icon circle' onClick={showHelp}
           tabIndex={3}
-          style={{ position: 'absolute', top: '0rem', right: '1.5rem', height: '2.25rem', width: '2.25rem', zIndex: 20 }}
+          style={{ position: 'absolute', top: '.25rem', right: '1.5rem', height: '2.25rem', width: '2.25rem', zIndex: 20 }}
         >
           <i style={{ fontSize: '1.8rem', lineHeight: '2.3rem' }} className='icon icarus-terminal-help' />
         </button>

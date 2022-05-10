@@ -8,7 +8,7 @@ export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModu
   if (ship.type === UNKNOWN_VALUE && ship.name === UNKNOWN_VALUE && ship.ident === UNKNOWN_VALUE) {
     return (
       <div
-        className='text-primary text-blink-slow text-center text-center-vertical'
+        className='text-primary text-blink-slow text-center-both'
         style={{ zIndex: '30', pointerEvents: 'none' }}
       >
         <h2>No ship found</h2>

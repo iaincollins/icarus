@@ -119,16 +119,13 @@
 
 .navigation-panel__map-foreground {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   overflow: auto;
   z-index: 10;
   width: auto;
   top: .75rem;
   left: .5rem;
   right: 1.25rem;
-  bottom: 1.25rem;
+  bottom: 4.75rem;
   overflow-y: scroll;
 }
 
@@ -159,17 +156,17 @@
   top: 0;
   left: 4.5rem;
   right: .5rem;
-  bottom: .5rem;
+  bottom: 4rem;
   pointer-events: none;
   z-index: 15;
 }
 
 .navigation-panel__map-frame-border {
-  --color-info: rgb(50,50,50);
   position: absolute;
   width: 2.5rem;
   height: 2.5rem;
   border: .2rem solid var(--color-info);
+  opacity: .25;
   pointer-events: none;
 }
 

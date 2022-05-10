@@ -23,7 +23,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
       data-stellar-objects-vertical={star._maxObjectsInOrbit}
     >
       <div
-        onClick={() => setSystemObject(star)}
+        onClick={() => { if (star.type !== 'Null') setSystemObject(star)} }
         className={`system-map__planetary-system-star ${star.id ? 'system-map__planetary-system-star--icon' : '0'}`}
       >
         {star.id &&
@@ -36,7 +36,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
           <span className='fx-animated-text' data-fx-order='3'>
             {star.type !== 'Null'
               ? '' // <i className='icon icarus-terminal-star' />
-              : <i className='icon icarus-terminal-system-bodies' />} {star.name}&nbsp;
+              : <i className='icon icarus-terminal-system-bodies' />} {star.name}&nbsp;&nbsp;
           </span>
         </h2>
         <h3>

@@ -23,6 +23,8 @@
   bottom: 0;
   height: auto;
   padding-right: .5rem;
+  right: 0;
+  left: 4.5rem;
 }
 
 .ship-panel__modules--module-inspector {
@@ -282,7 +284,7 @@ table.ship-panel__lights td {
   text-align: center;
   opacity: 0.5;
   border: .2rem solid var(--color-primary);
-  border-radius: .15rem;
+  border-radius: .25rem;
   transition: all .25s ease-in-out;
 }
 
@@ -300,7 +302,6 @@ table.ship-panel__lights td {
   opacity: 1;
   color: var(--color-info);
   border-color: var(--color-info);
-  border-radius: .25rem;
   background-color: transparent;
   box-shadow: inset 0 0 1rem var(--color-secondary), 0 0 .25rem var(--color-secondary);
 }
@@ -315,7 +316,7 @@ table.ship-panel__lights td {
   position: absolute;
   background-color: var(--color-secondary);
   z-index: -1;
-  border-radius: .15rem;
+  border-radius: .25rem;
   opacity: .5;
 }
 
@@ -338,7 +339,7 @@ table.ship-panel__lights td {
   position: absolute;
   opacity: .3;
   z-index: -1;
-  border-radius: .15rem;
+  border-radius: .25rem;
   background: var(--color-danger);
 }
 
@@ -361,7 +362,7 @@ table.ship-panel__lights td {
   50% { opacity: .5; }
 }
 
-.ship-panel--status {
+.ship-panel__instrumentation {
   max-width: 100rem;
   margin: auto;
 }

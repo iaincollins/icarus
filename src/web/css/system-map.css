@@ -4,56 +4,36 @@
 }
 
 .system-map {
-  margin-bottom: 7rem;
+  margin-bottom: 0;
 }
 
 .system-map__info {
   position: absolute;
   color: var(--color-info);
-  left: 1rem;
-  right: 1rem;
+  right: .5rem;
+  width: 50%;
   bottom: .5rem;
+  height: 3rem;
   z-index: 50;
-  text-align: center;
   pointer-events: none;
-  font-size: 1rem;
-  overflow: hidden;
   box-sizing: border-box;
+  line-height: 1.15rem;
 }
 
-.system-map__info h3 {
-  background: radial-gradient(circle, rgba(0,0,0,.8), rgba(0,0,0,.6) 100%);
-  display: inline-block;
-  padding: .4rem 1rem .5rem 1rem;
-  position: relative;
-  left: 1rem;
-  border-radius: 0.3rem;
+@media only screen and (max-width: 799px) {
+  .system-map__info {
+    font-size: 1rem;
+  }
 }
 
-.system-map__info h3::before {
-  display: block;
-  height: .1rem;
-  position: relative;
-  top: -.4rem;
-  content: '';
-  background: radial-gradient(circle, var(--color-secondary) 60%, rgba(0,0,0,0) 100%);
-  pointer-events: none;
-  opacity: 1;
-  margin: 0 -1rem 0 -1rem;
-}
-
-.system-map__info-contents {
-  padding: .5rem 0 .25rem 0;
-}
-
-.system-map__info * {
-  text-shadow: none;
+.system-map__info--icons {
+  margin-bottom: .25rem;
 }
 
 .system-map__info-icon {
   color: var(--color-secondary);
   text-shadow: var(--text-shadow);
-  margin-right: .75rem;
+  margin-left: .75rem;
   position: relative;
 }
 
@@ -61,10 +41,17 @@
   position: relative;
   top: .25rem;
   margin-right: .25rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1rem;
   text-shadow: var(--text-shadow);
 }
+
+@media only screen and (max-width: 799px) {
+  .system-map__info-icon .icon {
+    font-size: 1.25rem;
+  }
+}
+
 
 .system-map__info-icon .count {
   opacity: .5;
@@ -72,21 +59,24 @@
 
 .system-map__location {
   position: absolute;
-  bottom: 3.5rem;
+  bottom: .5rem;
   z-index: 50;
-  text-align: center;
   pointer-events: none;
+  height: 3rem;
   font-size: 1rem;
-  left: 4rem;
-  width: calc(100% - 6rem);
+  line-height: 1.15rem;
+  left: 4.5rem;
+  width: calc(50% - 5rem);
 }
 
 .system-map__location h3 {
-  background: rgba(0,0,0,.8);
-  display: inline-block;
-  border-radius: .3rem;
-  padding: .25rem .9rem .3rem .75rem;
-  line-height: 1.5rem;
+  font-size: 1.25rem;
+}
+
+@media only screen and (max-width: 799px) {
+  .system-map__location h3 {
+    font-size: 1rem;
+  }
 }
 
 .system-map__system-position {
@@ -99,7 +89,7 @@
 
 .system-map__system-telemetry {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 5.25rem;
   right: 3rem;
   text-align: right;
   font-size: 1rem;

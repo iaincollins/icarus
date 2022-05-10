@@ -122,8 +122,19 @@
   text-shadow: none !important;
 }
 
-/* This class should only be used on containg <div> elements */
+/* This class should only be used on <div> elements with relative positioning */
 .text-center-vertical {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.text-center-both {
   position: absolute;
   top: 0;
   left: 0;
@@ -133,4 +144,5 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  text-align: center;
 }

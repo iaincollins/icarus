@@ -1,11 +1,11 @@
 export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches, toggleSwitch }) {
   return (
     <>
-      <div className='visible-medium' style={{ padding: '1rem 0' }}>
-        <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
-      </div>
-
-      <div className='ship-panel--status'>
+      <hr/>
+      <div className='ship-panel__instrumentation'>
+        <div className='visible-medium' style={{ padding: '1rem 0' }}>
+          <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
+        </div>
         <table className='ship-panel__ship-stats'>
           <tbody className='text-info'>
             <tr className='hidden-medium'>

@@ -1,5 +1,3 @@
-
-
 .checkbox {
   position: relative;
   height: 5rem;
@@ -61,7 +59,6 @@
   height: 1.2rem;
   width: 1.2rem;
   max-width: 3rem;
-  box-shadow: 0 0 .5rem var(--color-info);
   background-color: var(--color-info);
   border: .2rem solid var(--color-info);
   border-radius: 5rem;
@@ -70,6 +67,10 @@
 
 .checkbox input:checked ~ .checkbox__control {
   opacity: 1;
+}
+
+.checkbox input:checked ~ .checkbox__control:after {
+  box-shadow: 0 0 .5rem var(--color-info);
 }
 
 .checkbox input:checked ~ .checkbox__control:after {
