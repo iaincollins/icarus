@@ -97,9 +97,9 @@ export default function NavListPage () {
               <>/ {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}</>}
             {' '}<span className='text-muted'>to destination</span>
           </p>}
-        {navRoute?.inSystemOnRoute === false &&
-          <p className='text-info text-center' style={{ margin: '1rem 0' }}>
-            Use the galaxy map to plot a new route.
+        {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination === 0 &&
+          <p className='text-primary text-uppercase text-center' style={{ margin: '1rem 0', fontSize: '1.5rem', lineHeight: '1.5rem' }}>
+            <span>You have reached your destination</span>
           </p>}
         {navRoute?.route?.length > 0 &&
           <>
