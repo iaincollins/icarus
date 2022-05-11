@@ -49,6 +49,9 @@ export default function NavListPage () {
 
   useEffect(() => eventListener('gameStateChange', async (log) => {
     const newNavRoute = await sendEvent('getNavRoute')
+    // TODO Check destination system and only update navroute if different
+    // to current destination and if it is then execute setScrolled(false) so 
+    // that the route scroll position will update
     if (newNavRoute) setNavRoute(newNavRoute)
   }))
 
@@ -78,29 +81,33 @@ export default function NavListPage () {
                   </>}
               </td>
               <td style={{ width: '50%', padding: 0 }} className='text-right'>
-                {navRoute?.destination?.distance > 0 &&
+                {navRoute?.destination &&
                   <>
                     <h3 className='text-primary'>
                       Destination
                     </h3>
-                    <h2 className='text-info text-right' style={{height: '4rem', overflow: 'hidden' }}><CopyOnClick>{navRoute?.destination?.system}</CopyOnClick></h2>
+                    <h2 className='text-info text-right' style={{height: '4rem', overflow: 'hidden' }}>
+                      {navRoute?.destination?.distance > 0 ? <CopyOnClick>{navRoute?.destination?.system}</CopyOnClick> : <span className='text-muted'>—</span>}
+                    </h2>
                   </>}
               </td>
             </tr>
           </tbody>
         </table>
-        {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
-          <p className='text-primary text-uppercase text-center' style={{ margin: '1rem 0', fontSize: '1.5rem', lineHeight: '1.5rem' }}>
-            {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly
-            {' '}
-            {navRoute.inSystemOnRoute &&
-              <>/ {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}</>}
-            {' '}<span className='text-muted'>to destination</span>
-          </p>}
-        {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination === 0 &&
-          <p className='text-primary text-uppercase text-center' style={{ margin: '1rem 0', fontSize: '1.5rem', lineHeight: '1.5rem' }}>
-            <span>You have reached your destination</span>
-          </p>}
+        <p className='text-primary text-uppercase text-center' style={{ margin: '1rem 0', fontSize: '1.5rem', lineHeight: '1.5rem' }}>
+          {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
+            <>
+              {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly
+              {' '}
+              {navRoute.inSystemOnRoute &&
+                <>/ {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}</>}
+              {' '}<span className='text-muted'>to destination</span>
+            </>}
+          {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination === 0 &&
+            <>Arrived at destination</>}
+          {navRoute?.route?.length === 0 && 
+            <span className='text-blink-slow'>Set route using galaxy map</span>}
+        </p>
         {navRoute?.route?.length > 0 &&
           <>
             <hr style={{ marginBottom: 0 }} />
@@ -143,7 +150,7 @@ export default function NavListPage () {
               </table>
             </div>
           </>}
-        {navRoute &&
+        {navRoute?.route?.length > 0 &&
           <div style={{position: 'fixed', bottom: '.75rem', left: '5rem', right: '1rem'}}>
             <hr className='small' style={{ marginTop: 0, marginBottom: '.75' }} />
             <p className='text-primary text-muted text-center'>
