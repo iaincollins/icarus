@@ -22,9 +22,11 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
 
 ## Screenshots
 
-![v0-12-0-map](https://user-images.githubusercontent.com/595695/165185523-dcfab848-01c7-4414-b931-dda4f8281e95.png)
-![v0-12-2-ship](https://user-images.githubusercontent.com/595695/165806177-d9bdd429-d24c-4b28-a71c-616cec35abd0.png)
-![v0-13-1-blueprint](https://user-images.githubusercontent.com/595695/166450856-da484bde-3d7c-4c55-ad41-52e05d319a66.png)
+<img alt="System Map" src="https://user-images.githubusercontent.com/595695/167749989-7e7e419a-aa2f-4a7b-83bf-a70242dbab64.png" height="auto" width="100%"/>
+
+<img alt="System List" src="https://user-images.githubusercontent.com/595695/167750315-fe862227-68d6-46c6-83be-29f0c268af6b.png" height="auto" width="50%"/><img alt="Ship Status" src="https://user-images.githubusercontent.com/595695/167749994-3b637525-f6e9-4f98-acf0-a0f3c152f692.png" height="auto" width="50%"/>
+
+<img alt="Engineering" src="https://user-images.githubusercontent.com/595695/167750005-6e09c3ea-6539-4f8b-9e48-1909bf82caba.png" height="auto" width="50%"/><img alt="Navigation Route" src="https://user-images.githubusercontent.com/595695/167750010-139e9f1f-66a8-4f5a-b6a3-cc380b568897.png" height="auto" width="50%"/>
 
 ## More Information
 
