@@ -116,18 +116,19 @@ export default function NavListPage () {
                 <tbody className='fx-fade-in'>
                   {navRoute.route.map((route, i) => {
                     const icon = route?.isCurrentSystem === true ? 'icarus-terminal-location-filled' : 'icarus-terminal-star'
+                    const previouslyVistedSystem = navRoute?.inSystemOnRoute && (navRoute?.route?.length - navRoute.jumpsToDestination) > (i+1)
                     return (
                       <tr
                         ref={route?.isCurrentSystem === true ? currentSystemRef : null}
                         key={`nav-route_${route.system}`}
-                        className={`${route?.isCurrentSystem === true ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'} ${navRoute?.inSystemOnRoute && (navRoute?.route?.length - navRoute.jumpsToDestination) > (i+1) ? 'text-muted' : '' }`}
+                        className={`${route?.isCurrentSystem === true ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'}`}
                         onClick={() => router.push({ pathname: '/nav/map', query: { system: route?.system?.toLowerCase() } })}
                       >
                         <td className='text-center' style={{ width: '3rem' }}>
-                          {i + 1}
+                          <span className={previouslyVistedSystem ? 'text-muted' : ''}>{i + 1}</span>
                         </td>
                         <td style={{ paddingLeft: '3.5rem' }}>
-                          <div style={{ position: 'relative' }}>
+                          <div style={{ position: 'relative' }} className={previouslyVistedSystem ? 'text-muted' : ''}>
                             <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} visible-medium`} />
                             <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} hidden-medium`} />
                             <span>{route.system} </span>
@@ -140,8 +141,10 @@ export default function NavListPage () {
                           </div>
                         </td>
                         <td className='hidden-medium text-right'>
-                          {route?.isCurrentSystem === false && <span className='text-no-transform'>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                          {route?.isCurrentSystem === true && <>Current Location</>}
+                          <span className={previouslyVistedSystem ? 'text-muted' : ''}>
+                            {route?.isCurrentSystem === false && <span className='text-no-transform'>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                            {route?.isCurrentSystem === true && <>Current Location</>}
+                          </span>
                         </td>
                       </tr>
                     )
