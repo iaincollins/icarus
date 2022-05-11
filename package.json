@@ -21,7 +21,8 @@
     "lint": "npm run lint:go && npm run lint:javascript",
     "lint:go": "go fmt src/app/main.go",
     "lint:javascript": "npx standard --fix",
-    "compress-web-images": "npx imagemin src/web/public/images/** --out-dir src/web/public/images/"
+    "compress-web-images": "npx imagemin src/web/public/images/** --out-dir src/web/public/images/",
+    "screenshots": "node scripts/screenshots.js"
   },
   "keywords": [],
   "author": "",
@@ -35,12 +36,14 @@
     "nexe": "^4.0.0-beta.19",
     "next": "^12.1.5",
     "nodemon": "^2.0.15",
+    "puppeteer": "^14.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-toast": "^2.2.0",
     "sendkeys-js": "^0.0.4",
     "standard": "^16.0.4",
     "svgtofont": "^3.12.9",
+    "take-screenshots": "^0.1.1",
     "to-ico": "^1.0.1",
     "upx": "^1.0.6"
   },
