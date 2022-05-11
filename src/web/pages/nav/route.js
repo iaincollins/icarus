@@ -12,12 +12,17 @@ export default function NavListPage () {
   const { query } = router
   const { connected, active, ready } = useSocket()
   const [componentReady, setComponentReady] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [navRoute, setNavRoute] = useState()
   const [system, setSystem] = useState()
   const currentSystemRef = useRef(null)
 
+  // Scroll to current route once, on view load
   useEffect(() => {
-    currentSystemRef?.current?.scrollIntoView()
+    if (!scrolled && currentSystemRef?.current) {
+      currentSystemRef?.current?.scrollIntoView()
+      setScrolled(true)
+    }
  }, [navRoute])
 
   const search = async (searchInput) => {
@@ -56,10 +61,6 @@ export default function NavListPage () {
     }
     router.push({ query: q }, undefined, { shallow: true })
   }, [system, router.isReady])
-
-  // FIXME When entering an undiscovered system and it is the destination system
-  // all systems on the route list show as the 'current system' and are
-  // highlighted in the secondary theme color.
 
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
@@ -112,7 +113,7 @@ export default function NavListPage () {
                       <tr
                         ref={route?.isCurrentSystem === true ? currentSystemRef : null}
                         key={`nav-route_${route.system}`}
-                        className={`${route?.isCurrentSystem === true ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'} ${navRoute?.inSystemOnRoute && navRoute?.jumpsToDestination > (i + 2) ? 'text-muted' : '' }`}
+                        className={`${route?.isCurrentSystem === true ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'} ${navRoute?.inSystemOnRoute && (navRoute?.route?.length - navRoute.jumpsToDestination) > (i+1) ? 'text-muted' : '' }`}
                         onClick={() => router.push({ pathname: '/nav/map', query: { system: route?.system?.toLowerCase() } })}
                       >
                         <td className='text-center' style={{ width: '3rem' }}>
