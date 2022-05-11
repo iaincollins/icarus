@@ -75,7 +75,9 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                   </h3>
               </div>}
             {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
-              <h3 className='text-blink-slow text-primary' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>}
+              <div className='text-center-vertical'>
+                <h3 className='text-blink-slow text-primary' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
+              </div>}
           </div>
         </div>
       </div>
@@ -140,7 +142,9 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 </h3>
             </div>}
           {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
-            <h3 className='text-blink-slow text-primary' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>}
+            <div className='text-center-vertical'>
+              <h3 className='text-blink-slow text-primary' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
+            </div>}
         </div>
         <div className='system-map__info fx-fade-in'>
           {((system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0))
