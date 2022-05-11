@@ -166,7 +166,6 @@ class MyDocument extends Document {
       } else if (
         // Check is Google Chrome (and not impostor)
         isChromium !== null &&
-        typeof isChromium !== "undefined" &&
         window.navigator.vendor === "Google Inc." &&
         !window.navigator.userAgent.match("like Chrome") && // Browsers like Amazon Fire's Silk Browsers use the Google Inc. vendor name, but that's a lie and it doesn't support this feature
         isOpera === false &&
