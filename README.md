@@ -29,19 +29,19 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
 
 ## Requirements
 
-* Windows 10 or newer is required. All releases are signed.
+* Microsoft Windows 10 or newer is required. All releases of ICARUS Terminal are signed.
 * ICARUS Terminal works with both the latest expansion (Odyssey) and the classic client (Horizons), but is currently explicitly designed for use with Odyssey and will display Odyssey specific information regardless of what version of the client you are using.
-* ICARUS Terminal loads the most recent game session data in to memory when run and does not persist or cache the data to disk.
+* ICARUS Terminal loads the most recent game session data in to memory when run and does not persist or cache data to disk and does not require additional disk space after installation.
 * You do not need to sign in, link accounts or do any manual configuration to use ICARUS Terminal.
-* ICARUS Terminal is distributed as a native Win32 application and has no additional dependancies not handled by the installer (dependancies are limited to Microsoft provided DLLs and will be automatically installed during setup).
-* ICARUS Terminal will check for new releases when it is run and will give you the option to install updates from the Launcher as soon as they are available.
-* The web frontend - which allows access to the UI from devices other than the PC ICARUS Terminal is running on - relies on advanced browser functionality for rendering and works best on native Chrome browsers (e.g. Chrome for Windows/Mac/ChromeOS/Android). Other browsers (e.g. Safari, Firefox) may lack required features for full compatbility / optimal user experience.
+* ICARUS Terminal is distributed as a native Win32 application and has no additional dependancies not handled by the installer (runtime dependancies are limited to Microsoft DLLs which are automatically installed during setup).
+* ICARUS Terminal will check for new releases when it is run and will give you the option to install updates from the Launcher when they are available.
+* The web frontend allows access to the UI from devices other than the PC ICARUS Terminal is running on, it relies on advanced browser functionality for rendering and works best on native Google Chrome browsers (e.g. Chrome for Windows/Mac/ChromeOS/Android). Other browsers (e.g. Apple Safari, Chrome on iOS, Mozilla Firefox) may lack required features for full compatbility or optimal user experience.
 
-## Developer Documenation
+## Developer Documentation
  
-Code contributions, pull requests and bug reports are not currently being accepted for this repository.
+This repository is not currently accepting code contributions, pull requests or issue reports.
 
-See [CONTRIB.md](CONTRIB.md) for developer documenation, including one-step build instructions for Linux.
+See [CONTRIB.md](CONTRIB.md) for more information, including developer documenation and one-step build instructions for all platforms.
 
 ## Legal
 
