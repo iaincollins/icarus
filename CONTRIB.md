@@ -21,7 +21,9 @@ The codebase is split up into three parts:
 
 * `src/app` — "ICARUS Terminal.exe", a Win32 application written in Go
 * `src/service` — "ICARUS Service.exe", a Win32 application written in Node.js
-* `src/web` — A web based interface developed in Next.js/React
+* `src/client` — A web based client developed in Next.js/React
+
+The client is bundled into the service, which allows it to function without the app - although the app is still required for platform specific functionality, such as installing updates, always-on-top (pinned) windows, and reliable save game detection as these rely on OS calls which are handled by the app.
 
 ### ICARUS Terminal.exe
 

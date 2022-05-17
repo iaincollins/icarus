@@ -36,7 +36,7 @@ console.log(`ICARUS Terminal Service ${packageJson.version}`)
 // Parse command line arguments
 const PORT = commandLineArgs.port || commandLineArgs.p || 3300 // Port to listen on
 const DEVELOPMENT = commandLineArgs.dev || false // Development mode
-const WEB_DIR = 'build/web'
+const WEB_DIR = 'build/client'
 const LOG_DIR = getLogDir()
 
 if (!fs.existsSync(LOG_DIR)) {
@@ -90,7 +90,7 @@ if (DEVELOPMENT) {
   // If DEVELOPMENT is specified then HTTP requests other than web socket
   // requests will be forwarded to a web server which is started on localhost
   // to allow UI changes to be tested without rebuilding the app.
-  exec('npx next src/web')
+  exec('npx next src/client')
   httpServer = http.createServer((req, res) => proxy.web(req, res, { target: 'http://localhost:3000' }))
 } else {
   // The default behaviour (i.e. production) is to serve static assets. When the

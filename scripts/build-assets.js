@@ -46,7 +46,7 @@ async function build () {
     sizes: [16, 24, 32, 48, 64, 128, 256]
   })
   fs.writeFileSync(ICON, buf)
-  fse.copySync(ICON, 'src/web/public/favicon.ico')
+  fse.copySync(ICON, 'src/client/public/favicon.ico')
 
   // Build icon font
   await svgtofont({
@@ -78,7 +78,7 @@ function copy () {
     'icarus-terminal.ttf',
     'icarus-terminal.svg',
     'icarus-terminal.json'
-  ].forEach(fontAsset => fse.copySync(path.join(ASSETS_DIR, 'icon-font', fontAsset), `src/web/public/fonts/icarus-terminal/${fontAsset}`))
+  ].forEach(fontAsset => fse.copySync(path.join(ASSETS_DIR, 'icon-font', fontAsset), `src/client/public/fonts/icarus-terminal/${fontAsset}`))
 
-  fse.copySync(path.join(ASSETS_DIR, 'icons'), 'src/web/public/icons')
+  fse.copySync(path.join(ASSETS_DIR, 'icons'), 'src/client/public/icons')
 }
