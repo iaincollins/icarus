@@ -10,7 +10,6 @@ const http = require('http')
 const httpProxy = require('http-proxy')
 const proxy = httpProxy.createProxyServer({})
 const WebSocket = require('ws')
-
 const yargs = require('yargs')
 const packageJson = require('../../package.json')
 

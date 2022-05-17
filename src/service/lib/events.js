@@ -10,10 +10,16 @@ const {
   BROADCAST_EVENT: broadcastEvent
 } = global
 
-// Instances that can be used to query game state
+// eliteLog and eliteJson handle all log events and game state changes and
+// are shared with event handlers who can respond to and query them
 const eliteLog = new EliteLog(LOG_DIR)
 const eliteJson = new EliteJson(LOG_DIR)
-const eventHandlers = (new EventHandlers({ eliteLog, eliteJson })).getEventHandlers()
+
+const _eventHandlers = new EventHandlers({ eliteLog, eliteJson })
+// Define handlers for events trigged by the client
+const eventHandlers = _eventHandlers.getEventHandlers()
+// Define global handler for events trigged by the game
+const logEventHandler = (logEvent) => _eventHandlers.logEventHandler(logEvent)
 
 // Extend game logic related event handlers with app logic related handlers
 eventHandlers.hostInfo = () => {
@@ -97,7 +103,10 @@ const logEventCallback = (log) => {
     eventTypesLoaded[eventName]++
   }
 
-  if (!loadingInProgress) broadcastEvent('newLogEntry', log)
+  if (!loadingInProgress) {
+    broadcastEvent('newLogEntry', log)
+    logEventHandler(log)
+  }
 }
 
 // Callbacks are bound here so we can track data being parsed

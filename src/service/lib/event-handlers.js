@@ -1,7 +1,7 @@
 const os = require('os')
-const fs = require('fs')
+// const fs = require('fs')
 const path = require('path')
-const pjXML = require('pjxml')
+// const pjXML = require('pjxml')
 // const sendKeys = require('sendkeys-js')
 // onst keycode = require('keycodes')
 const { UNKNOWN_VALUE } = require('../../shared/consts')
@@ -31,11 +31,16 @@ const Engineers = require('./event-handlers/engineers')
 const Inventory = require('./event-handlers/inventory')
 const CmdrStatus = require('./event-handlers/cmdr-status')
 const NavRoute = require('./event-handlers/nav-route')
+const TextToSpeech = require('./event-handlers/text-to-speech')
 
 class EventHandlers {
-  constructor ({ eliteLog, eliteJson }) {
+  constructor ({ eliteLog, eliteJson, preferences }) {
     this.eliteLog = eliteLog
     this.eliteJson = eliteJson
+    this.preferences = preferences
+
+    // TTS needs access to preferences (e.g. is tts on/off, which voice to)
+    this.textToSpeech = new TextToSpeech({ eliteLog, eliteJson, preferences })
 
     this.system = new System({ eliteLog })
     this.shipStatus = new ShipStatus({ eliteLog, eliteJson })
@@ -44,17 +49,24 @@ class EventHandlers {
     this.inventory = new Inventory({ eliteLog, eliteJson })
     this.cmdrStatus = new CmdrStatus({ eliteLog, eliteJson })
 
+    // These handlers depend on calls to other handlers
     this.blueprints = new Blueprints({ engineers: this.engineers, materials: this.materials, shipStatus: this.shipStatus })
     this.navRoute = new NavRoute({ eliteLog, eliteJson, system: this.system })
 
     return this
   }
 
+  // logEventHandler is fired on every in-game log event
+  logEventHandler(logEvent) {
+    this.textToSpeech.speechEventHandler(logEvent)
+  }
+
+  // Return handlers for events that are fired from the client
   getEventHandlers () {
     if (!this.eventHandlers) {
       this.eventHandlers = {
         getCmdr: async () => {
-          const [LoadGame] = await Promise.all([this.eliteLog.getEvent('LoadGame')])
+          const [LoadGame] = await this.eliteLog.getEvent('LoadGame')
           return {
             commander: LoadGame?.Commander ?? UNKNOWN_VALUE,
             credits: LoadGame?.Credits ?? UNKNOWN_VALUE
