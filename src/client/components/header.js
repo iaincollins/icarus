@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { socketOptions } from 'lib/socket'
 import { isWindowFullScreen, isWindowPinned, toggleFullScreen, togglePinWindow } from 'lib/window'
 import { eliteDateTime } from 'lib/format'
-import { ColorPicker } from 'components/color-picker'
+import { Settings } from 'components/settings'
 import notification from 'lib/notification'
 
 const NAV_BUTTONS = [
@@ -37,7 +37,7 @@ export default function Header ({ connected, active }) {
   const [isFullScreen, setIsFullScreen] = useState(false)
   const [isPinned, setIsPinned] = useState(false)
   const [notificationsVisible, setNotificationsVisible] = useState(socketOptions.notifications)
-  const [colorPickerVisible, setColorPickerVisible] = useState(false)
+  const [settingsVisible, setSettingsVisible] = useState(false)
 
   async function fullScreen () {
     const newFullScreenState = await toggleFullScreen()
@@ -137,7 +137,7 @@ export default function Header ({ connected, active }) {
 
         <button
           tabIndex='1' className='button--icon' style={{ marginRight: '.5rem' }}
-          onClick={() => { setColorPickerVisible(!colorPickerVisible); document.activeElement.blur() }}
+          onClick={() => { setSettingsVisible(!settingsVisible); document.activeElement.blur() }}
         >
           <i className='icon icarus-terminal-color-picker' style={{ fontSize: '2rem' }} />
         </button>
@@ -162,7 +162,7 @@ export default function Header ({ connected, active }) {
         )}
       </div>
       <hr className='bold' />
-      <ColorPicker visible={colorPickerVisible} toggleVisible={() => setColorPickerVisible(!colorPickerVisible)} />
+      <Settings visible={settingsVisible} toggleVisible={() => setSettingsVisible(!settingsVisible)} />
     </header>
   )
 }

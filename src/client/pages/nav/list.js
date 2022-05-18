@@ -89,10 +89,12 @@ export default function NavListPage () {
 
   return (
     <>
-      <div className='modal-dialog' style={{ display: helpVisible ? 'block' : 'none' }}>
-        <h3 className='text-primary'>Key</h3>
+      <div className='modal-dialog__background' style={{ opacity: helpVisible ? 1 : 0, visibility: helpVisible ? 'visible' : 'hidden' }}/>
+      <div className='modal-dialog' style={{ opacity: helpVisible ? 1 : 0, visibility: helpVisible ? 'visible' : 'hidden' }}>
+        <h2 className='modal-dialog__title'>Help</h2>
         <hr />
-        <div className='text-primary text-uppercase navigation-panel__legend'>
+        <div className='modal-dialog__panel scrollable text-primary text-uppercase navigation-panel__legend'>
+          <h3>Exploration Icons</h3>
           <p>
             <i className='icon icarus-terminal-planet-lander text-secondary' /> Landable
           </p>
@@ -130,10 +132,12 @@ export default function NavListPage () {
             <i className='icon icarus-terminal-planet-ringed' /> Ringed
           </p>
         </div>
-        <hr style={{ margin: '1rem 0 .5rem 0' }} />
-        <button className='float-right' onClick={() => setHelpVisible(false)}>
-          Close
-        </button>
+        <div className='modal-dialog__footer'>
+          <hr style={{ margin: '1rem 0 .5rem 0' }} />
+          <button className='float-right' onClick={() => setHelpVisible(false)}>
+            Close
+          </button>
+        </div>
       </div>
       <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
         <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={system?.isCurrentLocation === false ? () => getSystem() : null}>

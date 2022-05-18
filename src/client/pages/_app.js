@@ -1,7 +1,7 @@
 import { Toaster } from 'react-hot-toast'
 import { SocketProvider, eventListener } from 'lib/socket'
 import App from 'next/app'
-import { loadColorSettings, saveColorSettings } from 'components/color-picker'
+import { loadColorSettings, saveColorSettings } from 'components/settings'
 import '../public/fonts/icarus-terminal/icarus-terminal.css'
 import '../css/main.css'
 

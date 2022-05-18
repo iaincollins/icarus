@@ -1,13 +1,62 @@
+.modal-dialog__background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(.25rem);
+  z-index: 1999;
+  transition: .5s ease-in-out;
+}
 .modal-dialog {
   z-index: 2000;
-  border: .2rem solid var(--color-primary);
+  border-top: .2rem solid var(--color-primary);
   background: black var(--linear-gradient-background);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 28rem;
-  height: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: min(50rem, 150vw);
+  max-height: min(52rem, 120vh);
   box-shadow: 0 0 5rem black, 0 0 10rem black;
   padding: 0.5rem;
+  overflow: hidden;
+  transition: opacity .25s ease-in-out;
+}
+
+.modal-dialog__title {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.modal-dialog__navigation {
+  top: 3.25rem !important;
+  padding: 0 0.5rem;
+}
+
+.modal-dialog__panel {
+  position: absolute;
+  top: 3.25rem;
+  bottom: 4.5rem;
+  left: .5rem;
+  right: .5rem;
+  padding: .5rem;
+}
+
+.modal-dialog__panel--with-navigation {
+  left: 5.5rem;
+}
+
+.modal-dialog__footer {
+  position: absolute;
+  bottom: 0rem;
+  left: 0rem;
+  right: 0;
+  padding: .5rem .5rem 1rem .5rem;
+  height: 4rem;
 }
