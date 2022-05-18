@@ -29,19 +29,26 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
 
 ## Requirements
 
-* Microsoft Windows 10 or newer is required. All releases of ICARUS Terminal are signed.
-* ICARUS Terminal works with both the latest expansion (Odyssey) and the classic client (Horizons), but is currently explicitly designed for use with Odyssey and will display Odyssey specific information regardless of what version of the client you are using.
-* ICARUS Terminal loads the most recent game session data in to memory when run and does not persist or cache data to disk and does not require additional disk space after installation.
-* You do not need to sign in, link accounts or do any manual configuration to use ICARUS Terminal.
-* ICARUS Terminal is distributed as a native Win32 application and has no additional dependancies not handled by the installer (runtime dependancies are limited to Microsoft DLLs which are automatically installed during setup).
-* ICARUS Terminal will check for new releases when it is run and will give you the option to install updates from the Launcher when they are available.
-* The web frontend allows access to the UI from devices other than the PC ICARUS Terminal is running on, it relies on advanced browser functionality for rendering and works best on native Google Chrome browsers (e.g. Chrome for Windows/Mac/ChromeOS/Android). Other browsers (e.g. Apple Safari, Chrome on iOS, Mozilla Firefox) may lack required features for full compatbility or optimal user experience.
+The self-contained installer is around 20 MB and has no dependancies. If you are running an older but supported release of Windows, any missing run time dependancies will be automatically and transparently installed by the bundled Microsft installer.
+
+* Windows 10 or newer is required.
+* No dependancies are required to install the application.
+* No manual configuration or setup is required to use the application.
+* No additional diskspace is required to store game data. Recent game data is loaded in to memory when launched and streamed in real time when the game is active, it is not persisted or cached to disk.
+
+### Notes
+
+* This software is in early access. All releases are pre-releases and contain known defects.
+* The launcher will indicate when a new release is available. Updating is optional.
+* All releases are code signed and verified. If you have a conflict with your anti-virus software, please contact your anti-virus vendor.
+* The application will run against both the latest version of Elite Dangerous (Odyssey) and older releases, but it is currently explicitly designed for use with Odyssey.
+* The application includes a web interface allows access the client from devices other than the PC the application is running on. This relies on advanced browser functionality for rendering and works best on native Google Chrome browsers (e.g. Google Chrome for Windows/Mac/ChromeOS/Android). Other browsers (e.g. Safari, Firefox, Chromium) may use fallback rendering and/or lack required features for full compatbility / optimal user experience.
 
 ## Developer Documentation
  
-This repository is not currently accepting code contributions, pull requests or issue reports.
+Code contributions, pull requests and bug reports are not currently being accepted for this repository. See [CONTRIB.md](CONTRIB.md) for more information.
 
-See [CONTRIB.md](CONTRIB.md) for more information, including developer documenation and one-step build instructions for all platforms.
+For developer documenation, including one-step build instructions for Windows/Mac/Linux, see [BUILD.md](BUILD.md).
 
 ## Legal
 
