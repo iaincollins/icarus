@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import { sendEvent, eventListener } from 'lib/socket'
+import { SettingsNavItems } from 'lib/navigation-items'
 import packageJson from '../../../package.json'
 
-function Settings ({ visible, toggleVisible = () => {} }) {
+function Settings ({ visible, toggleVisible = () => {}, activePanel = 'Color Picker' }) {
   const [primaryColor, setPrimaryColor] = useState(getPrimaryColorAsHex())
   const [primaryColorModifier, setPrimaryColorModifier] = useState(getPrimaryColorModifier())
   const [secondaryColor, setSecondaryColor] = useState(getSecondaryColorAsHex())
   const [secondaryColorModifier, setSecondaryColorModifier] = useState(getSecondaryColorModifier())
+  const [activeSettingsPanel, setActiveSettingsPanel] = useState(activePanel)
 
   // Update this component if another window updates the theme settings
   const storageEventHandler = (event) => {
@@ -39,9 +41,18 @@ function Settings ({ visible, toggleVisible = () => {} }) {
         <h2 className='modal-dialog__title'>Settings</h2>
         <hr />
         <div className='secondary-navigation modal-dialog__navigation'>
-          <button className='button--icon button--active'>
-            <i className='icon icarus-terminal-color-picker' />
-          </button>
+        {SettingsNavItems(activeSettingsPanel).map(item =>
+          <Fragment key={item.name}>
+            <button
+              tabIndex='2'
+              className={`button--icon ${item.active ? 'button--active' : ''}`}
+              onClick={() => setActiveSettingsPanel(item.name)}
+              >
+              <i className={`icon icarus-terminal-${item.icon}`} />
+            </button>
+          </Fragment>
+        )}
+
         </div>
         <div className='modal-dialog__panel modal-dialog__panel--with-navigation scrollable'>
           <h3 className='text-primary'>Theme settings</h3>

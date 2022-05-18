@@ -6,11 +6,11 @@
   right: 0;
   background: rgba(0,0,0,.5);
   backdrop-filter: blur(.25rem);
-  z-index: 1999;
+  z-index: 19999;
   transition: .5s ease-in-out;
 }
 .modal-dialog {
-  z-index: 2000;
+  z-index: 20000;
   border-top: .2rem solid var(--color-primary);
   background: black var(--linear-gradient-background);
   position: fixed;

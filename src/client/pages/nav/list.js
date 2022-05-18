@@ -93,44 +93,49 @@ export default function NavListPage () {
       <div className='modal-dialog' style={{ opacity: helpVisible ? 1 : 0, visibility: helpVisible ? 'visible' : 'hidden' }}>
         <h2 className='modal-dialog__title'>Help</h2>
         <hr />
-        <div className='modal-dialog__panel scrollable text-primary text-uppercase navigation-panel__legend'>
+        <div className='modal-dialog__panel scrollable text-primary navigation-panel__legend'>
           <h3>Exploration Icons</h3>
-          <p>
-            <i className='icon icarus-terminal-planet-lander text-secondary' /> Landable
+          <p className='text-info'>
+            Icons indicating interesting features of planets in the system.
           </p>
-          <p>
-            <i className='icon icarus-terminal-planet-atmosphere' /> Atmosphere
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-volcanic' /> Volcanic activity
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-terraformable' /> Terraformable
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-earthlike' /> Earthlike
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-water-world' /> Water World
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-ammonia-world' /> Ammonia World
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-high-metal-content' /> High metal content
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-gas-giant' /> Gas Giant
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-water-based-life' /> Water based life
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-ammonia-based-life' /> Ammonia based life
-          </p>
-          <p>
-            <i className='icon icarus-terminal-planet-ringed' /> Ringed
-          </p>
+          <div className='text-uppercase'>
+            <p className='text-secondary'>
+              <i className='icon icarus-terminal-planet-lander text-secondary' /> Landable
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-atmosphere' /> Atmosphere
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-volcanic' /> Volcanic activity
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-terraformable' /> Terraformable
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-earthlike' /> Earthlike
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-water-world' /> Water World
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-ammonia-world' /> Ammonia World
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-high-metal-content' /> High metal content
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-gas-giant' /> Gas Giant
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-water-based-life' /> Water based life
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-ammonia-based-life' /> Ammonia based life
+            </p>
+            <p>
+              <i className='icon icarus-terminal-planet-ringed' /> Ringed
+            </p>
+          </div>
         </div>
         <div className='modal-dialog__footer'>
           <hr style={{ margin: '1rem 0 .5rem 0' }} />

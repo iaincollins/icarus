@@ -139,7 +139,7 @@ export default function Header ({ connected, active }) {
           tabIndex='1' className='button--icon' style={{ marginRight: '.5rem' }}
           onClick={() => { setSettingsVisible(!settingsVisible); document.activeElement.blur() }}
         >
-          <i className='icon icarus-terminal-color-picker' style={{ fontSize: '2rem' }} />
+          <i className='icon icarus-terminal-settings' style={{ fontSize: '2rem' }} />
         </button>
         <button tabIndex='1' onClick={fullScreen} className='button--icon'>
           <i className='icon icarus-terminal-fullscreen' style={{ fontSize: '2rem' }} />
@@ -162,7 +162,7 @@ export default function Header ({ connected, active }) {
         )}
       </div>
       <hr className='bold' />
-      <Settings visible={settingsVisible} toggleVisible={() => setSettingsVisible(!settingsVisible)} />
+      <Settings visible={settingsVisible} toggleVisible={() => setSettingsVisible(!settingsVisible)} activePanel='Color Picker'/>
     </header>
   )
 }
