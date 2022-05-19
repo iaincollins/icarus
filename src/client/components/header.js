@@ -162,7 +162,7 @@ export default function Header ({ connected, active }) {
         )}
       </div>
       <hr className='bold' />
-      <Settings visible={settingsVisible} toggleVisible={() => setSettingsVisible(!settingsVisible)} activePanel='Color Picker'/>
+      <Settings visible={settingsVisible} toggleVisible={() => setSettingsVisible(!settingsVisible)}/>
     </header>
   )
 }

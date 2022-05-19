@@ -87,6 +87,16 @@ class EventHandlers {
         getCmdrStatus: (args) => this.cmdrStatus.getCmdrStatus(args),
         getBlueprints: (args) => this.blueprints.getBlueprints(args),
         getNavRoute: (args) => this.navRoute.getNavRoute(args),
+        getPreferences: () => {
+            console.log('Get Preferences Called')
+            return {}
+        },
+        setPreferences: () => {
+          console.log('Set Preferences Called')
+          return {}
+        },
+        getVoices: () => this.textToSpeech.getVoices(),
+        speakText: ({text, voice}) => this.textToSpeech.speak(text, voice),
         toggleSwitch: async ({ switchName }) => {
           return false
           /*

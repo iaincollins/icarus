@@ -8,13 +8,14 @@ class TextToSpeech {
     return this
   }
 
-  async speak(text) {
-    // TODO Only fire if Text To Speech enabled in preferences
-    const voice = await this.getVoice()
-    say.speak(text, voice)
+  async speak(text, voice) {
+    say.speak(text, voice || await this.getVoice())
   }
 
   speechEventHandler(message) {
+    // Only fire if Text To Speech voice has been selected in preferences
+    if (!this.preferences?.voice) return
+
     if (message.event === 'StartJump' && message.StarSystem) this.speak(`Jumping to ${message.StarSystem}`)
     if (message.event === 'FSDJump') this.speak(`Jump complete. Arrived in ${message.StarSystem}`)
     if (message.event === 'ApproachBody') this.speak(`Approaching ${message.Body}`)
@@ -41,8 +42,8 @@ class TextToSpeech {
   }
 
   async getVoice() {
-    if (this.preferences?.textToSpeech?.voice)
-      return this.preferences.textToSpeech.voice
+    if (this.preferences?.voice)
+      return this.preferences.voice
 
     return await this.getVoices()[0]
   }

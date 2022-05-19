@@ -3,36 +3,8 @@ import { sendEvent, eventListener } from 'lib/socket'
 import { SettingsNavItems } from 'lib/navigation-items'
 import packageJson from '../../../package.json'
 
-function Settings ({ visible, toggleVisible = () => {}, activePanel = 'Color Picker' }) {
-  const [primaryColor, setPrimaryColor] = useState(getPrimaryColorAsHex())
-  const [primaryColorModifier, setPrimaryColorModifier] = useState(getPrimaryColorModifier())
-  const [secondaryColor, setSecondaryColor] = useState(getSecondaryColorAsHex())
-  const [secondaryColorModifier, setSecondaryColorModifier] = useState(getSecondaryColorModifier())
-  const [activeSettingsPanel, setActiveSettingsPanel] = useState(activePanel)
-
-  // Update this component if another window updates the theme settings
-  const storageEventHandler = (event) => {
-    if (event.key === 'color-settings') {
-      setPrimaryColor(getPrimaryColorAsHex())
-      setPrimaryColorModifier(getPrimaryColorModifier())
-      setSecondaryColor(getSecondaryColorAsHex())
-      setSecondaryColorModifier(getSecondaryColorModifier())
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('storage', storageEventHandler)
-    return () => window.removeEventListener('storage', storageEventHandler)
-  }, [])
-
-  useEffect(() => eventListener('syncMessage', async (event) => {
-    if (event.name === 'colorSettings') {
-      setPrimaryColor(getPrimaryColorAsHex())
-      setPrimaryColorModifier(getPrimaryColorModifier())
-      setSecondaryColor(getSecondaryColorAsHex())
-      setSecondaryColorModifier(getSecondaryColorModifier())
-    }
-  }), [])
+function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPanel = 'Theme' }) {
+  const [activeSettingsPanel, setActiveSettingsPanel] = useState(defaultActiveSettingsPanel)
 
   return (
     <>
@@ -52,148 +24,9 @@ function Settings ({ visible, toggleVisible = () => {}, activePanel = 'Color Pic
             </button>
           </Fragment>
         )}
-
         </div>
-        <div className='modal-dialog__panel modal-dialog__panel--with-navigation scrollable'>
-          <h3 className='text-primary'>Theme settings</h3>
-          <p>
-            You can select a primary and secondary theme color and adjust the contrast for each color using the sliders.
-          </p>
-          <table className='table--layout'>
-            <tbody>
-              <tr>
-                <td style={{ paddingLeft: '.5rem' }}>
-                  <button className='button--active text-no-wrap' style={{ pointerEvents: 'none' }}>
-                    <i className='icon icarus-terminal-color-picker' /> Text <span className='text-muted'>Muted</span>
-                  </button>
-                  <br />
-                  <button className='text-no-wrap' style={{ pointerEvents: 'none' }}>
-                    <i className='icon icarus-terminal-color-picker' /> Text <span className='text-muted'>Muted</span>
-                  </button>
-                </td>
-                <td className='text-center'>
-                  <input
-                    id='primaryColorPicker' name='primaryColorPicker' value={primaryColor} type='color'
-                    style={{ marginTop: '.5rem', padding: 0, background: 'transparent', border: 'none', height: '4rem', width: '4rem' }}
-                    onChange={(event) => {
-                      setPrimaryColor(event.target.value)
-                      const color = hex2rgb(event.target.value)
-                      document.documentElement.style.setProperty('--color-primary-r', color.r)
-                      document.documentElement.style.setProperty('--color-primary-g', color.g)
-                      document.documentElement.style.setProperty('--color-primary-b', color.b)
-                      saveColorSettings()
-                    }}
-                  />
-                  <br />
-                  <input
-                    type='range' min='1' max='255' value={primaryColorModifier} style={{ width: '10rem' }}
-                    onChange={(event) => {
-                      setPrimaryColorModifier(event.target.value)
-                      document.documentElement.style.setProperty('--color-primary-dark-modifier', event.target.value)
-                      saveColorSettings()
-                    }}
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <table className='table--layout'>
-            <tbody>
-              <tr>
-                <td style={{ paddingLeft: '.5rem' }}>
-                  <button className='button--secondary button--active text-no-wrap' style={{ pointerEvents: 'none' }}>
-                    <i className='icon icarus-terminal-color-picker' /> Text <span className='text-muted'>Muted</span>
-                  </button>
-                  <br />
-                  <button className='button--secondary text-no-wrap' style={{ pointerEvents: 'none' }}>
-                    <i className='icon icarus-terminal-color-picker' /> Text <span className='text-muted'>Muted</span>
-                  </button>
-                </td>
-                <td className='text-center'>
-                  <input
-                    id='secondaryColorPicker' name='secondaryColorPicker' value={secondaryColor} type='color'
-                    style={{ marginTop: '.5rem', padding: 0, background: 'transparent', border: 'none', height: '4rem', width: '4rem' }}
-                    onChange={(event) => {
-                      setSecondaryColor(event.target.value)
-                      const color = hex2rgb(event.target.value)
-                      document.documentElement.style.setProperty('--color-secondary-r', color.r)
-                      document.documentElement.style.setProperty('--color-secondary-g', color.g)
-                      document.documentElement.style.setProperty('--color-secondary-b', color.b)
-                      saveColorSettings()
-                    }}
-                  />
-                  <br />
-                  <input
-                    type='range' min='1' max='255' value={secondaryColorModifier} style={{ width: '10rem' }}
-                    onChange={(event) => {
-                      setSecondaryColorModifier(event.target.value)
-                      document.documentElement.style.setProperty('--color-secondary-dark-modifier', event.target.value)
-                      saveColorSettings()
-                    }}
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <h4 className='text-primary'>Sync theme across devices</h4>
-          <p>
-            Theme settings apply to all terminals on this computer / device.
-            Different devices can be configured to use different colors.
-          </p>
-          <p>
-            You can sync theme settings to have all currently connected devices
-            (computers, tablets, phones, etc) use the same theme settings.
-          </p>
-          <div className='text-center' style={{ padding: '0.25rem 0' }}>
-            <button
-              onClick={() => {
-                const colorSettings = {
-                  primaryColor: {
-                    r: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-r')),
-                    g: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-g')),
-                    b: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-b')),
-                    modifier: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-dark-modifier'))
-                  },
-                  secondaryColor: {
-                    r: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-r')),
-                    g: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-g')),
-                    b: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-b')),
-                    modifier: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-dark-modifier'))
-                  }
-                }
-                sendEvent('syncMessage', { name: 'colorSettings', message: colorSettings })
-                document.activeElement.blur()
-              }}
-            >
-              <i className='icon icarus-terminal-sync' /> Sync theme settings
-            </button>
-          </div>
-          <h4 className='text-primary'>Reset theme</h4>
-          <p>
-            Resetting theme settings will only impact this computer / device.
-          </p>
-          <div className='text-center' style={{ padding: '0.25rem 0' }}>
-            <button
-              className='text-info'
-              onClick={() => {
-                try {
-                  loadDefaultColorSettings()
-                  setPrimaryColor(getPrimaryColorAsHex())
-                  setPrimaryColorModifier(getPrimaryColorModifier())
-                  setSecondaryColor(getSecondaryColorAsHex())
-                  setSecondaryColorModifier(getSecondaryColorModifier())
-                  window.localStorage.removeItem('color-settings')
-                  document.activeElement.blur()
-                } catch (err) {
-                  console.error('Unable to reset color settings', err)
-                }
-              }}
-            >
-              Reset theme settings
-            </button>
-          </div>
-        </div>
+        {activeSettingsPanel === 'Theme' && <ThemeSettings/>}
+        {activeSettingsPanel === 'Sounds' && <SoundSettings/>}
         <div className='modal-dialog__footer'>
           <hr style={{ margin: '1rem 0 .5rem 0' }} />
           <button className='float-right' onClick={toggleVisible}>
@@ -202,6 +35,222 @@ function Settings ({ visible, toggleVisible = () => {}, activePanel = 'Color Pic
         </div>
       </div>
     </>
+  )
+}
+
+function SoundSettings () {
+  const [preferences, setPreferences] = useState()
+  const [voices, setVoices] = useState()
+
+  useEffect(async () => {
+    setPreferences(await sendEvent('getPreferences'))
+    setVoices(await sendEvent('getVoices'))
+  }, [])
+
+  // TODO listen for changes to preferences triggered by other terminals
+  
+  return(
+    <div className='modal-dialog__panel modal-dialog__panel--with-navigation scrollable'>
+      <h3 className='text-primary'>Sounds</h3>
+      <p>
+        Voice alerts can give confirmation of commands and relay important information.
+        They complement in text notifications, but are not the same.
+      </p>
+      <p>
+        Audio will be played through the computer ICARUS Terminal is running on. 
+      </p>
+      <h4 className='text-primary'>Voice alerts</h4>
+      <select disabled={!voices} name='voices' onChange={async (e) => {
+        const voice = e.target.value
+        const newPreferences = JSON.parse(JSON.stringify(preferences))
+        newPreferences.voice = voice === '_NONE_' ? null : voice
+        setPreferences(await sendEvent('setPreferences', newPreferences))
+        if (voice !== '_NONE_') {
+          sendEvent('speakText', { text: `Voice alerts will use the voice ${voice}`, voice })
+        }
+      }}>
+        <option value='_NONE_'>None</option>
+        <option disabled>-</option>
+        {voices && voices.map(voice => <option key={`voice_${voice}`}>{voice}</option>)}
+      </select>
+      <p>
+        Note: This setting uses your computers native Text To Speech capability. Third party / commercial
+        voices can provide improved voice audio quality.
+      </p>
+    </div>
+  )
+}
+
+function ThemeSettings () {
+  const [primaryColor, setPrimaryColor] = useState(getPrimaryColorAsHex())
+  const [primaryColorModifier, setPrimaryColorModifier] = useState(getPrimaryColorModifier())
+  const [secondaryColor, setSecondaryColor] = useState(getSecondaryColorAsHex())
+  const [secondaryColorModifier, setSecondaryColorModifier] = useState(getSecondaryColorModifier())
+
+  // Update this component if another window updates the theme settings
+  const storageEventHandler = (event) => {
+    if (event.key === 'color-settings') {
+      setPrimaryColor(getPrimaryColorAsHex())
+      setPrimaryColorModifier(getPrimaryColorModifier())
+      setSecondaryColor(getSecondaryColorAsHex())
+      setSecondaryColorModifier(getSecondaryColorModifier())
+    }
+  }
+
+  useEffect(async () => {
+    window.addEventListener('storage', storageEventHandler)
+    return () => window.removeEventListener('storage', storageEventHandler)
+  }, [])
+
+  useEffect(() => eventListener('syncMessage', async (event) => {
+    if (event.name === 'colorSettings') {
+      setPrimaryColor(getPrimaryColorAsHex())
+      setPrimaryColorModifier(getPrimaryColorModifier())
+      setSecondaryColor(getSecondaryColorAsHex())
+      setSecondaryColorModifier(getSecondaryColorModifier())
+    }
+  }), [])
+
+  return (
+    <div className='modal-dialog__panel modal-dialog__panel--with-navigation scrollable'>
+      <h3 className='text-primary'>Theme settings</h3>
+      <p>
+        You can select a primary and secondary theme color and adjust the contrast for each color using the sliders.
+      </p>
+      <table className='table--layout'>
+        <tbody>
+          <tr>
+            <td style={{ paddingLeft: '.5rem' }}>
+              <button className='button--active text-no-wrap' style={{ pointerEvents: 'none' }}>
+                <i className='icon icarus-terminal-color-picker' /> Text <span className='text-muted'>Muted</span>
+              </button>
+              <br />
+              <button className='text-no-wrap' style={{ pointerEvents: 'none' }}>
+                <i className='icon icarus-terminal-color-picker' /> Text <span className='text-muted'>Muted</span>
+              </button>
+            </td>
+            <td className='text-center'>
+              <input
+                id='primaryColorPicker' name='primaryColorPicker' value={primaryColor} type='color'
+                style={{ marginTop: '.5rem', padding: 0, background: 'transparent', border: 'none', height: '4rem', width: '4rem' }}
+                onChange={(event) => {
+                  setPrimaryColor(event.target.value)
+                  const color = hex2rgb(event.target.value)
+                  document.documentElement.style.setProperty('--color-primary-r', color.r)
+                  document.documentElement.style.setProperty('--color-primary-g', color.g)
+                  document.documentElement.style.setProperty('--color-primary-b', color.b)
+                  saveColorSettings()
+                }}
+              />
+              <br />
+              <input
+                type='range' min='1' max='255' value={primaryColorModifier} style={{ width: '10rem' }}
+                onChange={(event) => {
+                  setPrimaryColorModifier(event.target.value)
+                  document.documentElement.style.setProperty('--color-primary-dark-modifier', event.target.value)
+                  saveColorSettings()
+                }}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table className='table--layout'>
+        <tbody>
+          <tr>
+            <td style={{ paddingLeft: '.5rem' }}>
+              <button className='button--secondary button--active text-no-wrap' style={{ pointerEvents: 'none' }}>
+                <i className='icon icarus-terminal-color-picker' /> Text <span className='text-muted'>Muted</span>
+              </button>
+              <br />
+              <button className='button--secondary text-no-wrap' style={{ pointerEvents: 'none' }}>
+                <i className='icon icarus-terminal-color-picker' /> Text <span className='text-muted'>Muted</span>
+              </button>
+            </td>
+            <td className='text-center'>
+              <input
+                id='secondaryColorPicker' name='secondaryColorPicker' value={secondaryColor} type='color'
+                style={{ marginTop: '.5rem', padding: 0, background: 'transparent', border: 'none', height: '4rem', width: '4rem' }}
+                onChange={(event) => {
+                  setSecondaryColor(event.target.value)
+                  const color = hex2rgb(event.target.value)
+                  document.documentElement.style.setProperty('--color-secondary-r', color.r)
+                  document.documentElement.style.setProperty('--color-secondary-g', color.g)
+                  document.documentElement.style.setProperty('--color-secondary-b', color.b)
+                  saveColorSettings()
+                }}
+              />
+              <br />
+              <input
+                type='range' min='1' max='255' value={secondaryColorModifier} style={{ width: '10rem' }}
+                onChange={(event) => {
+                  setSecondaryColorModifier(event.target.value)
+                  document.documentElement.style.setProperty('--color-secondary-dark-modifier', event.target.value)
+                  saveColorSettings()
+                }}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h4 className='text-primary'>Sync theme across devices</h4>
+      <p>
+        Theme settings apply to all terminals on this computer / device.
+        Different devices can be configured to use different colors.
+      </p>
+      <p>
+        You can sync theme settings to have all currently connected devices
+        (computers, tablets, phones, etc) use the same theme settings.
+      </p>
+      <div className='text-center' style={{ padding: '0.25rem 0' }}>
+        <button
+          onClick={() => {
+            const colorSettings = {
+              primaryColor: {
+                r: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-r')),
+                g: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-g')),
+                b: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-b')),
+                modifier: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-primary-dark-modifier'))
+              },
+              secondaryColor: {
+                r: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-r')),
+                g: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-g')),
+                b: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-b')),
+                modifier: parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-dark-modifier'))
+              }
+            }
+            sendEvent('syncMessage', { name: 'colorSettings', message: colorSettings })
+            document.activeElement.blur()
+          }}
+        >
+          <i className='icon icarus-terminal-sync' /> Sync theme settings
+        </button>
+      </div>
+      <h4 className='text-primary'>Reset theme</h4>
+      <p>
+        Resetting theme settings will only impact this computer / device.
+      </p>
+      <div className='text-center' style={{ padding: '0.25rem 0' }}>
+        <button
+          className='text-info'
+          onClick={() => {
+            try {
+              loadDefaultColorSettings()
+              setPrimaryColor(getPrimaryColorAsHex())
+              setPrimaryColorModifier(getPrimaryColorModifier())
+              setSecondaryColor(getSecondaryColorAsHex())
+              setSecondaryColorModifier(getSecondaryColorModifier())
+              window.localStorage.removeItem('color-settings')
+              document.activeElement.blur()
+            } catch (err) {
+              console.error('Unable to reset color settings', err)
+            }
+          }}
+        >
+          Reset theme settings
+        </button>
+      </div>
+    </div>
   )
 }
 

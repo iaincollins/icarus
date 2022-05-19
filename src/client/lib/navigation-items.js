@@ -103,13 +103,13 @@ function EngineeringPanelNavItems (activePanel) {
 function SettingsNavItems (activePanel) {
   const navigationItems = [
     {
-      name: 'Color Picker',
+      name: 'Theme',
       icon: 'color-picker',
     },
-    // {
-    //   name: 'Sounds',
-    //   icon: 'sounds',
-    // },
+    {
+      name: 'Sounds',
+      icon: 'cogs',
+    },
   ]
   navigationItems.forEach(item => {
     if (item.name.toLowerCase() === activePanel.toLowerCase()) item.active = true
