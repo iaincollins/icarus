@@ -14,11 +14,11 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           <tr>
             <td>
               <span className='text-muted'>Max jump dist</span>
-              <span className='value'>{ship.maxJumpRange || '-'} Ly</span>
+              <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.maxJumpRange || '-'} Ly</span>
             </td>
             <td>
               <span className='text-muted'>Fuel reservoir</span>
-              <span className='value'>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
+              <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
             </td>
             <td rowSpan={4} className='hidden-medium' style={{ padding: 0 }}>
               <PowerDistribution ship={ship} />
@@ -27,11 +27,11 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           <tr>
             <td>
               <span className='text-muted'>Total mass</span>
-              <span className='value'>{ship.mass} T</span>
+              <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.mass} T</span>
             </td>
             <td>
               <span className='text-muted'>Total fuel</span>
-              <span className='value'>
+              <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>
                 {typeof ship?.fuelLevel === 'number'
                   ? <progress
                       style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : .5 }}
@@ -46,7 +46,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           <tr>
             <td>
               <span className='text-muted'>HUD mode</span>
-              <h3 className='value' style={{ padding: '.25rem 0', height: '1.5rem' }}>
+              <h3 className={`value ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '.25rem 0', height: '1.5rem' }}>
                 {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
                 {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-primary'>Combat</span>}
                 {(!ship.onBoard || !cmdrStatus) && '-'}
@@ -296,7 +296,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           flexDirection: 'column',
           justifyContent: 'center',
           textAlign: 'center',
-          height: '100%'
+          height: '100%',
+          opacity: ship.onBoard ? 1 : .5
         }}
         >
           <h2 style={{ padding: 0, margin: '0 0 .5rem 0' }}>
