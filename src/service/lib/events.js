@@ -20,6 +20,7 @@ const _eventHandlers = new EventHandlers({ eliteLog, eliteJson })
 const eventHandlers = _eventHandlers.getEventHandlers()
 // Define global handler for events trigged by the game
 const logEventHandler = (logEvent) => _eventHandlers.logEventHandler(logEvent)
+const gameStateChangeHandler = () => _eventHandlers.gameStateChangeHandler()
 
 // Extend game logic related event handlers with app logic related handlers
 eventHandlers.hostInfo = () => {
@@ -156,8 +157,9 @@ function getLoadingStatus () {
   }
 }
 
-function eliteJsonCallback () {
+function eliteJsonCallback (e) {
   broadcastEvent('gameStateChange')
+  gameStateChangeHandler()
 }
 
 module.exports = {

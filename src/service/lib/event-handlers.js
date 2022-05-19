@@ -37,6 +37,7 @@ const Inventory = require('./event-handlers/inventory')
 const CmdrStatus = require('./event-handlers/cmdr-status')
 const NavRoute = require('./event-handlers/nav-route')
 const TextToSpeech = require('./event-handlers/text-to-speech')
+const { clear } = require('console')
 
 class EventHandlers {
   constructor ({ eliteLog, eliteJson, preferences }) {
@@ -58,12 +59,44 @@ class EventHandlers {
     this.blueprints = new Blueprints({ engineers: this.engineers, materials: this.materials, shipStatus: this.shipStatus })
     this.navRoute = new NavRoute({ eliteLog, eliteJson, system: this.system })
 
+    this.currentCmdrStatus = null
+    this.lastVoiceAlertDebounce = false
     return this
   }
 
   // logEventHandler is fired on every in-game log event
   logEventHandler(logEvent) {
     this.textToSpeech.speechEventHandler(logEvent)
+  }
+
+  async gameStateChangeHandler() {
+    const previousCmdStatus = JSON.parse(JSON.stringify(this.currentCmdrStatus))
+    this.currentCmdrStatus = await this.cmdrStatus.getCmdrStatus()
+
+    if (!this.lastVoiceAlertDebounce && previousCmdStatus) {
+      // TODO improve with better debounce function
+      this.lastVoiceAlertDebounce = true
+      setTimeout(() => { this.lastVoiceAlertDebounce = false }, 1000)
+
+      if (this.currentCmdrStatus?.flags?.lightsOn !== previousCmdStatus?.flags?.lightsOn) {
+        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.lightsOn ? 'Lights On' : 'Lights Off')
+      }
+      if (this.currentCmdrStatus?.flags?.nightVision !== previousCmdStatus?.flags?.nightVision) {
+        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.nightVision ? 'Night Vision On' : 'Night Vision Off')
+      }
+      if (this.currentCmdrStatus?.flags?.cargoScoopDeployed !== previousCmdStatus?.flags?.cargoScoopDeployed) {
+        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.cargoScoopDeployed ? 'Cargo Hatch Open' : 'Cargo Hatch Closed')
+      }
+      if (this.currentCmdrStatus?.flags?.landingGearDown !== previousCmdStatus?.flags?.landingGearDown) {
+        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.landingGearDown ? 'Landing Gear Down' : 'Landing Gear Up')
+      }
+      if (this.currentCmdrStatus?.flags?.hardpointsDeployed !== previousCmdStatus?.flags?.hardpointsDeployed) {
+        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.hardpointsDeployed ? 'Hardpoints Deployed' : 'Hardpoints Retracted')
+      }
+      if (this.currentCmdrStatus?.flags?.hudInAnalysisMode !== previousCmdStatus?.flags?.hudInAnalysisMode) {
+        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.hudInAnalysisMode ? 'Analysis mode activated' : 'Combat mode activated')
+      }
+    }
   }
 
   // Return handlers for events that are fired from the client
