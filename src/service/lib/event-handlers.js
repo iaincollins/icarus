@@ -102,7 +102,7 @@ class EventHandlers {
           return preferences
         },
         getVoices: () => this.textToSpeech.getVoices(),
-        speakText: ({text, voice}) => this.textToSpeech.speak(text, voice),
+        speakText: ({text, voice}) => this.textToSpeech.speak(text, voice, true),
         toggleSwitch: async ({ switchName }) => {
           return false
           /*

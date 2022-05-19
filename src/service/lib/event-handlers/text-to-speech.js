@@ -14,15 +14,15 @@ class TextToSpeech {
     return this
   }
 
-  async speak(text, voice) {
-    say.speak(text, voice || await this.getVoice())
+  async speak(text, voice, force) {
+    // Only fire if Text To Speech voice has been selected in preferences
+    this.preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
+    if (!force && !this?.preferences?.voice) return
+    const _voice = voice || this?.preferences?.voice
+    say.speak(text, _voice)
   }
 
   speechEventHandler(message) {
-    // Only fire if Text To Speech voice has been selected in preferences
-    this.preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
-    if (!this.preferences?.voice) return
-
     if (message.event === 'StartJump' && message.StarSystem) this.speak(`Jumping to ${message.StarSystem}`)
     if (message.event === 'FSDJump') this.speak(`Jump complete. Arrived in ${message.StarSystem}`)
     if (message.event === 'ApproachBody') this.speak(`Approaching ${message.Body}`)
@@ -41,7 +41,7 @@ class TextToSpeech {
     if (message.event === 'Scanned') this.speak('Scan detected')
     if (message.event === 'FSSDiscoveryScan') {
       if (message.NonBodyCount > 0) {
-        this.speak(`Discovery Scan Complete. ${message.BodyCount} ${message.BodyCount === 1 ? 'Body' : 'Bodies'} and ${message.NonBodyCount} other ${message.NonBodyCount === 1 ? 'object' : 'objects'} detected.`)
+        this.speak(`Discovery Scan Complete. ${message.BodyCount} ${message.BodyCount === 1 ? 'Body' : 'Bodies'} found and ${message.NonBodyCount} other ${message.NonBodyCount === 1 ? 'object' : 'objects'} detected in system.`)
       } else {
         this.speak(`Discovery Scan Complete. ${message.BodyCount} ${message.BodyCount === 1 ? 'Body' : 'Bodies'} found in system.`)
       }
@@ -50,7 +50,7 @@ class TextToSpeech {
 
   async getVoice() {
     this.preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
-    if (this.preferences?.voice)
+    if (this?.preferences?.voice)
       return this.preferences.voice
 
     return await this.getVoices()[0]
