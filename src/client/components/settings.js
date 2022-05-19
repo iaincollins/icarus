@@ -25,8 +25,8 @@ function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPan
           </Fragment>
         )}
         </div>
-        {activeSettingsPanel === 'Theme' && <ThemeSettings/>}
-        {activeSettingsPanel === 'Sounds' && <SoundSettings/>}
+        {activeSettingsPanel === 'Theme' && <ThemeSettings visible={visible}/>}
+        {activeSettingsPanel === 'Sounds' && <SoundSettings visible={visible}/>}
         <div className='modal-dialog__footer'>
           <hr style={{ margin: '1rem 0 .5rem 0' }} />
           <button className='float-right' onClick={toggleVisible}>
@@ -38,17 +38,22 @@ function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPan
   )
 }
 
-function SoundSettings () {
+function SoundSettings ({visible}) {
   const [preferences, setPreferences] = useState()
   const [voices, setVoices] = useState()
 
   useEffect(async () => {
     setPreferences(await sendEvent('getPreferences'))
     setVoices(await sendEvent('getVoices'))
-  }, [])
+  }, [visible])
 
-  // TODO listen for changes to preferences triggered by other terminals
-  
+  // Listen for changes to preferences triggered by other terminals
+  useEffect(() => eventListener('syncMessage', async (event) => {
+    if (event.name === 'preferences') {
+      setPreferences(await sendEvent('getPreferences'))
+    }
+  }), [])
+
   return(
     <div className='modal-dialog__panel modal-dialog__panel--with-navigation scrollable'>
       <h3 className='text-primary'>Sounds</h3>
@@ -60,16 +65,16 @@ function SoundSettings () {
         Audio will be played through the computer ICARUS Terminal is running on. 
       </p>
       <h4 className='text-primary'>Voice alerts</h4>
-      <select disabled={!voices} name='voices' onChange={async (e) => {
+      <select value={preferences?.voice ?? 'None'} disabled={!voices || !preferences} name='voices' onChange={async (e) => {
         const voice = e.target.value
         const newPreferences = JSON.parse(JSON.stringify(preferences))
-        newPreferences.voice = voice === '_NONE_' ? null : voice
+        newPreferences.voice = voice === 'None' ? null : voice
         setPreferences(await sendEvent('setPreferences', newPreferences))
-        if (voice !== '_NONE_') {
+        if (voice !== 'None') {
           sendEvent('speakText', { text: `Voice alerts will use the voice ${voice}`, voice })
         }
       }}>
-        <option value='_NONE_'>None</option>
+        <option value='None'>None</option>
         <option disabled>-</option>
         {voices && voices.map(voice => <option key={`voice_${voice}`}>{voice}</option>)}
       </select>

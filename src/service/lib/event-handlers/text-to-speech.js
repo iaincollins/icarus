@@ -1,4 +1,10 @@
+const os = require('os')
+const path = require('path')
+const fs = require('fs')
 const say = require('say')
+
+const PREFERENCES_DIR = path.join(os.homedir(), 'AppData', 'Local', 'ICARUS Terminal')
+const PREFERENCES_FILE = path.join(PREFERENCES_DIR, 'Preferences.json')
 
 class TextToSpeech {
   constructor ({ eliteLog, eliteJson, preferences }) {
@@ -14,6 +20,7 @@ class TextToSpeech {
 
   speechEventHandler(message) {
     // Only fire if Text To Speech voice has been selected in preferences
+    this.preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
     if (!this.preferences?.voice) return
 
     if (message.event === 'StartJump' && message.StarSystem) this.speak(`Jumping to ${message.StarSystem}`)
@@ -42,6 +49,7 @@ class TextToSpeech {
   }
 
   async getVoice() {
+    this.preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
     if (this.preferences?.voice)
       return this.preferences.voice
 

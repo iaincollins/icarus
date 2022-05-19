@@ -108,7 +108,7 @@ function SettingsNavItems (activePanel) {
     },
     {
       name: 'Sounds',
-      icon: 'cogs',
+      icon: 'sound',
     },
   ]
   navigationItems.forEach(item => {

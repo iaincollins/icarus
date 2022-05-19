@@ -1,10 +1,12 @@
 const os = require('os')
-// const fs = require('fs')
+const fs = require('fs')
 const path = require('path')
 // const pjXML = require('pjxml')
 // const sendKeys = require('sendkeys-js')
 // onst keycode = require('keycodes')
 const { UNKNOWN_VALUE } = require('../../shared/consts')
+
+const { BROADCAST_EVENT: broadcastEvent } = global
 
 // const TARGET_WINDOW_TITLE = 'Elite - Dangerous (CLIENT)'
 const KEYBINDS_DIR = path.join(os.homedir(), 'AppData', 'Local', 'Frontier Developments', 'Elite Dangerous', 'Options', 'Bindings')
@@ -22,6 +24,9 @@ const KEYBINDS_MAP = {
   cargoHatch: 'ToggleCargoScoop',
   hardpoints: 'DeployHardpointToggle'
 }
+
+const PREFERENCES_DIR = path.join(os.homedir(), 'AppData', 'Local', 'ICARUS Terminal')
+const PREFERENCES_FILE = path.join(PREFERENCES_DIR, 'Preferences.json')
 
 const System = require('./event-handlers/system')
 const ShipStatus = require('./event-handlers/ship-status')
@@ -88,12 +93,13 @@ class EventHandlers {
         getBlueprints: (args) => this.blueprints.getBlueprints(args),
         getNavRoute: (args) => this.navRoute.getNavRoute(args),
         getPreferences: () => {
-            console.log('Get Preferences Called')
-            return {}
+            return fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
         },
-        setPreferences: () => {
-          console.log('Set Preferences Called')
-          return {}
+        setPreferences: (preferences) => {
+          if (!fs.existsSync(PREFERENCES_DIR)) fs.mkdirSync(PREFERENCES_DIR, { recursive: true })
+          fs.writeFileSync(PREFERENCES_FILE, JSON.stringify(preferences))
+          broadcastEvent('syncMessage', { name: 'preferences' })
+          return preferences
         },
         getVoices: () => this.textToSpeech.getVoices(),
         speakText: ({text, voice}) => this.textToSpeech.speak(text, voice),
