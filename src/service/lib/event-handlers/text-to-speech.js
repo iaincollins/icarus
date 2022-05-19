@@ -41,9 +41,9 @@ class TextToSpeech {
     if (message.event === 'Scanned') this.speak('Scan detected')
     if (message.event === 'FSSDiscoveryScan') {
       if (message.NonBodyCount > 0) {
-        this.speak(`Discovery Scan Complete. ${message.BodyCount} ${message.BodyCount === 1 ? 'Body' : 'Bodies'} and ${message.NonBodyCount} other ${message.NonBodyCount === 1 ? 'signal source' : 'signal sources'} found in system.`)
+        this.speak(`Discovery Scan Complete. ${message.BodyCount} ${message.BodyCount === 1 ? 'Body' : 'Bodies'} and ${message.NonBodyCount} other ${message.NonBodyCount === 1 ? 'object' : 'objects'} detected.`)
       } else {
-        this.speak(`Discovery Scan Complete. ${message.BodyCount} ${message.BodyCount === 1 ? 'Body' : 'Bodies'} found in system. No signal sources detected.`)
+        this.speak(`Discovery Scan Complete. ${message.BodyCount} ${message.BodyCount === 1 ? 'Body' : 'Bodies'} found in system.`)
       }
     }
   }
