@@ -20,7 +20,7 @@
   right: 0;
   margin: auto;
   max-width: min(50rem, 150vw);
-  max-height: min(52rem, 120vh);
+  max-height: min(52rem, 100vh);
   box-shadow: 0 0 5rem black, 0 0 10rem black;
   padding: 0.5rem;
   overflow: hidden;
