@@ -25,6 +25,7 @@ const KEYBINDS_MAP = {
   hardpoints: 'DeployHardpointToggle'
 }
 
+// FIXME Refactor Preferences handling into a singleton
 const PREFERENCES_DIR = path.join(os.homedir(), 'AppData', 'Local', 'ICARUS Terminal')
 const PREFERENCES_FILE = path.join(PREFERENCES_DIR, 'Preferences.json')
 
@@ -37,16 +38,11 @@ const Inventory = require('./event-handlers/inventory')
 const CmdrStatus = require('./event-handlers/cmdr-status')
 const NavRoute = require('./event-handlers/nav-route')
 const TextToSpeech = require('./event-handlers/text-to-speech')
-const { clear } = require('console')
 
 class EventHandlers {
-  constructor ({ eliteLog, eliteJson, preferences }) {
+  constructor ({ eliteLog, eliteJson }) {
     this.eliteLog = eliteLog
     this.eliteJson = eliteJson
-    this.preferences = preferences
-
-    // TTS needs access to preferences (e.g. is tts on/off, which voice to)
-    this.textToSpeech = new TextToSpeech({ eliteLog, eliteJson, preferences })
 
     this.system = new System({ eliteLog })
     this.shipStatus = new ShipStatus({ eliteLog, eliteJson })
@@ -58,45 +54,18 @@ class EventHandlers {
     // These handlers depend on calls to other handlers
     this.blueprints = new Blueprints({ engineers: this.engineers, materials: this.materials, shipStatus: this.shipStatus })
     this.navRoute = new NavRoute({ eliteLog, eliteJson, system: this.system })
+    this.textToSpeech = new TextToSpeech({ eliteLog, eliteJson, cmdrStatus: this.cmdrStatus, shipStatus: this.shipStatus })
 
-    this.currentCmdrStatus = null
-    this.lastVoiceAlertDebounce = false
     return this
   }
 
   // logEventHandler is fired on every in-game log event
   logEventHandler(logEvent) {
-    this.textToSpeech.speechEventHandler(logEvent)
+    this.textToSpeech.logEventHandler(logEvent)
   }
 
-  async gameStateChangeHandler() {
-    const previousCmdStatus = JSON.parse(JSON.stringify(this.currentCmdrStatus))
-    this.currentCmdrStatus = await this.cmdrStatus.getCmdrStatus()
-
-    if (!this.lastVoiceAlertDebounce && previousCmdStatus) {
-      // TODO improve with better debounce function
-      this.lastVoiceAlertDebounce = true
-      setTimeout(() => { this.lastVoiceAlertDebounce = false }, 1000)
-
-      if (this.currentCmdrStatus?.flags?.lightsOn !== previousCmdStatus?.flags?.lightsOn) {
-        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.lightsOn ? 'Lights On' : 'Lights Off')
-      }
-      if (this.currentCmdrStatus?.flags?.nightVision !== previousCmdStatus?.flags?.nightVision) {
-        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.nightVision ? 'Night Vision On' : 'Night Vision Off')
-      }
-      if (this.currentCmdrStatus?.flags?.cargoScoopDeployed !== previousCmdStatus?.flags?.cargoScoopDeployed) {
-        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.cargoScoopDeployed ? 'Cargo Hatch Open' : 'Cargo Hatch Closed')
-      }
-      if (this.currentCmdrStatus?.flags?.landingGearDown !== previousCmdStatus?.flags?.landingGearDown) {
-        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.landingGearDown ? 'Landing Gear Down' : 'Landing Gear Up')
-      }
-      if (this.currentCmdrStatus?.flags?.hardpointsDeployed !== previousCmdStatus?.flags?.hardpointsDeployed) {
-        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.hardpointsDeployed ? 'Hardpoints Deployed' : 'Hardpoints Retracted')
-      }
-      if (this.currentCmdrStatus?.flags?.hudInAnalysisMode !== previousCmdStatus?.flags?.hudInAnalysisMode) {
-        this.textToSpeech.speak(this.currentCmdrStatus?.flags?.hudInAnalysisMode ? 'Analysis mode activated' : 'Combat mode activated')
-      }
-    }
+  gameStateChangeHandler(event) {
+    this.textToSpeech.gameStateChangeHandler(event)
   }
 
   // Return handlers for events that are fired from the client
@@ -135,7 +104,12 @@ class EventHandlers {
           return preferences
         },
         getVoices: () => this.textToSpeech.getVoices(),
-        speakText: ({text, voice}) => this.textToSpeech.speak(text, voice, true),
+        testVoice: ({voice}) => {
+          // Escape voice name when passing as text as precaution to clean 
+          // input (NB: voice name argument is checked internally)
+          const text = `Voice assistant will use ${voice.replace(/[^a-z0-9 -]/gi,'')}`
+          this.textToSpeech.speak(text, voice, true)
+        },
         toggleSwitch: async ({ switchName }) => {
           return false
           /*

@@ -157,9 +157,9 @@ function getLoadingStatus () {
   }
 }
 
-function eliteJsonCallback (e) {
+function eliteJsonCallback (event) {
   broadcastEvent('gameStateChange')
-  gameStateChangeHandler()
+  gameStateChangeHandler(event)
 }
 
 module.exports = {

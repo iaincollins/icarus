@@ -1,57 +1,95 @@
 const os = require('os')
 const path = require('path')
 const fs = require('fs')
-const say = require('say')
+const say = require('../say')
 
+// FIXME Refactor Preferences handling into a singleton
 const PREFERENCES_DIR = path.join(os.homedir(), 'AppData', 'Local', 'ICARUS Terminal')
 const PREFERENCES_FILE = path.join(PREFERENCES_DIR, 'Preferences.json')
 
 class TextToSpeech {
-  constructor ({ eliteLog, eliteJson, preferences }) {
+  constructor ({ eliteLog, eliteJson, cmdrStatus, shipStatus }) {
     this.eliteLog = eliteLog
     this.eliteJson = eliteJson
-    this.preferences = preferences || {}
+    this.cmdrStatus = cmdrStatus
+    this.shipStatus = shipStatus
+
+    this.currentCmdrStatus = null
+    this.voiceAlertDebounce = null
+
     return this
   }
 
   async speak(text, voice, force) {
     // Only fire if Text To Speech voice has been selected in preferences
-    this.preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
-    if (!force && !this?.preferences?.voice) return
-    const _voice = voice || this?.preferences?.voice
+    const preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
+    if (!force && !preferences?.voice) return
+    const _voice = voice || preferences?.voice || (await this.getVoices())[0]
+
+    // Only allow valid voice names (also combats potential shell escaping)
+    if (!_voice || !(await this.getVoices()).includes(_voice)) return 
+
     say.speak(text, _voice)
   }
 
-  speechEventHandler(message) {
-    if (message.event === 'StartJump' && message.StarSystem) this.speak(`Jumping to ${message.StarSystem}`)
-    if (message.event === 'FSDJump') this.speak(`Jump complete. Arrived in ${message.StarSystem}`)
-    if (message.event === 'ApproachBody') this.speak(`Approaching ${message.Body}`)
-    if (message.event === 'LeaveBody') this.speak(`Leaving ${message.Body}`)
-    if (message.event === 'NavRoute') this.speak('New route plotted')
-    if (message.event === 'DockingGranted') this.speak(`Docking at ${message.StationName}`)
-    if (message.event === 'Docked') this.speak(`Docked at ${message.StationName}`)
-    if (message.event === 'Undocked') this.speak(`Now leaving ${message.StationName}`)
-    if (message.event === 'ApproachSettlement') this.speak(`Approaching ${message.Name}`)
-    if (message.event === 'MarketBuy') this.speak(`Purchased ${message.Count} ${message.Count === 1 ? 'tonne' : `tonnes`} of ${message.Type_Localised || message.Type}`)
-    if (message.event === 'MarketSell') this.speak(`Sold  ${message.Count} ${message.Count === 1 ? 'tonne' : `tonnes`} of  ${message.Type_Localised || message.Type}`)
-    if (message.event === 'BuyDrones') this.speak(`Purchased ${message.Count} Limpet ${message.Count === 1 ? 'Drone' : `Drones`}`)
-    if (message.event === 'SellDrones') this.speak(`Sold ${message.Count} Limpet ${message.Count === 1 ? 'Drone' : `Drones`}`)
-    if (message.event === 'CargoDepot' && message.UpdateType === 'Collect') this.speak(`Collected ${message.Count} ${message.Count === 1 ? 'tonne' : `tonnes`} of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
-    if (message.event === 'CargoDepot' && message.UpdateType === 'Deliver') this.speak(`Delivered  ${message.Count} ${message.Count === 1 ? 'tonne' : `tonnes`} of ${message.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
-    if (message.event === 'Scanned') this.speak('Scan detected')
-    if (message.event === 'FSSDiscoveryScan') {
-      if (message.NonBodyCount > 0) {
-        this.speak(`Discovery Scan Complete. ${message.BodyCount} ${message.BodyCount === 1 ? 'Body' : 'Bodies'} found and ${message.NonBodyCount} other ${message.NonBodyCount === 1 ? 'object' : 'objects'} detected in system.`)
-      } else {
-        this.speak(`Discovery Scan Complete. ${message.BodyCount} ${message.BodyCount === 1 ? 'Body' : 'Bodies'} found in system.`)
+  logEventHandler(logEvent) {
+    if (logEvent.event === 'StartJump' && logEvent.StarSystem) this.speak(`Jumping to ${logEvent.StarSystem}`)
+    if (logEvent.event === 'FSDJump') this.speak(`Jump complete. Arrived in ${logEvent.StarSystem}`)
+    if (logEvent.event === 'ApproachBody') this.speak(`Approaching ${logEvent.Body}`)
+    if (logEvent.event === 'LeaveBody') this.speak(`Leaving ${logEvent.Body}`)
+    if (logEvent.event === 'NavRoute') this.speak('New route plotted')
+    if (logEvent.event === 'DockingGranted') this.speak(`Docking at ${logEvent.StationName}`)
+    if (logEvent.event === 'Docked') this.speak(`Docked at ${logEvent.StationName}`)
+    if (logEvent.event === 'Undocked') this.speak(`Now leaving ${logEvent.StationName}`)
+    if (logEvent.event === 'ApproachSettlement') this.speak(`Approaching ${logEvent.Name}`)
+    if (logEvent.event === 'MarketBuy') this.speak(`Purchased ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : `tonnes`} of ${logEvent.Type_Localised || logEvent.Type}`)
+    if (logEvent.event === 'MarketSell') this.speak(`Sold  ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : `tonnes`} of  ${logEvent.Type_Localised || logEvent.Type}`)
+    if (logEvent.event === 'BuyDrones') this.speak(`Purchased ${logEvent.Count} Limpet ${logEvent.Count === 1 ? 'Drone' : `Drones`}`)
+    if (logEvent.event === 'SellDrones') this.speak(`Sold ${logEvent.Count} Limpet ${logEvent.Count === 1 ? 'Drone' : `Drones`}`)
+    if (logEvent.event === 'CargoDepot' && logEvent.UpdateType === 'Collect') this.speak(`Collected ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : `tonnes`} of ${logEvent.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
+    if (logEvent.event === 'CargoDepot' && logEvent.UpdateType === 'Deliver') this.speak(`Delivered  ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : `tonnes`} of ${logEvent.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
+    if (logEvent.event === 'Scanned') this.speak('Scan detected')
+    if (logEvent.event === 'FSSDiscoveryScan') this.speak(`Discovery Scan Complete. ${logEvent.BodyCount} ${logEvent.BodyCount === 1 ? 'Body' : 'Bodies'} found in system.`)
+  }
+
+  async gameStateChangeHandler() {
+    // TODO Refine so this logic is only evaluated on changes to Status.json
+    const previousCmdStatus = JSON.parse(JSON.stringify(this.currentCmdrStatus))
+    this.currentCmdrStatus = await this.cmdrStatus.getCmdrStatus()
+    const shipStatus = await this.shipStatus.getShipStatus()
+
+    // Only evaluate these if we are on board the ship, there is a previous 
+    // status (i.e. not at startup) and we have not recently alerted
+    if (shipStatus?.onBoard && previousCmdStatus && !this.voiceAlertDebounce) {
+      // TODO improve with better debounce function
+      this.voiceAlertDebounce = true
+      setTimeout(() => { this.voiceAlertDebounce = false }, 1000)
+
+      // These functions handle changes to ship state
+      if (this.currentCmdrStatus?.flags?.lightsOn !== previousCmdStatus?.flags?.lightsOn) {
+        this.speak(this.currentCmdrStatus?.flags?.lightsOn ? 'Lights On' : 'Lights Off')
+      }
+      if (this.currentCmdrStatus?.flags?.nightVision !== previousCmdStatus?.flags?.nightVision) {
+        this.speak(this.currentCmdrStatus?.flags?.nightVision ? 'Night Vision On' : 'Night Vision Off')
+      }
+      if (this.currentCmdrStatus?.flags?.cargoScoopDeployed !== previousCmdStatus?.flags?.cargoScoopDeployed) {
+        this.speak(this.currentCmdrStatus?.flags?.cargoScoopDeployed ? 'Cargo Hatch Open' : 'Cargo Hatch Closed')
+      }
+      if (this.currentCmdrStatus?.flags?.landingGearDown !== previousCmdStatus?.flags?.landingGearDown) {
+        this.speak(this.currentCmdrStatus?.flags?.landingGearDown ? 'Landing Gear Down' : 'Landing Gear Up')
+      }
+      if (this.currentCmdrStatus?.flags?.supercruise === false && this.currentCmdrStatus?.flags?.hardpointsDeployed !== previousCmdStatus?.flags?.hardpointsDeployed) {
+        this.speak(this.currentCmdrStatus?.flags?.hardpointsDeployed ? 'Hardpoints Deployed' : 'Hardpoints Retracted')
+      }
+      if (this.currentCmdrStatus?.flags?.hudInAnalysisMode !== previousCmdStatus?.flags?.hudInAnalysisMode) {
+        this.speak(this.currentCmdrStatus?.flags?.hudInAnalysisMode ? 'Analysis mode activated' : 'Combat mode activated')
       }
     }
   }
 
   async getVoice() {
-    this.preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
-    if (this?.preferences?.voice)
-      return this.preferences.voice
+    const preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
+    if (preferences?.voice) return preferences.voice
 
     return await this.getVoices()[0]
   }

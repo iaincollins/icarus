@@ -8,7 +8,7 @@ function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPan
 
   return (
     <>
-      <div className='modal-dialog__background' style={{ opacity: visible ? 1 : 0, visibility: visible ? 'visible' : 'hidden' }}/>
+      <div className='modal-dialog__background' style={{ opacity: visible ? 1 : 0, visibility: visible ? 'visible' : 'hidden' }} onClick={toggleVisible}/>
       <div className='modal-dialog' style={{ opacity: visible ? 1 : 0, visibility: visible ? 'visible' : 'hidden' }}>
         <h2 className='modal-dialog__title'>Settings</h2>
         <hr />
@@ -58,29 +58,46 @@ function SoundSettings ({visible}) {
     <div className='modal-dialog__panel modal-dialog__panel--with-navigation scrollable'>
       <h3 className='text-primary'>Sounds</h3>
       <p>
-        Voice alerts can give confirmation of commands and relay important information.
-        They complement in text notifications, but are not the same.
+        ICARUS Terminal includes a voice assistant that can give confirmation of
+        commands and relay information about your ship and your surroundings.
       </p>
-      <p>
-        Audio will be played through the computer ICARUS Terminal is running on. 
+      <p className='text-danger'>
+        This feature is highly experimental and not compatible with all voices.
       </p>
-      <h4 className='text-primary'>Voice alerts</h4>
-      <select value={preferences?.voice ?? 'None'} disabled={!voices || !preferences} name='voices' onChange={async (e) => {
+      <h4 className='text-primary'>Voice assistant</h4>
+      <select
+        value={preferences?.voice ?? 'None'}
+        disabled={!voices || !preferences}
+        name='voices'
+        style={{width: '20rem'}}
+        onChange={async (e) => {
         const voice = e.target.value
         const newPreferences = JSON.parse(JSON.stringify(preferences))
         newPreferences.voice = voice === 'None' ? null : voice
         setPreferences(await sendEvent('setPreferences', newPreferences))
         if (voice !== 'None') {
-          sendEvent('speakText', { text: `Voice alerts will use the voice ${voice}`, voice })
+          sendEvent('testVoice', { voice })
         }
       }}>
-        <option value='None'>None</option>
-        <option disabled>-</option>
-        {voices && voices.map(voice => <option key={`voice_${voice}`}>{voice}</option>)}
+        {voices && preferences && <>
+          <option value='None'>None</option>
+          <option disabled>─</option>
+          {voices && voices.map(voice => <option key={`voice_${voice}`}>{voice}</option>)}
+        </>}
       </select>
+      <br/><br/>
+      <h4 className='text-primary'>About voice assistant</h4>
       <p>
-        Note: This setting uses your computers native Text To Speech capability. Third party / commercial
-        voices can provide improved voice audio quality.
+        The current implementation is only intended for debugging / testing. 
+      </p>
+      <p>
+        Audio will be played through the computer ICARUS Terminal is running on. 
+      </p>
+      <p>
+        This setting uses your computers native Text To Speech capabilities.
+      </p>
+      <p>
+        Third party / commercial voices can provide improved voice audio quality.
       </p>
     </div>
   )
@@ -118,7 +135,7 @@ function ThemeSettings () {
 
   return (
     <div className='modal-dialog__panel modal-dialog__panel--with-navigation scrollable'>
-      <h3 className='text-primary'>Theme settings</h3>
+      <h3 className='text-primary'>Theme</h3>
       <p>
         You can select a primary and secondary theme color and adjust the contrast for each color using the sliders.
       </p>

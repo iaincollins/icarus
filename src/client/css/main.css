@@ -13,6 +13,7 @@
 @import "form/button-group.css";
 @import "form/input.css";
 @import "form/checkbox.css";
+@import "form/select.css";
 @import "text.css";
 @import "table.css";
 
@@ -203,8 +204,9 @@ body::after {
   bottom: 0;
   right: 0;
   z-index: 10000;
-  background: rgba(0,0,255,.06);
+  background: rgba(0,0,255,.05);
   pointer-events: none;
+  z-index: 30000;
 }
 
 header {

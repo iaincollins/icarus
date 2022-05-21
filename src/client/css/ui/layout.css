@@ -1,5 +1,4 @@
 .layout__overlay {
-  z-index: 100;
   pointer-events: none;
 }
 

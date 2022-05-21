@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   background: rgba(0,0,0,.5);
-  backdrop-filter: blur(.25rem);
+  backdrop-filter: blur(.1rem);
   z-index: 19999;
   transition: .5s ease-in-out;
 }

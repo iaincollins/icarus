@@ -1,0 +1,12 @@
+select {
+  appearance: none;
+  margin: .5rem 0;
+  background: var(--color-primary-dark);
+  border: .2rem solid var(--color-primary);
+  color: var(--color-primary);
+  padding: .25rem .5rem;
+  font-family: "Jura", sans-serif;
+  font-size: var(--base-font-size);
+  font-weight: bold;
+  border-color: var(--color-primary);
+}
