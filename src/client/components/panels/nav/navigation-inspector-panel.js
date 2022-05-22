@@ -227,19 +227,18 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             </ul>
           </div>}
 
-        {systemObject.hasOwnProperty('rotationalPeriod') && 
+        {systemObject.hasOwnProperty('rotationalPeriod') &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Orbit</h4>
-            {systemObject.hasOwnProperty('rotationalPeriodTidallyLocked') && <p className='text-info'><span className='text-muted'>Tidally Locked</span><br/>{systemObject.rotationalPeriodTidallyLocked ? 'Yes' : 'No'}</p>}
-            {systemObject?.rotationalPeriod !== null && <p className='text-info'><span className='text-muted'>Rotational Period</span><br/>{systemObject.rotationalPeriod}</p>}
-            {systemObject?.orbitalEccentricity !== null  && <p className='text-info'><span className='text-muted'>Orbital Eccentricity</span><br/>{systemObject.orbitalEccentricity}</p>}
-            {systemObject?.orbitalInclination !== null && <p className='text-info'><span className='text-muted'>Orbital Inclination</span><br/>{systemObject.orbitalInclination}</p>}
-            {systemObject?.orbitalPeriod !== null && <p className='text-info'><span className='text-muted'>Orbital Period</span><br/>{systemObject.orbitalPeriod}</p>}
-            {systemObject?.axialTilt !== null && <p className='text-info'><span className='text-muted'>Axial Tilt</span><br/>{systemObject.axialTilt}</p>}
-            {systemObject?.semiMajorAxis !== null && <p className='text-info'><span className='text-muted'>Semi-Major Axis</span><br/>{systemObject.semiMajorAxis}</p>}
-            {systemObject?.argOfPeriapsis !== null && <p className='text-info'><span className='text-muted'>Argument of Periapsis</span><br/>{systemObject.argOfPeriapsis}</p>}
-          </div>
-        }
+            {systemObject.hasOwnProperty('rotationalPeriodTidallyLocked') && <p className='text-info'><span className='text-muted'>Tidally Locked</span><br />{systemObject.rotationalPeriodTidallyLocked ? 'Yes' : 'No'}</p>}
+            {systemObject?.rotationalPeriod !== null && <p className='text-info'><span className='text-muted'>Rotational Period</span><br />{systemObject.rotationalPeriod}</p>}
+            {systemObject?.orbitalEccentricity !== null && <p className='text-info'><span className='text-muted'>Orbital Eccentricity</span><br />{systemObject.orbitalEccentricity}</p>}
+            {systemObject?.orbitalInclination !== null && <p className='text-info'><span className='text-muted'>Orbital Inclination</span><br />{systemObject.orbitalInclination}</p>}
+            {systemObject?.orbitalPeriod !== null && <p className='text-info'><span className='text-muted'>Orbital Period</span><br />{systemObject.orbitalPeriod}</p>}
+            {systemObject?.axialTilt !== null && <p className='text-info'><span className='text-muted'>Axial Tilt</span><br />{systemObject.axialTilt}</p>}
+            {systemObject?.semiMajorAxis !== null && <p className='text-info'><span className='text-muted'>Semi-Major Axis</span><br />{systemObject.semiMajorAxis}</p>}
+            {systemObject?.argOfPeriapsis !== null && <p className='text-info'><span className='text-muted'>Argument of Periapsis</span><br />{systemObject.argOfPeriapsis}</p>}
+          </div>}
       </div>
     </div>
   )

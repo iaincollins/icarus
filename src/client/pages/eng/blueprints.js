@@ -92,11 +92,11 @@ export default function EngineeringMaterialsPage () {
                     >
                       <td
                         className='text-center text-info'
-                        style={{width: '1rem'}}
+                        style={{ width: '1rem' }}
                       >
                         <i
                           className='icon icarus-terminal-wrench'
-                          style={{ position: 'relative', top: '.15rem'}}
+                          style={{ position: 'relative', top: '.15rem' }}
                         />
                       </td>
                       <td>
@@ -132,11 +132,11 @@ export default function EngineeringMaterialsPage () {
                   >
                     <td
                       className='text-center text-primary'
-                      style={{width: '1rem'}}
+                      style={{ width: '1rem' }}
                     >
                       <i
                         className='icon icarus-terminal-wrench'
-                        style={{ position: 'relative', top: '.15rem'}}
+                        style={{ position: 'relative', top: '.15rem' }}
                       />
                     </td>
                     <td>
@@ -169,11 +169,11 @@ export default function EngineeringMaterialsPage () {
                     >
                       <td
                         className='text-center text-info'
-                        style={{width: '1rem'}}
+                        style={{ width: '1rem' }}
                       >
                         <i
                           className='icon icarus-terminal-wrench'
-                          style={{ position: 'relative', top: '.15rem'}}
+                          style={{ position: 'relative', top: '.15rem' }}
                         />
                       </td>
                       <td>
@@ -219,13 +219,13 @@ export default function EngineeringMaterialsPage () {
             <tbody className='fx-fade-in'>
               {Object.keys(selectedBlueprint?.engineers ?? []).map(engineer => (
                 <tr key={`engineer_${engineer}`}>
-                 <td
-                  className={`text-center ${selectedBlueprint?.engineers[engineer]?.rank === 0 ? 'text-info text-muted' : 'text-info'}`}
-                  style={{width: '1rem'}}
+                  <td
+                    className={`text-center ${selectedBlueprint?.engineers[engineer]?.rank === 0 ? 'text-info text-muted' : 'text-info'}`}
+                    style={{ width: '1rem' }}
                   >
                     <i
                       className='icon icarus-terminal-engineer'
-                      style={{ position: 'relative', top: '.15rem'}}
+                      style={{ position: 'relative', top: '.15rem' }}
                     />
                   </td>
                   <td>
@@ -259,9 +259,8 @@ export default function EngineeringMaterialsPage () {
                   <td>
                     {selectedBlueprint?.engineers[engineer]?.rank === 0 && <>
                       {selectedBlueprint?.engineers[engineer]?.progress === UNKNOWN_VALUE
-                          ? <span className='text-danger text-muted'>Locked</span>
-                          : <span className='text-info text-muted'>{selectedBlueprint?.engineers[engineer]?.progress}</span>
-                        }
+                        ? <span className='text-danger text-muted'>Locked</span>
+                        : <span className='text-info text-muted'>{selectedBlueprint?.engineers[engineer]?.progress}</span>}
                     </>}
                     {selectedBlueprint?.engineers[engineer]?.rank > 0 && <span className='text-secondary'> Grade {selectedBlueprint?.engineers[engineer]?.rank} Unlocked</span>}
                   </td>

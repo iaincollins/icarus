@@ -6,13 +6,13 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
   return (
     <div className={`navigation-panel__list ${systemObject ? 'navigation-panel__list--inspector' : ''}`}>
       {(!system.stars || system.stars.length < 2) &&
-          <div
+        <div
           className='text-center-both'
           style={{ zIndex: '30', pointerEvents: 'none' }}
         >
           <h2>
-            <span className='text-primary text-blink-slow'>No system information</span><br/>
-            <span className='text-info text-muted' style={{fontSize: '1.5rem'}}>EDSM Telemetry Unavailable</span>
+            <span className='text-primary text-blink-slow'>No system information</span><br />
+            <span className='text-info text-muted' style={{ fontSize: '1.5rem' }}>EDSM Telemetry Unavailable</span>
           </h2>
         </div>}
       <div className='scrollable'>

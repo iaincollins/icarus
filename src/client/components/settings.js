@@ -8,25 +8,25 @@ function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPan
 
   return (
     <>
-      <div className='modal-dialog__background' style={{ opacity: visible ? 1 : 0, visibility: visible ? 'visible' : 'hidden' }} onClick={toggleVisible}/>
+      <div className='modal-dialog__background' style={{ opacity: visible ? 1 : 0, visibility: visible ? 'visible' : 'hidden' }} onClick={toggleVisible} />
       <div className='modal-dialog' style={{ opacity: visible ? 1 : 0, visibility: visible ? 'visible' : 'hidden' }}>
         <h2 className='modal-dialog__title'>Settings</h2>
         <hr />
         <div className='secondary-navigation modal-dialog__navigation'>
-        {SettingsNavItems(activeSettingsPanel).map(item =>
-          <Fragment key={item.name}>
-            <button
-              tabIndex='2'
-              className={`button--icon ${item.active ? 'button--active' : ''}`}
-              onClick={() => setActiveSettingsPanel(item.name)}
+          {SettingsNavItems(activeSettingsPanel).map(item =>
+            <Fragment key={item.name}>
+              <button
+                tabIndex='2'
+                className={`button--icon ${item.active ? 'button--active' : ''}`}
+                onClick={() => setActiveSettingsPanel(item.name)}
               >
-              <i className={`icon icarus-terminal-${item.icon}`} />
-            </button>
-          </Fragment>
-        )}
+                <i className={`icon icarus-terminal-${item.icon}`} />
+              </button>
+            </Fragment>
+          )}
         </div>
-        {activeSettingsPanel === 'Theme' && <ThemeSettings visible={visible}/>}
-        {activeSettingsPanel === 'Sounds' && <SoundSettings visible={visible}/>}
+        {activeSettingsPanel === 'Theme' && <ThemeSettings visible={visible} />}
+        {activeSettingsPanel === 'Sounds' && <SoundSettings visible={visible} />}
         <div className='modal-dialog__footer'>
           <hr style={{ margin: '1rem 0 .5rem 0' }} />
           <button className='float-right' onClick={toggleVisible}>
@@ -38,7 +38,7 @@ function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPan
   )
 }
 
-function SoundSettings ({visible}) {
+function SoundSettings ({ visible }) {
   const [preferences, setPreferences] = useState()
   const [voices, setVoices] = useState()
 
@@ -54,7 +54,7 @@ function SoundSettings ({visible}) {
     }
   }), [])
 
-  return(
+  return (
     <div className='modal-dialog__panel modal-dialog__panel--with-navigation scrollable'>
       <h3 className='text-primary'>Sounds</h3>
       <p>
@@ -69,29 +69,30 @@ function SoundSettings ({visible}) {
         value={preferences?.voice ?? 'None'}
         disabled={!voices || !preferences}
         name='voices'
-        style={{width: '20rem'}}
+        style={{ width: '20rem' }}
         onChange={async (e) => {
-        const voice = e.target.value
-        const newPreferences = JSON.parse(JSON.stringify(preferences))
-        newPreferences.voice = voice === 'None' ? null : voice
-        setPreferences(await sendEvent('setPreferences', newPreferences))
-        if (voice !== 'None') {
-          sendEvent('testVoice', { voice })
-        }
-      }}>
+          const voice = e.target.value
+          const newPreferences = JSON.parse(JSON.stringify(preferences))
+          newPreferences.voice = voice === 'None' ? null : voice
+          setPreferences(await sendEvent('setPreferences', newPreferences))
+          if (voice !== 'None') {
+            sendEvent('testVoice', { voice })
+          }
+        }}
+      >
         {voices && preferences && <>
           <option value='None'>None</option>
           <option disabled>─</option>
           {voices && voices.map(voice => <option key={`voice_${voice}`}>{voice}</option>)}
         </>}
       </select>
-      <br/><br/>
+      <br /><br />
       <h4 className='text-primary'>About voice assistant</h4>
       <p>
-        The current implementation is only intended for debugging / testing. 
+        The current implementation is only intended for debugging / testing.
       </p>
       <p>
-        Audio will be played through the computer ICARUS Terminal is running on. 
+        Audio will be played through the computer ICARUS Terminal is running on.
       </p>
       <p>
         This setting uses your computers native Text To Speech capabilities.

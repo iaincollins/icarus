@@ -10,9 +10,9 @@ class SayPlatformDarwin extends SayPlatformBase {
   }
 
   buildSpeakCommand ({ text, voice, speed }) {
-    let args = []
-    let pipedData = ''
-    let options = {}
+    const args = []
+    const pipedData = ''
+    const options = {}
 
     if (!voice) {
       args.push(text)
@@ -28,9 +28,9 @@ class SayPlatformDarwin extends SayPlatformBase {
   }
 
   buildExportCommand ({ text, voice, speed, filename }) {
-    let args = []
-    let pipedData = ''
-    let options = {}
+    const args = []
+    const pipedData = ''
+    const options = {}
 
     if (!voice) {
       args.push(text)

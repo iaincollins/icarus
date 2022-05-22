@@ -1,18 +1,18 @@
 const takeScreenshot = require('take-screenshots')
 
 const HOST = 'http://localhost:3300'
-const BASE_DIR = __dirname+'/../resources/images/screenshots'
+const BASE_DIR = __dirname + '/../resources/images/screenshots'
 const DEFAULT_OPTIONS = {
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36',
   viewport: {
     width: 1024,
     height: 768,
     deviceScaleFactor: 2
-  },
+  }
 }
 
-function screenshot(url, path, options) {
-  return takeScreenshot(url, {...DEFAULT_OPTIONS, ...options, screenshot: { path }})
+function screenshot (url, path, options) {
+  return takeScreenshot(url, { ...DEFAULT_OPTIONS, ...options, screenshot: { path } })
 }
 
 ;(async () => {

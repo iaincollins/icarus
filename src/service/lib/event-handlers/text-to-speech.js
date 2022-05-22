@@ -20,19 +20,19 @@ class TextToSpeech {
     return this
   }
 
-  async speak(text, voice, force) {
+  async speak (text, voice, force) {
     // Only fire if Text To Speech voice has been selected in preferences
     const preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
     if (!force && !preferences?.voice) return
     const _voice = voice || preferences?.voice || (await this.getVoices())[0]
 
     // Only allow valid voice names (also combats potential shell escaping)
-    if (!_voice || !(await this.getVoices()).includes(_voice)) return 
+    if (!_voice || !(await this.getVoices()).includes(_voice)) return
 
     say.speak(text, _voice)
   }
 
-  logEventHandler(logEvent) {
+  logEventHandler (logEvent) {
     if (logEvent.event === 'StartJump' && logEvent.StarSystem) this.speak(`Jumping to ${logEvent.StarSystem}`)
     if (logEvent.event === 'FSDJump') this.speak(`Jump complete. Arrived in ${logEvent.StarSystem}`)
     if (logEvent.event === 'ApproachBody') this.speak(`Approaching ${logEvent.Body}`)
@@ -42,23 +42,23 @@ class TextToSpeech {
     if (logEvent.event === 'Docked') this.speak(`Docked at ${logEvent.StationName}`)
     if (logEvent.event === 'Undocked') this.speak(`Now leaving ${logEvent.StationName}`)
     if (logEvent.event === 'ApproachSettlement') this.speak(`Approaching ${logEvent.Name}`)
-    if (logEvent.event === 'MarketBuy') this.speak(`Purchased ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : `tonnes`} of ${logEvent.Type_Localised || logEvent.Type}`)
-    if (logEvent.event === 'MarketSell') this.speak(`Sold  ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : `tonnes`} of  ${logEvent.Type_Localised || logEvent.Type}`)
-    if (logEvent.event === 'BuyDrones') this.speak(`Purchased ${logEvent.Count} Limpet ${logEvent.Count === 1 ? 'Drone' : `Drones`}`)
-    if (logEvent.event === 'SellDrones') this.speak(`Sold ${logEvent.Count} Limpet ${logEvent.Count === 1 ? 'Drone' : `Drones`}`)
-    if (logEvent.event === 'CargoDepot' && logEvent.UpdateType === 'Collect') this.speak(`Collected ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : `tonnes`} of ${logEvent.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
-    if (logEvent.event === 'CargoDepot' && logEvent.UpdateType === 'Deliver') this.speak(`Delivered  ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : `tonnes`} of ${logEvent.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
+    if (logEvent.event === 'MarketBuy') this.speak(`Purchased ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : 'tonnes'} of ${logEvent.Type_Localised || logEvent.Type}`)
+    if (logEvent.event === 'MarketSell') this.speak(`Sold  ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : 'tonnes'} of  ${logEvent.Type_Localised || logEvent.Type}`)
+    if (logEvent.event === 'BuyDrones') this.speak(`Purchased ${logEvent.Count} Limpet ${logEvent.Count === 1 ? 'Drone' : 'Drones'}`)
+    if (logEvent.event === 'SellDrones') this.speak(`Sold ${logEvent.Count} Limpet ${logEvent.Count === 1 ? 'Drone' : 'Drones'}`)
+    if (logEvent.event === 'CargoDepot' && logEvent.UpdateType === 'Collect') this.speak(`Collected ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : 'tonnes'} of ${logEvent.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
+    if (logEvent.event === 'CargoDepot' && logEvent.UpdateType === 'Deliver') this.speak(`Delivered  ${logEvent.Count} ${logEvent.Count === 1 ? 'tonne' : 'tonnes'} of ${logEvent.CargoType.replace(/([a-z])([A-Z])/g, '$1 $2')}`)
     if (logEvent.event === 'Scanned') this.speak('Scan detected')
     if (logEvent.event === 'FSSDiscoveryScan') this.speak(`Discovery Scan Complete. ${logEvent.BodyCount} ${logEvent.BodyCount === 1 ? 'Body' : 'Bodies'} found in system.`)
   }
 
-  async gameStateChangeHandler() {
+  async gameStateChangeHandler () {
     // TODO Refine so this logic is only evaluated on changes to Status.json
     const previousCmdStatus = JSON.parse(JSON.stringify(this.currentCmdrStatus))
     this.currentCmdrStatus = await this.cmdrStatus.getCmdrStatus()
     const shipStatus = await this.shipStatus.getShipStatus()
 
-    // Only evaluate these if we are on board the ship, there is a previous 
+    // Only evaluate these if we are on board the ship, there is a previous
     // status (i.e. not at startup) and we have not recently alerted
     if (shipStatus?.onBoard && previousCmdStatus && !this.voiceAlertDebounce) {
       // TODO improve with better debounce function
@@ -87,14 +87,14 @@ class TextToSpeech {
     }
   }
 
-  async getVoice() {
+  async getVoice () {
     const preferences = fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
     if (preferences?.voice) return preferences.voice
 
     return await this.getVoices()[0]
   }
 
-  getVoices() {
+  getVoices () {
     return new Promise(resolve =>
       say.getInstalledVoices((err, voices) => {
         resolve(voices)

@@ -23,8 +23,8 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           style={{ zIndex: '30', pointerEvents: 'none' }}
         >
           <h2>
-            <span className='text-primary text-blink-slow'>No system information</span><br/>
-            <span className='text-info text-muted' style={{fontSize: '1.5rem'}}>EDSM Telemetry Unavailable</span>
+            <span className='text-primary text-blink-slow'>No system information</span><br />
+            <span className='text-info text-muted' style={{ fontSize: '1.5rem' }}>EDSM Telemetry Unavailable</span>
           </h2>
         </div>
         <div id='navigation-panel__map-background' className='navigation-panel__map-background'>
@@ -51,7 +51,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               <div className='text-secondary text-center-vertical'>
                 <h3 className='text-secondary'>
                   {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY
-                  <span className='text-muted'> from<br/>current location</span>
+                  <span className='text-muted'> from<br />current location</span>
                 </h3>
               </div>}
             {system?.distance === 0 && system.isCurrentLocation === false &&
@@ -62,8 +62,8 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               </div>}
             {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === false &&
               <div className='text-secondary text-center-vertical'>
-                <h3 style={{width: '100%'}}>
-                  <i className='icon icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem'}} />
+                <h3 style={{ width: '100%' }}>
+                  <i className='icon icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem' }} />
                   {(cmdrStatus?._location)
                     ? cmdrStatus._location.map((loc, i) =>
                       <span key={`location_${loc}_${i}`}>
@@ -72,7 +72,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                       </span>
                       )
                     : 'Current location'}
-                  </h3>
+                </h3>
               </div>}
             {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
               <div className='text-center-vertical'>
@@ -105,7 +105,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         <div className='fx-fade-in'>
           <div className='text-muted'>
             <div className='system-map__system-telemetry text-info text-muted text-uppercase text-no-wrap'>
-              EDSM<br/>Telemetry
+              EDSM<br />Telemetry
             </div>
             {system.position &&
               <div className='system-map__system-position text-info text-muted text-no-wrap'>
@@ -118,7 +118,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
             <div className='text-secondary text-center-vertical'>
               <h3 className='text-secondary'>
                 {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY
-                <span className='text-muted'> from<br/>current location</span>
+                <span className='text-muted'> from<br />current location</span>
               </h3>
             </div>}
           {system?.distance === 0 && system.isCurrentLocation === false &&
@@ -129,8 +129,8 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
             </div>}
           {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === false &&
             <div className='text-secondary text-center-vertical'>
-              <h3 style={{width: '100%'}}>
-                <i className='icon icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem'}} />
+              <h3 style={{ width: '100%' }}>
+                <i className='icon icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem' }} />
                 {(cmdrStatus?._location)
                   ? cmdrStatus._location.map((loc, i) =>
                     <span key={`location_${loc}_${i}`}>
@@ -139,7 +139,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                     </span>
                     )
                   : 'Current location'}
-                </h3>
+              </h3>
             </div>}
           {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
             <div className='text-center-vertical'>
@@ -149,18 +149,18 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         <div className='system-map__info fx-fade-in'>
           {((system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0))
             ? <div className='system-map__info--icons text-center-vertical text-right'>
-                <div style={{width: '100%'}}>
-              {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' /><span className='count'>{coriolisStarports}</span></span>}
-              {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' /><span className='count'>{ocellusStarports}</span></span>}
-              {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' /><span className='count'>{orbisStarports}</span></span>}
-              {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' /><span className='count'>{asteroidBases}</span></span>}
-              {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' /><span className='count'>{outposts}</span></span>}
-              {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
-              {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
-              {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
+              <div style={{ width: '100%' }}>
+                {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' /><span className='count'>{coriolisStarports}</span></span>}
+                {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' /><span className='count'>{ocellusStarports}</span></span>}
+                {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' /><span className='count'>{orbisStarports}</span></span>}
+                {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' /><span className='count'>{asteroidBases}</span></span>}
+                {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' /><span className='count'>{outposts}</span></span>}
+                {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
+                {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
+                {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
               </div>
               </div>
-            : <div className='text-center-vertical text-uppercase text-info text-muted text-right'><div style={{width: '100%'}}>No known stations or settlements</div></div>}
+            : <div className='text-center-vertical text-uppercase text-info text-muted text-right'><div style={{ width: '100%' }}>No known stations or settlements</div></div>}
         </div>
       </div>
     </div>

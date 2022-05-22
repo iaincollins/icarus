@@ -23,7 +23,7 @@ export default function SystemMapStar ({ star, setSystemObject }) {
       data-stellar-objects-vertical={star._maxObjectsInOrbit}
     >
       <div
-        onClick={() => { if (star.type !== 'Null') setSystemObject(star)} }
+        onClick={() => { if (star.type !== 'Null') setSystemObject(star) }}
         className={`system-map__planetary-system-star ${star.id ? 'system-map__planetary-system-star--icon' : '0'}`}
       >
         {star.id &&

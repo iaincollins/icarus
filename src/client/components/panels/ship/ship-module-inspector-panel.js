@@ -3,7 +3,7 @@ import EngineeringModifier from 'components/panels/ship/ship-status/engineering-
 
 export default function ShipModuleInspectorPanel ({ module, setSelectedModule }) {
   const router = useRouter()
-  
+
   if (!module) return (<div className='ship-panel__module-inspector ship-panel__module-inspector--hidden' />)
 
   let inspectorTitle = 'Optional Module'
@@ -40,30 +40,30 @@ export default function ShipModuleInspectorPanel ({ module, setSelectedModule })
           <>
             <div className='ship-panel__module-section ship-panel__module-section--engineering text-uppercase'>
               <h3 className='text-muted'>Engineering</h3>
-                <div className='ship-panel__module-section--engineering-tab'>
+              <div className='ship-panel__module-section--engineering-tab'>
+                <p className='text-primary'>
+                  <span className='text-muted'>Blueprint </span>
+                  <span className='text-link' onClick={() => router.push({ pathname: '/eng/blueprints', query: { symbol: module.engineering.symbol } })}>
+                    <span className='text-link-text'>{module.engineering.originalName}</span>
+                  </span>
+                </p>
+                {module.engineering.experimentalEffect &&
                   <p className='text-primary'>
-                    <span className='text-muted'>Blueprint </span>
-                    <span className='text-link' onClick={() => router.push({ pathname: '/eng/blueprints', query: { symbol: module.engineering.symbol } })}>
-                      <span className='text-link-text'>{module.engineering.originalName}</span>
-                    </span>
-                  </p>
-                  {module.engineering.experimentalEffect &&
-                    <p className='text-primary'>
-                      <span className='text-muted'>experimental</span>
-                      <span> {module.engineering.experimentalEffect}</span>
-                    </p>}
-                  <p className='text-primary'>
-                    <span className='text-muted'>by</span> {module.engineering.engineer}
-                  </p>
-                  <p className='text-secondary' style={{ margin: 0, fontSize: '2rem', top: '.25rem', position: 'relative' }}>
-                    {[...Array(module.engineering.level)].map((j, i) =>
-                      <i
-                        key={`${module.name}_${module.slot}_engineering_${i}`}
-                        className='icon icarus-terminal-engineering'
-                      />
-                    )}
-                  </p>
-                </div>
+                    <span className='text-muted'>experimental</span>
+                    <span> {module.engineering.experimentalEffect}</span>
+                  </p>}
+                <p className='text-primary'>
+                  <span className='text-muted'>by</span> {module.engineering.engineer}
+                </p>
+                <p className='text-secondary' style={{ margin: 0, fontSize: '2rem', top: '.25rem', position: 'relative' }}>
+                  {[...Array(module.engineering.level)].map((j, i) =>
+                    <i
+                      key={`${module.name}_${module.slot}_engineering_${i}`}
+                      className='icon icarus-terminal-engineering'
+                    />
+                  )}
+                </p>
+              </div>
             </div>
             <div className='ship-panel__module-section ship-panel__module-section--engineering text-uppercase'>
               <div className='ship-panel__module-section--engineering-tab'>

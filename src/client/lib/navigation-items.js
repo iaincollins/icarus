@@ -99,24 +99,22 @@ function EngineeringPanelNavItems (activePanel) {
   return navigationItems
 }
 
-
 function SettingsNavItems (activePanel) {
   const navigationItems = [
     {
       name: 'Theme',
-      icon: 'color-picker',
+      icon: 'color-picker'
     },
     {
       name: 'Sounds',
-      icon: 'sound',
-    },
+      icon: 'sound'
+    }
   ]
   navigationItems.forEach(item => {
     if (item.name.toLowerCase() === activePanel.toLowerCase()) item.active = true
   })
   return navigationItems
 }
-
 
 module.exports = {
   ShipPanelNavItems,

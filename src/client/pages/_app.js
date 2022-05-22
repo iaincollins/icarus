@@ -35,12 +35,11 @@ export default class MyApp extends App {
     }
   }
 
-
   render () {
     const { Component, pageProps } = this.props
     return (
       <SocketProvider>
-        <div id='notifications' style={{transition: '1s all ease-in-out', position: 'fixed', zIndex: 9999}}>
+        <div id='notifications' style={{ transition: '1s all ease-in-out', position: 'fixed', zIndex: 9999 }}>
           <Toaster
             position='bottom-right'
             toastOptions={{
@@ -55,7 +54,7 @@ export default class MyApp extends App {
                 maxWidth: '420px',
                 textAlign: 'left !important',
                 margin: '0 1rem',
-                boxShadow: '0 0 1rem black',
+                boxShadow: '0 0 1rem black'
               }
             }}
           />

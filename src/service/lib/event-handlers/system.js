@@ -114,8 +114,8 @@ class System {
     // If we don't know what system this is return what we have
     if (!cacheResponse.name || cacheResponse.name === UNKNOWN_VALUE) {
       const isCurrentLocation = (systemName.toLowerCase() === currentLocation?.name?.toLowerCase())
-      
-      let response = {
+
+      const response = {
         name: systemName,
         unknownSystem: true,
         isCurrentLocation

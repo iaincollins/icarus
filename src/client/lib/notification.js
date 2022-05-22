@@ -6,13 +6,13 @@ import toast from 'react-hot-toast'
 // Message can be string or JSX
 function notification (message, args = {}) {
   let toastId = args?.id
-  
+
   if (!toastId) {
     toastId = typeof message === 'string'
       ? fastHash(message)
       : fastHash(ReactDOMServer.renderToStaticMarkup(message))
   }
-  
+
   // FIXME Limitation in toast library that it cannot update existing toasts in
   // in the way we need it do, and there is a bug in the toast library with
   // removing toasts by ID so we can't just remove them either. Looks like it
@@ -22,7 +22,7 @@ function notification (message, args = {}) {
   const options = {
     toastId
   }
-  
+
   toast(message, options)
 }
 

@@ -28,7 +28,7 @@ class SayPlatformBase {
       })
     }
 
-    let { command, args, pipedData, options } = this.buildSpeakCommand({ text, voice, speed })
+    const { command, args, pipedData, options } = this.buildSpeakCommand({ text, voice, speed })
 
     this.child = childProcess.spawn(command, args, options)
 
@@ -157,8 +157,8 @@ class SayPlatformBase {
     }
     callback = once(callback)
 
-    let { command, args } = this.getVoices()
-    var voices = []
+    const { command, args } = this.getVoices()
+    let voices = []
     this.child = childProcess.spawn(command, args)
 
     this.child.stdin.setEncoding('utf-8')

@@ -10,9 +10,9 @@ class SayPlatformLinux extends SayPlatformBase {
   }
 
   buildSpeakCommand ({ text, voice, speed }) {
-    let args = []
+    const args = []
     let pipedData = ''
-    let options = {}
+    const options = {}
 
     args.push('--pipe')
 

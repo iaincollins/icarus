@@ -23,7 +23,7 @@ export default function NavListPage () {
       currentSystemRef?.current?.scrollIntoView()
       setScrolled(true)
     }
- }, [navRoute])
+  }, [navRoute])
 
   const search = async (searchInput) => {
     router.push({ pathname: '/nav/map', query: { system: searchInput.toLowerCase() } })
@@ -50,7 +50,7 @@ export default function NavListPage () {
   useEffect(() => eventListener('gameStateChange', async (log) => {
     const newNavRoute = await sendEvent('getNavRoute')
     // TODO Check destination system and only update navroute if different
-    // to current destination and if it is then execute setScrolled(false) so 
+    // to current destination and if it is then execute setScrolled(false) so
     // that the route scroll position will update
     if (newNavRoute) setNavRoute(newNavRoute)
   }))
@@ -70,14 +70,14 @@ export default function NavListPage () {
       <Panel scrollable layout='full-width' navigation={NavPanelNavItems('Route', query)} search={search}>
         <table>
           <tbody>
-            <tr style={{ background: 'none'}}>
+            <tr style={{ background: 'none' }}>
               <td style={{ width: '50%', padding: 0 }}>
                 {navRoute?.currentSystem &&
                   <>
                     <h3 className='text-primary'>
                       Location
                     </h3>
-                    <h2 className='text-info' style={{height: '4rem', overflow: 'hidden'}}><CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick></h2>
+                    <h2 className='text-info' style={{ height: '4rem', overflow: 'hidden' }}><CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick></h2>
                   </>}
               </td>
               <td style={{ width: '50%', padding: 0 }} className='text-right'>
@@ -86,7 +86,7 @@ export default function NavListPage () {
                     <h3 className='text-primary'>
                       Destination
                     </h3>
-                    <h2 className='text-info text-right' style={{height: '4rem', overflow: 'hidden' }}>
+                    <h2 className='text-info text-right' style={{ height: '4rem', overflow: 'hidden' }}>
                       {navRoute?.destination?.distance > 0 ? <CopyOnClick>{navRoute?.destination?.system}</CopyOnClick> : <span className='text-muted'>—</span>}
                     </h2>
                   </>}
@@ -105,18 +105,18 @@ export default function NavListPage () {
             </>}
           {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination === 0 &&
             <>Arrived at destination</>}
-          {navRoute?.route?.length === 0 && 
+          {navRoute?.route?.length === 0 &&
             <span className='text-blink-slow'>Set route using galaxy map</span>}
         </p>
         {navRoute?.route?.length > 0 &&
           <>
             <hr style={{ marginBottom: 0 }} />
-            <div className='scrollable' style={{position: 'fixed', top: '19.5rem', bottom: '3.75rem', left: '5rem', right: '1rem'}}>
+            <div className='scrollable' style={{ position: 'fixed', top: '19.5rem', bottom: '3.75rem', left: '5rem', right: '1rem' }}>
               <table className='table--animated table--interactive'>
                 <tbody className='fx-fade-in'>
                   {navRoute.route.map((route, i) => {
                     const icon = route?.isCurrentSystem === true ? 'icarus-terminal-location-filled' : 'icarus-terminal-star'
-                    const previouslyVistedSystem = navRoute?.inSystemOnRoute && (navRoute?.route?.length - navRoute.jumpsToDestination) > (i+1)
+                    const previouslyVistedSystem = navRoute?.inSystemOnRoute && (navRoute?.route?.length - navRoute.jumpsToDestination) > (i + 1)
                     return (
                       <tr
                         ref={route?.isCurrentSystem === true ? currentSystemRef : null}
@@ -154,7 +154,7 @@ export default function NavListPage () {
             </div>
           </>}
         {navRoute?.route?.length > 0 &&
-          <div style={{position: 'fixed', bottom: '.75rem', left: '5rem', right: '1rem'}}>
+          <div style={{ position: 'fixed', bottom: '.75rem', left: '5rem', right: '1rem' }}>
             <hr className='small' style={{ marginTop: 0, marginBottom: '.75' }} />
             <p className='text-primary text-muted text-center'>
               Set route using galaxy map

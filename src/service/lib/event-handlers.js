@@ -60,11 +60,11 @@ class EventHandlers {
   }
 
   // logEventHandler is fired on every in-game log event
-  logEventHandler(logEvent) {
+  logEventHandler (logEvent) {
     this.textToSpeech.logEventHandler(logEvent)
   }
 
-  gameStateChangeHandler(event) {
+  gameStateChangeHandler (event) {
     this.textToSpeech.gameStateChangeHandler(event)
   }
 
@@ -95,7 +95,7 @@ class EventHandlers {
         getBlueprints: (args) => this.blueprints.getBlueprints(args),
         getNavRoute: (args) => this.navRoute.getNavRoute(args),
         getPreferences: () => {
-            return fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
+          return fs.existsSync(PREFERENCES_FILE) ? JSON.parse(fs.readFileSync(PREFERENCES_FILE)) : {}
         },
         setPreferences: (preferences) => {
           if (!fs.existsSync(PREFERENCES_DIR)) fs.mkdirSync(PREFERENCES_DIR, { recursive: true })
@@ -104,10 +104,10 @@ class EventHandlers {
           return preferences
         },
         getVoices: () => this.textToSpeech.getVoices(),
-        testVoice: ({voice}) => {
-          // Escape voice name when passing as text as precaution to clean 
+        testVoice: ({ voice }) => {
+          // Escape voice name when passing as text as precaution to clean
           // input (NB: voice name argument is checked internally)
-          const text = `Voice assistant will use ${voice.replace(/[^a-z0-9 -]/gi,'')}`
+          const text = `Voice assistant will use ${voice.replace(/[^a-z0-9 -]/gi, '')}`
           this.textToSpeech.speak(text, voice, true)
         },
         toggleSwitch: async ({ switchName }) => {

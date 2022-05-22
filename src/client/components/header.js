@@ -60,11 +60,10 @@ export default function Header ({ connected, active }) {
     // buggy. It needs swapping out for a different approach but this is a
     // workaround for now.
     if (socketOptions.notifications) {
-      notification('Notifications enabled', {id: 'notification-status'})
+      notification('Notifications enabled', { id: 'notification-status' })
       document.getElementById('notifications').style.opacity = '1'
     } else {
-      
-      notification('Notifications disabled', {id: 'notification-status'})
+      notification('Notifications disabled', { id: 'notification-status' })
       // Use a setTimeout so that the user has time to read the notificaiton
       // before they are all hidden. Uses a conditional so that if the user
       // rapidly clicks the toggle it doesn't end up in a weird state.
@@ -162,7 +161,7 @@ export default function Header ({ connected, active }) {
         )}
       </div>
       <hr className='bold' />
-      <Settings visible={settingsVisible} toggleVisible={() => setSettingsVisible(!settingsVisible)}/>
+      <Settings visible={settingsVisible} toggleVisible={() => setSettingsVisible(!settingsVisible)} />
     </header>
   )
 }

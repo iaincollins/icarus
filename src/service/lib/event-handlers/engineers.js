@@ -26,7 +26,7 @@ class Engineers {
         system: {
           address: engineerWithLocation?.systemAddress ?? UNKNOWN_VALUE,
           name: engineerWithLocation?.systemName ?? UNKNOWN_VALUE,
-          position: engineerWithLocation?.systemPosition ?? UNKNOWN_VALUE,
+          position: engineerWithLocation?.systemPosition ?? UNKNOWN_VALUE
         },
         marketId: engineerWithLocation?.marketId ?? UNKNOWN_VALUE,
         progress: {
@@ -48,7 +48,7 @@ class Engineers {
           system: {
             address: engineer?.systemAddress ?? UNKNOWN_VALUE,
             name: engineer?.systemName ?? UNKNOWN_VALUE,
-            position: engineer?.systemPosition ?? UNKNOWN_VALUE,
+            position: engineer?.systemPosition ?? UNKNOWN_VALUE
           },
           marketId: engineer?.marketId ?? UNKNOWN_VALUE,
           progress: {

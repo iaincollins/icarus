@@ -30,7 +30,8 @@ export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModu
           ship={ship}
           cmdrStatus={cmdrStatus}
           toggleSwitches={toggleSwitches}
-          toggleSwitch={toggleSwitch} />
+          toggleSwitch={toggleSwitch}
+        />
         <ShipModules
           name='Hardpoints'
           modules={

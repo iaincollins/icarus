@@ -89,7 +89,7 @@ export default function NavListPage () {
 
   return (
     <>
-      <div className='modal-dialog__background' style={{ opacity: helpVisible ? 1 : 0, visibility: helpVisible ? 'visible' : 'hidden' }} onClick={() => setHelpVisible(!helpVisible)}/>
+      <div className='modal-dialog__background' style={{ opacity: helpVisible ? 1 : 0, visibility: helpVisible ? 'visible' : 'hidden' }} onClick={() => setHelpVisible(!helpVisible)} />
       <div className='modal-dialog' style={{ opacity: helpVisible ? 1 : 0, visibility: helpVisible ? 'visible' : 'hidden' }}>
         <h2 className='modal-dialog__title'>Help</h2>
         <hr />

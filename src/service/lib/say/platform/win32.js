@@ -12,23 +12,23 @@ class SayPlatformWin32 extends SayPlatformBase {
   }
 
   buildSpeakCommand ({ text, voice, speed }) {
-    let args = []
+    const args = []
     let pipedData = ''
-    let options = {}
+    const options = {}
 
-    let psCommand = `chcp 65001;` // Change powershell encoding to utf-8
-    psCommand += `Add-Type -AssemblyName System.speech;$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer;`
+    let psCommand = 'chcp 65001;' // Change powershell encoding to utf-8
+    psCommand += 'Add-Type -AssemblyName System.speech;$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer;'
 
     if (voice) {
       psCommand += `$speak.SelectVoice('${voice}');`
     }
 
     if (speed) {
-      let adjustedSpeed = this.convertSpeed(speed || 1)
+      const adjustedSpeed = this.convertSpeed(speed || 1)
       psCommand += `$speak.Rate = ${adjustedSpeed};`
     }
 
-    psCommand += `$speak.Speak([Console]::In.ReadToEnd())`
+    psCommand += '$speak.Speak([Console]::In.ReadToEnd())'
 
     pipedData += text
     args.push(psCommand)
@@ -38,19 +38,19 @@ class SayPlatformWin32 extends SayPlatformBase {
   }
 
   buildExportCommand ({ text, voice, speed, filename }) {
-    let args = []
+    const args = []
     let pipedData = ''
-    let options = {}
+    const options = {}
 
-    let psCommand = `chcp 65001;` // Change powershell encoding to utf-8
-    psCommand += `Add-Type -AssemblyName System.speech;$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer;`
+    let psCommand = 'chcp 65001;' // Change powershell encoding to utf-8
+    psCommand += 'Add-Type -AssemblyName System.speech;$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer;'
 
     if (voice) {
       psCommand += `$speak.SelectVoice('${voice}');`
     }
 
     if (speed) {
-      let adjustedSpeed = this.convertSpeed(speed || 1)
+      const adjustedSpeed = this.convertSpeed(speed || 1)
       psCommand += `$speak.Rate = ${adjustedSpeed};`
     }
 
@@ -59,7 +59,7 @@ class SayPlatformWin32 extends SayPlatformBase {
       psCommand += `$speak.SetOutputToWaveFile('${filename}');`
     }
 
-    psCommand += `$speak.Speak([Console]::In.ReadToEnd());$speak.Dispose()`
+    psCommand += '$speak.Speak([Console]::In.ReadToEnd());$speak.Dispose()'
 
     pipedData += text
     args.push(psCommand)
@@ -79,8 +79,8 @@ class SayPlatformWin32 extends SayPlatformBase {
   }
 
   getVoices () {
-    let args = []
-    let psCommand = 'Add-Type -AssemblyName System.speech;$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer;$speak.GetInstalledVoices() | % {$_.VoiceInfo.Name}'
+    const args = []
+    const psCommand = 'Add-Type -AssemblyName System.speech;$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer;$speak.GetInstalledVoices() | % {$_.VoiceInfo.Name}'
     args.push(psCommand)
     return { command: COMMAND, args }
   }
