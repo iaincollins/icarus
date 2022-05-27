@@ -4,7 +4,11 @@ _This documentation is intended for developers who want to build from source._
 
 ICARUS is a Windows (Win32) application built primarily in JavaScript, using Node.js + WebSockets and Go with a fork of custom [Edge/WebView2 abstraction in C/C++](https://github.com/iaincollins/webview).
 
-The self-contained installer is around 20 MB and has no dependancies. If you are running an older but supported release of Windows, any missing run time dependancies will be automatically and transparently installed by the bundled Microsft installer.
+The self-contained installer is around 20 MB and has no dependancies. If you are running an older but supported release of Microsoft Windows, any required Microsoft provided DLLs that are not found will be automatically loaded by the bundled Microsoft installer (e.g. the Microsoft Edge common runtime used to render the user interface).
+
+There are other (less complicated) ways to build a cross platform app using a technology like WebView (e.g. [Electron](https://www.electronjs.org/), [Photino](https://www.tryphotino.io/)) but the stack used was chosen to meet specific criteria, including the ability to leverage both native Windows features and to re-use existing isomorphic code, in an optimally sized and fully self-contained installer.
+
+It is possible to build the entire project (or any of the individual components) in a single build step, but due to the nature of Microsoft Windows several pre-requsites must be configured to set up a build environment for the first time. These are documented below.
 
 ## Getting Started
 
@@ -67,8 +71,8 @@ You can also run each build step independently:
 
 * `npm run build:app` builds only the GUI app (ICARUS Terminal.exe)
 * `npm run build:service` builds only the service (ICARUS Service.exe)
+* `npm run build:client` builds only the web interface; required to build the service as is an embedded resource
 * `npm run build:package` builds only the Windows installer (ICARUS Setup.exe)
-* `npm run build:web` builds only the web interface; required to build the service as is an embedded resource
 * `npm run build:assets` builds assets (icons, fonts, etc) - e.g. used to update the icon font
 * `npm run build:clean` resets the build environment
 
