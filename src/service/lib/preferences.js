@@ -1,6 +1,7 @@
 const os = require('os')
-const path = require('path')
 const fs = require('fs')
+const path = require('path')
+const Package = require('../../../package.json')
 
 const PREFERENCES_FILE = 'Preferences.json'
 
@@ -10,6 +11,7 @@ class Preferences {
   }
 
   savePreferences (preferencesObject) {
+    preferencesObject.version = Package.version
     return fs.writeSync(path.join(this.preferencesDir(), PREFERENCES_FILE), JSON.stringify(preferencesObject))
   }
 
