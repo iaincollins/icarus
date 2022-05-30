@@ -1,5 +1,6 @@
-import { useState, useEffect, Fragment } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { UNKNOWN_VALUE } from '../../../shared/consts'
 import distance from '../../../shared/distance'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
@@ -106,6 +107,9 @@ export default function EngineeringMaterialsPage () {
                       <td className='text-right hidden-medium'>
                         <h4 className='text-muted'>{blueprint.originalName}</h4>
                       </td>
+                      <td className='text-center' style={{width: '1rem'}}>
+                        <i className='icon icarus-terminal-chevron-right' style={{fontSize: '1rem'}}/>
+                      </td>
                     </tr>
                   )}
                 </tbody>
@@ -146,6 +150,9 @@ export default function EngineeringMaterialsPage () {
                     <td className='text-right hidden-medium'>
                       <h4 className='text-muted'>{blueprint.originalName}</h4>
                     </td>
+                    <td className='text-center' style={{width: '1rem'}}>
+                        <i className='icon icarus-terminal-chevron-right' style={{fontSize: '1rem'}}/>
+                      </td>
                   </tr>
                 )}
               </tbody>
@@ -153,12 +160,21 @@ export default function EngineeringMaterialsPage () {
         </Panel>}
       {selectedBlueprint &&
         <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Blueprints')}>
+          <p style={{marginBottom: '1rem'}}>
+            <Link href='/eng/blueprints'>
+              <a className='text-link text-uppercase'><span className='text-link-text'>Blueprints</span></a>
+            </Link>
+            <span className='text-link text-uppercase text-muted'>
+              <i className='icon icarus-terminal-chevron-right' style={{fontSize: '1rem'}}/>
+              {selectedBlueprint.name}
+            </span>
+          </p>
           <h2>{selectedBlueprint.name}</h2>
           <h3 className='text-primary'>{selectedBlueprint.originalName}</h3>
           {selectedBlueprint.appliedToModules.length > 0 &&
             <>
               <div className='section-heading'>
-                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Applied Modules</h4>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineered modules</h4>
               </div>
               <table className='table--animated'>
                 <tbody className='fx-fade-in'>
@@ -207,9 +223,9 @@ export default function EngineeringMaterialsPage () {
           {selectedBlueprint.appliedToModules.length === 0 &&
             <>
               <div className='section-heading'>
-                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Applied Modules</h4>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineered modules</h4>
               </div>
-              <p className='text-muted text-primary'>Blueprint not applied to any equipped modules</p>
+              <p className='text-muted text-primary'>Blueprint not applied to any currently fitted modules</p>
             </>}
 
           <div className='section-heading'>
