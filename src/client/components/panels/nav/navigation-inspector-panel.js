@@ -189,7 +189,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
 
         {systemObject.government &&
           <div className='navigation-panel__inspector-section'>
-            <h4 className='text-primary'>Controlling faction</h4>
+            <h4 className='text-primary'>Faction</h4>
             {systemObject?.controllingFaction?.name &&
               <p className='text-info text-uppercase'>
                 {systemObject.controllingFaction.name}

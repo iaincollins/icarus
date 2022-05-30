@@ -123,9 +123,9 @@
   z-index: 10;
   width: auto;
   top: .75rem;
-  left: .5rem;
+  left: 0.5rem;
   right: 1.25rem;
-  bottom: 4.75rem;
+  bottom: 4.25rem;
   overflow-y: scroll;
 }
 
@@ -156,7 +156,7 @@
   top: 0;
   left: 4.5rem;
   right: .5rem;
-  bottom: 4rem;
+  bottom: 3.5rem;
   pointer-events: none;
   z-index: 15;
 }
@@ -211,7 +211,6 @@
   left: 0;
   bottom: 0;
   right: 0;
-  xwidth: 170vw;
   z-index: -2;
   animation: navigation-panel__map-background-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
@@ -223,7 +222,7 @@
 }
 
 .navigation-panel__map-background::before {
-  --color-map-background-grid: rgba(30, 30, 30, .15);
+  --color-map-background-grid: rgba(30, 30, 30, .2);
   background-image: linear-gradient(var(--color-map-background-grid) .1rem, transparent .1rem), linear-gradient(90deg, var(--color-map-background-grid) .1rem, transparent .1rem);
   background-size: 3rem 3rem;
   background-position: -1.5rem 0;

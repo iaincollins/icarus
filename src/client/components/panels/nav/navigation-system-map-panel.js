@@ -4,16 +4,16 @@ import SystemMap from 'components/panels/nav/system-map/system-map'
 export default function NavigationSystemMapPanel ({ system, systemObject, setSystemObject, getSystem, cmdrStatus }) {
   if (!system) return null
 
-  /*
-  const onScroll = (event) => {
-    document.getElementById('navigation-panel__map-background').style.setProperty('--background-position-y-offset-stars', '-'+(event.target.scrollTop / 20)+'px')
-    document.getElementById('navigation-panel__map-background').style.setProperty('--background-position-y-offset-grid', '-'+(event.target.scrollTop / 10)+'px')
-  }
+  // /*
+  // const onScroll = (event) => {
+  //   document.getElementById('navigation-panel__map-background').style.setProperty('--background-position-y-offset-stars', '-'+(event.target.scrollTop / 20)+'px')
+  //   document.getElementById('navigation-panel__map-background').style.setProperty('--background-position-y-offset-grid', '-'+(event.target.scrollTop / 10)+'px')
+  // }
 
-  useEffect(() => {
-    document.getElementById('navigation-panel__map-foreground').addEventListener('scroll', onScroll);
-  },[])
-  */
+  // useEffect(() => {
+  //   document.getElementById('navigation-panel__map-foreground').addEventListener('scroll', onScroll);
+  // },[])
+  // */
 
   if (!system.stars || system.stars.length < 2) {
     return (
@@ -46,39 +46,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 {system.position?.[0]}<br />{system.position?.[1]}<br />{system.position?.[2]}
               </div>}
           </div>
-          <div className='system-map__location fx-fade-in'>
-            {system?.distance > 0 &&
-              <div className='text-secondary text-center-vertical'>
-                <h3 className='text-secondary'>
-                  {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY
-                  <span className='text-muted'> from<br />current location</span>
-                </h3>
-              </div>}
-            {system?.distance === 0 && system.isCurrentLocation === false &&
-              <div className='text-secondary text-center-vertical'>
-                <h3 className='text-secondary text-muted'>
-                  Unknown system
-                </h3>
-              </div>}
-            {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === false &&
-              <div className='text-secondary text-center-vertical'>
-                <h3 style={{ width: '100%' }}>
-                  <i className='icon icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem' }} />
-                  {(cmdrStatus?._location)
-                    ? cmdrStatus._location.map((loc, i) =>
-                      <span key={`location_${loc}_${i}`}>
-                        {i > 0 && <i className='icon icarus-terminal-chevron-right text-muted' style={{ fontSize: '.8rem', margin: '0 .25rem' }} />}
-                        {loc}
-                      </span>
-                      )
-                    : 'Current location'}
-                </h3>
-              </div>}
-            {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
-              <div className='text-center-vertical'>
-                <h3 className='text-blink-slow text-primary' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
-              </div>}
-          </div>
+          <LocationInformation system={system} cmdrStatus={cmdrStatus} />
         </div>
       </div>
     )
@@ -99,7 +67,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-left' />
           <div className='navigation-panel__map-frame-border navigation-panel__map-frame-border-bottom-right' />
         </div>
-        <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable'>
+        <div id='navigation-panel__map-foreground' className='navigation-panel__map-foreground scrollable scrollable--fade'>
           <SystemMap system={system} setSystemObject={setSystemObject} />
         </div>
         <div className='fx-fade-in'>
@@ -113,56 +81,63 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               </div>}
           </div>
         </div>
-        <div className='system-map__location fx-fade-in'>
-          {system?.distance > 0 &&
-            <div className='text-secondary text-center-vertical'>
-              <h3 className='text-secondary'>
-                {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY
-                <span className='text-muted'> from<br />current location</span>
-              </h3>
-            </div>}
-          {system?.distance === 0 && system.isCurrentLocation === false &&
-            <div className='text-secondary text-center-vertical'>
-              <h3 className='text-secondary text-muted'>
-                Unknown system
-              </h3>
-            </div>}
-          {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === false &&
-            <div className='text-secondary text-center-vertical'>
-              <h3 style={{ width: '100%' }}>
-                <i className='icon icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem' }} />
-                {(cmdrStatus?._location)
-                  ? cmdrStatus._location.map((loc, i) =>
-                    <span key={`location_${loc}_${i}`}>
-                      {i > 0 && <i className='icon icarus-terminal-chevron-right text-muted' style={{ fontSize: '.8rem', margin: '0 .25rem' }} />}
-                      {loc}
-                    </span>
-                    )
-                  : 'Current location'}
-              </h3>
-            </div>}
-          {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
-            <div className='text-center-vertical'>
-              <h3 className='text-blink-slow text-primary' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
-            </div>}
-        </div>
-        <div className='system-map__info fx-fade-in'>
+        <LocationInformation system={system} cmdrStatus={cmdrStatus} />
+        <div className='system-map__info fx-fade-in text-uppercase text-right'>
+          <span className='text-info'>{system?.name}</span>
           {((system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0))
             ? <div className='system-map__info--icons text-center-vertical text-right'>
-              <div style={{ width: '100%' }}>
-                {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' /><span className='count'>{coriolisStarports}</span></span>}
-                {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' /><span className='count'>{ocellusStarports}</span></span>}
-                {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' /><span className='count'>{orbisStarports}</span></span>}
-                {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' /><span className='count'>{asteroidBases}</span></span>}
-                {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' /><span className='count'>{outposts}</span></span>}
-                {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
-                {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
-                {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
+                <div style={{width: '100%'}}>
+                  {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' /><span className='count'>{coriolisStarports}</span></span>}
+                  {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' /><span className='count'>{ocellusStarports}</span></span>}
+                  {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' /><span className='count'>{orbisStarports}</span></span>}
+                  {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' /><span className='count'>{asteroidBases}</span></span>}
+                  {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' /><span className='count'>{outposts}</span></span>}
+                  {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
+                  {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
+                  {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
               </div>
               </div>
-            : <div className='text-center-vertical text-uppercase text-info text-muted text-right'><div style={{ width: '100%' }}>No known stations or settlements</div></div>}
+            : <div className='text-center-vertical text-uppercase text-info text-muted text-right'><div style={{width: '100%', marginTop: '1.5rem'}}>No stations or settlements</div></div>}
         </div>
       </div>
+    </div>
+  )
+}
+
+function LocationInformation({system, cmdrStatus}) {
+  return (
+    <div className='system-map__location fx-fade-in'>
+      {system?.distance > 0 &&
+        <div className='text-secondary text-center-vertical'>
+          <h3 className='text-secondary'>
+            {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY
+            <span className='text-muted'> from<br/>current location</span>
+          </h3>
+        </div>}
+      {system?.distance === 0 && system.isCurrentLocation === false &&
+        <div className='text-secondary text-center-vertical'>
+          <h3 className='text-secondary text-muted'>
+            Unknown system
+          </h3>
+        </div>}
+      {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === false &&
+        <div className='text-secondary text-center-vertical'>
+          <h3 style={{width: '100%'}}>
+            <i className='icon icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem'}} />
+            {(cmdrStatus?._location)
+              ? cmdrStatus._location.map((loc, i) =>
+                <span key={`location_${loc}_${i}`}>
+                  {i > 0 && <i className='icon icarus-terminal-chevron-right text-muted' style={{ fontSize: '.8rem', margin: '0 .25rem' }} />}
+                  {loc}
+                </span>
+                )
+              : 'Current location'}
+            </h3>
+        </div>}
+      {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
+        <div className='text-center-vertical'>
+          <h3 className='text-blink-slow text-primary' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
+        </div>}
     </div>
   )
 }

@@ -3,11 +3,11 @@
     height: 100vh; /* Firefox needs this or the use of filter() breaks rendering! */
   }
 
-  .system-map__planetary-system-star-icon,
-  .system-map__planetary-system-map {
-   filter: contrast(1.5) !important;
+  .scrollable {
+    scrollbar-width: auto !important;
+    scrollbar-color: auto !important;
   }
-
+  
   progress {
     background: var(--color-primary-dark);
   }
@@ -15,4 +15,10 @@
   progress.progress--gradient {
     background: transparent;
   }
+
+  .system-map__planetary-system-star-icon,
+  .system-map__planetary-system-map {
+   filter: contrast(1.5) !important;
+  }
+
 }

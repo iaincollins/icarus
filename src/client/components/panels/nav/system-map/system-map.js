@@ -50,7 +50,7 @@ export default function SystemMap ({ system, setSystemObject }) {
           {system.economy && system.economy?.primary !== 'Unknown' && system?.economy?.primary !== 'None' &&
             <h3 className='text-info text-muted'>
               <span className='fx-animated-text' data-fx-order='5'>
-                {system.economy.primary}
+                <i className='icon icarus-terminal-economy' style={{fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem'}}/>{system.economy.primary}
                 {system.economy.secondary && system.economy.secondary !== 'Unknown' && system.economy.secondary !== 'None' && ` & ${system.economy.secondary}`}
                 {' '}Economy
               </span>
@@ -58,7 +58,7 @@ export default function SystemMap ({ system, setSystemObject }) {
           {system.faction && system.faction !== 'Unknown' &&
             <h3 className='text-info text-muted'>
               <span className='fx-animated-text' data-fx-order='6'>
-                Authority: {system.faction}
+                <i className='icon icarus-terminal-shield' style={{fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem'}}/>{system.faction}
               </span>
             </h3>}
         </div>

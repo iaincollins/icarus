@@ -12,22 +12,18 @@
   color: var(--color-info);
   right: .5rem;
   width: 50%;
-  bottom: .5rem;
+  bottom: .25rem;
   height: 3rem;
   z-index: 50;
   pointer-events: none;
   box-sizing: border-box;
-  line-height: 1.15rem;
+  line-height: 1.5rem;
 }
 
 @media only screen and (max-width: 799px) {
   .system-map__info {
     font-size: 1rem;
   }
-}
-
-.system-map__info--icons {
-  margin-bottom: .25rem;
 }
 
 .system-map__info-icon {
@@ -41,7 +37,7 @@
   position: relative;
   top: .25rem;
   margin-right: .25rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 1rem;
   text-shadow: var(--text-shadow);
 }
@@ -52,19 +48,19 @@
   }
 }
 
-
 .system-map__info-icon .count {
   opacity: .5;
+  display: inline-block;
+  padding-top: 1.25rem;
 }
 
 .system-map__location {
   position: absolute;
-  bottom: .5rem;
+  bottom: .25rem;
   z-index: 50;
   pointer-events: none;
   height: 3rem;
   font-size: 1rem;
-  line-height: 1.15rem;
   left: 4.5rem;
   width: calc(50% - 5rem);
 }
@@ -89,7 +85,7 @@
 
 .system-map__system-telemetry {
   position: absolute;
-  bottom: 5.25rem;
+  bottom: 4.5rem;
   right: 3rem;
   text-align: right;
   font-size: 1rem;
@@ -302,6 +298,7 @@
 }
 
 .system-map__system-object[data-system-object-type="Planet"]:not([data-system-object-atmosphere="No atmosphere"])[data-system-object-landable="true"][data-system-object-small="true"] .system-map__planet {
+  filter: url(#svg-filter__planet-shadow--small) var(--filter-system-map-planet-landable);
 }
 
 .system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Water giant"] .system-map__planet-surface,
