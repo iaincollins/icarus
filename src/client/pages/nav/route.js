@@ -133,7 +133,7 @@ export default function NavListPage () {
                             <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} hidden-medium`} />
                             <span>{route.system} </span>
                             <br /><span className='text-muted'>{route.starClass} Class, </span>
-                            {route.starClass.match(/([OBAFGKM])/) ? 'Fuel Star' : <span className='text-muted'>Not Fuel Star</span>}
+                            {route.starClass.match(/^[OBAFGKM]/) ? 'Fuel Star' : <span className='text-muted'>Not Fuel Star</span>}
                             <span className='visible-medium'>
                               {route?.isCurrentSystem === false && <span><br />{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
                               {route?.isCurrentSystem === true && <><br />Current Location</>}
@@ -145,6 +145,9 @@ export default function NavListPage () {
                             {route?.isCurrentSystem === false && <span className='text-no-transform'>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
                             {route?.isCurrentSystem === true && <>Current Location</>}
                           </span>
+                        </td>
+                        <td className='text-center' style={{width: '1rem'}}>
+                          <i className='icon icarus-terminal-chevron-right' style={{fontSize: '1rem'}}/>
                         </td>
                       </tr>
                     )
