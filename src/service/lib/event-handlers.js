@@ -104,6 +104,17 @@ class EventHandlers {
           return preferences
         },
         getVoices: () => this.textToSpeech.getVoices(),
+        // getCodexEntries: () => {
+        //   return JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'codex', '_index.json')))
+        // },
+        // getCodexEntry: ({name}) => {
+        //   const codexIndex = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'codex', '_index.json'))).index
+        //   if (codexIndex[name]) {
+        //     return JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'codex', `${codexIndex[name]}.json`)))
+        //   } else {
+        //     return null
+        //   }
+        // },
         testVoice: ({ voice }) => {
           // Escape voice name when passing as text as precaution to clean
           // input (NB: voice name argument is checked internally)
