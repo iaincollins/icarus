@@ -10,7 +10,7 @@
 .system-map__toolbar,
 .system-map__toolbar-background,
 .system-map__system-stats {
-  filter: saturate(.25);
+  Xfilter: saturate(.5);
   border: 0 !important;
   box-shadow: none !important;
 }
