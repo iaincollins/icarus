@@ -24,9 +24,9 @@ export default function EngineeringMaterialsPage () {
     <Layout connected={connected} active={active} ready={ready}>
       <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Xeno Materials')}>
         <h2>Xeno Materials</h2>
-        <h3 className='text-primary'>Classified</h3>
-        <p>
-          Guardian and Thargoid Technology can be used in synthesis and exchanged with Technology Brokers.
+        <h3 className='text-primary'>Guardian and Thargoid Technology</h3>
+        <p className='text-primary'>
+          Alien technology can be used in synthesis and exchanged with Technology Brokers
         </p>
         {materials && <Materials materialType='Xeno' materials={materials} />}
       </Panel>

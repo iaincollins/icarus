@@ -25,8 +25,8 @@ export default function EngineeringMaterialsPage () {
       <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Manufactured Materials')}>
         <h2>Manufactured Materials</h2>
         <h3 className='text-primary'>For engineering and synthesis</h3>
-        <p>
-          Manufactured Materials are used in engineering and synthesis and can be exchanged at Manufactured Material Traders.
+        <p className='text-primary'>
+          Manufactured Materials are used in engineering and synthesis and can be exchanged at Manufactured Material Traders
         </p>
         {materials && <Materials materialType='Manufactured' materials={materials} />}
       </Panel>

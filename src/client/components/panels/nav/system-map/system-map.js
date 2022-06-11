@@ -1,21 +1,8 @@
 import SystemMapStar from 'components/panels/nav/system-map/system-map-star'
 import CopyOnClick from 'components/copy-on-click'
-import factionStates from '../../../../../shared/faction-states'
 
 export default function SystemMap ({ system, setSystemObject }) {
   if (!system) return null
-
-  let factionStateDescription = system?.state?.replace(/([a-z])([A-Z])/g, '$1 $2')
-
-  if (system.state) {
-    Object.keys(factionStates).some(factionState => {
-      if (system.state.replace(/ /g, '').toLowerCase() === factionState.toLowerCase()) {
-        factionStateDescription = factionStates[factionState].description
-        return true
-      }
-      return false
-    })
-  }
 
   return (
     <>
@@ -27,40 +14,6 @@ export default function SystemMap ({ system, setSystemObject }) {
               <CopyOnClick>{system.name}</CopyOnClick>
             </span>
           </h1>
-          {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
-            <h3 className='text-primary'>
-              <span className='fx-animated-text' data-fx-order='2'>
-                {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
-              </span>
-            </h3>}
-          {system.state && system.state !== 'Unknown' && system.state !== 'None' && factionStateDescription &&
-            <h3 className='text-info'>
-              <span className='fx-animated-text' data-fx-order='3'>
-                {factionStateDescription}
-              </span>
-            </h3>}
-          {system.allegiance && system.allegiance !== 'Unknown' &&
-            <h3 className='text-info text-muted'>
-              <span className='fx-animated-text' data-fx-order='4'>
-                {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance.replace(/([a-z])([A-Z])/g, '$1 $2')}
-                {system.government && system.government !== 'None' && system.government !== 'Unknown' && <><span className='seperator' />{system.government}</>}
-                {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government !== 'Anarchy' && system.security !== system.government) ? <><span className='seperator' />{system.security}</> : ''}
-              </span>
-            </h3>}
-          {system.economy && system.economy?.primary !== 'Unknown' && system?.economy?.primary !== 'None' &&
-            <h3 className='text-info text-muted'>
-              <span className='fx-animated-text' data-fx-order='5'>
-                <i className='icon icarus-terminal-economy' style={{fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem'}}/>{system.economy.primary}
-                {system.economy.secondary && system.economy.secondary !== 'Unknown' && system.economy.secondary !== 'None' && ` & ${system.economy.secondary}`}
-                {' '}Economy
-              </span>
-            </h3>}
-          {system.faction && system.faction !== 'Unknown' &&
-            <h3 className='text-info text-muted'>
-              <span className='fx-animated-text' data-fx-order='6'>
-                <i className='icon icarus-terminal-shield' style={{fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem'}}/>{system.faction}
-              </span>
-            </h3>}
         </div>
         {system?.stars?.map(star =>
           <SystemMapStar

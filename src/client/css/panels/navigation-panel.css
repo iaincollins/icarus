@@ -122,22 +122,24 @@
   overflow: auto;
   z-index: 10;
   width: auto;
-  top: .75rem;
-  left: 0.5rem;
-  right: 1.25rem;
-  bottom: 4.25rem;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
+  bottom: 0rem;
   overflow-y: scroll;
 }
 
+.navigation-panel__map-foreground,
+.navigation-panel__map-frame {
+  --color-scrollbar: rgb(150,150,150);
+}
+
 .navigation-panel__map-foreground.scrollable::-webkit-scrollbar-thumb {
-  --color-info: rgb(150,150,150);
-  background: var(--color-info);
-  box-shadow: none;
+  background: var(--color-scrollbar);
 }
 
 .navigation-panel__map-foreground.scrollable::-webkit-scrollbar-track {
-  --color-info: rgb(50,50,50);
-  background-image: linear-gradient(90deg, transparent 41.67%, var(--color-info) 41.67%, var(--color-info) 50%, transparent 50%, transparent 91.67%, var(--color-info) 91.67%, var(--color-info) 100%);
+  background-image: linear-gradient(90deg, transparent 41.67%, var(--color-scrollbar) 41.67%, var(--color-scrollbar) 50%, transparent 50%, transparent 91.67%, var(--color-scrollbar) 91.67%, var(--color-scrollbar) 100%);
 }
 
 .navigation-panel__map-background {
@@ -151,6 +153,7 @@
   background: linear-gradient(rgba(0,0,0,0), rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .15));
 }
 
+/*
 .navigation-panel__map-frame {
   position: absolute;
   top: 0;
@@ -165,7 +168,7 @@
   position: absolute;
   width: 2.5rem;
   height: 2.5rem;
-  border: .2rem solid var(--color-info);
+  border: .2rem solid var(--color-scrollbar);
   opacity: .25;
   pointer-events: none;
 }
@@ -195,6 +198,7 @@
   border-left: none;
   border-top: none;
 }
+*/
 
 .navigation-panel__map-background::after {
   background-color: black;

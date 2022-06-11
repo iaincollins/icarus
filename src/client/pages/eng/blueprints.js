@@ -69,10 +69,10 @@ export default function EngineeringMaterialsPage () {
       {!selectedBlueprint &&
         <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Blueprints')}>
           <h2>Blueprints</h2>
-          <h3 className='text-primary'>Ship weapon &amp; module modifications</h3>
+          <h3 className='text-primary'>Ship &amp; equipment modifications</h3>
 
-          <p>
-            Blueprints can be used to improve ship weapons and modules.
+          <p className='text-primary'>
+            Blueprints can be used to improve ships and equipment
           </p>
 
           {blueprintsApplied && blueprintsApplied.length > 0 &&
@@ -80,6 +80,9 @@ export default function EngineeringMaterialsPage () {
               <div className='section-heading'>
                 <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Applied Blueprints</h4>
               </div>
+              <p className='text-primary'>
+                Equipment on your current ship that has been modified using Blueprints
+              </p>
               <table className='table--interactive table--animated'>
                 <tbody className='fx-fade-in'>
                   {blueprintsApplied.map(blueprint =>
@@ -174,8 +177,11 @@ export default function EngineeringMaterialsPage () {
           {selectedBlueprint.appliedToModules.length > 0 &&
             <>
               <div className='section-heading'>
-                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineered modules</h4>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineered equipment</h4>
               </div>
+              <p className='text-primary'>
+                Equipment on your current ship that has been modified using this Blueprint
+              </p>
               <table className='table--animated'>
                 <tbody className='fx-fade-in'>
                   {selectedBlueprint.appliedToModules.map(module => (
@@ -223,14 +229,17 @@ export default function EngineeringMaterialsPage () {
           {selectedBlueprint.appliedToModules.length === 0 &&
             <>
               <div className='section-heading'>
-                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineered modules</h4>
+                <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineered equipment</h4>
               </div>
-              <p className='text-muted text-primary'>Blueprint not applied to any currently fitted modules</p>
+              <p className='text-muted text-primary'>Blueprint not applied to any currently fitted equipment</p>
             </>}
 
           <div className='section-heading'>
             <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Engineers</h4>
           </div>
+          <p className='text-primary'>
+            Engineers who know how to apply or upgrade this Blueprint
+          </p>
           <table className='table--animated' style={{ tableLayout: 'fixed' }}>
             <tbody className='fx-fade-in'>
               {Object.keys(selectedBlueprint?.engineers ?? []).map(engineer => (

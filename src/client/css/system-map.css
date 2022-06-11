@@ -4,16 +4,68 @@
 }
 
 .system-map {
-  margin-bottom: 0;
+  margin-bottom: 3rem;
+}
+
+.system-map__toolbar,
+.system-map__toolbar-background,
+.system-map__system-stats {
+  filter: saturate(.25);
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.system-map__toolbar,
+.system-map__toolbar-background,
+.system-map__toolbar-background::before,
+.system-map__toolbar-background::after {
+  position: absolute;
+  height: 4rem;
+  left: 4.5rem;
+  right: 1.5rem;
+  top: 0rem;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.system-map__toolbar-background {
+
+}
+
+.system-map__toolbar-background,
+.system-map__toolbar-background::before,
+.system-map__toolbar-background::after {
+  Xborder-radius: .5rem .5rem 2rem 2rem ;
+  border: .15rem transparent;
+  backdrop-filter: blur(.5rem);
+}
+
+.system-map__toolbar-background::before {
+  z-index: 98;
+  content: ' ';
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.system-map__toolbar-background::after {
+  z-index: 99;
+  content: ' ';
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:  linear-gradient(to top, rgba(0,0,0,.75), rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .5));
+  Xborder: .15rem solid rgba(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b), .75);
+  Xbox-shadow: inset 0 0 .5rem rgba(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b), .75), 0 0 1rem rgba(0,0,0,.5);
 }
 
 .system-map__info {
   position: absolute;
   color: var(--color-info);
-  right: .5rem;
-  width: 50%;
-  bottom: .25rem;
-  height: 3rem;
+  left: .75rem;
+  width: 100%;
+  top: .5rem;
+  height: 3.25rem;
   z-index: 50;
   pointer-events: none;
   box-sizing: border-box;
@@ -24,6 +76,13 @@
   .system-map__info {
     font-size: 1rem;
   }
+}
+
+.system-map__info--icons {
+  margin-right: .5rem;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow-x: clip !important; /* avoids clipping text shadow on y axis */
 }
 
 .system-map__info-icon {
@@ -56,17 +115,22 @@
 
 .system-map__location {
   position: absolute;
-  bottom: .25rem;
+  top: .25rem;
   z-index: 50;
   pointer-events: none;
-  height: 3rem;
+  height: 3.5rem;
   font-size: 1rem;
-  left: 4.5rem;
-  width: calc(50% - 5rem);
+  right: 1rem;
+  width: 100%;
+  text-align: right;
 }
 
 .system-map__location h3 {
   font-size: 1.25rem;
+  text-align: right !important;
+  display: inline;
+  position: absolute;
+  right: 0;
 }
 
 @media only screen and (max-width: 799px) {
@@ -75,9 +139,33 @@
   }
 }
 
+.system-map__system-stats {
+  position: absolute;
+  right: 1.5rem;
+  bottom: .5rem;
+  height: auto;
+  width: auto;
+  box-sizing: border-box;
+  z-index: 101;
+  background:  linear-gradient(to top, rgba(0,0,0,.5), rgba(var(--color-secondary-dark-r), var(--color-secondary-dark-g), var(--color-secondary-dark-b), .7));
+  border: .15rem solid rgba(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b), .75);
+  box-shadow: inset 0 0 .5rem rgba(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b), .5), 0 0 1rem rgba(0,0,0,.5);
+  Xborder-radius: .5rem 1rem .5rem 1rem ;
+  padding: .5rem 1rem .6rem .75rem;
+  backdrop-filter: blur(1rem);
+  font-size: 1rem;
+  transition: all .25s ease-in-out;
+  min-height: 2.85rem;
+}
+
+.system-map__system-stats:hover {
+  border: .15rem solid var(--color-secondary);
+  box-shadow: inset 0 0 .75rem rgba(var(--color-secondary-r), var(--color-secondary-g), var(--color-secondary-b), .75), 0 0 1rem rgba(0,0,0,.5);
+}
+
 .system-map__system-position {
   position: absolute;
-  top: 1rem;
+  top: 4.15rem;
   right: 3rem;
   text-align: right;
   font-size: 1rem;
@@ -85,9 +173,8 @@
 
 .system-map__system-telemetry {
   position: absolute;
-  bottom: 4.5rem;
-  right: 3rem;
-  text-align: right;
+  bottom: .75rem;
+  left: 4.75rem;
   font-size: 1rem;
 }
 
@@ -102,6 +189,8 @@
   text-transform: uppercase;
   font-size: 2.5rem;
   line-height: 2.75rem;
+  visibility: hidden;
+  height: 4rem;
 }
 
 .system-map__title h1 .icon {
@@ -158,7 +247,7 @@
   animation: svg-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
   /* Wait until after other animations on page are done for best performance on slow devices */
-  animation-delay: .75s; 
+  animation-delay: .5s; 
 }
 
 .system-map__planetary-system-star-icon svg {
@@ -167,7 +256,7 @@
   animation: fx-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
   /* Wait until after other animations on page are done for best performance on slow devices */
-  animation-delay: .5; 
+  animation-delay: .25; 
 }
 
 @keyframes svg-fade-in-animation {

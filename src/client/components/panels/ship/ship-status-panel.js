@@ -20,12 +20,21 @@ export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModu
     <>
       <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
         <div className='ship-panel__title'>
-          <h2>{ship.name}</h2>
-          <h3 className='text-primary'>
-            {ship.ident}
-            <span className='text-primary text-muted'> {ship.type}</span>
-          </h3>
+          <div>
+            <h2>{ship.name}</h2>
+            <h3 className='text-primary'>
+              {ship.ident}
+              <span className='text-primary text-muted'> {ship.type}</span>
+            </h3>
+          </div>
+          <div style={{position: 'relative', minWidth: '7em'}}>
+            <h5 className='text-right text-info' style={{position: 'absolute', right: '.5rem', opacity: ship.onBoard ? 1 : .5}}>
+              {ship.onBoard ? 'SYS PWR' : 'PWR OFF'}
+            </h5>
+            <div className={`ship-panel__horizontal-activity ${ship.onBoard ? 'ship-panel__horizontal-activity--online' : ''}`} />
+          </div>
         </div>
+        <hr style={{margin: '0 0 1rem 0'}}/>
         <ShipInstrumentation
           ship={ship}
           cmdrStatus={cmdrStatus}

@@ -18,8 +18,11 @@ const factionStates = {
   civilUnrest: {
     description: 'Civil unrest, support & bounty missions'
   },
+  election: {
+    description: 'Election in progress'
+  },
   elections: {
-    description: 'Elections underway'
+    description: 'Election in progress'
   },
   boom: {
     description: 'Economy is booming'

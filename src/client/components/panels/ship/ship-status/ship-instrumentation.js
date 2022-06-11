@@ -4,7 +4,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
       <div className='visible-medium' style={{ padding: '1rem 0' }}>
         <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
       </div>
-      <table className='ship-panel__ship-stats'>
+      <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}>
         <tbody className='text-info'>
           <tr className='hidden-medium'>
             <td rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
@@ -31,15 +31,13 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
             </td>
             <td>
               <span className='text-muted'>Total fuel</span>
-              <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>
-                {typeof ship?.fuelLevel === 'number'
-                  ? <progress
-                      style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
-                      value={ship?.fuelLevel ?? 0}
-                      max={ship?.fuelCapacity ?? 0}
-                      className={`progress--border ${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'progress--danger' : 'progress--info'}`}
-                    />
-                  : <>-</>}
+              <span className='value'>
+               <progress
+                  style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
+                  value={ship?.fuelLevel ?? 0}
+                  max={ship?.fuelCapacity ?? 0}
+                  className={`progress--border ${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'progress--danger' : 'progress--info'}`}
+                />
               </span>
             </td>
           </tr>
@@ -73,7 +71,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
         <PowerDistribution ship={ship} />
       </div>
 
-      <table className='table--layout'>
+      <table className={`table--layout ${!ship.onBoard ? 'text-muted' : ''}`}>
         <tbody>
           <tr>
             <td>
@@ -299,7 +297,10 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           opacity: ship.onBoard ? 1 : 0.5
         }}
         >
-          <h2 style={{ padding: 0, margin: '0 0 .5rem 0' }}>
+          <h5 className='text-muted' style={{ margin: '.15rem 0' }}>
+            PLANETARY<br/>APPROACH SUITE
+          </h5>
+          <h2 style={{ padding: 0, margin: '0 0 .15rem 0' }}>
             <span className='value'>{ship.onBoard ? cmdrStatus?.heading ?? '-' : '-'}°</span>
           </h2>
           <p style={{ padding: 0, margin: '.15rem 0' }}>
@@ -315,7 +316,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           <p style={{ padding: 0, margin: '.15rem 0 0 0' }}>
             <span className='text-muted'>ALT</span>
             {' '}
-            <span className='value'>{ship.onBoard
+            <span className='value'>{(ship.onBoard && cmdrStatus?.altitude)
               ? <>
                 {cmdrStatus?.altitude > 10000
                   ? <>{(cmdrStatus.altitude / 1000).toLocaleString(undefined, { maximumFractionDigits: 0 }) ?? '-'} KM</>
@@ -339,7 +340,7 @@ function PowerDistribution ({ ship }) {
         padding: '.25rem .5rem'
       }}
     >
-      <h4 className='text-center text-muted' style={{ marginBottom: '1.5rem', marginLeft: '2rem' }}>Pwr Distribution</h4>
+      <h4 className='text-center text-muted' style={{ marginBottom: '1.5rem', marginLeft: '2rem' }}>PWR Distribution</h4>
       <div className='text-uppercase'>
         <div className='ship-panel__ship-pip'>
           <progress className={ship.onBoard ? 'progress--gradient' : ''} value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />

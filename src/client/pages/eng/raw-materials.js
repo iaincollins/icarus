@@ -25,8 +25,8 @@ export default function EngineeringMaterialsPage () {
       <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Raw Materials')}>
         <h2>Raw Materials</h2>
         <h3 className='text-primary'>For engineering and synthesis</h3>
-        <p>
-          Raw Materials are used in engineering and synthesis and can be exchanged at Raw Material Traders.
+        <p className='text-primary'>
+          Raw Materials are used in engineering and synthesis and can be exchanged at Raw Material Traders
         </p>
         {materials && <Materials materialType='Raw' materials={materials} />}
       </Panel>

@@ -42,8 +42,8 @@ export default function EngineeringEngineersPage () {
         <h2>Engineers</h2>
         <h3 className='text-primary'>Engineers &amp; Workshops</h3>
 
-        <p>
-          Engineers can use Blueprints and Experimental Effects to improve ships.
+        <p className='text-primary'>
+          Engineers can use Blueprints and Experimental Effects to improve ships and equipment
         </p>
 
         {engineers && engineers.length > 0 &&

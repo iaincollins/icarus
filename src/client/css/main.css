@@ -94,7 +94,7 @@ html::-webkit-scrollbar,
 
 .scrollable--fade {
   --scrollbar-width: 48px;
-  --mask-height: 1.5rem;
+  --mask-height: 1rem;
   padding-bottom: var(--mask-height);
   padding-right: 20px;
   --mask-image-content: linear-gradient(
@@ -131,6 +131,7 @@ html::-webkit-scrollbar,
   -ms-user-select: all !important;
   user-select: all !important;
   /* cursor: text; */
+  pointer-events: all;
 }
 
 .selectable::after {
