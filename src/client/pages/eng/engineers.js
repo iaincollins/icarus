@@ -52,7 +52,14 @@ export default function EngineeringEngineersPage () {
               <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Unlocked Engineers</h4>
             </div>
             <ListEngineers
-              engineers={engineers.filter(e => e.progress.status !== UNKNOWN_VALUE)}
+              engineers={engineers.filter(e => e.progress.status.toLowerCase() === 'unlocked')}
+              currentSystem={currentSystem}
+            />
+            <div className='section-heading'>
+              <h4 className='section-heading__text' style={{ marginTop: '1rem' }}>Known/Invited Engineers</h4>
+            </div>
+            <ListEngineers
+              engineers={engineers.filter(e => e.progress.status !== UNKNOWN_VALUE && e.progress.status.toLowerCase() !== 'unlocked')}
               currentSystem={currentSystem}
             />
             <div className='section-heading'>
