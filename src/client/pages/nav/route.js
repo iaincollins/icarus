@@ -74,20 +74,24 @@ export default function NavListPage () {
               <td style={{ width: '50%', padding: 0 }}>
                 {navRoute?.currentSystem &&
                   <>
-                    <h3 className='text-primary'>
-                      Location
-                    </h3>
-                    <h2 className='text-info' style={{ height: '4rem', overflow: 'hidden' }}><CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick></h2>
+                    <h3 className='text-primary'>Location</h3>
+                    <h2 className='text-info' style={{ padding: '.5rem', height: '4rem', overflow: 'hidden' }}>
+                      <i className='icarus-terminal-system-orbits' style={{position: 'relative', top: '.25rem', marginRight: '.5rem'}}/>
+                      <CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick>
+                    </h2>
                   </>}
               </td>
               <td style={{ width: '50%', padding: 0 }} className='text-right'>
                 {navRoute?.destination &&
                   <>
-                    <h3 className='text-primary'>
-                      Destination
-                    </h3>
-                    <h2 className='text-info text-right' style={{ height: '4rem', overflow: 'hidden' }}>
-                      {navRoute?.destination?.distance > 0 ? <CopyOnClick>{navRoute?.destination?.system}</CopyOnClick> : <span className='text-muted'>—</span>}
+                    <h3 className='text-primary'>Destination</h3>
+                    <h2 className='text-info text-right' style={{ padding: '.5rem', height: '4rem', overflow: 'hidden' }}>
+                      {navRoute?.destination?.distance > 0
+                        ? <>
+                            <i className='icarus-terminal-system-orbits' style={{position: 'relative', top: '.25rem', marginRight: '.5rem'}}/>
+                            <CopyOnClick>{navRoute?.destination?.system}</CopyOnClick>
+                          </>
+                        : <span className='text-muted'>—</span>}
                     </h2>
                   </>}
               </td>
