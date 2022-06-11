@@ -204,7 +204,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
 
             {systemObject?.controllingFaction?.name &&
               <p className='text-info text-uppercase'>
-                {systemObject.controllingFaction.name}
+                <CopyOnClick>{systemObject.controllingFaction.name}</CopyOnClick>
               </p>}
             <p className='text-info'>
               {systemObject?.allegiance ?? ''} {systemObject.government}

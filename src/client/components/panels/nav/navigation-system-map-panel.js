@@ -63,7 +63,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 <CopyOnClick>{system?.name}</CopyOnClick>
               </span>
               <br/>
-              <span className='text-secondary text-muted' style={{marginLeft: '.5rem'}}>No telemetry</span>
+              <span className='text-primary text-muted'>No telemetry</span>
             </div>
           </div>
           <div className='text-muted'>
@@ -97,14 +97,14 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         </div>
         <div onClick={() => setShowSystemDetails(!showSystemDetails)} className='system-map__system-stats fx-fade-in'>
           {showSystemDetails === true ? <>
-            <i className='icarus-terminal-chevron-down text-secondary' style={{position: 'absolute', top: '.75rem', right: '1rem'}}/>
+            <i className='icarus-terminal-chevron-down text-primary' style={{position: 'absolute', top: '.5rem', right: '.75rem'}}/>
             {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
-              <h3 className='text-secondary' style={{marginRight: '1.75rem'}}>
+              <h3 className='text-primary' style={{marginRight: '1.75rem'}}>
                 <i className='icon icarus-terminal-system-bodies' style={{fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem'}}/>
                   {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
               </h3>}
             {system.economy && system.economy?.primary !== 'Unknown' && system?.economy?.primary !== 'None' &&
-              <h3 className='text-secondary xtext-muted'>
+              <h3 className='text-primary'>
             
                   <i className='icon icarus-terminal-economy' style={{fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem'}}/>{system.economy.primary}
                   {system.economy.secondary && system.economy.secondary !== 'Unknown' && system.economy.secondary !== 'None' && ` & ${system.economy.secondary}`}
@@ -112,11 +112,11 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
       
               </h3>}
             {system.faction && system.faction !== 'Unknown' &&
-              <h3 className='text-secondary xtext-muted'>
+              <h3 className='text-primary'>
                   <i className='icon icarus-terminal-shield' style={{fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem'}}/>{system.faction}
               </h3>}
               {system.allegiance && system.allegiance !== 'Unknown' &&
-              <h3 className='text-secondary text-muted'>
+              <h3 className='text-primary text-muted'>
           
                   {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance.replace(/([a-z])([A-Z])/g, '$1 $2')}
                   {system.government && system.government !== 'None' && system.government !== 'Unknown' && <><span className='seperator' />{system.government}</>}
@@ -128,13 +128,13 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                   {factionStateDescription}
               </h3>}
             </> : <>
-              <span className='text-uppercase text-secondary'>
+              <span className='text-primary'>
                 {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
-                <h3 className='text-secondary' style={{marginRight: '.25rem', display: 'inline-block'}}>
+                <h3  style={{marginRight: '.25rem', display: 'inline-block'}}>
                    <i className='icarus-terminal-system-bodies' style={{position: 'relative', top: '.15rem', marginRight: '.25rem'}}/>
                     {system.detail.bodies.length} 
                 </h3>}
-                <i className='icarus-terminal-chevron-up' style={{position: 'relative', top: '.15rem', marginLeft: '.25rem'}}/>
+                <i className='icarus-terminal-chevron-up' style={{position: 'relative', top: '.15rem', left: '.25rem', marginLeft: '.25rem'}}/>
               </span>
             </>}
           </div>
@@ -172,7 +172,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                     {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
                 </div>
                 </div>
-              : <div className='text-center-vertical text-uppercase text-secondary text-muted'><div style={{width: '100%', marginLeft: '.5rem', marginTop: '1.5rem'}}>No stations or settlements</div></div>}
+              : <div className='text-center-vertical text-uppercase text-primary text-muted'><div style={{width: '100%', marginTop: '1.5rem'}}>No stations or settlements</div></div>}
           </div>
         </div>
       </div>
@@ -185,21 +185,21 @@ function LocationInformation({system, cmdrStatus}) {
     <div className='system-map__location fx-fade-in'>
       {system?.distance > 0 &&
         <div className='text-center-vertical text-right'>
-          <h3 className='text-secondary text-no-wrap'>
+          <h3 className='text-primary text-no-wrap'>
             <div>
               {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY <span className='text-muted'>from</span>
             </div>
-            <div className='text-muted' style={{marginRight: '.5rem'}}>current location</div>
+            <div className='text-muted'>current location</div>
           </h3>
         </div>}
       {system?.distance === 0 && system.isCurrentLocation === false &&
-        <div className='text-secondary text-center-vertical'>
-          <h3 className='text-secondary text-muted'>
+        <div className='text-primary text-muted text-center-vertical'>
+          <h3>
             Unknown system
           </h3>
         </div>}
       {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === false &&
-        <div className='text-secondary text-center-vertical'>
+        <div className='text-primary text-center-vertical'>
           <h3 style={{width: '100%'}}>
             <i className='icon icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem'}} />
             {(cmdrStatus?._location)

@@ -1,3 +1,4 @@
+import CopyOnClick from 'components/copy-on-click'
 import { SPACE_STATIONS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
 
 export default function NavigationInspectorPanel ({ system, systemObject, setSystemObject, showHelp }) {
@@ -26,7 +27,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
         <table className='table--animated table--interactive'>
           <thead>
             <tr>
-              <th><i style={{ fontSize: '1.5rem', marginRight: '.25rem', position: 'relative', left: '.1rem', top: '-.1rem' }} className='float-left icarus-terminal-system-orbits' />{system.name}</th>
+              <th><i style={{ fontSize: '1.5rem', marginRight: '.25rem', position: 'relative', left: '.1rem', top: '-.1rem' }} className='float-left icarus-terminal-system-orbits' /><CopyOnClick>{system.name}</CopyOnClick></th>
               <th style={{ width: '1rem' }} className='hidden-small'>&nbsp;</th>
             </tr>
           </thead>
