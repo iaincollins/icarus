@@ -53,7 +53,7 @@ function LockerItems ({ heading, items, count = false, max = false }) {
           {heading}
         </h4>
         {count !== false &&
-          <h4 className='float-right text-primary' style={{ paddingTop: '.75rem' }}>
+          <h4 className='float-right text-primary' style={{ paddingTop: '1rem' }}>
             <span className='float-left' style={{ display: 'inline-block', padding: '.25rem .5rem .25rem 0' }}>
               <span className={`${count > 0 ? '' : 'text-muted'}`}>{count}</span>
               <span className='text-muted'>/1000</span>

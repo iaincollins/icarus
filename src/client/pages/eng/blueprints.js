@@ -310,7 +310,7 @@ export default function EngineeringMaterialsPage () {
 
               <div className='section-heading' style={{ marginTop: '1rem' }}>
                 <h4 className='section-heading__text'>Grade {parseInt(grade) + 1}</h4>
-                <h4 className='text-info text-muted float-right'>Cost / Inventory</h4>
+                <h4 className='text-info text-muted float-right'style={{marginTop: '.5rem'}}>Cost / Inventory</h4>
               </div>
 
               <h4 className='text-info hidden-medium' style={{ position: 'absolute', margin: '.5rem 0 0 0' }}>
