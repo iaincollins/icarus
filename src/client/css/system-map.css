@@ -8,16 +8,7 @@
 }
 
 .system-map__toolbar,
-.system-map__toolbar-background,
-.system-map__system-stats {
-  Xfilter: saturate(.5);
-  xbox-shadow: none !important;
-}
-
-.system-map__toolbar,
-.system-map__toolbar-background,
-.system-map__toolbar-background::before,
-.system-map__toolbar-background::after {
+.system-map__toolbar-background {
   position: absolute;
   height: 4.25rem;
   left: 4.5rem;
@@ -27,39 +18,19 @@
   z-index: 100;
 }
 
+.system-map__toolbar {
+  padding-left: .75rem;
+  padding-top: .4rem;
+}
+
 .system-map__toolbar-background {
-
+  box-shadow: inset 0 -1rem 1.5rem -1.25rem rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .75), 0 0 1rem rgb(0,0,0);
+  border-bottom: .15rem solid rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), 1.25);
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(2rem);
 }
 
-.system-map__toolbar-background,
-.system-map__toolbar-background::before,
-.system-map__toolbar-background::after {
-  Xborder-radius: .5rem .5rem 2rem 2rem ;
-  border: .15rem transparent;
-  backdrop-filter: blur(.5rem);
-}
-
-.system-map__toolbar-background::before {
-  z-index: 98;
-  content: ' ';
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.system-map__toolbar-background::after {
-  z-index: 99;
-  content: ' ';
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:  linear-gradient(to bottom, rgba(0,0,0,.75), rgba(var(--color-primary-dark-r), var(--color-primary-dark-g), var(--color-primary-dark-b), .5));
-  Xborder: .15rem solid rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .75);
-  box-shadow: inset 0 -1rem 1.5rem -1.25rem rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .5), 0 0 1rem rgba(0,0,0,1.5);
-  border-bottom: .1rem solid rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .25);
-}
-
-.system-map__info {
+.map__info {
   position: absolute;
   color: var(--color-info);
   left: .75rem;
@@ -72,14 +43,15 @@
   line-height: 1.5rem;
 }
 
-@media only screen and (max-width: 799px) {
-  .system-map__info {
-    font-size: 1rem;
-  }
+.system-map__info--system-facilities {
+  margin-top: .1rem;
+  position: absolute;
+  left: .75rem;
 }
 
 .system-map__info--icons {
-  margin-right: .5rem;
+  margin-left: .75rem;
+  margin-top: .1rem;
   white-space: nowrap !important;
   text-overflow: ellipsis !important;
   overflow-x: clip !important; /* avoids clipping text shadow on y axis */
@@ -99,12 +71,6 @@
   font-size: 1.25rem;
   line-height: 1rem;
   text-shadow: var(--text-shadow);
-}
-
-@media only screen and (max-width: 799px) {
-  .system-map__info-icon .icon {
-    font-size: 1.25rem;
-  }
 }
 
 .system-map__info-icon .count {
@@ -133,34 +99,21 @@
   right: 0;
 }
 
-@media only screen and (max-width: 799px) {
-  .system-map__location h3 {
-    font-size: 1rem;
-  }
-}
 
 .system-map__system-stats {
   position: absolute;
-  right: 1.5rem;
+  left: 4.5rem;
   bottom: .5rem;
   height: auto;
   width: auto;
   box-sizing: border-box;
   z-index: 101;
-  background:  linear-gradient(to top, rgba(0,0,0,75), rgba(var(--color-primary-dark-r), var(--color-primary-dark-g), var(--color-primary-dark-b), .77));
-  border: .15rem solid rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .75);
-  box-shadow: inset 0 0 .5rem rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .5), 0 0 1rem rgba(0,0,0,.5);
-  xborder-radius: .5rem 1rem .5rem 1rem ;
+  box-shadow: 0 0 1rem rgba(0,0,0, .5);
   padding: .5rem 1rem .6rem .75rem;
-  backdrop-filter: blur(1rem);
+  backdrop-filter: blur(2rem);
   font-size: 1rem;
   transition: all .25s ease-in-out;
-  min-height: 2.85rem;
-}
-
-.system-map__system-stats:hover {
-  border: .15rem solid var(--color-primary);
-  box-shadow: inset 0 0 .75rem rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .75), 0 0 1rem rgba(0,0,0,.5);
+  background: rgba(0,0,0,.5);
 }
 
 .system-map__system-position {
@@ -173,9 +126,10 @@
 
 .system-map__system-telemetry {
   position: absolute;
-  bottom: .75rem;
-  left: 4.75rem;
+  bottom: .5rem;
+  right: 1.5rem;
   font-size: 1rem;
+  text-align: right;
 }
 
 .system-map__title {
@@ -200,29 +154,9 @@
   line-height: 3rem;
 }
 
-@media only screen and (max-width: 799px) {
-  .system-map__title h1 { 
-    font-size: 2rem;
-    line-height: 2.25rem;
-  }
-
-  .system-map__title h1 .icon {
-    position: relative;
-    top: .3rem;
-    line-height: 3rem;
-  }
-}
-
 .system-map__title h3 {
   font-size: 1.25rem;
   line-height: 1.25rem;
-}
-
-@media only screen and (max-width: 799px) {
-  .system-map__title h3 {
-    line-height: 1.7rem;
-    margin: -.5rem 0;
-  }
 }
 
 .system-map__planetary-system {

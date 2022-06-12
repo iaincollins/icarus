@@ -131,7 +131,7 @@
 
 .navigation-panel__map-foreground,
 .navigation-panel__map-frame {
-  --color-scrollbar: rgb(150,150,150);
+  --color-scrollbar: var(--color-primary);
 }
 
 .navigation-panel__map-foreground.scrollable::-webkit-scrollbar-thumb {

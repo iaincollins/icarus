@@ -75,7 +75,7 @@ export default function NavListPage () {
                 {navRoute?.currentSystem &&
                   <>
                     <h3 className='text-primary'>Location</h3>
-                    <h2 className='text-info' style={{ padding: '.5rem', height: '4rem', overflow: 'hidden' }}>
+                    <h2 className='text-info' style={{ padding: '.5rem', height: '4rem' }}>
                       <i className='icarus-terminal-system-orbits' style={{position: 'relative', top: '.25rem', marginRight: '.5rem'}}/>
                       <CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick>
                     </h2>
@@ -85,7 +85,7 @@ export default function NavListPage () {
                 {navRoute?.destination &&
                   <>
                     <h3 className='text-primary'>Destination</h3>
-                    <h2 className='text-info text-right' style={{ padding: '.5rem', height: '4rem', overflow: 'hidden' }}>
+                    <h2 className='text-info text-right' style={{ padding: '.5rem', height: '4rem'}}>
                       {navRoute?.destination?.distance > 0
                         ? <>
                             <i className='icarus-terminal-system-orbits' style={{position: 'relative', top: '.25rem', marginRight: '.5rem'}}/>
@@ -98,7 +98,7 @@ export default function NavListPage () {
             </tr>
           </tbody>
         </table>
-        <p className='text-primary text-uppercase text-center' style={{ margin: '1rem 0', fontSize: '1.5rem', lineHeight: '1.5rem' }}>
+        <p className='text-primary text-uppercase text-center' style={{ margin: '.5rem 0', fontSize: '1.5rem', lineHeight: '1.5rem' }}>
           {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
             <>
               {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly

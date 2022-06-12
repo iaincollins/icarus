@@ -62,8 +62,9 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 <i className='icarus-terminal-system-orbits' style={{fontSize: '1.5rem', float: 'left', position: 'relative', left: '-.15rem'}}/>
                 <CopyOnClick>{system?.name}</CopyOnClick>
               </span>
-              <br/>
-              <span className='text-primary text-muted'>No telemetry</span>
+              <div className='system-map__info--system-facilities'>
+                <span className='text-primary text-muted'>No telemetry</span>
+              </div>
             </div>
           </div>
           <div className='text-muted'>
@@ -131,7 +132,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               <span className='text-primary'>
                 {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
                 <h3  style={{marginRight: '.25rem', display: 'inline-block'}}>
-                   <i className='icarus-terminal-system-bodies' style={{position: 'relative', top: '.15rem', marginRight: '.25rem'}}/>
+                   <i className='icarus-terminal-system-bodies' style={{fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem'}}/>
                     {system.detail.bodies.length} 
                 </h3>}
                 <i className='icarus-terminal-chevron-up' style={{position: 'relative', top: '.15rem', left: '.25rem', marginLeft: '.25rem'}}/>
@@ -172,7 +173,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                     {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
                 </div>
                 </div>
-              : <div className='text-center-vertical text-uppercase text-primary text-muted'><div style={{width: '100%', marginTop: '1.5rem'}}>No stations or settlements</div></div>}
+              : <div className='system-map__info--system-facilities text-primary text-muted'>No stations or settlements</div>}
           </div>
         </div>
       </div>
