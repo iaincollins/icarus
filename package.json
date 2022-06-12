@@ -1,6 +1,6 @@
 {
   "name": "icarus",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "description": "ICARUS Terminal for Elite Dangerous",
   "scripts": {
     "build": "npm run build:client && npm run build:app && npm run build:service && npm run build:package",
