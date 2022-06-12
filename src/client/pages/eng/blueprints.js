@@ -163,7 +163,7 @@ export default function EngineeringMaterialsPage () {
         </Panel>}
       {selectedBlueprint &&
         <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Blueprints')}>
-          <p style={{ marginBottom: '1rem' }}>
+          <p style={{ marginTop: 0, marginBottom: '1rem' }}>
             <Link href='/eng/blueprints'>
               <a className='text-link text-uppercase'><span className='text-link-text'>Blueprints</span></a>
             </Link>
