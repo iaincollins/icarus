@@ -110,8 +110,8 @@ export default function EngineeringMaterialsPage () {
                       <td className='text-right hidden-medium'>
                         <h4 className='text-muted'>{blueprint.originalName}</h4>
                       </td>
-                      <td className='text-center' style={{width: '1rem'}}>
-                        <i className='icon icarus-terminal-chevron-right' style={{fontSize: '1rem'}}/>
+                      <td className='text-center' style={{ width: '1rem' }}>
+                        <i className='icon icarus-terminal-chevron-right' style={{ fontSize: '1rem' }} />
                       </td>
                     </tr>
                   )}
@@ -153,9 +153,9 @@ export default function EngineeringMaterialsPage () {
                     <td className='text-right hidden-medium'>
                       <h4 className='text-muted'>{blueprint.originalName}</h4>
                     </td>
-                    <td className='text-center' style={{width: '1rem'}}>
-                        <i className='icon icarus-terminal-chevron-right' style={{fontSize: '1rem'}}/>
-                      </td>
+                    <td className='text-center' style={{ width: '1rem' }}>
+                      <i className='icon icarus-terminal-chevron-right' style={{ fontSize: '1rem' }} />
+                    </td>
                   </tr>
                 )}
               </tbody>
@@ -163,12 +163,12 @@ export default function EngineeringMaterialsPage () {
         </Panel>}
       {selectedBlueprint &&
         <Panel layout='full-width' scrollable navigation={EngineeringPanelNavItems('Blueprints')}>
-          <p style={{marginBottom: '1rem'}}>
+          <p style={{ marginBottom: '1rem' }}>
             <Link href='/eng/blueprints'>
               <a className='text-link text-uppercase'><span className='text-link-text'>Blueprints</span></a>
             </Link>
             <span className='text-link text-uppercase text-muted'>
-              <i className='icon icarus-terminal-chevron-right' style={{fontSize: '1rem'}}/>
+              <i className='icon icarus-terminal-chevron-right' style={{ fontSize: '1rem' }} />
               {selectedBlueprint.name}
             </span>
           </p>
@@ -310,7 +310,7 @@ export default function EngineeringMaterialsPage () {
 
               <div className='section-heading' style={{ marginTop: '1rem' }}>
                 <h4 className='section-heading__text'>Grade {parseInt(grade) + 1}</h4>
-                <h4 className='text-info text-muted float-right'style={{marginTop: '.5rem'}}>Cost / Inventory</h4>
+                <h4 className='text-info text-muted float-right' style={{ marginTop: '.5rem' }}>Cost / Inventory</h4>
               </div>
 
               <h4 className='text-info hidden-medium' style={{ position: 'absolute', margin: '.5rem 0 0 0' }}>

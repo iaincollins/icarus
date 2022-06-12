@@ -17,36 +17,35 @@ export default function CodexPage () {
       const newCodexEntry = await sendEvent('getCodexEntry', { name: query.name })
       setCodexEntry(newCodexEntry || null)
     } else {
-      setCodexEntry(null) 
+      setCodexEntry(null)
     }
 
     if (!codexEntries) {
       setCodexEntries(await sendEvent('getCodexEntries'))
     }
-
   }, [connected, router.isReady, query])
 
   if (codexEntry) {
-    return <CodexEntry codexEntry={codexEntry}/>
+    return <CodexEntry codexEntry={codexEntry} />
   } else {
-    return <CodexEntries codexEntries={codexEntries}/>
+    return <CodexEntries codexEntries={codexEntries} />
   }
 }
 
-function CodexEntry({codexEntry}) { 
+function CodexEntry ({ codexEntry }) {
   return (
     <div style={{ padding: '1rem' }}>
-      <h1 style={{marginBottom: '1rem'}}>{codexEntry.title}</h1>
+      <h1 style={{ marginBottom: '1rem' }}>{codexEntry.title}</h1>
       <div className='text-primary' dangerouslySetInnerHTML={{ __html: codexEntry.text.replace(/\n/g, '<br/>') }} />
-      <hr style={{marginTop: '1rem'}}/>
-      <Link href={`codex`}>
+      <hr style={{ marginTop: '1rem' }} />
+      <Link href='codex'>
         <a className='text-link text-uppercase'><span className='text-link-text'>Back</span></a>
       </Link>
     </div>
   )
 }
 
-function CodexEntries({codexEntries}) { 
+function CodexEntries ({ codexEntries }) {
   return (
     <div style={{ padding: '1rem' }}>
       <h1>Codex</h1>

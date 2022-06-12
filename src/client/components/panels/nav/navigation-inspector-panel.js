@@ -100,7 +100,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
           <>
             <div className='navigation-panel__inspector-section'>
               <h4 className='text-primary'>Environment</h4>
-  
+
               {isLandable ? <p className='text-info'>Landable</p> : <p className='text-muted'>Not Landable</p>}
               {systemObject.gravity ? <p className='text-info'>Gravity {systemObject.gravity.toFixed(1)}g</p> : null}
               {systemObject.surfaceTemperature &&
@@ -115,7 +115,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             {surfacePorts.length > 0 &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Ports</h4>
-    
+
                 <div className='text-info'>
                   {surfacePorts.map(base => (
                     <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-link text-no-wrap' onClick={() => setSystemObjectByName(base.name)}>
@@ -129,7 +129,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             {settlements.length > 0 &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Settlements</h4>
-    
+
                 <div className='text-info'>
                   {settlements.map(base => (
                     <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-link text-no-wrap' onClick={() => setSystemObjectByName(base.name)}>
@@ -143,7 +143,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             {systemObject.atmosphereComposition &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Atmosphere</h4>
-    
+
                 {systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere' ? <p className='text-info'>{systemObject.atmosphereType}</p> : null}
                 {systemObject.surfacePressure ? <p className='text-info'>Pressure {parseFloat(systemObject.surfacePressure.toFixed(3))} atm</p> : null}
                 <ul className='text-info'>
@@ -154,14 +154,14 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             {!systemObject.atmosphereComposition &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Atmosphere</h4>
-    
+
                 <p className='text-muted'>No Atmosphere</p>
               </div>}
 
             {systemObject.solidComposition &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Surface</h4>
-    
+
                 {systemObject.volcanismType !== 'No volcanism' ? <p className='text-info'>{systemObject.volcanismType}</p> : null}
                 <ul className='text-info'>
                   {Object.entries(systemObject.solidComposition).map(e => e[1] > 0 ? <li key={`navigation-inspector_${systemObject.id}_surface_${e[0]}`}>{e[0]} ({e[1]}%)</li> : '')}
@@ -242,11 +242,10 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             </ul>
           </div>}
 
-        {systemObject.hasOwnProperty('rotationalPeriod') &&
+        {Object.prototype.hasOwnProperty.call(systemObject, 'rotationalPeriod') &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Orbital properties</h4>
-
-            {systemObject.hasOwnProperty('rotationalPeriodTidallyLocked') && <p className='text-info'>{systemObject.rotationalPeriodTidallyLocked ? 'Tidally Locked' : 'Not Tidally Locked'}</p>}
+            {Object.prototype.hasOwnProperty.call(systemObject, 'rotationalPeriodTidallyLocked') && <p className='text-info'>{systemObject.rotationalPeriodTidallyLocked ? 'Tidally Locked' : 'Not Tidally Locked'}</p>}
             {systemObject?.rotationalPeriod !== null && <p className='text-info'><span className='text-primary'>Rotational Period</span><br />{systemObject.rotationalPeriod}</p>}
             {systemObject?.orbitalEccentricity !== null && <p className='text-info'><span className='text-primary'>Orbital Eccentricity</span><br />{systemObject.orbitalEccentricity}</p>}
             {systemObject?.orbitalInclination !== null && <p className='text-info'><span className='text-primary'>Orbital Inclination</span><br />{systemObject.orbitalInclination}</p>}

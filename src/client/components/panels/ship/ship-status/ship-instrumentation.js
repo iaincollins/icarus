@@ -32,7 +32,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
             <td>
               <span className='text-muted'>Total fuel</span>
               <span className='value'>
-               <progress
+                <progress
                   style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
                   value={ship?.fuelLevel ?? 0}
                   max={ship?.fuelCapacity ?? 0}
@@ -298,7 +298,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         }}
         >
           <h5 className='text-muted' style={{ margin: '.15rem 0' }}>
-            PLANETARY<br/>APPROACH SUITE
+            PLANETARY<br />APPROACH SUITE
           </h5>
           <h2 style={{ padding: 0, margin: '0 0 .15rem 0' }}>
             <span className='value'>{ship.onBoard ? cmdrStatus?.heading ?? '-' : '-'}°</span>

@@ -76,7 +76,7 @@ export default function NavListPage () {
                   <>
                     <h3 className='text-primary'>Location</h3>
                     <h2 className='text-info' style={{ padding: '.5rem', height: '4rem' }}>
-                      <i className='icarus-terminal-system-orbits' style={{position: 'relative', top: '.25rem', marginRight: '.5rem'}}/>
+                      <i className='icarus-terminal-system-orbits' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />
                       <CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick>
                     </h2>
                   </>}
@@ -85,11 +85,11 @@ export default function NavListPage () {
                 {navRoute?.destination &&
                   <>
                     <h3 className='text-primary'>Destination</h3>
-                    <h2 className='text-info text-right' style={{ padding: '.5rem', height: '4rem'}}>
+                    <h2 className='text-info text-right' style={{ padding: '.5rem', height: '4rem' }}>
                       {navRoute?.destination?.distance > 0
                         ? <>
-                            <i className='icarus-terminal-system-orbits' style={{position: 'relative', top: '.25rem', marginRight: '.5rem'}}/>
-                            <CopyOnClick>{navRoute?.destination?.system}</CopyOnClick>
+                          <i className='icarus-terminal-system-orbits' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />
+                          <CopyOnClick>{navRoute?.destination?.system}</CopyOnClick>
                           </>
                         : <span className='text-muted'>—</span>}
                     </h2>
@@ -150,8 +150,8 @@ export default function NavListPage () {
                             {route?.isCurrentSystem === true && <>Current Location</>}
                           </span>
                         </td>
-                        <td className='text-center' style={{width: '1rem'}}>
-                          <i className='icon icarus-terminal-chevron-right' style={{fontSize: '1rem'}}/>
+                        <td className='text-center' style={{ width: '1rem' }}>
+                          <i className='icon icarus-terminal-chevron-right' style={{ fontSize: '1rem' }} />
                         </td>
                       </tr>
                     )

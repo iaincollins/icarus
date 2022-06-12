@@ -27,14 +27,14 @@ export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModu
               <span className='text-primary text-muted'> {ship.type}</span>
             </h3>
           </div>
-          <div style={{position: 'relative', minWidth: '7em'}}>
-            <h5 className='text-right text-info' style={{position: 'absolute', right: '.5rem', opacity: ship.onBoard ? 1 : .5}}>
+          <div style={{ position: 'relative', minWidth: '7em' }}>
+            <h5 className='text-right text-info' style={{ position: 'absolute', right: '.5rem', opacity: ship.onBoard ? 1 : 0.5 }}>
               {ship.onBoard ? 'SYS PWR' : 'PWR OFF'}
             </h5>
             <div className={`ship-panel__horizontal-activity ${ship.onBoard ? 'ship-panel__horizontal-activity--online' : ''}`} />
           </div>
         </div>
-        <hr style={{margin: '0 0 1rem 0'}}/>
+        <hr style={{ margin: '0 0 1rem 0' }} />
         <ShipInstrumentation
           ship={ship}
           cmdrStatus={cmdrStatus}

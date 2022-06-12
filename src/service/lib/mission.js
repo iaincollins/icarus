@@ -1,53 +1,52 @@
 const fs = require('fs')
 
 class Mission {
-
-  constructor(missionId) {
+  constructor (missionId) {
     // Look up mission based on ID and populate mission object
     // (throw error if not found)
     this.mission = {}
 
-     // Populated with int for current stage (e.g. 0,1,2), starts off null
+    // Populated with int for current stage (e.g. 0,1,2), starts off null
     this.currentStage = null
   }
 
-  getName() {
-    this.mission.name
+  getName () {
+    return this.mission.name
   }
 
-  getNpc() {
+  getNpc () {
     return (this.currentStage === null)
       ? this.mission.npc
       : this.mission.stages[this.currentStage].npc
   }
 
-  getTitle() {
+  getTitle () {
     return (this.currentStage === null)
       ? this.mission.title
       : this.mission.stages[this.currentStage].title
   }
 
-  getText() {
+  getText () {
     return (this.currentStage === null)
       ? this.mission.text
       : this.mission.stages[this.currentStage].text
   }
 
-  getStyle() {
+  getStyle () {
     return (this.currentStage === null)
       ? null
       : this.mission.stages[this.currentStage].style || null
   }
 
-  getCurrentStage() {
+  getCurrentStage () {
     return this.currentStage
   }
 
-  isComplete() {
-    this.mission.stages[this.currentStage].nextStage ? false : true
+  isComplete () {
+    return !this.mission.stages[this.currentStage].nextStage
   }
 
-  updateMission(event, location = { name: '', type: ''}) {
+  updateMission (event, location = { name: '', type: '' }) {
     // TODO Check progress against mission (should be triggered for all
     // open missions on every event) and progress as appropriate
   }
@@ -60,7 +59,7 @@ module.exports = Mission
 
   mission: {
     id: '',
-    
+
     // Name to display for this mission
     name: ''
 
@@ -128,7 +127,7 @@ module.exports = Mission
 
           nextStage: 2, // Stage to go to on success. If null, mission is over.
           nextMission: null // If a Mission ID is specified, trigger an invite
-                            // to a new mission. 
+                            // to a new mission.
         },]
       }
     ]

@@ -12,7 +12,7 @@ const wikiTextParser = new WT2PT()
 const { RESOURCES_DIR } = require('./lib/build-options')
 
 const ROOT_INPUT_DATA_DIR = path.join(RESOURCES_DIR, 'data')
-const ROOT_OUTPUT_DATA_DIR = path.join('src', 'service' , 'data')
+const ROOT_OUTPUT_DATA_DIR = path.join('src', 'service', 'data')
 
 ;(async () => {
   // await codexArticles()
@@ -36,14 +36,14 @@ async function codexArticles () {
     // Ignore Talk and User pages
     if (title.startsWith('Talk:') || title.startsWith('User:')) return response
 
-    const markdown = page.revision[0].text[0]['_']
+    const markdown = page.revision[0].text[0]._
     let text = wikiTextParser.parse(markdown || '').replace(/\r/g, '')
 
     // Ignore blank pages
     if (!markdown || !text) return response
 
     if (text.toLowerCase().startsWith('- redirect ') || text.toLowerCase().includes('__staticredirect__')) {
-      let redirectTo = text
+      const redirectTo = text
         .replace(/- REDIRECT /i, '')
         .replace(/__STATICREDIRECT__/i, '')
         .replace(/\n(.*)?/, '')
@@ -59,25 +59,25 @@ async function codexArticles () {
       return response
     }
 
-  // Clean up text / omit certain sections
-   text = text
-      .replace(/\n\n- /img, "\n- ")
-      .replace(/\n\nGallery\n(.*?)\n/im, "\n")
-      .replace(/\n\nVideos\n(.*?)\n/im, "\n")
-      .replace(/\n\nReferences\n(.*?)\n/im, "\n")
-      .replace(/\nCategory:(.*?)\n/img, "\n")
-      .replace(/\nCategory:(.*?)$/img, "\n")
-      .replace(/\n([a-z]{2}):(.*?)\n/img, "\n")
-      .replace(/\n([a-z]{2}):(.*?)$/img, "\n")
+    // Clean up text / omit certain sections
+    text = text
+      .replace(/\n\n- /img, '\n- ')
+      .replace(/\n\nGallery\n(.*?)\n/im, '\n')
+      .replace(/\n\nVideos\n(.*?)\n/im, '\n')
+      .replace(/\n\nReferences\n(.*?)\n/im, '\n')
+      .replace(/\nCategory:(.*?)\n/img, '\n')
+      .replace(/\nCategory:(.*?)$/img, '\n')
+      .replace(/\n([a-z]{2}):(.*?)\n/img, '\n')
+      .replace(/\n([a-z]{2}):(.*?)$/img, '\n')
       .trim()
-      
+
     response.push({
       id,
       title,
       timestamp: page.revision[0].timestamp[0],
       contributor: {
-        id:  page.revision[0].contributor[0]?.id?.[0] ?? null,
-        name: page.revision[0].contributor[0]?.username?.[0] ?? null,
+        id: page.revision[0].contributor[0]?.id?.[0] ?? null,
+        name: page.revision[0].contributor[0]?.username?.[0] ?? null
       },
       text
     })
@@ -101,7 +101,6 @@ async function codexArticles () {
     redirects: codexRedirects
   }, null, 2))
 }
-
 
 function fdevids () {
   // https://github.com/EDCD/FDevIDs

@@ -92,9 +92,9 @@ class Inventory {
       data: 0
     }
 
-    inventoryItems.filter(i => i.type === 'Goods').forEach(item => counts.goods += item.count)
-    inventoryItems.filter(i => i.type === 'Component').forEach(item => counts.components += item.count)
-    inventoryItems.filter(i => i.type === 'Data').forEach(item => counts.data += item.count)
+    inventoryItems.filter(i => i.type === 'Goods').forEach(item => { counts.goods += item.count })
+    inventoryItems.filter(i => i.type === 'Component').forEach(item => { counts.components += item.count })
+    inventoryItems.filter(i => i.type === 'Data').forEach(item => { counts.data += item.count })
 
     return {
       counts,
