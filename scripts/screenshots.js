@@ -8,7 +8,8 @@ const DEFAULT_OPTIONS = {
     width: 1024,
     height: 768,
     deviceScaleFactor: 2
-  }
+  },
+  pageDelay: 2000
 }
 
 function screenshot (url, path, options) {
@@ -17,8 +18,8 @@ function screenshot (url, path, options) {
 
 ;(async () => {
   await Promise.all([
-    screenshot(`${HOST}/nav/map?system=maia`, `${BASE_DIR}/nav-map.png`, { pageDelay: 1000 }),
-    screenshot(`${HOST}/nav/list?system=farwell&selected=farwell+a+6+a`, `${BASE_DIR}/nav-list.png`),
+    screenshot(`${HOST}/nav/map?system=maia`, `${BASE_DIR}/nav-map.png`),
+    screenshot(`${HOST}/nav/list?system=shinrarta+dezhra&selected=shinrarta+dezhra+a+1`, `${BASE_DIR}/nav-list.png`),
     screenshot(`${HOST}/nav/route`, `${BASE_DIR}/nav-route.png`),
     screenshot(`${HOST}/eng/blueprints?symbol=FSD_LongRange`, `${BASE_DIR}/eng-blueprint.png`),
     screenshot(`${HOST}/ship/status`, `${BASE_DIR}/ship-status.png`)
