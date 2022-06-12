@@ -4,6 +4,7 @@
     "systemAddress": "3932277478114",
     "marketId": "128673927",
     "name": "Didi Vatermann",
+    "description": "Shields and shield boosters",
     "systemName": "Leesti",
     "systemPosition": [72.75,48.75,68.25]
   },
@@ -12,6 +13,7 @@
     "systemAddress": "1109989017963",
     "marketId": "128674183",
     "name": "Bill Turner",
+    "description": "Plasma Accelerators and utilities",
     "systemName": "Alioth",
     "systemPosition": [-33.65625,72.46875,-20.65625]
   },
@@ -20,6 +22,7 @@
     "systemAddress": "4481966019282",
     "marketId": "128674695",
     "name": "Broo Tarquin",
+    "description": "Laser weapons",
     "systemName": "Muang",
     "systemPosition": [17.03125,-172.78125,-3.46875]
   },
@@ -28,6 +31,7 @@
     "systemAddress": "2827992680811",
     "marketId": "128674951",
     "name": "The Sarge",
+    "description": "Cannons and limpets",
     "systemName": "Beta-3 Tucani",
     "systemPosition": [32.25,-55.1875,23.875]
   },
@@ -36,6 +40,7 @@
     "systemAddress": "6131367744226",
     "marketId": "128675207",
     "name": "Zacariah Nemo",
+    "description": "Projectile weapons",
     "systemName": "Yoru",
     "systemPosition": [97.875,-86.90625,64.125]
   },
@@ -44,6 +49,7 @@
     "systemAddress": "1458309141194",
     "marketId": "128675975",
     "name": "Liz Ryder",
+    "description": "Explosive weapons",
     "systemName": "Eurybia",
     "systemPosition": [ 51.40625,-54.40625,-30.5]
   },
@@ -52,6 +58,7 @@
     "systemAddress": "1733321102034",
     "marketId": "128676231",
     "name": "Hera Tani",
+    "description": "Power Plants and Power Distributors",
     "systemName": "Kuwemaki",
     "systemPosition": [134.65625,-226.90625,-7.8125]
   },
@@ -60,6 +67,7 @@
     "systemAddress": "6681123623626",
     "marketId": "128676487",
     "name": "Felicity Farseer",
+    "description": "Frame Shift Drives, thrusters, scanners and sensors",
     "systemName": "Deciat",
     "systemPosition": [122.625,-0.8125,-47.28125]
   },
@@ -68,6 +76,7 @@
     "systemAddress": "3790082132323",
     "marketId": "128676743",
     "name": "Ram Tah",
+    "description": "Limpet controllers and utilities",
     "systemName": "Meene",
     "systemPosition": [118.78125,-56.4375,-97.1875]
   },
@@ -76,6 +85,7 @@
     "systemAddress": "4305444669811",
     "marketId": "128676999",
     "name": "Lei Cheung",
+    "description": "Shields and sensors",
     "systemName": "Laksak",
     "systemPosition": [-21.53125,-6.3125,116.03125]
   },
@@ -84,6 +94,7 @@
     "systemAddress": "12274907287851",
     "marketId": "128677255",
     "name": "Petra Olmanova",
+    "description": "Weapons and utilities",
     "systemName": "Asura",
     "systemPosition": [-9550.28125,-916.65625,19816.1875]
   },
@@ -92,6 +103,7 @@
     "systemAddress": "10477373803",
     "marketId": "128677511",
     "name": "Colonel Bris Dekker",
+    "description": "Frame Shift Drives",
     "systemName": "Sol",
     "systemPosition": [0,0,0]
   },
@@ -100,6 +112,7 @@
     "systemAddress": "48996147307082",
     "marketId": "128677767",
     "name": "Marsha Hicks",
+    "description": "Projectile weapons and limpet controllers",
     "systemName": "Tir",
     "systemPosition": [ -9532.9375,-923.4375,19799.125]
   },
@@ -108,6 +121,7 @@
     "systemAddress": "3107241104074",
     "marketId": "128678023",
     "name": "Elvira Martuuk",
+    "description": "Frame Shift Drives, thrusters and shields",
     "systemName": "Khun",
     "systemPosition": [-171.59375,19.96875,-56.96875]
   },
@@ -116,6 +130,7 @@
     "systemAddress": "5031654888146",
     "marketId": "128678535",
     "name": "The Dweller",
+    "description": "Thermal weapons and Power Distributors",
     "systemName": "Wyrd",
     "systemPosition": [-11.625,31.53125,-3.9375]
   },
@@ -124,6 +139,7 @@
     "systemAddress": "121569805492",
     "marketId": "128679047",
     "name": "Marco Qwent",
+    "description": "Power Plants and Power Distributors",
     "systemName": "Sirius",
     "systemPosition": [6.25,-1.28125,-5.75]
   },
@@ -132,6 +148,7 @@
     "systemAddress": "24859942069665",
     "marketId": "128679303",
     "name": "Selene Jean",
+    "description": "Hull reinforcements and armour",
     "systemName": "Kuk",
     "systemPosition": [-21.28125,69.09375,-16.3125]
   },
@@ -140,6 +157,7 @@
     "systemAddress": "113573366131",
     "marketId": "128679559",
     "name": "Professor Palin",
+    "description": "Frame Shift Drives and thrusters",
     "systemName": "Arque",
     "systemPosition": [66.5,38.0625,61.125]
   },
@@ -148,6 +166,7 @@
     "systemAddress": "3932277478106",
     "marketId": "128679815",
     "name": "Lori Jameson",
+    "description": "Scanners and utilities",
     "systemName": "Shinrarta Dezhra",
     "systemPosition": [55.71875,17.59375,27.15625]
   },
@@ -156,6 +175,7 @@
     "systemAddress": "4481899074282",
     "marketId": "128680327",
     "name": "Juri Ishmaak",
+    "description": "Explosive weapons",
     "systemName": "Giryak",
     "systemPosition": [14.6875,27.65625,108.65625]
   },
@@ -164,6 +184,7 @@
     "systemAddress": "3107576681170",
     "marketId": "128680583",
     "name": "Tod 'The Blaster' McQuinn",
+    "description": "Kinetic weapons",
     "systemName": "Wolf 397",
     "systemPosition": [14.6875,27.65625,108.65625]
   },
@@ -172,6 +193,7 @@
     "systemAddress": "164098653",
     "marketId": "128680839",
     "name": "Tiana Fortune",
+    "description": "Scanners, sensors and utilities",
     "systemName": "Achenar",
     "systemPosition": [67.5,-119.46875,24.84375]
   },
@@ -180,6 +202,7 @@
     "systemAddress": "66038577537618",
     "marketId": "128681095",
     "name": "Mel Brandon",
+    "description": "Laser weapons, shields, Frame Shift Drives and thrusters",
     "systemName": "Luchtaine",
     "systemPosition": [ -9523.3125,-914.46875,19825.90625]
   },
@@ -188,6 +211,7 @@
     "systemAddress": "11887629902418",
     "marketId": "128681351",
     "name": "Etienne Dorn",
+    "description": "Plasma Accelerators, Rail Guns, Scanners and core modules",
     "systemName": "Los",
     "systemPosition": [-9509.34375,-886.3125,19820.125]
   },
@@ -196,6 +220,7 @@
     "systemAddress": "594676730147",
     "marketId": "128954244",
     "name": "Chloe Sedesi",
+    "description": "Frame Shift Drives and thrusters",
     "systemName": "Shenve",
     "systemPosition": [ 351.96875,-373.46875,-711.09375]
   },
@@ -204,6 +229,7 @@
     "systemAddress": "7268024067513",
     "marketId": "128972903",
     "name": "Jude Navarro",
+    "description": "Suits and handheld weapons",
     "systemName": "Aurai",
     "systemPosition": [0.9375,-47.8125,46.28125]
   },
@@ -212,6 +238,7 @@
     "systemAddress": "5068464399785",
     "marketId": "128973159",
     "name": "Domino Green",
+    "description": "Suits and handheld weapons",
     "systemName": "Orishis",
     "systemPosition": [-31,93.96875,-3.5625]
   },
@@ -220,6 +247,7 @@
     "systemAddress": "7269634614689",
     "marketId": "128973415",
     "name": "Hero Ferrari",
+    "description": "Suits and handheld weapons",
     "systemName": "Siris",
     "systemPosition": [131.0625,-73.59375,-11.25]
   },
@@ -228,6 +256,7 @@
     "systemAddress": "2827975936355",
     "marketId": "128973671",
     "name": "Kit Fowler",
+    "description": "Suits and handheld weapons",
     "systemName": "Capoya",
     "systemPosition": [-60.65625,82.4375,-45.0625]
   },
@@ -236,6 +265,7 @@
     "systemAddress": "2832832893634",
     "marketId": "128973927",
     "name": "Wellington Beck",
+    "description": "Suits and handheld weapons",
     "systemName": "Jolapa",
     "systemPosition": [100.1875,-41.34375,-78]
   },
@@ -244,6 +274,7 @@
     "systemAddress": "3721329101171",
     "marketId": "128974183",
     "name": "Terra Velasquez",
+    "description": "Suits and handheld weapons",
     "systemName": "Shou Xing",
     "systemPosition": [-16.28125,-44.53125,94.375]
   },
@@ -252,6 +283,7 @@
     "systemAddress": "16065190962585",
     "marketId": "128974439",
     "name": "Uma Laszlo",
+    "description": "Suits and handheld weapons",
     "systemName": "Xuane",
     "systemPosition": [93.875,-9.25,-32.53125]
   },
@@ -260,6 +292,7 @@
     "systemAddress": "8879744226018",
     "marketId": "128974695",
     "name": "Oden Geiger",
+    "description": "Suits and handheld weapons",
     "systemName": "Candiaei",
     "systemPosition": [-113.5,-4.9375,66.84375]
   },
@@ -268,6 +301,7 @@
     "systemAddress": "670686455169",
     "marketId": "128974951",
     "name": "Yarden Bond",
+    "description": "Suits and handheld weapons",
     "systemName": "Bayan",
     "systemPosition": [ -19.96875,117.625,-90.46875]
   },
@@ -276,6 +310,7 @@
     "systemAddress": "71536135676490",
     "marketId": "128986843",
     "name": "Baltanos",
+    "description": "Suits and handheld weapons",
     "systemName": "Deriso",
     "systemPosition": [-9520.3125,-909.5,19808.75]
   },
@@ -284,6 +319,7 @@
     "systemAddress": "38001031029322",
     "marketId": "128987099",
     "name": "Eleanor Bresa",
+    "description": "Suits and handheld weapons",
     "systemName": "Desy",
     "systemPosition": [-9534.21875,-912.21875,19792.375]
   },
@@ -292,6 +328,7 @@
     "systemAddress": "59166629864010",
     "marketId": "128986587",
     "name": "Rosa Dayette",
+    "description": "Suits and handheld weapons",
     "systemName": "Kojeara",
     "systemPosition": [-9513.09375,-908.84375,19814.28125]
   },
@@ -300,6 +337,7 @@
     "systemAddress": "13736779007129",
     "marketId": "128987355",
     "name": "Yi Shen",
+    "description": "Suits and handheld weapons",
     "systemName": "Einheriar",
     "systemPosition": [-9557.8125,-880.1875,19801.5625]
   }

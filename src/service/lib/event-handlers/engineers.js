@@ -23,6 +23,7 @@ class Engineers {
       return {
         id: engineer.EngineerID,
         name: engineer.Engineer,
+        description: engineerWithLocation.description,
         system: {
           address: engineerWithLocation?.systemAddress ?? UNKNOWN_VALUE,
           name: engineerWithLocation?.systemName ?? UNKNOWN_VALUE,
@@ -45,6 +46,7 @@ class Engineers {
         engineers.push({
           id: engineer.id,
           name: engineer.name,
+          description: engineer.description,
           system: {
             address: engineer?.systemAddress ?? UNKNOWN_VALUE,
             name: engineer?.systemName ?? UNKNOWN_VALUE,

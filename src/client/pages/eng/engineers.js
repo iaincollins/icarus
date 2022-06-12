@@ -99,7 +99,7 @@ function ListEngineers ({ engineers, currentSystem }) {
                   style={{ fontSize: '1.75rem', lineHeight: '2rem', width: '2rem', display: 'inline-block' }}
                 />
               </td>
-              <td>
+              <td style={{ width: '18rem' }}>
                 <h4 className={engineer.progress.rank > 0 ? 'text-info' : 'text-info text-muted'}>
                   <CopyOnClick>{engineer.name}</CopyOnClick>
                 </h4>
@@ -118,6 +118,9 @@ function ListEngineers ({ engineers, currentSystem }) {
                       />
                     )}
                   </h4>}
+              </td>
+              <td className={`text-primary text-no-transform text-left hidden-small`}>
+                {engineer.description}
               </td>
               <td className='text-right'>
                 <span className='text-right'>
