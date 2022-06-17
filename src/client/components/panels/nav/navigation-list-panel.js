@@ -13,7 +13,7 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
         >
           <h2>
             <span className='text-primary text-blink-slow'>No system information</span><br />
-            <span className='text-info text-muted' style={{ fontSize: '1.5rem' }}>EDSM Telemetry Unavailable</span>
+            <span className='text-info text-muted' style={{ fontSize: '1.5rem' }}>Telemetry Unavailable</span>
           </h2>
         </div>}
       <div className='scrollable'>
