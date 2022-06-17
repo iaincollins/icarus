@@ -151,7 +151,7 @@ class CmdrStatus {
       if (cmdrStatus?.flags?.onFootInHanger) {
         location.push('Hanger')
       } else if (cmdrStatus?.flags?.onFootSocialSpace) {
-        location.push('Station')
+        location.push('Concourse')
       }
     }
 

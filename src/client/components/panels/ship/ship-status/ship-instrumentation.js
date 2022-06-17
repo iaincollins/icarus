@@ -1,7 +1,7 @@
 export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches, toggleSwitch }) {
   return (
     <div className='ship-panel__instrumentation'>
-      <div className='visible-medium' style={{ padding: '1rem 0' }}>
+      <div className={`visible-medium ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '1rem 0 3rem 0' }}>
         <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
       </div>
       <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}>
@@ -20,7 +20,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               <span className='text-muted'>Fuel reservoir</span>
               <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
             </td>
-            <td rowSpan={4} className='hidden-medium' style={{ padding: 0 }}>
+            <td rowSpan={4} className='hidden-medium' style={{ padding: 0, overflow: 'visible' }}>
               <PowerDistribution ship={ship} />
             </td>
           </tr>
@@ -71,7 +71,20 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
         <PowerDistribution ship={ship} />
       </div>
 
-      <table className={`table--layout ${!ship.onBoard ? 'text-muted' : ''}`}>
+    <div style={{position: 'relative', height: '2rem', marginTop: '.75rem'}}>
+      <div style={{
+          border: '.2rem solid var(--color-info)',
+          borderBottom: 'none',
+          xbackground: 'red',
+          position: 'absolute',
+          top: '2rem',
+          left: '.5rem',
+          width: 'calc(100% - 1rem)',
+          height: '2rem',
+          opacity: '.25'
+        }}/>
+      </div>
+      <table className={`table--layout ${!ship.onBoard ? 'text-muted' : ''}`} style={{marginBottom: '1rem'}}>
         <tbody>
           <tr>
             <td>
@@ -147,6 +160,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           </tr>
         </tbody>
       </table>
+
       <table className='table--layout ship-panel__lights'>
         <tbody>
           <tr>
@@ -242,7 +256,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
 
 function NavigationInstrumentation ({ ship, cmdrStatus }) {
   return (
-    <div className='text-uppercase' style={{ position: 'relative' }}>
+    <div className='text-uppercase' style={{ position: 'relative', left: '2rem' }}>
       <div style={{
         position: 'absolute',
         left: 0,
@@ -257,10 +271,35 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
         opacity: ship.onBoard ? 1 : '.5',
         borderRadius: '100rem',
-        boxShadow: ship.onBoard ? 'inset 0 0 .25rem var(--color-info), 0 0 .25rem var(--color-secondary), inset 0 0 1rem var(--color-secondary)' : '',
-        transition: 'opacity .25s ease-in-out'
+        transition: 'opacity .25s ease-in-out',
       }}
       >
+        <div style={{
+          border: '.4rem solid var(--color-info)',
+          borderRadius: '100rem',
+          Xbackground: 'red',
+          position: 'absolute',
+          bottom: '-5.5rem',
+          left: 'calc(-5% - .5rem)',
+          right: 0,
+          width: '110%',
+          aspectRatio: '1/1',
+          transform: 'rotateX(250deg)',
+          opacity: '.5'
+        }}/>
+        <div style={{
+          border: '.4rem solid var(--color-info)',
+          borderRadius: '100rem',
+          Xbackground: 'red',
+          position: 'absolute',
+          bottom: '-8rem',
+          left: 'calc(-20% - .5rem)',
+          right: 0,
+          width: '140%',
+          aspectRatio: '1/1',
+          transform: 'rotateX(250deg)',
+          opacity: '.25'
+        }}/>
         <div style={{
           position: 'absolute',
           top: '-.8rem',
@@ -288,16 +327,32 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
       >
         <div style={{
           position: 'relative',
-          top: '-.25rem',
+          top: '0',
+          left: '0',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           textAlign: 'center',
           height: '100%',
-          opacity: ship.onBoard ? 1 : 0.5
+          opacity: ship.onBoard ? 1 : 0.5,
+          background: 'rgba(0,0,0,.8)',
+          boxShadow: ship.onBoard ? 'inset 0 0 .25rem var(--color-info), 0 0 .25rem var(--color-secondary), inset 0 0 1rem var(--color-secondary)' : '',
+          borderRadius: '100rem'
         }}
         >
-          <h5 className='text-muted' style={{ margin: '.15rem 0' }}>
+          <div style={{
+          position: 'absolute',
+          top: '-.25rem',
+          left: '0',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          textAlign: 'center',
+          height: '100%',
+          opacity: ship.onBoard ? 1 : 0.5,
+        }}
+        />
+          <h5 className='text-muted' style={{ margin: '0 0 .5rem 0' }}>
             PLANETARY<br />APPROACH SUITE
           </h5>
           <h2 style={{ padding: 0, margin: '0 0 .15rem 0' }}>
@@ -337,10 +392,22 @@ function PowerDistribution ({ ship }) {
       className='ship-panel__ship-pips'
       style={{
         position: 'relative',
-        padding: '.25rem .5rem'
+        padding: '.25rem .5rem',
       }}
     >
-      <h4 className='text-center text-muted' style={{ marginBottom: '1.5rem', marginLeft: '2rem' }}>PWR Distribution</h4>
+      <div
+        className='hidden-medium'
+        style={{
+          border: '.2rem solid var(--color-info)',
+          borderBottom: 'none',
+          position: 'absolute',
+          top: '-.5rem',
+          left: '1.75rem',
+          right: '.25rem',
+          height: '2rem',
+          opacity: '.25'
+        }}/>
+      <h4 className='text-center text-muted' style={{ marginBottom: '1.5rem', marginLeft: '1.5rem' }}>PWR Distribution</h4>
       <div className='text-uppercase'>
         <div className='ship-panel__ship-pip'>
           <progress className={ship.onBoard ? 'progress--gradient' : ''} value={ship.onBoard ? ship?.pips?.systems : 0} max={8} />
