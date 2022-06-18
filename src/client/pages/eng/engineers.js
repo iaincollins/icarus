@@ -119,7 +119,7 @@ function ListEngineers ({ engineers, currentSystem }) {
                     )}
                   </h4>}
               </td>
-              <td className={`text-primary text-no-transform text-left hidden-small`}>
+              <td className='text-primary text-no-transform text-left hidden-small'>
                 {engineer.description}
               </td>
               <td className='text-right'>
