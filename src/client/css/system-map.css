@@ -25,9 +25,9 @@
 
 .system-map__toolbar-background {
   box-shadow: inset 0 -1rem 1.5rem -1.25rem rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .75), 0 0 1rem rgb(0,0,0);
-  border-bottom: .15rem solid rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), 1.25);
-  background: rgba(0,0,0,.5);
-  backdrop-filter: blur(2rem);
+  border-bottom: .2rem solid rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .75);
+  background: var(--color-background-panel-translucent);
+  backdrop-filter: blur(.5rem) brightness(.25);
 }
 
 .map__info {
@@ -104,17 +104,18 @@
 .system-map__system-stats {
   position: absolute;
   left: 4.5rem;
-  bottom: .5rem;
+  xbottom: .5rem;
+  bottom: 0;
   height: auto;
   width: auto;
   box-sizing: border-box;
   z-index: 101;
   box-shadow: 0 0 1rem rgba(0,0,0, .5);
   padding: .5rem 1rem .6rem .75rem;
-  backdrop-filter: blur(2rem);
   font-size: 1rem;
   transition: all .25s ease-in-out;
-  background: rgba(0,0,0,.5);
+  background: linear-gradient(var(--color-background-panel-translucent), var(--color-background-panel));
+  backdrop-filter: blur(.5rem) brightness(.25);
 }
 
 .system-map__system-position {

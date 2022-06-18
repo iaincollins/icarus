@@ -163,8 +163,7 @@
   .ship-panel__ship-pips {
     transform: rotate(270deg);
     width: 16rem;
-    top: 2rem;
-    top: 2.5rem;
+    top: 2.75rem;
     left: -2rem;
   }
   .ship-panel__ship-pip label {
@@ -422,4 +421,14 @@ table.ship-panel__lights td {
 .ship-panel__instrumentation {
   max-width: 100rem;
   margin: auto;
+}
+
+.ship-panel__navigation-instrumentation {
+  position: relative;
+}
+
+@media only screen and (min-width: 799px) {
+  .ship-panel__navigation-instrumentation {
+    left: 2rem;
+  }
 }

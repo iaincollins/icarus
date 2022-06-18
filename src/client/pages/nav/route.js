@@ -75,7 +75,7 @@ export default function NavListPage () {
                 {navRoute?.currentSystem &&
                   <>
                     <h3 className='text-primary'>Location</h3>
-                    <h2 className='text-info' style={{ padding: '.5rem', height: '4rem' }}>
+                    <h2 className='navigation-panel__route-heading text-info'>
                       <i className='icarus-terminal-system-orbits' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />
                       <CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick>
                     </h2>
@@ -85,7 +85,7 @@ export default function NavListPage () {
                 {navRoute?.destination &&
                   <>
                     <h3 className='text-primary'>Destination</h3>
-                    <h2 className='text-info text-right' style={{ padding: '.5rem', height: '4rem' }}>
+                    <h2 className='navigation-panel__route-heading text-info text-right'>
                       {navRoute?.destination?.distance > 0
                         ? <>
                           <i className='icarus-terminal-system-orbits' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />

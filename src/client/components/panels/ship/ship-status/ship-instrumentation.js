@@ -43,10 +43,10 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           </tr>
           <tr>
             <td>
-              <span className='text-muted'>HUD mode</span>
+              <span className='text-muted'>TARGET mode</span>
               <h3 className={`value ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '.25rem 0', height: '1.5rem' }}>
                 {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
-                {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-primary'>Combat</span>}
+                {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-danger'>Combat</span>}
                 {(!ship.onBoard || !cmdrStatus) && '-'}
               </h3>
             </td>
@@ -256,7 +256,45 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
 
 function NavigationInstrumentation ({ ship, cmdrStatus }) {
   return (
-    <div className='text-uppercase' style={{ position: 'relative', left: '2rem' }}>
+    <div className='ship-panel__navigation-instrumentation text-uppercase'>
+      <div style={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        display: 'block',
+        height: '100%',
+        maxHeight: '12rem',
+        maxWidth: '12rem',
+        margin: 'auto',
+        aspectRatio: '1',
+      }}>
+      <div style={{
+          border: '.4rem solid var(--color-info)',
+          borderRadius: '100rem',
+          Xbackground: 'red',
+          position: 'absolute',
+          bottom: '-5.75rem',
+          left: '-5%',
+          width: '100%',
+          aspectRatio: '1/1',
+          transform: 'rotateX(250deg)',
+          opacity: '.5'
+        }}/>
+        <div style={{
+          border: '.4rem solid var(--color-info)',
+          borderRadius: '100rem',
+          Xbackground: 'red',
+          position: 'absolute',
+          bottom: '-8rem',
+          left: '-15%',
+          xleft: 0,
+          xright: 0,
+          width: '120%',
+          aspectRatio: '1/1',
+          transform: 'rotateX(250deg)',
+          opacity: '.25'
+        }}/>
+    </div>
       <div style={{
         position: 'absolute',
         left: 0,
@@ -269,37 +307,12 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         aspectRatio: '1',
         border: '.5rem double var(--color-info)',
         transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
-        opacity: ship.onBoard ? 1 : '.5',
+        opacity: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 1 : '.5',
         borderRadius: '100rem',
         transition: 'opacity .25s ease-in-out',
+        zIndex: 100,
       }}
       >
-        <div style={{
-          border: '.4rem solid var(--color-info)',
-          borderRadius: '100rem',
-          Xbackground: 'red',
-          position: 'absolute',
-          bottom: '-5.5rem',
-          left: 'calc(-5% - .5rem)',
-          right: 0,
-          width: '110%',
-          aspectRatio: '1/1',
-          transform: 'rotateX(250deg)',
-          opacity: '.5'
-        }}/>
-        <div style={{
-          border: '.4rem solid var(--color-info)',
-          borderRadius: '100rem',
-          Xbackground: 'red',
-          position: 'absolute',
-          bottom: '-8rem',
-          left: 'calc(-20% - .5rem)',
-          right: 0,
-          width: '140%',
-          aspectRatio: '1/1',
-          transform: 'rotateX(250deg)',
-          opacity: '.25'
-        }}/>
         <div style={{
           position: 'absolute',
           top: '-.8rem',
@@ -335,8 +348,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           textAlign: 'center',
           height: '100%',
           opacity: ship.onBoard ? 1 : 0.5,
-          background: 'rgba(0,0,0,.8)',
-          boxShadow: ship.onBoard ? 'inset 0 0 .25rem var(--color-info), 0 0 .25rem var(--color-secondary), inset 0 0 1rem var(--color-secondary)' : '',
+          background: 'var(--color-background-panel-translucent)',
+          boxShadow: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 'inset 0 0 .5rem var(--color-info), 0 0 1.75rem var(--color-secondary), inset 0 0 1.5rem var(--color-secondary)' : '',
           borderRadius: '100rem'
         }}
         >
@@ -352,23 +365,23 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           opacity: ship.onBoard ? 1 : 0.5,
         }}
         />
-          <h5 className='text-muted' style={{ margin: '0 0 .5rem 0' }}>
+          <h5 className='text-muted' style={{ margin: '0 0 .25rem 0' }}>
             PLANETARY<br />APPROACH SUITE
           </h5>
-          <h2 style={{ padding: 0, margin: '0 0 .15rem 0' }}>
+          <h2 style={{ padding: 0, margin: '0 0 .1rem 0' }}>
             <span className='value'>{ship.onBoard ? cmdrStatus?.heading ?? '-' : '-'}°</span>
           </h2>
-          <p style={{ padding: 0, margin: '.15rem 0' }}>
+          <p style={{ padding: 0, margin: '.1rem 0' }}>
             <span className='text-muted'>LAT</span>
             {' '}
             <span className='value'>{ship.onBoard ? cmdrStatus?.latitude ?? '-' : '-'}°</span>
           </p>
-          <p style={{ padding: 0, margin: '.15rem 0' }}>
+          <p style={{ padding: 0, margin: '.1rem 0' }}>
             <span className='text-muted'>LON</span>
             {' '}
             <span className='value'>{ship.onBoard ? cmdrStatus?.longitude ?? '-' : '-'}°</span>
           </p>
-          <p style={{ padding: 0, margin: '.15rem 0 0 0' }}>
+          <p style={{ padding: 0, margin: '.1rem 0 0 0' }}>
             <span className='text-muted'>ALT</span>
             {' '}
             <span className='value'>{(ship.onBoard && cmdrStatus?.altitude)
