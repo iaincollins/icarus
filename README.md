@@ -19,13 +19,15 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
     <img alt="Download" src="https://user-images.githubusercontent.com/595695/156449436-a2452073-ca27-4916-b21f-6eb1e7370bf2.svg" height="80" width="auto"/>
   </a>
 </p>
+![nav-map](https://user-images.githubusercontent.com/595695/174604534-3ab2bb75-073b-4dfa-b7b3-3973d1c77b7b.png)
+![ship-status](https://user-images.githubusercontent.com/595695/174604547-a26b0c18-dc37-4bc6-9e82-05a5cd8c250b.png)
 
 ## Screenshots
 
-<img alt="System Map" src="https://user-images.githubusercontent.com/595695/173226430-49ac8fa1-5102-4462-a1ab-29fae635384a.png" height="auto" width="100%"/>
+<img alt="System Map" src="https://user-images.githubusercontent.com/595695/174604534-3ab2bb75-073b-4dfa-b7b3-3973d1c77b7b.png" height="auto" width="98.5%"/>
 
-<img alt="System List" src="https://user-images.githubusercontent.com/595695/173226427-d7eec44b-6566-41b1-8b27-b971ed02cfc3.png" height="auto" width="50%"/><img alt="Ship Status" src="https://user-images.githubusercontent.com/595695/173226436-5f94bbe9-f17b-457d-a0d7-c3b996f12ec9.png" height="auto" width="50%"/>
-<img alt="Engineering" src="https://user-images.githubusercontent.com/595695/173226377-6f18a869-dadf-43c5-80d1-874d7fc53d0c.png" height="auto" width="50%"/><img alt="Navigation Route" src="https://user-images.githubusercontent.com/595695/173226433-0c6da8b9-009d-4e19-9296-05a4b42e7d9f.png" height="auto" width="50%"/>
+<img alt="System List" src="https://user-images.githubusercontent.com/595695/173226427-d7eec44b-6566-41b1-8b27-b971ed02cfc3.png" height="auto" width="49%"/> <img alt="Ship Status" src="https://user-images.githubusercontent.com/595695/174604547-a26b0c18-dc37-4bc6-9e82-05a5cd8c250b.png" height="auto" width="49%"/>
+<img alt="Engineering" src="https://user-images.githubusercontent.com/595695/173226377-6f18a869-dadf-43c5-80d1-874d7fc53d0c.png" height="auto" width="49%"/> <img alt="Navigation Route" src="https://user-images.githubusercontent.com/595695/173226433-0c6da8b9-009d-4e19-9296-05a4b42e7d9f.png" height="auto" width="49%"/>
 
 ## Requirements
 
