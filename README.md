@@ -19,8 +19,6 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
     <img alt="Download" src="https://user-images.githubusercontent.com/595695/156449436-a2452073-ca27-4916-b21f-6eb1e7370bf2.svg" height="80" width="auto"/>
   </a>
 </p>
-![nav-map](https://user-images.githubusercontent.com/595695/174604534-3ab2bb75-073b-4dfa-b7b3-3973d1c77b7b.png)
-![ship-status](https://user-images.githubusercontent.com/595695/174604547-a26b0c18-dc37-4bc6-9e82-05a5cd8c250b.png)
 
 ## Screenshots
 
