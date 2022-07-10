@@ -32,13 +32,13 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
   // },[])
   // */
 
-  if (!system.stars || system.stars.length < 2) {
+  // Check if any bodies are visible on map (i.e. any stars *or* any "additional objects")
+  const visibleBodiesOnMap = (!system.stars || (system.stars.length === 1 && (system.stars?.[0]?._children?.length) === 0))
+
+  if (visibleBodiesOnMap) {
     return (
       <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
-        <div
-          className='text-center-both'
-          style={{ zIndex: '30', pointerEvents: 'none' }}
-        >
+        <div className='text-center-both' style={{ zIndex: '30', pointerEvents: 'none' }}>
           <h2>
             <span className='text-primary text-blink-slow'>No system information</span><br />
             <span className='text-info text-muted' style={{ fontSize: '1.5rem' }}>Telemetry Unavailable</span>
@@ -217,7 +217,7 @@ function LocationInformation ({ system, cmdrStatus }) {
         </div>}
       {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
         <div className='text-center-vertical'>
-          <h3 className='text-blink-slow text-danger' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
+          <h3 className='text-blink-slow text-secondary' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
         </div>}
     </div>
   )
