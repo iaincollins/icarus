@@ -128,9 +128,7 @@
 .ship-panel__ship-pips {
   position: relative;
   top: 1rem;
-  xright: 2rem;
-  xleft: 1rem;
-  padding: .5rem;
+  padding: .5rem .5rem 0 .5rem;
 }
 
 .ship-panel__ship-pip {
@@ -146,7 +144,6 @@
 
 .ship-panel__ship-pip progress {
   width: calc(100% - 4rem);
-  xmargin-right: .25rem;
 }
 
 .ship-panel__ship-pip label {
@@ -165,6 +162,7 @@
     width: 16rem;
     top: 2.75rem;
     left: -2rem;
+    padding: .5rem;
   }
   .ship-panel__ship-pip label {
     transform: rotate(45deg);

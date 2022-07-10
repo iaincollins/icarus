@@ -67,19 +67,18 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
         </tbody>
       </table>
 
-      <div className='visible-medium'>
+      <div className={`visible-medium ${!ship.onBoard ? 'text-muted' : ''}`}>
         <PowerDistribution ship={ship} />
       </div>
 
-      <div style={{ position: 'relative', height: '2rem', marginTop: '.75rem' }}>
+      <div className={`${!ship.onBoard ? 'text-muted' : ''}`} style={{ position: 'relative', height: '2rem', marginTop: '.75rem' }}>
         <div style={{
-          border: '.2rem solid var(--color-info)',
-          borderBottom: 'none',
-          xbackground: 'red',
+          borderTop: '.2rem solid var(--color-info)',
           position: 'absolute',
           top: '2rem',
           left: '.5rem',
-          width: 'calc(100% - 1rem)',
+          left: '6rem',
+          right: '6rem',
           height: '2rem',
           opacity: '.25'
         }}
@@ -406,13 +405,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
 
 function PowerDistribution ({ ship }) {
   return (
-    <div
-      className='ship-panel__ship-pips'
-      style={{
-        position: 'relative',
-        padding: '.25rem .5rem'
-      }}
-    >
+    <div className='ship-panel__ship-pips'>
       <div
         className='hidden-medium'
         style={{
