@@ -217,7 +217,7 @@ function LocationInformation ({ system, cmdrStatus }) {
         </div>}
       {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
         <div className='text-center-vertical'>
-          <h3 className='text-blink-slow text-secondary' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
+          <h3 className='text-blink-slow text-info' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
         </div>}
     </div>
   )
