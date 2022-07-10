@@ -245,8 +245,11 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {Object.prototype.hasOwnProperty.call(systemObject, 'rotationalPeriod') &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Orbital properties</h4>
-            {Object.prototype.hasOwnProperty.call(systemObject, 'rotationalPeriodTidallyLocked') && <p className='text-info'>{systemObject.rotationalPeriodTidallyLocked ? 'Tidally Locked' : 'Not Tidally Locked'}</p>}
-            {systemObject?.rotationalPeriod !== null && <p className='text-info'><span className='text-primary'>Rotational Period</span><br />{systemObject.rotationalPeriod}</p>}
+            {systemObject?.rotationalPeriod !== null && <p className='text-info'>
+              <span className='text-primary'>Rotational Period</span>
+              <br />{systemObject.rotationalPeriod}
+              {systemObject?.rotationalPeriodTidallyLocked && <><br />Tidally Locked</>}
+            </p>}
             {systemObject?.orbitalEccentricity !== null && <p className='text-info'><span className='text-primary'>Orbital Eccentricity</span><br />{systemObject.orbitalEccentricity}</p>}
             {systemObject?.orbitalInclination !== null && <p className='text-info'><span className='text-primary'>Orbital Inclination</span><br />{systemObject.orbitalInclination}</p>}
             {systemObject?.orbitalPeriod !== null && <p className='text-info'><span className='text-primary'>Orbital Period</span><br />{systemObject.orbitalPeriod}</p>}
