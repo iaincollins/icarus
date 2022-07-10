@@ -48,7 +48,7 @@ const factionStates = {
   retreat: {
     description: 'Faction retreating from system'
   },
-  infrasctuctureFailure: {
+  infrastructureFailure: {
     description: 'Failing infrastructure, demenad for food & machinery'
   },
   naturalDisaster: {
@@ -58,6 +58,9 @@ const factionStates = {
     description: 'Pirate attack, support & bounty missions'
   },
   terroristAttack: {
+    description: 'Terrorist attack, demand for weapons, bounty missions'
+  },
+  terrorism: {
     description: 'Terrorist attack, demand for weapons, bounty missions'
   }
 }
