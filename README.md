@@ -40,9 +40,11 @@ The self-contained installer is around 20 MB and has no dependancies. If you are
 
 * This software is in early access. All releases are pre-releases and contain known defects.
 * The launcher will indicate when a new release is available. Updating is optional.
-* All releases are code signed and verified. If you have a conflict with your anti-virus software, please contact your anti-virus vendor.
-* The application will run against both the latest version of Elite Dangerous (Odyssey) and older releases, but it is currently explicitly designed for use with Odyssey.
-* The application includes a web interface allows access the client from devices other than the PC the application is running on. This relies on advanced browser functionality for rendering and works best on native Google Chrome browsers (e.g. Google Chrome for Windows/Mac/ChromeOS/Android). Other browsers (e.g. Safari, Firefox, Chromium) may use fallback rendering and/or lack required features for full compatbility / optimal user experience.
+* All releases are code signed and verified. If you have a conflict with your anti-virus or firewall software, please contact the vendor responsible for that software.
+* The application will run against the latest version of Elite Dangerous (Odyssey) and older releases (e.g. Horizons), but it is currently explicitly designed for use with the latest versions. Changes to the game API may impact functionality when using ICARUS Terminal with older versions of the game.
+* The application includes a web interface allows access the client from devices other than the PC the application is running on. This is enabled by default while the application is running.
+
+The web interface relies on advanced browser functionality for rendering and works best on native Google Chrome browsers (e.g. Google Chrome for Windows, Mac, ChromeOS, Android). Other browsers (e.g. Safari, Firefox, Chromium) may use fallback rendering and/or lack required features for full compatbility / optimal user experience.
 
 ## Developer Documentation
  
