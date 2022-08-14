@@ -27,7 +27,10 @@ export default function NavigationInspectorPanel ({ system, systemObject, setSys
         <table className='table--animated table--interactive'>
           <thead>
             <tr>
-              <th style={{ paddingTop: '.4rem' }} className='text-info'><i style={{ fontSize: '1.5rem', marginRight: '.25rem', position: 'relative', left: '.1rem', xtop: '-.1rem' }} className='float-left icarus-terminal-system-orbits' /><CopyOnClick>{system.name}</CopyOnClick></th>
+              <th style={{ paddingTop: '.4rem' }} className='text-info'>
+                <i style={{ fontSize: '1.5rem', marginRight: '.25rem', position: 'relative', left: '.1rem', xtop: '-.1rem' }} className='float-left icarus-terminal-system-orbits' />
+                <CopyOnClick>{system.name}</CopyOnClick> system
+              </th>
               <th style={{ width: '1rem' }} className='hidden-small'>&nbsp;</th>
             </tr>
           </thead>

@@ -7,14 +7,6 @@ export default function SystemMap ({ system, setSystemObject }) {
   return (
     <>
       <div className='system-map'>
-        <div className='system-map__title'>
-          <h1>
-            <span className='fx-animated-text' data-fx-order='1' style={{ paddingRight: '1rem' }}>
-              <i className='icon icarus-terminal-system-orbits' />
-              <CopyOnClick>{system.name}</CopyOnClick>
-            </span>
-          </h1>
-        </div>
         {system?.stars?.map(star =>
           <SystemMapStar
             key={`system-map_${system.name}_${star.name}_${star.id}`}
