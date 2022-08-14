@@ -1,5 +1,4 @@
 import { UNKNOWN_VALUE } from '../../../../shared/consts'
-import ShipModules from 'components/panels/ship/ship-status/ship-modules'
 import ShipInstrumentation from 'components/panels/ship/ship-status/ship-instrumentation'
 
 export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModule, cmdrStatus, toggleSwitches, toggleSwitch }) {
@@ -40,52 +39,6 @@ export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModu
           cmdrStatus={cmdrStatus}
           toggleSwitches={toggleSwitches}
           toggleSwitch={toggleSwitch}
-        />
-        <ShipModules
-          name='Hardpoints'
-          modules={
-              Object.values(ship.modules)
-                .filter(module => ['huge', 'large', 'medium', 'small']
-                  .includes(module?.size))
-            }
-          selectedModule={selectedModule}
-          setSelectedModule={setSelectedModule}
-        />
-        <ShipModules
-          name='Optional Internals'
-          modules={
-            Object.values(ship.modules)
-              .filter(module => {
-                if (!module.internal) return false
-                if (module.core) return false
-                if (module.slot === 'CodexScanner') return false // special case
-                return true
-              })
-            }
-          selectedModule={selectedModule}
-          setSelectedModule={setSelectedModule}
-        />
-        <ShipModules
-          name='Core Internals'
-          modules={
-              Object.values(ship.modules)
-                .filter(module => {
-                  if (!module.core && !ship.armour.includes(module.name)) return false
-                  return true
-                })
-            }
-          selectedModule={selectedModule}
-          setSelectedModule={setSelectedModule}
-        />
-        <ShipModules
-          name='Utility Mounts'
-          modules={
-            Object.values(ship.modules)
-              .filter(module => ['tiny']
-                .includes(module?.size))
-          }
-          selectedModule={selectedModule}
-          setSelectedModule={setSelectedModule}
         />
       </div>
     </>

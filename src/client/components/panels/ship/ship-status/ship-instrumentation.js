@@ -1,291 +1,294 @@
 import { useEffect, useRef } from 'react'
 
 const applyScaling = (scaledWrapper, scaledContent) => {
-  scaledContent.style.transform = 'scale(1, 1)'
-
-  const { width: cw, height: ch } = scaledContent.getBoundingClientRect()
-  //let { width: ww, height: wh } = scaledWrapper.getBoundingClientRect();
-  const { width: ww, height: wh } = document.getElementsByTagName('body')[0].getBoundingClientRect()
-  //let scaleAmtX = Math.min(ww / cw, wh / ch)
-  const scaleAmtX = Math.min(ww / cw) / 1.05
-  const scaleAmtY = scaleAmtX
-  scaledContent.style.transform = `scale(${scaleAmtX}, ${scaleAmtY})`
-};
+  try {
+    scaledContent.style.transform = 'scale(1, 1)'
+    const { width: cw, height: ch } = scaledContent.getBoundingClientRect()
+    const { width: ww, height: wh } = scaledWrapper.getBoundingClientRect()
+    const maxScale = 1.5
+    const scaleAmtX = Math.min( Math.min(ww / cw, wh / ch), maxScale)
+    const scaleAmtY = scaleAmtX
+    scaledContent.style.transform = `scale(${scaleAmtX}, ${scaleAmtY})`
+  } catch (e) {
+    console.log(e)
+  }
+}
 
 export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches, toggleSwitch }) {
   const scaledWrapper = useRef()
   const scaledContent = useRef()
 
-  /*
-  function resizeEventHandler() {
-    applyScaling(null, scaledContent.current)
-  }
-
   useEffect(async () => {
-    resizeEventHandler()
+    const resizeEventHandler = () => {
+      if (scaledWrapper.current && scaledContent.current) {
+        applyScaling(scaledWrapper.current, scaledContent.current)
+      }
+    }
     window.addEventListener('resize', resizeEventHandler)
+    resizeEventHandler()
     return () => window.removeEventListener('resize', resizeEventHandler)
   }, [])
 
   useEffect(()=> {
-    //if (scaledWrapper.current && scaledContent.current) {
-    if (scaledContent.current) {
-      resizeEventHandler()
+    if (scaledWrapper.current && scaledContent.current) {
+      applyScaling(scaledWrapper.current, scaledContent.current)
     }
   },[scaledWrapper.current,scaledContent.current])
-  */
 
   return (
-    <div ref={scaledContent} className='ship-panel__instrumentation'>
-      <div className={`visible-medium ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '1rem 0 3rem 0' }}>
-        <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
-      </div>
-      <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}>
-        <tbody className='text-info'>
-          <tr className='hidden-medium'>
-            <td rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
-              <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span className='text-muted'>Max jump dist</span>
-              <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.maxJumpRange || '-'} Ly</span>
-            </td>
-            <td>
-              <span className='text-muted'>Fuel reservoir</span>
-              <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
-            </td>
-            <td rowSpan={4} className='hidden-medium' style={{ padding: 0, overflow: 'visible' }}>
-              <PowerDistribution ship={ship} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span className='text-muted'>Total mass</span>
-              <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.mass} T</span>
-            </td>
-            <td>
-              <span className='text-muted'>Total fuel</span>
-              <span className='value'>
-                <progress
-                  style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
-                  value={ship?.fuelLevel ?? 0}
-                  max={ship?.fuelCapacity ?? 0}
-                  className={`progress--border ${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'progress--danger' : 'progress--info'}`}
-                />
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span className='text-muted'>TARGET mode</span>
-              <h3 className={`value ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '.25rem 0', height: '1.5rem' }}>
-                {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
-                {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-danger'>Combat</span>}
-                {(!ship.onBoard || !cmdrStatus) && '-'}
-              </h3>
-            </td>
-            <td>
-              <span className='text-muted'>Cargo hold</span>
-              <span className='value'>
-                {typeof ship?.cargo?.count === 'number'
-                  ? <progress
-                      style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
-                      value={ship?.cargo?.count ?? 0}
-                      max={ship?.cargo?.capacity ?? 0}
-                      className='progress--border progress--info'
-                    />
-                  : <>-</>}
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div ref={scaledWrapper} style={{position: 'fixed', pointerEvents: 'none', top: '14rem', bottom: '1rem', right: '1rem', left: '5rem', overflow: 'hidden', Xoutline: '1px solid blue'}}>
+      <div ref={scaledContent} className='ship-panel__instrumentation' style={{ postion: 'absolute', marginTop: '6%', Xoutline: '1px solid red'}}>
+        <div className={`visible-medium ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '1rem 0 3rem 0' }}>
+          <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
+        </div>
+        <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}>
+          <tbody className='text-info'>
+            <tr className='hidden-medium'>
+              <td rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
+                <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span className='text-muted'>Max jump dist</span>
+                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.maxJumpRange || '-'} Ly</span>
+              </td>
+              <td>
+                <span className='text-muted'>Fuel reservoir</span>
+                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
+              </td>
+              <td rowSpan={4} className='hidden-medium' style={{ padding: 0, overflow: 'visible' }}>
+                <PowerDistribution ship={ship} />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span className='text-muted'>Total mass</span>
+                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.mass} T</span>
+              </td>
+              <td>
+                <span className='text-muted'>Total fuel</span>
+                <span className='value'>
+                  <progress
+                    style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
+                    value={ship?.fuelLevel ?? 0}
+                    max={ship?.fuelCapacity ?? 0}
+                    className={`progress--border ${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'progress--danger' : 'progress--info'}`}
+                  />
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span className='text-muted'>TARGET mode</span>
+                <h3 className={`value ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '.25rem 0', height: '1.5rem' }}>
+                  {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
+                  {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-danger'>Combat</span>}
+                  {(!ship.onBoard || !cmdrStatus) && '-'}
+                </h3>
+              </td>
+              <td>
+                <span className='text-muted'>Cargo hold</span>
+                <span className='value'>
+                  {typeof ship?.cargo?.count === 'number'
+                    ? <progress
+                        style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
+                        value={ship?.cargo?.count ?? 0}
+                        max={ship?.cargo?.capacity ?? 0}
+                        className='progress--border progress--info'
+                      />
+                    : <>-</>}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <div className={`visible-medium ${!ship.onBoard ? 'text-muted' : ''}`}>
-        <PowerDistribution ship={ship} />
-      </div>
+        <div className={`visible-medium ${!ship.onBoard ? 'text-muted' : ''}`}>
+          <PowerDistribution ship={ship} />
+        </div>
 
-      <div className={`${!ship.onBoard ? 'text-muted' : ''}`} style={{ position: 'relative', height: '2rem', marginTop: '.75rem' }}>
-        <div style={{
-          borderTop: '.2rem solid var(--color-info)',
-          position: 'absolute',
-          top: '2rem',
-          left: '.5rem',
-          left: '6rem',
-          right: '6rem',
-          height: '2rem',
-          opacity: '.25'
-        }}
-        />
-      </div>
-      <table className={`table--layout ${!ship.onBoard ? 'text-muted' : ''}`} style={{ marginBottom: '1rem' }}>
-        <tbody>
-          <tr>
-            <td>
-              <label className='checkbox'>
-                <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.lights) && 'text-muted'}`}>
-                  Ship lights
-                </span>
-                <input
-                  type='checkbox'
-                  checked={ship.onBoard && toggleSwitches?.lights}
-                  onChange={() => toggleSwitch('lights')}
-                  disabled
-                />
-                <span className='checkbox__control' />
-              </label>
-            </td>
-            <td>
-              <label className='checkbox'>
-                <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.nightVision) && 'text-muted'}`}>
-                  Night vision
-                </span>
-                <input
-                  type='checkbox'
-                  checked={ship.onBoard && toggleSwitches?.nightVision}
-                  onChange={() => toggleSwitch('nightVision')}
-                  disabled
-                />
-                <span className='checkbox__control' />
-              </label>
-            </td>
-            <td>
-              <label className='checkbox'>
-                <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.cargoHatch) && 'text-muted'}`}>
-                  Cargo hatch
-                </span>
-                <input
-                  type='checkbox'
-                  checked={ship.onBoard && toggleSwitches?.cargoHatch}
-                  onChange={() => toggleSwitch('cargoHatch')}
-                  disabled
-                />
-                <span className='checkbox__control' />
-              </label>
-            </td>
-            <td>
-              <label className='checkbox'>
-                <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.landingGear) && 'text-muted'}`}>
-                  Landing gear
-                </span>
-                <input
-                  type='checkbox'
-                  checked={ship.onBoard && toggleSwitches?.landingGear}
-                  onChange={() => toggleSwitch('landingGear')}
-                  disabled
-                />
-                <span className='checkbox__control' />
-              </label>
-            </td>
-            <td>
-              <label className='checkbox'>
-                <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.hardpoints || cmdrStatus?.flags?.supercruise) ? 'text-muted' : ''}`}>
-                  Hardpoints
-                </span>
-                <input
-                  type='checkbox'
-                  checked={ship.onBoard && cmdrStatus?.flags?.supercruise === false && toggleSwitches?.hardpoints}
-                  onChange={() => toggleSwitch('hardpoints')}
-                  disabled
-                />
-                <span className='checkbox__control' />
-              </label>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <div className={`${!ship.onBoard ? 'text-muted' : ''}`} style={{ position: 'relative', height: '2rem', marginTop: '.75rem' }}>
+          <div style={{
+            display: 'none',
+            borderTop: '.2rem solid var(--color-info)',
+            position: 'absolute',
+            top: '2rem',
+            left: '.5rem',
+            left: '6rem',
+            right: '6rem',
+            height: '2rem',
+            opacity: '.25'
+          }}
+          />
+        </div>
+        <table className={`table--layout ${!ship.onBoard ? 'text-muted' : ''}`} style={{ marginBottom: '1rem' }}>
+          <tbody>
+            <tr>
+              <td>
+                <label className='checkbox'>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.lights) && 'text-muted'}`}>
+                    Ship lights
+                  </span>
+                  <input
+                    type='checkbox'
+                    checked={ship.onBoard && toggleSwitches?.lights}
+                    onChange={() => toggleSwitch('lights')}
+                    disabled
+                  />
+                  <span className='checkbox__control' />
+                </label>
+              </td>
+              <td>
+                <label className='checkbox'>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.nightVision) && 'text-muted'}`}>
+                    Night vision
+                  </span>
+                  <input
+                    type='checkbox'
+                    checked={ship.onBoard && toggleSwitches?.nightVision}
+                    onChange={() => toggleSwitch('nightVision')}
+                    disabled
+                  />
+                  <span className='checkbox__control' />
+                </label>
+              </td>
+              <td>
+                <label className='checkbox'>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.cargoHatch) && 'text-muted'}`}>
+                    Cargo hatch
+                  </span>
+                  <input
+                    type='checkbox'
+                    checked={ship.onBoard && toggleSwitches?.cargoHatch}
+                    onChange={() => toggleSwitch('cargoHatch')}
+                    disabled
+                  />
+                  <span className='checkbox__control' />
+                </label>
+              </td>
+              <td>
+                <label className='checkbox'>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.landingGear) && 'text-muted'}`}>
+                    Landing gear
+                  </span>
+                  <input
+                    type='checkbox'
+                    checked={ship.onBoard && toggleSwitches?.landingGear}
+                    onChange={() => toggleSwitch('landingGear')}
+                    disabled
+                  />
+                  <span className='checkbox__control' />
+                </label>
+              </td>
+              <td>
+                <label className='checkbox'>
+                  <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.hardpoints || cmdrStatus?.flags?.supercruise) ? 'text-muted' : ''}`}>
+                    Hardpoints
+                  </span>
+                  <input
+                    type='checkbox'
+                    checked={ship.onBoard && cmdrStatus?.flags?.supercruise === false && toggleSwitches?.hardpoints}
+                    onChange={() => toggleSwitch('hardpoints')}
+                    disabled
+                  />
+                  <span className='checkbox__control' />
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <table className='table--layout ship-panel__lights'>
-        <tbody>
-          <tr>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.overHeating ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Overheating</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.beingInterdicted ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Interdiction</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.inDanger ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Hazard</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && (!cmdrStatus?.flags?.landingGearDown && cmdrStatus?.altitude < 100) ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Low altitude</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Low fuel</span>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.fsdMassLocked ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Mass locked</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.fsdCooldown ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>FSD cooldown</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && (cmdrStatus?.flags?.supercruise && !cmdrStatus?.flags?.fsdJump) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Supercruise</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && (cmdrStatus?.flags?.fsdCharging && !cmdrStatus?.flags?.fsdJump) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>FSD charging</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.fsdJump ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>FSD jumping</span>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span className={ship.onBoard && (cmdrStatus?.flags?.docked || cmdrStatus?.flags?.landed) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>
-                  {cmdrStatus?.flags?.docked && 'Docked'}
-                  {cmdrStatus?.flags?.landed && 'Landed'}
-                  {(!cmdrStatus?.flags?.docked && !cmdrStatus?.flags?.landed) && 'Docked / Landed'}
+        <table className='table--layout ship-panel__lights'>
+          <tbody>
+            <tr>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.overHeating ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Overheating</span>
                 </span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.flightAssistOff ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Flight assist off</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.glideMode ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Glide mode</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.silentRunning ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Silent running</span>
-              </span>
-            </td>
-            <td>
-              <span className={ship.onBoard && cmdrStatus?.flags?.scoopingFuel ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                <span className='ship-panel__light-text'>Fuel scooping</span>
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              </td>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.beingInterdicted ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Interdiction</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.inDanger ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Hazard</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && (!cmdrStatus?.flags?.landingGearDown && cmdrStatus?.altitude < 100) ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Low altitude</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Low fuel</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.fsdMassLocked ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Mass locked</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.fsdCooldown ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>FSD cooldown</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && (cmdrStatus?.flags?.supercruise && !cmdrStatus?.flags?.fsdJump) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Supercruise</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && (cmdrStatus?.flags?.fsdCharging && !cmdrStatus?.flags?.fsdJump) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>FSD charging</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.fsdJump ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>FSD jumping</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span className={ship.onBoard && (cmdrStatus?.flags?.docked || cmdrStatus?.flags?.landed) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>
+                    {cmdrStatus?.flags?.docked && 'Docked'}
+                    {cmdrStatus?.flags?.landed && 'Landed'}
+                    {(!cmdrStatus?.flags?.docked && !cmdrStatus?.flags?.landed) && 'Docked / Landed'}
+                  </span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.flightAssistOff ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Flight assist off</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.glideMode ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Glide mode</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.silentRunning ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Silent running</span>
+                </span>
+              </td>
+              <td>
+                <span className={ship.onBoard && cmdrStatus?.flags?.scoopingFuel ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
+                  <span className='ship-panel__light-text'>Fuel scooping</span>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

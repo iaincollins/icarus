@@ -6,6 +6,11 @@ function ShipPanelNavItems (activePanel) {
       url: '/ship/status'
     },
     {
+      name: 'Modules',
+      icon: 'cogs',
+      url: '/ship/modules'
+    },
+    {
       name: 'Cargo',
       icon: 'cargo',
       url: '/ship/cargo'

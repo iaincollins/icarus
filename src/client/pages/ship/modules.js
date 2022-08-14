@@ -3,7 +3,7 @@ import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { ShipPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
-import ShipStatusPanel from 'components/panels/ship/ship-status-panel'
+import ShipModulesPanel from 'components/panels/ship/ship-modules-panel'
 import ShipModuleInspectorPanel from 'components/panels/ship/ship-module-inspector-panel'
 
 export default function ShipStatusPage () {
@@ -68,8 +68,8 @@ export default function ShipStatusPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready} className='ship-panel'>
-      <Panel navigation={ShipPanelNavItems('Status')} scrollable>
-        <ShipStatusPanel
+      <Panel navigation={ShipPanelNavItems('Modules')} scrollable>
+        <ShipModulesPanel
           ship={ship}
           cmdrStatus={cmdrStatus}
           toggleSwitches={toggleSwitches}
