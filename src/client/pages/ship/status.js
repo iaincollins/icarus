@@ -68,7 +68,7 @@ export default function ShipStatusPage () {
 
   return (
     <Layout connected={connected} active={active} ready={ready} className='ship-panel'>
-      <Panel navigation={ShipPanelNavItems('Modules')} scrollable>
+      <Panel navigation={ShipPanelNavItems('Status')} scrollable>
         <ShipModulesPanel
           ship={ship}
           cmdrStatus={cmdrStatus}

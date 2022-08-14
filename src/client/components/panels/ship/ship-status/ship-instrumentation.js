@@ -1,6 +1,42 @@
+import { useEffect, useRef } from 'react'
+
+const applyScaling = (scaledWrapper, scaledContent) => {
+  scaledContent.style.transform = 'scale(1, 1)'
+
+  const { width: cw, height: ch } = scaledContent.getBoundingClientRect()
+  //let { width: ww, height: wh } = scaledWrapper.getBoundingClientRect();
+  const { width: ww, height: wh } = document.getElementsByTagName('body')[0].getBoundingClientRect()
+  //let scaleAmtX = Math.min(ww / cw, wh / ch)
+  const scaleAmtX = Math.min(ww / cw) / 1.05
+  const scaleAmtY = scaleAmtX
+  scaledContent.style.transform = `scale(${scaleAmtX}, ${scaleAmtY})`
+};
+
 export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches, toggleSwitch }) {
+  const scaledWrapper = useRef()
+  const scaledContent = useRef()
+
+  /*
+  function resizeEventHandler() {
+    applyScaling(null, scaledContent.current)
+  }
+
+  useEffect(async () => {
+    resizeEventHandler()
+    window.addEventListener('resize', resizeEventHandler)
+    return () => window.removeEventListener('resize', resizeEventHandler)
+  }, [])
+
+  useEffect(()=> {
+    //if (scaledWrapper.current && scaledContent.current) {
+    if (scaledContent.current) {
+      resizeEventHandler()
+    }
+  },[scaledWrapper.current,scaledContent.current])
+  */
+
   return (
-    <div className='ship-panel__instrumentation'>
+    <div ref={scaledContent} className='ship-panel__instrumentation'>
       <div className={`visible-medium ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '1rem 0 3rem 0' }}>
         <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
       </div>
