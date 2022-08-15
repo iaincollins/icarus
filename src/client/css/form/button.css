@@ -77,7 +77,6 @@ button.button--secondary,
 .button.button--secondary {
   background: var(--color-secondary-dark);
   color: var(--color-secondary);
-
 }
 
 button.button--active.button--secondary,
@@ -98,6 +97,14 @@ button.button--secondary:focus:not([disabled]):not(.button--active),
   color: var(--color-secondary-dark);
 }
 
+button.button--dark,
+.button.button--dark {
+  background: rgb(5,5,5);
+  color: var(--color-info);
+  outline: .2rem solid rgba(255,255,255,.5);
+  outline-offset: -0.2em;
+  box-shadow: none;
+}
 
 .button__close-button,
 button.button__close-button {

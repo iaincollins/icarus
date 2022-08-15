@@ -60,7 +60,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
             <div className='system-map__info fx-fade-in text-uppercase'>
               <span className='text-info'>
                 <i className='icarus-terminal-system-orbits' style={{ fontSize: '1.5rem', float: 'left', position: 'relative', left: '-.15rem' }} />
-                <CopyOnClick>{system?.name}</CopyOnClick>
+                <CopyOnClick append=' system'>{system?.name}</CopyOnClick>
               </span>
               <div className='system-map__info--system-facilities'>
                 <span className='text-primary text-muted'>No telemetry</span>
@@ -98,9 +98,11 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         </div>
         <div
           onClick={() => setShowSystemDetails(!showSystemDetails)}
-          className={`system-map__system-stats ${showSystemDetails ? 'system-map__system-stats--open fx-fade-in' : 'button'}`}>
+          className={`system-map__system-stats ${showSystemDetails ? 'system-map__system-stats--open' : 'button xbutton--dark'}`}>
           {showSystemDetails === true
-            ? <>
+            ? <div className='fx-fade-in'>
+              <h3 className='text-primary text-muted'>System Information</h3>
+              <hr className='small muted'/>
               <i className='icarus-terminal-chevron-down text-primary' style={{ position: 'absolute', top: '.5rem', right: '.75rem' }} />
               {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
                 <h3 className='text-primary' style={{ marginRight: '1.75rem' }}>
@@ -117,11 +119,11 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 </h3>}
               {system.faction && system.faction !== 'Unknown' &&
                 <h3 className='text-primary'>
-                  <i className='icon icarus-terminal-shield' style={{ fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem' }} />{system.faction}
+                  <i className='icon icarus-terminal-power' style={{ fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem' }} />{system.faction}
                 </h3>}
               {system.allegiance && system.allegiance !== 'Unknown' &&
-                <h3 className='text-primary text-muted'>
-
+                <h3 className='text-primary'>
+                  <i className='icon icarus-terminal-shield' style={{ fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem' }} />
                   {system.allegiance && system.allegiance !== 'Unknown' && system.allegiance.replace(/([a-z])([A-Z])/g, '$1 $2')}
                   {system.government && system.government !== 'None' && system.government !== 'Unknown' && <><span className='seperator' />{system.government}</>}
                   {(system.government && system.government !== 'None' && system.government !== 'Unknown' && system.government !== 'Anarchy' && system.security !== system.government) ? <><span className='seperator' />{system.security}</> : ''}
@@ -131,7 +133,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 <h3 className='text-info'>
                   {factionStateDescription}
                 </h3>}
-            </>
+            </div>
             : <>
               <span style={{display: 'block', minHeight: '2.9rem'}}>
                 {/* {system.detail && system.detail.bodies && system.detail.bodies.length > 0 && */}
@@ -159,7 +161,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           <div className='system-map__info fx-fade-in text-uppercase'>
             <span className='text-info'>
               <i className='icarus-terminal-system-orbits' style={{ fontSize: '1.5rem', float: 'left', position: 'relative', left: '-.15rem' }} />
-              <CopyOnClick>{system.name}</CopyOnClick> system
+              <CopyOnClick append=' system'>{system.name}</CopyOnClick>
             </span>
             {((system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0))
               ? <div className='system-map__info--icons text-center-vertical'>

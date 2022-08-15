@@ -6,8 +6,10 @@
 .system-map {
   margin-top: 4rem;
   margin-bottom: 3rem;
-}
 
+
+}
+  
 .system-map__toolbar,
 .system-map__toolbar-background {
   position: absolute;
@@ -111,16 +113,17 @@
   width: auto;
   box-sizing: border-box;
   z-index: 101;
-  box-shadow: 0 0 1rem rgba(0,0,0, .5);
   padding: .5rem 1rem .6rem .75rem;
   font-size: 1rem;
-  background: var(--color-primary-dark);
-  backdrop-filter: blur(.5rem) brightness(.25);
   border-radius: .1rem;
+  box-shadow: none;
+  min-height: 4rem;
 }
 
 .system-map__system-stats--open {
   background: linear-gradient(var(--color-background-panel-translucent), var(--color-background-panel));
+  backdrop-filter: blur(.5rem) brightness(.25);
+  box-shadow: 0 0 1rem rgba(0,0,0, .5);
 }
 
 .system-map__system-position {
@@ -171,13 +174,14 @@
   animation: fx-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
   /* Wait until after other animations on page are done for best performance on slow devices */
-  animation-delay: .25; 
+  animation-delay: .5s; 
 }
 
 @keyframes svg-fade-in-animation {
   from { filter: contrast(2) blur(2rem); visibility: visible; opacity : 0; }
   to { filter: contrast(1) blur(0); visibility: visible; opacity: 1; }
 }
+
 
 .system-map__planetary-system-star {
   position: relative;

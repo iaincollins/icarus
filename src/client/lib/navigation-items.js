@@ -7,7 +7,7 @@ function ShipPanelNavItems (activePanel) {
     },
     {
       name: 'Modules',
-      icon: 'cogs',
+      icon: 'wrench',
       url: '/ship/modules'
     },
     {

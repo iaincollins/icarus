@@ -1,16 +1,21 @@
+import { useRef } from 'react'
 import notification from 'lib/notification'
 
-export default function CopyOnClick ({ children }) {
+export default function CopyOnClick ({ children, prepend, append }) {
+  const selectableText = useRef()
   function copyText (e) {
-    // CSS takes care of selecting element contents on click, just need to copy
     try {
+      const text = selectableText.current.innerHTML
       document.execCommand('copy')
-      notification('Text copied to clipboard')
+      navigator.clipboard.writeText(text)
+      notification(() => <p><span className='text-primary'>text copied</span><br/><span>{`"${text}"`}</span></p>)
     } catch { /* don't care */ }
   }
   return (
-    <span className='selectable' onClick={copyText}>
-      {children}
+    <span className='selectable selectable-wrapper' onClick={copyText}>
+      {prepend}
+      <span ref={selectableText} className='selectable'>{children}</span>
+      {append}
     </span>
   )
 }

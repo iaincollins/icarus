@@ -1,11 +1,11 @@
 @font-face {
   font-family: "icarus-terminal";
-  src: url('icarus-terminal.eot?t=1653939005511'); /* IE9*/
-  src: url('icarus-terminal.eot?t=1653939005511#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("icarus-terminal.woff2?t=1653939005511") format("woff2"),
-  url("icarus-terminal.woff?t=1653939005511") format("woff"),
-  url('icarus-terminal.ttf?t=1653939005511') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('icarus-terminal.svg?t=1653939005511#icarus-terminal') format('svg'); /* iOS 4.1- */
+  src: url('icarus-terminal.eot?t=1660560280093'); /* IE9*/
+  src: url('icarus-terminal.eot?t=1660560280093#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("icarus-terminal.woff2?t=1660560280093") format("woff2"),
+  url("icarus-terminal.woff?t=1660560280093") format("woff"),
+  url('icarus-terminal.ttf?t=1660560280093') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icarus-terminal.svg?t=1660560280093#icarus-terminal') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
@@ -75,21 +75,22 @@
 .icarus-terminal-planet:before { content: "\ea38"; }
 .icarus-terminal-planetary-port-large:before { content: "\ea39"; }
 .icarus-terminal-planetary-port:before { content: "\ea3a"; }
-.icarus-terminal-route:before { content: "\ea3b"; }
-.icarus-terminal-search:before { content: "\ea3c"; }
-.icarus-terminal-settings:before { content: "\ea3d"; }
-.icarus-terminal-settlement:before { content: "\ea3e"; }
-.icarus-terminal-shield:before { content: "\ea3f"; }
-.icarus-terminal-ship:before { content: "\ea40"; }
-.icarus-terminal-signal:before { content: "\ea41"; }
-.icarus-terminal-sound:before { content: "\ea42"; }
-.icarus-terminal-star:before { content: "\ea43"; }
-.icarus-terminal-sync:before { content: "\ea44"; }
-.icarus-terminal-system-authority-solid:before { content: "\ea45"; }
-.icarus-terminal-system-authority:before { content: "\ea46"; }
-.icarus-terminal-system-bodies:before { content: "\ea47"; }
-.icarus-terminal-system-orbits:before { content: "\ea48"; }
-.icarus-terminal-table-index:before { content: "\ea49"; }
-.icarus-terminal-table-inspector:before { content: "\ea4a"; }
-.icarus-terminal-table-rows:before { content: "\ea4b"; }
-.icarus-terminal-wrench:before { content: "\ea4c"; }
+.icarus-terminal-power:before { content: "\ea3b"; }
+.icarus-terminal-route:before { content: "\ea3c"; }
+.icarus-terminal-search:before { content: "\ea3d"; }
+.icarus-terminal-settings:before { content: "\ea3e"; }
+.icarus-terminal-settlement:before { content: "\ea3f"; }
+.icarus-terminal-shield:before { content: "\ea40"; }
+.icarus-terminal-ship:before { content: "\ea41"; }
+.icarus-terminal-signal:before { content: "\ea42"; }
+.icarus-terminal-sound:before { content: "\ea43"; }
+.icarus-terminal-star:before { content: "\ea44"; }
+.icarus-terminal-sync:before { content: "\ea45"; }
+.icarus-terminal-system-authority-solid:before { content: "\ea46"; }
+.icarus-terminal-system-authority:before { content: "\ea47"; }
+.icarus-terminal-system-bodies:before { content: "\ea48"; }
+.icarus-terminal-system-orbits:before { content: "\ea49"; }
+.icarus-terminal-table-index:before { content: "\ea4a"; }
+.icarus-terminal-table-inspector:before { content: "\ea4b"; }
+.icarus-terminal-table-rows:before { content: "\ea4c"; }
+.icarus-terminal-wrench:before { content: "\ea4d"; }

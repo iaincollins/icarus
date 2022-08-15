@@ -122,6 +122,7 @@ html::-webkit-scrollbar,
   user-select: none;
 }
 
+.selectable-wrapper,
 .selectable {
   position: relative;
   -webkit-touch-callout: all !important;
@@ -134,7 +135,7 @@ html::-webkit-scrollbar,
   pointer-events: all;
 }
 
-.selectable::after {
+.selectable-wrapper::after {
   display: block;
   position: absolute;
   opacity: 0;
@@ -153,7 +154,7 @@ html::-webkit-scrollbar,
   pointer-events: none;
 }
 
-.text-right > .selectable::after {
+.text-right > .selectable-wrapper::after {
   right: initial;
   left: -1.75rem;
 }

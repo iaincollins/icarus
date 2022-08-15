@@ -151,7 +151,22 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(rgba(0,0,0,0), rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .15));
+  animation: system-map-fade-in-animation 2s ease-in-out;
+  animation-fill-mode: forwards;
 }
+
+
+@keyframes system-map-fade-in-animation {
+  0% {
+    mask: linear-gradient(90deg, #000 25%, #000000e6 50%, #00000000) 150% 0 / 400% no-repeat;
+    opacity: .5;
+  }
+  100% {
+    mask: linear-gradient(90deg, #000 25%, #000000e6 50%, #00000000) 0 / 400% no-repeat;
+    opacity: 1;
+  }
+}
+
 
 /*
 .navigation-panel__map-frame {
