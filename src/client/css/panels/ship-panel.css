@@ -125,11 +125,6 @@
 }
 
 
-.ship-panel__ship-pips {
-  position: relative;
-  top: 1rem;
-  padding: .5rem .5rem 0 .5rem;
-}
 
 .ship-panel__ship-pip {
   height: 2rem;
@@ -156,23 +151,27 @@
   float: left;
 }
 
+.ship-panel__ship-pips {
+  position: relative;
+  transform: rotate(270deg);
+  width: 16rem;
+  top: 2.75rem;
+  padding: .5rem;
+}
+.ship-panel__ship-pip label {
+  transform: rotate(45deg);
+  font-size: 1rem !important;
+  position: relative;
+  left: 1.5rem;
+}
+.ship-panel__ship-pip progress {
+  height: 2rem !important;
+  margin-bottom: 1rem;
+}
+
 @media only screen and (min-width: 799px) {
   .ship-panel__ship-pips {
-    transform: rotate(270deg);
-    width: 16rem;
-    top: 2.75rem;
-    left: -2rem;
-    padding: .5rem;
-  }
-  .ship-panel__ship-pip label {
-    transform: rotate(45deg);
-    font-size: 1rem !important;
-    position: relative;
-    left: 1.5rem;
-  }
-  .ship-panel__ship-pip progress {
-    height: 2rem !important;
-    margin-bottom: 1rem;
+    left: -3rem;
   }
 }
 
@@ -417,8 +416,13 @@ table.ship-panel__lights td {
 }
 
 .ship-panel__instrumentation {
-  max-width: 100rem;
-  margin: auto;
+  height: 55rem;
+}
+
+@media only screen and (min-width: 799px) {
+  .ship-panel__instrumentation {
+    height: 40rem;
+  }
 }
 
 .ship-panel__navigation-instrumentation {

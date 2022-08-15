@@ -5,10 +5,9 @@ const applyScaling = (scaledWrapper, scaledContent) => {
     scaledContent.style.transform = 'scale(1, 1)'
     const { width: cw, height: ch } = scaledContent.getBoundingClientRect()
     const { width: ww, height: wh } = scaledWrapper.getBoundingClientRect()
-    const maxScale = 1.5
-    const scaleAmtX = Math.min( Math.min(ww / cw, wh / ch), maxScale)
+    const scaleAmtX = Math.min(ww / cw, wh / ch)
     const scaleAmtY = scaleAmtX
-    scaledContent.style.transform = `scale(${scaleAmtX}, ${scaleAmtY})`
+    scaledContent.style.transform = `translate(0, 0) scale(${scaleAmtX}, ${scaleAmtY})`
   } catch (e) {
     console.log(e)
   }
@@ -36,14 +35,39 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
   },[scaledWrapper.current,scaledContent.current])
 
   return (
-    <div ref={scaledWrapper} style={{position: 'fixed', pointerEvents: 'none', top: '14rem', bottom: '1rem', right: '1rem', left: '5rem', overflow: 'hidden', Xoutline: '1px solid blue'}}>
-      <div ref={scaledContent} className='ship-panel__instrumentation' style={{ postion: 'absolute', marginTop: '6%', Xoutline: '1px solid red'}}>
-        <div className={`visible-medium ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '1rem 0 3rem 0' }}>
-          <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
-        </div>
+    <div ref={scaledWrapper} style={{position: 'fixed', pointerEvents: 'none', top: '14.25rem', bottom: '2rem', right: '1rem', left: '5rem', xoverflow: 'hidden'}}>
+      <div  ref={scaledContent}
+        className='ship-panel__instrumentation'
+        style={{ 
+          position: 'absolute',
+          margin: 'auto', 
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          maxWidth: '80rem'
+        }}
+      >
+        <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}
+          style={{
+            marginBottom: '4rem'
+          }}
+          >
+          <tbody className='text-info'>
+            <tr className='visible-medium' >
+              <td style={{ padding: 0, overflow: 'visible' }}>
+                <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
+              </td>
+              <td style={{ padding: 0, overflow: 'visible' }}>
+                <PowerDistribution ship={ship} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
         <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}>
           <tbody className='text-info'>
-            <tr className='hidden-medium'>
+            <tr className='hidden-medium' >
               <td rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
                 <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
               </td>
@@ -55,9 +79,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <span className='text-muted'>Fuel reservoir</span>
-                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{typeof ship?.fuelReservoir === 'number' ? ship.fuelReservoir : '-'}</span>
+                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{typeof ship?.fuelReservoir === 'number' ? <>{ship.fuelReservoir} T</>: '-'}</span>
               </td>
-              <td rowSpan={4} className='hidden-medium' style={{ padding: 0, overflow: 'visible' }}>
+              <td className='hidden-medium' rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
                 <PowerDistribution ship={ship} />
               </td>
             </tr>
@@ -67,7 +91,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                 <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.mass} T</span>
               </td>
               <td>
-                <span className='text-muted'>Total fuel</span>
+                <span className='text-muted'>
+                  Fuel {ship?.onBoard == true && <>{ship?.fuelLevel ?? 0}/{ship?.fuelCapacity ?? 0} T</>}
+                </span>
                 <span className='value'>
                   <progress
                     style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
@@ -80,7 +106,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
             </tr>
             <tr>
               <td>
-                <span className='text-muted'>TARGET mode</span>
+                <span className='text-muted'>Targeting mode</span>
                 <h3 className={`value ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '.25rem 0', height: '1.5rem' }}>
                   {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
                   {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-danger'>Combat</span>}
@@ -88,7 +114,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                 </h3>
               </td>
               <td>
-                <span className='text-muted'>Cargo hold</span>
+                <span className='text-muted'>
+                  Cargo {ship?.onBoard == true && <>{ship?.cargo?.countl ?? 0}/{ship?.cargo?.capacity ?? 0} T</>}
+                </span>
                 <span className='value'>
                   {typeof ship?.cargo?.count === 'number'
                     ? <progress
@@ -103,10 +131,6 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
             </tr>
           </tbody>
         </table>
-
-        <div className={`visible-medium ${!ship.onBoard ? 'text-muted' : ''}`}>
-          <PowerDistribution ship={ship} />
-        </div>
 
         <div className={`${!ship.onBoard ? 'text-muted' : ''}`} style={{ position: 'relative', height: '2rem', marginTop: '.75rem' }}>
           <div style={{
@@ -184,7 +208,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               <td>
                 <label className='checkbox'>
                   <span className={`checkbox__text ${(!ship.onBoard || !toggleSwitches.hardpoints || cmdrStatus?.flags?.supercruise) ? 'text-muted' : ''}`}>
-                    Hardpoints
+                    Hard points
                   </span>
                   <input
                     type='checkbox'
@@ -389,6 +413,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           justifyContent: 'center',
           textAlign: 'center',
           height: '100%',
+          minHeight: '12rem',
+          minWidth: '12rem',
           opacity: ship.onBoard ? 1 : 0.5,
           background: 'linear-gradient(transparent 30%, var(--color-background-panel-translucent) 90%)',
           boxShadow: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 'inset 0 0 .5rem var(--color-info), 0 0 1.75rem var(--color-secondary), inset 0 0 1.5rem var(--color-secondary)' : '',
