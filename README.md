@@ -22,9 +22,9 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
 
 ## Screenshots
 
-<img alt="System Map" src="https://user-images.githubusercontent.com/595695/174604534-3ab2bb75-073b-4dfa-b7b3-3973d1c77b7b.png" height="auto" width="98.5%"/>
+<img alt="System Map" src="https://user-images.githubusercontent.com/595695/184659618-53190e6a-ca7d-439a-b432-9dc5642de528.png" height="auto" width="98.5%"/>
 
-<img alt="System List" src="https://user-images.githubusercontent.com/595695/173226427-d7eec44b-6566-41b1-8b27-b971ed02cfc3.png" height="auto" width="49%"/> <img alt="Ship Status" src="https://user-images.githubusercontent.com/595695/174604547-a26b0c18-dc37-4bc6-9e82-05a5cd8c250b.png" height="auto" width="49%"/>
+<img alt="System List" src="https://user-images.githubusercontent.com/595695/184659800-3e4c288b-5724-4afc-805b-13add320667c.png" height="auto" width="49%"/> <img alt="Ship Status" src="https://user-images.githubusercontent.com/595695/184659864-4a2853a2-d936-4beb-bfc5-87e549df4b4d.png" height="auto" width="49%"/>
 <img alt="Engineering" src="https://user-images.githubusercontent.com/595695/173226377-6f18a869-dadf-43c5-80d1-874d7fc53d0c.png" height="auto" width="49%"/> <img alt="Navigation Route" src="https://user-images.githubusercontent.com/595695/173226433-0c6da8b9-009d-4e19-9296-05a4b42e7d9f.png" height="auto" width="49%"/>
 
 ## Requirements
