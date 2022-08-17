@@ -48,4 +48,7 @@ async function build () {
   if (SIGN_BUILD) {
     execSync(`"${PATH_TO_SIGNTOOL}" sign /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${INSTALLER_EXE}"`)
   }
+
+  // Open directory with installer
+  execSync(`explorer.exe dist`)
 }
