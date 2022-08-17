@@ -101,7 +101,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           className={`system-map__system-stats ${showSystemDetails ? 'system-map__system-stats--open' : 'button xbutton--dark'}`}>
           {showSystemDetails === true
             ? <div className='fx-fade-in'>
-              <h3 className='text-primary text-muted'>System Information</h3>
+              <h3 className='text-primary text-muted' style={{marginLeft: '1rem'}}>System Information</h3>
               <hr className='small muted'/>
               <i className='icarus-terminal-chevron-down text-primary' style={{ position: 'absolute', top: '.5rem', right: '.75rem' }} />
               {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&

@@ -113,10 +113,10 @@
   width: auto;
   box-sizing: border-box;
   z-index: 101;
-  padding: .5rem 1rem .6rem .75rem;
-  font-size: 1rem;
+  padding: .5rem 2rem .6rem .75rem;
+  font-size: 1.2rem;
   border-radius: .1rem;
-  box-shadow: none;
+  xbox-shadow: none;
   min-height: 4rem;
 }
 
@@ -124,6 +124,20 @@
   background: linear-gradient(var(--color-background-panel-translucent), var(--color-background-panel));
   backdrop-filter: blur(.5rem) brightness(.25);
   box-shadow: 0 0 1rem rgba(0,0,0, .5);
+  clip-path: polygon(0 2.00rem,2.00rem 0,100% 0,100% calc(100% - 2.00rem),calc(100% - 2.00rem) 100%,0 100%);
+}
+
+.system-map__system-stats--open:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-primary-dark);
+  clip-path: polygon(0 2.00rem,2.00rem 0,100% 0,100% calc(100% - 2.00rem),calc(100% - 2.00rem) 100%,0 100%,0 2.00rem,.15rem  calc(2.00rem + 0.06rem),.15rem calc(100% - .15rem),calc(100% - 2.00rem - 0.06rem) calc(100% - .15rem),calc(100% - .15rem) calc(100% - 2.00rem - 0.06rem),calc(100% - .15rem) .15rem,calc(2.00rem + 0.06rem) .15rem,.15rem calc(2.00rem + 0.06rem));
+}
+
+.system-map__system-stats--open:hover {
+  filter: brightness(1.2);
 }
 
 .system-map__system-position {
