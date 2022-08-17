@@ -35,7 +35,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
   },[scaledWrapper.current,scaledContent.current])
 
   return (
+    
     <div ref={scaledWrapper} style={{position: 'fixed', pointerEvents: 'none', top: '14.25rem', bottom: '2rem', right: '1rem', left: '5rem', xoverflow: 'hidden'}}>
+      
       <div  ref={scaledContent}
         className='ship-panel__instrumentation'
         style={{ 
@@ -48,105 +50,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           maxWidth: '80rem'
         }}
       >
-        <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}
-          style={{
-            marginBottom: '4rem'
-          }}
-          >
-          <tbody className='text-info'>
-            <tr className='visible-medium' >
-              <td style={{ padding: 0, overflow: 'visible' }}>
-                <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
-              </td>
-              <td style={{ padding: 0, overflow: 'visible' }}>
-                <PowerDistribution ship={ship} />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}>
-          <tbody className='text-info'>
-            <tr className='hidden-medium' >
-              <td rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
-                <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span className='text-muted'>Max jump dist</span>
-                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.maxJumpRange || '-'} Ly</span>
-              </td>
-              <td>
-                <span className='text-muted'>Fuel reservoir</span>
-                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{typeof ship?.fuelReservoir === 'number' ? <>{ship.fuelReservoir} T</>: '-'}</span>
-              </td>
-              <td className='hidden-medium' rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
-                <PowerDistribution ship={ship} />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span className='text-muted'>Total mass</span>
-                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.mass} T</span>
-              </td>
-              <td>
-                <span className='text-muted'>
-                  Fuel {ship?.onBoard == true && <>{ship?.fuelLevel ?? 0}/{ship?.fuelCapacity ?? 0} T</>}
-                </span>
-                <span className='value'>
-                  <progress
-                    style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
-                    value={ship?.fuelLevel ?? 0}
-                    max={ship?.fuelCapacity ?? 0}
-                    className={`progress--border ${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'progress--danger' : 'progress--info'}`}
-                  />
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <span className='text-muted'>Targeting mode</span>
-                <h3 className={`value ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '.25rem 0', height: '1.5rem' }}>
-                  {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
-                  {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-danger'>Combat</span>}
-                  {(!ship.onBoard || !cmdrStatus) && '-'}
-                </h3>
-              </td>
-              <td>
-                <span className='text-muted'>
-                  Cargo {ship?.onBoard == true && <>{ship?.cargo?.countl ?? 0}/{ship?.cargo?.capacity ?? 0} T</>}
-                </span>
-                <span className='value'>
-                  {typeof ship?.cargo?.count === 'number'
-                    ? <progress
-                        style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
-                        value={ship?.cargo?.count ?? 0}
-                        max={ship?.cargo?.capacity ?? 0}
-                        className='progress--border progress--info'
-                      />
-                    : <>-</>}
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div className={`${!ship.onBoard ? 'text-muted' : ''}`} style={{ position: 'relative', height: '2rem', marginTop: '.75rem' }}>
-          <div style={{
-            display: 'none',
-            borderTop: '.2rem solid var(--color-info)',
-            position: 'absolute',
-            top: '2rem',
-            left: '.5rem',
-            left: '6rem',
-            right: '6rem',
-            height: '2rem',
-            opacity: '.25'
-          }}
-          />
-        </div>
-        <table className={`table--layout ${!ship.onBoard ? 'text-muted' : ''}`} style={{ marginBottom: '1rem' }}>
+          <table className={`ship-panel__switches table--layout ${!ship.onBoard ? 'text-muted' : ''}`}>
           <tbody>
             <tr>
               <td>
@@ -218,6 +122,90 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                   />
                   <span className='checkbox__control' />
                 </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}
+          style={{
+            marginBottom: '2rem',
+          }}
+          >
+          <tbody className='text-info'>
+            <tr className='visible-medium' >
+              <td style={{ padding: 0, overflow: 'visible' }}>
+                <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
+              </td>
+              <td style={{ padding: 0, overflow: 'visible' }}>
+                <PowerDistribution ship={ship} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`} style={{marginBottom: '4rem'}}>
+          <tbody className='text-info'>
+            <tr className='hidden-medium' >
+              <td rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
+                <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span className='text-muted'>Max jump dist</span>
+                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.maxJumpRange || '-'} Ly</span>
+              </td>
+              <td>
+                <span className='text-muted'>Fuel reservoir</span>
+                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{typeof ship?.fuelReservoir === 'number' ? <>{ship.fuelReservoir} T</>: '-'}</span>
+              </td>
+              <td className='hidden-medium' rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
+                <PowerDistribution ship={ship} />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span className='text-muted'>Total mass</span>
+                <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.mass} T</span>
+              </td>
+              <td>
+                <span className='text-muted'>
+                  Fuel {ship?.onBoard == true && <>{ship?.fuelLevel ?? 0}/{ship?.fuelCapacity ?? 0} T</>}
+                </span>
+                <span className='value'>
+                  <progress
+                    style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
+                    value={ship?.fuelLevel ?? 0}
+                    max={ship?.fuelCapacity ?? 0}
+                    className={`progress--border ${ship.onBoard && cmdrStatus?.flags?.lowFuel ? 'progress--danger' : 'progress--info'}`}
+                  />
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span className='text-muted'>Targeting mode</span>
+                <h3 className={`value ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '.25rem 0', height: '1.5rem' }}>
+                  {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === true) && <span className='text-secondary'>Analysis</span>}
+                  {ship.onBoard && (cmdrStatus?.flags?.hudInAnalysisMode === false) && <span className='text-danger'>Combat</span>}
+                  {(!ship.onBoard || !cmdrStatus) && '-'}
+                </h3>
+              </td>
+              <td>
+                <span className='text-muted'>
+                  Cargo {ship?.onBoard == true && <>{ship?.cargo?.countl ?? 0}/{ship?.cargo?.capacity ?? 0} T</>}
+                </span>
+                <span className='value'>
+                  {typeof ship?.cargo?.count === 'number'
+                    ? <progress
+                        style={{ margin: '.25rem 0 0 0', height: '1.5rem', display: 'inline-block', width: '10rem', opacity: ship.onBoard ? 1 : 0.5 }}
+                        value={ship?.cargo?.count ?? 0}
+                        max={ship?.cargo?.capacity ?? 0}
+                        className='progress--border progress--info'
+                      />
+                    : <>-</>}
+                </span>
               </td>
             </tr>
           </tbody>

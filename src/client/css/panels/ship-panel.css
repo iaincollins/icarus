@@ -291,6 +291,16 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
   font-weight: 500;
 }
 
+table.ship-panel__lights {
+  top: 0;
+}
+
+@media only screen and (max-width: 799px) {
+  table.ship-panel__lights {
+    top: -3rem;
+  }
+}
+
 table.ship-panel__lights td {
   overflow: visible;
   padding: 0 .25rem;
@@ -415,13 +425,14 @@ table.ship-panel__lights td {
   50% { opacity: .5; }
 }
 
+
 .ship-panel__instrumentation {
-  height: 55rem;
+  height: 38rem;
 }
 
-@media only screen and (min-width: 799px) {
+@media only screen and (max-width: 799px) {
   .ship-panel__instrumentation {
-    height: 40rem;
+    height: 53rem;
   }
 }
 
@@ -432,5 +443,11 @@ table.ship-panel__lights td {
 @media only screen and (min-width: 799px) {
   .ship-panel__navigation-instrumentation {
     left: 2rem;
+  }
+}
+
+@media only screen and (max-width: 799px) {
+  .ship-panel__switches {
+    margin-bottom: 2rem !important;
   }
 }
