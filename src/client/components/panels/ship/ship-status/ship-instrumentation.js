@@ -194,7 +194,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <span className='text-muted'>
-                  Cargo {ship?.onBoard == true && <>{ship?.cargo?.countl ?? 0}/{ship?.cargo?.capacity ?? 0} T</>}
+                  Cargo {ship?.onBoard == true && <>{ship?.cargo?.count ?? 0}/{ship?.cargo?.capacity ?? 0} T</>}
                 </span>
                 <span className='value'>
                   {typeof ship?.cargo?.count === 'number'
