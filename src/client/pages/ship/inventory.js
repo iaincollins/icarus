@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import animateTableEffect from 'lib/animate-table-effect'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { ShipPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
@@ -9,6 +10,8 @@ export default function ShipInventoryPage () {
   const { connected, active, ready } = useSocket()
   const [inventory, setInventory] = useState()
   const [componentReady, setComponentReady] = useState(false)
+
+  useEffect(animateTableEffect)
 
   useEffect(async () => {
     if (!connected) return

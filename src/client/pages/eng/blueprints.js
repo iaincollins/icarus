@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import animateTableEffect from 'lib/animate-table-effect'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { UNKNOWN_VALUE } from '../../../shared/consts'
@@ -20,6 +21,8 @@ export default function EngineeringMaterialsPage () {
   const [blueprintsNotApplied, setBlueprintsNotApplied] = useState()
   const [selectedBlueprint, setSelectedBlueprint] = useState()
 
+  useEffect(animateTableEffect)
+  
   useEffect(async () => {
     if (!connected || !router.isReady) return
 

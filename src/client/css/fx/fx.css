@@ -203,8 +203,18 @@ html:not([data-fx-crt-text-animated]) .fx-animated-text {
 @keyframes fx-flash-in-animation {
   0% {
     opacity: 1;
-    background: var(--color-primary);
     color: var(--color-primary-dark);
+    filter: invert(1);
+  }
+  15% {
+    color: var(--color-secondary);
+  }
+  20% {
+    filter: brightness(1.5);
+  }
+  25% {
+    color: var(--color-primary);
+    filter: none;
   }
   100% { opacity: 1; }
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import animateTableEffect from 'lib/animate-table-effect'
 import Layout from 'components/layout'
 import Panel from 'components/panel'
 import LogListPanel from 'components/panels/log/log-list-panel'
@@ -10,6 +11,8 @@ export default function LogPage () {
   const [componentReady, setComponentReady] = useState(false)
   const [logEntries, setLogEntries] = useState([])
   const [selectedLogEntry, setSelectedLogEntry] = useState()
+
+  useEffect(animateTableEffect)
 
   useEffect(async () => {
     if (!connected) return

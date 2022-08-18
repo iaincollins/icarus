@@ -1,4 +1,5 @@
 import { useState, useEffect, Fragment } from 'react'
+import animateTableEffect from 'lib/animate-table-effect'
 import { useRouter } from 'next/router'
 import distance from '../../../shared/distance'
 import { UNKNOWN_VALUE } from '../../../shared/consts'
@@ -16,6 +17,8 @@ export default function EngineeringEngineersPage () {
   const [currentSystem, setCurrentSystem] = useState()
   const [engineers, setEngineers] = useState()
 
+  useEffect(animateTableEffect)
+  
   useEffect(async () => {
     if (!connected || !router.isReady) return
 

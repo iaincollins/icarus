@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
-
+import animateTableEffect from 'lib/animate-table-effect'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { NavPanelNavItems } from 'lib/navigation-items'
 import Layout from 'components/layout'
@@ -17,6 +17,8 @@ export default function NavListPage () {
   const [system, setSystem] = useState()
   const currentSystemRef = useRef(null)
 
+  useEffect(animateTableEffect)
+  
   // Scroll to current route once, on view load
   useEffect(() => {
     if (!scrolled && currentSystemRef?.current) {

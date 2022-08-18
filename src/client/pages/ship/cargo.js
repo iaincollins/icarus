@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import animateTableEffect from 'lib/animate-table-effect'
 import { useSocket, sendEvent, eventListener } from 'lib/socket'
 import { ShipPanelNavItems } from 'lib/navigation-items'
 import { eliteDateTime } from 'lib/format'
@@ -10,6 +11,8 @@ export default function ShipCargoPage () {
   const { connected, active, ready } = useSocket()
   const [ship, setShip] = useState()
   const [cargo, setCargo] = useState(null)
+
+  useEffect(animateTableEffect)
 
   useEffect(async () => {
     if (!connected) return

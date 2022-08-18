@@ -232,8 +232,16 @@ table.table--animated tbody tr {
   animation-fill-mode: forwards;
   animation-delay: 0.5s;
   opacity: 0; */
+  opacity: 0; 
 }
 
+table.table--animated tbody tr.--shown {
+  animation: fx-flash-in-animation .5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+/*
 table.table--animated tbody tr:nth-child(1) {
   animation: fx-flash-in-animation .5s;
   animation-fill-mode: forwards;
@@ -384,7 +392,7 @@ table.table--animated tbody tr:nth-child(30) {
   animation-fill-mode: forwards;
   animation-delay: .725s;
 }
-
+*/
 
 
 table.table--flex-inline.table--animated tbody tr {
