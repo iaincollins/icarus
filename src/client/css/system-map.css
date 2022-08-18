@@ -114,9 +114,8 @@
   box-sizing: border-box;
   z-index: 101;
   padding: .5rem 2rem .6rem .75rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-radius: .1rem;
-  xbox-shadow: none;
   min-height: 4rem;
 }
 

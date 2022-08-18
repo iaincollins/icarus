@@ -21,7 +21,7 @@ function escapeRegExp (text) {
 class SystemMap {
   constructor (system) {
     this.detail = system
-    const { name = '', bodies: _bodies, stations = [] } = this.detail
+    let { name = '', bodies: _bodies, stations = [] } = this.detail
     this.name = this.getSystemObjectName(name)
 
     // On the map, we draw a system view for each Star in a system, as that's
@@ -39,6 +39,10 @@ class SystemMap {
     // or you end up with two planets with different names and the same body id
     // on the map
     bodies = this.#getUniqueObjectsByProperty(bodies, 'bodyId')
+
+    // Filter out megaships that are designated as rescue ships, they are almost
+    // always out of date and clutter the map
+    stations = stations.filter(body => !body.name.toLowerCase().startsWith("rescue ship - "))
 
     this.stars = bodies.filter(body => body?._type === 'Star')
     this.planets = bodies.filter(body => body?._type === 'Planet')
