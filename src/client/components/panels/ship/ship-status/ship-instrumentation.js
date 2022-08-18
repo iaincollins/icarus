@@ -8,6 +8,7 @@ const applyScaling = (scaledWrapper, scaledContent) => {
     const scaleAmtX = Math.min(ww / cw, wh / ch)
     const scaleAmtY = scaleAmtX
     scaledContent.style.transform = `translate(0, 0) scale(${scaleAmtX}, ${scaleAmtY})`
+    scaledContent.style.opacity = 1
   } catch (e) {
     console.log(e)
   }
@@ -47,7 +48,8 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           left: 0,
           right: 0,
           bottom: 0,
-          maxWidth: '80rem'
+          maxWidth: '80rem',
+          opacity: 0
         }}
       >
           <table className={`ship-panel__switches table--layout ${!ship.onBoard ? 'text-muted' : ''}`}>

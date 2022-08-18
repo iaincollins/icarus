@@ -102,7 +102,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           {showSystemDetails === true
             ? <div className='fx-fade-in'>
               <h3 className='text-primary text-muted' style={{marginLeft: '1rem'}}>System Information</h3>
-              <hr className='small muted'/>
+              <hr className='small muted' style={{marginRight: '-1.75rem'}}/>
               <i className='icarus-terminal-chevron-down text-primary' style={{ position: 'absolute', top: '.5rem', right: '.75rem' }} />
               {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
                 <h3 className='text-primary' style={{ marginRight: '1.75rem' }}>
@@ -116,6 +116,10 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                   {system.economy.secondary && system.economy.secondary !== 'Unknown' && system.economy.secondary !== 'None' && ` & ${system.economy.secondary}`}
                   {' '}Economy
 
+                </h3>}
+              {system.population && system.population > 0 &&
+                <h3 className='text-primary'>
+                  <i className='icon icarus-terminal-engineer' style={{ fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem' }} />Population {system.population.toLocaleString()}
                 </h3>}
               {system.faction && system.faction !== 'Unknown' &&
                 <h3 className='text-primary'>

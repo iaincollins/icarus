@@ -151,7 +151,7 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(rgba(0,0,0,0), rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), .15));
-  animation: system-map-fade-in-animation 2s ease-in-out;
+  animation: system-map-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
 }
 

@@ -243,6 +243,7 @@ table.table--flex-inline.table--interactive tbody tr td.ship-panel__module {
 table.table--flex-inline.table--interactive tbody tr:hover td.ship-panel__module,
 table.table--flex-inline.table--interactive tbody tr:focus td.ship-panel__module {
   filter: var(--filter-hover-element);
+
 }
 
 table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-panel__module {
@@ -269,6 +270,8 @@ table.table--flex-inline.table--interactive tbody tr.table__row--active td.ship-
   /* This is a hack, weird spacing got introduced at some point */
   width: 2rem !important;
   display: inline-block;
+  right: .25rem;
+  position: relative;
 }
 
 .ship-panel__module p {

@@ -204,7 +204,6 @@ html:not([data-fx-crt-text-animated]) .fx-animated-text {
   0% {
     opacity: 1;
     color: var(--color-primary-dark);
-    filter: invert(1);
   }
   15% {
     color: var(--color-secondary);
