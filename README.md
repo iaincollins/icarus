@@ -83,3 +83,13 @@ _ICARUS Terminal would not be possible without work from dozens of enthusiasts a
 ICARUS Terminal uses imagery from/inspired by Elite Dangerous, which is copyright Frontier Developments plc. This software is not endorsed by nor reflects the views or opinions of Frontier Developments and no employee of Frontier Developments was involved in the making of it.
 
 Thank you to all those who have created and supported libraries on which this software depends and to Frontier Developments plc for supporting third party tools.
+
+## Donations
+
+People have asked if I take donations for the project. I don't take donations, but I do appreciate folks asking!
+
+If you want to support development of ICARUS Terminal, you can always pay a vist to my carrier the [Ardent Pioneer](https://inara.cz/elite/station/490914/)!
+
+You can use Inara to [find out which system the Ardent Pioneer (V9G-G7Z) is currently in](https://inara.cz/elite/station/490914/) and to [check out what commodities are currently being traded](https://inara.cz/elite/station-market/490914/) before you visit, and while you are there you can chat to the bartender to see if there is anything they need.
+
+All trades are welcome and all buy orders are at least 10% above galatic average prices so you should be able to make a small profit! Trades, and especially selling Tritium, all directly support development because it means I can spend more time adding features and travelling the galaxy to test out functionality in ICARUS Terminal! You can also sell exploration data, biological samples and refuel/rearm/repair while onboard.
