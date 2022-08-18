@@ -18,7 +18,7 @@ function screenshot (url, path, options) {
 
 ;(async () => {
   await Promise.all([
-    screenshot(`${HOST}/nav/map?system=maia`, `${BASE_DIR}/nav-map.png`),
+    screenshot(`${HOST}/nav/map?system=maia&selected=maia+a+2+a`, `${BASE_DIR}/nav-map.png`),
     screenshot(`${HOST}/nav/list?system=shinrarta+dezhra&selected=shinrarta+dezhra+a+1`, `${BASE_DIR}/nav-list.png`),
     screenshot(`${HOST}/nav/route`, `${BASE_DIR}/nav-route.png`),
     screenshot(`${HOST}/eng/blueprints?symbol=FSD_LongRange`, `${BASE_DIR}/eng-blueprint.png`),
