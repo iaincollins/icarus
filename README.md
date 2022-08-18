@@ -88,8 +88,8 @@ Thank you to all those who have created and supported libraries on which this so
 
 People have asked if I take donations for the project. I don't take donations, but I do appreciate folks asking!
 
-If you want to support development of ICARUS Terminal, you can always pay a vist to my carrier the [Ardent Pioneer](https://inara.cz/elite/station/490914/)!
+If you want to support development of ICARUS Terminal, you can always pay a vist to my carrier the [Ardent Pioneer (V9G-G7Z)](https://inara.cz/elite/station/490914/)!
 
-You can use Inara to [find out which system the Ardent Pioneer (V9G-G7Z) is currently in](https://inara.cz/elite/station/490914/) and to [check out what commodities are currently being traded](https://inara.cz/elite/station-market/490914/) before you visit, and while you are there you can chat to the bartender to see if there is anything they need.
+You can use Inara to [find out which system the Ardent Pioneer is currently in](https://inara.cz/elite/station/490914/). Before you visit you might want to [check out what commodities are currently being traded](https://inara.cz/elite/station-market/490914/). While you are there you can chat to the bartender to see if there is anything they need. You can also sell exploration data, biological samples and refuel/rearm/repair your ship.
 
-All trades are welcome and all buy orders are at least 10% above galatic average prices so you should be able to make a small profit! Trades, and especially selling Tritium, all directly support development because it means I can spend more time adding features and travelling the galaxy to test out functionality in ICARUS Terminal! You can also sell exploration data, biological samples and refuel/rearm/repair while onboard.
+All buy orders are at least 10% above galatic average prices so you should be able to make a small profit. Trades, especially selling Tritium, directly supports development as it means I can spend more time adding travelling the galaxy and testing out functionality in ICARUS Terminal!
