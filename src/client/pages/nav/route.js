@@ -138,21 +138,32 @@ export default function NavListPage () {
                             <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} visible-medium`} />
                             <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} hidden-medium`} />
                             <span>{route.system} </span>
-                            <br /><span className='text-muted'>{route.starClass} Class, </span>
-                            {route.starClass.match(/^[OBAFGKM]/) ? 'Fuel Star' : <span className='text-muted'>Not Fuel Star</span>}
-                            <span className='visible-medium'>
-                              {route?.isCurrentSystem === false && <span><br />{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                              {route?.isCurrentSystem === true && <><br />Current Location</>}
+                            <br /><span className='text-muted'>
+                              {route.starClass.match(/^[DNH]/)
+                                ? route.starClass.match(/^D/)
+                                    ? 'White Dwarf'
+                                    : route.starClass.match(/^N/)
+                                      ? 'Neutron Star'
+                                      : 'Black Hole'
+                                : `${route.starClass} Class${route.starClass.match(/^[OBAFGKM]/) ? ', Fuel Star' : ''}`
+                              }
                             </span>
                           </div>
                         </td>
-                        <td className='hidden-medium text-right'>
+                        <td className='hidden-medium text-right text-no-wrap' style={{ width: '1rem' }}>
+                          {route.starClass.match(/^[OBAFGKM]/)
+                            ? <i className='icarus-terminal-fuel' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }} />
+                            : route.starClass.match(/^[DNH]/) 
+                              ? <i className='text-danger icarus-terminal-warning' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }} />
+                              : ''}
+                        </td>
+                        <td className='text-right' style={{ width: '1rem' }}>
                           <span className={previouslyVistedSystem ? 'text-muted' : ''}>
-                            {route?.isCurrentSystem === false && <span className='text-no-transform'>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
+                            {route?.isCurrentSystem === false && <span className=' text-no-wrap text-no-transform'>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
                             {route?.isCurrentSystem === true && <>Current Location</>}
                           </span>
                         </td>
-                        <td className='text-center' style={{ width: '1rem' }}>
+                        <td className='hidden-medium text-center' style={{ width: '1rem' }}>
                           <i className='icon icarus-terminal-chevron-right' style={{ fontSize: '1rem' }} />
                         </td>
                       </tr>
