@@ -308,9 +308,8 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
 }
 
 function NavigationInstrumentation ({ ship, cmdrStatus }) {
-  //ship.onBoard = false
   return (
-    <div className={`ship-panel__navigation-instrumentation ${ship.onBoard ? '--active' : ''} text-uppercase`}>
+    <div className={`ship-panel__navigation-instrumentation ${ship.onBoard && typeof cmdrStatus?.heading === 'number' ? '--active' : ''} text-uppercase`}>
       <div style={{
         position: 'absolute',
         left: 0,
