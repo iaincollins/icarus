@@ -213,7 +213,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           </tbody>
         </table>
 
-        <table className='table--layout ship-panel__lights'>
+        <table className={`table--layout ship-panel__lights ${ship.onBoard ? '' : 'text-muted'}`}>
           <tbody>
             <tr>
               <td>
@@ -308,8 +308,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
 }
 
 function NavigationInstrumentation ({ ship, cmdrStatus }) {
+  //ship.onBoard = false
   return (
-    <div className='ship-panel__navigation-instrumentation text-uppercase'>
+    <div className={`ship-panel__navigation-instrumentation ${ship.onBoard ? '--active' : ''} text-uppercase`}>
       <div style={{
         position: 'absolute',
         left: 0,
@@ -322,48 +323,39 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         aspectRatio: '1'
       }}
       >
-        <div style={{
-          border: '.4rem solid var(--color-info)',
-          borderRadius: '100rem',
-          Xbackground: 'red',
-          position: 'absolute',
-          bottom: '-5.75rem',
-          left: '-5%',
-          width: '100%',
-          aspectRatio: '1/1',
-          transform: 'rotateX(250deg)',
-          opacity: '.5'
-        }}
+        <div className='rings'>
+        <div
+          className='ring'
+          style={{
+            bottom: '-6rem',
+            left: '-5%',
+            width: '100%',
+          }}
         />
-        <div style={{
-          border: '.4rem solid var(--color-info)',
-          borderRadius: '100rem',
-          Xbackground: 'red',
-          position: 'absolute',
+        <div className='ring'
+        style={{
           bottom: '-8rem',
           left: '-15%',
-          xleft: 0,
-          xright: 0,
           width: '120%',
-          aspectRatio: '1/1',
-          transform: 'rotateX(250deg)',
-          opacity: '.25'
+          opacity: '.5',
+          animationDelay: '1s'
         }}
         />
       </div>
-      <div style={{
+      </div>
+      <div className='dial-border'
+      style={{
         position: 'absolute',
         left: 0,
         right: 0,
         display: 'block',
-        height: '100%',
         maxHeight: '12rem',
         maxWidth: '12rem',
         margin: 'auto',
         aspectRatio: '1',
         border: '.5rem double var(--color-info)',
         transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
-        opacity: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 1 : '.5',
+        opacity: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 1 : '.25',
         borderRadius: '100rem',
         transition: 'opacity .25s ease-in-out',
         zIndex: 100
@@ -384,12 +376,12 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         }}
         />
       </div>
-      <div style={{
+      <div
+      style={{
         display: 'block',
         maxHeight: '12rem',
         maxWidth: '12rem',
         margin: 'auto',
-        aspectRatio: '1/1',
         border: '.5rem double transparent',
         borderRadius: '100rem'
       }}

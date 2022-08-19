@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="C:\Users\me\Development\icarus\src\client\public\images\line.png"
+   inkscape:export-xdpi="62.4067"
+   inkscape:export-ydpi="62.4067"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="heartbeat-line.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="16"
+     inkscape:cx="737.78125"
+     inkscape:cy="435.78125"
+     inkscape:window-width="2696"
+     inkscape:window-height="1207"
+     inkscape:window-x="522"
+     inkscape:window-y="593"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 0.51435407,110.07416 c 0.95911463,0.0165 7.04608583,-3.72012 7.04608583,-3.72012 l 3.4047061,2.04482 5.243968,0.46107 4.534431,-0.36682 4.524163,3.86256 5.724265,-1.71121 4.69022,0.52339 2.267258,-0.51942 2.309584,-1.58745 3.661798,0.21943 3.837851,-0.54711 6.32133,1.90036 5.049101,-1.51299 4.679845,-3.44161 5.377453,1.75813 4.764628,-0.43829 7.426654,1.31115 5.467173,-1.79094 4.357801,3.34547 6.881106,1.1884 6.772165,-2.50668 5.72054,0.81105 6.46159,1.31581 3.28851,-3.05116 3.63071,1.923 4.06856,-2.99589 5.02047,-0.7135 3.34952,2.65066 4.75716,1.20318 3.07797,-1.87069 8.30132,4.73639 3.7963,-2.02226 3.34171,-2.77507 3.05767,-1.77006 3.64397,1.36994 3.8196,0.0693 3.86543,-1.79703 3.61829,0.36686 5.16651,0.18828 3.34154,-1.62106 3.80505,2.54431 2.41268,0.74858 2.92624,-0.53962 2.41184,2.45118 3.47325,-0.93393 c 0,0 4.79577,1.23959 5.06035,1.23959"
+       id="path949-6"
+       sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccc"
+       inkscape:export-filename="C:\Users\me\Development\icarus\src\client\public\images\line.png"
+       inkscape:export-xdpi="72"
+       inkscape:export-ydpi="72" />
+  </g>
+</svg>

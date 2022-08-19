@@ -10,6 +10,8 @@
   margin-bottom: .5rem;
   display: grid;
   grid-template-columns: auto 1fr;
+  overflow: hidden;
+  max-height: 4rem;
 }
 
 .ship-panel__horizontal-activity {
@@ -17,9 +19,12 @@
   border-left: .15rem solid #666;
   margin-left: .5rem;
   opacity: .75;
+  overflow: hidden;
 }
 
-.ship-panel__horizontal-activity::before {
+.ship-panel__horizontal-activity-marker::before {
+  height: 100%;
+  opacity: .75;
   border-bottom: .15rem solid #666;
   position: absolute;
   display: block;
@@ -35,9 +40,11 @@
 .ship-panel__horizontal-activity--online {
   background-image: url('/images/line.png');
   background-repeat: repeat-x;
-  background-position-y: 70%;
+  background-position-y: 50%;
   margin-left: .5rem;
-  animation: horizontal-activity-animation-1 5s linear infinite;
+  animation: horizontal-activity-animation 10s linear infinite;
+  filter: invert(1) blur(.075rem);
+  opacity: .5;
 }
 
 .ship-panel__horizontal-activity--online::after {
@@ -46,29 +53,40 @@
   height: 100%;
   background-image: url('/images/line.png');
   background-repeat: repeat-x;
-  background-position-y: 70%;
+  position: relative;
+  top: -5.5rem;
   background-clip: cover;
-  animation: horizontal-activity-animation-2 15s linear infinite;
-  filter: blur(.1rem);
-  transform: scaleY(-1);
+  animation: horizontal-activity-animation 6s linear infinite;
+  filter: blur(.2rem);
+  opacity: .75;
+  transform: scaleY(-1.5);
 }
 
-
-@keyframes horizontal-activity-animation-1 {
-  0% {
-    background-position-x: 0px;
-  }
-  100% {
-    background-position-x: 148px;
-  }
+.ship-panel__horizontal-activity--online::before {
+  display: block;
+  content: ' ';
+  height: 100%;
+  xbackground-size: 26.00px 26.00px;
+  background-image: url('/images/line.png');
+  background-repeat: repeat-x;
+  background-position-y: 50%;
+  background-clip: cover;
+  animation: horizontal-activity-animation 18s linear infinite;
+  filter: blur(.15rem);
+  opacity: .65;
+  transform: scaleY(-2);
 }
 
-@keyframes horizontal-activity-animation-2 {
-  0% {
+@keyframes horizontal-activity-animation {
+  0%,
+  100% {
     background-position-x: 0px;
   }
+  50% {
+
+  }
   100% {
-    background-position-x: 148px;
+    background-position-x: 584px;
   }
 }
 
@@ -167,6 +185,29 @@
 .ship-panel__ship-pip progress {
   height: 2rem !important;
   margin-bottom: 1rem;
+}
+
+.ship-panel__ship-pip progress {
+  position: relative;
+  animation: ship-panel__ship-pip-animation 3s ease-in-out infinite;
+}
+
+.ship-panel__ship-pip:nth-child(2) progress {
+  animation-delay: 1.5s;
+}
+
+.ship-panel__ship-pip:nth-child(3) progress {
+  animation-delay: 2s;
+}
+
+@keyframes ship-panel__ship-pip-animation {
+  0%,
+  100% {
+    padding-right: 0;
+  }
+  50% {
+    padding-right: .3rem;
+  }
 }
 
 @media only screen and (min-width: 799px) {
@@ -310,7 +351,7 @@ table.ship-panel__lights td {
 }
 
 .ship-panel__light-text {
-  margin-left: 3rem;
+  margin-left: 2.5rem;
   display: block;
   width: 7rem;
   font-size: 1.1rem;
@@ -341,8 +382,8 @@ table.ship-panel__lights td {
   color: var(--color-primary);
   display: block;
   padding: 0.25rem;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -350,8 +391,9 @@ table.ship-panel__lights td {
   text-align: center;
   opacity: 0.5;
   border: .2rem solid var(--color-primary);
-  border-radius: .25rem;
   transition: all .25s ease-in-out;
+  border-radius: 10rem;
+  margin-bottom: .25rem;
 }
 
 @media only screen and (max-width: 799px) {
@@ -382,8 +424,8 @@ table.ship-panel__lights td {
   position: absolute;
   background-color: var(--color-secondary);
   z-index: -1;
-  border-radius: .25rem;
   opacity: .5;
+  border-radius: 10rem;
 }
 
 .ship-panel__light--danger {
@@ -405,8 +447,8 @@ table.ship-panel__lights td {
   position: absolute;
   opacity: .3;
   z-index: -1;
-  border-radius: .25rem;
   background: var(--color-danger);
+  border-radius: 10rem;
 }
 
 .ship-panel__light--danger::after {
@@ -419,9 +461,9 @@ table.ship-panel__lights td {
   position: absolute;
   opacity: .6;
   z-index: 1;
-  border-radius: .15rem;
   animation: light-blink-animation .75s ease-in-out infinite;
   box-shadow: inset 0 0 2rem black;
+  border-radius: 10rem;
 }
 
 @keyframes light-blink-animation {
@@ -452,5 +494,51 @@ table.ship-panel__lights td {
 @media only screen and (max-width: 799px) {
   .ship-panel__switches {
     margin-bottom: 2rem !important;
+  }
+}
+
+.ship-panel__navigation-instrumentation.--active .dial-border {
+  animation: ship-panel__navigation-instrumentation-animation 3s ease-in-out infinite;
+}
+
+@keyframes ship-panel__navigation-instrumentation-animation {
+  0%,
+  100% {
+    box-shadow: 0 0 .5rem 0 rgba(255,255,255,.75);
+  }
+  50% {
+    box-shadow: 0 0 1.25rem 0 rgba(255,255,255,.5);
+  }
+}
+
+.ship-panel__navigation-instrumentation .rings {
+  opacity: .25;
+}
+
+.ship-panel__navigation-instrumentation.--active .rings {
+  opacity: .75;
+}
+
+.ship-panel__navigation-instrumentation .ring {
+  border: .5rem solid var(--color-info);
+  border-radius: 100rem;
+  position: absolute;
+  aspect-ratio: 1/1;
+  transform: rotateX(250deg);
+}
+
+.ship-panel__navigation-instrumentation.--active .ring {
+  animation: ship-panel__navigation-instrumentation-rings-animation 3s ease-in-out infinite;
+  box-shadow: 0 0 3rem 0 rgba(255,255,255,.5);
+}
+
+@keyframes ship-panel__navigation-instrumentation-rings-animation {
+  0%,
+  100% {
+    transform: rotateX(250deg);
+  }
+
+  50% {
+    transform: rotateX(251.5deg);
   }
 }
