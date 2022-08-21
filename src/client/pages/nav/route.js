@@ -76,7 +76,7 @@ export default function NavListPage () {
               <td style={{ width: '50%', padding: 0 }}>
                 {navRoute?.currentSystem &&
                   <>
-                    <h3 className='text-primary'>Current Location</h3>
+                    <h3 className='text-primary'>Current System</h3>
                     <h2 className='navigation-panel__route-heading text-info'>
                       <i className='icarus-terminal-system-orbits' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />
                       <CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick>
@@ -86,7 +86,7 @@ export default function NavListPage () {
               <td style={{ width: '50%', padding: 0 }} className='text-right'>
                 {navRoute?.destination &&
                   <>
-                    <h3 className='text-primary'>Final Destination</h3>
+                    <h3 className='text-primary'>Destination System</h3>
                     <h2 className='navigation-panel__route-heading text-info text-right'>
                       {navRoute?.destination?.distance > 0
                         ? <>
@@ -116,9 +116,9 @@ export default function NavListPage () {
           {navRoute?.route?.length === 0 &&
             <>
               <hr style={{ marginBottom: '2rem' }} />
-              No route currently set.
+              <span className='text-uppercase text-muted'>No route set</span>
               <br/><br/>
-              Set new route using galaxy map.
+              Set route using galaxy map
             </>}
         </p>
         {navRoute?.route?.length > 0 &&
@@ -185,7 +185,7 @@ export default function NavListPage () {
           <div style={{ position: 'fixed', bottom: '.75rem', left: '5rem', right: '1rem' }}>
             <hr className='small' style={{ marginTop: 0, marginBottom: '.75' }} />
             <p className='text-primary text-muted text-center'>
-              Set route using galaxy map
+              Use galaxy map to plot new route
             </p>
           </div>}
       </Panel>

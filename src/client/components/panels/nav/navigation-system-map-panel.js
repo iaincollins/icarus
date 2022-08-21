@@ -63,7 +63,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 <CopyOnClick append=' system'>{system?.name}</CopyOnClick>
               </span>
               <div className='system-map__info--system-facilities'>
-                <span className='text-primary text-muted'>No telemetry</span>
+                <span className='text-primary text-muted'>system unknown</span>
               </div>
             </div>
           </div>
@@ -77,12 +77,6 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
       </div>
     )
   }
-
-  const coriolisStarports = system?.spaceStations?.filter(station => station?.type === 'Coriolis Starport')?.length ?? 0
-  const ocellusStarports = system?.spaceStations?.filter(station => station?.type === 'Ocellus Starport')?.length ?? 0
-  const orbisStarports = system?.spaceStations?.filter(station => station?.type === 'Orbis Starport')?.length ?? 0
-  const asteroidBases = system?.spaceStations?.filter(station => station?.type === 'Asteroid base')?.length ?? 0
-  const outposts = system?.spaceStations?.filter(station => station?.type === 'Outpost')?.length ?? 0
 
   return (
     <div className={`navigation-panel__map ${systemObject ? 'navigation-panel__map--inspector' : ''}`}>
@@ -98,17 +92,13 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         </div>
         <div
           onClick={() => setShowSystemDetails(!showSystemDetails)}
-          className={`system-map__system-stats ${showSystemDetails ? 'system-map__system-stats--open' : 'button xbutton--dark'}`}>
+          className={`system-map__system-stats ${showSystemDetails ? 'system-map__system-stats--open' : 'button'}`}>
           {showSystemDetails === true
             ? <div className='fx-fade-in'>
-              <h3 className='text-primary text-muted' style={{marginLeft: '1rem'}}>System Information</h3>
+              <h3 className='text-primary text-muted' style={{marginLeft: '1.5rem'}}>System Information</h3>
               <hr className='small muted' style={{marginRight: '-1.75rem'}}/>
+              <PointsOfInterest system={system} />
               <i className='icarus-terminal-chevron-down text-primary' style={{ position: 'absolute', top: '.5rem', right: '.75rem' }} />
-              {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
-                <h3 className='text-primary' style={{ marginRight: '1.75rem' }}>
-                  <i className='icon icarus-terminal-system-bodies' style={{ fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem' }} />
-                  {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
-                </h3>}
               {system.economy && system.economy?.primary !== 'Unknown' && system?.economy?.primary !== 'None' &&
                 <h3 className='text-primary'>
 
@@ -141,8 +131,8 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
             : <>
               <span style={{display: 'block', minHeight: '2.9rem'}}>
                 {/* {system.detail && system.detail.bodies && system.detail.bodies.length > 0 && */}
-                <i className='icon icarus-terminal-system-bodies' style={{ fontSize: '2rem', position: 'relative', top: '.4rem', textShadow: 'none' }} />
-                <i className='icarus-terminal-chevron-up' style={{ position: 'relative', top: '.5rem' }} />
+                <i className='icon icarus-terminal-info' style={{ fontSize: '2rem', position: 'relative', top: '.4rem', textShadow: 'none' }} />
+                <i className='icarus-terminal-chevron-up' style={{ position: 'relative', top: '.5rem', left: '-.25rem' }} />
               </span>
             </>}
         </div>
@@ -167,24 +157,43 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               <i className='icarus-terminal-system-orbits' style={{ fontSize: '1.5rem', float: 'left', position: 'relative', left: '-.15rem' }} />
               <CopyOnClick append=' system'>{system.name}</CopyOnClick>
             </span>
-            {((system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0))
-              ? <div className='system-map__info--icons text-center-vertical'>
-                <div style={{ width: '100%' }}>
-                  {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' /><span className='count'>{coriolisStarports}</span></span>}
-                  {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' /><span className='count'>{ocellusStarports}</span></span>}
-                  {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' /><span className='count'>{orbisStarports}</span></span>}
-                  {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' /><span className='count'>{asteroidBases}</span></span>}
-                  {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' /><span className='count'>{outposts}</span></span>}
-                  {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
-                  {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
-                  {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
-                </div>
-                </div>
-              : <div className='system-map__info--system-facilities text-primary text-muted'>No stations or settlements</div>}
+            <span className='text-center-vertical'>
+             {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
+                <h4 className='text-primary' style={{ marginLeft: '2.6rem', marginTop: '1.2rem'}}>
+                  {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}
+                </h4>}
+            </span>
           </div>
         </div>
       </div>
     </div>
+  )
+}
+
+function PointsOfInterest({ system }) {
+  const coriolisStarports = system?.spaceStations?.filter(station => station?.type === 'Coriolis Starport')?.length ?? 0
+  const ocellusStarports = system?.spaceStations?.filter(station => station?.type === 'Ocellus Starport')?.length ?? 0
+  const orbisStarports = system?.spaceStations?.filter(station => station?.type === 'Orbis Starport')?.length ?? 0
+  const asteroidBases = system?.spaceStations?.filter(station => station?.type === 'Asteroid base')?.length ?? 0
+  const outposts = system?.spaceStations?.filter(station => station?.type === 'Outpost')?.length ?? 0
+
+  return (
+    <>
+      {((system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0))
+        ? <div className='system-map__info--icons'>
+          <div style={{ width: '100%' }}>
+            {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' /><span className='count'>{coriolisStarports}</span></span>}
+            {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' /><span className='count'>{ocellusStarports}</span></span>}
+            {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' /><span className='count'>{orbisStarports}</span></span>}
+            {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' /><span className='count'>{asteroidBases}</span></span>}
+            {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' /><span className='count'>{outposts}</span></span>}
+            {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
+            {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
+            {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
+          </div>
+          </div>
+        : <div className='system-map__info--icons text-uppercase text-primary text-muted'>No stations or settlements</div>}
+    </>
   )
 }
 

@@ -53,18 +53,19 @@
 }
 
 .system-map__info--icons {
-  margin-left: .75rem;
-  margin-top: .1rem;
+  xmargin-left: .75rem;
+  xmargin-top: .1rem;
   white-space: nowrap !important;
   text-overflow: ellipsis !important;
   overflow-x: clip !important; /* avoids clipping text shadow on y axis */
   pointer-events: none;
+  margin-bottom: .25rem;
 }
 
 .system-map__info-icon {
   color: var(--color-info);
   text-shadow: var(--text-shadow);
-  margin-right: .5rem;
+  margin-right: 1rem;
   position: relative;
 }
 
@@ -78,9 +79,10 @@
 }
 
 .system-map__info-icon .count {
-  opacity: .5;
   display: inline-block;
-  padding-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: var(--color-info);
 }
 
 .system-map__location {
@@ -112,7 +114,7 @@
   width: auto;
   box-sizing: border-box;
   z-index: 101;
-  padding: .5rem 2.5rem .6rem .75rem;
+  padding: .5rem;
   font-size: 1rem;
   border-radius: .1rem;
   min-height: 4rem;
@@ -124,6 +126,7 @@
   box-shadow: 0 0 1rem rgba(0,0,0, .5);
   clip-path: polygon(0 2.00rem,2.00rem 0,100% 0,100% calc(100% - 2.00rem),calc(100% - 2.00rem) 100%,0 100%);
   border-radius: .2rem;
+  padding: .5rem 2.5rem .6rem .75rem;
 }
 
 .system-map__system-stats--open:before {
