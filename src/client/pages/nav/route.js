@@ -76,7 +76,7 @@ export default function NavListPage () {
               <td style={{ width: '50%', padding: 0 }}>
                 {navRoute?.currentSystem &&
                   <>
-                    <h3 className='text-primary'>Location</h3>
+                    <h3 className='text-primary'>Current Location</h3>
                     <h2 className='navigation-panel__route-heading text-info'>
                       <i className='icarus-terminal-system-orbits' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />
                       <CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick>
@@ -86,7 +86,7 @@ export default function NavListPage () {
               <td style={{ width: '50%', padding: 0 }} className='text-right'>
                 {navRoute?.destination &&
                   <>
-                    <h3 className='text-primary'>Destination</h3>
+                    <h3 className='text-primary'>Final Destination</h3>
                     <h2 className='navigation-panel__route-heading text-info text-right'>
                       {navRoute?.destination?.distance > 0
                         ? <>
@@ -100,19 +100,26 @@ export default function NavListPage () {
             </tr>
           </tbody>
         </table>
-        <p className='text-primary text-uppercase text-center' style={{ margin: '.5rem 0', fontSize: '1.5rem', lineHeight: '1.5rem' }}>
+        <p className='text-primary text-center' style={{ margin: '.25rem 0 .75rem 0', fontSize: '1.5rem', lineHeight: '1.5rem' }}>
           {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
             <>
-              {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly
-              {' '}
               {navRoute.inSystemOnRoute &&
-                <>/ {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}</>}
-              {' '}<span className='text-muted'>to destination</span>
+              <span className='text-uppercase'>
+                {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}
+              </span>}
+              <span className='text-muted'> / </span>
+              {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly
+              {' '}<span className='text-muted text-uppercase'>to destination</span>
             </>}
           {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination === 0 &&
             <>Arrived at destination</>}
           {navRoute?.route?.length === 0 &&
-            <span className='text-blink-slow'>Set route using galaxy map</span>}
+            <>
+              <hr style={{ marginBottom: '2rem' }} />
+              No route currently set.
+              <br/><br/>
+              Set new route using galaxy map.
+            </>}
         </p>
         {navRoute?.route?.length > 0 &&
           <>
@@ -145,12 +152,13 @@ export default function NavListPage () {
                                     : route.starClass.match(/^N/)
                                       ? 'Neutron Star'
                                       : 'Black Hole'
-                                : `${route.starClass} Class${route.starClass.match(/^[OBAFGKM]/) ? ', Fuel Star' : ''}`
+                                : `${route.starClass} Class`
                               }
                             </span>
+                            {route.starClass.match(/^[OBAFGKM]/) ? <span className='visible-small'><span className='text-muted'>, </span>Fuel Star</span> : ''}
                           </div>
                         </td>
-                        <td className='hidden-medium text-right text-no-wrap' style={{ width: '1rem' }}>
+                        <td className='hidden-small text-right text-no-wrap' style={{ width: '1rem' }}>
                           {route.starClass.match(/^[OBAFGKM]/)
                             ? <i className='icarus-terminal-fuel' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }} />
                             : route.starClass.match(/^[DNH]/) 
@@ -160,10 +168,10 @@ export default function NavListPage () {
                         <td className='text-right' style={{ width: '1rem' }}>
                           <span className={previouslyVistedSystem ? 'text-muted' : ''}>
                             {route?.isCurrentSystem === false && <span className=' text-no-wrap text-no-transform'>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                            {route?.isCurrentSystem === true && <>Current Location</>}
+                            {route?.isCurrentSystem === true && <span className='text-muted'>Current Location</span>}
                           </span>
                         </td>
-                        <td className='hidden-medium text-center' style={{ width: '1rem' }}>
+                        <td className='text-center' style={{ width: '1rem' }}>
                           <i className='icon icarus-terminal-chevron-right' style={{ fontSize: '1rem' }} />
                         </td>
                       </tr>

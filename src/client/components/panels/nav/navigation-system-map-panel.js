@@ -207,9 +207,9 @@ function LocationInformation ({ system, cmdrStatus }) {
           </h3>
         </div>}
       {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === false &&
-        <div className='text-primary text-center-vertical'>
+        <div className='text-info text-center-vertical'>
           <h3 style={{ width: '100%' }}>
-            <i className='icon icarus-terminal-location-filled' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem' }} />
+            <i className='icon icarus-terminal-location-filled text-secondary' style={{ position: 'relative', top: '.2rem', left: '-.2rem', lineHeight: '1rem' }} />
             {(cmdrStatus?._location)
               ? cmdrStatus._location.map((loc, i) =>
                 <span key={`location_${loc}_${i}`}>

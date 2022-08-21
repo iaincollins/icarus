@@ -1,10 +1,10 @@
 @font-face {font-family: "icarus-terminal";
-  src: url('icarus-terminal.eot?t=1660940677218'); /* IE9*/
-  src: url('icarus-terminal.eot?t=1660940677218#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("icarus-terminal.woff2?t=1660940677218") format("woff2"),
-  url("icarus-terminal.woff?t=1660940677218") format("woff"),
-  url('icarus-terminal.ttf?t=1660940677218') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('icarus-terminal.svg?t=1660940677218#icarus-terminal') format('svg'); /* iOS 4.1- */
+  src: url('icarus-terminal.eot?t=1661055722020'); /* IE9*/
+  src: url('icarus-terminal.eot?t=1661055722020#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("icarus-terminal.woff2?t=1661055722020") format("woff2"),
+  url("icarus-terminal.woff?t=1661055722020") format("woff"),
+  url('icarus-terminal.ttf?t=1661055722020') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icarus-terminal.svg?t=1661055722020#icarus-terminal') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
@@ -18,160 +18,162 @@
 .icarus-terminal-0_copy:before { content: "\ea01"; }
 .icarus-terminal-asteroid-base:before { content: "\ea02"; }
 .icarus-terminal-atmosphere:before { content: "\ea03"; }
-.icarus-terminal-cargo:before { content: "\ea04"; }
-.icarus-terminal-chevron-down:before { content: "\ea05"; }
-.icarus-terminal-chevron-left:before { content: "\ea06"; }
-.icarus-terminal-chevron-right:before { content: "\ea07"; }
-.icarus-terminal-chevron-up:before { content: "\ea08"; }
-.icarus-terminal-cogs:before { content: "\ea09"; }
-.icarus-terminal-color-picker:before { content: "\ea0a"; }
-.icarus-terminal-coriolis-starport:before { content: "\ea0b"; }
-.icarus-terminal-credits:before { content: "\ea0c"; }
-.icarus-terminal-download:before { content: "\ea0d"; }
-.icarus-terminal-economy:before { content: "\ea0e"; }
-.icarus-terminal-engineer:before { content: "\ea0f"; }
-.icarus-terminal-engineering:before { content: "\ea10"; }
-.icarus-terminal-exit:before { content: "\ea11"; }
-.icarus-terminal-fuel:before { content: "\ea12"; }
-.icarus-terminal-fullscreen-window:before { content: "\ea13"; }
-.icarus-terminal-fullscreen:before { content: "\ea14"; }
-.icarus-terminal-help:before { content: "\ea15"; }
-.icarus-terminal-inventory:before { content: "\ea16"; }
-.icarus-terminal-location-filled:before { content: "\ea17"; }
-.icarus-terminal-location:before { content: "\ea18"; }
-.icarus-terminal-logo:before { content: "\ea19"; }
-.icarus-terminal-materials-encoded:before { content: "\ea1a"; }
-.icarus-terminal-materials-grade-1:before { content: "\ea1b"; }
-.icarus-terminal-materials-grade-2:before { content: "\ea1c"; }
-.icarus-terminal-materials-grade-3:before { content: "\ea1d"; }
-.icarus-terminal-materials-grade-4:before { content: "\ea1e"; }
-.icarus-terminal-materials-grade-5:before { content: "\ea1f"; }
-.icarus-terminal-materials-manufactured:before { content: "\ea20"; }
-.icarus-terminal-materials-raw:before { content: "\ea21"; }
-.icarus-terminal-materials-xeno:before { content: "\ea22"; }
-.icarus-terminal-materials:before { content: "\ea23"; }
-.icarus-terminal-megaship:before { content: "\ea24"; }
-.icarus-terminal-notifications-disabled:before { content: "\ea25"; }
-.icarus-terminal-notifications:before { content: "\ea26"; }
-.icarus-terminal-ocellus-starport:before { content: "\ea27"; }
-.icarus-terminal-orbis-starport:before { content: "\ea28"; }
-.icarus-terminal-outpost:before { content: "\ea29"; }
-.icarus-terminal-pin-window:before { content: "\ea2a"; }
-.icarus-terminal-planet-ammonia-based-life:before { content: "\ea2b"; }
-.icarus-terminal-planet-ammonia-world:before { content: "\ea2c"; }
-.icarus-terminal-planet-atmosphere:before { content: "\ea2d"; }
-.icarus-terminal-planet-earthlike:before { content: "\ea2e"; }
-.icarus-terminal-planet-empty:before { content: "\ea2f"; }
-.icarus-terminal-planet-gas-giant:before { content: "\ea30"; }
-.icarus-terminal-planet-high-metal-content:before { content: "\ea31"; }
-.icarus-terminal-planet-lander:before { content: "\ea32"; }
-.icarus-terminal-planet-life:before { content: "\ea33"; }
-.icarus-terminal-planet-ringed:before { content: "\ea34"; }
-.icarus-terminal-planet-terraformable:before { content: "\ea35"; }
-.icarus-terminal-planet-volcanic:before { content: "\ea36"; }
-.icarus-terminal-planet-water-based-life:before { content: "\ea37"; }
-.icarus-terminal-planet-water-world:before { content: "\ea38"; }
-.icarus-terminal-planet:before { content: "\ea39"; }
-.icarus-terminal-planetary-port-large:before { content: "\ea3a"; }
-.icarus-terminal-planetary-port:before { content: "\ea3b"; }
-.icarus-terminal-power:before { content: "\ea3c"; }
-.icarus-terminal-route:before { content: "\ea3d"; }
-.icarus-terminal-search:before { content: "\ea3e"; }
-.icarus-terminal-settings:before { content: "\ea3f"; }
-.icarus-terminal-settlement:before { content: "\ea40"; }
-.icarus-terminal-shield:before { content: "\ea41"; }
-.icarus-terminal-ship:before { content: "\ea42"; }
-.icarus-terminal-signal:before { content: "\ea43"; }
-.icarus-terminal-sound:before { content: "\ea44"; }
-.icarus-terminal-star:before { content: "\ea45"; }
-.icarus-terminal-sync:before { content: "\ea46"; }
-.icarus-terminal-system-authority-solid:before { content: "\ea47"; }
-.icarus-terminal-system-authority:before { content: "\ea48"; }
-.icarus-terminal-system-bodies:before { content: "\ea49"; }
-.icarus-terminal-system-orbits:before { content: "\ea4a"; }
-.icarus-terminal-table-index:before { content: "\ea4b"; }
-.icarus-terminal-table-inspector:before { content: "\ea4c"; }
-.icarus-terminal-table-rows:before { content: "\ea4d"; }
-.icarus-terminal-warning:before { content: "\ea4e"; }
-.icarus-terminal-wrench:before { content: "\ea4f"; }
+.icarus-terminal-barrel:before { content: "\ea04"; }
+.icarus-terminal-cargo:before { content: "\ea05"; }
+.icarus-terminal-chevron-down:before { content: "\ea06"; }
+.icarus-terminal-chevron-left:before { content: "\ea07"; }
+.icarus-terminal-chevron-right:before { content: "\ea08"; }
+.icarus-terminal-chevron-up:before { content: "\ea09"; }
+.icarus-terminal-cogs:before { content: "\ea0a"; }
+.icarus-terminal-color-picker:before { content: "\ea0b"; }
+.icarus-terminal-coriolis-starport:before { content: "\ea0c"; }
+.icarus-terminal-credits:before { content: "\ea0d"; }
+.icarus-terminal-download:before { content: "\ea0e"; }
+.icarus-terminal-economy:before { content: "\ea0f"; }
+.icarus-terminal-engineer:before { content: "\ea10"; }
+.icarus-terminal-engineering:before { content: "\ea11"; }
+.icarus-terminal-exit:before { content: "\ea12"; }
+.icarus-terminal-fuel:before { content: "\ea13"; }
+.icarus-terminal-fullscreen-window:before { content: "\ea14"; }
+.icarus-terminal-fullscreen:before { content: "\ea15"; }
+.icarus-terminal-help:before { content: "\ea16"; }
+.icarus-terminal-inventory:before { content: "\ea17"; }
+.icarus-terminal-location-filled:before { content: "\ea18"; }
+.icarus-terminal-location:before { content: "\ea19"; }
+.icarus-terminal-logo:before { content: "\ea1a"; }
+.icarus-terminal-materials-encoded:before { content: "\ea1b"; }
+.icarus-terminal-materials-grade-1:before { content: "\ea1c"; }
+.icarus-terminal-materials-grade-2:before { content: "\ea1d"; }
+.icarus-terminal-materials-grade-3:before { content: "\ea1e"; }
+.icarus-terminal-materials-grade-4:before { content: "\ea1f"; }
+.icarus-terminal-materials-grade-5:before { content: "\ea20"; }
+.icarus-terminal-materials-manufactured:before { content: "\ea21"; }
+.icarus-terminal-materials-raw:before { content: "\ea22"; }
+.icarus-terminal-materials-xeno:before { content: "\ea23"; }
+.icarus-terminal-materials:before { content: "\ea24"; }
+.icarus-terminal-megaship:before { content: "\ea25"; }
+.icarus-terminal-notifications-disabled:before { content: "\ea26"; }
+.icarus-terminal-notifications:before { content: "\ea27"; }
+.icarus-terminal-ocellus-starport:before { content: "\ea28"; }
+.icarus-terminal-orbis-starport:before { content: "\ea29"; }
+.icarus-terminal-outpost:before { content: "\ea2a"; }
+.icarus-terminal-pin-window:before { content: "\ea2b"; }
+.icarus-terminal-planet-ammonia-based-life:before { content: "\ea2c"; }
+.icarus-terminal-planet-ammonia-world:before { content: "\ea2d"; }
+.icarus-terminal-planet-atmosphere:before { content: "\ea2e"; }
+.icarus-terminal-planet-earthlike:before { content: "\ea2f"; }
+.icarus-terminal-planet-empty:before { content: "\ea30"; }
+.icarus-terminal-planet-gas-giant:before { content: "\ea31"; }
+.icarus-terminal-planet-high-metal-content:before { content: "\ea32"; }
+.icarus-terminal-planet-lander:before { content: "\ea33"; }
+.icarus-terminal-planet-life:before { content: "\ea34"; }
+.icarus-terminal-planet-ringed:before { content: "\ea35"; }
+.icarus-terminal-planet-terraformable:before { content: "\ea36"; }
+.icarus-terminal-planet-volcanic:before { content: "\ea37"; }
+.icarus-terminal-planet-water-based-life:before { content: "\ea38"; }
+.icarus-terminal-planet-water-world:before { content: "\ea39"; }
+.icarus-terminal-planet:before { content: "\ea3a"; }
+.icarus-terminal-planetary-port-large:before { content: "\ea3b"; }
+.icarus-terminal-planetary-port:before { content: "\ea3c"; }
+.icarus-terminal-power:before { content: "\ea3d"; }
+.icarus-terminal-route:before { content: "\ea3e"; }
+.icarus-terminal-search:before { content: "\ea3f"; }
+.icarus-terminal-settings:before { content: "\ea40"; }
+.icarus-terminal-settlement:before { content: "\ea41"; }
+.icarus-terminal-shield:before { content: "\ea42"; }
+.icarus-terminal-ship:before { content: "\ea43"; }
+.icarus-terminal-signal:before { content: "\ea44"; }
+.icarus-terminal-sound:before { content: "\ea45"; }
+.icarus-terminal-star:before { content: "\ea46"; }
+.icarus-terminal-sync:before { content: "\ea47"; }
+.icarus-terminal-system-authority-solid:before { content: "\ea48"; }
+.icarus-terminal-system-authority:before { content: "\ea49"; }
+.icarus-terminal-system-bodies:before { content: "\ea4a"; }
+.icarus-terminal-system-orbits:before { content: "\ea4b"; }
+.icarus-terminal-table-index:before { content: "\ea4c"; }
+.icarus-terminal-table-inspector:before { content: "\ea4d"; }
+.icarus-terminal-table-rows:before { content: "\ea4e"; }
+.icarus-terminal-warning:before { content: "\ea4f"; }
+.icarus-terminal-wrench:before { content: "\ea50"; }
 
 $icarus-terminal-0_copy: "\ea01";
 $icarus-terminal-asteroid-base: "\ea02";
 $icarus-terminal-atmosphere: "\ea03";
-$icarus-terminal-cargo: "\ea04";
-$icarus-terminal-chevron-down: "\ea05";
-$icarus-terminal-chevron-left: "\ea06";
-$icarus-terminal-chevron-right: "\ea07";
-$icarus-terminal-chevron-up: "\ea08";
-$icarus-terminal-cogs: "\ea09";
-$icarus-terminal-color-picker: "\ea0a";
-$icarus-terminal-coriolis-starport: "\ea0b";
-$icarus-terminal-credits: "\ea0c";
-$icarus-terminal-download: "\ea0d";
-$icarus-terminal-economy: "\ea0e";
-$icarus-terminal-engineer: "\ea0f";
-$icarus-terminal-engineering: "\ea10";
-$icarus-terminal-exit: "\ea11";
-$icarus-terminal-fuel: "\ea12";
-$icarus-terminal-fullscreen-window: "\ea13";
-$icarus-terminal-fullscreen: "\ea14";
-$icarus-terminal-help: "\ea15";
-$icarus-terminal-inventory: "\ea16";
-$icarus-terminal-location-filled: "\ea17";
-$icarus-terminal-location: "\ea18";
-$icarus-terminal-logo: "\ea19";
-$icarus-terminal-materials-encoded: "\ea1a";
-$icarus-terminal-materials-grade-1: "\ea1b";
-$icarus-terminal-materials-grade-2: "\ea1c";
-$icarus-terminal-materials-grade-3: "\ea1d";
-$icarus-terminal-materials-grade-4: "\ea1e";
-$icarus-terminal-materials-grade-5: "\ea1f";
-$icarus-terminal-materials-manufactured: "\ea20";
-$icarus-terminal-materials-raw: "\ea21";
-$icarus-terminal-materials-xeno: "\ea22";
-$icarus-terminal-materials: "\ea23";
-$icarus-terminal-megaship: "\ea24";
-$icarus-terminal-notifications-disabled: "\ea25";
-$icarus-terminal-notifications: "\ea26";
-$icarus-terminal-ocellus-starport: "\ea27";
-$icarus-terminal-orbis-starport: "\ea28";
-$icarus-terminal-outpost: "\ea29";
-$icarus-terminal-pin-window: "\ea2a";
-$icarus-terminal-planet-ammonia-based-life: "\ea2b";
-$icarus-terminal-planet-ammonia-world: "\ea2c";
-$icarus-terminal-planet-atmosphere: "\ea2d";
-$icarus-terminal-planet-earthlike: "\ea2e";
-$icarus-terminal-planet-empty: "\ea2f";
-$icarus-terminal-planet-gas-giant: "\ea30";
-$icarus-terminal-planet-high-metal-content: "\ea31";
-$icarus-terminal-planet-lander: "\ea32";
-$icarus-terminal-planet-life: "\ea33";
-$icarus-terminal-planet-ringed: "\ea34";
-$icarus-terminal-planet-terraformable: "\ea35";
-$icarus-terminal-planet-volcanic: "\ea36";
-$icarus-terminal-planet-water-based-life: "\ea37";
-$icarus-terminal-planet-water-world: "\ea38";
-$icarus-terminal-planet: "\ea39";
-$icarus-terminal-planetary-port-large: "\ea3a";
-$icarus-terminal-planetary-port: "\ea3b";
-$icarus-terminal-power: "\ea3c";
-$icarus-terminal-route: "\ea3d";
-$icarus-terminal-search: "\ea3e";
-$icarus-terminal-settings: "\ea3f";
-$icarus-terminal-settlement: "\ea40";
-$icarus-terminal-shield: "\ea41";
-$icarus-terminal-ship: "\ea42";
-$icarus-terminal-signal: "\ea43";
-$icarus-terminal-sound: "\ea44";
-$icarus-terminal-star: "\ea45";
-$icarus-terminal-sync: "\ea46";
-$icarus-terminal-system-authority-solid: "\ea47";
-$icarus-terminal-system-authority: "\ea48";
-$icarus-terminal-system-bodies: "\ea49";
-$icarus-terminal-system-orbits: "\ea4a";
-$icarus-terminal-table-index: "\ea4b";
-$icarus-terminal-table-inspector: "\ea4c";
-$icarus-terminal-table-rows: "\ea4d";
-$icarus-terminal-warning: "\ea4e";
-$icarus-terminal-wrench: "\ea4f";
+$icarus-terminal-barrel: "\ea04";
+$icarus-terminal-cargo: "\ea05";
+$icarus-terminal-chevron-down: "\ea06";
+$icarus-terminal-chevron-left: "\ea07";
+$icarus-terminal-chevron-right: "\ea08";
+$icarus-terminal-chevron-up: "\ea09";
+$icarus-terminal-cogs: "\ea0a";
+$icarus-terminal-color-picker: "\ea0b";
+$icarus-terminal-coriolis-starport: "\ea0c";
+$icarus-terminal-credits: "\ea0d";
+$icarus-terminal-download: "\ea0e";
+$icarus-terminal-economy: "\ea0f";
+$icarus-terminal-engineer: "\ea10";
+$icarus-terminal-engineering: "\ea11";
+$icarus-terminal-exit: "\ea12";
+$icarus-terminal-fuel: "\ea13";
+$icarus-terminal-fullscreen-window: "\ea14";
+$icarus-terminal-fullscreen: "\ea15";
+$icarus-terminal-help: "\ea16";
+$icarus-terminal-inventory: "\ea17";
+$icarus-terminal-location-filled: "\ea18";
+$icarus-terminal-location: "\ea19";
+$icarus-terminal-logo: "\ea1a";
+$icarus-terminal-materials-encoded: "\ea1b";
+$icarus-terminal-materials-grade-1: "\ea1c";
+$icarus-terminal-materials-grade-2: "\ea1d";
+$icarus-terminal-materials-grade-3: "\ea1e";
+$icarus-terminal-materials-grade-4: "\ea1f";
+$icarus-terminal-materials-grade-5: "\ea20";
+$icarus-terminal-materials-manufactured: "\ea21";
+$icarus-terminal-materials-raw: "\ea22";
+$icarus-terminal-materials-xeno: "\ea23";
+$icarus-terminal-materials: "\ea24";
+$icarus-terminal-megaship: "\ea25";
+$icarus-terminal-notifications-disabled: "\ea26";
+$icarus-terminal-notifications: "\ea27";
+$icarus-terminal-ocellus-starport: "\ea28";
+$icarus-terminal-orbis-starport: "\ea29";
+$icarus-terminal-outpost: "\ea2a";
+$icarus-terminal-pin-window: "\ea2b";
+$icarus-terminal-planet-ammonia-based-life: "\ea2c";
+$icarus-terminal-planet-ammonia-world: "\ea2d";
+$icarus-terminal-planet-atmosphere: "\ea2e";
+$icarus-terminal-planet-earthlike: "\ea2f";
+$icarus-terminal-planet-empty: "\ea30";
+$icarus-terminal-planet-gas-giant: "\ea31";
+$icarus-terminal-planet-high-metal-content: "\ea32";
+$icarus-terminal-planet-lander: "\ea33";
+$icarus-terminal-planet-life: "\ea34";
+$icarus-terminal-planet-ringed: "\ea35";
+$icarus-terminal-planet-terraformable: "\ea36";
+$icarus-terminal-planet-volcanic: "\ea37";
+$icarus-terminal-planet-water-based-life: "\ea38";
+$icarus-terminal-planet-water-world: "\ea39";
+$icarus-terminal-planet: "\ea3a";
+$icarus-terminal-planetary-port-large: "\ea3b";
+$icarus-terminal-planetary-port: "\ea3c";
+$icarus-terminal-power: "\ea3d";
+$icarus-terminal-route: "\ea3e";
+$icarus-terminal-search: "\ea3f";
+$icarus-terminal-settings: "\ea40";
+$icarus-terminal-settlement: "\ea41";
+$icarus-terminal-shield: "\ea42";
+$icarus-terminal-ship: "\ea43";
+$icarus-terminal-signal: "\ea44";
+$icarus-terminal-sound: "\ea45";
+$icarus-terminal-star: "\ea46";
+$icarus-terminal-sync: "\ea47";
+$icarus-terminal-system-authority-solid: "\ea48";
+$icarus-terminal-system-authority: "\ea49";
+$icarus-terminal-system-bodies: "\ea4a";
+$icarus-terminal-system-orbits: "\ea4b";
+$icarus-terminal-table-index: "\ea4c";
+$icarus-terminal-table-inspector: "\ea4d";
+$icarus-terminal-table-rows: "\ea4e";
+$icarus-terminal-warning: "\ea4f";
+$icarus-terminal-wrench: "\ea50";
 
