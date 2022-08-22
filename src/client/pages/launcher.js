@@ -63,7 +63,7 @@ export default function IndexPage () {
         {update && update.isUpgrade &&
           <div className='fx-fade-in'>
             <div>
-              <h4 style={{ marginTop: '1.5rem', fontSize: '1.2rem' }} className='text-info'>New Version Available</h4>
+              <h4 style={{ marginTop: '1.5rem', fontSize: '1.2rem' }} className='text-info'>Update Released</h4>
               <span
                 target='_blank'
                 className='text-link'
@@ -81,7 +81,9 @@ export default function IndexPage () {
                 }}
               ><i className='icon icarus-terminal-download' /> Install Update
               </button>}
-            {downloadingUpdate && <p className='text-uppercase text-secondary text-blink-slow'>Downloading update...</p>}
+            {downloadingUpdate && <p className='text-primary text-blink-slow'>
+              <i style={{position: 'relative', top: '.2rem', marginRight: '.2rem'}} className='icon icarus-terminal-download' /> Downloading update...
+            </p>}
           </div>}
         <div style={{ position: 'absolute', bottom: '.5rem', left: '1rem' }}>
           <p className='text-muted'>Connect from a browser on</p>

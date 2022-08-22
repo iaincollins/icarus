@@ -106,6 +106,16 @@ button.button--dark,
   box-shadow: none;
 }
 
+button.button--dark:hover:not([disabled]):not(.button--active),
+button.button--dark:focus:not([disabled]):not(.button--active),
+.button.button--dark:hover:not(.button--disabled):not(.button--active),
+.button.button--dark:focus:not(.button--disabled):not(.button--active) {
+  background: rgb(5,5,5);
+  color: var(--color-info);
+  outline: .2rem solid var(--color-info);
+  box-shadow: none;
+}
+
 .button__close-button,
 button.button__close-button {
   position: absolute;

@@ -92,13 +92,13 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         </div>
         <div
           onClick={() => setShowSystemDetails(!showSystemDetails)}
-          className={`system-map__system-stats ${showSystemDetails ? 'system-map__system-stats--open' : 'button'}`}>
+          className={`system-map__system-information ${showSystemDetails ? 'system-map__system-information--open' : 'button'}`}>
           {showSystemDetails === true
             ? <div className='fx-fade-in'>
-              <h3 className='text-primary text-muted' style={{marginLeft: '1.5rem'}}>System Information</h3>
-              <hr className='small muted' style={{marginRight: '-1.75rem'}}/>
+              <h3 className='text-primary text-muted' style={{ marginLeft: '1.5rem'}}>System Information</h3>
+              <i className='icarus-terminal-chevron-down text-primary text-muted' style={{ position: 'absolute', top: '.65rem', right: '.65rem' }} />
+              <hr className='small muted' style={{marginTop: '.3rem', marginRight: '-1.75rem', marginBottom: '.3rem'}}/>
               <PointsOfInterest system={system} />
-              <i className='icarus-terminal-chevron-down text-primary' style={{ position: 'absolute', top: '.5rem', right: '.75rem' }} />
               {system.economy && system.economy?.primary !== 'Unknown' && system?.economy?.primary !== 'None' &&
                 <h3 className='text-primary'>
 
@@ -125,6 +125,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 </h3>}
               {system.state && system.state !== 'Unknown' && system.state !== 'None' && factionStateDescription &&
                 <h3 className='text-info'>
+                  <i className='icon icarus-terminal-warning' style={{ fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem' }} />
                   {factionStateDescription}
                 </h3>}
             </div>
@@ -157,7 +158,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               <i className='icarus-terminal-system-orbits' style={{ fontSize: '1.5rem', float: 'left', position: 'relative', left: '-.15rem' }} />
               <CopyOnClick append=' system'>{system.name}</CopyOnClick>
             </span>
-            <span className='text-center-vertical'>
+            <span className='text-center-vertical' style={{pointerEvents: 'none'}}>
              {system.detail && system.detail.bodies && system.detail.bodies.length > 0 &&
                 <h4 className='text-primary' style={{ marginLeft: '2.6rem', marginTop: '1.2rem'}}>
                   {system.detail.bodies.length} {system.detail.bodies.length === 1 ? 'body found in system' : 'bodies found in system'}

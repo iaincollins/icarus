@@ -106,7 +106,7 @@
 }
 
 
-.system-map__system-stats {
+.system-map__system-information {
   position: absolute;
   left: 4.5rem;
   bottom: 0;
@@ -120,27 +120,35 @@
   min-height: 4rem;
 }
 
-.system-map__system-stats--open {
-  background: linear-gradient(var(--color-background-panel-translucent), var(--color-background-panel));
+.system-map__system-information--open {
+  background: rgba(0,0,0,.75);
   backdrop-filter: blur(.5rem) brightness(.25);
-  box-shadow: 0 0 1rem rgba(0,0,0, .5);
   clip-path: polygon(0 2.00rem,2.00rem 0,100% 0,100% calc(100% - 2.00rem),calc(100% - 2.00rem) 100%,0 100%);
   border-radius: .2rem;
   padding: .5rem 2.5rem .6rem .75rem;
+  background: var(--color-background-panel-translucent);
 }
 
-.system-map__system-stats--open:before {
+.system-map__system-information--open:hover {
+  xbackground: var(--color-background-panel-translucent);
+  background: var(--color-primary-dark);
+}
+
+.system-map__system-information--open:before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: var(--color-primary-dark);
+  background: var(--color-info);
+  background: var(--color-primary);
+  opacity: .25;
   clip-path: polygon(0 2.00rem,2.00rem 0,100% 0,100% calc(100% - 2.00rem),calc(100% - 2.00rem) 100%,0 100%,0 2.00rem,.15rem  calc(2.00rem + 0.06rem),.15rem calc(100% - .15rem),calc(100% - 2.00rem - 0.06rem) calc(100% - .15rem),calc(100% - .15rem) calc(100% - 2.00rem - 0.06rem),calc(100% - .15rem) .15rem,calc(2.00rem + 0.06rem) .15rem,.15rem calc(2.00rem + 0.06rem));
   border-radius: .2rem;
 }
 
-.system-map__system-stats--open:hover {
-  filter: brightness(1.2);
+.system-map__system-information--open:hover:before {
+  background: var(--color-primary);
+  opacity: 1;
 }
 
 .system-map__system-position {

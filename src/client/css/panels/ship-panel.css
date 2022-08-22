@@ -359,23 +359,32 @@ table.ship-panel__lights td {
   text-align: left;
 }
 
-@media only screen and (max-width: 799px) {
+@media only screen and (max-width: 1023px) {
   .ship-panel__light-text {
-    margin-left: 0;
-    width: auto;
-    text-align: center;
-    line-height: 1rem;
     font-size: 1rem;
   }
 }
 
+
+@media only screen and (max-width: 799px) {
+  .ship-panel__light-text {
+    margin: auto;
+    width: auto;
+    padding: 0;
+    text-align: center;
+    line-height: 1rem;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+  } 
+}
+
 @media only screen and (max-width: 599px) {
   .ship-panel__light-text {
-    font-size: .8rem;
+    font-size: .7rem;
   }
 }
 
-.ship-panel__light--off,  
+.ship-panel__light--off,
 .ship-panel__light--on,
 .ship-panel__light--danger {
   background: var(--color-background-panel);
@@ -403,6 +412,16 @@ table.ship-panel__lights td {
     height: 3rem;
     width: auto;
     overflow: hidden;
+    margin-bottom: 0;
+  }
+
+  .ship-panel__light--off,
+  .ship-panel__light--on,
+  .ship-panel__light--on::before,
+  .ship-panel__light--danger,
+  .ship-panel__light--danger::before,
+  .ship-panel__light--danger::after {
+    border-radius: .25rem !important;
   }
 }
 

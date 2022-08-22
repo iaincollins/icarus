@@ -70,29 +70,32 @@ export default function NavListPage () {
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel scrollable layout='full-width' navigation={NavPanelNavItems('Route', query)} search={search}>
+        <h2>Route Plan</h2>
         <table>
           <tbody>
             <tr style={{ background: 'none' }}>
-              <td style={{ width: '50%', padding: 0 }}>
+              <td style={{ width: '50%', padding: '.5rem 0 0 0' }}>
                 {navRoute?.currentSystem &&
                   <>
-                    <h3 className='text-primary'>Current System</h3>
+                    <h3 className='text-primary'>
+                      <i className='icarus-terminal-location-filled text-secondary' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />
+                      Location
+                    </h3>
                     <h2 className='navigation-panel__route-heading text-info'>
-                      <i className='icarus-terminal-system-orbits' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />
                       <CopyOnClick>{navRoute.currentSystem?.name}</CopyOnClick>
                     </h2>
                   </>}
               </td>
-              <td style={{ width: '50%', padding: 0 }} className='text-right'>
+              <td style={{ width: '50%', padding: '.5rem 0 0 0' }} className='text-right'>
                 {navRoute?.destination &&
                   <>
-                    <h3 className='text-primary'>Destination System</h3>
+                    <h3 className='text-primary'>
+                      <i className='icarus-terminal-system-orbits' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />
+                      Destination
+                    </h3>
                     <h2 className='navigation-panel__route-heading text-info text-right'>
                       {navRoute?.destination?.distance > 0
-                        ? <>
-                          <i className='icarus-terminal-system-orbits' style={{ position: 'relative', top: '.25rem', marginRight: '.5rem' }} />
-                          <CopyOnClick>{navRoute?.destination?.system}</CopyOnClick>
-                          </>
+                        ? <CopyOnClick>{navRoute?.destination?.system}</CopyOnClick>
                         : <span className='text-muted'>—</span>}
                     </h2>
                   </>}
@@ -100,31 +103,10 @@ export default function NavListPage () {
             </tr>
           </tbody>
         </table>
-        <p className='text-primary text-center' style={{ margin: '.25rem 0 .75rem 0', fontSize: '1.5rem', lineHeight: '1.5rem' }}>
-          {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
-            <>
-              {navRoute.inSystemOnRoute &&
-              <span className='text-uppercase'>
-                {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}
-              </span>}
-              <span className='text-muted'> / </span>
-              {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly
-              {' '}<span className='text-muted text-uppercase'>to destination</span>
-            </>}
-          {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination === 0 &&
-            <>Arrived at destination</>}
-          {navRoute?.route?.length === 0 &&
-            <>
-              <hr style={{ marginBottom: '2rem' }} />
-              <span className='text-uppercase text-muted'>No route set</span>
-              <br/><br/>
-              Set route using galaxy map
-            </>}
-        </p>
+        <hr style={{ marginBottom: 0 }} />
         {navRoute?.route?.length > 0 &&
           <>
-            <hr style={{ marginBottom: 0 }} />
-            <div className='scrollable' style={{ position: 'fixed', top: '19.5rem', bottom: '3.75rem', left: '5rem', right: '1rem' }}>
+            <div className='scrollable' style={{ position: 'fixed', top: '20rem', bottom: '4.5rem', left: '5rem', right: '1rem' }}>
               <table className='table--animated table--interactive'>
                 <tbody className='fx-fade-in'>
                   {navRoute.route.map((route, i) => {
@@ -136,6 +118,7 @@ export default function NavListPage () {
                         key={`nav-route_${route.system}`}
                         className={`${route?.isCurrentSystem === true ? 'table__row--highlighted' : 'table__row--highlight-primary-hover'}`}
                         onClick={() => router.push({ pathname: '/nav/map', query: { system: route?.system?.toLowerCase() } })}
+                        style={{top: '-.5rem', position: 'relative'}}
                       >
                         <td className='text-center' style={{ width: '3rem' }}>
                           <span className={previouslyVistedSystem ? 'text-muted' : ''}>{i + 1}</span>
@@ -145,7 +128,8 @@ export default function NavListPage () {
                             <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} visible-medium`} />
                             <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} hidden-medium`} />
                             <span>{route.system} </span>
-                            <br /><span className='text-muted'>
+                            <br />
+                            <span className='text-muted'>
                               {route.starClass.match(/^[DNH]/)
                                 ? route.starClass.match(/^D/)
                                     ? 'White Dwarf'
@@ -154,8 +138,8 @@ export default function NavListPage () {
                                       : 'Black Hole'
                                 : `${route.starClass} Class`
                               }
+                              {route.starClass.match(/^[OBAFGKM]/) ? ', Main Sequence' : ''}
                             </span>
-                            {route.starClass.match(/^[OBAFGKM]/) ? <span className='visible-small'><span className='text-muted'>, </span>Fuel Star</span> : ''}
                           </div>
                         </td>
                         <td className='hidden-small text-right text-no-wrap' style={{ width: '1rem' }}>
@@ -181,13 +165,28 @@ export default function NavListPage () {
               </table>
             </div>
           </>}
-        {navRoute?.route?.length > 0 &&
-          <div style={{ position: 'fixed', bottom: '.75rem', left: '5rem', right: '1rem' }}>
-            <hr className='small' style={{ marginTop: 0, marginBottom: '.75' }} />
-            <p className='text-primary text-muted text-center'>
-              Use galaxy map to plot new route
-            </p>
-          </div>}
+          <p className='text-primary text-center' style={{ position: 'fixed', bottom: '1rem', left: '5rem', right: '1rem' }}>
+            <hr className='small' style={{ marginTop: 0, marginBottom: '1rem' }} />
+            {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
+              <>
+                {navRoute.inSystemOnRoute && <>
+                  {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}
+                </>}
+                <span className='text-muted'> / </span>
+                {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly
+                {' '}<span className='text-muted'>to destination</span>
+              </>}
+            {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination === 0 &&
+              <>Arrived at destination</>}
+        </p>
+        {navRoute?.route?.length === 0 &&
+          <div className='text-center-both' style={{zIndex: '30', pointerEvents: 'none' }}>
+            <h2 className='text-primary'>
+              NO ROUTE SET<br />
+              <span className='text-muted' style={{ fontSize: '1.5rem' }}>Use galaxy map to plot route</span>
+            </h2>
+          </div>
+        }
       </Panel>
     </Layout>
   )

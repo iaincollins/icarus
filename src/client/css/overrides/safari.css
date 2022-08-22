@@ -2,7 +2,9 @@
 @media not all and (min-resolution:.001dpcm) {
   @media {
     body {
-      font-synthesis: none
+      font-synthesis: none;
+      /* Safari renders with a smaller base font size */
+      font-size: 1.3rem !important;
     }
   
     /* Safari doesn't apply filters to SVG correctly, so we color all stars
@@ -31,6 +33,18 @@
       opacity: 1 !important;
       animation-fill-mode: none !important;
       animation-delay: 0 !important;
+    }
+
+    table tbody tr.table__row--highlighted {
+      background: var(--color-background-panel-translucent) !important;
+    }
+
+    table tbody tr.table__row--highlighted td {
+      background: none !important;
+    }
+
+    table:not(.table--layout) tbody tr {
+      border-top-color: rgba(0,0,0,.6) !important;
     }
   }
 }

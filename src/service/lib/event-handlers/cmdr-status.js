@@ -151,7 +151,11 @@ class CmdrStatus {
       if (cmdrStatus?.flags?.onFootInHanger) {
         location.push('Hanger')
       } else if (cmdrStatus?.flags?.onFootSocialSpace) {
-        location.push('Concourse')
+        if (dockedEvent?.StationType === 'FleetCarrier') {
+          location.push('Flight Deck')
+        } else {
+          location.push('Concourse')
+        }
       }
     }
 
@@ -175,6 +179,7 @@ class CmdrStatus {
           } else {
             location.push(embarkEvent.StationName)
           }
+          location.push('Docked')
         } else if (dockedEvent?.StationName) {
           // If the Embark event doesn't have a Station Name we fallback to Docked event
           // This can happen when embarking at a settlement (even when on a landing pad,
@@ -183,6 +188,7 @@ class CmdrStatus {
           // triggered in the same system (crude, but hopefully good enough).
           if (dockedEvent?.StarSystem === currentSystem?.name) {
             location.push(dockedEvent.StationName)
+            location.push('Docked')
           }
         }
       }
@@ -217,6 +223,9 @@ class CmdrStatus {
       // Indicate that we are onboard a shuttle (e.g. Apex, Frontline Solutions)
       location.push('Shuttle')
     }
+
+    if (location.length > 2) location.shift()
+
     cmdrStatus._location = location
 
     return cmdrStatus

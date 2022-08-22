@@ -205,7 +205,7 @@ export default function EngineeringMaterialsPage () {
                         <span className='text-info'>{module.class}{module.rating} {module.name}</span>
                         <span className='visible-medium'><br />{module.slotName}</span>
                       </td>
-                      <td className='hidden-medium' style={{ width: '12rem' }}>
+                      <td className='hidden-medium text-no-wrap' style={{ width: '12rem' }}>
                         <span>{module.slotName}</span>
                       </td>
                       <td className='text-info text-no-wrap' style={{ minWidth: '3rem' }}>

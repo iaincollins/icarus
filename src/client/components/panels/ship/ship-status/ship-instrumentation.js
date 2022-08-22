@@ -129,13 +129,13 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           </tbody>
         </table>
 
-        <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`}
+        <table className={`ship-panel__ship-stats visible-medium table--layout ${!ship.onBoard ? 'text-muted' : ''}`}
           style={{
-            marginBottom: '2rem',
+            marginBottom: '4rem',
           }}
           >
           <tbody className='text-info'>
-            <tr className='visible-medium' >
+            <tr>
               <td style={{ padding: 0, overflow: 'visible' }}>
                 <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
               </td>
@@ -146,7 +146,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           </tbody>
         </table>
 
-        <table className={`ship-panel__ship-stats ${!ship.onBoard ? 'text-muted' : ''}`} style={{marginBottom: '4rem'}}>
+        <table className={`ship-panel__ship-stats table--layout ${!ship.onBoard ? 'text-muted' : ''}`} style={{marginTop: '2rem', marginBottom: '4rem'}}>
           <tbody className='text-info'>
             <tr className='hidden-medium' >
               <td rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
@@ -319,10 +319,10 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         maxHeight: '12rem',
         maxWidth: '12rem',
         margin: 'auto',
-        aspectRatio: '1'
+        aspectRatio: '1',
       }}
       >
-        <div className='rings'>
+      <div className='rings'>
         <div
           className='ring'
           style={{
@@ -331,34 +331,34 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
             width: '100%',
           }}
         />
-        <div className='ring'
-        style={{
-          bottom: '-8rem',
-          left: '-15%',
-          width: '120%',
-          opacity: '.5',
-          animationDelay: '1s'
-        }}
-        />
-      </div>
+          <div className='ring'
+          style={{
+            bottom: '-8rem',
+            left: '-15%',
+            width: '120%',
+            opacity: '.5',
+            animationDelay: '1s'
+          }}
+          />
+        </div>
       </div>
       <div className='dial-border'
-      style={{
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        display: 'block',
-        maxHeight: '12rem',
-        maxWidth: '12rem',
-        margin: 'auto',
-        aspectRatio: '1',
-        border: '.5rem double var(--color-info)',
-        transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
-        opacity: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 1 : '.25',
-        borderRadius: '100rem',
-        transition: 'opacity .25s ease-in-out',
-        zIndex: 100
-      }}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          display: 'block',
+          maxHeight: '12rem',
+          maxWidth: '12rem',
+          margin: 'auto',
+          aspectRatio: '1',
+          border: '.5rem double var(--color-info)',
+          transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
+          opacity: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 1 : '.25',
+          borderRadius: '100rem',
+          transition: 'opacity .25s ease-in-out',
+          zIndex: 100,
+        }}
       >
         <div style={{
           position: 'absolute',
@@ -412,6 +412,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
             justifyContent: 'center',
             textAlign: 'center',
             height: '100%',
+            maxHeight: '12rem',
+            maxWidth: '12rem',
             opacity: ship.onBoard ? 1 : 0.5
           }}
           />

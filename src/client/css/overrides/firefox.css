@@ -1,6 +1,8 @@
 @-moz-document url-prefix() {
   html {
     height: 100vh; /* Firefox needs this or the use of filter() breaks rendering! */
+    /* Firefox renders with a smaller base font size */
+    font-size: .9rem !important;
   }
 
   .scrollable {
@@ -18,7 +20,18 @@
 
   .system-map__planetary-system-star-icon,
   .system-map__planetary-system-map {
-   filter: contrast(1.5) !important;
+    filter: contrast(1.25) !important;
   }
 
+  table tbody tr.table__row--highlighted {
+    background: var(--color-background-panel-translucent) !important;
+  }
+
+  table tbody tr.table__row--highlighted td {
+    background: none !important;
+  }
+
+  table:not(.table--layout) tbody tr {
+    border-top-color: rgba(0,0,0,.6) !important;
+  }
 }

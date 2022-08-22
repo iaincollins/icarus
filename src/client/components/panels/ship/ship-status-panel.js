@@ -27,8 +27,8 @@ export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModu
             </h3>
           </div>
           <div style={{ position: 'relative', minWidth: '7em' }}>
-            <h5 className='text-right text-info' style={{ position: 'absolute', right: '.5rem', opacity: ship.onBoard ? 1 : 0.5 }}>
-              {ship.onBoard ? 'SYS PWR' : 'PWR OFF'}
+            <h5 className='text-right text-info text-uppercase' style={{ position: 'absolute', right: '.5rem', opacity: ship.onBoard ? 1 : 0.5 }}>
+              {ship.onBoard ? 'Online' : 'Offline'}
             </h5>
             <div className={`ship-panel__horizontal-activity ${ship.onBoard ? 'ship-panel__horizontal-activity--online' : ''}`}/>
             <div className='ship-panel__horizontal-activity-marker'/>
