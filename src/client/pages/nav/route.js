@@ -165,16 +165,16 @@ export default function NavListPage () {
               </table>
             </div>
           </>}
-          <p className='text-primary text-center' style={{ position: 'fixed', bottom: '1rem', left: '5rem', right: '1rem' }}>
+          <p className='text-primary text-uppercase text-center' style={{height: '2.75rem', fontSize: '1.5rem', position: 'fixed', bottom: '1rem', left: '5rem', right: '1rem' }}>
             <hr className='small' style={{ marginTop: 0, marginBottom: '1rem' }} />
             {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
               <>
                 {navRoute.inSystemOnRoute && <>
                   {navRoute.jumpsToDestination === 1 ? `${navRoute.jumpsToDestination} jump` : `${navRoute.jumpsToDestination} jumps`}
+                  <span className='text-muted'> / </span>
                 </>}
-                <span className='text-muted'> / </span>
                 {navRoute.destination.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly
-                {' '}<span className='text-muted'>to destination</span>
+                {' '}<span className='text-muted hidden-small'>to destination</span>
               </>}
             {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination === 0 &&
               <>Arrived at destination</>}
