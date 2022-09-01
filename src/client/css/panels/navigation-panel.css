@@ -241,9 +241,9 @@
 }
 
 .navigation-panel__map-background::before {
-  --color-map-background-grid: rgba(30, 30, 30, .2);
+  --color-map-background-grid: rgba(30, 30, 30, .25);
   background-image: linear-gradient(var(--color-map-background-grid) .1rem, transparent .1rem), linear-gradient(90deg, var(--color-map-background-grid) .1rem, transparent .1rem);
-  background-size: 3rem 3rem;
+  background-size: 4rem 4rem;
   background-position: -1.5rem 0;
   background-position-y: var(--background-position-y-offset-grid);
   content: " ";

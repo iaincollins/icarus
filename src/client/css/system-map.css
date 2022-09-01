@@ -5,9 +5,7 @@
 
 .system-map {
   margin-top: 4rem;
-  margin-bottom: 3rem;
-
-
+  margin-bottom: 4rem;
 }
   
 .system-map__toolbar,
@@ -339,6 +337,7 @@
 .system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Ammonia world"] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Planet"][data-system-object-sub-type*="Earth-like world"] .system-map__planet-surface {
   fill: url(#svg-pattern__planet-surface--clouds);
+  filter: contrast(2) brightness(2) !important;
 }
 
 .system-map__system-object[data-system-object-type="Star"] .system-map__planet {
@@ -412,7 +411,7 @@
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Y "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="T "] .system-map__planet-surface,
 .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="Brown dwarf" i] .system-map__planet-surface {
-  filter: contrast(0.2) sepia(100%) hue-rotate(280deg) saturate(1.7) brightness(.45)  contrast(2) drop-shadow(0 0 15rem maroon);
+  filter: contrast(0.2) sepia(100%) hue-rotate(300deg) saturate(1.4) brightness(.4)  contrast(2) drop-shadow(0 0 15rem rgb(200,20,20));
 }
 
 /* 
