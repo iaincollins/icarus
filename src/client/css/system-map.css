@@ -124,11 +124,10 @@
   clip-path: polygon(0 2.00rem,2.00rem 0,100% 0,100% calc(100% - 2.00rem),calc(100% - 2.00rem) 100%,0 100%);
   border-radius: .2rem;
   padding: .5rem 2.5rem .6rem .75rem;
-  background: var(--color-background-panel-translucent);
+  background: var(--linear-gradient-background);
 }
 
 .system-map__system-information--open:hover {
-  xbackground: var(--color-background-panel-translucent);
   background: var(--color-primary-dark);
 }
 
