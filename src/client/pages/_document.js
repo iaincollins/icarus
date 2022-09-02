@@ -134,14 +134,14 @@ class MyDocument extends Document {
     </svg>
     <script>
       const isChromium = window.chrome
-      const isSafari = navigator.vendor.match(/apple/i) &&
-                        !navigator.userAgent.match(/crios/i) &&
-                        !navigator.userAgent.match(/fxios/i) &&
-                        !navigator.userAgent.match(/Opera|OPT\\//)
       const isOpera = typeof window.opr !== "undefined"
-      const isIEedge = window.navigator.userAgent.indexOf("Edg") > -1
-      const isIOSChrome = window.navigator.userAgent.match("CriOS")
+      const isIEedge = window.navigator.userAgent.indexOf('Edg') > -1
       const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1
+      const isIOSChrome = window.navigator.userAgent.match('CriOS')
+      const isIOSFirefox = window.navigator.userAgent.match('FxiOS')
+      const isSafari = navigator.vendor.match(/apple/i) 
+        && !isIOSChrome && !isIOSFirefox
+        && !navigator.userAgent.match(/Opera|OPT\\//)
 
       // Google Chrome supports filters on SVG textures in this way but not all
       // imitation Chrome browsers do and some look terrible as a result because
@@ -161,7 +161,7 @@ class MyDocument extends Document {
       // doesn't support filters on SVG elements (textured or otherwise), so
       // they are not enabled on Safari for now (unless/until Apple address the
       // limitation).
-      if (isIOSChrome || isIEedge || isFirefox) { 
+      if (isIEedge || (isFirefox && !isIOSFirefox)) { 
         ENABLE_PLANET_TEXTURES = true
       } else if (
         // Check is Google Chrome (and not impostor)
