@@ -31,16 +31,16 @@ const factionStates = {
     description: 'Economy is bust'
   },
   famine: {
-    description: 'Famine, demand for food, support missions'
+    description: 'Famine, food needed, support missions'
   },
   drought: {
-    description: 'Drought, demand for water & emergency supplies'
+    description: 'Drought, water & emergency supplies needed'
   },
   blight: {
-    description: 'Blight, demand for Agronomic Treatment'
+    description: 'Blight, Agronomic Treatment needed'
   },
   outbreak: {
-    description: 'Outbreak, demand for medicines, support missions'
+    description: 'Outbreak, medicines needed, support missions'
   },
   lockdown: {
     description: 'Lockdown, services restricted, support missions'
@@ -49,7 +49,7 @@ const factionStates = {
     description: 'Faction retreating from system'
   },
   infrastructureFailure: {
-    description: 'Failing infrastructure, demenad for food & machinery'
+    description: 'Failing infrastructure, food & machinery needed'
   },
   naturalDisaster: {
     description: 'Natural disaster, support missions available'
@@ -58,10 +58,10 @@ const factionStates = {
     description: 'Pirate attack, support & bounty missions'
   },
   terroristAttack: {
-    description: 'Terrorist attack, demand for weapons, bounty missions'
+    description: 'Terrorist attack, weapons needed, bounty missions'
   },
   terrorism: {
-    description: 'Terrorist attack, demand for weapons, bounty missions'
+    description: 'Terrorist attack, weapons needed, bounty missions'
   }
 }
 
