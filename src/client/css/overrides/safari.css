@@ -7,11 +7,30 @@
       font-size: 1.3rem !important;
     }
   
-    /* Safari doesn't apply filters to SVG correctly, so we color all stars
-      orange. May do more work to color them correctly in a future update,
-      assuming Apple don't improve Safari anyway. */
+    /* Safari doesn't apply filters to SVG correctly so we use simple colors */
     .system-map__system-object[data-system-object-type="Star"] .system-map__planet-surface {
       fill: orange;
+    }
+
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="O "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="B "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="A "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="TT "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="TTS "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="W "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WC "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WN "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="WO "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="White Dwarf" i] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type="Neutron Star" i] .system-map__planet-surface {
+      fill: white;
+    }
+
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="L "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="Y "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type^="T "] .system-map__planet-surface,
+    .system-map__system-object[data-system-object-type="Star"][data-system-object-sub-type*="Brown dwarf" i] .system-map__planet-surface {
+      fill: maroon;
     }
 
     /* Safari doesn't apply filters to SVG correctly, sp we apply a simple
@@ -45,6 +64,16 @@
 
     table:not(.table--layout) tbody tr {
       border-top-color: rgba(0,0,0,.6) !important;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      /*This is that ONLY targets iOS browsers */
+
+      /* Some versions of Safari (e.g. iOS) incorrectly apply a fade to the 
+       system map view so the easiest thing is to just disable the animation */
+      .navigation-panel__map-background { 
+        animation: none;
+      }
     }
   }
 }
