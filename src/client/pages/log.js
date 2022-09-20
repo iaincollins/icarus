@@ -20,7 +20,7 @@ export default function LogPage () {
     const newLogEntries = await sendEvent('getLogEntries', { count: 100 })
     if (Array.isArray(newLogEntries) && newLogEntries.length > 0) {
       setLogEntries(newLogEntries)
-      // Only select a log entry if one isn't selected already
+      // Only select a log entry if one isn't set already
       setSelectedLogEntry(prevState => prevState || newLogEntries[0])
     }
     setComponentReady(true)
@@ -28,8 +28,12 @@ export default function LogPage () {
 
   useEffect(() => eventListener('newLogEntry', async (newLogEntry) => {
     setLogEntries(prevState => [newLogEntry, ...prevState])
-    // Only select a log entry if one isn't selected already
-    setSelectedLogEntry(prevState => prevState || newLogEntry)
+    // If no log row is currently selected (focus is not on a table row) then
+    // display the most recent log - otherwise leaves it displaying whatever is
+    // currently selected.
+    if (document.activeElement.tagName !== 'TR') {
+      setSelectedLogEntry(newLogEntry)
+    }
   }), [])
 
   return (
