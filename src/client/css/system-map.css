@@ -8,6 +8,30 @@
   margin-bottom: 4rem;
 }
 
+.system-map__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 2rem;
+  background-image: url(/images/textures/noise.svg);
+  opacity: .25;
+  filter: contrast(2) invert(1);
+  z-index: 20;
+  transition: right .5s ease-in-out;
+  pointer-events: none;
+}
+
+.navigation-panel__map--inspector .system-map__overlay {
+  right: 24rem;
+}
+
+@media only screen and (orientation: portrait) {
+  .navigation-panel__map--inspector .system-map__overlay {
+    right: 2rem;
+  }
+}
+
 .system-map__toolbar,
 .system-map__toolbar-background {
   position: absolute;
@@ -120,6 +144,7 @@
   border-radius: .2rem;
   padding: .5rem 2.5rem .6rem .75rem;
   background: var(--linear-gradient-background);
+  margin-right: 1.5rem;
 }
 
 .system-map__system-information--open:hover {
