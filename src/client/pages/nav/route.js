@@ -143,11 +143,13 @@ export default function NavListPage () {
                           </div>
                         </td>
                         <td className='hidden-small text-right text-no-wrap' style={{ width: '1rem' }}>
-                          {route.starClass.match(/^[OBAFGKM]/)
-                            ? <i className='icarus-terminal-fuel' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }} />
-                            : route.starClass.match(/^[DNH]/) 
-                              ? <i className='text-danger icarus-terminal-warning' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }} />
-                              : ''}
+                          <div className={previouslyVistedSystem ? 'text-muted' : ''}>
+                            {route.starClass.match(/^[OBAFGKM]/)
+                              ? <i className='icarus-terminal-fuel' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }} />
+                              : route.starClass.match(/^[DNH]/) 
+                                ? <i className='text-danger icarus-terminal-warning' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }} />
+                                : ''}
+                            </div>
                         </td>
                         <td className='text-right' style={{ width: '1rem' }}>
                           <span className={previouslyVistedSystem ? 'text-muted' : ''}>
@@ -165,7 +167,7 @@ export default function NavListPage () {
               </table>
             </div>
           </>}
-          <p className='text-primary text-uppercase text-center' style={{height: '2.75rem', fontSize: '1.5rem', position: 'fixed', bottom: '1rem', left: '5rem', right: '1rem' }}>
+          <div className='text-primary text-uppercase text-center' style={{height: '2.75rem', fontSize: '1.5rem', position: 'fixed', bottom: '1rem', left: '5rem', right: '1rem', marginBottom: '.5rem' }}>
             <hr className='small' style={{ marginTop: 0, marginBottom: '1rem' }} />
             {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
               <>
@@ -178,7 +180,7 @@ export default function NavListPage () {
               </>}
             {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination === 0 &&
               <>Arrived at destination</>}
-        </p>
+        </div>
         {navRoute?.route?.length === 0 &&
           <div className='text-center-both' style={{zIndex: '30', pointerEvents: 'none' }}>
             <h2 className='text-primary'>
