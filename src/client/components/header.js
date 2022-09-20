@@ -96,11 +96,11 @@ export default function Header ({ connected, active }) {
 
   let signalClassName = 'icon icarus-terminal-signal '
   if (!connected) {
-    signalClassName += 'text-primary text-muted'
+    signalClassName += 'text-primary'
   } else if (active) {
     signalClassName += 'text-secondary'
   } else {
-    signalClassName += 'text-primary text-muted'
+    signalClassName += 'text-primary'
   }
 
   const currentPath = `/${router.pathname.split('/')[1].toLowerCase()}`
@@ -113,16 +113,20 @@ export default function Header ({ connected, active }) {
       </h1>
       <div style={{ position: 'absolute', top: '1rem', right: '.5rem' }}>
         <p
-          className='text-primary text-right text-uppercase text-muted'
-          style={{ display: 'inline-block', margin: 0, padding: 0, marginRight: '.5rem', fontSize: '1.25rem', lineHeight: '1.25rem' }}
+          className='text-primary text-center text-uppercase'
+          style={{ display: 'inline-block', padding: 0, margin: 0, lineHeight: '1rem', minWidth: '7rem' }}
         >
-          {dateTime.time}
-          <br />
-          {dateTime.date}
+           <span style={{position: 'relative', top: '.3rem', fontSize: '2.5rem', paddingTop: '.25rem'}}>
+           {dateTime.time}
+          </span>
+          <br/>
+          <span style={{fontSize: '1rem', position: 'relative', top: '.4rem'}}>
+            {dateTime.day} {dateTime.month} {dateTime.year}
+          </span>
         </p>
 
-        <button disabled className='button--icon button--transparent' style={{ marginRight: '.5rem', opacity: 1, transition: 'all 1s ease-out' }}>
-          <i className={signalClassName} style={{ transition: 'all .25s ease', fontSize: '2rem' }} />
+        <button disabled className='button--icon button--transparent' style={{ marginRight: '.5rem', opacity: active ? 1 : .25, transition: 'all .25s ease-out' }}>
+          <i className={signalClassName} style={{ position: 'relative', transition: 'all .25s ease', fontSize: '3rem', lineHeight: '1.8rem', top: '.5rem', right: '.25rem' }} />
         </button>
 
         {IS_WINDOWS_APP &&

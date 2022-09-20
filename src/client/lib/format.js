@@ -25,9 +25,12 @@ function eliteDateTime (timestamp = Date.now()) {
     .replace(/^0/, '') // Strip leading zeros from day of month
 
   const dateTimeObject = {
+    dateTime: dateTimeString,
     date: dateTimeString.split(/^(.*)? (\d\d:\d\d)/)[1],
     time: dateTimeString.split(/^(.*)? (\d\d:\d\d)/)[2],
-    dateTime: dateTimeString
+    day: date.getDate(),
+    month: date.toLocaleString('en-us',{month:'short'}),
+    year: date.getFullYear()
   }
 
   return dateTimeObject
