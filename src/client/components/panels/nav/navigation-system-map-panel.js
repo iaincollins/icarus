@@ -193,7 +193,7 @@ function PointsOfInterest({ system }) {
             {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
           </div>
           </div>
-        : <div className='system-map__info--icons text-uppercase text-primary text-muted'>No stations or settlements</div>}
+        : <div className='system-map__info--icons text-uppercase text-primary text-muted'>No stations / settlements</div>}
     </>
   )
 }
