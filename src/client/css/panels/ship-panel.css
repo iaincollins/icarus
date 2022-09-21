@@ -510,6 +510,10 @@ table.ship-panel__lights td {
   }
 }
 
+.ship-panel__navigation-instrumentation p {
+  font-size: 1rem;
+}
+
 @media only screen and (max-width: 799px) {
   .ship-panel__switches {
     margin-bottom: 2rem !important;
@@ -527,6 +531,25 @@ table.ship-panel__lights td {
   }
   50% {
     box-shadow: 0 0 1.25rem 0 rgba(255,255,255,.5);
+  }
+}
+
+.ship-panel__navigation-instrumentation .dial-background {
+  opacity: 0;
+  transition: backdrop-filter .5s;
+  animation: ship-panel__navigation-instrumentation-dial-background-animation .5s ease-in forwards;
+  animation-delay: .5s;
+}
+
+@keyframes ship-panel__navigation-instrumentation-dial-background-animation {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0) opacity(0);
+  }
+  100% {
+    opacity: 1;
+    backdrop-filter: blur(.15rem) opacity(1);
+    background: radial-gradient(var(--color-primary-dark) 1%, transparent 90%);
   }
 }
 

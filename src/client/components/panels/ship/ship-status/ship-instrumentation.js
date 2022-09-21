@@ -308,7 +308,12 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
 
 function NavigationInstrumentation ({ ship, cmdrStatus }) {
   return (
-    <div className={`ship-panel__navigation-instrumentation ${ship.onBoard && typeof cmdrStatus?.heading === 'number' ? '--active' : ''} text-uppercase`}>
+    <div className={`ship-panel__navigation-instrumentation ${ship.onBoard && typeof cmdrStatus?.heading === 'number' ? '--active' : ''} text-uppercase`}
+    style={{
+      minHeight: '13rem',
+      minWidth: '13rem',
+    }}
+    >
       <div style={{
         position: 'absolute',
         left: 0,
@@ -349,6 +354,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           display: 'block',
           maxHeight: '12rem',
           maxWidth: '12rem',
+          minHeight: '12rem',
+          minWidth: '12rem',
           margin: 'auto',
           aspectRatio: '1',
           border: '.5rem double var(--color-info)',
@@ -384,7 +391,9 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         borderRadius: '100rem'
       }}
       >
-        <div style={{
+        <div 
+          className='dial-background'
+          style={{
           position: 'relative',
           top: '0',
           left: '0',
@@ -395,11 +404,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           height: '100%',
           minHeight: '12rem',
           minWidth: '12rem',
-          opacity: ship.onBoard ? 1 : 0.5,
-          background: 'linear-gradient(transparent 30%, var(--color-background-panel-translucent) 90%)',
           boxShadow: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 'inset 0 0 .5rem var(--color-info), 0 0 1.75rem var(--color-secondary), inset 0 0 1.5rem var(--color-secondary)' : '',
           borderRadius: '100rem',
-          backdropFilter: 'blur(.15rem)'
         }}
         >
           <div style={{
@@ -428,7 +434,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
             <span className='value'>{ship.onBoard ? cmdrStatus?.latitude ?? '-' : '-'}°</span>
           </p>
           <p style={{ padding: 0, margin: '.1rem 0' }}>
-            <span className='text-muted'>LON</span>
+            <span className='text-muted'>LONG</span>
             {' '}
             <span className='value'>{ship.onBoard ? cmdrStatus?.longitude ?? '-' : '-'}°</span>
           </p>
