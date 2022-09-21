@@ -116,11 +116,11 @@ export default function Header ({ connected, active }) {
           className='text-primary text-center text-uppercase'
           style={{ display: 'inline-block', padding: 0, margin: 0, lineHeight: '1rem', minWidth: '7rem' }}
         >
-           <span style={{position: 'relative', top: '.3rem', fontSize: '2.5rem', paddingTop: '.25rem'}}>
+           <span style={{position: 'relative', top: '.3rem', fontSize: '2.4rem', paddingTop: '.25rem'}}>
            {dateTime.time}
           </span>
           <br/>
-          <span style={{fontSize: '1rem', position: 'relative', top: '.4rem'}}>
+          <span style={{fontSize: '1.1rem', position: 'relative', top: '.4rem'}}>
             {dateTime.day} {dateTime.month} {dateTime.year}
           </span>
         </p>
