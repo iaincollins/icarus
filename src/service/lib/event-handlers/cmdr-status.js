@@ -119,9 +119,9 @@ class CmdrStatus {
     }
     */
 
-    const location = []
+    let location = []
 
-    // We use Body Name >
+    // By default we want "Body Name > [Station Name|Settlement|etc]"
     if (cmdrStatus?.bodyname) location.push(cmdrStatus.bodyname)
 
     const dockedEvent = await this.eliteLog.getEvent('Docked')
@@ -224,7 +224,22 @@ class CmdrStatus {
       location.push('Shuttle')
     }
 
-    if (location.length > 2) location.shift()
+    // Because of how we grab the location, sometimes we can end up with a
+    // location that is a symbol- e.g. if disembarking to a planet on a mission 
+    // it could be a description of the mission target area like this:
+    // "$POIScenario_Watson_Damaged_Sidewinder_01_Salvage_Easy; $USS_ThreatLevel:#threatLevel=1;"
+    //
+    // This obviously doesn't look good in the UI. so we filter these out by
+    // checking for locations that start with the $ sigil.
+    //
+    // FIXME This could accidentally filter out locations that actually start
+    // with a but I don't think that occurs anywhere in the game.
+    location = location.filter(loc => !loc.startsWith('$'))
+
+    // Only use the last two, most specific location names, so it's not too
+    // unwieldy in the UI (e.g. "Body > Settlement" or "Settlement > Docked",
+    // and not "System > Body > Settlement > Docked").
+    while (location.length > 2) { location.shift() }
 
     cmdrStatus._location = location
 
