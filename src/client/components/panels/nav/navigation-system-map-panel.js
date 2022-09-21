@@ -207,7 +207,7 @@ function LocationInformation ({ system, cmdrStatus }) {
             <div>
               {system.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} LY <span className='text-muted'>from</span>
             </div>
-            <div className='text-muted'>current location</div>
+            <div className='text-muted'>current system</div>
           </h3>
         </div>}
       {system?.distance === 0 && system.isCurrentLocation === false &&

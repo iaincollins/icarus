@@ -8,6 +8,10 @@
   margin-bottom: 4rem;
 }
 
+/* Happy with the effect but it negatively impacts rendering time too much 
+on slow devices (e.g. Amazon Fire) to be the default */
+
+/*
 .system-map__overlay {
   position: fixed;
   top: 0;
@@ -31,6 +35,7 @@
     right: 2rem;
   }
 }
+*/
 
 .system-map__toolbar,
 .system-map__toolbar-background {
@@ -207,7 +212,7 @@
   animation: svg-fade-in-animation 1s ease-in-out;
   animation-fill-mode: forwards;
   /* Wait until after other animations on page are done for best performance on slow devices */
-  animation-delay: .5s; 
+  animation-delay: 1s; 
 }
 
 .system-map__planetary-system-star-icon svg {
