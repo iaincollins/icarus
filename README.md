@@ -1,4 +1,7 @@
-<img alt="ICARUS Terminal" src="https://user-images.githubusercontent.com/595695/156449445-855d12f5-4f91-4a6f-ab24-a137572df4f7.svg" height="100" width="auto"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/595695/192074847-6518c9cd-0fa5-4567-8858-530f7d943bcd.svg">
+  <img alt="ICARUS Terminal" src="https://user-images.githubusercontent.com/595695/192074789-a098e19d-f21c-4148-879a-ea2355893776.svg" height="100" width="auto"/>
+</picture>
 
 ![GitHub Version](https://img.shields.io/github/v/release/iaincollins/icarus??display_name=tag&include_prereleases&sort=semver&color=cf7500&style=for-the-badge)
 ![GitHub License](https://img.shields.io/github/license/iaincollins/icarus?color=cf7500&style=for-the-badge)
@@ -22,10 +25,10 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
 
 ## Screenshots
 
-<img alt="System Map" src="https://user-images.githubusercontent.com/595695/185392281-7fc01557-34d9-4a68-aef8-84a97409b91c.png" height="auto" width="98.5%"/>
+<img alt="System Map" src="https://user-images.githubusercontent.com/595695/192074952-3bfa22b1-2dd1-45f6-893e-0f56ae5b87c7.png" height="auto" width="98.5%"/>
 
-<img alt="System List" src="https://user-images.githubusercontent.com/595695/185392566-8245ff5e-127e-4a12-963c-c38733df16a0.png" height="auto" width="49%"/> <img alt="Ship Status" src="https://user-images.githubusercontent.com/595695/185706121-25c0c6b3-8190-4d84-b93f-eb168e4c7024.png" height="auto" width="49%"/>
-<img alt="Engineering" src="https://user-images.githubusercontent.com/595695/173226377-6f18a869-dadf-43c5-80d1-874d7fc53d0c.png" height="auto" width="49%"/> <img alt="Navigation Route" src="https://user-images.githubusercontent.com/595695/185706127-3800ee95-0b09-4402-bd49-5f20b673d248.png" height="auto" width="49%"/>
+<img alt="System List" src="https://user-images.githubusercontent.com/595695/192074950-dc938468-9801-4f46-8fbb-c88fd8194e85.png" height="auto" width="49%"/> <img alt="Ship Status" src="https://user-images.githubusercontent.com/595695/192074957-d3f646bf-e5b2-4227-998b-28bc264bf971.png" height="auto" width="49%"/>
+<img alt="Blueprint" src="https://user-images.githubusercontent.com/595695/192074945-b47edcbb-6aab-444d-827c-6b6255e8f932.png" height="auto" width="49%"/> <img alt="Navigation Route" src="https://user-images.githubusercontent.com/595695/192074955-be1010c6-2ad8-43ef-9b64-2237f3902222.png" height="auto" width="49%"/>
 
 ## Requirements
 
