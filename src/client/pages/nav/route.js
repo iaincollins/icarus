@@ -154,7 +154,7 @@ export default function NavListPage () {
                         <td className='text-right' style={{ width: '1rem' }}>
                           <span className={previouslyVistedSystem ? 'text-muted' : ''}>
                             {route?.isCurrentSystem === false && <span className=' text-no-wrap text-no-transform'>{route.distance.toLocaleString(undefined, { maximumFractionDigits: 2 })} Ly</span>}
-                            {route?.isCurrentSystem === true && <span className='text-muted'>Current Location</span>}
+                            {route?.isCurrentSystem === true && <span className='text-muted'>Current System</span>}
                           </span>
                         </td>
                         <td className='text-center' style={{ width: '1rem' }}>
