@@ -394,19 +394,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         <div 
           className='dial-background'
           style={{
-          position: 'relative',
-          top: '0',
-          left: '0',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          textAlign: 'center',
-          height: '100%',
-          minHeight: '12rem',
-          minWidth: '12rem',
-          boxShadow: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 'inset 0 0 .5rem var(--color-info), 0 0 1.75rem var(--color-secondary), inset 0 0 1.5rem var(--color-secondary)' : '',
-          borderRadius: '100rem',
-        }}
+           boxShadow: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 'inset 0 0 .5rem var(--color-info), 0 0 1.75rem var(--color-secondary), inset 0 0 1.5rem var(--color-secondary)' : '',
+          }}
         >
           <div style={{
             position: 'absolute',

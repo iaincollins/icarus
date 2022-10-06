@@ -535,22 +535,18 @@ table.ship-panel__lights td {
 }
 
 .ship-panel__navigation-instrumentation .dial-background {
-  opacity: 0;
-  transition: backdrop-filter .5s;
-  animation: ship-panel__navigation-instrumentation-dial-background-animation .5s ease-in forwards;
-  animation-delay: .5s;
-}
-
-@keyframes ship-panel__navigation-instrumentation-dial-background-animation {
-  0% {
-    opacity: 0;
-    backdrop-filter: blur(0) opacity(0);
-  }
-  100% {
-    opacity: 1;
-    backdrop-filter: blur(.15rem) opacity(1);
-    background: radial-gradient(var(--color-primary-dark) 1%, transparent 90%);
-  }
+  background: radial-gradient(var(--color-primary-dark) 1%, transparent 90%);
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  min-height: 12rem;
+  min-width: 12rem;
+  border-radius: 100rem;
 }
 
 .ship-panel__navigation-instrumentation .rings {
