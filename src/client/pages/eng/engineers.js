@@ -96,20 +96,20 @@ function ListEngineers ({ engineers, currentSystem }) {
                 /// router.push({ pathname: '/eng/blueprints', query: { symbol: blueprint.symbol } })
               }}
             >
-              <td className={`text-primary text-center ${engineer.progress.rank > 0 ? '' : 'text-muted'}`} style={{ width: '2rem' }}>
+              <td className={`text-primary text-center ${engineer.progress.status.toLowerCase() === 'unlocked' ? '' : 'text-muted'}`} style={{ width: '2rem' }}>
                 <i
                   className='icon icarus-terminal-engineer'
                   style={{ fontSize: '1.75rem', lineHeight: '2rem', width: '2rem', display: 'inline-block' }}
                 />
               </td>
               <td style={{ width: '18rem' }}>
-                <h4 className={engineer.progress.rank > 0 ? 'text-info' : 'text-info text-muted'}>
+                <h4 className={engineer.progress.status.toLowerCase() === 'unlocked' ? 'text-info' : 'text-info text-muted'}>
                   <CopyOnClick>{engineer.name}</CopyOnClick>
                 </h4>
                 {engineer.progress.rank === 0 && <>
                   {engineer.progress.status === UNKNOWN_VALUE
                     ? <p className='text-danger text-muted'>Locked</p>
-                    : <p className='text-primary text-muted'>{engineer.progress.status}</p>}
+                    : <p className={engineer.progress.status.toLowerCase() === 'unlocked' ? 'text-primary' : 'text-primary text-muted'}>{engineer.progress.status}</p>}
                 </>}
                 {engineer.progress.rank > 0 &&
                   <h4 className='text-secondary'>
