@@ -245,6 +245,16 @@ class EliteLog {
     }
   }
 
+  // Escape hatch for complex queries
+  async _query(queryString, count = 0, sort = { timestamp: -1 }) {
+    if (count > 0) {
+      return await db.find(queryString).sort(sort).limit(count)
+    } else {
+      return await db.find(queryString).sort(sort)
+    }
+  }
+
+
   async getEventTypes() {
     const logs = await db.find()
     const eventTypes = []

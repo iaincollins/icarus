@@ -111,6 +111,22 @@ class System {
 
     const cacheResponse = systemCache[systemName.toLowerCase()] // Get entry from cache
 
+    // Determine how many bodies we actaully know of in the current system, and
+    // how many we think there are based on FSS Discovery Scan
+    let numberOfBodiesFound = cacheResponse?.bodies?.length ?? 0
+    let numberOfBodiesInSystem = numberOfBodiesFound // We start with this value (until we know otherwise)
+    let scanPercentComplete = null
+
+    if (cacheResponse.name && cacheResponse.name !== UNKNOWN_VALUE) {
+      // If we have an FSSDiscoveryScan result with a BodyCount then we can estimate
+      // percentage of the system that has been scanned
+      const FSSDiscoveryScan = await this.eliteLog._query({ event: 'FSSDiscoveryScan', SystemName: cacheResponse.name }, 1)
+      if (FSSDiscoveryScan?.[0]?.BodyCount) {
+        numberOfBodiesInSystem = FSSDiscoveryScan?.[0]?.BodyCount
+        scanPercentComplete = Math.floor((numberOfBodiesFound / numberOfBodiesInSystem) * 100)
+      }
+    }
+
     // If we don't know what system this is return what we have
     if (!cacheResponse.name || cacheResponse.name === UNKNOWN_VALUE) {
       const isCurrentLocation = (systemName.toLowerCase() === currentLocation?.name?.toLowerCase())
@@ -118,7 +134,8 @@ class System {
       const response = {
         name: systemName,
         unknownSystem: true,
-        isCurrentLocation
+        isCurrentLocation,
+        scanPercentComplete
       }
 
       if (isCurrentLocation && currentLocation?.position && currentLocation?.address) {
@@ -136,14 +153,17 @@ class System {
         ...cacheResponse,
         ...currentLocation,
         distance: 0,
-        isCurrentLocation: true
+        isCurrentLocation: true,
+        scanPercentComplete
       }
+
     } else {
       // Handle if this is not the system the player is currently in
       return {
         ...cacheResponse,
         distance: distance(cacheResponse?.position, currentLocation?.position),
-        isCurrentLocation: false
+        isCurrentLocation: false,
+        scanPercentComplete
       }
     }
   }

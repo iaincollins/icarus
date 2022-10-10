@@ -107,11 +107,11 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                   {' '}Economy
 
                 </h3>}
-              {system.population && system.population > 0 &&
+              {system?.population > 0 &&
                 <h3 className='text-primary'>
                   <i className='icon icarus-terminal-engineer' style={{ fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem' }} />Population {system.population.toLocaleString()}
                 </h3>}
-              {system.faction && system.faction !== 'Unknown' &&
+              {system.faction && system?.faction !== 'Unknown' &&
                 <h3 className='text-primary'>
                   <i className='icon icarus-terminal-power' style={{ fontSize: '1rem', position: 'relative', top: '0.05rem', marginRight: '.15rem' }} />{system.faction}
                 </h3>}
@@ -139,15 +139,20 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         </div>
 
         <div className='fx-fade-in'>
-          <div className='text-muted'>
-            <div className='system-map__system-telemetry text-info text-muted text-uppercase text-no-wrap'>
-              EDSM.net<br />Telemetry
-            </div>
-            {system.position &&
-              <div className='system-map__system-position text-info text-muted text-no-wrap'>
-                {system.position?.[0]}, {system.position?.[1]}, {system.position?.[2]}
-              </div>}
+          <div className='system-map__system-telemetry text-info text-uppercase text-no-wrap'>
+            {system?.scanPercentComplete !== null && <>
+              EDSM {system?.scanPercentComplete}% <br />
+              <progress value={system?.scanPercentComplete} max='100' className='progress--info progress--border' style={{margin: '.15rem 0 -.1rem 0', height: '1.5rem'}}/>
+            </>}
+            {!system?.scanPercentComplete && <p style={{margin: '0 0 .15rem 0'}} className='text-muted'>
+              EDSM<br/>
+              Telemetry
+            </p>}
           </div>
+          {system.position &&
+            <div className='system-map__system-position text-info text-muted text-no-wrap'>
+              {system.position?.[0]}, {system.position?.[1]}, {system.position?.[2]}
+            </div>}
         </div>
 
         <div className='system-map__toolbar-background' />
@@ -223,7 +228,10 @@ function LocationInformation ({ system, cmdrStatus }) {
             {(cmdrStatus?._location)
               ? cmdrStatus._location.map((loc, i) =>
                 <span key={`location_${loc}_${i}`}>
-                  {i > 0 && <i className='icon icarus-terminal-chevron-right text-muted' style={{ fontSize: '.8rem', margin: '0 .25rem' }} />}
+                  {i > 0 && <>
+                    <br/>
+                    <i className='icon icarus-terminal-chevron-right text-muted' style={{ fontSize: '.8rem', margin: '0 .25rem' }} />
+                  </>}
                   {loc}
                 </span>
                 )

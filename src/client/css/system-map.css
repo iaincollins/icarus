@@ -187,8 +187,10 @@ on slow devices (e.g. Amazon Fire) to be the default */
   right: 1.5rem;
   font-size: 1rem;
   text-align: right;
+  padding: .1rem;
+  border-radius: .2rem;
+  width: 6rem;
 }
-
 
 .system-map__planetary-system {
   position: relative;
