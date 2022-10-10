@@ -21,8 +21,7 @@
     "lint": "npm run lint:go && npm run lint:javascript",
     "lint:go": "go fmt src/app/main.go",
     "lint:javascript": "npx standard --fix",
-    "compress-images": "npx imagemin src/client/public/images/** --out-dir src/client/public/images/",
-    "screenshots": "node scripts/screenshots.js"
+    "compress-images": "npx imagemin src/client/public/images/** --out-dir src/client/public/images/"
   },
   "keywords": [],
   "author": "",
@@ -43,7 +42,6 @@
     "sendkeys-js": "^0.0.4",
     "standard": "^16.0.4",
     "svgtofont": "^3.12.9",
-    "take-screenshots": "^0.1.1",
     "to-ico": "^1.0.1",
     "upx": "^1.0.6",
     "wikitext2plaintext": "^0.1.0",
