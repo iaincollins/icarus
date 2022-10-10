@@ -94,7 +94,7 @@ func main() {
 
 	// Check not already running
 	if checkProcessAlreadyExists(LAUNCHER_WINDOW_TITLE) {
-		dialog.Message("%s", "ICARUS Terminal Service is already running.\n\nYou can only run one instance at a time.").Title("Information").Info()
+		dialog.Message("%s", "ICARUS Terminal is already running.\n\nYou can only run one instance at a time.").Title("Information").Info()
 		exitApplication(1)
 	}
 
