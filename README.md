@@ -32,11 +32,11 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
 
 ## Requirements
 
-The self-contained installer is around 20 MB and has no dependancies. If you are running an older but supported release of Windows, any missing run time dependancies will be automatically and transparently installed by the bundled Microsft installer.
+The self-contained installer is around 20 MB and has no dependancies. If you are running an older but supported release of Windows, any missing dependancies will be automatically installed.
 
-* Windows 10 or newer is required.
+* Windows 10 or newer required.
 * No dependancies are required to install the application.
-* No manual configuration or setup is required to use the application.
+* No manual configuration or setup is required, it will automatically find your game data.
 * No additional diskspace is required to store game data. Recent game data is loaded in to memory when launched and streamed in real time when the game is active, it is not persisted or cached to disk.
 
 ### Notes
@@ -89,10 +89,8 @@ Thank you to all those who have created and supported libraries on which this so
 
 ## Donations
 
-People have asked if I take donations for the project. I don't take donations, but I do appreciate folks asking!
+People have asked if I take donations for the project. I don't take donations, but I do appreciate folks asking! If you want to support development of ICARUS Terminal, you can always pay a vist to my carrier the [Ardent Pioneer (V9G-G7Z)](https://inara.cz/elite/station/490914/)!
 
-If you want to support development of ICARUS Terminal, you can always pay a vist to my carrier the [Ardent Pioneer (V9G-G7Z)](https://inara.cz/elite/station/490914/)!
+Selling Tritium to the carrier is very helpful and most appreciated. You can use Inara to [find out which system the Ardent Pioneer is currently in](https://inara.cz/elite/station/490914/). Before you visit you might want to [check out what commodities are currently being traded](https://inara.cz/elite/station-market/490914/). While you are there you can chat to the bartender to see if there is anything they need.
 
-You can use Inara to [find out which system the Ardent Pioneer is currently in](https://inara.cz/elite/station/490914/). Before you visit you might want to [check out what commodities are currently being traded](https://inara.cz/elite/station-market/490914/). While you are there you can chat to the bartender to see if there is anything they need. You can also sell exploration data, biological samples and refuel/rearm/repair your ship.
-
-All buy orders are at least 10% above galatic average prices so you should be able to make a small profit. Trades, especially selling Tritium, directly supports development as it means I can spend more time adding travelling the galaxy and testing out functionality in ICARUS Terminal!
+Whiel docked you can also sell exploration data, biological samples and refuel/rearm/repair your ship. All buy orders are at least 10% above galatic average prices so you should be able to make a small profit. Trades, especially selling Tritium, directly supports development as it means I can spend more time adding travelling the galaxy and testing out functionality in ICARUS Terminal!
