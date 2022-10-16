@@ -124,7 +124,7 @@ export default function NavListPage () {
               <i className='icon icarus-terminal-planet-ammonia-world' /> Ammonia World
             </p>
             <p>
-              <i className='icon icarus-terminal-planet-high-metal-content' /> High metal content
+              <i className='icon icarus-terminal-planet-high-metal-content' /> High metal content / Metal rich
             </p>
             <p>
               <i className='icon icarus-terminal-planet-gas-giant' /> Gas Giant
@@ -136,7 +136,10 @@ export default function NavListPage () {
               <i className='icon icarus-terminal-planet-ammonia-based-life' /> Ammonia based life
             </p>
             <p>
-              <i className='icon icarus-terminal-planet-ringed' /> Ringed
+              <i className='icon icarus-terminal-planet-ringed' /> Ringed body
+            </p>
+            <p>
+              <i className='text-success icon icarus-terminal-planet-high-value' /> High scan value
             </p>
           </div>
         </div>
