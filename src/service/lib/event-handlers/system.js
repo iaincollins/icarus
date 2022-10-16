@@ -3,8 +3,6 @@ const SystemMap = require('../system-map')
 const { UNKNOWN_VALUE } = require('../../../shared/consts')
 const distance = require('../../../shared/distance')
 
-const systemCache = {}
-
 class System {
   constructor ({ eliteLog }) {
     this.eliteLog = eliteLog
@@ -90,7 +88,7 @@ class System {
     // Check for entry in cache in case we have it already
     // Note: System names are unique (they can change, but will still be unique)
     // so is okay to use them as a key.
-    if (!systemCache[systemName.toLowerCase()] || useCache === false) {
+    if (!global.CACHE.SYSTEMS[systemName.toLowerCase()] || useCache === false) {
       // Get system from EDSM
       const system = await EDSM.system(systemName)
 
@@ -103,13 +101,13 @@ class System {
       const systemMap = new SystemMap(system)
 
       // Create/Update cache entry with merged system and system map data
-      systemCache[systemName.toLowerCase()] = {
+      global.CACHE.SYSTEMS[systemName.toLowerCase()] = {
         ...system,
         ...systemMap
       }
     }
 
-    const cacheResponse = systemCache[systemName.toLowerCase()] // Get entry from cache
+    const cacheResponse = global.CACHE.SYSTEMS[systemName.toLowerCase()] // Get entry from cache
 
     // Determine how many bodies we actaully know of in the current system, and
     // how many we think there are based on FSS Discovery Scan

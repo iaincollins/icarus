@@ -1,10 +1,10 @@
 @font-face {font-family: "icarus-terminal";
-  src: url('icarus-terminal.eot?t=1665956566134'); /* IE9*/
-  src: url('icarus-terminal.eot?t=1665956566134#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("icarus-terminal.woff2?t=1665956566134") format("woff2"),
-  url("icarus-terminal.woff?t=1665956566134") format("woff"),
-  url('icarus-terminal.ttf?t=1665956566134') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('icarus-terminal.svg?t=1665956566134#icarus-terminal') format('svg'); /* iOS 4.1- */
+  src: url('icarus-terminal.eot?t=1665961299496'); /* IE9*/
+  src: url('icarus-terminal.eot?t=1665961299496#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("icarus-terminal.woff2?t=1665961299496") format("woff2"),
+  url("icarus-terminal.woff?t=1665961299496") format("woff"),
+  url('icarus-terminal.ttf?t=1665961299496') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icarus-terminal.svg?t=1665961299496#icarus-terminal') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
@@ -79,24 +79,25 @@
 .icarus-terminal-planetary-port:before { content: "\ea3e"; }
 .icarus-terminal-power:before { content: "\ea3f"; }
 .icarus-terminal-route:before { content: "\ea40"; }
-.icarus-terminal-search:before { content: "\ea41"; }
-.icarus-terminal-settings:before { content: "\ea42"; }
-.icarus-terminal-settlement:before { content: "\ea43"; }
-.icarus-terminal-shield:before { content: "\ea44"; }
-.icarus-terminal-ship:before { content: "\ea45"; }
-.icarus-terminal-signal:before { content: "\ea46"; }
-.icarus-terminal-sound:before { content: "\ea47"; }
-.icarus-terminal-star:before { content: "\ea48"; }
-.icarus-terminal-sync:before { content: "\ea49"; }
-.icarus-terminal-system-authority-solid:before { content: "\ea4a"; }
-.icarus-terminal-system-authority:before { content: "\ea4b"; }
-.icarus-terminal-system-bodies:before { content: "\ea4c"; }
-.icarus-terminal-system-orbits:before { content: "\ea4d"; }
-.icarus-terminal-table-index:before { content: "\ea4e"; }
-.icarus-terminal-table-inspector:before { content: "\ea4f"; }
-.icarus-terminal-table-rows:before { content: "\ea50"; }
-.icarus-terminal-warning:before { content: "\ea51"; }
-.icarus-terminal-wrench:before { content: "\ea52"; }
+.icarus-terminal-scan:before { content: "\ea41"; }
+.icarus-terminal-search:before { content: "\ea42"; }
+.icarus-terminal-settings:before { content: "\ea43"; }
+.icarus-terminal-settlement:before { content: "\ea44"; }
+.icarus-terminal-shield:before { content: "\ea45"; }
+.icarus-terminal-ship:before { content: "\ea46"; }
+.icarus-terminal-signal:before { content: "\ea47"; }
+.icarus-terminal-sound:before { content: "\ea48"; }
+.icarus-terminal-star:before { content: "\ea49"; }
+.icarus-terminal-sync:before { content: "\ea4a"; }
+.icarus-terminal-system-authority-solid:before { content: "\ea4b"; }
+.icarus-terminal-system-authority:before { content: "\ea4c"; }
+.icarus-terminal-system-bodies:before { content: "\ea4d"; }
+.icarus-terminal-system-orbits:before { content: "\ea4e"; }
+.icarus-terminal-table-index:before { content: "\ea4f"; }
+.icarus-terminal-table-inspector:before { content: "\ea50"; }
+.icarus-terminal-table-rows:before { content: "\ea51"; }
+.icarus-terminal-warning:before { content: "\ea52"; }
+.icarus-terminal-wrench:before { content: "\ea53"; }
 
 $icarus-terminal-0_copy: "\ea01";
 $icarus-terminal-asteroid-base: "\ea02";
@@ -162,22 +163,23 @@ $icarus-terminal-planetary-port-large: "\ea3d";
 $icarus-terminal-planetary-port: "\ea3e";
 $icarus-terminal-power: "\ea3f";
 $icarus-terminal-route: "\ea40";
-$icarus-terminal-search: "\ea41";
-$icarus-terminal-settings: "\ea42";
-$icarus-terminal-settlement: "\ea43";
-$icarus-terminal-shield: "\ea44";
-$icarus-terminal-ship: "\ea45";
-$icarus-terminal-signal: "\ea46";
-$icarus-terminal-sound: "\ea47";
-$icarus-terminal-star: "\ea48";
-$icarus-terminal-sync: "\ea49";
-$icarus-terminal-system-authority-solid: "\ea4a";
-$icarus-terminal-system-authority: "\ea4b";
-$icarus-terminal-system-bodies: "\ea4c";
-$icarus-terminal-system-orbits: "\ea4d";
-$icarus-terminal-table-index: "\ea4e";
-$icarus-terminal-table-inspector: "\ea4f";
-$icarus-terminal-table-rows: "\ea50";
-$icarus-terminal-warning: "\ea51";
-$icarus-terminal-wrench: "\ea52";
+$icarus-terminal-scan: "\ea41";
+$icarus-terminal-search: "\ea42";
+$icarus-terminal-settings: "\ea43";
+$icarus-terminal-settlement: "\ea44";
+$icarus-terminal-shield: "\ea45";
+$icarus-terminal-ship: "\ea46";
+$icarus-terminal-signal: "\ea47";
+$icarus-terminal-sound: "\ea48";
+$icarus-terminal-star: "\ea49";
+$icarus-terminal-sync: "\ea4a";
+$icarus-terminal-system-authority-solid: "\ea4b";
+$icarus-terminal-system-authority: "\ea4c";
+$icarus-terminal-system-bodies: "\ea4d";
+$icarus-terminal-system-orbits: "\ea4e";
+$icarus-terminal-table-index: "\ea4f";
+$icarus-terminal-table-inspector: "\ea50";
+$icarus-terminal-table-rows: "\ea51";
+$icarus-terminal-warning: "\ea52";
+$icarus-terminal-wrench: "\ea53";
 

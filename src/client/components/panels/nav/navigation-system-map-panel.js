@@ -205,7 +205,7 @@ function PointsOfInterest({ system }) {
 
 function LocationInformation ({ system, cmdrStatus }) {
   return (
-    <div className='system-map__location fx-fade-in'>
+    <div className='system-map__location fx-fade-in hidden-small'>
       {system?.distance > 0 &&
         <div className='text-center-vertical text-right'>
           <h3 className='text-primary text-no-wrap'>

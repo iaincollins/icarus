@@ -88,7 +88,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Stellar Properties</h4>
 
-            {systemObject.isScoopable ? <p className='text-info'>Main Sequence (Scoopable)</p> : <p className='text-info text-muted'>Not Scoopable</p>}
+            {systemObject.isScoopable ? <p className='text-info'>Main Sequence (Fuel Star)</p> : <p className='text-info text-muted'>Not Scoopable</p>}
             {systemObject.spectralClass && <p className='text-info'>Class {systemObject.spectralClass} Star </p>}
             <p className='text-info'>Luminosity {systemObject.luminosity}</p>
             {systemObject.solarRadius && <p className='text-info'>Radius {(systemObject.solarRadius * SOL_RADIUS_IN_KM).toLocaleString(undefined, { maximumFractionDigits: 0 })} Km</p>}

@@ -82,6 +82,11 @@ global.PORT = PORT
 global.LOG_DIR = LOG_DIR
 global.BROADCAST_EVENT = broadcastEvent
 
+// Initalise simple in-memory object cache (reset when program restarted)
+global.CACHE = {
+  SYSTEMS: {}
+}
+
 // Don't load events till globals are set
 const { eventHandlers, init } = require('./lib/events')
 
