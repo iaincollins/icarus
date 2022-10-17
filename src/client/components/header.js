@@ -149,10 +149,11 @@ export default function Header ({ connected, active }) {
         </button>
       </div>
       <hr />
-      <div className='button-group'>
-        {NAV_BUTTONS.filter(button => button).map(button =>
+      <div id='primaryNavigation' className='button-group'>
+        {NAV_BUTTONS.filter(button => button).map((button, i) =>
           <button
             key={button.name}
+            data-primary-navigation={i+1}
             tabIndex='1'
             disabled={button.path === currentPath}
             className={button.path === currentPath ? 'button--active' : ''}

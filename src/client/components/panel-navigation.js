@@ -19,13 +19,14 @@ export default function PanelNavigation ({ items = [], search = () => {}, exit }
   }, [])
 
   return (
-    <div className='secondary-navigation'>
-      {items.map(item =>
+    <div id='secondaryNavigation' className='secondary-navigation'>
+      {items.map((item, i) =>
         <Fragment key={item.icon}>
           {(item.type && item?.type === 'SEARCH') &&
             <>
               <button
                 id='secondary-navigation__search-toggle'
+                data-secondary-navigation={i+1}
                 tabIndex='2'
                 disabled={search === false}
                 className={`button--icon ${searchInputVisible ? 'button--selected button--secondary' : ''}`}
@@ -41,8 +42,8 @@ export default function PanelNavigation ({ items = [], search = () => {}, exit }
                   autoComplete='off'
                   onSubmit={(event) => {
                     event.preventDefault()
-                    const el = document.getElementById('secondary-navigation__search-input')
-                    search(el.value)
+                    const searchText = document.getElementById('secondary-navigation__search-input').value.trim()
+                    if (searchText.length > 0) search(searchText)
                     setSearchInputVisible(false)
                     setSearchValue() // Reset input contents after submission
                   }}
@@ -70,6 +71,7 @@ export default function PanelNavigation ({ items = [], search = () => {}, exit }
           {!item.type &&
             <button
               tabIndex='2'
+              data-secondary-navigation={i+1}
               className={`button--icon ${item.active ? 'button--active' : ''}`}
               onClick={
                 item.onClick
@@ -82,7 +84,11 @@ export default function PanelNavigation ({ items = [], search = () => {}, exit }
         </Fragment>
       )}
       {exit &&
-        <button className='button--icon secondary-navigation__exit-button fx-fade-in' onClick={exit}>
+        <button
+          className='button--icon secondary-navigation__exit-button fx-fade-in'
+          onClick={exit}
+          data-secondary-navigation={items.length}
+        >
           <i className='icon icarus-terminal-exit' />
         </button>}
     </div>
