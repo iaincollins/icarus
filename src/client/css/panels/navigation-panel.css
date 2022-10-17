@@ -347,3 +347,15 @@
     font-size: 1.75rem;
   }
 }
+
+table.navigation-panel__route-plan tbody tr.table__row--highlighted:hover td .text-info,
+table.navigation-panel__route-plan tbody tr.table__row--highlighted:hover td .text-danger {
+  color: var(--color-secondary-dark) !important;
+  text-shadow: none;
+}
+
+table.navigation-panel__route-plan tbody tr.table__row--highlight-primary-hover:hover td .text-info,
+table.navigation-panel__route-plan tbody tr.table__row--highlight-primary-hover:hover td .text-danger {
+  color: var(--color-primary-dark) !important;
+  text-shadow: none;
+}

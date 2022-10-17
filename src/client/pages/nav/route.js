@@ -107,7 +107,7 @@ export default function NavListPage () {
         {navRoute?.route?.length > 0 &&
           <>
             <div className='scrollable' style={{ position: 'fixed', top: '20rem', bottom: '4.5rem', left: '5rem', right: '1rem' }}>
-              <table className='table--animated table--interactive'>
+              <table className='navigation-panel__route-plan table--animated table--interactive'>
                 <tbody className='fx-fade-in'>
                   {navRoute.route.map((route, i) => {
                     const icon = route?.isCurrentSystem === true ? 'icarus-terminal-location-filled' : 'icarus-terminal-star'
@@ -153,7 +153,7 @@ export default function NavListPage () {
                           </div>
                         </td>
                         <td className='text-right' style={{ width: '1rem', paddingLeft: '.5rem', paddingRight: '.5rem' }}>
-                          <span className={previouslyVistedSystem ? 'text-muted' : ''}>
+                          <span className={previouslyVistedSystem ? 'text-muted' : 'text-info'}>
                             {route?.isExplored === false && <i className='icarus-terminal-scan' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }}/>}
                             <br className='visible-small'/>
                           </span>
