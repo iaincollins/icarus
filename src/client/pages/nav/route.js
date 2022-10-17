@@ -127,8 +127,24 @@ export default function NavListPage () {
                           <div style={{ position: 'relative' }} className={previouslyVistedSystem ? 'text-muted' : ''}>
                             <i style={{ position: 'absolute', top: '.5rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} visible-medium`} />
                             <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} hidden-medium`} />
-                            <span>{route.system} </span>
-                            <br />
+                            <span className='text-info'>{route.system}</span>
+                            <br/>
+                            {route.numberOfStars > 0 && <span className=''>
+                              <span style={{marginRight: '1rem'}}>
+                                <i className='icon icarus-terminal-star' style={{ position: 'relative', top: '.35rem', fontSize: '1.5rem'}}/> {route.numberOfStars}
+                                <span className='hidden-small'> {route.numberOfStars === 1 ? 'Star' : 'Stars'}</span>
+                              </span>
+                              {route.numberOfPlanets > 0 && <>
+                                <i className='icon icarus-terminal-planet' style={{ position: 'relative', top: '.35rem', fontSize: '1.5rem'}}/> {route.numberOfPlanets}
+                                <span className='hidden-small'> {route.numberOfPlanets === 1 ? 'Planet' : 'Planets'}</span>
+                              </>}
+                            </span>}
+                            {route.numberOfStars < 1 && <>
+                              <span className='text-muted'>Unknown System</span>
+                            </>}
+                          </div>
+                        </td>
+                        <td className='text-no-wrap hidden-small hidden-medium'>
                             <span className='text-muted'>
                               {route.starClass.match(/^[DNH]/)
                                 ? route.starClass.match(/^D/)
@@ -138,24 +154,12 @@ export default function NavListPage () {
                                       : 'Black Hole'
                                 : `${route.starClass} Class`
                               }
-                              {route.starClass.match(/^[OBAFGKM]/) ? ', Main Sequence' : ''}
+                              {route.starClass.match(/^[OBAFGKM]/) ? <><br/>Main Sequence</> : ''}
                             </span>
-                            <br/>
-                            {route.numberOfStars > 0 && <span className='text-info'>
-                              <i className='icon icarus-terminal-star' style={{ position: 'relative', top: '.25rem'}}/> {route.numberOfStars}
-                              {route.numberOfPlanets > 0 && <>
-                                <i className='icon icarus-terminal-planet' style={{ position: 'relative', top: '.25rem', marginLeft: '1rem'}}/> {route.numberOfPlanets}
-                              </>}
-                            </span>}
-                            {route.numberOfStars < 1 && <>
-                              <span className='text-muted text-info'>No telemetry</span>
-                            </>}
-                          </div>
                         </td>
                         <td className='text-right' style={{ width: '1rem', paddingLeft: '.5rem', paddingRight: '.5rem' }}>
-                          <span className={previouslyVistedSystem ? 'text-muted' : 'text-info'}>
+                          <span className={previouslyVistedSystem ? 'text-info text-muted' : 'text-info'}>
                             {route?.isExplored === false && <i className='icarus-terminal-scan' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }}/>}
-                            <br className='visible-small'/>
                           </span>
                           <span className={previouslyVistedSystem ? 'text-muted' : ''}>
                             {route.starClass.match(/^[OBAFGKM]/)
@@ -181,7 +185,7 @@ export default function NavListPage () {
               </table>
             </div>
           </>}
-          <div className='text-primary text-uppercase text-center' style={{height: '2F.75rem', fontSize: '1.5rem', position: 'fixed', bottom: '1rem', left: '5rem', right: '1rem', marginBottom: '.5rem' }}>
+          <div className='text-primary text-uppercase text-center' style={{height: '2F.75rem', fontSize: '1.5rem', position: 'fixed', bottom: '.8rem', left: '5rem', right: '1rem', marginBottom: '.5rem' }}>
             <hr className='small' style={{ marginTop: 0, marginBottom: '1rem' }} />
             {navRoute?.route?.length > 0 && navRoute?.jumpsToDestination > 0 &&
               <>

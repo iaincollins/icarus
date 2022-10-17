@@ -63,7 +63,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 <CopyOnClick append=' system'>{system?.name}</CopyOnClick>
               </span>
               <div className='system-map__info--system-facilities'>
-                <span className='text-primary text-muted'>system unknown</span>
+                <span className='text-primary text-muted'>Unknown System</span>
               </div>
             </div>
           </div>
