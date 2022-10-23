@@ -184,7 +184,7 @@ function NavigationTableRow ({ stars, systemObject, depth = 0, setSystemObject }
               || systemObject?.subType?.toLowerCase()?.includes('class ii gas giant')
               || systemObject?.subType?.toLowerCase() === 'metal rich'
             )
-              && <i className='float-right text-success icon icarus-terminal-planet-high-value' />}
+              && <i className='float-right text-success icon icarus-terminal-credits' />}
           </span>
         </div>
       </td>

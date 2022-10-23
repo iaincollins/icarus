@@ -139,7 +139,7 @@ export default function NavListPage () {
               <i className='icon icarus-terminal-planet-ringed' /> Ringed body
             </p>
             <p>
-              <i className='text-success icon icarus-terminal-planet-high-value' /> High value body
+              <i className='text-success icon icarus-terminal-credits' /> High scan value
             </p>
           </div>
         </div>
