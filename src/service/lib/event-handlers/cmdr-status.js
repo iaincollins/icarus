@@ -129,32 +129,38 @@ class CmdrStatus {
     const touchdownEvent = await this.eliteLog.getEvent('Touchdown')
     const supercruiseExitEvent = await this.eliteLog.getEvent('SupercruiseExit')
 
-    if (cmdrStatus?.flags?.onFootInPlanet) {
+    if (cmdrStatus?.flags?.onFoot) {
       if (cmdrStatus?.flags?.onFootSocialSpace) {
-        // If on foot on a planet and in a social space we are at a port
+        // If on foot in a social space we are at a port or on a station
         if (dockedEvent && dockedEvent.StationName && dockedEvent?.StarSystem === currentSystem?.name) {
-          location.push(dockedEvent.StationName)
+          if (dockedEvent?.StationType === 'FleetCarrier') {
+            location.push(`Carrier ${dockedEvent.StationName}`)
+          } else {
+            location.push(dockedEvent.StationName)
+          }
         }
-      } else {
-        // If not in a social space then we are at a settlement
+
+        // Either in a hanger, or not in a hanger
+        if (cmdrStatus?.flags?.onFootInHanger) {
+          location.push('Hanger')
+        } else {
+          if (dockedEvent?.StationType === 'FleetCarrier') {
+            location.push('Flight Deck')
+          } else {
+            location.push('Concourse')
+          }
+        }
+      } else if (cmdrStatus?.flags?.onFootInPlanet) {
+        // If on foot on a planet, then we are at a settlement
+        // We can look up the name of the station we are Docked at, or if we
+        // are not Docked (e.g. have landed just outside a station) then we can
+        // look up the nearest station to the touchdown point (if there is one)
         if (dockedEvent && dockedEvent.StationName && dockedEvent?.StarSystem === currentSystem?.name) {
           if (touchdownEvent && Date.parse(touchdownEvent?.timestamp) > Date.parse(dockedEvent?.timestamp)) {
             if (touchdownEvent?.NearestDestination) location.push(touchdownEvent.NearestDestination)
           } else {
             location.push(dockedEvent.StationName)
           }
-        }
-      }
-    }
-
-    if (cmdrStatus?.flags?.onFootInStation || cmdrStatus?.flags?.onFootInPlanet) {
-      if (cmdrStatus?.flags?.onFootInHanger) {
-        location.push('Hanger')
-      } else if (cmdrStatus?.flags?.onFootSocialSpace) {
-        if (dockedEvent?.StationType === 'FleetCarrier') {
-          location.push('Flight Deck')
-        } else {
-          location.push('Concourse')
         }
       }
     }
