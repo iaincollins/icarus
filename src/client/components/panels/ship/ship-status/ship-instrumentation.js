@@ -217,12 +217,12 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
             <tr>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.overHeating ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Overheating</span>
+                  <span className='ship-panel__light-text'>Over&shy;heating</span>
                 </span>
               </td>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.beingInterdicted ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Interdiction</span>
+                  <span className='ship-panel__light-text'>Inter&shy;diction</span>
                 </span>
               </td>
               <td>
@@ -232,7 +232,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <span className={ship.onBoard && (!cmdrStatus?.flags?.landingGearDown && cmdrStatus?.altitude < 100) ? 'ship-panel__light--danger' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Low altitude</span>
+                  <span className='ship-panel__light-text'>Low alti&shy;tude</span>
                 </span>
               </td>
               <td>
@@ -249,12 +249,12 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               </td>
               <td>
                 <span className={ship.onBoard && cmdrStatus?.flags?.fsdCooldown ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>FSD cooldown</span>
+                  <span className='ship-panel__light-text'>FSD cool&shy;down</span>
                 </span>
               </td>
               <td>
                 <span className={ship.onBoard && (cmdrStatus?.flags?.supercruise && !cmdrStatus?.flags?.fsdJump) ? 'ship-panel__light--on' : 'ship-panel__light--off'}>
-                  <span className='ship-panel__light-text'>Supercruise</span>
+                  <span className='ship-panel__light-text'>Super&shy;cruise</span>
                 </span>
               </td>
               <td>

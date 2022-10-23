@@ -111,11 +111,12 @@
   bottom: 0;
   right: 0;
   z-index: -1;
-  opacity: .025;
+  opacity: .02;
   content: ' ';
-  background-size: 6rem 6rem;
+  background-size: 5rem 5rem;
   background-image: url(/images/grid.svg);
 }
+
 .ship-panel__modules {
   position: absolute;
   /* To avoid clipping text-shadow to left of title text */
@@ -383,6 +384,7 @@ table.ship-panel__lights td {
   font-size: 1.1rem;
   line-height: 1.25rem;
   text-align: left;
+  hyphens: none;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -397,16 +399,16 @@ table.ship-panel__lights td {
     margin: auto;
     width: auto;
     padding: 0;
-    text-align: center;
     line-height: 1rem;
-    font-size: 1rem;
+    text-align: center;
     text-overflow: ellipsis;
+    hyphens: auto;
   } 
 }
 
 @media only screen and (max-width: 599px) {
   .ship-panel__light-text {
-    font-size: .7rem;
+    xfont-size: .7rem;
   }
 }
 
@@ -447,7 +449,7 @@ table.ship-panel__lights td {
   .ship-panel__light--danger,
   .ship-panel__light--danger::before,
   .ship-panel__light--danger::after {
-    border-radius: .25rem !important;
+    border-radius: .5rem !important;
   }
 }
 
