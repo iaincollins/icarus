@@ -90,6 +90,32 @@
   }
 }
 
+.ship-panel__status {
+  position: absolute;
+  /* To avoid clipping text-shadow to left of title text */
+  top: 0;
+  bottom: 0;
+  height: auto;
+  padding-right: .5rem;
+  right: 0;
+  left: 4.5rem;
+}
+
+
+.ship-panel__status:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  opacity: .025;
+  content: ' ';
+  background-size: 6rem 6rem;
+  background-image: url(/images/grid.svg);
+}
 .ship-panel__modules {
   position: absolute;
   /* To avoid clipping text-shadow to left of title text */

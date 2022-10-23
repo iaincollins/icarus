@@ -17,7 +17,7 @@ export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModu
 
   return (
     <>
-      <div className={`ship-panel__modules scrollable ${selectedModule ? 'ship-panel__modules--module-inspector' : ''}`}>
+      <div className='ship-panel__status scrollable'>
         <div className='ship-panel__title'>
           <div>
             <h2>{ship.name}</h2>
