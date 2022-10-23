@@ -180,9 +180,27 @@ class CmdrStatus {
 
     if (cmdrStatus?.flags?.docked && cmdrStatus?.flags?.onFoot === false) {
       // If docked and not on foot get the last Embark/Docked event to find out what station we are on
-      if (!dockedEvent && embarkEvent?.StationName) location.push(embarkEvent.StationName)
-      if (!embarkEvent && dockedEvent?.StationName) location.push(dockedEvent.StationName)
-      if (!embarkEvent && !dockedEvent && touchdownEvent?.NearestDestination) location.push(touchdownEvent.NearestDestination)
+
+      // FIXME: This is technically incorrect and it should use whatever is the
+      //  most recent event
+      if (!dockedEvent && embarkEvent?.StationName) {
+        location.push(embarkEvent.StationName) 
+      } else if (!embarkEvent && dockedEvent?.StationName) {
+        if (dockedEvent?.StationType === 'FleetCarrier') {
+          location.push(`Carrier ${dockedEvent.StationName}`)
+        } else {
+          location.push(dockedEvent.StationName)
+        }
+      } else if (!embarkEvent && !dockedEvent && touchdownEvent?.NearestDestination) {
+        location.push(touchdownEvent.NearestDestination)
+      } else if (locationEvent?.StationName) {
+        if (locationEvent?.StationType === 'FleetCarrier') {
+          location.push(`Carrier ${locationEvent.StationName}`)
+        } else {
+          location.push(locationEvent.StationName)
+        }
+        if (locationEvent?.Docked === true) location.push('Docked')
+      }
 
       if (dockedEvent && embarkEvent) {
         if (touchdownEvent &&
@@ -194,7 +212,11 @@ class CmdrStatus {
           // If we have both a Docked event and an Embark event with a station
           // name, use the newest value
           if (Date.parse(dockedEvent?.timestamp) > Date.parse(embarkEvent?.timestamp)) {
-            location.push(dockedEvent.StationName)
+            if (dockedEvent?.StationType === 'FleetCarrier') {
+              location.push(`Carrier ${dockedEvent.StationName}`)
+            } else {
+              location.push(dockedEvent.StationName)
+            }
           } else {
             location.push(embarkEvent.StationName)
           }
@@ -206,7 +228,11 @@ class CmdrStatus {
           // FIXME As a simple sanity check, we at least verify the event was
           // triggered in the same system (crude, but hopefully good enough).
           if (dockedEvent?.StarSystem === currentSystem?.name) {
-            location.push(dockedEvent.StationName)
+            if (dockedEvent?.StationType === 'FleetCarrier') {
+              location.push(`Carrier ${dockedEvent.StationName}`)
+            } else {
+              location.push(dockedEvent.StationName)
+            }
             location.push('Docked')
           }
         }
