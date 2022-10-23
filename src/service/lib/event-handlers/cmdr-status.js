@@ -124,6 +124,7 @@ class CmdrStatus {
     // By default we want "Body Name > [Station Name|Settlement|etc]"
     if (cmdrStatus?.bodyname) location.push(cmdrStatus.bodyname)
 
+    const locationEvent = await this.eliteLog.getEvent('Location')
     const dockedEvent = await this.eliteLog.getEvent('Docked')
     const embarkEvent = await this.eliteLog.getEvent('Embark')
     const touchdownEvent = await this.eliteLog.getEvent('Touchdown')
@@ -132,7 +133,19 @@ class CmdrStatus {
     if (cmdrStatus?.flags?.onFoot) {
       if (cmdrStatus?.flags?.onFootSocialSpace) {
         // If on foot in a social space we are at a port or on a station
-        if (dockedEvent && dockedEvent.StationName && dockedEvent?.StarSystem === currentSystem?.name) {
+        //
+        // We can use the Dock Event (if in the same system) to check if they
+        // are Docked at a Station in this system.
+        //
+        // To catch the case of being on a Fleet Carrier that jumps, we also
+        // need to look for the Location event (fired after a carrier jumps)
+        // to if that matches the current system (as the location of the last
+        // Docked event will be in another system).
+        //
+        // This logic is "best effort" and I would not be surprised if there
+        // are edge cases to the logic.
+        if ((dockedEvent && dockedEvent.StationName && dockedEvent?.StarSystem === currentSystem?.name)
+           || locationEvent?.StarSystem === currentSystem?.name) {
           if (dockedEvent?.StationType === 'FleetCarrier') {
             location.push(`Carrier ${dockedEvent.StationName}`)
           } else {
