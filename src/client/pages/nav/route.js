@@ -129,7 +129,7 @@ export default function NavListPage () {
                             <i style={{ position: 'absolute', top: '.4rem', left: '-3rem', fontSize: '2rem' }} className={`icon ${icon} hidden-medium`} />
                             <span className='text-info'>{route.system}</span>
                             <br/>
-                            {route.numberOfStars > 0 && <span className=''>
+                            {route.numberOfStars > 0 && <span className='text-no-wrap'>
                               <span style={{marginRight: '1rem'}}>
                                 <i className='icon icarus-terminal-star' style={{ position: 'relative', top: '.35rem', fontSize: '1.5rem'}}/> {route.numberOfStars}
                                 <span className='hidden-small'> {route.numberOfStars === 1 ? 'Star' : 'Stars'}</span>
@@ -159,7 +159,10 @@ export default function NavListPage () {
                         </td>
                         <td className='text-right' style={{ width: '1rem', paddingLeft: '.5rem', paddingRight: '.5rem' }}>
                           <span className={previouslyVistedSystem ? 'text-info text-muted' : 'text-info'}>
-                            {route?.isExplored === false && <i className='icarus-terminal-scan' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }}/>}
+                            {route?.isExplored === false && <>
+                              <i className='icarus-terminal-scan' style={{ position: 'relative', fontSize: '2rem', top: '.25rem', marginRight: '.5rem' }}/>
+                              <br className='visible-small'/>
+                            </>}
                           </span>
                           <span className={previouslyVistedSystem ? 'text-muted' : ''}>
                             {route.starClass.match(/^[OBAFGKM]/)
