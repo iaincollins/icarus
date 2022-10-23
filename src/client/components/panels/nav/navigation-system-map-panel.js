@@ -145,8 +145,8 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
               <progress value={system?.scanPercentComplete} max='100' className='progress--info progress--border' style={{margin: '.15rem 0 -.1rem 0', height: '1.5rem'}}/>
             </>}
             {!system?.scanPercentComplete && <p style={{margin: '0 0 .15rem 0'}} className='text-muted'>
-              EDSM<br/>
-              Telemetry
+              Telemetry<br/>
+              From EDSM
             </p>}
           </div>
           {system.position &&

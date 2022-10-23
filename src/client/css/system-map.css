@@ -175,7 +175,7 @@ on slow devices (e.g. Amazon Fire) to be the default */
 
 .system-map__system-position {
   position: absolute;
-  top: 4.25rem;
+  top: 4rem;
   right: 1.5rem;
   text-align: right;
   font-size: 1rem;
