@@ -591,8 +591,11 @@ table.ship-panel__lights td {
   transform: rotateX(250deg);
 }
 
-.ship-panel__navigation-instrumentation.--active .ring {
+.ship-panel__navigation-instrumentation.--on-board .ring {
   animation: ship-panel__navigation-instrumentation-rings-animation 3s ease-in-out infinite;
+}
+
+.ship-panel__navigation-instrumentation.--active .ring {
   box-shadow: 0 0 3rem 0 rgba(255,255,255,.5);
 }
 

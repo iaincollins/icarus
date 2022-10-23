@@ -307,8 +307,9 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
 }
 
 function NavigationInstrumentation ({ ship, cmdrStatus }) {
+
   return (
-    <div className={`ship-panel__navigation-instrumentation ${ship.onBoard && typeof cmdrStatus?.heading === 'number' ? '--active' : ''} text-uppercase`}
+    <div className={`ship-panel__navigation-instrumentation ${ship.onBoard ? '--on-board' : ''} ${ship.onBoard && typeof cmdrStatus?.heading === 'number' ? '--active' : ''} text-uppercase`}
     style={{
       minHeight: '13rem',
       minWidth: '13rem',
@@ -357,7 +358,6 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           minHeight: '12rem',
           minWidth: '12rem',
           margin: 'auto',
-          aspectRatio: '1',
           border: '.5rem double var(--color-info)',
           transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
           opacity: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 1 : '.25',
