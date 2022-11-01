@@ -89,8 +89,8 @@ Thank you to all those who have created and supported libraries on which this so
 
 ## Donations
 
-People have asked if I take donations for the project. I don't take donations, but I do appreciate folks asking! If you want to support development of ICARUS Terminal, you can always pay a vist to my carrier the [Ardent Pioneer (V9G-G7Z)](https://inara.cz/elite/station/490914/)!
+People have asked if I take donations for the project. I don't take donations, but I do appreciate folks asking. If you want to support development of ICARUS Terminal, you can always pay a vist to my carrier the [Ardent Pioneer (V9G-G7Z)](https://inara.cz/elite/station/490914/)!
 
-Selling Tritium to the carrier is very helpful and most appreciated. You can use Inara to [find out which system the Ardent Pioneer is currently in](https://inara.cz/elite/station/490914/). Before you visit you might want to [check out what commodities are currently being traded](https://inara.cz/elite/station-market/490914/). While you are there you can chat to the bartender to see if there is anything they need.
+Selling Tritium to the carrier is very helpful and always appreciated. You can use Inara to [find out which system the Ardent Pioneer is currently in](https://inara.cz/elite/station/490914/). Before you visit you might want to [check out what commodities are currently being traded](https://inara.cz/elite/station-market/490914/). Youc an also can chat to the bartender to see if there is anything they need.
 
-Whiel docked you can also sell exploration data, biological samples and refuel/rearm/repair your ship. All buy orders are at least 10% above galatic average prices so you should be able to make a small profit. Trades, especially selling Tritium, directly supports development as it means I can spend more time adding travelling the galaxy and testing out functionality in ICARUS Terminal!
+Note: While docked you can also sell exploration data, biological samples and refuel/rearm/repair your ship. All buy orders are at least 10% above galatic average prices so you should be able to make a small profit. Trades, especially selling Tritium, directly supports development as it means I can spend more time adding travelling the galaxy and testing out functionality in ICARUS Terminal!
