@@ -58,7 +58,7 @@ class Blueprints {
           }
         }),
         modules: blueprint.modulename,
-        appliedToModules: Object.values(ship?.modules ?? []).filter(module => module.engineering.symbol === blueprint.symbol),
+        appliedToModules: Object.values(ship?.modules ?? []).filter(module => module?.engineering?.symbol === blueprint?.symbol),
         engineers: blueprint.engineers
       }
     })

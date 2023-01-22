@@ -74,6 +74,11 @@ class ShipStatus {
         // Enrich engineering data as we add it
         const blueprint = await CoriolisBlueprints.getBySymbol(module.Engineering.BlueprintName)
 
+        if (!blueprint) {
+          console.log(`Error! Unknown blueprint "${module.Engineering.BlueprintName}"`)
+          return
+        }
+
         const [first, second] = blueprint?.symbol.split('_') ?? UNKNOWN_VALUE
         const blueprintName = `${second} ${first}`.replace(/([a-z])([A-Z])/g, '$1 $2').replace('Misc', 'Utility').trim()
 
