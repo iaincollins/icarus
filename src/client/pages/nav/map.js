@@ -76,7 +76,7 @@ export default function NavMapPage () {
       setSystemObject(null) // Clear selected object
       setSystem(newSystem)
     }
-    if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'Scan'].includes(log.event)) {
+    if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'SAASignalsFound', 'FSSBodySignals', 'Scan'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
       if (newSystem) setSystem(newSystem)
     }

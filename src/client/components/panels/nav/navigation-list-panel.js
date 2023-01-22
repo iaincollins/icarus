@@ -176,6 +176,7 @@ function NavigationTableRow ({ stars, systemObject, depth = 0, setSystemObject }
             {systemObject?.subType?.toLowerCase()?.includes('water-based life') && <i className='float-right icon icarus-terminal-planet-water-based-life' />}
             {systemObject?.subType?.toLowerCase()?.includes('ammonia-based life') && <i className='float-right icon icarus-terminal-planet-ammonia-based-life' />}
             {systemObject?.subType?.toLowerCase()?.includes('with life') && <i className='float-right icon icarus-terminal-planet-life' />}
+            {systemObject?.signals?.biological > 0 && <i className='float-right icon icarus-terminal-plant' />}
             {systemObject.rings && <i className='float-right icon icarus-terminal-planet-ringed' />}
             {(systemObject?.subType?.toLowerCase() === 'earth-like world'
               || systemObject?.subType?.toLowerCase() === 'water world'

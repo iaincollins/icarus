@@ -110,6 +110,16 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                 </p>}
               {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toLocaleString(undefined, { maximumFractionDigits: 0 })} Km</p>}
               {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && <p className='text-info'>{systemObject.terraformingState}</p>}
+              {systemObject.volcanismType !== 'No volcanism' ? <p className='text-info'>{systemObject.volcanismType}</p> : null}
+              {systemObject?.signals?.biological === 1 &&
+                  <p className='text-info'>{systemObject?.signals?.biological} Biological Signal</p>
+                }
+                {systemObject?.signals?.biological > 1 &&
+                  <p className='text-info'>{systemObject?.signals?.biological} Biological Signals</p>
+                }
+                {systemObject.biologicalGenuses && <ul className='text-info'>
+                  {systemObject.biologicalGenuses.map(genus => <li key={`navigation-inspector_${systemObject.id}_bio-signal_${genus}`}>{genus}</li>)}
+                </ul>}
             </div>
 
             {surfacePorts.length > 0 &&
@@ -147,7 +157,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                 {systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere' ? <p className='text-info'>{systemObject.atmosphereType}</p> : null}
                 {systemObject.surfacePressure ? <p className='text-info'>Pressure {parseFloat(systemObject.surfacePressure.toFixed(3))} atm</p> : null}
                 <ul className='text-info'>
-                  {Object.entries(systemObject.atmosphereComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_atmosphere_${e[0]}`}>{e[0]} ({e[1]} %)</li>)}
+                  {Object.entries(systemObject.atmosphereComposition).map(e => <li key={`navigation-inspector_${systemObject.id}_atmosphere_${e[0]}`}>{e[0]} ({e[1]}%)</li>)}
                 </ul>
               </div>}
 
@@ -158,11 +168,9 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                 <p className='text-muted'>No Atmosphere</p>
               </div>}
 
-            {systemObject.solidComposition &&
+              {systemObject.solidComposition &&
               <div className='navigation-panel__inspector-section'>
-                <h4 className='text-primary'>Surface</h4>
-
-                {systemObject.volcanismType !== 'No volcanism' ? <p className='text-info'>{systemObject.volcanismType}</p> : null}
+                <h4 className='text-primary'>Material Composition</h4>
                 <ul className='text-info'>
                   {Object.entries(systemObject.solidComposition).map(e => e[1] > 0 ? <li key={`navigation-inspector_${systemObject.id}_surface_${e[0]}`}>{e[0]} ({e[1]}%)</li> : '')}
                 </ul>
@@ -172,7 +180,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
 
         {systemObject.materials &&
           <div className='navigation-panel__inspector-section'>
-            <h4 className='text-primary'>Composition</h4>
+            <h4 className='text-primary'>Chemicals &amp; Minerals</h4>
 
             <ul className='text-info'>
               {Object.entries(systemObject.materials).map(e => <li key={`navigation-inspector_${systemObject.id}_material_${e[0]}}`}>{e[0]} ({e[1]}%)</li>)}

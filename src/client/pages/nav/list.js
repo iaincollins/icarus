@@ -72,7 +72,7 @@ export default function NavListPage () {
       setSystemObject(null) // Clear selected object
       setSystem(newSystem)
     }
-    if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'Scan'].includes(log.event)) {
+    if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'SAASignalsFound', 'FSSBodySignals', 'Scan'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
       if (newSystem) setSystem(newSystem)
     }
@@ -128,6 +128,9 @@ export default function NavListPage () {
             </p>
             <p>
               <i className='icon icarus-terminal-planet-gas-giant' /> Gas Giant
+            </p>
+            <p>
+              <i className='icon icarus-terminal-plant' /> Biological signal
             </p>
             <p>
               <i className='icon icarus-terminal-planet-water-based-life' /> Water based life

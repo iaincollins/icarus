@@ -97,6 +97,57 @@ class System {
       // overwriting data from EDSM with with more recent local where there are
       // conflicts.
 
+      // Merge in local scan data with information about the body
+      if (system?.bodies) {
+        for (const body of system.bodies) {
+          body.signals = {
+            geological: 0,
+            biological: 0,
+            human: 0
+          }
+          
+          // Merge in body signal scan data
+          const FSSBodySignals = await this.eliteLog._query({ event: 'FSSBodySignals', BodyName: body.name }, 1)
+          if (FSSBodySignals[0]?.Signals) {
+            ;(FSSBodySignals[0]?.Signals).map(signal => {
+              if (signal?.Type === '$SAA_SignalType_Geological;') {
+                body.signals.geological = signal?.Count ?? 0
+              }
+              if (signal?.Type === '$SAA_SignalType_Biological;') {
+                body.signals.biological = signal?.Count ?? 0
+              }
+              if (signal?.Type === '$SAA_SignalType_Human;') {
+                body.signals.human = signal?.Count ?? 0
+              }
+            })
+          }
+
+          // Merge in surface scan data
+          const SAASignalsFound = await this.eliteLog._query({ event: 'SAASignalsFound', BodyName: body.name }, 1)
+          if (SAASignalsFound[0]?.Signals) {
+            ;(SAASignalsFound[0]?.Signals).map(signal => {
+              if (signal?.Type === '$SAA_SignalType_Geological;') {
+                body.signals.geological = signal?.Count ?? 0
+              }
+              if (signal?.Type === '$SAA_SignalType_Biological;') {
+                body.signals.biological = signal?.Count ?? 0
+              }
+              if (signal?.Type === '$SAA_SignalType_Human;') {
+                body.signals.human = signal?.Count ?? 0
+              }
+            })
+          }
+          // If we have data from a surface scan about the plants, merge it
+          if (body.signals.biological > 0 && SAASignalsFound[0]?.Genuses) {
+            body.biologicalGenuses = []
+            ;(SAASignalsFound[0]?.Genuses).map(biologicalSamples => {
+              body.biologicalGenuses.push(biologicalSamples.Genus_Localised)
+            })
+          }
+        }
+      }
+
+
       // Generate map data from the system data
       const systemMap = new SystemMap(system)
 

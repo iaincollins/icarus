@@ -279,6 +279,11 @@ ul {
   margin: 0;
 }
 
+ol {
+  padding-left: 2rem;
+  margin: 0;
+}
+
 progress {
   -webkit-appearance: none;
   appearance: none;
