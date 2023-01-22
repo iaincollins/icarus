@@ -114,7 +114,7 @@ export default function Header ({ connected, active }) {
       <div style={{ position: 'absolute', top: '1rem', right: '.5rem' }}>
         <p
           className='text-primary text-center text-uppercase'
-          style={{ display: 'inline-block', padding: 0, margin: 0, lineHeight: '1rem', minWidth: '7rem' }}
+          style={{ display: 'inline-block', padding: 0, margin: 0, lineHeight: '1rem', minWidth: '7.5rem' }}
         >
            <span style={{position: 'relative', top: '.3rem', fontSize: '2.4rem', paddingTop: '.25rem'}}>
            {dateTime.time}
