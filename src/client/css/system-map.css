@@ -181,15 +181,20 @@ on slow devices (e.g. Amazon Fire) to be the default */
   font-size: 1rem;
 }
 
-.system-map__system-telemetry {
+.system-map__system-telemetry,
+.system-map__system-telemetry--with-text {
   position: absolute;
   bottom: .5rem;
   right: 1.5rem;
   font-size: 1rem;
-  text-align: right;
+  text-align: left;
   padding: .1rem;
   border-radius: .2rem;
-  width: 6rem;
+  width: 9rem;
+}
+
+.system-map__system-telemetry--with-text {
+  width: 8rem;
 }
 
 .system-map__planetary-system {

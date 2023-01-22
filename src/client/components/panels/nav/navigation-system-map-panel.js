@@ -139,16 +139,28 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
         </div>
 
         <div className='fx-fade-in'>
-          <div className='system-map__system-telemetry text-info text-uppercase text-no-wrap'>
-            {system?.scanPercentComplete !== null && <>
-              EDSM {system?.scanPercentComplete}% <br />
-              <progress value={system?.scanPercentComplete} max='100' className='progress--info progress--border' style={{margin: '.15rem 0 -.1rem 0', height: '1.5rem'}}/>
-            </>}
-            {!system?.scanPercentComplete && <p style={{margin: '0 0 .15rem 0'}} className='text-muted'>
-              Telemetry<br/>
-              From EDSM
-            </p>}
-          </div>
+          {system?.scanPercentComplete && system?.scanPercentComplete !== 100 &&
+            <div className='system-map__system-telemetry text-info text-uppercase'>
+              <i className='icarus-terminal-scan float-left' style={{fontSize: '2.5rem', marginLeft: '.25rem'}}/>
+              <div style={{position: 'absolute', right: 0}}>
+                EDSM {system?.scanPercentComplete}% <br />
+                <progress value={system?.scanPercentComplete} max='100' className='progress--info progress--border' style={{margin: '.15rem 0 -.1rem 0', height: '1.25rem', width: '5.5rem'}}/>
+              </div>
+          </div>}
+          {system?.scanPercentComplete === 100 &&
+            <div className='system-map__system-telemetry--with-text text-secondary text-uppercase text-no-wrap'>
+            <p style={{margin: '0 4rem .15rem 0'}} className='text-muted'>
+              <i className='icarus-terminal-scan float-left' style={{fontSize: '2.5rem', marginRight: '.15rem'}}/>
+              FULLY<br/>SCANNED
+          </p>
+          </div>}
+          {!system?.scanPercentComplete && 
+            <div className='system-map__system-telemetry--with-text text-info text-uppercase text-no-wrap'>
+              <p style={{margin: '0 4rem .15rem 0'}} className='text-muted'>
+                <i className='icarus-terminal-scan float-left' style={{fontSize: '2.5rem', marginRight: '.15rem'}}/>
+                SCAN<br/>REQUIRED
+            </p>
+          </div>}
           {system.position &&
             <div className='system-map__system-position text-info text-muted text-no-wrap'>
               {system.position?.[0]}, {system.position?.[1]}, {system.position?.[2]}
