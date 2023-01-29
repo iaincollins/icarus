@@ -67,13 +67,16 @@
   animation-fill-mode: forwards;
   float: left;
   padding-left: 1rem;
-  height: 3rem;
+  height: 4rem;
   box-shadow: 0 0 1rem black, 0 0 2rem black;
   filter: var(--filter-active-element);
+  box-sizing: border-box;
 }
 
 #secondary-navigation__search-button {
   filter: var(--filter-active-element);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 @keyframes search-input-animation {
