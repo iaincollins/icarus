@@ -35,7 +35,6 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
     }
   },[scaledWrapper.current,scaledContent.current])
 
-  console.log(ship)
   return (
     <div ref={scaledWrapper} style={{position: 'fixed', pointerEvents: 'none', top: '14.25rem', bottom: '2rem', right: '1rem', left: '5rem', xoverflow: 'hidden'}}>
       <div
