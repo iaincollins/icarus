@@ -18,6 +18,8 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
   const scaledWrapper = useRef()
   const scaledContent = useRef()
 
+  const panelActive = (ship.onBoard || cmdrStatus?.flags?.inSrv)
+  
   useEffect(async () => {
     const resizeEventHandler = () => {
       if (scaledWrapper.current && scaledContent.current) {
@@ -128,7 +130,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           </tbody>
         </table>
 
-        <table className={`ship-panel__ship-stats visible-medium table--layout ${!ship.onBoard ? 'text-muted' : ''}`}
+        <table className={`ship-panel__ship-stats visible-medium table--layout`}
           style={{
             marginBottom: '4rem',
           }}
@@ -138,21 +140,21 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
               <td style={{ padding: 0, overflow: 'visible' }}>
                 <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
               </td>
-              <td style={{ padding: 0, overflow: 'visible' }}>
+              <td style={{ padding: 0, overflow: 'visible' }} className={`${!ship.onBoard ? 'text-muted' : ''}`}>
                 <PowerDistribution ship={ship} />
               </td>
             </tr>
           </tbody>
         </table>
 
-        <table className={`ship-panel__ship-stats table--layout ${!ship.onBoard ? 'text-muted' : ''}`} style={{marginTop: '2rem', marginBottom: '4rem'}}>
+        <table className={`ship-panel__ship-stats table--layout`} style={{marginTop: '2rem', marginBottom: '4rem'}}>
           <tbody className='text-info'>
             <tr className='hidden-medium' >
               <td rowSpan={4} style={{ padding: 0, overflow: 'visible' }}>
                 <NavigationInstrumentation ship={ship} cmdrStatus={cmdrStatus} />
               </td>
             </tr>
-            <tr>
+            <tr className={`${!ship.onBoard ? 'text-muted' : ''}`}>
               <td>
                 <span className='text-muted'>Max jump dist</span>
                 <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.maxJumpRange || '-'} Ly</span>
@@ -165,7 +167,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                 <PowerDistribution ship={ship} />
               </td>
             </tr>
-            <tr>
+            <tr className={`${!ship.onBoard ? 'text-muted' : ''}`}>
               <td>
                 <span className='text-muted'>Total mass</span>
                 <span className={`value ${!ship.onBoard ? 'text-muted' : ''}`}>{ship.mass} T</span>
@@ -184,7 +186,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                 </span>
               </td>
             </tr>
-            <tr>
+            <tr className={`${!ship.onBoard ? 'text-muted' : ''}`}>
               <td>
                 <span className='text-muted'>Targeting mode</span>
                 <h3 className={`value ${!ship.onBoard ? 'text-muted' : ''}`} style={{ padding: '.25rem 0', height: '1.5rem' }}>
@@ -307,9 +309,13 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
 }
 
 function NavigationInstrumentation ({ ship, cmdrStatus }) {
+  const panelActive = (ship.onBoard || cmdrStatus?.flags?.inSrv)
+
+  // Note: Heading behaviour is different when cmdrStatus?.flags?.onFootInPlanet
+  // so that mode is not supported right now.
 
   return (
-    <div className={`ship-panel__navigation-instrumentation ${ship.onBoard ? '--on-board' : ''} ${ship.onBoard && typeof cmdrStatus?.heading === 'number' ? '--active' : ''} text-uppercase`}
+    <div className={`ship-panel__navigation-instrumentation ${panelActive ? '--on-board' : ' text-muted'} ${panelActive && typeof cmdrStatus?.heading === 'number' ? '--active' : ''} text-uppercase`}
     style={{
       minHeight: '13rem',
       minWidth: '13rem',
@@ -359,8 +365,8 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           minWidth: '12rem',
           margin: 'auto',
           border: '.5rem double var(--color-info)',
-          transform: `rotate(${ship.onBoard ? (360 - cmdrStatus?.heading ?? 0) : 0}deg)`,
-          opacity: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 1 : '.25',
+          transform: `rotate(${panelActive ? (360 - cmdrStatus?.heading ?? 0) : 0}deg)`,
+          opacity: (panelActive && typeof cmdrStatus?.heading === 'number') ? 1 : '.25',
           borderRadius: '100rem',
           transition: 'opacity .25s ease-in-out',
           zIndex: 100,
@@ -377,7 +383,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           width: '1.25rem',
           borderRadius: '100rem',
           xboxShadow: '0 0 .5rem var(--color-info), 0 0 .25rem var(--color-secondary)',
-          display: ship.onBoard && typeof cmdrStatus?.heading === 'number' ? ' block' : 'none'
+          display: panelActive && typeof cmdrStatus?.heading === 'number' ? ' block' : 'none'
         }}
         >
           <i className='icarus-terminal-triangle-up' style={{position: 'absolute', top: '-.8rem', left: '-.15rem'}}/>
@@ -396,7 +402,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
         <div 
           className='dial-background'
           style={{
-           boxShadow: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 'inset 0 0 .5rem var(--color-info), 0 0 1.75rem var(--color-secondary), inset 0 0 1.5rem var(--color-secondary)' : '',
+           boxShadow: (panelActive && typeof cmdrStatus?.heading === 'number') ? 'inset 0 0 .5rem var(--color-info), 0 0 1.75rem var(--color-secondary), inset 0 0 1.5rem var(--color-secondary)' : '',
           }}
         >
           <div style={{
@@ -410,14 +416,14 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
             height: '100%',
             maxHeight: '12rem',
             maxWidth: '12rem',
-            opacity: ship.onBoard ? 1 : 0.5
+            opacity: panelActive ? 1 : 0.5
           }}
           />
           <h5 className='text-muted' style={{ margin: '0 0 .25rem 0' }}>
-            PLANETARY<br />APPROACH SUITE
+            PLANETARY<br/>NAVIGATION
           </h5>
           <h2 style={{ padding: 0, margin: '0 0 .1rem 0' }}>
-            {ship.onBoard && <>
+            {panelActive && <>
               {(cmdrStatus?.heading >= 343 || cmdrStatus?.heading < 16) && 'N'}
               {cmdrStatus?.heading >= 16 && cmdrStatus?.heading < 74 && 'NE'}
               {cmdrStatus?.heading >= 74 && cmdrStatus?.heading < 106 && 'E'}
@@ -428,22 +434,22 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
               {cmdrStatus?.heading >= 286 && cmdrStatus?.heading < 343 && 'NW'}
               &nbsp;
             </>}
-            <span className='value'>{ship.onBoard ? cmdrStatus?.heading ?? '-' : '-'}°</span>
+            <span className='value'>{panelActive ? cmdrStatus?.heading ?? '-' : '-'}°</span>
           </h2>
           <p style={{ padding: 0, margin: '.1rem 0' }}>
             <span className='text-muted'>LAT</span>
             {' '}
-            <span className='value'>{ship.onBoard ? cmdrStatus?.latitude ?? '-' : '-'}°</span>
+            <span className='value'>{panelActive ? cmdrStatus?.latitude ?? '-' : '-'}°</span>
           </p>
           <p style={{ padding: 0, margin: '.1rem 0' }}>
             <span className='text-muted'>LONG</span>
             {' '}
-            <span className='value'>{ship.onBoard ? cmdrStatus?.longitude ?? '-' : '-'}°</span>
+            <span className='value'>{panelActive ? cmdrStatus?.longitude ?? '-' : '-'}°</span>
           </p>
           <p style={{ padding: 0, margin: '.1rem 0 0 0' }}>
             <span className='text-muted'>ALT</span>
             {' '}
-            <span className='value'>{(ship.onBoard && cmdrStatus?.altitude)
+            <span className='value'>{(panelActive && cmdrStatus?.altitude)
               ? <>
                 {cmdrStatus?.altitude > 10000
                   ? <>{(cmdrStatus.altitude / 1000).toLocaleString(undefined, { maximumFractionDigits: 0 }) ?? '-'} KM</>
