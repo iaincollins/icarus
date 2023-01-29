@@ -184,7 +184,8 @@ class System {
         name: systemName,
         unknownSystem: true,
         isCurrentLocation,
-        scanPercentComplete
+        scanPercentComplete,
+        _cacheTimestamp: new Date().toISOString()
       }
 
       if (isCurrentLocation && currentLocation?.position && currentLocation?.address) {
@@ -203,7 +204,8 @@ class System {
         ...currentLocation,
         distance: 0,
         isCurrentLocation: true,
-        scanPercentComplete
+        scanPercentComplete,
+        _cacheTimestamp: new Date().toISOString()
       }
 
     } else {
@@ -212,7 +214,8 @@ class System {
         ...cacheResponse,
         distance: distance(cacheResponse?.position, currentLocation?.position),
         isCurrentLocation: false,
-        scanPercentComplete
+        scanPercentComplete,
+        _cacheTimestamp: new Date().toISOString()
       }
     }
   }

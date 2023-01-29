@@ -2,7 +2,7 @@ import { SPACE_STATIONS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS, SOL_RADIUS_I
 import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
 import CopyOnClick from 'components/copy-on-click'
 
-export default function NavigationInspectorPanel ({ systemObject, setSystemObjectByName }) {
+export default function NavigationInspectorPanel ({ cacheTimestamp, systemObject, setSystemObjectByName }) {
   if (!systemObject) return <div className='navigation-panel__inspector navigation-panel__inspector--hidden' />
 
   const isLandable = systemObject.isLandable || SPACE_STATIONS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
@@ -80,14 +80,12 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {(systemObject.distanceToArrival && systemObject.distanceToArrival > 0) === true &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Distance from arrival</h4>
-
             <p className='text-info'>{systemObject.distanceToArrival.toLocaleString(undefined, { maximumFractionDigits: 0 })} Ls</p>
           </div>}
 
         {systemObject.type === 'Star' &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Stellar Properties</h4>
-
             {systemObject.isScoopable ? <p className='text-info'>Main Sequence (Fuel Star)</p> : <p className='text-info text-muted'>Not Scoopable</p>}
             {systemObject.spectralClass && <p className='text-info'>Class {systemObject.spectralClass} Star </p>}
             <p className='text-info'>Luminosity {systemObject.luminosity}</p>
@@ -99,16 +97,15 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {systemObject.type === 'Planet' &&
           <>
             <div className='navigation-panel__inspector-section'>
-              <h4 className='text-primary'>Environment</h4>
-
+              <h4 className='text-prmary'>Environment</h4>
               {isLandable ? <p className='text-info'>Landable</p> : <p className='text-muted'>Not Landable</p>}
               {systemObject.gravity ? <p className='text-info'>Gravity {systemObject.gravity.toFixed(1)}g</p> : null}
+              {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toLocaleString(undefined, { maximumFractionDigits: 0 })} Km</p>}
               {systemObject.surfaceTemperature &&
                 <p className='text-info'>
                   Temperature {systemObject.surfaceTemperature}K
                   ({kelvinToCelius(systemObject.surfaceTemperature)}C/{kelvinToFahrenheit(systemObject.surfaceTemperature)}F)
                 </p>}
-              {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toLocaleString(undefined, { maximumFractionDigits: 0 })} Km</p>}
               {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && <p className='text-info'>{systemObject.terraformingState}</p>}
               {systemObject.volcanismType !== 'No volcanism' ? <p className='text-info'>{systemObject.volcanismType}</p> : null}
               {systemObject?.signals?.biological === 1 &&
@@ -120,12 +117,14 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                 {systemObject.biologicalGenuses && <ul className='text-info'>
                   {systemObject.biologicalGenuses.map(genus => <li key={`navigation-inspector_${systemObject.id}_bio-signal_${genus}`}>{genus}</li>)}
                 </ul>}
+                {systemObject?.signals?.biological > 0 && !systemObject?.biologicalGenuses && <ul className='text-info'>
+                  <li className='text-muted'>Unknown Species</li>
+                </ul>}
             </div>
 
             {surfacePorts.length > 0 &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Ports</h4>
-
                 <div className='text-info'>
                   {surfacePorts.map(base => (
                     <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-link text-no-wrap' onClick={() => setSystemObjectByName(base.name)}>
@@ -139,7 +138,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             {settlements.length > 0 &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Settlements</h4>
-
                 <div className='text-info'>
                   {settlements.map(base => (
                     <p key={`navigation-inspector_${systemObject.id}_${base.id}`} className='text-link text-no-wrap' onClick={() => setSystemObjectByName(base.name)}>
@@ -153,7 +151,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             {systemObject.atmosphereComposition &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Atmosphere</h4>
-
                 {systemObject.atmosphereType && systemObject.atmosphereType !== 'No atmosphere' ? <p className='text-info'>{systemObject.atmosphereType}</p> : null}
                 {systemObject.surfacePressure ? <p className='text-info'>Pressure {parseFloat(systemObject.surfacePressure.toFixed(3))} atm</p> : null}
                 <ul className='text-info'>
@@ -167,7 +164,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
 
                 <p className='text-muted'>No Atmosphere</p>
               </div>}
-
               {systemObject.solidComposition &&
               <div className='navigation-panel__inspector-section'>
                 <h4 className='text-primary'>Material Composition</h4>
@@ -181,7 +177,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {systemObject.materials &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Chemicals &amp; Minerals</h4>
-
             <ul className='text-info'>
               {Object.entries(systemObject.materials).map(e => <li key={`navigation-inspector_${systemObject.id}_material_${e[0]}}`}>{e[0]} ({e[1]}%)</li>)}
             </ul>
@@ -190,7 +185,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {systemObject.rings &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Rings</h4>
-
             {systemObject.reserveLevel && <p className='text-info'>{systemObject.reserveLevel} Reserves</p>}
             <ul className='text-info'>
               {systemObject.rings.map((ring, i) => <li key={`navigation-inspector_${systemObject.id}_rings_${i}}`}>{ring.name} ({ring.type})</li>)}
@@ -200,7 +194,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {(systemObjectSubType === 'Settlement' || systemObjectSubType === 'Planetary Port') && systemObject.body &&
           <div className='navigation-panel__inspector-section navigation-panel__inspector-section--location'>
             <h4 className='text-primary'>Location</h4>
-
             <p className='text-info text-link text-no-wrap' onClick={() => setSystemObjectByName(systemObject.body.name)}>
               <i className='icon icarus-terminal-planet' /> <span className='text-link-text text-no-wrap'>{systemObject.body.name}</span>
             </p>
@@ -222,7 +215,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {systemObject.economy &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Economy</h4>
-
             <p className='text-info'>
               {systemObject.economy}
             </p>
@@ -235,7 +227,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {systemObject._shipServices && systemObject._shipServices.length > 0 &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Ship Services</h4>
-
             <ul className='text-info'>
               {systemObject._shipServices.map((service, i) => <li key={`navigation-inspector_${systemObject.id}_service_${service}_${i}`}>{service}</li>)}
             </ul>
@@ -244,7 +235,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {systemObject._otherServices && systemObject._otherServices.length > 0 &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Other Services</h4>
-
             <ul className='text-info'>
               {systemObject._otherServices.map((service, i) => <li key={`navigation-inspector_${systemObject.id}_other-service_${service}_${i}`}>{service}</li>)}
             </ul>

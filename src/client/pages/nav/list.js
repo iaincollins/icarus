@@ -155,8 +155,8 @@ export default function NavListPage () {
       </div>
       <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
         <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={system?.isCurrentLocation === false ? () => getSystem() : null}>
-          <NavigationListPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} showHelp={() => setHelpVisible(true)} />
-          <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
+          <NavigationListPanel cacheTimestamp={system?._cacheTimestamp} system={system} systemObject={systemObject} setSystemObject={setSystemObject} showHelp={() => setHelpVisible(true)} />
+          <NavigationInspectorPanel cacheTimestamp={system?._cacheTimestamp} systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
         </Panel>
       </Layout>
     </>
