@@ -1,10 +1,10 @@
 @font-face {font-family: "icarus-terminal";
-  src: url('icarus-terminal.eot?t=1674428992842'); /* IE9*/
-  src: url('icarus-terminal.eot?t=1674428992842#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("icarus-terminal.woff2?t=1674428992842") format("woff2"),
-  url("icarus-terminal.woff?t=1674428992842") format("woff"),
-  url('icarus-terminal.ttf?t=1674428992842') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('icarus-terminal.svg?t=1674428992842#icarus-terminal') format('svg'); /* iOS 4.1- */
+  src: url('icarus-terminal.eot?t=1674954429577'); /* IE9*/
+  src: url('icarus-terminal.eot?t=1674954429577#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("icarus-terminal.woff2?t=1674954429577") format("woff2"),
+  url("icarus-terminal.woff?t=1674954429577") format("woff"),
+  url('icarus-terminal.ttf?t=1674954429577') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icarus-terminal.svg?t=1674954429577#icarus-terminal') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
@@ -97,8 +97,9 @@
 .icarus-terminal-table-index:before { content: "\ea50"; }
 .icarus-terminal-table-inspector:before { content: "\ea51"; }
 .icarus-terminal-table-rows:before { content: "\ea52"; }
-.icarus-terminal-warning:before { content: "\ea53"; }
-.icarus-terminal-wrench:before { content: "\ea54"; }
+.icarus-terminal-triangle-up:before { content: "\ea53"; }
+.icarus-terminal-warning:before { content: "\ea54"; }
+.icarus-terminal-wrench:before { content: "\ea55"; }
 
 $icarus-terminal-0_copy: "\ea01";
 $icarus-terminal-asteroid-base: "\ea02";
@@ -182,6 +183,7 @@ $icarus-terminal-system-orbits: "\ea4f";
 $icarus-terminal-table-index: "\ea50";
 $icarus-terminal-table-inspector: "\ea51";
 $icarus-terminal-table-rows: "\ea52";
-$icarus-terminal-warning: "\ea53";
-$icarus-terminal-wrench: "\ea54";
+$icarus-terminal-triangle-up: "\ea53";
+$icarus-terminal-warning: "\ea54";
+$icarus-terminal-wrench: "\ea55";
 

@@ -359,7 +359,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           minWidth: '12rem',
           margin: 'auto',
           border: '.5rem double var(--color-info)',
-          transform: `rotate(${ship.onBoard ? cmdrStatus?.heading ?? 0 : 0}deg)`,
+          transform: `rotate(${ship.onBoard ? (360 - cmdrStatus?.heading ?? 0) : 0}deg)`,
           opacity: (ship.onBoard && typeof cmdrStatus?.heading === 'number') ? 1 : '.25',
           borderRadius: '100rem',
           transition: 'opacity .25s ease-in-out',
@@ -372,14 +372,16 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           left: 0,
           right: 0,
           margin: 'auto',
-          background: 'var(--color-info)',
+          xbackground: 'var(--color-success)',
           height: '1.25rem',
           width: '1.25rem',
           borderRadius: '100rem',
-          boxShadow: '0 0 .5rem var(--color-info), 0 0 .25rem var(--color-secondary)',
+          xboxShadow: '0 0 .5rem var(--color-info), 0 0 .25rem var(--color-secondary)',
           display: ship.onBoard && typeof cmdrStatus?.heading === 'number' ? ' block' : 'none'
         }}
-        />
+        >
+          <i className='icarus-terminal-triangle-up' style={{position: 'absolute', top: '-.8rem', left: '-.15rem'}}/>
+        </div>
       </div>
       <div
       style={{
@@ -415,6 +417,17 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
             PLANETARY<br />APPROACH SUITE
           </h5>
           <h2 style={{ padding: 0, margin: '0 0 .1rem 0' }}>
+            {ship.onBoard && <>
+              {(cmdrStatus?.heading >= 344 || cmdrStatus?.heading < 16) && 'N'}
+              {cmdrStatus?.heading >= 16 && cmdrStatus?.heading < 74 && 'NE'}
+              {cmdrStatus?.heading >= 74 && cmdrStatus?.heading < 106 && 'E'}
+              {cmdrStatus?.heading >= 106 && cmdrStatus?.heading < 164 && 'SE'}
+              {cmdrStatus?.heading >= 164 && cmdrStatus?.heading < 196 && 'S'}
+              {cmdrStatus?.heading >= 196 && cmdrStatus?.heading < 254 && 'SW'}
+              {cmdrStatus?.heading >= 254 && cmdrStatus?.heading < 286 && 'W'}
+              {cmdrStatus?.heading >= 286 && cmdrStatus?.heading < 343 && 'NW'}
+              &nbsp;
+            </>}
             <span className='value'>{ship.onBoard ? cmdrStatus?.heading ?? '-' : '-'}°</span>
           </h2>
           <p style={{ padding: 0, margin: '.1rem 0' }}>
