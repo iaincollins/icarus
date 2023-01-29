@@ -97,7 +97,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
         {systemObject.type === 'Planet' &&
           <>
             <div className='navigation-panel__inspector-section'>
-              <h4 className='text-prmary'>Environment</h4>
+              <h4 className='text-primary'>Environment</h4>
               {isLandable ? <p className='text-info'>Landable</p> : <p className='text-muted'>Not Landable</p>}
               {systemObject.gravity ? <p className='text-info'>Gravity {systemObject.gravity.toFixed(1)}g</p> : null}
               {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toLocaleString(undefined, { maximumFractionDigits: 0 })} Km</p>}
