@@ -1,11 +1,11 @@
 @font-face {
   font-family: "icarus-terminal";
-  src: url('icarus-terminal.eot?t=1674954429577'); /* IE9*/
-  src: url('icarus-terminal.eot?t=1674954429577#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("icarus-terminal.woff2?t=1674954429577") format("woff2"),
-  url("icarus-terminal.woff?t=1674954429577") format("woff"),
-  url('icarus-terminal.ttf?t=1674954429577') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('icarus-terminal.svg?t=1674954429577#icarus-terminal') format('svg'); /* iOS 4.1- */
+  src: url('icarus-terminal.eot?t=1675009486742'); /* IE9*/
+  src: url('icarus-terminal.eot?t=1675009486742#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("icarus-terminal.woff2?t=1675009486742") format("woff2"),
+  url("icarus-terminal.woff?t=1675009486742") format("woff"),
+  url('icarus-terminal.ttf?t=1675009486742') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icarus-terminal.svg?t=1675009486742#icarus-terminal') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
@@ -80,25 +80,26 @@
 .icarus-terminal-planetary-port-large:before { content: "\ea3d"; }
 .icarus-terminal-planetary-port:before { content: "\ea3e"; }
 .icarus-terminal-plant:before { content: "\ea3f"; }
-.icarus-terminal-power:before { content: "\ea40"; }
-.icarus-terminal-route:before { content: "\ea41"; }
-.icarus-terminal-scan:before { content: "\ea42"; }
-.icarus-terminal-search:before { content: "\ea43"; }
-.icarus-terminal-settings:before { content: "\ea44"; }
-.icarus-terminal-settlement:before { content: "\ea45"; }
-.icarus-terminal-shield:before { content: "\ea46"; }
-.icarus-terminal-ship:before { content: "\ea47"; }
-.icarus-terminal-signal:before { content: "\ea48"; }
-.icarus-terminal-sound:before { content: "\ea49"; }
-.icarus-terminal-star:before { content: "\ea4a"; }
-.icarus-terminal-sync:before { content: "\ea4b"; }
-.icarus-terminal-system-authority-solid:before { content: "\ea4c"; }
-.icarus-terminal-system-authority:before { content: "\ea4d"; }
-.icarus-terminal-system-bodies:before { content: "\ea4e"; }
-.icarus-terminal-system-orbits:before { content: "\ea4f"; }
-.icarus-terminal-table-index:before { content: "\ea50"; }
-.icarus-terminal-table-inspector:before { content: "\ea51"; }
-.icarus-terminal-table-rows:before { content: "\ea52"; }
-.icarus-terminal-triangle-up:before { content: "\ea53"; }
-.icarus-terminal-warning:before { content: "\ea54"; }
-.icarus-terminal-wrench:before { content: "\ea55"; }
+.icarus-terminal-poi:before { content: "\ea40"; }
+.icarus-terminal-power:before { content: "\ea41"; }
+.icarus-terminal-route:before { content: "\ea42"; }
+.icarus-terminal-scan:before { content: "\ea43"; }
+.icarus-terminal-search:before { content: "\ea44"; }
+.icarus-terminal-settings:before { content: "\ea45"; }
+.icarus-terminal-settlement:before { content: "\ea46"; }
+.icarus-terminal-shield:before { content: "\ea47"; }
+.icarus-terminal-ship:before { content: "\ea48"; }
+.icarus-terminal-signal:before { content: "\ea49"; }
+.icarus-terminal-sound:before { content: "\ea4a"; }
+.icarus-terminal-star:before { content: "\ea4b"; }
+.icarus-terminal-sync:before { content: "\ea4c"; }
+.icarus-terminal-system-authority-solid:before { content: "\ea4d"; }
+.icarus-terminal-system-authority:before { content: "\ea4e"; }
+.icarus-terminal-system-bodies:before { content: "\ea4f"; }
+.icarus-terminal-system-orbits:before { content: "\ea50"; }
+.icarus-terminal-table-index:before { content: "\ea51"; }
+.icarus-terminal-table-inspector:before { content: "\ea52"; }
+.icarus-terminal-table-rows:before { content: "\ea53"; }
+.icarus-terminal-triangle-up:before { content: "\ea54"; }
+.icarus-terminal-warning:before { content: "\ea55"; }
+.icarus-terminal-wrench:before { content: "\ea56"; }

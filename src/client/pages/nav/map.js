@@ -78,19 +78,21 @@ export default function NavMapPage () {
     }
     if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'SAASignalsFound', 'FSSBodySignals', 'Scan'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
-      if (newSystem) setSystem(newSystem)
-
       // Update system object so NavigationInspectorPanel is also updated
-      if (systemObject?.name) {
-        const newSystemObject = newSystem.objectsInSystem.filter(child => child.name.toLowerCase() === systemObject.name?.toLowerCase())[0]
-        setSystemObject(newSystemObject)
+      if (newSystem) {
+        if (systemObject?.name) {
+          const newSystemObject = newSystem.objectsInSystem.filter(child => child.name.toLowerCase() === systemObject.name?.toLowerCase())[0]
+          setSystemObject(newSystemObject)
+        }
+        setSystem(newSystem)
       }
     }
   }), [system, systemObject])
 
   useEffect(() => eventListener('gameStateChange', async (log) => {
-    setCmdrStatus(await sendEvent('getCmdrStatus'))
+    //setCmdrStatus(await sendEvent('getCmdrStatus'))
   }))
+  
 
   useEffect(() => {
     if (!router.isReady) return

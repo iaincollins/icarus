@@ -1,7 +1,7 @@
 import CopyOnClick from 'components/copy-on-click'
 import { SPACE_STATIONS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS } from '../../../../shared/consts'
 
-export default function NavigationInspectorPanel ({ system, systemObject, setSystemObject, showHelp }) {
+export default function NavigationListPanel ({ system, systemObject, setSystemObject, showHelp }) {
   if (!system) return null
 
   // Check if any bodies are visible on map (i.e. any stars *or* any "additional objects")

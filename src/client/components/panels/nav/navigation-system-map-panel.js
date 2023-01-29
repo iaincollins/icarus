@@ -195,24 +195,46 @@ function PointsOfInterest({ system }) {
   const asteroidBases = system?.spaceStations?.filter(station => station?.type === 'Asteroid base')?.length ?? 0
   const outposts = system?.spaceStations?.filter(station => station?.type === 'Outpost')?.length ?? 0
 
+  const inhabitedSystem = (system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0)
+
+  if (inhabitedSystem) {
+    return (
+      <div className='system-map__info--icons'>
+        <div style={{ width: '100%' }}>
+          {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' /><span className='count'>{coriolisStarports}</span></span>}
+          {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' /><span className='count'>{ocellusStarports}</span></span>}
+          {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' /><span className='count'>{orbisStarports}</span></span>}
+          {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' /><span className='count'>{asteroidBases}</span></span>}
+          {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' /><span className='count'>{outposts}</span></span>}
+          {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
+          {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
+          {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
+        </div>
+      </div>
+    )
+  }
+  
+  const biologicalSignals = system.bodies.reduce((total, body) => total + (body?.signals?.biological ?? 0), 0)
+  const geologicalSignals = system.bodies.reduce((total, body) => total + (body?.signals?.geological ?? 0), 0)
+  const humanSignals = system.bodies.reduce((total, body) => total + (body?.signals?.human ?? 0), 0)
+
+  const signalSources = (biologicalSignals > 0 || geologicalSignals > 0 || humanSignals > 0)
+
+  if (signalSources) {
+    return (
+      <div className='system-map__info--icons'>
+        <div style={{ width: '100%' }}>
+          {humanSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-poi' /><span className='count'>{humanSignals} {humanSignals === 1 ? 'Human Origin Signal' : 'Human Origin Signals'}</span></span></h3>}
+          {geologicalSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-volcanic' /><span className='count'>{geologicalSignals} {geologicalSignals === 1 ? 'Geological Signal' : 'Geological Signals'}</span></span></h3>}
+          {biologicalSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-plant' /><span className='count'>{biologicalSignals} {biologicalSignals === 1 ? 'Biological Signal' : 'Biological Signals'}</span></span></h3>}
+       </div>
+      </div>
+    )
+  }
+
   return (
-    <>
-      {((system.spaceStations.length > 0 || system.planetaryPorts.length > 0 || system.megaships.length > 0 || system.settlements.length > 0))
-        ? <div className='system-map__info--icons'>
-          <div style={{ width: '100%' }}>
-            {coriolisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-coriolis-starport' /><span className='count'>{coriolisStarports}</span></span>}
-            {ocellusStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-ocellus-starport' /><span className='count'>{ocellusStarports}</span></span>}
-            {orbisStarports > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-orbis-starport' /><span className='count'>{orbisStarports}</span></span>}
-            {asteroidBases > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-asteroid-base' /><span className='count'>{asteroidBases}</span></span>}
-            {outposts > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-outpost' /><span className='count'>{outposts}</span></span>}
-            {system.megaships.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-megaship' /><span className='count'>{system.megaships.length}</span></span>}
-            {system.planetaryPorts.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-planetary-port' /><span className='count'>{system.planetaryPorts.length}</span></span>}
-            {system.settlements.length > 0 && <span className='system-map__info-icon'><i className='icon icarus-terminal-settlement' /><span className='count'>{system.settlements.length}</span></span>}
-          </div>
-          </div>
-        : <div className='system-map__info--icons text-uppercase text-primary text-muted'>No stations / settlements</div>}
-    </>
-  )
+    <h3 className='system-map__info--icons text-uppercase text-info text-muted'>No signals found</h3>
+   )
 }
 
 function LocationInformation ({ system, cmdrStatus }) {
