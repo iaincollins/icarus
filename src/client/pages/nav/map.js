@@ -79,8 +79,14 @@ export default function NavMapPage () {
     if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'SAASignalsFound', 'FSSBodySignals', 'Scan'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
       if (newSystem) setSystem(newSystem)
+
+      // Update system object so NavigationInspectorPanel is also updated
+      if (systemObject?.name) {
+        const newSystemObject = newSystem.objectsInSystem.filter(child => child.name.toLowerCase() === systemObject.name?.toLowerCase())[0]
+        setSystemObject(newSystemObject)
+      }
     }
-  }), [system])
+  }), [system, systemObject])
 
   useEffect(() => eventListener('gameStateChange', async (log) => {
     setCmdrStatus(await sendEvent('getCmdrStatus'))
@@ -101,8 +107,8 @@ export default function NavMapPage () {
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel layout='full-width' navigation={NavPanelNavItems('Map', query)} search={search} exit={system?.isCurrentLocation === false ? () => getSystem() : null}>
-        <NavigationSystemMapPanel cacheTimestamp={system?._cacheTimestamp} system={system} systemObject={systemObject} setSystemObject={setSystemObject} getSystem={getSystem} cmdrStatus={cmdrStatus} />
-        <NavigationInspectorPanel cacheTimestamp={system?._cacheTimestamp} systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
+        <NavigationSystemMapPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} getSystem={getSystem} cmdrStatus={cmdrStatus} />
+        <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>
     </Layout>
   )

@@ -2,7 +2,7 @@ import { SPACE_STATIONS, SURFACE_PORTS, PLANETARY_BASES, MEGASHIPS, SOL_RADIUS_I
 import { kelvinToCelius, kelvinToFahrenheit } from 'lib/convert'
 import CopyOnClick from 'components/copy-on-click'
 
-export default function NavigationInspectorPanel ({ cacheTimestamp, systemObject, setSystemObjectByName }) {
+export default function NavigationInspectorPanel ({ systemObject, setSystemObjectByName }) {
   if (!systemObject) return <div className='navigation-panel__inspector navigation-panel__inspector--hidden' />
 
   const isLandable = systemObject.isLandable || SPACE_STATIONS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)

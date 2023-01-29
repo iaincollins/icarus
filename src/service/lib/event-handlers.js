@@ -116,7 +116,6 @@ class EventHandlers {
         //   }
         // },
         testMessage: ({name, message}) => {
-          console.log('sending test message', name)
           // Method to simulate messages, intended for developers
           if (name !== 'testMessage') broadcastEvent(name, message)
         },

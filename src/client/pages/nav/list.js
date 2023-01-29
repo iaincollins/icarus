@@ -75,8 +75,14 @@ export default function NavListPage () {
     if (['FSSDiscoveryScan', 'FSSAllBodiesFound', 'SAASignalsFound', 'FSSBodySignals', 'Scan'].includes(log.event)) {
       const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
       if (newSystem) setSystem(newSystem)
+
+      // Update system object so NavigationInspectorPanel is also updated
+      if (systemObject?.name) {
+        const newSystemObject = newSystem.objectsInSystem.filter(child => child.name.toLowerCase() === systemObject.name?.toLowerCase())[0]
+        setSystemObject(newSystemObject)
+      }
     }
-  }), [system])
+  }), [system, systemObject])
 
   useEffect(() => {
     if (!router.isReady) return
@@ -155,8 +161,8 @@ export default function NavListPage () {
       </div>
       <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
         <Panel layout='full-width' navigation={NavPanelNavItems('List', query)} search={search} exit={system?.isCurrentLocation === false ? () => getSystem() : null}>
-          <NavigationListPanel cacheTimestamp={system?._cacheTimestamp} system={system} systemObject={systemObject} setSystemObject={setSystemObject} showHelp={() => setHelpVisible(true)} />
-          <NavigationInspectorPanel cacheTimestamp={system?._cacheTimestamp} systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
+          <NavigationListPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} showHelp={() => setHelpVisible(true)} />
+          <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
         </Panel>
       </Layout>
     </>
