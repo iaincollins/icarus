@@ -27,8 +27,8 @@ You can run ICARUS Terminal in a native window, on multiple windows/displays, as
 
 <img alt="System Map" src="https://user-images.githubusercontent.com/595695/197432007-13726aea-9413-4fcf-88c6-9abc34f2d26c.png" height="auto" width="98.5%"/>
 
-<img alt="System List" src="https://user-images.githubusercontent.com/595695/197432069-9981393d-10d0-428e-84cf-3ae05e9de55c.png" height="auto" width="49%"/> <img alt="Ship Status" src="https://user-images.githubusercontent.com/595695/197433287-456a336b-327a-4f63-8174-15f8bd3b390f.png" height="auto" width="49%"/>
-<img alt="Blueprint" src="https://user-images.githubusercontent.com/595695/192074945-b47edcbb-6aab-444d-827c-6b6255e8f932.png" height="auto" width="49%"/> <img alt="Navigation Route" src="https://user-images.githubusercontent.com/595695/192074955-be1010c6-2ad8-43ef-9b64-2237f3902222.png" height="auto" width="49%"/>
+<img alt="System List" src="https://user-images.githubusercontent.com/595695/215350024-5b8d2096-b2f3-4411-9314-c3a776fbde48.png" height="auto" width="49%"/> <img alt="Ship Status" src="https://user-images.githubusercontent.com/595695/215350062-0f7ad9e4-905c-43ae-b3cf-1dc7944ab744.png" height="auto" width="49%"/>
+<img alt="Blueprint" src="https://user-images.githubusercontent.com/595695/192074945-b47edcbb-6aab-444d-827c-6b6255e8f932.png" height="auto" width="49%"/> <img alt="Navigation Route" src="https://user-images.githubusercontent.com/595695/215350464-88e75eb1-77d8-408c-a0ec-12fd6911e866.png" height="auto" width="49%"/>
 
 ## Requirements
 
