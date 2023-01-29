@@ -35,6 +35,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
     }
   },[scaledWrapper.current,scaledContent.current])
 
+  console.log(ship)
   return (
     <div ref={scaledWrapper} style={{position: 'fixed', pointerEvents: 'none', top: '14.25rem', bottom: '2rem', right: '1rem', left: '5rem', xoverflow: 'hidden'}}>
       <div
@@ -418,7 +419,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           </h5>
           <h2 style={{ padding: 0, margin: '0 0 .1rem 0' }}>
             {ship.onBoard && <>
-              {(cmdrStatus?.heading >= 344 || cmdrStatus?.heading < 16) && 'N'}
+              {(cmdrStatus?.heading >= 343 || cmdrStatus?.heading < 16) && 'N'}
               {cmdrStatus?.heading >= 16 && cmdrStatus?.heading < 74 && 'NE'}
               {cmdrStatus?.heading >= 74 && cmdrStatus?.heading < 106 && 'E'}
               {cmdrStatus?.heading >= 106 && cmdrStatus?.heading < 164 && 'SE'}
