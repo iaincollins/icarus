@@ -7,8 +7,15 @@ import '../css/main.css'
 
 const handleKeyPress = (event) => {
   const element = document.activeElement.tagName
+
+  // Check for focus on input elements
   if (element.toLowerCase() === 'input') {
+    // If ESC is pressed, then remove focus from input
     if (event.key === 'Escape') document.body.click()
+    
+    // If UP or DOWN arrow is pressed then remove focus
+    if (['ArrowUp', 'ArrowDown'].includes(event.key)) document.body.click()
+
     return
   }
 
