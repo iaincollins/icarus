@@ -549,7 +549,9 @@ table.ship-panel__lights td {
 }
 
 .ship-panel__navigation-instrumentation.--active .dial-border {
-  animation: ship-panel__navigation-instrumentation-animation 3s ease-in-out infinite;
+  xanimation: ship-panel__navigation-instrumentation-animation 3s ease-in-out infinite;
+  /* "glowing" animation disabled here as browser rendering bug can cause compass heading icon to "jiggle" */
+  box-shadow: 0 0 1.25rem 0 rgba(255,255,255,.5);
 }
 
 @keyframes ship-panel__navigation-instrumentation-animation {

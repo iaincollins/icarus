@@ -386,7 +386,7 @@ function NavigationInstrumentation ({ ship, cmdrStatus }) {
           display: panelActive && typeof cmdrStatus?.heading === 'number' ? ' block' : 'none'
         }}
         >
-          <i className='icarus-terminal-triangle-up' style={{position: 'absolute', top: '-.8rem', left: '-.15rem'}}/>
+          <i className='icarus-terminal-direction-heading' style={{position: 'absolute', top: '-1rem', left: '-.6rem', fontSize: '2rem'}}/>
         </div>
       </div>
       <div
