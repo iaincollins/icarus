@@ -225,6 +225,7 @@ function PointsOfInterest({ system }) {
   }
   
   const biologicalSignals = system.bodies.reduce((total, body) => total + (body?.signals?.biological ?? 0), 0)
+
   const geologicalSignals = system.bodies.reduce((total, body) => {
     let geologicalSignals = body?.signals?.geological ?? 0
 
@@ -237,36 +238,37 @@ function PointsOfInterest({ system }) {
 
     return total + geologicalSignals
   }, 0)
+
   const humanSignals = system.bodies.reduce((total, body) => total + (body?.signals?.human ?? 0), 0)
+  const earthlikeWorlds = system.bodies.reduce((total, body) => body?.subType?.toLowerCase() === 'earth-like world' ? total + 1 : total, 0)
+  const waterWorlds = system.bodies.reduce((total, body) => body?.subType?.toLowerCase() === 'water world' ? total + 1 : total, 0)
+  const ammoniaWorlds = system.bodies.reduce((total, body) => body?.subType?.toLowerCase() === 'ammonia world' ? total + 1 : total, 0)
+  const terraformableWorlds = system.bodies.reduce((total, body) => (body.terraformingState && body.terraformingState !== 'Not terraformable' && body.terraformingState !== 'Terraformed') ? total + 1 : total, 0)
+  const highValueGasGiants = system.bodies.reduce((total, body) => body?.subType?.toLowerCase()?.includes('class ii gas giant') ? total + 1 : total, 0)
+  const metalRichPlanets = system.bodies.reduce((total, body) => body?.subType?.toLowerCase() === 'metal rich' ? total + 1 : total, 0)
 
-  const highValuePlanets =  system.bodies.reduce((total, body) => {
-    const isHighValuePlanet = (body?.subType?.toLowerCase() === 'earth-like world'
-    || body?.subType?.toLowerCase() === 'water world'
-    || body?.subType?.toLowerCase() === 'ammonia world'
-    || (body.terraformingState && body.terraformingState !== 'Not terraformable' && body.terraformingState !== 'Terraformed')
-    || body?.subType?.toLowerCase()?.includes('class ii gas giant')
-    || body?.subType?.toLowerCase() === 'metal rich')
-
-    return isHighValuePlanet ? total + 1 : total
-  }, 0)
-
-  const interestingFeatures = (biologicalSignals > 0 || geologicalSignals > 0 || humanSignals > 0 || highValuePlanets > 0)
+  const interestingFeatures = (biologicalSignals > 0 || geologicalSignals > 0 || humanSignals > 0 || earthlikeWorlds > 0 || waterWorlds > 0 || ammoniaWorlds > 0 || terraformableWorlds > 0 || highValueGasGiants > 0 || metalRichPlanets > 0)
 
   if (interestingFeatures) {
     return (
       <div className='system-map__info--icons'>
         <div style={{ width: '100%' }}>
           {humanSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-poi' /><span className='count'>{humanSignals} {humanSignals === 1 ? 'Human Origin Signal' : 'Human Origin Signals'}</span></span></h3>}
-          {geologicalSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-volcanic' /><span className='count'>{geologicalSignals} {geologicalSignals === 1 ? 'Geological Signal' : 'Geological Signals'}</span></span></h3>}
           {biologicalSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-plant' /><span className='count'>{biologicalSignals} {biologicalSignals === 1 ? 'Biological Signal' : 'Biological Signals'}</span></span></h3>}
-          {highValuePlanets > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-credits' /><span className='count'>{highValuePlanets} {highValuePlanets === 1 ? 'High Value Planet' : 'High Value Planets'}</span></span></h3>}
+          {geologicalSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-volcanic' /><span className='count'>{geologicalSignals} {geologicalSignals === 1 ? 'Geological Signal' : 'Geological Signals'}</span></span></h3>}
+          {earthlikeWorlds > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-earthlike' /><span className='count'>{earthlikeWorlds} {earthlikeWorlds === 1 ? 'Earth-like World' : 'Earth-like Worlds'}</span></span></h3>}
+          {waterWorlds > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-water-world' /><span className='count'>{waterWorlds} {waterWorlds === 1 ? 'Water World' : 'Water Worlds'}</span></span></h3>}
+          {ammoniaWorlds > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-ammonia-world' /><span className='count'>{ammoniaWorlds} {ammoniaWorlds === 1 ? 'Ammonia World' : 'Ammonia Worlds'}</span></span></h3>}
+          {terraformableWorlds > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-terraformable' /><span className='count'>{terraformableWorlds} {terraformableWorlds === 1 ? 'Terraformable Planet' : 'Terraformable Planets'}</span></span></h3>}
+          {highValueGasGiants > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-gas-giant' /><span className='count'>{highValueGasGiants} {highValueGasGiants === 1 ? 'Class II Gas Giant' : 'Class II Gas Giants'}</span></span></h3>}
+          {metalRichPlanets > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-high-metal-value' /><span className='count'>{metalRichPlanets} {metalRichPlanets === 1 ? 'Metal Rich Planet' : 'Metal Rich Planets'}</span></span></h3>}
        </div>
       </div>
     )
   }
 
   return (
-    <h3 className='system-map__info--icons text-uppercase text-info text-muted'>No signals found</h3>
+    <h3 className='system-map__info--icons text-uppercase text-info text-muted'><span className='system-map__info-icon'><span className='count'>No notable signals</span></span></h3>
    )
 }
 
