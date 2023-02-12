@@ -4,7 +4,7 @@ import SystemMap from 'components/panels/nav/system-map/system-map'
 import CopyOnClick from 'components/copy-on-click'
 import factionStates from '../../../../shared/faction-states'
 
-export default function NavigationSystemMapPanel ({ system, systemObject, setSystemObject, getSystem, cmdrStatus }) {
+export default function NavigationSystemMapPanel ({ system, systemObject, setSystemObject, getSystem, cmdrStatus, rescanSystem = () => {}, rescanInProgress = false }) {
   const [showSystemDetails, setShowSystemDetails] = useState(true)
 
   if (!system) return null
@@ -56,7 +56,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
           </div>
           <div className='system-map__toolbar-background' />
           <div className='system-map__toolbar'>
-            <LocationInformation system={system} cmdrStatus={cmdrStatus} />
+            <LocationInformation system={system} cmdrStatus={cmdrStatus} rescanSystem={rescanSystem} rescanInProgress={rescanInProgress} />
             <div className='system-map__info fx-fade-in text-uppercase'>
               <span className='text-info'>
                 <i className='icarus-terminal-system-orbits' style={{ fontSize: '1.5rem', float: 'left', position: 'relative', left: '-.15rem' }} />
@@ -73,6 +73,16 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
                 {system.position?.[0]}<br />{system.position?.[1]}<br />{system.position?.[2]}
               </div>}
           </div>
+
+          <div className='fx-fade-in'>
+            {!system?.scanPercentComplete && 
+              <div className='system-map__system-telemetry--text text-info text-uppercase text-no-wrap' onClick={(e) => rescanSystem()}>
+                <p style={{margin: '0 4rem .15rem 0'}} className={rescanInProgress ? 'text-blink-slow' : 'text-muted'}>
+                  <i className='icarus-terminal-scan float-left' style={{fontSize: '2.5rem', marginRight: '.15rem'}}/>
+                  NO SCAN<br/>DATA
+              </p>
+            </div>}
+         </div>
         </div>
       </div>
     )
@@ -140,25 +150,25 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
 
         <div className='fx-fade-in'>
           {system?.scanPercentComplete && system?.scanPercentComplete !== 100 &&
-            <div className='system-map__system-telemetry text-info text-uppercase'>
+            <div className={`system-map__system-telemetry--progress text-uppercase text-secondary ${rescanInProgress ? 'text-blink-slow' : ''}`} onClick={(e) => rescanSystem()}>
               <i className='icarus-terminal-scan float-left' style={{fontSize: '2.5rem', marginLeft: '.25rem'}}/>
               <div style={{position: 'absolute', right: 0}}>
                 EDSM {system?.scanPercentComplete}% <br />
-                <progress value={system?.scanPercentComplete} max='100' className='progress--info progress--border' style={{margin: '.15rem 0 -.1rem 0', height: '1.25rem', width: '5.5rem'}}/>
+                <progress value={system?.scanPercentComplete} max='100' className='progress--secondary progress--border' style={{margin: '.15rem 0 -.1rem 0', height: '1.25rem', width: '5.5rem'}}/>
               </div>
           </div>}
           {system?.scanPercentComplete === 100 &&
-            <div className='system-map__system-telemetry--with-text text-secondary text-uppercase text-no-wrap'>
-            <p style={{margin: '0 4rem .15rem 0'}} className='text-muted'>
+            <div className='system-map__system-telemetry--text text-primary text-uppercase text-no-wrap'  onClick={(e) => rescanSystem()}>
+            <p style={{margin: '0 4rem .15rem 0'}} className={rescanInProgress ? 'text-blink-slow' : 'text-muted'}>
               <i className='icarus-terminal-scan float-left' style={{fontSize: '2.5rem', marginRight: '.15rem'}}/>
-              FULLY<br/>SCANNED
+              SYSTEM<br/>SCANNED
           </p>
           </div>}
           {!system?.scanPercentComplete && 
-            <div className='system-map__system-telemetry--with-text text-info text-uppercase text-no-wrap'>
-              <p style={{margin: '0 4rem .15rem 0'}} className='text-muted'>
+            <div className='system-map__system-telemetry--text text-info text-uppercase text-no-wrap' onClick={(e) => rescanSystem()}>
+              <p style={{margin: '0 4rem .15rem 0'}} className={rescanInProgress ? 'text-blink-slow' : 'text-muted'}>
                 <i className='icarus-terminal-scan float-left' style={{fontSize: '2.5rem', marginRight: '.15rem'}}/>
-                SCAN<br/>REQUIRED
+                NO SCAN<br/>DATA
             </p>
           </div>}
           {system.position &&
@@ -169,7 +179,7 @@ export default function NavigationSystemMapPanel ({ system, systemObject, setSys
 
         <div className='system-map__toolbar-background' />
         <div className='system-map__toolbar'>
-          <LocationInformation system={system} cmdrStatus={cmdrStatus} />
+          <LocationInformation system={system} cmdrStatus={cmdrStatus}/>
           <div className='system-map__info fx-fade-in text-uppercase'>
             <span className='text-info'>
               <i className='icarus-terminal-system-orbits' style={{ fontSize: '1.5rem', float: 'left', position: 'relative', left: '-.15rem' }} />
@@ -224,7 +234,7 @@ function PointsOfInterest({ system }) {
     if (geologicalSignals === 0 && body.isLandable && body.volcanismType && body.volcanismType !== 'No volcanism') {
       geologicalSignals++
     }
-    
+
     return total + geologicalSignals
   }, 0)
   const humanSignals = system.bodies.reduce((total, body) => total + (body?.signals?.human ?? 0), 0)
@@ -260,7 +270,7 @@ function PointsOfInterest({ system }) {
    )
 }
 
-function LocationInformation ({ system, cmdrStatus }) {
+function LocationInformation ({ system, cmdrStatus, rescanSystem, rescanInProgress }) {
   return (
     <div className='system-map__location fx-fade-in hidden-small'>
       {system?.distance > 0 &&
@@ -294,10 +304,6 @@ function LocationInformation ({ system, cmdrStatus }) {
                 )
               : 'Current location'}
           </h3>
-        </div>}
-      {system.isCurrentLocation === true && cmdrStatus?.flags?.fsdJump === true &&
-        <div className='text-center-vertical'>
-          <h3 className='text-blink-slow text-info' style={{ background: 'transparent' }}>Frame Shift Drive Active</h3>
         </div>}
     </div>
   )

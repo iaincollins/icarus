@@ -15,6 +15,7 @@ export default function NavMapPage () {
   const [system, setSystem] = useState()
   const [systemObject, setSystemObject] = useState()
   const [cmdrStatus, setCmdrStatus] = useState()
+  const [rescanInProgress, setRescanInProgress] = useState(false)
 
   const search = async (searchInput) => {
     const newSystem = await sendEvent('getSystem', { name: searchInput })
@@ -27,6 +28,14 @@ export default function NavMapPage () {
     const newSystem = await sendEvent('getSystem', { name: systemName, useCache })
     if (!newSystem) return
     setSystemObject(null)
+    setSystem(newSystem)
+  }
+
+  const rescanSystem = async () => {
+    setRescanInProgress(true)
+    const newSystem = await sendEvent('getSystem', { name: system?.name, useCache: false })
+    setRescanInProgress(false)
+    if (!newSystem) return
     setSystem(newSystem)
   }
 
@@ -109,7 +118,7 @@ export default function NavMapPage () {
   return (
     <Layout connected={connected} active={active} ready={ready} loader={!componentReady}>
       <Panel layout='full-width' navigation={NavPanelNavItems('Map', query)} search={search} exit={system?.isCurrentLocation === false ? () => getSystem() : null}>
-        <NavigationSystemMapPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} getSystem={getSystem} cmdrStatus={cmdrStatus} />
+        <NavigationSystemMapPanel system={system} systemObject={systemObject} setSystemObject={setSystemObject} getSystem={getSystem} cmdrStatus={cmdrStatus} rescanSystem={rescanSystem} rescanInProgress={rescanInProgress}/>
         <NavigationInspectorPanel systemObject={systemObject} setSystemObjectByName={setSystemObjectByName} />
       </Panel>
     </Layout>
