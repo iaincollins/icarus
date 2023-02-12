@@ -112,6 +112,7 @@ function NavigationTableRow ({ stars, systemObject, depth = 0, setSystemObject }
   }
 
   const isLandable = systemObject.isLandable || SPACE_STATIONS.concat(MEGASHIPS).includes(systemObject.type) || PLANETARY_BASES.includes(systemObject.type)
+  const isAtmospheric = systemObject.atmosphereComposition && !systemObject?.subType?.toLowerCase()?.includes('gas giant')
 
   // TODO Move to icon class
   let iconClass = 'icon system-object-icon icarus-terminal-'
@@ -135,7 +136,19 @@ function NavigationTableRow ({ stars, systemObject, depth = 0, setSystemObject }
       iconClass += 'orbis-starport'
       break
     case 'planet':
-      iconClass += 'planet'
+      if (isLandable) {
+        if (isAtmospheric) {
+          iconClass += 'planet-atmosphere-landable'
+        } else {
+          iconClass += 'planet-landable'
+        }
+      } else {
+        if (isAtmospheric) {
+          iconClass += 'planet-atmosphere'
+        } else {
+          iconClass += 'planet'
+        }
+      }
       break
     case 'mega ship':
       iconClass += 'megaship'
@@ -159,12 +172,11 @@ function NavigationTableRow ({ stars, systemObject, depth = 0, setSystemObject }
           <i className={iconClass} />
           {systemObject.label
             ? <>
-              <span className='visible-medium'>{systemObject.label}</span>
-              <span className='hidden-medium'>{systemObject.name}</span>
+                <span className='visible-medium'>{systemObject.label}</span>
+                <span className='hidden-medium'>{systemObject.name}</span>
               </>
             : systemObject.name}
           <span className={systemObject.isLandable ? 'text-secondary' : ''}>
-            {systemObject.isLandable === true && <i title='Landable' className='float-right icon icarus-terminal-planet-lander' />}
             {(systemObject.atmosphereComposition && !systemObject?.subType?.toLowerCase()?.includes('gas giant')) && <i className='float-right icon icarus-terminal-planet-atmosphere' />}
             {systemObject.volcanismType && systemObject.volcanismType !== 'No volcanism' && <i className='float-right icon icarus-terminal-planet-volcanic' />}
             {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && systemObject.terraformingState !== 'Terraformed' && <i className='float-right icon icarus-terminal-planet-terraformable' />}

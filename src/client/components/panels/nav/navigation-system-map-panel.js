@@ -215,18 +215,41 @@ function PointsOfInterest({ system }) {
   }
   
   const biologicalSignals = system.bodies.reduce((total, body) => total + (body?.signals?.biological ?? 0), 0)
-  const geologicalSignals = system.bodies.reduce((total, body) => total + (body?.signals?.geological ?? 0), 0)
+  const geologicalSignals = system.bodies.reduce((total, body) => {
+    let geologicalSignals = body?.signals?.geological ?? 0
+
+    // If no geological signals BUT the planet is landable *and* a body is known
+    // to have volcanic activity then it must be the source of *at least* one
+    // geological signal
+    if (geologicalSignals === 0 && body.isLandable && body.volcanismType && body.volcanismType !== 'No volcanism') {
+      geologicalSignals++
+    }
+    
+    return total + geologicalSignals
+  }, 0)
   const humanSignals = system.bodies.reduce((total, body) => total + (body?.signals?.human ?? 0), 0)
 
-  const signalSources = (biologicalSignals > 0 || geologicalSignals > 0 || humanSignals > 0)
+  const highValuePlanets =  system.bodies.reduce((total, body) => {
+    const isHighValuePlanet = (body?.subType?.toLowerCase() === 'earth-like world'
+    || body?.subType?.toLowerCase() === 'water world'
+    || body?.subType?.toLowerCase() === 'ammonia world'
+    || (body.terraformingState && body.terraformingState !== 'Not terraformable' && body.terraformingState !== 'Terraformed')
+    || body?.subType?.toLowerCase()?.includes('class ii gas giant')
+    || body?.subType?.toLowerCase() === 'metal rich')
 
-  if (signalSources) {
+    return isHighValuePlanet ? total + 1 : total
+  }, 0)
+
+  const interestingFeatures = (biologicalSignals > 0 || geologicalSignals > 0 || humanSignals > 0 || highValuePlanets > 0)
+
+  if (interestingFeatures) {
     return (
       <div className='system-map__info--icons'>
         <div style={{ width: '100%' }}>
           {humanSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-poi' /><span className='count'>{humanSignals} {humanSignals === 1 ? 'Human Origin Signal' : 'Human Origin Signals'}</span></span></h3>}
           {geologicalSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-planet-volcanic' /><span className='count'>{geologicalSignals} {geologicalSignals === 1 ? 'Geological Signal' : 'Geological Signals'}</span></span></h3>}
           {biologicalSignals > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-plant' /><span className='count'>{biologicalSignals} {biologicalSignals === 1 ? 'Biological Signal' : 'Biological Signals'}</span></span></h3>}
+          {highValuePlanets > 0 && <h3 className='text-primary'><span className='system-map__info-icon'><i className='icon icarus-terminal-credits' /><span className='count'>{highValuePlanets} {highValuePlanets === 1 ? 'High Value Planet' : 'High Value Planets'}</span></span></h3>}
        </div>
       </div>
     )
