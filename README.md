@@ -51,9 +51,27 @@ The web interface relies on advanced browser functionality for rendering and wor
 
 ## Developer Documentation
  
-Code contributions, pull requests and bug reports are not currently being accepted for this repository. See [CONTRIB.md](CONTRIB.md) for more information.
+Code contributions, pull requests and bug reports are not currently being accepted for this repository. See [CONTRIB.md](CONTRIB.md) for more information. For developer documentation see [BUILD.md](BUILD.md).
 
-For developer documentation, including one-step build instructions for Windows/Mac/Linux, see [BUILD.md](BUILD.md).
+### Developer Quickstart
+
+If you are running on Linux and/or looking for quick instructions on how to run from source, if you have [Node.js](https://nodejs.org/en/) this is what you need to do to download and install  ICARUS Terminal:
+
+    git clone git@github.com:iaincollins/icarus.git
+    cd icarus
+    npm install
+    
+Next, run `cp .env-example .env` to create an `.env` file and edit it to change the `LOG_DIR` option to point to the location of your Elite Dangerous log files:
+
+    # LOG_DIR can be used to tell the Service where to look for game logs
+    # This option can be used in development and at runtime
+    LOG_DIR=path/to/logs
+
+With that done, anytime you want to start ICARUS Terminal, all you need to do is run:
+
+    npm start
+
+This will run in debug mode which is not quite the same as a production build (it's not as optimised) but should work just fine.
 
 ## Legal
 
@@ -89,8 +107,8 @@ Thank you to all those who have created and supported libraries on which this so
 
 ## Donations
 
-People have asked if I take donations for the project. I don't take donations, but I do appreciate folks asking. If you want to support development of ICARUS Terminal, you can always pay a vist to my carrier the [Ardent Pioneer (V9G-G7Z)](https://inara.cz/elite/station/490914/)!
+People have asked if I take donations for the project. I don't take donations, but I do appreciate folks asking. If you want to support development of ICARUS Terminal, you can always pay a visit to the [Ardent Pioneer (V9G-G7Z)](https://inara.cz/elite/station/490914/). Selling Tritium to the carrier is very helpful and always appreciated.
 
-Selling Tritium to the carrier is very helpful and always appreciated. You can use Inara to [find out which system the Ardent Pioneer is currently in](https://inara.cz/elite/station/490914/). Before you visit you might want to [check out what commodities are currently being traded](https://inara.cz/elite/station-market/490914/). Youc an also can chat to the bartender to see if there is anything they need.
+You can use Inara to [find out which system the Ardent Pioneer is currently in](https://inara.cz/elite/station/490914/). Before you visit you might want to [check out what commodities are currently being traded](https://inara.cz/elite/station-market/490914/). You might also want to chat to the bartender to see if there is anything they are looking for (or have to trade).
 
-Note: While docked you can also sell exploration data, biological samples and refuel/rearm/repair your ship. All buy orders are at least 10% above galatic average prices so you should be able to make a small profit. Trades, especially selling Tritium, directly supports development as it means I can spend more time adding travelling the galaxy and testing out functionality in ICARUS Terminal!
+Note: While docked you can also sell exploration data, biological samples and refuel/rearm/repair your ship. All buy orders are at least 10% above galatic average prices so you should be able to make a small profit. Trades, especially selling Tritium, directly supports development as it means I can spend more time adding travelling the galaxy and testing out functionality in ICARUS Terminal.
