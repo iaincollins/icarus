@@ -62,6 +62,8 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
     SURFACE_PORTS.includes(base.type) ? surfacePorts.push(base) : settlements.push(base)
   )
 
+  console.log(systemObject)
+
   return (
     <div className='inspector navigation-panel__inspector fx-fade-in'>
       <div className='inspector__title' onClick={() => { setSystemObjectByName(null) }}>
@@ -99,7 +101,11 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             <div className='navigation-panel__inspector-section'>
               <h4 className='text-primary'>Environment</h4>
               {isLandable ? <p className='text-info'>Landable</p> : <p className='text-muted'>Not Landable</p>}
-              {systemObject.gravity ? <p className='text-info'>Gravity {systemObject.gravity.toFixed(1)}g</p> : null}
+              {systemObject.gravity ?
+              <p className='text-info'>Gravity {Math.max(0.01, Number(systemObject.gravity.toFixed(2)))}g
+               {systemObject.gravity < .5 && ' (Low)'}
+               {systemObject.gravity > 1.5 && ' (High)'}
+              </p> : null}
               {systemObject.radius && <p className='text-info'>Radius {systemObject.radius.toLocaleString(undefined, { maximumFractionDigits: 0 })} Km</p>}
               {systemObject.surfaceTemperature &&
                 <p className='text-info'>
