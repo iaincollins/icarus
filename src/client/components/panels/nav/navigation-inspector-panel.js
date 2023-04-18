@@ -96,9 +96,9 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
               <h4 className='text-primary'>Exploration</h4>
 
               {systemObject.hasOwnProperty('mapped') && <>
-                {systemObject.mapped 
+                {systemObject.mapped === true
                   ? <p className='text-info text-muted'><i className='icarus-terminal-scan' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Surface scanned</p>
-                  : <p className='text-info'><i className='icarus-terminal-scan' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Surface not scanned</p>}
+                  : <p className='text-info'><i className='icarus-terminal-scan' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Surface scan required</p>}
               </>}
               {isLandable ? <p className='text-info'><i className='icarus-terminal-planet-lander' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Landable surface</p> : null}
 

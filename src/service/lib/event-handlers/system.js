@@ -150,9 +150,14 @@ class System {
           // FIXME Suspect this logic isn't entirely correct
           const inhabitedSystem = (system?.population > 0 || system?.stations?.length > 0 || system?.ports?.length > 0 || system?.megaships?.length > 0 || system?.settlements?.length > 0)
           if (!inhabitedSystem) {
-            const Scan = await this.eliteLog._query({ event: 'Scan', BodyName: body.name, ScanType: 'Detailed' }, 1)
+            const Scan = await this.eliteLog._query({ event: 'Scan', BodyName: body.name }, 1)
             body.discovered = Scan[0]?.WasDiscovered ?? false
             body.mapped = Scan[0]?.WasMapped ?? false
+
+            // If there is an SAAScanComplete entry for the body, it has been scanned
+            // (even if the Scan entry says it has not, because it's old data)
+            const SAAScanComplete = await this.eliteLog._query({ event: 'SAAScanComplete', BodyName: body.name }, 1)
+            if (SAAScanComplete[0]?.BodyName) body.mapped = true
           }
         }
       }
