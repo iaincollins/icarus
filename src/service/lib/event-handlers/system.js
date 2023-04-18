@@ -137,12 +137,22 @@ class System {
               }
             })
           }
+
           // If we have data from a surface scan about the plants, merge it
           if (body.signals.biological > 0 && SAASignalsFound[0]?.Genuses) {
             body.biologicalGenuses = []
             ;(SAASignalsFound[0]?.Genuses).map(biologicalSamples => {
               body.biologicalGenuses.push(biologicalSamples.Genus_Localised)
             })
+          }
+
+          // Only log discovered / mapped if in an unhabited system
+          // FIXME Suspect this logic isn't entirely correct
+          const inhabitedSystem = (system?.population > 0 || system?.stations?.length > 0 || system?.ports?.length > 0 || system?.megaships?.length > 0 || system?.settlements?.length > 0)
+          if (!inhabitedSystem) {
+            const Scan = await this.eliteLog._query({ event: 'Scan', BodyName: body.name, ScanType: 'Detailed' }, 1)
+            body.discovered = Scan[0]?.WasDiscovered ?? false
+            body.mapped = Scan[0]?.WasMapped ?? false
           }
         }
       }

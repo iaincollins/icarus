@@ -62,6 +62,14 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
     SURFACE_PORTS.includes(base.type) ? surfacePorts.push(base) : settlements.push(base)
   )
 
+  // Show exploration only if there is intersting data to show
+  let showExploration = false
+  if (systemObject.hasOwnProperty('mapped')) showExploration = true
+  if (isLandable) showExploration = true
+  if (systemObject.volcanismType !== 'No volcanism') showExploration = true
+  if (systemObject?.signals?.biological > 0) showExploration = true
+  if (systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && systemObject.terraformingState !== 'Terraformed') showExploration = true
+
   return (
     <div className='inspector navigation-panel__inspector fx-fade-in'>
       <div className='inspector__title' onClick={() => { setSystemObjectByName(null) }}>
@@ -83,14 +91,15 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             <p className='text-info'>{systemObject.distanceToArrival.toLocaleString(undefined, { maximumFractionDigits: 0 })} Ls</p>
           </div>}
 
-          {systemObject.type == 'Planet' && systemObject.hasOwnProperty('discovered') && systemObject.hasOwnProperty('mapped') &&
+          {systemObject.type == 'Planet' && showExploration == true &&
             <div className='navigation-panel__inspector-section'>
               <h4 className='text-primary'>Exploration</h4>
 
-              {systemObject?.mapped 
-                ? <p className='text-info text-muted'><i className='icarus-terminal-scan' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Surface scanned</p>
-                : <p className='text-info'><i className='icarus-terminal-scan' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Surface not scanned</p>}
-
+              {systemObject.hasOwnProperty('mapped') && <>
+                {systemObject.mapped 
+                  ? <p className='text-info text-muted'><i className='icarus-terminal-scan' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Surface scanned</p>
+                  : <p className='text-info'><i className='icarus-terminal-scan' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Surface not scanned</p>}
+              </>}
               {isLandable ? <p className='text-info'><i className='icarus-terminal-planet-lander' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Landable surface</p> : null}
 
               {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && systemObject.terraformingState !== 'Terraformed' && 
@@ -113,7 +122,7 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                 )}
               </>}
 
-              {systemObject?.discovery?.commander && <p className='text-info'><span className='text-primary'>EDSM Credit</span><br/>Cmdr {systemObject.discovery.commander}</p>}
+              {/* {systemObject?.discovery?.commander && <p className='text-info'><span className='text-primary'>EDSM Credit</span><br/>Cmdr {systemObject.discovery.commander}</p>} */}
           </div>
         }
 
