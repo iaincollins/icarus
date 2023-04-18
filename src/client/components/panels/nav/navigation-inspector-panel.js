@@ -62,8 +62,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
     SURFACE_PORTS.includes(base.type) ? surfacePorts.push(base) : settlements.push(base)
   )
 
-  console.log(systemObject)
-
   return (
     <div className='inspector navigation-panel__inspector fx-fade-in'>
       <div className='inspector__title' onClick={() => { setSystemObjectByName(null) }}>
@@ -85,6 +83,40 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
             <p className='text-info'>{systemObject.distanceToArrival.toLocaleString(undefined, { maximumFractionDigits: 0 })} Ls</p>
           </div>}
 
+          {systemObject.type == 'Planet' && systemObject.hasOwnProperty('discovered') && systemObject.hasOwnProperty('mapped') &&
+            <div className='navigation-panel__inspector-section'>
+              <h4 className='text-primary'>Exploration</h4>
+
+              {systemObject?.mapped 
+                ? <p className='text-info text-muted'><i className='icarus-terminal-scan' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Surface scanned</p>
+                : <p className='text-info'><i className='icarus-terminal-scan' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Surface not scanned</p>}
+
+              {isLandable ? <p className='text-info'><i className='icarus-terminal-planet-lander' style={{position: 'relative', top: '.3rem', fontSize: '1.5rem'}}/> Landable surface</p> : null}
+
+              {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && systemObject.terraformingState !== 'Terraformed' && 
+                <p className='text-info'><i className='icarus-terminal-planet-terraformable' style={{position: 'relative', top: '.2rem', fontSize: '1.5rem'}}/> Terraformable</p>}
+
+              {systemObject.volcanismType !== 'No volcanism' ? <p className='text-info text-no-wrap'><i className='icarus-terminal-planet-volcanic' style={{position: 'relative', top: '.2rem', fontSize: '1.5rem'}}/> {systemObject.volcanismType}</p> : null}
+
+              {systemObject?.signals?.biological > 0 && !systemObject?.biologicalGenuses && <>
+                {systemObject?.signals?.biological === 1 &&
+                  <p className='text-info'><i className='icarus-terminal-plant' style={{position: 'relative', top: '.2rem', fontSize: '1.5rem'}}/> {systemObject?.signals?.biological} Biological Signal</p>
+                }
+                {systemObject?.signals?.biological > 1 &&
+                  <p className='text-info'><i className='icarus-terminal-plant' style={{position: 'relative', top: '.2rem', fontSize: '1.5rem'}}/> {systemObject?.signals?.biological} Biological Signals</p>
+                }
+              </>}
+
+              {systemObject.biologicalGenuses && <>
+                {systemObject.biologicalGenuses.map(genus => 
+                  <p key={`navigation-inspector_${systemObject.id}_bio-signal_${genus}`} className='text-info'><i className='icarus-terminal-plant' style={{position: 'relative', top: '.2rem', fontSize: '1.5rem'}}/> {genus}</p>
+                )}
+              </>}
+
+              {systemObject?.discovery?.commander && <p className='text-info'><span className='text-primary'>EDSM Credit</span><br/>Cmdr {systemObject.discovery.commander}</p>}
+          </div>
+        }
+
         {systemObject.type === 'Star' &&
           <div className='navigation-panel__inspector-section'>
             <h4 className='text-primary'>Stellar Properties</h4>
@@ -100,7 +132,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
           <>
             <div className='navigation-panel__inspector-section'>
               <h4 className='text-primary'>Environment</h4>
-              {isLandable ? <p className='text-info'>Landable</p> : <p className='text-muted'>Not Landable</p>}
               {systemObject.gravity ?
               <p className='text-info'>Gravity {Math.max(0.01, Number(systemObject.gravity.toFixed(2)))}g
                {systemObject.gravity < .5 && ' (Low)'}
@@ -112,20 +143,6 @@ export default function NavigationInspectorPanel ({ systemObject, setSystemObjec
                   Temperature {systemObject.surfaceTemperature}K
                   ({kelvinToCelius(systemObject.surfaceTemperature)}C/{kelvinToFahrenheit(systemObject.surfaceTemperature)}F)
                 </p>}
-              {systemObject.terraformingState && systemObject.terraformingState !== 'Not terraformable' && <p className='text-info'>{systemObject.terraformingState}</p>}
-              {systemObject.volcanismType !== 'No volcanism' ? <p className='text-info'>{systemObject.volcanismType}</p> : null}
-              {systemObject?.signals?.biological === 1 &&
-                  <p className='text-info'>{systemObject?.signals?.biological} Biological Signal</p>
-                }
-                {systemObject?.signals?.biological > 1 &&
-                  <p className='text-info'>{systemObject?.signals?.biological} Biological Signals</p>
-                }
-                {systemObject.biologicalGenuses && <ul className='text-info'>
-                  {systemObject.biologicalGenuses.map(genus => <li key={`navigation-inspector_${systemObject.id}_bio-signal_${genus}`}>{genus}</li>)}
-                </ul>}
-                {systemObject?.signals?.biological > 0 && !systemObject?.biologicalGenuses && <ul className='text-info'>
-                  <li className='text-muted'>Unknown Species</li>
-                </ul>}
             </div>
 
             {surfacePorts.length > 0 &&
