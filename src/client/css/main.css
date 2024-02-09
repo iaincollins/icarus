@@ -61,18 +61,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
 .scrollable {
-  scrollbar-width: none;
-}
-
-html::-webkit-scrollbar,
-.scrollable::-webkit-scrollbar {
-  width: 0px;
-}
-
-.scrollable {
-  scrollbar-width: none;
   overflow-x: hidden !important;
 }
 
