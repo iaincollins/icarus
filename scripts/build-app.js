@@ -50,7 +50,7 @@ async function build () {
     fs.copyFileSync(APP_UNOPTIMIZED_BUILD, APP_OPTIMIZED_BUILD)
   } else {
     if (COMPRESS_FINAL_BUILD) {
-      console.log('Optimizing...')
+      console.log('Optimizing app build...')
       const optimisationStats = await UPX(APP_UNOPTIMIZED_BUILD)
         .output(APP_OPTIMIZED_BUILD)
         .start()
@@ -58,9 +58,9 @@ async function build () {
           console.log('Error compressing build', err)
           process.exit(1)
         })
-      console.log('Optimization', optimisationStats)
+      console.log('Optimized app build', optimisationStats)
     } else {
-      console.log('Compression disabled (skipping compression)')
+      console.log('Compression disabled (skipping service build optimization)')
       fs.copyFileSync(APP_UNOPTIMIZED_BUILD, APP_OPTIMIZED_BUILD)
     }
   }

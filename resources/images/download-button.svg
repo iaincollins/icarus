@@ -5,7 +5,7 @@
    version="1.1"
    id="svg10"
    sodipodi:docname="download-button.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    width="1000"
    height="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -41,17 +41,6 @@
     </linearGradient>
     <radialGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient13493"
-       id="radialGradient13495"
-       cx="373.05237"
-       cy="-61.202835"
-       fx="373.05237"
-       fy="-61.202835"
-       r="500"
-       gradientTransform="matrix(-1.5670103,0.02978235,-0.00571836,-0.29994548,1103.1273,125.17129)"
-       gradientUnits="userSpaceOnUse" />
-    <radialGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient5748"
        id="radialGradient5750"
        cx="524.6275"
@@ -59,7 +48,18 @@
        fx="524.6275"
        fy="138.73618"
        r="500"
-       gradientTransform="matrix(3.7571592,-0.10996564,0.00877737,0.29987157,-1447.6991,162.70882)"
+       gradientTransform="matrix(3.6351735,-0.10639533,0.00849239,0.29013548,-1392.8582,165.26373)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient13493"
+       id="radialGradient13495-5"
+       cx="373.05237"
+       cy="-61.202835"
+       fx="373.05237"
+       fy="-61.202835"
+       r="500"
+       gradientTransform="matrix(-1.5161333,0.02881539,-0.0055327,-0.29020699,1077.0842,127.00988)"
        gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
@@ -71,30 +71,34 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="0.5"
-     inkscape:cx="468"
-     inkscape:cy="451"
-     inkscape:window-width="2229"
-     inkscape:window-height="1353"
-     inkscape:window-x="845"
-     inkscape:window-y="746"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="469.5189"
+     inkscape:cy="245.36605"
+     inkscape:window-width="1350"
+     inkscape:window-height="1230"
+     inkscape:window-x="2136"
+     inkscape:window-y="757"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg10" />
+     inkscape:current-layer="svg10"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <path
-     id="path6068"
-     style="fill:url(#radialGradient13495);fill-rule:evenodd;stroke-width:84.153;paint-order:fill markers stroke"
-     d="M 0,0 H 1000 V 300 H 0 Z" />
+     id="path6068-6"
+     style="fill:url(#radialGradient13495-5);fill-rule:evenodd;stroke-width:81.4208;paint-order:fill markers stroke"
+     d="M 9.772727,5.9025974 V 218.72384 l 77.311892,77.31377 -0.124725,0.12473 H 997.30519 V 81.373913 C 980.98459,65.053309 940.34961,28.088154 918.16406,5.9025974 Z"
+     sodipodi:nodetypes="cccccccc" />
   <path
      id="path6071"
-     style="fill:url(#radialGradient5750);fill-rule:evenodd;stroke-width:84.153;paint-order:fill markers stroke"
-     d="M 0,0 H 1000 V 300 H 0 Z" />
+     style="fill:url(#radialGradient5750);fill-rule:nonzero;stroke:#552200;stroke-width:9.67532;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+     d="M 7.8376623,7.8376623 V 218.72384 l 77.3118917,77.31377 c 296.075446,0.2477 613.612826,0.12473 910.220576,0.12473 V 81.373909 C 980.51407,66.517852 939.66369,29.3373 918.16406,7.8376623 Z"
+     sodipodi:nodetypes="ccccccc" />
   <path
      id="path6065"
-     style="fill:#552200;stroke-width:0.248159"
-     d="m 101.67623,95.418851 v 35.412159 l -37.19065,0.30948 37.19065,37.19066 5.01778,5.01778 16.08026,16.08027 21.09805,-21.09805 37.79559,-37.79559 -0.3678,-0.36779 -37.42779,0.31165 V 95.418851 Z M 64.5301,200.91514 v 16.94435 h 116.77001 v -16.94435 z" />
+     style="fill:#552200;stroke-width:0.240102"
+     d="m 106.21272,98.223433 v 34.262417 l -35.983165,0.29943 35.983165,35.98317 4.85486,4.85487 15.55817,15.55818 20.41305,-20.41305 36.56846,-36.56846 -0.35585,-0.35585 -36.21261,0.30153 V 98.223433 Z M 70.272629,200.29452 v 16.39421 H 183.25141 v -16.39421 z" />
   <g
      aria-label="Download Latest Preview Release"
-     transform="matrix(0.99221562,0,0,0.96663211,21.450447,4.6745817)"
+     transform="matrix(0.96000083,0,0,0.93524795,28.591666,10.425407)"
      id="text2343"
      style="font-size:86.4552px;line-height:1.05;fill:#552200;stroke:#000000;stroke-width:0.510548;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
     <path

@@ -21,6 +21,7 @@ const {
 const DEVELOPMENT_BUILD = commandLineArgs.debug || DEVELOPMENT_BUILD_DEFAULT
 const DEBUG_CONSOLE = commandLineArgs.debug || DEBUG_CONSOLE_DEFAULT
 const ENTRY_POINT = path.join(__dirname, '..', 'src', 'service', 'main.js')
+const COMPRESS_FINAL_BUILD = false
 
 ;(async () => {
   clean()
@@ -63,11 +64,16 @@ async function build () {
     console.log('Development build (skipping compression)')
     fs.copyFileSync(SERVICE_UNOPTIMIZED_BUILD, SERVICE_FINAL_BUILD)
   } else {
-    console.log('Optimizing...')
-    const optimisationStats = await UPX(SERVICE_UNOPTIMIZED_BUILD)
-      .output(SERVICE_OPTIMIZED_BUILD)
-      .start()
-    console.log('Optimization', optimisationStats)
-    fs.copyFileSync(SERVICE_OPTIMIZED_BUILD, SERVICE_FINAL_BUILD)
+    if (COMPRESS_FINAL_BUILD) {
+      console.log('Optimizing service build...')
+      const optimisationStats = await UPX(SERVICE_UNOPTIMIZED_BUILD)
+        .output(SERVICE_OPTIMIZED_BUILD)
+        .start()
+      fs.copyFileSync(SERVICE_OPTIMIZED_BUILD, SERVICE_FINAL_BUILD)
+      console.log('Optimized service build', optimisationStats)
+    } else {
+      console.log('Compression disabled (skipping service build optimization)')
+      fs.copyFileSync(SERVICE_UNOPTIMIZED_BUILD, SERVICE_FINAL_BUILD)
+    }
   }
 }
