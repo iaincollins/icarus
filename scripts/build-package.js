@@ -10,6 +10,7 @@ const {
   APP_FINAL_BUILD,
   SERVICE_FINAL_BUILD,
   PRODUCT_VERSION,
+  PATH_TO_MAKENSIS,
   PATH_TO_SIGNTOOL,
   SIGN_BUILD,
   SIGN_CERT_NAME,
@@ -30,12 +31,12 @@ function clean () {
 async function build () {
   // Sign binaries before packaging
   if (SIGN_BUILD) {
-    execSync(`"${PATH_TO_SIGNTOOL}" sign /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${APP_FINAL_BUILD}"`)
-    execSync(`"${PATH_TO_SIGNTOOL}" sign /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${SERVICE_FINAL_BUILD}"`)
+    execSync(`"${PATH_TO_SIGNTOOL}" sign /a /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${APP_FINAL_BUILD}"`)
+    execSync(`"${PATH_TO_SIGNTOOL}" sign /a /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${SERVICE_FINAL_BUILD}"`)
   }
 
   const installerOutput = NSIS.compile.sync(INSTALLER_NSI, {
-    pathToMakensis: 'C:\\Program Files (x86)\\NSIS\\makensis.exe',
+    pathToMakensis: PATH_TO_MAKENSIS,
     verbose: 4,
     define: {
       SPECIAL_BUILD: false,
@@ -46,7 +47,7 @@ async function build () {
   console.log(installerOutput)
 
   if (SIGN_BUILD) {
-    execSync(`"${PATH_TO_SIGNTOOL}" sign /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${INSTALLER_EXE}"`)
+    execSync(`"${PATH_TO_SIGNTOOL}" sign /a /n "${SIGN_CERT_NAME}" /t ${SIGN_TIME_SERVER} /fd SHA256 /v "${INSTALLER_EXE}"`)
   }
 
   // Open directory with installer

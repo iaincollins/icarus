@@ -24,6 +24,7 @@ const RESOURCES_DIR = path.join(ROOT_DIR, 'resources')
 const ASSETS_DIR = path.join(RESOURCES_DIR, 'assets')
 const ICON = path.join(ASSETS_DIR, 'icon.ico')
 
+const PATH_TO_MAKENSIS = 'C:\\Program Files (x86)\\NSIS\\makensis.exe'
 const INSTALLER_NSI = path.join(RESOURCES_DIR, 'installer', 'installer.nsi') // Installer config
 const INSTALLER_EXE = path.join(DIST_DIR, 'ICARUS Setup.exe') // Should match INSTALLER_NAME in .nsi
 
@@ -91,6 +92,7 @@ module.exports = {
   INSTALLER_NSI,
   INSTALLER_EXE,
   PRODUCT_VERSION,
+  PATH_TO_MAKENSIS,
   PATH_TO_SIGNTOOL,
   SIGN_BUILD,
   SIGN_CERT_NAME,
