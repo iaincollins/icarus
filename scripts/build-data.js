@@ -15,94 +15,15 @@ const ROOT_INPUT_DATA_DIR = path.join(RESOURCES_DIR, 'data')
 const ROOT_OUTPUT_DATA_DIR = path.join('src', 'service', 'data')
 
 ;(async () => {
-  // await codexArticles()
   fdevids()
   coriolisDataBlueprints()
   coriolisDataModules()
   materialUses()
+  await codexArticles()
 })()
 
-async function codexArticles () {
-  const pathToFile = path.join(RESOURCES_DIR, 'data', 'fandom', 'elite_dangerousfandomcom-20220527-wikidump', 'elite_dangerousfandomcom-20220527-current.xml')
-  const xml = fs.readFileSync(pathToFile).toString()
-  const wikiData = (await xmlParser.parseStringPromise(xml)).mediawiki
-  const codexIndex = {}
-  const codexRedirects = {}
-  const codexPages = wikiData.page.reduce((response, item) => {
-    const page = item
-    const title = page.title[0].trim()
-    const id = `${page.id}-${title.toLowerCase().replace(/[^A-z0-9\(\)\'-]/g, '_').replace(/(__+)/g, '_')}`
-
-    // Ignore Talk and User pages
-    if (title.startsWith('Talk:') || title.startsWith('User:')) return response
-
-    const markdown = page.revision[0].text[0]._
-    let text = wikiTextParser.parse(markdown || '').replace(/\r/g, '')
-
-    // Ignore blank pages
-    if (!markdown || !text) return response
-
-    if (text.toLowerCase().startsWith('- redirect ') || text.toLowerCase().includes('__staticredirect__')) {
-      const redirectTo = text
-        .replace(/- REDIRECT /i, '')
-        .replace(/__STATICREDIRECT__/i, '')
-        .replace(/\n(.*)?/, '')
-        .replace(/\r(.*)?/, '')
-        .trim()
-
-      // Ignore broken redirects
-      if (!redirectTo) return response
-
-      // Add to list of redirects
-      codexRedirects[title] = redirectTo
-
-      return response
-    }
-
-    // Clean up text / omit certain sections
-    text = text
-      .replace(/\n\n- /img, '\n- ')
-      .replace(/\n\nGallery\n(.*?)\n/im, '\n')
-      .replace(/\n\nVideos\n(.*?)\n/im, '\n')
-      .replace(/\n\nReferences\n(.*?)\n/im, '\n')
-      .replace(/\nCategory:(.*?)\n/img, '\n')
-      .replace(/\nCategory:(.*?)$/img, '\n')
-      .replace(/\n([a-z]{2}):(.*?)\n/img, '\n')
-      .replace(/\n([a-z]{2}):(.*?)$/img, '\n')
-      .trim()
-
-    response.push({
-      id,
-      title,
-      timestamp: page.revision[0].timestamp[0],
-      contributor: {
-        id: page.revision[0].contributor[0]?.id?.[0] ?? null,
-        name: page.revision[0].contributor[0]?.username?.[0] ?? null
-      },
-      text
-    })
-
-    codexIndex[title] = id
-
-    return response
-  }, [])
-
-  // Write files to disk
-  const codexDir = path.join(ROOT_OUTPUT_DATA_DIR, 'codex')
-  fs.mkdirSync(codexDir, { recursive: true })
-
-  codexPages.forEach(codexPage => {
-    const filename = path.join(codexDir, `${codexPage.id}.json`)
-    fs.writeFileSync(filename, JSON.stringify(codexPage, null, 2))
-  })
-
-  fs.writeFileSync(path.join(codexDir, '_index.json'), JSON.stringify({
-    index: codexIndex,
-    redirects: codexRedirects
-  }, null, 2))
-}
-
 function fdevids () {
+  // TODO Make this a sync task, as codexArticles depends on it's output
   // https://github.com/EDCD/FDevIDs
   const dataDir = 'edcd/fdevids'
   fs.mkdirSync(`${ROOT_OUTPUT_DATA_DIR}/${dataDir}`, { recursive: true })
@@ -234,6 +155,131 @@ function materialUses () {
   })
 
   fs.writeFileSync(`${ROOT_OUTPUT_DATA_DIR}/material-uses.json`, JSON.stringify(materialUses, null, 2))
+}
+
+
+async function codexArticles () {
+  const pathToFile = path.join(RESOURCES_DIR, 'data', 'fandom', 'elite_dangerousfandomcom-20220527-wikidump', 'elite_dangerousfandomcom-20220527-current.xml')
+  const xml = fs.readFileSync(pathToFile).toString()
+  const wikiData = (await xmlParser.parseStringPromise(xml)).mediawiki
+  const codexIndex = {}
+  const codexRedirects = {}
+  const codexPages = wikiData.page.reduce((response, item) => {
+    const page = item
+    const title = page.title[0].trim()
+    const id = `${page.id}-${title.toLowerCase().replace(/[^A-z0-9\(\)\'-]/g, '_').replace(/(__+)/g, '_')}`
+
+    // Ignore Talk and User pages
+    if (title.startsWith('Talk:') || title.startsWith('User:')) return response
+
+    const rawText = page.revision[0].text[0]._
+    const parsedText = wikiTextParser.parse(rawText || '').replace(/\r/g, '')
+
+    // Ignore blank pages
+    if (!rawText || !parsedText) return response
+
+    if (rawText.toLowerCase().startsWith('- redirect ') || parsedText.toLowerCase().includes('__staticredirect__')) {
+      const redirectTo = parsedText
+        .replace(/- REDIRECT /i, '')
+        .replace(/__STATICREDIRECT__/i, '')
+        .replace(/\n(.*)?/, '')
+        .replace(/\r(.*)?/, '')
+        .trim()
+
+      // Ignore broken redirects
+      if (!redirectTo) return response
+
+      // Add to list of redirects
+      codexRedirects[title] = redirectTo
+
+      return response
+    }
+
+    const rawQuotes = rawText
+      .replace(/\r\n/img, '')
+      .match(/{{quote(.*?)}}/img)
+
+    const quote = rawQuotes?.[0]
+      .replace(/^{{(.*?)\|/, '')
+      .replace(/\|(.*?)}}$/, '')
+      .replace(/<!--(.*?)-->/, '')
+      .replace(/\[\[/, '')
+      .replace(/\]\]/, '')
+      .trim()
+      ?? null
+
+    // Clean up text / omit certain sections
+    const text = parsedText
+      .replace(/\n\n- /img, '\n- ')
+      .replace(/\n\nGallery\n(.*?)\n/im, '\n')
+      .replace(/\n\nVideos\n(.*?)\n/im, '\n')
+      .replace(/\n\nReferences\n(.*?)\n/im, '\n')
+      .replace(/\nCategory:(.*?)\n/img, '\n')
+      .replace(/\nCategory:(.*?)$/img, '\n')
+      .replace(/\n([a-z]{2}):(.*?)\n/img, '\n')
+      .replace(/\n([a-z]{2}):(.*?)$/img, '\n')
+      .trim()
+
+    response.push({
+      id,
+      title,
+      timestamp: page.revision[0].timestamp[0],
+      contributor: {
+        id: page.revision[0].contributor[0]?.id?.[0] ?? null,
+        name: page.revision[0].contributor[0]?.username?.[0] ?? null
+      },
+      rawText,
+      text,
+      quote
+    })
+
+    codexIndex[title] = id
+
+    return response
+  }, [])
+
+  // Write files to disk
+  // const codexDir = path.join(ROOT_OUTPUT_DATA_DIR, 'codex')
+  // fs.mkdirSync(codexDir, { recursive: true })
+
+  // codexPages.forEach(codexPage => {
+  //   const filename = path.join(codexDir, `${codexPage.id}.json`)
+  //   fs.writeFileSync(filename, JSON.stringify(codexPage, null, 2))
+  // })
+
+  // fs.writeFileSync(path.join(codexDir, '_index.json'), JSON.stringify({
+  //   index: codexIndex,
+  //   redirects: codexRedirects
+  // }, null, 2))
+
+  // This requires the the fdevids() import to have been run at least once
+  const pathToCommodities = `${ROOT_OUTPUT_DATA_DIR}/edcd/fdevids/commodity.json`
+  const commodities = JSON.parse(fs.readFileSync(pathToCommodities))
+
+  const pathToRareCommodities = `${ROOT_OUTPUT_DATA_DIR}/edcd/fdevids/rare_commodity.json`
+  const rareCommodities = JSON.parse(fs.readFileSync(pathToRareCommodities))
+
+  const commodityDescriptions = {}
+  codexPages.forEach(codexPage => {
+    if (!codexPage?.quote) return
+
+    commodities.map(commodity => {
+      if (commodity.name === codexPage.title) {
+        commodity.description = codexPage.quote
+        commodityDescriptions[codexPage.title] = codexPage.quote
+      }
+    })
+    rareCommodities.map(rareCommodity => {
+      if (rareCommodity.name === codexPage.title) {
+        rareCommodity.description = codexPage.quote
+        commodityDescriptions[codexPage.title] = codexPage.quote
+      }
+    })
+  })
+  // These wil fail as the task to generate them is currently an async function
+  // fs.writeFileSync(pathToCommodities, JSON.stringify(commodities, null, 2))
+  // fs.writeFileSync(pathToRareCommodities, JSON.stringify(rareCommodities, null, 2))
+  fs.writeFileSync(`${ROOT_OUTPUT_DATA_DIR}/commodity-descriptions.json`, JSON.stringify(commodityDescriptions, null, 2))
 }
 
 function getEngineeringPropertyName (engineeringPropertyName) {
