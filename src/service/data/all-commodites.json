@@ -30,7 +30,8 @@
     "category": "Foods",
     "name": "Eden Apples of Aerial",
     "limit": 15,
-    "rare": true
+    "rare": true,
+    "description": "A native plant that bears fruit resembling an apple with a silver lustre. Originally inedible, but through genetic modification the neurotoxins have been stripped away leaving what is now seen as a delicacy."
   },
   "aganipperush": {
     "id": "128667068",
@@ -300,7 +301,8 @@
     "id": "128049228",
     "symbol": "AutoFabricators",
     "category": "Technology",
-    "name": "Auto-Fabricators"
+    "name": "Auto-Fabricators",
+    "description": "High speed, low cost fabricators that can build almost any design out of basic resources."
   },
   "azcancriformula42": {
     "id": "128667080",
@@ -309,7 +311,8 @@
     "category": "Technology",
     "name": "Az Cancri Formula 42",
     "limit": 9,
-    "rare": true
+    "rare": true,
+    "description": "Formula 42 achieves incredible results, transforming even the most arid of desert worlds into fertile utopias. Beyond its name, all aspects of this product are kept under the highest secrecy. However, people don't ask questions when it delivers time and again."
   },
   "bakedgreebles": {
     "id": "128667669",
@@ -479,7 +482,8 @@
     "category": "Consumer Items",
     "name": "Buckyball Beer Mats",
     "limit": 25,
-    "rare": true
+    "rare": true,
+    "description": "Double-sided drinks mats originally commissioned in 3302. One side bears the Buckyball Racing Club logo with the slogan \"Win it or bin it\" while the other reads \"Celebrating 10000 rescues\" and depicts the mascot of the Fuel Rats."
   },
   "buildingfabricators": {
     "id": "128672309",
@@ -685,7 +689,8 @@
     "id": "128673857",
     "symbol": "CoolingHoses",
     "category": "Industrial Materials",
-    "name": "Micro-weave Cooling Hoses"
+    "name": "Micro-weave Cooling Hoses",
+    "description": "High specification cooling hoses used as conduits for fluid or gas based thermal management systems."
   },
   "copper": {
     "id": "128049175",
@@ -962,7 +967,8 @@
     "market_id": "128673074",
     "category": "Salvage",
     "name": "Galactic Travel Guide",
-    "rare": true
+    "rare": true,
+    "description": "A where's where and a what's what of the Milky Way. This guide highlights the galaxy's top destinations and hot spots."
   },
   "gallite": {
     "id": "128049158",
@@ -1226,7 +1232,8 @@
     "id": "128672135",
     "symbol": "Hostage",
     "category": "Salvage",
-    "name": "Hostages"
+    "name": "Hostages",
+    "description": "Sometimes criminal gangs hide their hostages in cargo pods fitted with rudimentary life support."
   },
   "hr7221wheat": {
     "id": "128667059",
@@ -1419,9 +1426,10 @@
     "symbol": "KorroKungPellets",
     "market_id": "3228726272",
     "category": "Chemicals",
-    "name": "Koro Kung Pellets",
+    "name": "Korro Kung Pellets",
     "limit": 20,
-    "rare": true
+    "rare": true,
+    "description": "This exotic fertiliser is made from the crushed bodies of the native life forms siphoned from the nearby gas giants vast ammonia oceans in unsustainable quantities. It is reported to have invigorated even the most barren and arid of soils, but has also proved to be lethal to some crops."
   },
   "landmines": {
     "id": "128672312",
@@ -1492,7 +1500,8 @@
     "id": "128673851",
     "symbol": "LiquidOxygen",
     "category": "Chemicals",
-    "name": "Liquid oxygen"
+    "name": "Liquid oxygen",
+    "description": "Oxygen that has been cooled to the point of condensation. Useful in cryogenics or to oxidise other substances."
   },
   "liquor": {
     "id": "128049216",
@@ -1759,7 +1768,8 @@
     "category": "Foods",
     "name": "Mukusubii Chitin-os",
     "limit": 15,
-    "rare": true
+    "rare": true,
+    "description": "The chitinous native insects of nearby worlds are processed using industrial mining equipment, then re-constituted into convenient circles. Marketed as a food for those who like a little crunch."
   },
   "mulachigiantfungus": {
     "id": "128667693",
@@ -1945,7 +1955,8 @@
     "id": "128924332",
     "symbol": "Opal",
     "category": "Minerals",
-    "name": "Void Opal"
+    "name": "Void Opals",
+    "description": "Void opals are a mineraloid prized by various cultures. Their lack of reflectivity means that they seem almost to absorb light, hence their name."
   },
   "ophiuchiexinoartefacts": {
     "id": "128667668",
@@ -2074,7 +2085,8 @@
     "id": "128672134",
     "symbol": "PoliticalPrisoner",
     "category": "Salvage",
-    "name": "Political Prisoners"
+    "name": "Political Prisoners",
+    "description": "Political prisoners are sometimes transported in cargo pods to help disguise their movement."
   },
   "polymers": {
     "id": "128049197",
@@ -2636,7 +2648,8 @@
     "category": "Textiles",
     "name": "Tiegfries Synth Silk",
     "limit": 30,
-    "rare": true
+    "rare": true,
+    "description": "Spun from atoms, using a number of interconnected particle colliders, this silk is almost indistinguishable from the real thing."
   },
   "timecapsule": {
     "id": "128672163",
@@ -2935,9 +2948,10 @@
     "symbol": "WatersOfShintara",
     "market_id": "128666762",
     "category": "Medicines",
-    "name": "The Waters of Shintara",
+    "name": "Waters of Shintara",
     "limit": 12,
-    "rare": true
+    "rare": true,
+    "description": "The medical qualities of the mineral waters of Shintara are decried by many in the scientific community as nonsense. This has not stopped widespread rumours that water from the planet can cure almost any ailment, and even reverse the ageing process. The company that controls the source of this water are happy to allow the rumours to continue, and people all over the galaxy are willing to pay a small fortune for the real thing."
   },
   "wheemetewheatcakes": {
     "id": "128667698",

@@ -274,21 +274,35 @@ async function codexArticles () {
   codexPages.forEach(codexPage => {
     if (!codexPage?.quote) return
 
+    // These are names that are different in the wiki to how they are listed in the fdevids file
+    // (even after attempting to clean up errors in the file, not 100% sure which name is
+    // canonical for these cases)
+    if (codexPage.title == 'Galactic Travel Guides') codexPage.title = 'Galactic Travel Guide'
+    if (codexPage.title == 'Political Prisoner') codexPage.title = 'Political Prisoners'
+    if (codexPage.title == 'Hostage') codexPage.title = 'Hostages'
+    if (codexPage.title == 'Auto Fabricators') codexPage.title = 'Auto-Fabricators'
+
     commodities.map(commodity => {
-      if (commodity.name === codexPage.title) {
+      if (commodity.name.replace(/ /img, '').toLowerCase() === codexPage.title.replace(/ /img, '').toLowerCase()) {
         commodity.description = codexPage.quote
-        commodityDescriptions[codexPage.title] = codexPage.quote
+        commodityDescriptions[commodity.symbol.toLowerCase()] = codexPage.quote
       }
       allCommodities[commodity.symbol.toLowerCase()] = commodity
     })
+
     rareCommodities.map(rareCommodity => {
-      if (rareCommodity.name === codexPage.title) {
+      if (rareCommodity.name.replace(/ /img, '').toLowerCase() === codexPage.title.replace(/ /img, '').toLowerCase()) {
         rareCommodity.description = codexPage.quote
-        commodityDescriptions[codexPage.title] = codexPage.quote
+        commodityDescriptions[rareCommodity.symbol.toLowerCase()] = codexPage.quote
       }
       rareCommodity.rare = true
       allCommodities[rareCommodity.symbol.toLowerCase()] = rareCommodity
     })
+  })
+
+  Object.keys(allCommodities).forEach(name => {
+    const commodity = allCommodities[name]
+    if (!commodity.description || commodity.description == '') console.warn(`Warning: Commodity "${commodity.symbol}" has no description`)
   })
 
   const allCommoditiesSortedList = {} 
