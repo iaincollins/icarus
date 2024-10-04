@@ -1,0 +1,3036 @@
+{
+  "advancedcatalysers": {
+    "id": "128049231",
+    "symbol": "AdvancedCatalysers",
+    "category": "Technology",
+    "name": "Advanced Catalysers",
+    "description": "Engineered catalysing agents, used by refineries to improve the efficiency of a large number of chemical reactions."
+  },
+  "advancedmedicines": {
+    "id": "128682046",
+    "symbol": "AdvancedMedicines",
+    "category": "Medicines",
+    "name": "Advanced Medicines",
+    "description": "These medicines are specially tailored to counteract the most virulent of diseases, whilst causing minimum damage to the host."
+  },
+  "advert1": {
+    "id": "128671119",
+    "symbol": "Advert1",
+    "market_id": "3227172352",
+    "category": "Consumer Items",
+    "name": "Ultra-Compact Processor Prototypes",
+    "limit": 1,
+    "rare": true,
+    "description": "These new processor prototypes have already demonstrated their versatility and capability. The combination of organic and nano fabrication makes them difficult to manufacture."
+  },
+  "aerialedenapple": {
+    "id": "128667055",
+    "symbol": "AerialEdenApple",
+    "market_id": "128083448",
+    "category": "Foods",
+    "name": "Eden Apples of Aerial",
+    "limit": 15,
+    "rare": true
+  },
+  "aganipperush": {
+    "id": "128667068",
+    "symbol": "AganippeRush",
+    "market_id": "128012800",
+    "category": "Medicines",
+    "name": "Aganippe Rush",
+    "limit": 10,
+    "rare": true,
+    "description": "A neurological stimulant only available in Aganippe. Often used to temporarily increase the user's memory retention and awareness, it is a favourite among students and scholars. Recent reports have revealed that excessive use and abuse of the compound has been linked with psychotic episodes and hallucinations."
+  },
+  "agriculturalmedicines": {
+    "id": "128049208",
+    "symbol": "AgriculturalMedicines",
+    "category": "Medicines",
+    "name": "Agri-Medicines",
+    "description": "A range of engineered substances created to prevent or treat common diseases and ailments among livestock and fisheries. These are produced on High Tech worlds and consumed in Agricultural worlds."
+  },
+  "agronomictreatment": {
+    "id": "128924334",
+    "symbol": "AgronomicTreatment",
+    "category": "Chemicals",
+    "name": "Agronomic Treatment",
+    "description": "This material has been specifically engineered to revive plants affected by contaminants."
+  },
+  "airelics": {
+    "id": "128668548",
+    "symbol": "AiRelics",
+    "category": "Salvage",
+    "name": "AI Relics",
+    "description": "A collection of highly illegal AI remnants. These items are of extreme interest to various shady organisations and remote cults. Their almost mythical status has led to a huge amount of counterfeiting, further inflating the value of items with a clear and proven history. It is uncertain whether any of these pieces actually retain the AI personality that was originally present within."
+  },
+  "alacarakmoskinart": {
+    "id": "128667036",
+    "symbol": "AlacarakmoSkinArt",
+    "market_id": "3231373824",
+    "category": "Consumer Items",
+    "name": "Alacarakmo Skin Art",
+    "limit": 24,
+    "rare": true,
+    "description": "Micro thin sheets that are absorbed into the skin. A mixture of bio engineering and microelectronics allow the user to program art on their skin that reacts to their surroundings and mood. The Body Decor company of Alacarakmo has specialised in this for hundreds of years."
+  },
+  "albinoquechuamammoth": {
+    "id": "128667020",
+    "symbol": "AlbinoQuechuaMammoth",
+    "market_id": "3222822912",
+    "category": "Foods",
+    "name": "Albino Quechua Mammoth Meat",
+    "limit": 10,
+    "rare": true,
+    "description": "Specially adapted to the cold climate, these enormous animals, originally created from modified genetic material from ancient Earth, are now flourishing on Quechua. The albino form has been encouraged to dominance due to the tenderness of their flesh."
+  },
+  "alexandrite": {
+    "id": "128924331",
+    "symbol": "Alexandrite",
+    "category": "Minerals",
+    "name": "Alexandrite",
+    "description": "Alexandrite is a form of chrysoberyl characterised by the fact that it exhibits different colours when viewed from different angles and under different light conditions."
+  },
+  "algae": {
+    "id": "128049177",
+    "symbol": "Algae",
+    "category": "Foods",
+    "name": "Algae",
+    "description": "Algae are a range of biological organisms grown in water. Considered edible and often locally produced to sustain life in many poorer outposts. Usually commercially processed to provide more appetising food stuffs as a constituent of food cartridges for 'chefs' (cheap 3D food printers)."
+  },
+  "alieneggs": {
+    "id": "128667717",
+    "symbol": "AlienEggs",
+    "market_id": "128164088",
+    "category": "Consumer Items",
+    "name": "Leathery Eggs",
+    "limit": 1,
+    "rare": true,
+    "description": "Advertised as genuine fossilised xeno ovum, scientists were quickly able to show that the eggs traded are actually the product of a team of highly talented prop designers. For some collectors, owning one of these eggs is their top priority, with all other priorities rescinded."
+  },
+  "altairianskin": {
+    "id": "128667700",
+    "symbol": "AltairianSkin",
+    "market_id": "128151032",
+    "category": "Consumer Items",
+    "name": "Altairian Skin",
+    "limit": 42,
+    "rare": true,
+    "description": "A small colony of brightly coloured micro-organisms form a mesmerising, ever changing fashion statement. Capable of self-sustaining, the colony will feed on dirt and skin flakes, keeping the wearer clean and healthy. When mature, the micro-organisms lose their bright colors and excrete a heady natural perfume."
+  },
+  "aluminium": {
+    "id": "128049176",
+    "symbol": "Aluminium",
+    "category": "Metals",
+    "name": "Aluminium",
+    "description": "Aluminium, Al, atomic number 13. Melting point 933K. A silvery-white ductile metal that is regularly used by many industries in alloys for its lightness and strength."
+  },
+  "alyabodilysoap": {
+    "id": "128667718",
+    "symbol": "AlyaBodilySoap",
+    "market_id": "3221638400",
+    "category": "Medicines",
+    "name": "Alya Body Soap",
+    "limit": 16,
+    "rare": true,
+    "description": "Guaranteed to give a cleaner you. The deep cleansing action works both inside and out, with this fully digestible soap! Rumoured to be made from Human fat."
+  },
+  "ancientcasket": {
+    "id": "128732185",
+    "symbol": "AncientCasket",
+    "category": "Salvage",
+    "name": "Guardian Casket",
+    "description": "A stone casket created several million years ago by the Guardians, an extinct nonhuman civilisation."
+  },
+  "ancientkey": {
+    "id": "128888499",
+    "symbol": "AncientKey",
+    "category": "Salvage",
+    "name": "Ancient Key",
+    "description": "A crystalline artefact recovered from a Guardian beacon."
+  },
+  "ancientorb": {
+    "id": "128732184",
+    "symbol": "AncientOrb",
+    "category": "Salvage",
+    "name": "Guardian Orb",
+    "description": "A mechanical device created several million years ago by the Guardians, an extinct nonhuman civilisation."
+  },
+  "ancientrelic": {
+    "id": "128732183",
+    "symbol": "AncientRelic",
+    "category": "Salvage",
+    "name": "Guardian Relic",
+    "description": "An artefact created several million years ago by the Guardians, an extinct nonhuman civilisation."
+  },
+  "ancienttablet": {
+    "id": "128732186",
+    "symbol": "AncientTablet",
+    "category": "Salvage",
+    "name": "Guardian Tablet",
+    "description": "A tablet, engraved with runes, created several million years ago by the Guardians."
+  },
+  "ancienttotem": {
+    "id": "128732188",
+    "symbol": "AncientTotem",
+    "category": "Salvage",
+    "name": "Guardian Totem",
+    "description": "A statue created several million years ago by the Guardians, an extinct nonhuman civilisation."
+  },
+  "ancienturn": {
+    "id": "128732187",
+    "symbol": "AncientUrn",
+    "category": "Salvage",
+    "name": "Guardian Urn",
+    "description": "A sealed container created several million years ago by the Guardians, an extinct nonhuman civilisation."
+  },
+  "anduligafireworks": {
+    "id": "128667673",
+    "symbol": "AnduligaFireWorks",
+    "market_id": "3230243584",
+    "category": "Consumer Items",
+    "name": "Anduliga Fire Works",
+    "limit": 16,
+    "rare": true,
+    "description": "For earth shattering displays that will blow your mind. Perfect for atmospheric use, or deployed from orbit! Official suppliers to the Imperial Family."
+  },
+  "animaleffigies": {
+    "id": "128727921",
+    "symbol": "AnimalEffigies",
+    "market_id": "3228463360",
+    "category": "Legal Drugs",
+    "name": "Crom Silver Fesh",
+    "limit": 17,
+    "rare": true,
+    "description": "A variant of the synthetic psychoactive drug based on a closely guarded secret recipe. While active, it causes the user to lock their teeth together and rapidly exhale, a reaction that led to its street name, Fesh. This variant was created from a stolen recipe for Wolf 1301 Fesh and is the closest Fesh variant in terms of quality to the original. Banned in most jurisdictions."
+  },
+  "animalmeat": {
+    "id": "128049182",
+    "symbol": "Animalmeat",
+    "category": "Foods",
+    "name": "Animal Meat",
+    "description": "Flesh - and other elements - harvested from a vast selection of once-living creatures. In many places a luxury item with some ceremonial importance. Illegal in some jurisdictions."
+  },
+  "animalmonitors": {
+    "id": "128049229",
+    "symbol": "AnimalMonitors",
+    "category": "Technology",
+    "name": "Animal Monitors",
+    "description": "A bio-electronic suite of sensor systems and analysis software, easily adapted to monitor a wide variety of organic species."
+  },
+  "antimattercontainmentunit": {
+    "id": "128682053",
+    "symbol": "AntimatterContainmentUnit",
+    "category": "Salvage",
+    "name": "Antimatter Containment Unit",
+    "description": "This containment unit safely stores antimatter protecting it from gamma radiation and interaction with standard matter."
+  },
+  "antiquejewellery": {
+    "id": "128672159",
+    "symbol": "AntiqueJewellery",
+    "category": "Salvage",
+    "name": "Antique Jewellery",
+    "description": "A treasure trove of exquisite antique jewellery. These often contain very rare, and very valuable, pieces."
+  },
+  "antiquities": {
+    "id": "128668551",
+    "symbol": "Antiquities",
+    "category": "Salvage",
+    "name": "Antiquities",
+    "description": "A collection of priceless artefacts. Such objects are often invested with great cultural and historical value. Removal of antiquities from their original sites is generally considered a crime. The legal extraction of antiquities can only occur when the relevant permit has been granted by the local authorities."
+  },
+  "anynacoffee": {
+    "id": "128667041",
+    "symbol": "AnyNaCoffee",
+    "market_id": "3229880064",
+    "category": "Foods",
+    "name": "Any Na Coffee",
+    "limit": 11,
+    "rare": true,
+    "description": "Once sneered at as a cheap substitute, this product has gained cult status from its overly thick texture and bitter flavour from the roots and herbs that it is made of. It is an acquired taste that now appeals to the Bohemian set."
+  },
+  "apavietii": {
+    "id": "128958679",
+    "symbol": "ApaVietii",
+    "market_id": "128958681",
+    "category": "Legal Drugs",
+    "name": "Apa Vietii",
+    "limit": 11,
+    "rare": true,
+    "description": "A unique alcoholic spirit distilled by the crew of The Golconda, an ancient generation ship."
+  },
+  "aquaponicsystems": {
+    "id": "128049230",
+    "symbol": "AquaponicSystems",
+    "category": "Technology",
+    "name": "Aquaponic Systems",
+    "description": "An automated system to monitor and sustain nutritional and chemical balance levels of a confined marine ecosystem using targeted chemical and microbial filtration, and the spares and consumables required."
+  },
+  "aroucaconventualsweets": {
+    "id": "128667705",
+    "symbol": "AroucaConventualSweets",
+    "market_id": "128098040",
+    "category": "Foods",
+    "name": "Arouca Conventual Sweets",
+    "limit": 18,
+    "rare": true,
+    "description": "The monastic orders of Arouca live a secluded and peaceful life producing, among other things, a limited range of Conventual sweets. Each come with a personalised blessing."
+  },
+  "articulationmotors": {
+    "id": "128673859",
+    "symbol": "ArticulationMotors",
+    "category": "Machinery",
+    "name": "Articulation Motors",
+    "description": "Articulation motors are used to move components with devices."
+  },
+  "assaultplans": {
+    "id": "128672129",
+    "symbol": "AssaultPlans",
+    "category": "Salvage",
+    "name": "Assault Plans",
+    "description": "Encrypted resources and documentation for secret attack plans. Possession of such documents is illegal as its possession implicates those transporting the information. There is a limited black market demand for these items."
+  },
+  "atmosphericextractors": {
+    "id": "128064028",
+    "symbol": "AtmosphericExtractors",
+    "category": "Machinery",
+    "name": "Atmospheric Processors",
+    "description": "Components and consumables for atmospheric processors. These are large installations, usually with a high power output reactor at its core, used to process and stabilise breathable planetary atmospheres, especially on terraformed worlds."
+  },
+  "autofabricators": {
+    "id": "128049228",
+    "symbol": "AutoFabricators",
+    "category": "Technology",
+    "name": "Auto-Fabricators"
+  },
+  "azcancriformula42": {
+    "id": "128667080",
+    "symbol": "AZCancriFormula42",
+    "market_id": "3228400128",
+    "category": "Technology",
+    "name": "Az Cancri Formula 42",
+    "limit": 9,
+    "rare": true
+  },
+  "bakedgreebles": {
+    "id": "128667669",
+    "symbol": "BakedGreebles",
+    "market_id": "3229378560",
+    "category": "Foods",
+    "name": "Baked Greebles",
+    "limit": 17,
+    "rare": true,
+    "description": "These tough, limpet like creatures were originally thought to be inedible. However, pioneering colonists discovered that a combination of high pressure and chemical treatment in an ammonia-based solution could render these iron rich creatures into a digestible and delicious food source. They are now considered a delicacy around their galaxy."
+  },
+  "baltahsinevacuumkrill": {
+    "id": "128667025",
+    "symbol": "BaltahSineVacuumKrill",
+    "market_id": "128088056",
+    "category": "Foods",
+    "name": "Baltah'sine Vacuum Krill",
+    "limit": 18,
+    "rare": true,
+    "description": "Vacuum Krill are astonishing creatures. One of the few species to live in the hard vacuum of space, they are native to the ice rings around Baltah'sine 4b. Their eggs grow in vast numbers in tiny water pockets within the rocks - kept liquid by secretions from the mother when the eggs are first laid. When mature, they eventually burrow their way out, propelling themselves between rocks with tiny excretions of fluid, in search of a mate."
+  },
+  "bankiamphibiousleather": {
+    "id": "128667674",
+    "symbol": "BankiAmphibiousLeather",
+    "market_id": "3228346112",
+    "category": "Textiles",
+    "name": "Banki Amphibious Leather",
+    "limit": 18,
+    "rare": true,
+    "description": "The native amphibian like creatures of Banki have a particularly colorful and lustrous skins, with a number of useful properties when wet. Highly valued on oceanic worlds."
+  },
+  "basicmedicines": {
+    "id": "128049210",
+    "symbol": "BasicMedicines",
+    "category": "Medicines",
+    "name": "Basic Medicines",
+    "description": "A wide range of pharmaceuticals used in the healthcare sphere. Includes treatments for preventative, convalescent and palliative care."
+  },
+  "basicnarcotics": {
+    "id": "128049212",
+    "symbol": "BasicNarcotics",
+    "category": "Legal Drugs",
+    "name": "Narcotics",
+    "description": "Synthetically created substances tailored to create mood enhancement in a human. Widely outlawed due to their addictive nature, and the resultant longer term effects on human consumers."
+  },
+  "bastsnakegin": {
+    "id": "128667065",
+    "symbol": "BastSnakeGin",
+    "market_id": "128086776",
+    "category": "Legal Drugs",
+    "name": "Bast Snake Gin",
+    "limit": 15,
+    "rare": true,
+    "description": "Traditional cure-all and cocktail ingredient. The venom of the snake entombed in the bottle adds to the intoxicating effect of the drink."
+  },
+  "battleweapons": {
+    "id": "128049234",
+    "symbol": "BattleWeapons",
+    "category": "Weapons",
+    "name": "Battle Weapons",
+    "description": "Military-grade human-portable heavy weapons. The trade and movement of military-grade weaponry is highly regulated; most commonly it is confined to nation states and private organisations with considerable political influence."
+  },
+  "bauxite": {
+    "id": "128049165",
+    "symbol": "Bauxite",
+    "category": "Minerals",
+    "name": "Bauxite",
+    "description": "Bauxite is the main source of aluminium, and is in fact a mix of ores that occur naturally together sometimes with small amounts of rutile and haematite. A key source of aluminum for refineries."
+  },
+  "beer": {
+    "id": "128049214",
+    "symbol": "Beer",
+    "category": "Legal Drugs",
+    "name": "Beer",
+    "description": "Traded under a variety of brands. A very mild narcotic. Occasionally illegal due to its association with antisocial behaviour, but also widely consumed in many cultures."
+  },
+  "belalansrayleather": {
+    "id": "128667061",
+    "symbol": "BelalansRayLeather",
+    "market_id": "3223537152",
+    "category": "Textiles",
+    "name": "Belalans Ray Leather",
+    "limit": 11,
+    "rare": true,
+    "description": "Due to the particular chemical conditions of the water on Belalans, the rays have a particularly soft skin."
+  },
+  "benitoite": {
+    "id": "128924329",
+    "symbol": "Benitoite",
+    "category": "Minerals",
+    "name": "Benitoite",
+    "description": "Benitoite is a blue barium titanium silicate mineral that appears fluorescent under shortwave ultraviolet light."
+  },
+  "bertrandite": {
+    "id": "128049156",
+    "symbol": "Bertrandite",
+    "category": "Minerals",
+    "name": "Bertrandite",
+    "description": "Bertrandite: chemical formula Be4Si2O7(OH)2. Beryllium Ore. A pale yellow orthorhombic mineral, widely refined into Beryllium."
+  },
+  "beryllium": {
+    "id": "128049168",
+    "symbol": "Beryllium",
+    "category": "Metals",
+    "name": "Beryllium",
+    "description": "Beryllium, Be, atomic number 4. Melting point 1560K. A white-grey alkaline earth metal. Widely used in the spacecraft industry right from its early pre-interstellar history because of its high thermal stability and low density. It is also a very useful component of many alloys, both industrially and for specialist high tech components."
+  },
+  "bioreducinglichen": {
+    "id": "128049672",
+    "symbol": "BioReducingLichen",
+    "category": "Technology",
+    "name": "Bioreducing Lichen",
+    "description": "Genetically engineered lichen used to prepare an asteroid field or broken surface rocks for industrial extraction. Once deployed the lichen will spread over the field and concentrate specific minerals, changing colour in the process, allowing for efficient extraction."
+  },
+  "biowaste": {
+    "id": "128049244",
+    "symbol": "Biowaste",
+    "category": "Waste",
+    "name": "Biowaste",
+    "description": "Sterilised, then used as a basic form of fertiliser on many agricultural worlds."
+  },
+  "bismuth": {
+    "id": "128672300",
+    "symbol": "Bismuth",
+    "category": "Metals",
+    "name": "Bismuth",
+    "description": "Bismuth, Bi, atomic number 83. Melting point 545K. It is a pentavalent post-transition often used for medicines and specialist alloys. It is sometimes used in pharmaceuticals."
+  },
+  "bluemilk": {
+    "id": "128667716",
+    "symbol": "BlueMilk",
+    "market_id": "128639992",
+    "category": "Foods",
+    "name": "Azure Milk",
+    "limit": 7,
+    "rare": true,
+    "description": "Harvested from native mammals found in Leesti, this highly nourishing and rehydrating drink is favoured in arid and desert worlds."
+  },
+  "bootlegliquor": {
+    "id": "128672306",
+    "symbol": "BootlegLiquor",
+    "category": "Legal Drugs",
+    "name": "Bootleg Liquor",
+    "description": "Unregulated alcoholic substances which are typically made through home or small scale production methods, with varying levels of toxicity."
+  },
+  "borasetanipathogenetics": {
+    "id": "128667032",
+    "symbol": "BorasetaniPathogenetics",
+    "market_id": "3229638400",
+    "category": "Weapons",
+    "name": "Borasetani Pathogenetics",
+    "limit": 6,
+    "rare": true,
+    "description": "These tiny crawling creatures have been called a lab in a bag. They exude tailored biological agents that adapt and mutate to overcome the defenses of their enemies. When deployed in large numbers they resemble a viscious yellow goo that slowly crawls over their victim devouring them completely. When there are no further nutrients to absorb the insects bocome dormant and can be recovered by specialy trained teams to be used again."
+  },
+  "bromellite": {
+    "id": "128673846",
+    "symbol": "Bromellite",
+    "category": "Minerals",
+    "name": "Bromellite",
+    "description": "Bromellite, BeO, is a white oxide mineral with a wide range of uses, such as ceramic based electronics, and enhancing material properties of mechanical strength and thermal conductivity."
+  },
+  "buckyballbeermats": {
+    "id": "128748428",
+    "symbol": "BuckyballBeerMats",
+    "market_id": "128745551",
+    "category": "Consumer Items",
+    "name": "Buckyball Beer Mats",
+    "limit": 25,
+    "rare": true
+  },
+  "buildingfabricators": {
+    "id": "128672309",
+    "symbol": "BuildingFabricators",
+    "category": "Machinery",
+    "name": "Building Fabricators",
+    "description": "These are combined resources and manufacturing devices that are used to build surface structures."
+  },
+  "burnhambiledistillate": {
+    "id": "128667681",
+    "symbol": "BurnhamBileDistillate",
+    "market_id": "3230224384",
+    "category": "Legal Drugs",
+    "name": "Burnham Bile Distillate",
+    "limit": 16,
+    "rare": true,
+    "description": "The use of 'donated' human bodily fluids in the distillation process for this potent liquor causes a strong variation in flavours from vintage to vintage, and widespread outcry about the ethics of the production. The producers of the drink report that each slave used agrees to the extraction progress, but this has not stopped some having a bitter taste left in their mouths."
+  },
+  "cd75catcoffee": {
+    "id": "128667042",
+    "symbol": "CD75CatCoffee",
+    "market_id": "3228566016",
+    "category": "Foods",
+    "name": "CD-75 Kitten Brand Coffee",
+    "limit": 12,
+    "rare": true,
+    "description": "The coffee beans are mellowed in the digestive tract of the indigenous giant cats making for a distinctive and unique aftertaste, many have tried to emulate this chemically and physically however the result to date have been inferior if not disastrous."
+  },
+  "centaurimegagin": {
+    "id": "128667672",
+    "symbol": "CentauriMegaGin",
+    "market_id": "3228728832",
+    "category": "Legal Drugs",
+    "name": "Centauri Mega Gin",
+    "limit": 7,
+    "rare": true,
+    "description": "This chemical distillate is almost pure Alcohol, but with subtle, prized flavors. Often used as an ingredient in more dangerous cocktails. The exact details of the distillation process are a closely guarded secret."
+  },
+  "ceramiccomposites": {
+    "id": "128672302",
+    "symbol": "CeramicComposites",
+    "category": "Industrial Materials",
+    "name": "Ceramic Composites",
+    "description": "A wide range of engineered materials supporting a broad range of technological and industrial applications."
+  },
+  "ceremonialheiketea": {
+    "id": "128667078",
+    "symbol": "CeremonialHeikeTea",
+    "market_id": "3227417856",
+    "category": "Foods",
+    "name": "Ceremonial Heike Tea",
+    "limit": 8,
+    "rare": true,
+    "description": "Super fine green tea. Powdered for use in tea ceremonies, this tea is often used to seal treaties and business deals. It is traditionally ground on granite mills by specially selected millers, chosen for their moral purity."
+  },
+  "cetiaepyornisegg": {
+    "id": "128667670",
+    "symbol": "CetiAepyornisEgg",
+    "market_id": "3222560256",
+    "category": "Foods",
+    "name": "Aepyornis Egg",
+    "limit": 5,
+    "rare": true,
+    "description": "Originally referred to as Elephant birds, these behemoths were brought out of extinction using preserved genetic material found on ancient Earth. With some careful genetic modification (before the process of gene modification was outlawed), they were adapted to thrive in a dense, oxygen-rich Cetian atmosphere. They lay prized eggs with a circumference of over a meter."
+  },
+  "cetirabbits": {
+    "id": "128667026",
+    "symbol": "CetiRabbits",
+    "market_id": "3222560000",
+    "category": "Foods",
+    "name": "Ceti Rabbits",
+    "limit": 12,
+    "rare": true,
+    "description": "For years 47 Ceti suffered from rodents, introduced from Earth, decimating crops. However, they have turned this to their advantage and now farm them in great numbers as the local environment makes the meat curiously sweet."
+  },
+  "chameleoncloth": {
+    "id": "128667710",
+    "symbol": "ChameleonCloth",
+    "market_id": "3223418880",
+    "category": "Textiles",
+    "name": "Chameleon Cloth",
+    "limit": 7,
+    "rare": true,
+    "description": "Woven from living plants, the fabric created retains the native Flora's sympathetic camouflage. When worn the user will blend in with whatever their current environment is. Although considered for military applications, the low availability of the fabric, and the slow speed of the camouflage effect led to it being deemed inferior to technological camouflages."
+  },
+  "chateaudeaegaeon": {
+    "id": "128667084",
+    "symbol": "ChateauDeAegaeon",
+    "market_id": "3228416768",
+    "category": "Legal Drugs",
+    "name": "Chateau De Aegaeon",
+    "limit": 14,
+    "rare": true,
+    "description": "Wines from Aegaeon are some of the most valued and prized possessions in the galaxy. In great demand in wealthy systems, these wines are purchased for large sums, but rarely actually drunk."
+  },
+  "chemicalwaste": {
+    "id": "128049246",
+    "symbol": "ChemicalWaste",
+    "category": "Waste",
+    "name": "Chemical Waste",
+    "description": "Chemicals that have become contaminated beyond use. Usually produced as a byproduct of industrial processes."
+  },
+  "cherbonesbloodcrystals": {
+    "id": "128667675",
+    "symbol": "CherbonesBloodCrystals",
+    "market_id": "3229594624",
+    "category": "Metals",
+    "name": "Cherbones Blood Crystals",
+    "limit": 48,
+    "rare": true,
+    "description": "The unique magnetic flows found in the deepest caves of Cherbones have formed amazing crystals that are coveted for their beauty. These fragile structures are manually extracted at great personal risk. The local inhabitants train all their lives to learn the method for extracting the crystals. Many are lost on their first attempt."
+  },
+  "chieridanimarinepaste": {
+    "id": "128667049",
+    "symbol": "ChiEridaniMarinePaste",
+    "market_id": "128128760",
+    "category": "Foods",
+    "name": "Chi Eridani Marine Paste",
+    "limit": 18,
+    "rare": true,
+    "description": "A unique mix of zooplankton and phytoplankton from the rich and varied oceans of Chi Eridani. Due to the automated trawling process, it may include any number of other marine creatures that happened to wander into the processor."
+  },
+  "classifiedexperimentalequipment": {
+    "id": "129002574",
+    "symbol": "ClassifiedExperimentalEquipment",
+    "market_id": "128986325",
+    "category": "Technology",
+    "name": "Classified Experimental Equipment",
+    "rare": true,
+    "description": "Secretive technology required by Salvation for mass anti-Xeno initiatives."
+  },
+  "clothing": {
+    "id": "128049241",
+    "symbol": "Clothing",
+    "category": "Consumer Items",
+    "name": "Clothing",
+    "description": "Even in the 34th century, fashion is continually changing, driving purchases of new clothing for those with some credits to spare."
+  },
+  "cmmcomposite": {
+    "id": "128673856",
+    "symbol": "CMMComposite",
+    "category": "Industrial Materials",
+    "name": "CMM Composite",
+    "description": "CMM Composites are layered carbon and metals layered to take advantage of the properties for each of the different components. These result in flexible, lightweight and strong structures."
+  },
+  "cobalt": {
+    "id": "128049162",
+    "symbol": "Cobalt",
+    "category": "Metals",
+    "name": "Cobalt",
+    "description": "Cobalt, Co, atomic number 27. Melting point 1768K. Traditionally used as a blue colouring, but now mainly used for creating high temperature alloys. Also has biotech applications."
+  },
+  "coffee": {
+    "id": "128049189",
+    "symbol": "Coffee",
+    "category": "Foods",
+    "name": "Coffee",
+    "description": "A good source of caffeine to fuel to the creative economics. Many attempts have been made to supplant it but all inevitably fail. Some claim the archaic ritual of grinding beans is a key part of the experience."
+  },
+  "coltan": {
+    "id": "128049159",
+    "symbol": "Coltan",
+    "category": "Minerals",
+    "name": "Coltan",
+    "description": "Coltan is a mixture of columbite and tantalite, both valuable Tantalum ores. Useful in capacitors throughout history for many high tech and electronic devices."
+  },
+  "combatstabilisers": {
+    "id": "128049670",
+    "symbol": "CombatStabilisers",
+    "category": "Medicines",
+    "name": "Combat Stabilisers",
+    "description": "Biological agents used to sustain and heal injured humans in combat. Combat Stabilizers allow recipients to continue to function despite unimaginable amounts of pain. Some cultures consider they encourage glorification of combat, and so are illegal."
+  },
+  "comercialsamples": {
+    "id": "128672127",
+    "symbol": "ComercialSamples",
+    "category": "Salvage",
+    "name": "Commercial Samples",
+    "description": "An assortment of materials, often marketing related, and are of little value on the open market."
+  },
+  "computercomponents": {
+    "id": "128049225",
+    "symbol": "ComputerComponents",
+    "category": "Technology",
+    "name": "Computer Components",
+    "description": "Industrially mass-produced computer components and electronic devices, regulators, storage, distribution boards, spares. Wherever there are computers there are computers that have gone wrong and need a spare part."
+  },
+  "conductivefabrics": {
+    "id": "128682044",
+    "symbol": "ConductiveFabrics",
+    "category": "Textiles",
+    "name": "Conductive Fabrics",
+    "description": "These Fabrics allow for current to be passed through them in order to build Cloth-set circuitry for wearable technology."
+  },
+  "consumertechnology": {
+    "id": "128049240",
+    "symbol": "ConsumerTechnology",
+    "category": "Consumer Items",
+    "name": "Consumer Technology",
+    "description": "Ever evolving and changing, get on board for the next generation of personal consumer devices. Be the envy of your friends as you show off the latest thing, then get ready to upgrade."
+  },
+  "coolinghoses": {
+    "id": "128673857",
+    "symbol": "CoolingHoses",
+    "category": "Industrial Materials",
+    "name": "Micro-weave Cooling Hoses"
+  },
+  "copper": {
+    "id": "128049175",
+    "symbol": "Copper",
+    "category": "Metals",
+    "name": "Copper",
+    "description": "Copper, Cu, atomic number 29. Melting point 1358K. A highly ductile lustrous red-orange metal, with good thermal and electrical conductivity. Used broadly by industry as a cheap conductor and in many alloys. It is also used in biotech and aquaculture especially in many extraterrestrial and hemocyanal species."
+  },
+  "coquimspongiformvictuals": {
+    "id": "128667054",
+    "symbol": "CoquimSpongiformVictuals",
+    "market_id": "3223832576",
+    "category": "Foods",
+    "name": "Coquim Spongiform Victuals",
+    "limit": 20,
+    "rare": true,
+    "description": "Spongiform Victuals have been a staple food of the Imperial military for years. Many have tried to create copies of the nutritious formula, but it seems only to thrive in the vast damp caves of Coquim. The ingredients are a tightly held secret, and some suggest that it contains addictive substances."
+  },
+  "cropharvesters": {
+    "id": "128049222",
+    "symbol": "CropHarvesters",
+    "category": "Machinery",
+    "name": "Crop Harvesters",
+    "description": "Agricultural machinery together with spare parts and consumables used for harvesting and packing specific ground-based crops."
+  },
+  "cryolite": {
+    "id": "128672294",
+    "symbol": "Cryolite",
+    "category": "Minerals",
+    "name": "Cryolite",
+    "description": "Used in a range of applications, including: Insecticides, pesticides fireworks [sic] and as a solvent for Aluminium oxide."
+  },
+  "crystallinespheres": {
+    "id": "128672432",
+    "symbol": "CrystallineSpheres",
+    "market_id": "128059402",
+    "category": "Salvage",
+    "name": "Crystalline Spheres",
+    "limit": 12,
+    "rare": true,
+    "description": "Transparent spheres crafted from the finest crystal and containing a clear liquid full of snow that swirls when shaken"
+  },
+  "damagedescapepod": {
+    "id": "128672811",
+    "symbol": "DamagedEscapePod",
+    "category": "Salvage",
+    "name": "Damaged Escape Pod",
+    "description": "This escape pod's systems have been damaged and will fail by the end time provided in the briefing. After this time the system will no longer be able to sustain the life of its occupant."
+  },
+  "damnacarapaces": {
+    "id": "128667062",
+    "symbol": "DamnaCarapaces",
+    "market_id": "3227751936",
+    "category": "Textiles",
+    "name": "Damna Carapaces",
+    "limit": 23,
+    "rare": true,
+    "description": "The hard colourful exoskeletons of large insect like creatures. Used as decoration and in the production of exotic materials and clothing."
+  },
+  "datacore": {
+    "id": "128682049",
+    "symbol": "DataCore",
+    "category": "Salvage",
+    "name": "Data Core",
+    "description": "A large core filled with digital data."
+  },
+  "deltaphoenicispalms": {
+    "id": "128667073",
+    "symbol": "DeltaPhoenicisPalms",
+    "market_id": "128045312",
+    "category": "Chemicals",
+    "name": "Delta Phoenicis Palms",
+    "limit": 17,
+    "rare": true,
+    "description": "A truly organic pest eradication tool, these sterile plants can only be grown from cuttings. Their pollen is lethal to most insectoid life forms. Historically it used their body as a host to germinate. Note may cause hallucinations if workers are over-exposed."
+  },
+  "deuringastruffles": {
+    "id": "128667058",
+    "symbol": "DeuringasTruffles",
+    "market_id": "3229713408",
+    "category": "Foods",
+    "name": "Deuringas Truffles",
+    "limit": 7,
+    "rare": true,
+    "description": "More of a lichen than the fungus that they resemble. They have a similar musty flavor to ancient Earth truffles, but the process of metabolising Deuringas's surface - which is why Deuringas truffles must be shaved in preparation for eating."
+  },
+  "diagnosticsensor": {
+    "id": "128673875",
+    "symbol": "DiagnosticSensor",
+    "category": "Technology",
+    "name": "Hardware Diagnostic Sensor",
+    "description": "Diagnostic sensors that provide hardware monitoring and telemetry for a variety of systems. These can be found at Kanwar Gateway in the Xiripa system."
+  },
+  "diplomaticbag": {
+    "id": "128672131",
+    "symbol": "DiplomaticBag",
+    "category": "Salvage",
+    "name": "Diplomatic Bag",
+    "description": "Used to carry political correspondence and other confidential items. Can only be sold on the black market. These packages are often contained within booby-trapped containers."
+  },
+  "disomacorn": {
+    "id": "128667714",
+    "symbol": "DisoMaCorn",
+    "market_id": "128161016",
+    "category": "Foods",
+    "name": "Diso Ma Corn",
+    "limit": 15,
+    "rare": true,
+    "description": "This ancient corn-like crop is harvested manually to preserve the dust-like coating on the seeds. This dust is traditionally snorted from the corn as a chef's treat."
+  },
+  "domesticappliances": {
+    "id": "128049238",
+    "symbol": "DomesticAppliances",
+    "category": "Consumer Items",
+    "name": "Domestic Appliances",
+    "description": "For every household task, there are any number of domestic appliances fighting for the consumers' attention and credits."
+  },
+  "drones": {
+    "id": "128066403",
+    "symbol": "Drones",
+    "category": "NonMarketable",
+    "name": "Limpets"
+  },
+  "duradrives": {
+    "id": "128922524",
+    "symbol": "Duradrives",
+    "market_id": "3223453184",
+    "category": "Consumer Items",
+    "name": "Duradrives",
+    "limit": 22,
+    "rare": true,
+    "description": "These robust personal computing devices, manufactured by technology company Herculean Machines, are used throughout the galaxy."
+  },
+  "earthrelics": {
+    "id": "128672161",
+    "symbol": "EarthRelics",
+    "category": "Salvage",
+    "name": "Earth Relics",
+    "description": "Historical artefacts originating from the ancient periods of Earth. These items vary considerably in nature and hold great value to collectors."
+  },
+  "eleuthermals": {
+    "id": "128667037",
+    "symbol": "EleuThermals",
+    "market_id": "3230624768",
+    "category": "Consumer Items",
+    "name": "Eleu Thermals",
+    "limit": 13,
+    "rare": true,
+    "description": "In an age of manufactured goods, many prefer the expensive tradition of making things by hand. Eleu hand-knitted thermals, made from their own wool are the survival underwear of choice for cold climates."
+  },
+  "emergencypowercells": {
+    "id": "128673861",
+    "symbol": "EmergencyPowerCells",
+    "category": "Machinery",
+    "name": "Emergency Power Cells",
+    "description": "Emergency power cells used to provide power when the primary power source is unavailable. They can also be used to temporarily increase power output."
+  },
+  "encripteddatastorage": {
+    "id": "128672124",
+    "symbol": "EncriptedDataStorage",
+    "category": "Salvage",
+    "name": "Encrypted Data Storage",
+    "description": "It is sometimes safer to transport sensitive data physically and also quicker if immense quantities need transferring. They usually have little intrinsic value except to the organisation attempting to secure these items."
+  },
+  "encryptedcorrespondence": {
+    "id": "128672130",
+    "symbol": "EncryptedCorrespondence",
+    "category": "Salvage",
+    "name": "Encrypted Correspondence",
+    "description": "Heavily encrypted data that is of little interest, although some hackers use it for training or practise, or simply enjoy the challenge of breaking the encryption. There is a limited black market for these items."
+  },
+  "eraninpearlwhisky": {
+    "id": "128666746",
+    "symbol": "EraninPearlWhisky",
+    "market_id": "128001536",
+    "category": "Legal Drugs",
+    "name": "Eranin Pearl Whisky",
+    "limit": 16,
+    "rare": true,
+    "description": "Created to celebrate 30 years of Eranin independence in Alliance, this specially created whiskey was created in limited supply and is expected to increase in value over time."
+  },
+  "eshuumbrellas": {
+    "id": "128667038",
+    "symbol": "EshuUmbrellas",
+    "market_id": "3222295552",
+    "category": "Consumer Items",
+    "name": "Eshu Umbrellas",
+    "limit": 9,
+    "rare": true,
+    "description": "An anachronistic homage to a more civilized age becomes as symbol of wealth and tradition. Suppliers to the Empire and beyond."
+  },
+  "esusekucaviar": {
+    "id": "128667050",
+    "symbol": "EsusekuCaviar",
+    "market_id": "3226919680",
+    "category": "Foods",
+    "name": "Esuseku Caviar",
+    "limit": 10,
+    "rare": true,
+    "description": "After being discovered in an ancient gene bank, the last of the cryogenically stored Sturgeon eggs were purchased for an undisclosed, but reliable enormous sum. After the long search for an appropriate environment, they were introduced to the waters of Esuseku, and to their owner's relief, hatched and established a breeding colony. The ancient fish continues to thrive in the waters of Esuseku making it the primary producer of caviar in known space."
+  },
+  "ethgrezeteabuds": {
+    "id": "128667077",
+    "symbol": "EthgrezeTeaBuds",
+    "market_id": "3229524992",
+    "category": "Foods",
+    "name": "Ethgreze Tea Buds",
+    "limit": 7,
+    "rare": true,
+    "description": "These tea buds have to be hand plucked from the dangerous Ethgreze Carnivorous Camellia Sinensis plants. Only those with sharp reflexes make it through their first season without losing fingers or entire hands to the deadly fast plants. Due to the danger in collecting it, this tea is famously expensive."
+  },
+  "evacuationshelter": {
+    "id": "128672314",
+    "symbol": "EvacuationShelter",
+    "category": "Consumer Items",
+    "name": "Evacuation Shelter",
+    "description": "A lightweight robust unit that can be deployed to provide shelter, basic food and air for up to a month in the event of structural failure or meteor impacts on habited builds. They are also used by survey teams on long expeditions."
+  },
+  "exhaustmanifold": {
+    "id": "128673866",
+    "symbol": "ExhaustManifold",
+    "category": "Machinery",
+    "name": "Exhaust Manifold",
+    "description": "These customised manifolds are used to combine plasmas and gases from multiple sources into a single element. These can be found at Somerville Station in the Kharpulo system."
+  },
+  "explosives": {
+    "id": "128049204",
+    "symbol": "Explosives",
+    "category": "Chemicals",
+    "name": "Explosives",
+    "description": "Chemical explosives are used extensively in extraction to gain access to valuable mineral deposits."
+  },
+  "fish": {
+    "id": "128049183",
+    "symbol": "Fish",
+    "category": "Foods",
+    "name": "Fish",
+    "description": "Flesh from once-living aquatic organisms sold as food stuff. Illegal in some jurisdictions."
+  },
+  "foodcartridges": {
+    "id": "128049184",
+    "symbol": "FoodCartridges",
+    "category": "Foods",
+    "name": "Food Cartridges",
+    "description": "Cartridges for 'chefs' (cheap 3D food printers). These dehydrated components are reconstituted into a variety of shapes using a 3D printing technique. Components are mixed with water and flavourings as they are printed, according to the desired food item template for colour, texture and taste. \"Burgers\" and \"Hotdogs\" are common standard template choices in most chefs."
+  },
+  "fossilremnants": {
+    "id": "128682055",
+    "symbol": "FossilRemnants",
+    "category": "Salvage",
+    "name": "Fossil Remnants",
+    "description": "Fossilised fragments from an unidentified life form. Inquisitive minds will revel at the chance to analyse and possess one of our galaxy's ancestral occupants."
+  },
+  "fruitandvegetables": {
+    "id": "128049178",
+    "symbol": "FruitAndVegetables",
+    "category": "Foods",
+    "name": "Fruit and Vegetables",
+    "description": "A diverse selection of plant-based produce, usually grown in bulk on outdoor worlds, used by the luxury food industry and for direct consumption by the population."
+  },
+  "fujintea": {
+    "id": "128667709",
+    "symbol": "FujinTea",
+    "market_id": "128134392",
+    "category": "Foods",
+    "name": "Fujin Tea",
+    "limit": 23,
+    "rare": true,
+    "description": "A range of infusions from indigenous plants and herbs that produce highly effective medicines rivalling or exceeding the best synthetics. Ill-informed combinations have been known to be instantly fatal."
+  },
+  "galactictravelguide": {
+    "id": "128682050",
+    "symbol": "GalacticTravelGuide",
+    "market_id": "128673074",
+    "category": "Salvage",
+    "name": "Galactic Travel Guide",
+    "rare": true
+  },
+  "gallite": {
+    "id": "128049158",
+    "symbol": "Gallite",
+    "category": "Minerals",
+    "name": "Gallite",
+    "description": "Gallite: chemical formula CuGaS2. Gallium Ore. Named for its high Gallium content and is widely extracted at refineries."
+  },
+  "gallium": {
+    "id": "128049170",
+    "symbol": "Gallium",
+    "category": "Metals",
+    "name": "Gallium",
+    "description": "Gallium, Ga, atomic number 31. Melting point 303K. It is a soft silvery metal at human room temperature, but melts in the human hand. it is used as a key component in semiconductors, and in lasers."
+  },
+  "geawendancedust": {
+    "id": "128667677",
+    "symbol": "GeawenDanceDust",
+    "market_id": "3230954752",
+    "category": "Legal Drugs",
+    "name": "Geawen Dance Dust",
+    "limit": 23,
+    "rare": true,
+    "description": "There may be no sound in space, but Geawen Dance Dust will bring the music inside your cockpit, and inside your head. You literally won't be able to stop dancing."
+  },
+  "genebank": {
+    "id": "128672162",
+    "symbol": "GeneBank",
+    "category": "Salvage",
+    "name": "Gene Bank",
+    "description": "Collection of DNA and other biological samples containing valuable information for the scientific community. These banks can sometimes contain samples from extinct species which vastly increases their demand."
+  },
+  "geologicalequipment": {
+    "id": "128672307",
+    "symbol": "GeologicalEquipment",
+    "category": "Machinery",
+    "name": "Geological Equipment",
+    "description": "Allows basic monitoring and integration of the world's geology, for both scientific, civic and commercial purposes."
+  },
+  "geologicalsamples": {
+    "id": "128672315",
+    "symbol": "GeologicalSamples",
+    "category": "Salvage",
+    "name": "Geological Samples",
+    "description": "Geological samples used for scientific and commercial purposes."
+  },
+  "gerasiangueuzebeer": {
+    "id": "128667678",
+    "symbol": "GerasianGueuzeBeer",
+    "market_id": "3228047360",
+    "category": "Legal Drugs",
+    "name": "Gerasian Gueuze Beer",
+    "limit": 40,
+    "rare": true,
+    "description": "Geras 3 A supports life in the form of large algae like plankton, whose bioluminescent digestive system excretes a complex protein that can be used in the brewing process. The resulting beer is famous for it's strength, heady aroma, and luminescent color."
+  },
+  "giantirukamasnails": {
+    "id": "128667024",
+    "symbol": "GiantIrukamaSnails",
+    "market_id": "3225345792",
+    "category": "Foods",
+    "name": "Giant Irukama Snails",
+    "limit": 16,
+    "rare": true,
+    "description": "Despite appearances, the species discovered on Irukama are not strictly snails. These indigenous creatures almost destroyed Irukama's native habitat over their sole predator was culled, due to the threat it posed to human settlers. Now actively managed, the surplus stock is sold on as a delicacy. The meat from a single snail can easily fill several standard-size cargo canisters."
+  },
+  "giantverrix": {
+    "id": "128667703",
+    "symbol": "GiantVerrix",
+    "market_id": "128121336",
+    "category": "Machinery",
+    "name": "Giant Verrix",
+    "limit": 6,
+    "rare": true,
+    "description": "This hardy beast of burden now found throughout human space, especially on the emerging worlds of the outer rim, but naturally bred Verrix are very rare and highly prized."
+  },
+  "gilyasignatureweapons": {
+    "id": "128667072",
+    "symbol": "GilyaSignatureWeapons",
+    "market_id": "3226857216",
+    "category": "Weapons",
+    "name": "Gilya Signature Weapons",
+    "limit": 9,
+    "rare": true,
+    "description": "Leave your own personal mark with these highly customisable weapons, a speciality of the Gilya system. Leave no doubt about who put your victim to rest when using a Gilya Signature weapon. Illegal but highly prized in many jurisdictions. Being disarmed of your signature weapon is considered the greatest of humiliations."
+  },
+  "gold": {
+    "id": "128049154",
+    "symbol": "Gold",
+    "category": "Metals",
+    "name": "Gold",
+    "description": "Gold, Au, atomic number 79. Melting point 1337K. A valuable precious metal, and because it is the most resistive metal to corrosion, is widely used in jewelry and luxury goods and for contact pads in electronics."
+  },
+  "gomanyauponcoffee": {
+    "id": "128667043",
+    "symbol": "GomanYauponCoffee",
+    "market_id": "3224449792",
+    "category": "Foods",
+    "name": "Goman Yaupon Coffee",
+    "limit": 9,
+    "rare": true,
+    "description": "This once traditional coffee substitute leapt to fame when the Emperor Hengist Duval gave it his seal of approval."
+  },
+  "goslarite": {
+    "id": "128672295",
+    "symbol": "Goslarite",
+    "category": "Minerals",
+    "name": "Goslarite",
+    "description": "This zinc sulphate mineral is used in medicines and antiseptic treatments."
+  },
+  "grain": {
+    "id": "128049180",
+    "symbol": "Grain",
+    "category": "Foods",
+    "name": "Grain",
+    "description": "Inexpensive and intensively grown in various forms on many outdoor worlds. Mainly consumed as bread but also forms a key constituent of many industrially produced foods."
+  },
+  "grandidierite": {
+    "id": "128924330",
+    "symbol": "Grandidierite",
+    "category": "Minerals",
+    "name": "Grandidierite",
+    "description": "Grandidierite is bluish-green nesosilicate mineral distinguished by the fact that it exhibits different colours when viewed from different angles."
+  },
+  "hafnium178": {
+    "id": "128668549",
+    "symbol": "Hafnium178",
+    "category": "Metals",
+    "name": "Hafnium 178",
+    "description": "Hafnium 178m2, Hf, atomic number 72. This nuclear isomer has the potential to unleash enormous quantities of gamma radiation, making it an excellent ingredient for use in devastating weapons of mass destruction. As a result Hafnium 178 is a highly controlled substance that is universally illegal to own without special dispensation."
+  },
+  "haidneblackbrew": {
+    "id": "128667679",
+    "symbol": "HaidneBlackBrew",
+    "market_id": "3226557696",
+    "category": "Foods",
+    "name": "Haiden Black Brew",
+    "limit": 21,
+    "rare": true,
+    "description": "Brewed over a low heat for days, this tea is comprised of fine mineral shavings, rather than traditional leaves. This mineral based tea is high in salts and nutritious metals. Over consumption of this has been known to temporarily cause the drinker's skin to take a metallic hue."
+  },
+  "harmasilversearum": {
+    "id": "128793113",
+    "symbol": "HarmaSilverSeaRum",
+    "market_id": "3221575424",
+    "category": "Legal Drugs",
+    "name": "Harma Silver Sea Rum",
+    "limit": 60,
+    "rare": true,
+    "description": "Based on a secret 24th Century recipe taken from the log of one Captain Smolenski, Harma Silver Sea Rum has been developed by blending a range of rare alcohols to create a beverage any corsair would be proud of. The Harma Silver Cartel, who manufacture and distribute the potent brew, enjoy the controversy their product has gleaned after it became a favourite among pirate gangs across the galaxy."
+  },
+  "havasupaidreamcatcher": {
+    "id": "128667680",
+    "symbol": "HavasupaiDreamCatcher",
+    "market_id": "3221438976",
+    "category": "Consumer Items",
+    "name": "Havasupai Dream Catcher",
+    "limit": 4,
+    "rare": true,
+    "description": "Re-live your dreams! This device can record, consolidate and replay the neural activity of dreams, allowing you to re-experience them whenever you desire, or even share your dreams with friends!"
+  },
+  "hazardousenvironmentsuits": {
+    "id": "128049226",
+    "symbol": "HazardousEnvironmentSuits",
+    "category": "Technology",
+    "name": "H.E. Suits",
+    "description": "Suitable for human use in hostile environments including vacuum, together with spare parts. Fitted with atmospheric scrubbing and life support, vital signs monitoring, automatic medical systems and a multi channel communications interface."
+  },
+  "heatsinkinterlink": {
+    "id": "128673868",
+    "symbol": "HeatsinkInterlink",
+    "category": "Machinery",
+    "name": "Heatsink Interlink",
+    "description": "These specially made heatsink interlinks provide the mechanism for the emissive cooling plates within a heatsink. These can be found at Gresley Enterprise in the LHS 3980 system."
+  },
+  "heliostaticfurnaces": {
+    "id": "128049220",
+    "symbol": "HeliostaticFurnaces",
+    "category": "Machinery",
+    "name": "Microbial Furnaces",
+    "description": "Bio-engineered microbes that separate specific elements from powdered ore. Produced on high tech worlds, their name is historic having replaced thermal furnaces for the refining or many ores."
+  },
+  "helvetitjpearls": {
+    "id": "128667052",
+    "symbol": "HelvetitjPearls",
+    "market_id": "3231094528",
+    "category": "Metals",
+    "name": "Helvetitj Pearls",
+    "limit": 6,
+    "rare": true,
+    "description": "Oysters have been one of the more successful adaptors with their rapid genetic modification. Due to the chemicals in the waters the oysters of Helvetitj produce a range of vividly coloured but natural pearls which are in high demand for decorative purposes, but are valued as a food source as well."
+  },
+  "hip10175bushmeat": {
+    "id": "128667019",
+    "symbol": "HIP10175BushMeat",
+    "market_id": "3223234816",
+    "category": "Foods",
+    "name": "HIP 10175 Bush Meat",
+    "limit": 13,
+    "rare": true,
+    "description": "A wide range of strong-tasting exotic meats native to HIP 10175, famed for its hunting and natural environment. One commonality between all the available species is a strange spicing flavor. This is believed to be due to the rich local ecosystem. Restricted trade has brought high prices."
+  },
+  "hip118311swarm": {
+    "id": "128667033",
+    "symbol": "HIP118311Swarm",
+    "market_id": "3223177472",
+    "category": "Weapons",
+    "name": "HIP 118311 Swarm",
+    "limit": 1,
+    "rare": true,
+    "description": "Swarm is the codename of the weaponised form of the tiny but lethally poisonous biting insects native to HIP 118311. Manipulated by a control fluid, the weapons can be targeted onto enemy positions using a remote electromagnetic beam, then unleashed to wreak chaos and death on enemy ranks. The weapon’s trademark buzzing quickly made it a favourite with crime syndicates, favoured for intimidation and enforcement purposes. Banned in most jurusdictions."
+  },
+  "hip41181squid": {
+    "id": "128667053",
+    "symbol": "HIP41181Squid",
+    "market_id": "3227995392",
+    "category": "Foods",
+    "name": "HIP Proto-Squid",
+    "limit": 14,
+    "rare": true,
+    "description": "Though there is no genetic link between the huge creatures of HIP 41181 and the now extinct squid once found on ancient Earth, the evolutionary similarities are remarkable. Perhaps they share some ancient space faring ancestor. There was much protest at the use of these animals as food. Claims of sentience still remain high on the agenda of those trying to stamp out the trade."
+  },
+  "hiporganophosphates": {
+    "id": "128667682",
+    "symbol": "HIPOrganophosphates",
+    "market_id": "3227036160",
+    "category": "Chemicals",
+    "name": "HIP Organophosphates",
+    "limit": 17,
+    "rare": true,
+    "description": "The high phosphorous content of this powerful pesticide is highly effective, but can cause a number of highly dangerous side effects. This has led to some governments classifying it as a chemical weapon, and many independent agricultural worlds making taking legal action against the producer after cattle and workers have been left maimed."
+  },
+  "hnshockmount": {
+    "id": "128673860",
+    "symbol": "HNShockMount",
+    "category": "Machinery",
+    "name": "HN Shock Mount",
+    "description": "HN shock mounts absorb vibration and impacts to stabilise the mounted device."
+  },
+  "holvaduellingblades": {
+    "id": "128667070",
+    "symbol": "HolvaDuellingBlades",
+    "market_id": "3222713088",
+    "category": "Weapons",
+    "name": "Holva Duelling Blades",
+    "limit": 7,
+    "rare": true,
+    "description": "The finest blades money can buy. Putting art into death, forged from the purest alloys and available in a range of traditional and modern styles. Ceremonial and combat blades are available."
+  },
+  "honestypills": {
+    "id": "128667686",
+    "symbol": "HonestyPills",
+    "market_id": "3229561344",
+    "category": "Medicines",
+    "name": "Honesty Pills",
+    "limit": 13,
+    "rare": true,
+    "description": "Originally created to be used in a religious ceremony, wherein an apostate is purified through forced confession, then repentance for their sins. The sect was soon infiltrated by corporate agents, and the psychoactive compound identified. The only secrets that has not been revealed by this drug are the ingredients for creating it, and the fate of the religious sect that discovered it."
+  },
+  "hostage": {
+    "id": "128672135",
+    "symbol": "Hostage",
+    "category": "Salvage",
+    "name": "Hostages"
+  },
+  "hr7221wheat": {
+    "id": "128667059",
+    "symbol": "HR7221Wheat",
+    "market_id": "3226170880",
+    "category": "Foods",
+    "name": "HR 7221 Wheat",
+    "limit": 16,
+    "rare": true,
+    "description": "This blood-red, grain-like plant - sometimes known as 'Mars Grass' - has proven itself to be terribly invasive and highly aggressive to all other plant types. For this reason, its growth is now restricted to HR 7221. Its restriction has proved a blessing as its unique colouring and flavour are in demand in exotic cookery."
+  },
+  "hydrogenfuel": {
+    "id": "128049202",
+    "symbol": "HydrogenFuel",
+    "category": "Chemicals",
+    "name": "Hydrogen Fuel",
+    "description": "Hydrogen fuel is used in high power systems, from ships' drives to weapons to powering the energy needs of stations and surface cities. Using high pressure and temperature, hydrogen is fused into helium in a simple reactor."
+  },
+  "hydrogenperoxide": {
+    "id": "128673850",
+    "symbol": "HydrogenPeroxide",
+    "category": "Chemicals",
+    "name": "Hydrogen Peroxide",
+    "description": "Hydrogen Peroxide, H2O2, is the simplest peroxide and has a number of uses as a reacting agent in chemical processes."
+  },
+  "imperialslaves": {
+    "id": "128667728",
+    "symbol": "ImperialSlaves",
+    "category": "Slavery",
+    "name": "Imperial Slaves",
+    "description": "Slavery is an important part of Imperial Society, providing labour for the Empire and a safety net for its citizens. Many Imperials will choose to sell themselves into a fixed period of slavery than face the embarrassment and dishonour of living with a debt."
+  },
+  "indibourbon": {
+    "id": "128667704",
+    "symbol": "IndiBourbon",
+    "market_id": "128118520",
+    "category": "Legal Drugs",
+    "name": "Indi Bourbon",
+    "limit": 8,
+    "rare": true,
+    "description": "Originally used as a medicine to revive those who have suffocated in dust storms, the restorative effects of this potent drink are almost as famous as the hangovers."
+  },
+  "indite": {
+    "id": "128049157",
+    "symbol": "Indite",
+    "category": "Minerals",
+    "name": "Indite",
+    "description": "Indite: chemical formula Fein2S4. Indium Ore. A rare, black, crystalline mineral. Often found in what were once hydrothermal deposits or asteroids that have been heated in their past. it is widely refined into Indium."
+  },
+  "indium": {
+    "id": "128049169",
+    "symbol": "Indium",
+    "category": "Metals",
+    "name": "Indium",
+    "description": "Indium, In, atomic number 49. Melting point 429K. Used industrially and high tech for a wide range of alloys, including superconductors, sensors and holo projectors."
+  },
+  "insulatingmembrane": {
+    "id": "128673855",
+    "symbol": "InsulatingMembrane",
+    "category": "Industrial Materials",
+    "name": "Insulating Membrane",
+    "description": "Insulating membranes are used to control heat flow between devices and are typically used for cooling."
+  },
+  "iondistributor": {
+    "id": "128673874",
+    "symbol": "IonDistributor",
+    "category": "Machinery",
+    "name": "Ion Distributor",
+    "description": "Ion distributors are used to control the flows of ions within a device. These can be found at Stevens Orbital in the HIP 18327 system."
+  },
+  "jadeite": {
+    "id": "128672776",
+    "symbol": "Jadeite",
+    "category": "Minerals",
+    "name": "Jadeite",
+    "description": "Jadeite; NaAlSi2O6, is a substance of the purest green and used in a variety of crafts and art. It has historical roots with the ancient Mesoamerican cultures."
+  },
+  "jaquesquinentianstill": {
+    "id": "128668017",
+    "symbol": "JaquesQuinentianStill",
+    "market_id": "128667761",
+    "category": "Consumer Items",
+    "name": "Jaques Quinentian Still",
+    "limit": 26,
+    "rare": true,
+    "description": "A pocket sized one shot distillery, hand crafted by the legendary Cyborg bartender Jaques. This device is capable of turning almost any combination of liquids into 10ml of highly concentrated alcohol in just 3 minutes."
+  },
+  "jaradharrepuzzlebox": {
+    "id": "128667683",
+    "symbol": "JaradharrePuzzlebox",
+    "market_id": "3230754816",
+    "category": "Consumer Items",
+    "name": "Jaradharre Puzzle Box",
+    "limit": 4,
+    "rare": true,
+    "description": "This entertainment device uses concentrated radiation bursts to detect the desires of the player and automatically and instantly creates a game with every feature they could desire. Each unit is unique, and will self customise to represent its owner. Use of another person's puzzle box is considered a great social faux pas."
+  },
+  "jarouarice": {
+    "id": "128667060",
+    "symbol": "JarouaRice",
+    "market_id": "3224698112",
+    "category": "Foods",
+    "name": "Jaroua Rice",
+    "limit": 18,
+    "rare": true,
+    "description": "Grown in the paddy fields of Jaroua, bioengineered filter fish are used to remove any pests or parasites attached to the plant. It is hand-planted and hand-picked by specially engineered robots."
+  },
+  "jotunmookah": {
+    "id": "128667702",
+    "symbol": "JotunMookah",
+    "market_id": "128078840",
+    "category": "Textiles",
+    "name": "Jotun Mookah",
+    "limit": 10,
+    "rare": true,
+    "description": "A small soft-furred quadruped that stains its multi-colored fur sludge brown when it dies - an action that this highly nervous creature is predisposed to do at the drop of a hat. Professional comforters must work day and night to keep this creature from self induced heart attack. The meat is extremely bitter, but they have found a niche as an expensive accessory."
+  },
+  "kachiriginleaches": {
+    "id": "128667027",
+    "symbol": "KachiriginLeaches",
+    "market_id": "3221595648",
+    "category": "Medicines",
+    "name": "Kachirigin Filter Leeches",
+    "limit": 10,
+    "rare": true,
+    "description": "Leeches were used medically for millennia on ancient Earth but were largely superseded by technology. Hundreds of years later, a chance discovery on Kachirigin revealed some very valuable properties of the native creatures. Kachirigin leeches can painlessly filter impurities from the user's blood, so can be used as a cure-all for hangovers and the worst effects of certain addictions. They are prized by the wealthy and hedonistic, and have an almost cult-like following."
+  },
+  "kamitracigars": {
+    "id": "128667081",
+    "symbol": "KamitraCigars",
+    "market_id": "3225450752",
+    "category": "Legal Drugs",
+    "name": "Kamitra Cigars",
+    "limit": 23,
+    "rare": true,
+    "description": "Providing the biggest cigars in the Galaxy, hand rolled and ready to smoke right out of the box. Specially treated to allow safe smoking even in the cockpit without overloading your life support module. The best way to end your days."
+  },
+  "kamorinhistoricweapons": {
+    "id": "128667071",
+    "symbol": "KamorinHistoricWeapons",
+    "market_id": "3221669632",
+    "category": "Weapons",
+    "name": "Kamorin Historic Weapons",
+    "limit": 10,
+    "rare": true,
+    "description": "Kamorin Historic Weapons are happy to provide the re-enactor and enthusiast with fully-functional replicas of weapons from a number of important historical eras. Our expert team of craftsmen use traditional materials and methods, with a modern eye of quality. Exploring and researching the annals of history, our artisans continue to bring you the best of weapons from throughout the ages."
+  },
+  "karetiicouture": {
+    "id": "128667039",
+    "symbol": "KaretiiCouture",
+    "market_id": "3227333120",
+    "category": "Consumer Items",
+    "name": "Karetii Couture",
+    "limit": 5,
+    "rare": true,
+    "description": "With the vagaries of fashion Karetii Couture is always ahead of the curve, and so are the prices. Many people question the value and the practicalities of these items and yet they still maintain a vice like grip on the public's imagination and credits."
+  },
+  "karsukilocusts": {
+    "id": "128667023",
+    "symbol": "KarsukiLocusts",
+    "market_id": "3225028096",
+    "category": "Foods",
+    "name": "Karsuki Locusts",
+    "limit": 18,
+    "rare": true,
+    "description": "Prized for their uniquely sweet flavor caused by the native fungal parasites that infest them."
+  },
+  "kinagoinstruments": {
+    "id": "128667045",
+    "symbol": "KinagoInstruments",
+    "market_id": "3227394304",
+    "category": "Consumer Items",
+    "name": "Kinago Violins",
+    "limit": 3,
+    "rare": true,
+    "description": "Kinago is famed for its Luthiers producing the finest Violins and other stringed instruments. They are highly prized by both musicians and collectors throughout the galaxy."
+  },
+  "konggaale": {
+    "id": "128667034",
+    "symbol": "KonggaAle",
+    "market_id": "3226978048",
+    "category": "Legal Drugs",
+    "name": "Kongga Ale",
+    "limit": 16,
+    "rare": true,
+    "description": "The hops of Kongga provide a deep, satisfying flavour to the locally brewed ale, but seem to wither and spoil rapidly when removed from their native climate. Due to this Kongga Ale is renowned for its authentic flavour and traditional production methods. Served at room temperature with a decorative umbrella."
+  },
+  "korrokungpellets": {
+    "id": "128667684",
+    "symbol": "KorroKungPellets",
+    "market_id": "3228726272",
+    "category": "Chemicals",
+    "name": "Koro Kung Pellets",
+    "limit": 20,
+    "rare": true
+  },
+  "landmines": {
+    "id": "128672312",
+    "symbol": "Landmines",
+    "category": "Weapons",
+    "name": "Landmines",
+    "description": "A cheap and effective way of creating area denial. These explosive devices are banned in most jurisdictions and are effective against personnel and land vehicles."
+  },
+  "lanthanum": {
+    "id": "128672298",
+    "symbol": "Lanthanum",
+    "category": "Metals",
+    "name": "Lanthanum",
+    "description": "Lanthanum, La, atomic number 57. Melting point 1193K. is a soft metallic element used as an additive in glass. It's properties make it ideal for optical communications systems, other lighting applications and as a catalyst for various refining processes."
+  },
+  "largeexplorationdatacash": {
+    "id": "128672136",
+    "symbol": "LargeExplorationDataCash",
+    "category": "Salvage",
+    "name": "Large Survey Data Cache",
+    "description": "Occasionally survey ships go missing during their journeys into the black. On even rarer occasions their cache of survey data can be retrieved and these are highly sought after by institutions and private interests."
+  },
+  "lavianbrandy": {
+    "id": "128666747",
+    "symbol": "LavianBrandy",
+    "market_id": "128106744",
+    "category": "Legal Drugs",
+    "name": "Lavian Brandy",
+    "limit": 24,
+    "rare": true,
+    "description": "A highly valued liquor from the old world of Lave. Using ancient breeds of grains grown in it's tropical climate, under a permit from the government, the distillate is kept in old earth oak barrels and held in an orbital maturing facility for decades to achieve maximum richness."
+  },
+  "leather": {
+    "id": "128049190",
+    "symbol": "Leather",
+    "category": "Textiles",
+    "name": "Leather",
+    "description": "Assorted tanned animal hides. Used in industry to produce clothing and high value furnishings."
+  },
+  "leestianeviljuice": {
+    "id": "128667715",
+    "symbol": "LeestianEvilJuice",
+    "market_id": "128639992",
+    "category": "Legal Drugs",
+    "name": "Leestian Evil Juice",
+    "limit": 14,
+    "rare": true,
+    "description": "Leestian evil juice acquired its name from local security forces, claiming that those intoxicated with this powerful liquor seem to be possessed with a pure evil."
+  },
+  "lepidolite": {
+    "id": "128049161",
+    "symbol": "Lepidolite",
+    "category": "Minerals",
+    "name": "Lepidolite",
+    "description": "Lepidolite: chemical formula K(Li,Al,Rb)3(Al,Si)4O10(F,OH)2. A purplish pink phyllosilicate mineral. Source of Lithium once refined."
+  },
+  "lftvoidextractcoffee": {
+    "id": "128667685",
+    "symbol": "LFTVoidExtractCoffee",
+    "market_id": "3229028864",
+    "category": "Foods",
+    "name": "Void Extract Coffee",
+    "limit": 18,
+    "rare": true,
+    "description": "Brewed using particularly robust beans, the flavour and caffeine is extracted from the beans using custom technology. Harnessing the power of the vacuum of space to enrich comet water, the method creates a beverage noted for its potency."
+  },
+  "liquidoxygen": {
+    "id": "128673851",
+    "symbol": "LiquidOxygen",
+    "category": "Chemicals",
+    "name": "Liquid oxygen"
+  },
+  "liquor": {
+    "id": "128049216",
+    "symbol": "Liquor",
+    "category": "Legal Drugs",
+    "name": "Liquor",
+    "description": "A range of luxury drinks made from distilled, fermented grains and fruits, usually containing a high percentage of alcohol. The narcotic effect means it is illegal in some jurisdictions."
+  },
+  "lithium": {
+    "id": "128049173",
+    "symbol": "Lithium",
+    "category": "Metals",
+    "name": "Lithium",
+    "description": "Lithium, Li, atomic number 3. Melting point 453K. A silvery white alkali metal used by industry in ceramic production, and in electronic devices for energy storage. Before the advent of direct brain treatments it was used to treat human mental disorders in early history."
+  },
+  "lithiumhydroxide": {
+    "id": "128673853",
+    "symbol": "LithiumHydroxide",
+    "category": "Minerals",
+    "name": "Lithium Hydroxide",
+    "description": "Lithium Hydroxide, LiOH, is a hygroscopic material often used for scrubbing CO₂ from life support systems. It is also used within certain ceramics and as a heat transfer medium."
+  },
+  "livehecateseaworms": {
+    "id": "128667051",
+    "symbol": "LiveHecateSeaWorms",
+    "market_id": "128042496",
+    "category": "Foods",
+    "name": "Live Hecate Sea Worms",
+    "limit": 13,
+    "rare": true,
+    "description": "Harvested from hydrothermal vents and prized for the sulphurous salty flavour. They are best eaten live to ensure freshness."
+  },
+  "lowtemperaturediamond": {
+    "id": "128673848",
+    "symbol": "LowTemperatureDiamond",
+    "category": "Minerals",
+    "name": "Low Temperature Diamonds",
+    "description": "Low Temperature Diamonds, C, are formed under intense pressure (as with regular diamonds), but without a heat component."
+  },
+  "ltthypersweet": {
+    "id": "128667688",
+    "symbol": "LTTHyperSweet",
+    "market_id": "3224166400",
+    "category": "Foods",
+    "name": "LTT Hyper Sweet",
+    "limit": 19,
+    "rare": true,
+    "description": "Created by combining the DNA of the universe's sweetest crops, to create the sweetest substance of them all. It turns out it's highly addictive."
+  },
+  "lyraeweed": {
+    "id": "128667028",
+    "symbol": "LyraeWeed",
+    "market_id": "3226417152",
+    "category": "Legal Drugs",
+    "name": "Lyrae Weed",
+    "limit": 10,
+    "rare": true,
+    "description": "This infamous drug grown exclusively on 16 Lyrae 5 is still the narcotic of choice for overpaid celebrities and the super-rich. It has almost become more of a status symbol than a recreational drug."
+  },
+  "m3_tissuesample_membrane": {
+    "id": "128922782",
+    "symbol": "M3_TissueSample_Membrane",
+    "category": "Salvage",
+    "name": "Mollusc Membrane",
+    "description": "A sample of membrane from a from a space-based mollusc."
+  },
+  "m3_tissuesample_mycelium": {
+    "id": "128922783",
+    "symbol": "M3_TissueSample_Mycelium",
+    "category": "Salvage",
+    "name": "Mollusc Mycelium",
+    "description": "A sample of the mycelium of a space-based mollusc."
+  },
+  "m3_tissuesample_spores": {
+    "id": "128922784",
+    "symbol": "M3_TissueSample_Spores",
+    "category": "Salvage",
+    "name": "Mollusc Spores",
+    "description": "A sample of spores from a from a space-based mollusc."
+  },
+  "m_tissuesample_fluid": {
+    "id": "128922517",
+    "symbol": "M_TissueSample_Fluid",
+    "category": "Salvage",
+    "name": "Mollusc Fluid",
+    "description": "A fluid sample from a space-based mollusc."
+  },
+  "m_tissuesample_nerves": {
+    "id": "128922519",
+    "symbol": "M_TissueSample_Nerves",
+    "category": "Salvage",
+    "name": "Mollusc Brain Tissue",
+    "description": "A sample of brain tissue from a space-based mollusc."
+  },
+  "m_tissuesample_soft": {
+    "id": "128922518",
+    "symbol": "M_TissueSample_Soft",
+    "category": "Salvage",
+    "name": "Mollusc Soft Tissue",
+    "description": "A sample of soft tissue from a space-based mollusc."
+  },
+  "magneticemittercoil": {
+    "id": "128673869",
+    "symbol": "MagneticEmitterCoil",
+    "category": "Machinery",
+    "name": "Magnetic Emitter Coil",
+    "description": "These custom made magnetic emitter coils are used to focus and guide wireless forms of energy transfer. These can be found at Steiner Platform in the Aasgaa system"
+  },
+  "marinesupplies": {
+    "id": "128049223",
+    "symbol": "MarineSupplies",
+    "category": "Machinery",
+    "name": "Marine Equipment",
+    "description": "A wide range of industrial scale equipment for marine agriculture. Submersibles, feedstock dispersing equipment, fishing equipment, nets and underwater confinements."
+  },
+  "masterchefs": {
+    "id": "128672316",
+    "symbol": "MasterChefs",
+    "market_id": "128123640",
+    "category": "Slavery",
+    "name": "Master Chefs",
+    "limit": 26,
+    "rare": true,
+    "description": "Master Chefs are selected based on genetic markers that tend to favour an aptitude for the gourmet. Little is known about them except that they are kidnapped as children and then trained under mysterious conditions to bring out their genetic cooking potential. The use of Master Chefs is illegal in most Federal and Alliance systems, but is regarded as a sign of high status in many Imperial systems. Many anti-slavery protest groups have tried to free Master Chefs from their life of culinary bondage, yet due to their training, most return of their own free will to serve. Theirs is a life of servitude - they know nothing but to cook."
+  },
+  "mechucoshightea": {
+    "id": "128667689",
+    "symbol": "MechucosHighTea",
+    "market_id": "3228398848",
+    "category": "Foods",
+    "name": "Mechucos High Tea",
+    "limit": 12,
+    "rare": true,
+    "description": "Mechucos high tea is so named for the dizzying highs caused by its consumption. Most users recommend restricting consumption to specific times of the day, and only with a side plate of restorative sandwiches and cakes."
+  },
+  "medbstarlube": {
+    "id": "128667690",
+    "symbol": "MedbStarlube",
+    "market_id": "3228762368",
+    "category": "Chemicals",
+    "name": "Medb Starlube",
+    "limit": 18,
+    "rare": true,
+    "description": "The universal lubricator used in construction, machinery and agriculture. It also has a number of domestic applications. It's slogan is: the lube that keeps the galaxy spinning!"
+  },
+  "medicaldiagnosticequipment": {
+    "id": "128682047",
+    "symbol": "MedicalDiagnosticEquipment",
+    "category": "Technology",
+    "name": "Medical Diagnostic Equipment",
+    "description": "Equipment which allows for rapid diagnosis of a large number of ailments and diseases. This equipment also screens for and identifies prohibited substances."
+  },
+  "metaalloys": {
+    "id": "128672701",
+    "symbol": "MetaAlloys",
+    "category": "Industrial Materials",
+    "name": "Meta-Alloys",
+    "description": "Meta-alloys have a complex lattice structure with large internal voids. They are cellular in nature, and formed organically. They are incredibly strong - much stronger than foamed aluminium for example. Many elements form the structure so technically they are alloys, but the composition is different in different parts of the cell walls for strength. They are good thermal insulators, and have a high melting point, but if they are melted they lose all their special properties and become a conventional alloy. They are easily machined, but as yet cannot be manufactured, only found in space. They are associated with recently discovered alien entities nicknamed 'Large Barnacles' by interstellar explorers. These appear to be common in certain parts of space, although no-one is certain why. This material has been heralded as the next step in materials technology. It is ultra-light and stronger and more versatile than most commercially available alloys."
+  },
+  "methaneclathrate": {
+    "id": "128673854",
+    "symbol": "MethaneClathrate",
+    "category": "Minerals",
+    "name": "Methane Clathrate",
+    "description": "Methane Clathrate, CH4·5.75H2O or 4CH4·23H2O, is a chemical where methane is bound within a crystal lattice of water."
+  },
+  "methanolmonohydratecrystals": {
+    "id": "128673852",
+    "symbol": "MethanolMonohydrateCrystals",
+    "category": "Minerals",
+    "name": "Methanol Monohydrate Crystals",
+    "description": "Methanol Monohydrate, CH6O2, are crystals with unusual thermoelastic properties which are useful for mechanical and optical materials."
+  },
+  "microcontrollers": {
+    "id": "128673873",
+    "symbol": "MicroControllers",
+    "category": "Technology",
+    "name": "Micro Controllers",
+    "description": "Micro controllers are small units to provide actuation and process control for lightweight devices."
+  },
+  "militarygradefabrics": {
+    "id": "128682045",
+    "symbol": "MilitaryGradeFabrics",
+    "category": "Textiles",
+    "name": "Military Grade Fabrics",
+    "description": "Made fom high-grade fabrics which are highly durable as well as adaptive to different temperatures and weather conditions, this clothing is essential for military personnel."
+  },
+  "militaryintelligence": {
+    "id": "128668552",
+    "symbol": "MilitaryIntelligence",
+    "category": "Salvage",
+    "name": "Military Intelligence",
+    "description": "Highly confidential documents detailing military movements and military strategy. Possession of such documents is highly illegal, due to their sensitive nature. For the same reason they fetch an exceedingly large sum from the right buyer."
+  },
+  "mineralextractors": {
+    "id": "128049221",
+    "symbol": "MineralExtractors",
+    "category": "Machinery",
+    "name": "Mineral Extractors",
+    "description": "Industrially produced 'grey goo' micro devices that are injected into minerals to separate specific constituents from mixed ores along grain boundaries. Extraction sites that utilise mineral extractors in their processes are significantly more efficient."
+  },
+  "mineraloil": {
+    "id": "128049203",
+    "symbol": "MineralOil",
+    "category": "Chemicals",
+    "name": "Mineral Oil",
+    "description": "This is an organic oil that is a useful raw material for producing a wide range of synthetic materials from plastics to ceramics. It is derived from the decay of organic materials, and can often be found beneath the ground on outdoor worlds. Surprisingly, mineral oil was burnt for energy on ancient Earth."
+  },
+  "modularterminals": {
+    "id": "128673870",
+    "symbol": "ModularTerminals",
+    "category": "Machinery",
+    "name": "Modular Terminals",
+    "description": "Used by factions as a reward for mission contracts. Modular terminals are ubiquitous items that provide a hardware display of data in a visual and audio format. While they can be sold at markets for a minimal price, these are more often used by engineers for their upgrades."
+  },
+  "moissanite": {
+    "id": "128672296",
+    "symbol": "Moissanite",
+    "category": "Minerals",
+    "name": "Moissanite",
+    "description": "This crystalline silicon carbide mineral has applications in electronics manufacture, and thermal energy absorption. It is also used in jewellery and other crafted items."
+  },
+  "mokojingbeastfeast": {
+    "id": "128667691",
+    "symbol": "MokojingBeastFeast",
+    "market_id": "3229612800",
+    "category": "Foods",
+    "name": "Mokojing Beast Feast",
+    "limit": 7,
+    "rare": true,
+    "description": "Marketed as \"the galaxy's most dangerous cereal\", with a tagline imploring the consumer to \"eat it before it eats you\", Beast Feast claims to contain trace elements of over two hundred and twenty three confirmed man-eater species, allowing consumers to \"eat their way to the top of the food chain\"."
+  },
+  "momusbogspaniel": {
+    "id": "128667713",
+    "symbol": "MomusBogSpaniel",
+    "market_id": "128075256",
+    "category": "Consumer Items",
+    "name": "Momus Bog Spaniel",
+    "limit": 7,
+    "rare": true,
+    "description": "Famed for its inability to hunt through water, it makes such lifelike duck calls that some interesting cross breeds are now being researched."
+  },
+  "monazite": {
+    "id": "128924327",
+    "symbol": "Monazite",
+    "category": "Minerals",
+    "name": "Monazite",
+    "description": "Monazite is a reddish-brown phosphate mineral containing thorium and sometimes uranium, making it radioactive."
+  },
+  "motronaexperiencejelly": {
+    "id": "128667676",
+    "symbol": "MotronaExperienceJelly",
+    "market_id": "3229750528",
+    "category": "Legal Drugs",
+    "name": "Motrona Experience Jelly",
+    "limit": 11,
+    "rare": true,
+    "description": "A programmable narcotic created in small batches and pre-programmed to provide whatever experience the client wishes to hallucinate. Usually this drug is created only on a bespoke order from an unknown client, but some worlds are willing to sell Pre-programmed samples on the general market."
+  },
+  "mukusubiichitinos": {
+    "id": "128667692",
+    "symbol": "MukusubiiChitinOs",
+    "market_id": "3221719296",
+    "category": "Foods",
+    "name": "Mukusubii Chitin-os",
+    "limit": 15,
+    "rare": true
+  },
+  "mulachigiantfungus": {
+    "id": "128667693",
+    "symbol": "MulachiGiantFungus",
+    "market_id": "3228892672",
+    "category": "Foods",
+    "name": "Mulachi Giant Fungus",
+    "limit": 22,
+    "rare": true,
+    "description": "The fungal life forms found in Mulachi can grow to occupy entire continents! Specifically trained teams are sent to the planet's surface to industrially harvest large portions of the fungal structures, but workers must be wary of the deadly fungal spores."
+  },
+  "musgravite": {
+    "id": "128924328",
+    "symbol": "Musgravite",
+    "category": "Minerals",
+    "name": "Musgravite",
+    "description": "Musgravite is an oxide mineral first discovered on Earth in the Musgrave mountain range in Australia, hence its name."
+  },
+  "mutomimager": {
+    "id": "128672310",
+    "symbol": "MuTomImager",
+    "category": "Technology",
+    "name": "Muon Imager",
+    "description": "Muon topographical instruments providing deep surface scans of planets and moons."
+  },
+  "mysteriousidol": {
+    "id": "128682051",
+    "symbol": "MysteriousIdol",
+    "category": "Salvage",
+    "name": "Mysterious Idol",
+    "description": "This appears to be an idol crafted to worship some sort of deity or higher form of life."
+  },
+  "nanobreakers": {
+    "id": "128673871",
+    "symbol": "Nanobreakers",
+    "category": "Technology",
+    "name": "Nanobreakers",
+    "description": "Used by factions as a reward for mission contracts. Nanobreakers are tiny machines used for disassembling certain, specialised materials. While they can be sold at markets for a minimal price, these are more often used by engineers for their upgrades."
+  },
+  "nanomedicines": {
+    "id": "128913661",
+    "symbol": "Nanomedicines",
+    "market_id": "3226651904",
+    "category": "Medicines",
+    "name": "Nanomedicines",
+    "limit": 40,
+    "rare": true,
+    "description": "These sophisticated pharmaceuticals use nanoscale materials to target disease far more efficiently than conventional medicine. The product of an ambitious R&D programme, they are developed by the technologically advanced community Utopia and exclusively distributed by Vandermeer Corporation in the Kuma system."
+  },
+  "naturalfabrics": {
+    "id": "128049191",
+    "symbol": "NaturalFabrics",
+    "category": "Textiles",
+    "name": "Natural Fabrics",
+    "description": "A range of high value fabrics derived from natural organic materials generally produced on outdoor worlds. These are used in industrial locations to make clothing and other items."
+  },
+  "neofabricinsulation": {
+    "id": "128673858",
+    "symbol": "NeofabricInsulation",
+    "category": "Industrial Materials",
+    "name": "Neofabric Insulation",
+    "description": "Neofabric insulation is a material using complementary fibre structures to retain, or protect from, heat build up."
+  },
+  "neritusberries": {
+    "id": "128667056",
+    "symbol": "NeritusBerries",
+    "market_id": "3228206080",
+    "category": "Foods",
+    "name": "Neritus Berries",
+    "limit": 13,
+    "rare": true,
+    "description": "This native plant form produces clear red fruit with a unique flavor. The plant is carnivorous and the berries contain blood plasma from its victims which is said to be an aid to slimming."
+  },
+  "nerveagents": {
+    "id": "128672304",
+    "symbol": "NerveAgents",
+    "category": "Chemicals",
+    "name": "Nerve Agents",
+    "description": "Used in medical research but because of the potential to be weaponised is a controlled substance in many jurisdictions."
+  },
+  "ngadandarifireopals": {
+    "id": "128667694",
+    "symbol": "NgadandariFireOpals",
+    "market_id": "3226127872",
+    "category": "Metals",
+    "name": "Ngadandari Fire Opals",
+    "limit": 6,
+    "rare": true,
+    "description": "A particularly rich seam of high grade opals famed for their mesmerising fire-like reflections. Imperial citizens view them as a status symbol, representing the fire of the birth of the empire. Their high market value has lead to the planet being systematically strip-mined by Imperial slaves."
+  },
+  "ngunamodernantiques": {
+    "id": "128667046",
+    "symbol": "NgunaModernAntiques",
+    "market_id": "3221538304",
+    "category": "Consumer Items",
+    "name": "Nguna Modern Antiques",
+    "limit": 4,
+    "rare": true,
+    "description": "Local craftsmen are specialists in bringing the past into your life crafted from authentically accurate materials, a mark of distinction."
+  },
+  "njangarisaddles": {
+    "id": "128667040",
+    "symbol": "NjangariSaddles",
+    "market_id": "3222416896",
+    "category": "Consumer Items",
+    "name": "Njangari Saddles",
+    "limit": 13,
+    "rare": true,
+    "description": "The Saddlers of Njangari are renowned for their leather work, and their motto: No job too big or too invertebrate. Whether simple domestic supplies or custom saddles and tack for some of the more exotic species in the galaxy, they are the very best."
+  },
+  "noneuclidianexotanks": {
+    "id": "128667687",
+    "symbol": "NonEuclidianExotanks",
+    "market_id": "3224135424",
+    "category": "Machinery",
+    "name": "Non Euclidian Exotanks",
+    "limit": 16,
+    "rare": true,
+    "description": "Produced under licence, and with the approval of a number of environmental groups, these tanks can be used to create a truly alien habitat capable of sustaining life forms from a variety on non earth like environments. They are available in a number of mind bending shapes."
+  },
+  "nonlethalweapons": {
+    "id": "128049236",
+    "symbol": "NonLethalWeapons",
+    "category": "Weapons",
+    "name": "Non-Lethal Weapons",
+    "description": "Non-Lethal Weapons are hand-held weapons used by law enforcement and for personal protection. They temporarily stun or incapacitate a human target, and are legal in most jurisdictions."
+  },
+  "occupiedcryopod": {
+    "id": "128672125",
+    "symbol": "OccupiedCryoPod",
+    "category": "Salvage",
+    "name": "Occupied Escape Pod",
+    "description": "Escape pods are typically made from composite materials designed to withstand extremes of temperature and pressure, and can protect a single occupant in the event of ship destruction."
+  },
+  "ochoengchillies": {
+    "id": "128667057",
+    "symbol": "OchoengChillies",
+    "market_id": "3226719232",
+    "category": "Foods",
+    "name": "Ochoeng Chillies",
+    "limit": 14,
+    "rare": true,
+    "description": "Due to the relaxation of various genetic modification laws, Ochoeng prides itself on having produced the galaxy's hottest chilli pepper. There have been numerous calls to reclassify the substances as toxic, however the produce remains legal in most systems."
+  },
+  "onionhead": {
+    "id": "128667029",
+    "symbol": "OnionHead",
+    "market_id": "128129272",
+    "category": "Legal Drugs",
+    "name": "Onionhead",
+    "limit": 12,
+    "rare": true,
+    "description": "The Onionhead flower is native to HIP 55118, and its seeds contain the well-known psychedelic narcotic. Illegal in most jurisdictions."
+  },
+  "onionheada": {
+    "id": "128672812",
+    "symbol": "OnionHeadA",
+    "market_id": "3226977024",
+    "category": "Legal Drugs",
+    "name": "Onionhead Alpha Strain",
+    "limit": 10,
+    "rare": true,
+    "description": "A new and improved strain of the famous Onionhead narcotic."
+  },
+  "onionheadb": {
+    "id": "128673069",
+    "symbol": "OnionHeadB",
+    "market_id": "3223027200",
+    "category": "Legal Drugs",
+    "name": "Onionhead Beta Strain",
+    "limit": 10,
+    "rare": true,
+    "description": "An adapted strain of the Onionhead narcotic favourable to local conditions."
+  },
+  "onionheadc": {
+    "id": "128983059",
+    "symbol": "OnionHeadC",
+    "category": "Legal Drugs",
+    "name": "Onionhead Gamma Strain",
+    "description": "A new strain of Onionhead tailored to grow in local conditions."
+  },
+  "opal": {
+    "id": "128924332",
+    "symbol": "Opal",
+    "category": "Minerals",
+    "name": "Void Opal"
+  },
+  "ophiuchiexinoartefacts": {
+    "id": "128667668",
+    "symbol": "OphiuchiExinoArtefacts",
+    "market_id": "3228939264",
+    "category": "Consumer Items",
+    "name": "Ophiuch Exino Artefacts",
+    "limit": 7,
+    "rare": true,
+    "description": "These strange sculptures are believed by some to have been created by a now extinct ancient sentient race. Others have theorised that the sculptures are a natural formation caused by local weather patterns. Most economists agree that there are massive profits made from the gullible and wealthy collectors."
+  },
+  "orrerianviciousbrew": {
+    "id": "128667711",
+    "symbol": "OrrerianViciousBrew",
+    "market_id": "128166392",
+    "category": "Foods",
+    "name": "Orrerian Vicious Brew",
+    "limit": 32,
+    "rare": true,
+    "description": "This drink is so high in caffeine and Natural sugars that it is often classed as a Narcotic. The addictive properties and resulting sleep deprivation are famed."
+  },
+  "osmium": {
+    "id": "128671118",
+    "symbol": "Osmium",
+    "category": "Metals",
+    "name": "Osmium",
+    "description": "Osmium, Os, atomic number 76, melting point 3306K. A very hard bluish-white metal. Provides extreme durability even at high temperatures, and is a valuable constituent in specialist alloys."
+  },
+  "p_particulatesample": {
+    "id": "128922523",
+    "symbol": "P_ParticulateSample",
+    "category": "Salvage",
+    "name": "Anomaly Particles",
+    "description": "A collection of particles from a space-based anomaly."
+  },
+  "painite": {
+    "id": "128668550",
+    "symbol": "Painite",
+    "category": "Minerals",
+    "name": "Painite",
+    "description": "Painite is an incredibly rare borate mineral that typically takes the form of a red gemstone. Highly sought after by socialities throughout occupied space, it is renowned for being one of the most valuable types of gemstones in the galaxy."
+  },
+  "palladium": {
+    "id": "128049153",
+    "symbol": "Palladium",
+    "category": "Metals",
+    "name": "Palladium",
+    "description": "Palladium, PD, 46. Often used in electronics and for purifying noxious gasses."
+  },
+  "pantaaprayersticks": {
+    "id": "128667708",
+    "symbol": "PantaaPrayerSticks",
+    "market_id": "3228824064",
+    "category": "Medicines",
+    "name": "Pantaa Prayer Sticks",
+    "limit": 36,
+    "rare": true,
+    "description": "These sacred items are said to bring wealth and prosperity to all who inhale their smoke, as can be seen by how prosperous George Pantazis has become."
+  },
+  "pavoniseargrubs": {
+    "id": "128667701",
+    "symbol": "PavonisEarGrubs",
+    "market_id": "128117240",
+    "category": "Legal Drugs",
+    "name": "Pavonis Ear Grubs",
+    "limit": 30,
+    "rare": true,
+    "description": "Native to the harsh desert climate, these unpleasant creatures will burrow into any soft surface, including flesh, to avoid the sun. Their resemblance of a walking human ear lead to their name. Some slavers use these grubs as a restrainer for their captives, attaching a dormant extra ear to the forehead of their slave that can be remotely triggered."
+  },
+  "performanceenhancers": {
+    "id": "128049209",
+    "symbol": "PerformanceEnhancers",
+    "category": "Medicines",
+    "name": "Performance Enhancers",
+    "description": "A broad category of engineered substances that enhance human physical or mental or emotional capabilities. Produced on high tech worlds, and widely consumed. There are some risks from excessive consumption and they are illegal in some jurisdictions."
+  },
+  "personaleffects": {
+    "id": "128672126",
+    "symbol": "PersonalEffects",
+    "category": "Salvage",
+    "name": "Personal Effects",
+    "description": "Personal items are often transported and sometimes lost while travelling within and between star systems. They usually have little value except to their owners."
+  },
+  "personalgifts": {
+    "id": "128672431",
+    "symbol": "PersonalGifts",
+    "market_id": "3223105792",
+    "category": "Salvage",
+    "name": "Personal Gifts",
+    "limit": 20,
+    "rare": true,
+    "description": "Colourfully wrapped presents for those naughty and nice, although the nice ones do appear to be bigger."
+  },
+  "personalweapons": {
+    "id": "128049233",
+    "symbol": "PersonalWeapons",
+    "category": "Weapons",
+    "name": "Personal Weapons",
+    "description": "Personal firearms, designed for both self defence and offence, but intended to kill a human attacker. Illegal or highly controlled in many jurisdictions."
+  },
+  "pesticides": {
+    "id": "128049205",
+    "symbol": "Pesticides",
+    "category": "Chemicals",
+    "name": "Pesticides",
+    "description": "Pesticides are targeted engineered substances, created to disrupt a particular part of the biological processes within a given organic pest. Used on agricultural worlds to reduce pest damage to crops or livestock."
+  },
+  "platinum": {
+    "id": "128049152",
+    "symbol": "Platinum",
+    "category": "Metals",
+    "name": "Platinum",
+    "description": "Platinum, Pt. atomic number 78. Melting point 2,041K. A grey-white precious metal used as a catalyst within many industrial processes, in addition to its value in electronics and luxury goods because of its resistance to corrosion."
+  },
+  "platinumaloy": {
+    "id": "128793114",
+    "symbol": "PlatinumAloy",
+    "market_id": "3223779840",
+    "category": "Metals",
+    "name": "Platinum Alloy",
+    "limit": 13,
+    "rare": true,
+    "description": "An ultra-strong metal alloy used in the manufacture of robotics, heavy machinery and weaponry. Due to the dangerous nature of mining and processing the alloy and fusing it with Platinum, most systems refused to produce it and the technique was almost lost. Now the factions of the Nahuatl system are the only people with the knowledge to create the metal."
+  },
+  "politicalprisoner": {
+    "id": "128672134",
+    "symbol": "PoliticalPrisoner",
+    "category": "Salvage",
+    "name": "Political Prisoners"
+  },
+  "polymers": {
+    "id": "128049197",
+    "symbol": "Polymers",
+    "category": "Industrial Materials",
+    "name": "Polymers",
+    "description": "Polymers are materials made of long chains of molecules. They are synthesised from mineral oil in refineries, and then used by industry to manufacture a very wide range of goods."
+  },
+  "powerconverter": {
+    "id": "128673862",
+    "symbol": "PowerConverter",
+    "category": "Machinery",
+    "name": "Power Converter",
+    "description": "Power converter used to modify and regulate the energy coming from multiple sources so that it is tuned to the optimal operational requirements of all attached devices. These can be found at Shukor Dock in the Perun system."
+  },
+  "powergenerators": {
+    "id": "128049217",
+    "symbol": "PowerGenerators",
+    "category": "Machinery",
+    "name": "Power Generators",
+    "description": "Industrially produced components for Power Generators, used throughout human space. Though the Sirius Corporation have a near monopoly on manufacture of most new larger units, many other companies produce the vast amount of consumables, spares and ancillary parts for them."
+  },
+  "powergridassembly": {
+    "id": "128673863",
+    "symbol": "PowerGridAssembly",
+    "category": "Machinery",
+    "name": "Energy Grid Assembly",
+    "description": "A specialised energy grid assembly for controlling power flow. These can be found at Pailes Enterprise in the 40 Ceti system."
+  },
+  "powertransferconduits": {
+    "id": "128673864",
+    "symbol": "PowerTransferConduits",
+    "category": "Machinery",
+    "name": "Power Transfer Bus",
+    "description": "High energy power transfer units used to deliver power where it is needed. These can be found at Haignere Orbital in the Wuthawchu system."
+  },
+  "praseodymium": {
+    "id": "128673845",
+    "symbol": "Praseodymium",
+    "category": "Metals",
+    "name": "Praseodymium",
+    "description": "Praseodymium, Pr, atomic number 59. Melting point 1208K. This is a soft and malleable metal. It is a rare mineral used for a variety of purposes including: a component in enhanced magnets, an alloy component for metals and laser optics."
+  },
+  "preciousgems": {
+    "id": "128672160",
+    "symbol": "PreciousGems",
+    "category": "Salvage",
+    "name": "Precious Gems",
+    "description": "These materials have inherent value. They are very useful in maintaining stability in otherwise volatile economies. Alongside the wealth factor, precious gems and metals play a significant role in the generation of extravagant status symbols."
+  },
+  "progenitorcells": {
+    "id": "128049669",
+    "symbol": "ProgenitorCells",
+    "category": "Medicines",
+    "name": "Progenitor Cells",
+    "description": "Targeted engineered cells to restore damage in older human cells. These can greatly extend the life of humans that take them. Some cultures believe it is immoral, especially as they tend to be used by the richest people, and so they are illegal in some jurisdictions."
+  },
+  "prohibitedresearchmaterials": {
+    "id": "128682052",
+    "symbol": "ProhibitedResearchMaterials",
+    "category": "Salvage",
+    "name": "Prohibited Research Materials",
+    "description": "Contains theoretical and experimental research, along with samples, the subject and contents of which are strictly prohibited by most authorities; their very existence is a crime, however their contents are highly valuable."
+  },
+  "pyrophyllite": {
+    "id": "128672297",
+    "symbol": "Pyrophyllite",
+    "category": "Minerals",
+    "name": "Pyrophyllite",
+    "description": "This phyllosilicate mineral is used in high pressure experiments. On some worlds it's also a material for intricate arts and crafts."
+  },
+  "radiationbaffle": {
+    "id": "128673865",
+    "symbol": "RadiationBaffle",
+    "category": "Machinery",
+    "name": "Radiation Baffle",
+    "description": "Radiation baffles are used to restrict and direct radiation emissions. These can be found at Sopwith Arsenal in the Taevaisa system."
+  },
+  "rajukrustoves": {
+    "id": "128667047",
+    "symbol": "RajukruStoves",
+    "market_id": "3227512320",
+    "category": "Consumer Items",
+    "name": "Rajukru Multi-Stoves",
+    "limit": 17,
+    "rare": true,
+    "description": "Multipurpose stoves that can be operated using almost any fuel. Used on many frontier worlds where other technology cannot be relied on or just does not work. Galactic heritage approved. The famed rustic designs are in use on camp fires throughout the galaxy."
+  },
+  "rapabaosnakeskins": {
+    "id": "128667063",
+    "symbol": "RapaBaoSnakeSkins",
+    "market_id": "3222875648",
+    "category": "Textiles",
+    "name": "Rapa Bao Snake Skins",
+    "limit": 11,
+    "rare": true,
+    "description": "Rapa Bao Snake skins are farmed throughout the Galaxy for their size and strength. The snakes are free-range and many workers have lost their lives whilst tending to this vital crop."
+  },
+  "reactivearmour": {
+    "id": "128049235",
+    "symbol": "ReactiveArmour",
+    "category": "Weapons",
+    "name": "Reactive Armour",
+    "description": "Capable of actively dissipating large amounts of kinetic, electrical and thermal energy, reactive armour greatly increases the chance of survival of the wearer from sustained weapons fire."
+  },
+  "reinforcedmountingplate": {
+    "id": "128673867",
+    "symbol": "ReinforcedMountingPlate",
+    "category": "Machinery",
+    "name": "Reinforced Mounting Plate",
+    "description": "These custom made reinforced mounting plates are used to strengthen the supports for a mounted device. These can be found at Grassmann Station in the Findalibila system."
+  },
+  "resonatingseparators": {
+    "id": "128049671",
+    "symbol": "ResonatingSeparators",
+    "category": "Technology",
+    "name": "Resonating Separators",
+    "description": "Self-calibrating tuned oscillators that resonate at a range of specific frequencies, used at refineries for bulk processing of ores."
+  },
+  "rhodplumsite": {
+    "id": "128924325",
+    "symbol": "Rhodplumsite",
+    "category": "Minerals",
+    "name": "Rhodplumsite",
+    "description": "Rhodplumsite is a rhodium-lead sulphide mineral distinguished by the fact that it exhibits different colours when viewed from different angles, appearing white, creamy pink or grayish blue."
+  },
+  "robotics": {
+    "id": "128049227",
+    "symbol": "Robotics",
+    "category": "Technology",
+    "name": "Robotics",
+    "description": "Robotics are used to perform simple automated tasks or to act as avatars for remotely located humans in hazardous environments. They are also used for repetitive and highly accurate production line tasks."
+  },
+  "rockforthfertiliser": {
+    "id": "128924333",
+    "symbol": "RockforthFertiliser",
+    "category": "Chemicals",
+    "name": "Rockforth Fertiliser",
+    "description": "A synthetic material designed to provide growing plants with essential nutrients."
+  },
+  "rusanioldsmokey": {
+    "id": "128667082",
+    "symbol": "RusaniOldSmokey",
+    "market_id": "3229255680",
+    "category": "Legal Drugs",
+    "name": "Rusani Old Smokey",
+    "limit": 10,
+    "rare": true,
+    "description": "Guaranteed genuine non-synthetic tobacco. Fully certified as organic. The only harm done is to yourself."
+  },
+  "rutile": {
+    "id": "128049163",
+    "symbol": "Rutile",
+    "category": "Minerals",
+    "name": "Rutile",
+    "description": "Rutile: Titanium Oxide, TiO2. Titanium Ore. A wine-red crystalline mineral used in creating ceramics in high refraction options, and of course refined to produce titanium."
+  },
+  "s6_tissuesample_cells": {
+    "id": "128922786",
+    "symbol": "S6_TissueSample_Cells",
+    "category": "Salvage",
+    "name": "Pod Outer Tissue",
+    "description": "A sample of tissue from the outer layers of a space-based seed pod."
+  },
+  "s6_tissuesample_coenosarc": {
+    "id": "128922787",
+    "symbol": "S6_TissueSample_Coenosarc",
+    "category": "Salvage",
+    "name": "Pod Shell Tissue",
+    "description": "A sample of tissue from the shell of a space-based seed pod."
+  },
+  "s6_tissuesample_mesoglea": {
+    "id": "128922785",
+    "symbol": "S6_TissueSample_Mesoglea",
+    "category": "Salvage",
+    "name": "Pod Mesoglea",
+    "description": "A sample of jelly-like tissue from a space-based seed pod."
+  },
+  "s9_tissuesample_shell": {
+    "id": "128922781",
+    "symbol": "S9_TissueSample_Shell",
+    "category": "Salvage",
+    "name": "Pod Tissue",
+    "description": "A sample of tissue from a space-based seed pod."
+  },
+  "s_tissuesample_cells": {
+    "id": "128922520",
+    "symbol": "S_TissueSample_Cells",
+    "category": "Salvage",
+    "name": "Pod Core Tissue",
+    "description": "A sample of tissue from the core of a space-based seed pod."
+  },
+  "s_tissuesample_core": {
+    "id": "128922522",
+    "symbol": "S_TissueSample_Core",
+    "category": "Salvage",
+    "name": "Pod Surface Tissue",
+    "description": "A sample of tissue from the surface of a space-based seed pod."
+  },
+  "s_tissuesample_surface": {
+    "id": "128922521",
+    "symbol": "S_TissueSample_Surface",
+    "category": "Salvage",
+    "name": "Pod Dead Tissue",
+    "description": "A sample of dead tissue from a space-based seed pod."
+  },
+  "samarium": {
+    "id": "128673847",
+    "symbol": "Samarium",
+    "category": "Metals",
+    "name": "Samarium",
+    "description": "Samarium, Sm, atomic number 62. Melting point 1345K. This element has remarkable magnetisation properties, far exceeding that of iron. It is also commonly used as a catalyst and chemical reagent."
+  },
+  "sanumameat": {
+    "id": "128667076",
+    "symbol": "SanumaMEAT",
+    "market_id": "3230331136",
+    "category": "Foods",
+    "name": "Sanuma Decorative Meat",
+    "limit": 7,
+    "rare": true,
+    "description": "One of the most inventive of synthetic meat specialists, growing the meat into fabulous sculptures of flesh \"grown on the bone\"."
+  },
+  "sap8corecontainer": {
+    "id": "128671443",
+    "symbol": "SAP8CoreContainer",
+    "category": "Salvage",
+    "name": "SAP 8 Core Container",
+    "description": "This container holds a crystalline shard of unknown origin. Scans indicate that the foot long shard is suspended inside a modified, self-sustaining, fusion-core containment field. Any breach of the field will result in the containers destruction."
+  },
+  "saxonwine": {
+    "id": "128667671",
+    "symbol": "SaxonWine",
+    "market_id": "3227986432",
+    "category": "Legal Drugs",
+    "name": "Saxon Wine",
+    "limit": 13,
+    "rare": true,
+    "description": "A near perfect replication of the famed 2093 vintage wines produced on ancient Earth. That year's wine was universally declared the best ever produced, and has yet to be topped. Scientists on Hill Orbital station were able to replicate the famous wine, and now guard the secrets of their formular with great care."
+  },
+  "scientificresearch": {
+    "id": "128672132",
+    "symbol": "ScientificResearch",
+    "category": "Salvage",
+    "name": "Scientific Research",
+    "description": "A collection of data and equipment, the results of a series of scientific experiments and observations."
+  },
+  "scientificsamples": {
+    "id": "128672133",
+    "symbol": "ScientificSamples",
+    "category": "Salvage",
+    "name": "Scientific Samples",
+    "description": "Most scientific sample analysis is done on site, although certain types of projects require further or separate analysis. These finds can sometimes lead to breakthroughs and are also highly sought after by private collectors."
+  },
+  "scrap": {
+    "id": "128049248",
+    "symbol": "Scrap",
+    "category": "Waste",
+    "name": "Scrap",
+    "description": "Assorted unwanted refuse with a high metal content."
+  },
+  "semiconductors": {
+    "id": "128049199",
+    "symbol": "Semiconductors",
+    "category": "Industrial Materials",
+    "name": "Semiconductors",
+    "description": "Extremely pure semiconducting crystalline materials are used extensively in the electronics industry."
+  },
+  "serendibite": {
+    "id": "128924326",
+    "symbol": "Serendibite",
+    "category": "Minerals",
+    "name": "Serendibite",
+    "description": "Serendibite is a pale yellow, blue-green or greyish blue silicate mineral that takes its name from Serendib, the old Arabic name for Sri Lanka."
+  },
+  "shanscharisorchid": {
+    "id": "128732551",
+    "symbol": "ShansCharisOrchid",
+    "market_id": "128107768",
+    "category": "Consumer Items",
+    "name": "Shan's Charis Orchid",
+    "limit": 7,
+    "rare": true,
+    "description": "Named after its discoverer's late baby daughter, this rare and delicate member of the Orchidaceae family is famed for its short but spectacular flowering and for its exquisite aroma which lingers long in the memory after the flower itself has faded."
+  },
+  "silver": {
+    "id": "128049155",
+    "symbol": "Silver",
+    "category": "Metals",
+    "name": "Silver",
+    "description": "Silver, Ag, atomic number 47. Melting point 1234K. A precious metal valued in jewelry. It also has many useful industrial properties being the best electrical and thermal conductor of any metal, and also the most reflective, and so is widely used in high tech applications, either in its pure form or alloyed with other metals."
+  },
+  "skimercomponents": {
+    "id": "128672313",
+    "symbol": "SkimerComponents",
+    "category": "Machinery",
+    "name": "Skimmer Components",
+    "description": "These maintenance and repair packs are used to keep skimmers operational."
+  },
+  "slaves": {
+    "id": "128049243",
+    "symbol": "Slaves",
+    "category": "Slavery",
+    "name": "Slaves",
+    "description": "Bonded men and women. Almost universally illegal and shunned by most civilized nations. Great efforts have been made to stamp out this trade in misery, however a few markets remain open."
+  },
+  "smallexplorationdatacash": {
+    "id": "128672137",
+    "symbol": "SmallExplorationDataCash",
+    "category": "Salvage",
+    "name": "Small Survey Data Cache",
+    "description": "Finding the data cache from a survey mission is a rare, but often lucrative, find for explorers. These caches are constantly in demand from academic institutions and commercial interests."
+  },
+  "soontillrelics": {
+    "id": "128668018",
+    "symbol": "SoontillRelics",
+    "market_id": "3225348096",
+    "category": "Consumer Items",
+    "name": "Soontill Relics",
+    "limit": 5,
+    "rare": true,
+    "description": "A slab of unidentified material covered in pictographs of an unknown origin. This relic is part of a cache of similar artefacts that were uncovered by explorers researching lost alien civilizations in the Soontil system. Sold by Garry's Reclamations, Cheranovsky City, Ngurii."
+  },
+  "sothiscrystallinegold": {
+    "id": "128672122",
+    "symbol": "SothisCrystallineGold",
+    "market_id": "128668557",
+    "category": "Metals",
+    "name": "Sothis Crystalline Gold",
+    "limit": 20,
+    "rare": true,
+    "description": "When gold is exposed to the rare gas coming from thermal vents on the sea beds of the twin Earth like planets in Sothis A5 and Sothis A6, it forms into a previously unseen crystalline structure unlike other crystalline gold. Scientists and engineers are only just beginning to discover the technological applications for this rare form of gold."
+  },
+  "spacepioneerrelics": {
+    "id": "128682054",
+    "symbol": "SpacePioneerRelics",
+    "category": "Salvage",
+    "name": "Space Pioneer Relics",
+    "description": "Items from mankind's first attempts at space exploration and research."
+  },
+  "structuralregulators": {
+    "id": "128672311",
+    "symbol": "StructuralRegulators",
+    "category": "Technology",
+    "name": "Structural Regulators",
+    "description": "These monitor structural stability of buildings under a broad range of gravities. They will generate alerts if dangerous stresses or damage is detected."
+  },
+  "superconductors": {
+    "id": "128049200",
+    "symbol": "Superconductors",
+    "category": "Industrial Materials",
+    "name": "Superconductors",
+    "description": "Complex highly pure alloys have zero resistance to electricity below a certain temperature. Such superconducting alloys are used in High Tech and Industrial economies to create a wide range of devices."
+  },
+  "surfacestabilisers": {
+    "id": "128672305",
+    "symbol": "SurfaceStabilisers",
+    "category": "Chemicals",
+    "name": "Surface Stabilisers",
+    "description": "Unique polymer that is injected into the surrounding rock providing a stable environment for construction."
+  },
+  "survivalequipment": {
+    "id": "128682048",
+    "symbol": "SurvivalEquipment",
+    "category": "Consumer Items",
+    "name": "Survival Equipment",
+    "description": "A selection of absolute essentials needed to survive in extreme conditions."
+  },
+  "syntheticfabrics": {
+    "id": "128049193",
+    "symbol": "SyntheticFabrics",
+    "category": "Textiles",
+    "name": "Synthetic Fabrics",
+    "description": "Textile material created from artificial fibres. Used by industry for clothing and lightweight construction materials."
+  },
+  "syntheticmeat": {
+    "id": "128049185",
+    "symbol": "SyntheticMeat",
+    "category": "Foods",
+    "name": "Synthetic Meat",
+    "description": "Meat that is synthesised in an industrial scale. The process relies on DNA from species from old Earth. The DNA is adjusted so muscle tissue is grown in huge quantities without the rest of the animal."
+  },
+  "syntheticreagents": {
+    "id": "128672303",
+    "symbol": "SyntheticReagents",
+    "category": "Chemicals",
+    "name": "Synthetic Reagents",
+    "description": "A selection of inorganic molecules used in the creation and manipulation of a wide range of organic compounds"
+  },
+  "taaffeite": {
+    "id": "128672775",
+    "symbol": "Taaffeite",
+    "category": "Minerals",
+    "name": "Taaffeite",
+    "description": "Taaffeite; chemical formula BeMgAl4O8, is a rare gemstone with a purple hue, used in jewellery and other crafts."
+  },
+  "tacticaldata": {
+    "id": "128672128",
+    "symbol": "TacticalData",
+    "category": "Salvage",
+    "name": "Tactical Data",
+    "description": "Encrypted documents detailing logistics, armament control points and infrastructure. Possession of such documents is illegal, due to their sensitive nature. There is a limited black market demand for these items as their military grade encryption makes them almost impossible to crack."
+  },
+  "tanmarktranquiltea": {
+    "id": "128667079",
+    "symbol": "TanmarkTranquilTea",
+    "market_id": "128057866",
+    "category": "Foods",
+    "name": "Tanmark Tranquil Tea",
+    "limit": 12,
+    "rare": true,
+    "description": "An infusion of native herbs renowned for its sedative effects."
+  },
+  "tantalum": {
+    "id": "128049171",
+    "symbol": "Tantalum",
+    "category": "Metals",
+    "name": "Tantalum",
+    "description": "Tantalum, Ta, atomic number 73. Melting point 3290K. Used to make capacitors and high melting point alloys used in reactors and by the military for specialist alloys used in weapons for armour penetration."
+  },
+  "tarachtorspice": {
+    "id": "128667030",
+    "symbol": "TarachTorSpice",
+    "market_id": "128041984",
+    "category": "Legal Drugs",
+    "name": "Tarach Spice",
+    "limit": 12,
+    "rare": true,
+    "description": "Made from crushed beetles, this mild euphoric drug has a number of side effects including turning the whites of addicts' eyes a subtle shade of green. Widely illegal, but favoured in many anarchic systems where the green eyes are seen as a badge of an extreme lifestyle."
+  },
+  "taurichimes": {
+    "id": "128667706",
+    "symbol": "TauriChimes",
+    "market_id": "128134648",
+    "category": "Consumer Items",
+    "name": "Tauri Chimes",
+    "limit": 26,
+    "rare": true,
+    "description": "These hand crafted wind chimes are specially tuned to stimulate a variety of spiritual and physical responses. They are known for helping people find inner peace, or direction, and are guaranteed to keep your chakras aligned."
+  },
+  "tea": {
+    "id": "128049188",
+    "symbol": "Tea",
+    "category": "Foods",
+    "name": "Tea",
+    "description": "Used ceremonially as well as for its stimulant effects. Tea remains a beverage with historic roots and there is great rivalry between those that drink tea and those that drink coffee."
+  },
+  "telemetrysuite": {
+    "id": "128673872",
+    "symbol": "TelemetrySuite",
+    "category": "Technology",
+    "name": "Telemetry Suite",
+    "description": "Telemetry suites provide access to information flows relating to specific components within a system."
+  },
+  "terrainenrichmentsystems": {
+    "id": "128049232",
+    "symbol": "TerrainEnrichmentSystems",
+    "category": "Technology",
+    "name": "Land Enrichment Systems",
+    "description": "A soup of carefully designed archaebacteria, lichens, and micro-fauna and their dispersal equipment. Used in terraforming or enriching agricultural land."
+  },
+  "terramaterbloodbores": {
+    "id": "128667069",
+    "symbol": "TerraMaterBloodBores",
+    "market_id": "128051466",
+    "category": "Medicines",
+    "name": "Terra Mater Blood Bores",
+    "limit": 5,
+    "rare": true,
+    "description": "A potent physical stimulant produced using extracts of a native Terra Mater carnivorous plant. When added to the user's circulatory system, it allows a human to exert themselves far beyond their normal capabilities. The side effects are often permanent with increased likelihood of haemorrhaging and weight loss."
+  },
+  "thallium": {
+    "id": "128672299",
+    "symbol": "Thallium",
+    "category": "Metals",
+    "name": "Thallium",
+    "description": "Thallium, Tl, atomic number 81. Melting point 577K. is a post-transition metal. It has a number of technological uses including medical imaging, infra-red optics and high temperature super conductivity."
+  },
+  "thargoidheart": {
+    "id": "128793127",
+    "symbol": "ThargoidHeart",
+    "category": "Salvage",
+    "name": "Thargoid Heart",
+    "description": "A processing node recovered from a Thargoid ship. These objects are integral to the flight and operational systems of Thargoid vessels."
+  },
+  "thargoidscouttissuesample": {
+    "id": "128824468",
+    "symbol": "ThargoidScoutTissueSample",
+    "category": "Salvage",
+    "name": "Thargoid Scout Tissue Sample",
+    "description": "A sample of bio-mechanical tissue taken from a Thargoid Scout-class vessel. Tissue samples appear to be much sought after for research purposes, despite the fact that they appear to be highly corrosive."
+  },
+  "thargoidtissuesampletype1": {
+    "id": "128793128",
+    "symbol": "ThargoidTissueSampleType1",
+    "category": "Salvage",
+    "name": "Thargoid Cyclops Tissue Sample",
+    "description": "A sample of bio-mechanical tissue taken from a Thargoid Interceptor-class vessel. This sample has been taken from a variant known as a Cyclops and contains both biological and mechanical elements. Tissue samples appear to be highly sought after for research purposes despite the fact that they appear to be highly corrosive."
+  },
+  "thargoidtissuesampletype2": {
+    "id": "128793129",
+    "symbol": "ThargoidTissueSampleType2",
+    "category": "Salvage",
+    "name": "Thargoid Basilisk Tissue Sample",
+    "description": "A sample of bio-mechanical tissue taken from a Thargoid Interceptor-class vessel. This sample has come from a variant known as a Basilisk and appears older and more developed than samples taken from the Cyclops variant with denser biological matter and more intricate technological elements. Tissue samples appear to be highly sought after for research purposes despite the fact that they appear to be highly corrosive."
+  },
+  "thargoidtissuesampletype3": {
+    "id": "128793130",
+    "symbol": "ThargoidTissueSampleType3",
+    "category": "Salvage",
+    "name": "Thargoid Medusa Tissue Sample",
+    "description": "A sample of bio-mechanical tissue taken from a Thargoid Interceptor-class vessel. This sample has come from a variant known as a Medusa and appears older and more developed than samples taken from both the Cyclops and Basilisk variants with denser biological matter and more intricate technological elements. Tissue samples appear to be highly sought after for research purposes despite the fact that they appear to be highly corrosive."
+  },
+  "thargoidtissuesampletype4": {
+    "id": "128902652",
+    "symbol": "ThargoidTissueSampleType4",
+    "category": "Salvage",
+    "name": "Thargoid Hydra Tissue Sample",
+    "description": "A sample of bio-mechanical tissue from a Thargoid Interceptor-class vessel. This sample is from the Hydra variant, and is therefore more developed than samples from other kinds of Interceptor, with denser biological matter and more intricate technological elements. Such samples are highly sought after by scientists despite being highly corrosive."
+  },
+  "thehuttonmug": {
+    "id": "128672121",
+    "symbol": "TheHuttonMug",
+    "market_id": "3228728832",
+    "category": "Consumer Items",
+    "name": "The Hutton Mug",
+    "limit": 30,
+    "rare": true,
+    "description": "Delivered over vast distances by those in search of a profit, the Hutton Mug, is only sold to Commanders who make the painfully long journey to Hutton Orbital. Made from the salvaged frame shift drive plates of ships that ran out of fuel before reaching the station, this is purely a vanity item commemorating the epic journey. Its value lies in its rarity and latent frame shift energies keeping your drink that little bit warmer for the journey."
+  },
+  "thermalcoolingunits": {
+    "id": "128672308",
+    "symbol": "ThermalCoolingUnits",
+    "category": "Machinery",
+    "name": "Thermal Cooling Units",
+    "description": "These draw excess heat from surrounding material to enable habitation in even the most extreme environments."
+  },
+  "thorium": {
+    "id": "128672301",
+    "symbol": "Thorium",
+    "category": "Metals",
+    "name": "Thorium",
+    "description": "Thorium, Th, atomic number 90. Melting point 2023K. A radioactive actinide metal. It was once used in ancient fission reactions. It is still used by some medical technology and as a component in advanced ceramics."
+  },
+  "thrutiscream": {
+    "id": "128667066",
+    "symbol": "ThrutisCream",
+    "market_id": "3226522368",
+    "category": "Legal Drugs",
+    "name": "Thrutis Cream",
+    "limit": 11,
+    "rare": true,
+    "description": "A curious mix of fermented Thrutis Giant Rat milk and raw turtle egg yolks produces a potent mix similar to Ancient Advocaat. Each bottle is provided with a ceremonial tasting spoon, to ease the pouring of this viscous, but delicious drink."
+  },
+  "tiegfriessynthsilk": {
+    "id": "128667695",
+    "symbol": "TiegfriesSynthSilk",
+    "market_id": "3227726848",
+    "category": "Textiles",
+    "name": "Tiegfries Synth Silk",
+    "limit": 30,
+    "rare": true
+  },
+  "timecapsule": {
+    "id": "128672163",
+    "symbol": "TimeCapsule",
+    "category": "Salvage",
+    "name": "Time Capsule",
+    "description": "These canisters are of historical interest and highly collectable although sometimes the contents have turned to dust with age."
+  },
+  "tiolcewaste2pasteunits": {
+    "id": "128667048",
+    "symbol": "TiolceWaste2PasteUnits",
+    "market_id": "3224141312",
+    "category": "Consumer Items",
+    "name": "Tiolce Waste2Paste Units",
+    "limit": 13,
+    "rare": true,
+    "description": "The original and best, turning all your waste into a nutritious and wholesome paste."
+  },
+  "titanium": {
+    "id": "128049174",
+    "symbol": "Titanium",
+    "category": "Metals",
+    "name": "Titanium",
+    "description": "Titanium, Ti, atomic 22. Melting point 1941K. A lustrous, silver-grey, low density, high strength metal that is used in a great many industrial applications, including high spec spacecraft hulls."
+  },
+  "tobacco": {
+    "id": "128049213",
+    "symbol": "Tobacco",
+    "category": "Legal Drugs",
+    "name": "Tobacco",
+    "description": "A naturally occurring plant whose leaves, when dried and shredded, are a source of nicotine, a mild and expensive organic narcotic. Usually chewed or smoked, and used in ancient rituals. Illegal in many jurisdictions."
+  },
+  "toxandjivirocide": {
+    "id": "128667074",
+    "symbol": "ToxandjiVirocide",
+    "market_id": "3230258688",
+    "category": "Chemicals",
+    "name": "Toxandji Virocide",
+    "limit": 14,
+    "rare": true,
+    "description": "Engineered to order, Toxandji Virocide can be created to target whatever pest or parasite is effecting your crops. This highly intelligent virus can be programmed to self terminate at the end of a season, or to hibernate in preparation for the next cycle."
+  },
+  "toxicwaste": {
+    "id": "128049245",
+    "symbol": "ToxicWaste",
+    "category": "Waste",
+    "name": "Toxic Waste",
+    "description": "Toxic waste is illegal in most parts of the galaxy. Hazardous toxic waste that is unsafe for human contact. Highly volatile, likely to leak and may explode when damaged."
+  },
+  "transgeniconionhead": {
+    "id": "128667760",
+    "symbol": "TransgenicOnionHead",
+    "market_id": "128057866",
+    "category": "Legal Drugs",
+    "name": "Lucan Onionhead",
+    "limit": 12,
+    "rare": true,
+    "description": "A genetically altered strain of the Onionhead flower, chemically changed to circumvent federal laws. This strain has been designed to survive in harsher climates, but its seeds contain the same well-known psychedelic narcotic. Federal lawmakers are working fast to legislate against this new breed."
+  },
+  "trinketsoffortune": {
+    "id": "128671444",
+    "symbol": "TrinketsOfFortune",
+    "category": "Consumer Items",
+    "name": "Trinkets of Hidden Fortune",
+    "description": "This container appears to hold an assorted collection of low-value trinkets, knick-knacks and statuettes. Such trinkets are generally used by superstitious pilots to try and win favour with the lady Fortuna. However, these particular knick-knacks have a much more valuable prize hidden within."
+  },
+  "tritium": {
+    "id": "128961249",
+    "symbol": "Tritium",
+    "category": "Chemicals",
+    "name": "Tritium",
+    "description": "Tritium is a beta-emitting radioactive isotope of hydrogen. It is an important ingredient for boosting nuclear fusion reactions."
+  },
+  "unknownartifact": {
+    "id": "128668547",
+    "symbol": "UnknownArtifact",
+    "category": "Salvage",
+    "name": "Thargoid Sensor",
+    "description": "These strange objects are of Thargoid origin. They have the ability to repair themselves by extracting non-organic material from their immediate environment, and this self-repair mechanism can severely damage starships and other machinery. They can also scan nearby vessels and celestial bodies, and transmit information about the scanned object in an encrypted form."
+  },
+  "unknownartifact2": {
+    "id": "128673876",
+    "symbol": "UnknownArtifact2",
+    "category": "Salvage",
+    "name": "Thargoid Probe",
+    "description": "These Thargoid objects are capable of emitting an electro-magnetic pulse that can temporarily incapacitate a starship."
+  },
+  "unknownartifact3": {
+    "id": "128740752",
+    "symbol": "UnknownArtifact3",
+    "category": "Salvage",
+    "name": "Thargoid Link",
+    "description": "A piece of Thargoid technology typically found at Thargoid surface sites."
+  },
+  "unknownbiologicalmatter": {
+    "id": "128737288",
+    "symbol": "UnknownBiologicalMatter",
+    "category": "Salvage",
+    "name": "Thargoid Biological Matter",
+    "description": "A bio-mechanical canister containing Thargoid biological matter. This material plays a part in the construction of Thargoid structures, technology and ships."
+  },
+  "unknownresin": {
+    "id": "128737287",
+    "symbol": "UnknownResin",
+    "category": "Salvage",
+    "name": "Thargoid Resin",
+    "description": "A bio-mechanical canister containing Thargoid resin. This substance can be used to lubricate the internal systems of Thargoid technology when wet, and to protect and reinforce structures when dry. When converted into a gas it is highly corrosive."
+  },
+  "unknowntechnologysamples": {
+    "id": "128737289",
+    "symbol": "UnknownTechnologySamples",
+    "category": "Salvage",
+    "name": "Thargoid Technology Samples",
+    "description": "A bio-mechanical canister containing Thargoid technological samples. This material plays a part in the construction of Thargoid structures and ships."
+  },
+  "unstabledatacore": {
+    "id": "128672810",
+    "symbol": "UnstableDataCore",
+    "category": "Salvage",
+    "name": "Unstable Data Core",
+    "description": "These ubiquitous devices provide extensive data storage, but are extremely volatile when damaged. They must be returned by the end date for information retrieval or their contents become unusable."
+  },
+  "uraninite": {
+    "id": "128049160",
+    "symbol": "Uraninite",
+    "category": "Minerals",
+    "name": "Uraninite",
+    "description": "Uraninite: chemical formula UO2. A radioactive ore, radioactive principally because of the small amount of the isotope U235 present. Refined into Uranium at some refineries. Uranium was used for power early in human history, using refined U235 in fission reactors, but now is mainly used for biotech applications. Illegal in some jurisdictions."
+  },
+  "uranium": {
+    "id": "128049172",
+    "symbol": "Uranium",
+    "category": "Metals",
+    "name": "Uranium",
+    "description": "Uranium, U, atomic number 92. Melting point 1405K. Uranium is a silvery grey metal, usually found as a mix of isotopes, mostly U238, and typically less than 1% of the radioactive U235. As a whole it is only weakly radioactive. it is chemically toxic but useful element in industry, mainly because of its density. In early human history it was used as a power source in fission reactors. Standard canisters offer sufficient protection from the low level of radiation."
+  },
+  "usscargoancientartefact": {
+    "id": "128666756",
+    "symbol": "USSCargoAncientArtefact",
+    "category": "Salvage",
+    "name": "Ancient Artefact",
+    "description": "Highly prized by collectors, the movement of recovered artefacts is strictly controlled by a number of authorities around the galaxy. Fortunately a lucrative black market offers savvy explorers with means to find reliable buyers for any ancient treasures."
+  },
+  "usscargoblackbox": {
+    "id": "128666752",
+    "symbol": "USSCargoBlackBox",
+    "category": "Salvage",
+    "name": "Black Box",
+    "description": "The flight computer from a destroyed ship. Recovered flight computers can offer details on the movements and intentions of ships before meeting their demise. Taking a black box from the scene of an accident is frowned on by authorities, but can offer lucrative profits on the black market."
+  },
+  "usscargoexperimentalchemicals": {
+    "id": "128666758",
+    "symbol": "USSCargoExperimentalChemicals",
+    "category": "Salvage",
+    "name": "Experimental Chemicals",
+    "description": "Often dangerous and corrosive in nature, experimental chemicals are often created for research and scientific purposes. In the wrong hands they can be turned into dangerous weapons, so trade is strictly controlled. A thriving black market trade has proved difficult to control for authorities."
+  },
+  "usscargomilitaryplans": {
+    "id": "128666755",
+    "symbol": "USSCargoMilitaryPlans",
+    "category": "Salvage",
+    "name": "Military Plans",
+    "description": "Highly confidential documents detailing military movements and military strategy. Possession of such documents is highly illegal, due to their sensitive nature. For the same reason they fetch a large sum to the right seller on the black market."
+  },
+  "usscargoprototypetech": {
+    "id": "128666760",
+    "symbol": "USSCargoPrototypeTech",
+    "category": "Salvage",
+    "name": "Prototype Tech",
+    "description": "The latest developments in experimental technology are jealously guarded by the galaxy's various corporations, and unsanctioned possession of prototype tech is severely punished. However, pilots have discovered there is a prospering black market for stolen tech."
+  },
+  "usscargorareartwork": {
+    "id": "128666757",
+    "symbol": "USSCargoRareArtwork",
+    "category": "Salvage",
+    "name": "Rare Artwork",
+    "description": "Prized and treasured works of art. The galaxy is rife with reproductions and forgeries, and trade in the genuine articles is highly controlled, with pieces transported between owners in secure convoys. Occasionally pieces find their way onto the black market, selling for under-the-counter prices."
+  },
+  "usscargorebeltransmissions": {
+    "id": "128666759",
+    "symbol": "USSCargoRebelTransmissions",
+    "category": "Salvage",
+    "name": "Rebel Transmissions",
+    "description": "Transcripts of communications between dissident groups. These documents are highly valued by a number of factions for the intelligence they contain. It is considered highly suspicious to be carrying them, but black market trade in data will always flow."
+  },
+  "usscargotechnicalblueprints": {
+    "id": "128666761",
+    "symbol": "USSCargoTechnicalBlueprints",
+    "category": "Salvage",
+    "name": "Technical Blueprints",
+    "description": "Blueprints of a patented new machinery and systems that are highly prized on the black market. Copyright theft is frowned upon by the authorities and those carrying illegally acquired blueprints can face extreme application of the law."
+  },
+  "usscargotradedata": {
+    "id": "128666754",
+    "symbol": "USSCargoTradeData",
+    "category": "Salvage",
+    "name": "Trade Data",
+    "description": "The trade manifest data for a ship that met its end nearby. The information contained within can be extremely useful to unscrupulous individuals and fetches a good price on the black market. However, illegal salvage is punishable by law."
+  },
+  "uszaiantreegrub": {
+    "id": "128667712",
+    "symbol": "UszaianTreeGrub",
+    "market_id": "128164856",
+    "category": "Foods",
+    "name": "Uszaian Tree Grub",
+    "limit": 14,
+    "rare": true,
+    "description": "This grub was introduced to the system from Lave, in an attempt to create a wildlife reserve for endangered species. Unfortunately the grubs mutated and evolved in their new environment, and the project failed. The evolved grubs were found to have a delicious flavor and surprising texture, and have since become a delicacy."
+  },
+  "utgaroarmillenialeggs": {
+    "id": "128667021",
+    "symbol": "UtgaroarMillenialEggs",
+    "market_id": "128037120",
+    "category": "Foods",
+    "name": "Utgaroar Millennial Eggs",
+    "limit": 15,
+    "rare": true,
+    "description": "These eggs have been buried deep in the highly alkaline Utgaroarian soil around the many active geysers, where they are slowly cooked by the natural heat of the planet and take on a distinctive purple color and their prized bittersweet taste."
+  },
+  "uzumokulowgwings": {
+    "id": "128667696",
+    "symbol": "UzumokuLowGWings",
+    "market_id": "3226474496",
+    "category": "Consumer Items",
+    "name": "Uzumoku Low-G Wings",
+    "limit": 8,
+    "rare": true,
+    "description": "Have you ever wanted to fly? Uzumoku Low-G Wings provide you with enough lift and thrust to soar like a bird, and are practical and stylish from their discreet shoulder mounted unit! Sadly they can only function in suitable low G environments."
+  },
+  "vanayequirhinofur": {
+    "id": "128667064",
+    "symbol": "VanayequiRhinoFur",
+    "market_id": "3227289856",
+    "category": "Textiles",
+    "name": "Vanayequi Ceratomorpha Fur",
+    "limit": 10,
+    "rare": true,
+    "description": "Genetically regressive rhinoceroses were originally introduced to Vanayequi to provide a reliable source of leather for nearby industries. The genetic modification was successful in reducing the animal's aggressive tendencies, but had unintended side effects. As the ceratomorphs returned to a more primitive state, they began growing soft, lush fur. This fur is now prized around the galaxy for its resilience and warmth."
+  },
+  "vegaslimweed": {
+    "id": "128667699",
+    "symbol": "VegaSlimWeed",
+    "market_id": "128149240",
+    "category": "Medicines",
+    "name": "Vega Slimweed",
+    "limit": 28,
+    "rare": true,
+    "description": "Initially thought to be a plant, settlers of the system would swallow it whole for its slimming and appetite reducing qualities. The revelation that the plant is actually a parasitic life form has not reduced its popularity. Those infested have reported a difficulty in removing the parasite once it has established, but the benefits include an immunity to certain biological poisons. The parasite must be purged before it begins to pupate."
+  },
+  "vherculisbodyrub": {
+    "id": "128667697",
+    "symbol": "VHerculisBodyRub",
+    "market_id": "3228959232",
+    "category": "Medicines",
+    "name": "V Herculis Body Rub",
+    "limit": 10,
+    "rare": true,
+    "description": "Available in a variety of textures, this scrub can exfoliate just about anything!"
+  },
+  "vidavantianlace": {
+    "id": "128667719",
+    "symbol": "VidavantianLace",
+    "market_id": "3231082240",
+    "category": "Consumer Items",
+    "name": "Vidavantian Lace",
+    "limit": 5,
+    "rare": true,
+    "description": "Specially engineered vines weave fine lace into intricate natural patterns. These highly fragile plants work slow and die if taken from their native environment."
+  },
+  "volkhabbeedrones": {
+    "id": "128667044",
+    "symbol": "VolkhabBeeDrones",
+    "market_id": "3227831808",
+    "category": "Machinery",
+    "name": "Volkhab Bee Drones",
+    "limit": 6,
+    "rare": true,
+    "description": "Guaranteed pollination every time! These miniature drones are supplied in the thousands to ensure your crops are fertilised whatever the conditions. Unlike natural bees, they can be used in conjunction with pesticides and can be supplied pre-coated with your choice of growth agents!"
+  },
+  "water": {
+    "id": "128049166",
+    "symbol": "Water",
+    "category": "Chemicals",
+    "name": "Water",
+    "description": "H2O. A chemical compound that is vital to human life and useful in a number of industrial processes."
+  },
+  "waterpurifiers": {
+    "id": "128049218",
+    "symbol": "WaterPurifiers",
+    "category": "Machinery",
+    "name": "Water Purifiers",
+    "description": "Water purifiers and components and consumables for them. All space installations are reliant on recycled water, so water purification is vital for survival. Some units are set up to medicate the purified water to maintain the correct mood of inhabitants."
+  },
+  "watersofshintara": {
+    "id": "128667085",
+    "symbol": "WatersOfShintara",
+    "market_id": "128666762",
+    "category": "Medicines",
+    "name": "The Waters of Shintara",
+    "limit": 12,
+    "rare": true
+  },
+  "wheemetewheatcakes": {
+    "id": "128667698",
+    "symbol": "WheemeteWheatCakes",
+    "market_id": "3225032704",
+    "category": "Foods",
+    "name": "Wheemete Wheat Cakes",
+    "limit": 19,
+    "rare": true,
+    "description": "These cakes were originally used as packing material for expensive machinery, but when plant owners realised they were edible, they soon became the workers staple diet. The wheat cakes produced today are made using the traditional recipe."
+  },
+  "wine": {
+    "id": "128049215",
+    "symbol": "Wine",
+    "category": "Legal Drugs",
+    "name": "Wine",
+    "description": "A luxury drink made from fermented fruits, containing alcohol, a mild narcotic, and is grown organically. Occasionally illegal because of the alcohol content."
+  },
+  "witchhaulkobebeef": {
+    "id": "128667022",
+    "symbol": "WitchhaulKobeBeef",
+    "market_id": "3223358720",
+    "category": "Foods",
+    "name": "Witchhaul Kobe Beef",
+    "limit": 18,
+    "rare": true,
+    "description": "A traditional breed from the Tajima strain of wagyu cattle in Kobe in Japan on ancient Earth, they remain most pampered cattle in human space. Taken from Kobe before the Earth's serious environmental decline, the cattle are fed a secret mix of rare grains and brushed daily. Now unique to Witchhaul, this is one of the most priced meats there is."
+  },
+  "wolf1301fesh": {
+    "id": "128667031",
+    "symbol": "Wolf1301Fesh",
+    "market_id": "128084984",
+    "category": "Legal Drugs",
+    "name": "Wolf Fesh",
+    "limit": 13,
+    "rare": true,
+    "description": "A synthetic psychoactive drug based on a closely guarded secret recipe. While active, it causes the user to lock their teeth together and rapidly exhale, a reaction that led to its street name, Fesh. There are many poor imitations but Wolf 1301 Fesh is the original and remains the most expensive due to its consistent quality. Banned in most jurisdictions."
+  },
+  "wreckagecomponents": {
+    "id": "128672123",
+    "symbol": "WreckageComponents",
+    "category": "Salvage",
+    "name": "Wreckage Components",
+    "description": "Accidents in space often leave a lot of debris, some of that wreckage should be useful in determining the cause of the accident. They should be handed in to whichever organisation has called for their collection, however they also generate some demand as morbid momentos or simply as scrap."
+  },
+  "wulpahyperboresystems": {
+    "id": "128667067",
+    "symbol": "WulpaHyperboreSystems",
+    "market_id": "3221388032",
+    "category": "Machinery",
+    "name": "Wulpa Hyperbore Systems",
+    "limit": 10,
+    "rare": true,
+    "description": "Wulpa Engineering Systems are constantly working to improve and enhance on existing models, with the Wulpa Hyperbore System representing the latest in automated mineral extraction services."
+  },
+  "wuthielokufroth": {
+    "id": "128667035",
+    "symbol": "WuthieloKuFroth",
+    "market_id": "3222155776",
+    "category": "Legal Drugs",
+    "name": "Wuthielo Ku Froth",
+    "limit": 17,
+    "rare": true,
+    "description": "Not strictly a beer, this light alcoholic beverage is made from fermented frog spawn which is then filtered through rush mats."
+  },
+  "xihecompanions": {
+    "id": "128667075",
+    "symbol": "XiheCompanions",
+    "market_id": "3224133120",
+    "category": "Technology",
+    "name": "Xihe Biomorphic Companions",
+    "limit": 10,
+    "rare": true,
+    "description": "We make the most realistic and exclusive animal companions using the latest technology and robotics, better than nature and guaranteed to last. Rigorous testing ensures that all our animals conform to the appropriate legislation on artificial intelligence."
+  },
+  "yasokondileaf": {
+    "id": "128667083",
+    "symbol": "YasoKondiLeaf",
+    "market_id": "3223088640",
+    "category": "Legal Drugs",
+    "name": "Yaso Kondi Leaf",
+    "limit": 5,
+    "rare": true,
+    "description": "A native plant that exhibits similar properties to tobacco, but without the harmful effects. Discovered through observing its effects on the local fauna."
+  },
+  "zeesszeantglue": {
+    "id": "128667707",
+    "symbol": "ZeesszeAntGlue",
+    "market_id": "128125432",
+    "category": "Consumer Items",
+    "name": "Zeessze Ant Grub Glue",
+    "limit": 27,
+    "rare": true,
+    "description": "Stick anything to everything with this natural glue, made from the cocoons of indigenous insects. It is non-toxic and can be easily removed using a resin secreted by the queen ant."
+  }
+}

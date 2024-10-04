@@ -15,7 +15,7 @@ const ROOT_INPUT_DATA_DIR = path.join(RESOURCES_DIR, 'data')
 const ROOT_OUTPUT_DATA_DIR = path.join('src', 'service', 'data')
 
 ;(async () => {
-  fdevids()
+  await fdevids()
   coriolisDataBlueprints()
   coriolisDataModules()
   materialUses()
@@ -23,17 +23,20 @@ const ROOT_OUTPUT_DATA_DIR = path.join('src', 'service', 'data')
 })()
 
 function fdevids () {
-  // TODO Make this a sync task, as codexArticles depends on it's output
-  // https://github.com/EDCD/FDevIDs
-  const dataDir = 'edcd/fdevids'
-  fs.mkdirSync(`${ROOT_OUTPUT_DATA_DIR}/${dataDir}`, { recursive: true })
-  glob(`${ROOT_INPUT_DATA_DIR}/${dataDir}/*.csv`, {}, async (error, files) => {
-    if (error) return console.error(error)
-    files.forEach(async (name) => {
-      const jsonOutput = await csv().fromFile(name)
-      const basename = path.basename(name, '.csv')
-      fs.writeFileSync(`${ROOT_OUTPUT_DATA_DIR}/${dataDir}/${basename}.json`, JSON.stringify(jsonOutput, null, 2))
-    })
+  return new Promise((resolve, reject) => {
+      // This a sync task, as codexArticles depends on it's output
+      // Data from https://github.com/EDCD/FDevIDs
+      const dataDir = 'edcd/fdevids'
+      fs.mkdirSync(`${ROOT_OUTPUT_DATA_DIR}/${dataDir}`, { recursive: true })
+      glob(`${ROOT_INPUT_DATA_DIR}/${dataDir}/*.csv`, {}, async (error, files) => {
+        if (error) return console.error(error)
+        for (const pathToFile of files) {
+          const jsonOutput = await csv().fromFile(pathToFile)
+          const basename = path.basename(pathToFile, '.csv')
+          fs.writeFileSync(`${ROOT_OUTPUT_DATA_DIR}/${dataDir}/${basename}.json`, JSON.stringify(jsonOutput, null, 2))
+        }
+        resolve()
+      })
   })
 }
 
@@ -258,14 +261,16 @@ async function codexArticles () {
   //   redirects: codexRedirects
   // }, null, 2))
 
-  // This requires the the fdevids() import to have been run at least once
+  // This requires the the fdevids() step to have been run at least once,
+  // which is why this step is configured run after it in this script
   const pathToCommodities = `${ROOT_OUTPUT_DATA_DIR}/edcd/fdevids/commodity.json`
   const commodities = JSON.parse(fs.readFileSync(pathToCommodities))
 
-  const pathToRareCommodities = `${ROOT_OUTPUT_DATA_DIR}/edcd/fdevids/rare_commodity.json`
+  const pathToRareCommodities = `${ROOT_INPUT_DATA_DIR}/rare-commodities-with-count.json`
   const rareCommodities = JSON.parse(fs.readFileSync(pathToRareCommodities))
 
   const commodityDescriptions = {}
+  const allCommodities = {}
   codexPages.forEach(codexPage => {
     if (!codexPage?.quote) return
 
@@ -274,18 +279,23 @@ async function codexArticles () {
         commodity.description = codexPage.quote
         commodityDescriptions[codexPage.title] = codexPage.quote
       }
+      allCommodities[commodity.symbol.toLowerCase()] = commodity
     })
     rareCommodities.map(rareCommodity => {
       if (rareCommodity.name === codexPage.title) {
         rareCommodity.description = codexPage.quote
         commodityDescriptions[codexPage.title] = codexPage.quote
       }
+      rareCommodity.rare = true
+      allCommodities[rareCommodity.symbol.toLowerCase()] = rareCommodity
     })
   })
-  // These wil fail as the task to generate them is currently an async function
-  // fs.writeFileSync(pathToCommodities, JSON.stringify(commodities, null, 2))
-  // fs.writeFileSync(pathToRareCommodities, JSON.stringify(rareCommodities, null, 2))
+
+  const allCommoditiesSortedList = {} 
+  Object.keys(allCommodities).sort().forEach(k => allCommoditiesSortedList[k] = allCommodities[k])
+
   fs.writeFileSync(`${ROOT_OUTPUT_DATA_DIR}/commodity-descriptions.json`, JSON.stringify(commodityDescriptions, null, 2))
+  fs.writeFileSync(`${ROOT_OUTPUT_DATA_DIR}/all-commodites.json`, JSON.stringify(allCommoditiesSortedList, null, 2))
 }
 
 function getEngineeringPropertyName (engineeringPropertyName) {
