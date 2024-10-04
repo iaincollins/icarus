@@ -195,6 +195,8 @@ async function codexArticles () {
       return response
     }
 
+    // These regular expressions don't need to be clever or over engineered,
+    // it's not runtime code and it's just an ETL job for a hobby project
     const rawQuotes = rawText
       .replace(/\r\n/img, '')
       .match(/{{quote(.*?)}}/img)
@@ -205,6 +207,10 @@ async function codexArticles () {
       .replace(/<!--(.*?)-->/, '')
       .replace(/\[\[/, '')
       .replace(/\]\]/, '')
+      .replace(/(<br>+)/img, ' ')
+      .replace(/(<br\/>+)/img, ' ')
+      .replace(/[ ]{2,}/img, ' ') // Turn two or more spaces into a single space
+      .replace(/Painite,CaZrAl<sub>9<\/sub>O<sub>15<\/sub>\(BO<sub>3<\/sub>\)\./, '') // This is just garbage data in the entry for Panite
       .trim()
       ?? null
 
