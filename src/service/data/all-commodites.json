@@ -721,7 +721,7 @@
     "symbol": "Cryolite",
     "category": "Minerals",
     "name": "Cryolite",
-    "description": "Used in a range of applications, including: Insecticides, pesticides fireworks [sic] and as a solvent for Aluminium oxide."
+    "description": "Used in a range of applications, including: Insecticides, pesticides, firework and as a solvent for Aluminium oxide."
   },
   "crystallinespheres": {
     "id": "128672432",
@@ -731,7 +731,7 @@
     "name": "Crystalline Spheres",
     "limit": 12,
     "rare": true,
-    "description": "Transparent spheres crafted from the finest crystal and containing a clear liquid full of snow that swirls when shaken"
+    "description": "Transparent spheres crafted from the finest crystal and containing a clear liquid full of snow that swirls when shaken."
   },
   "damagedescapepod": {
     "id": "128672811",
@@ -982,7 +982,7 @@
     "symbol": "Gallium",
     "category": "Metals",
     "name": "Gallium",
-    "description": "Gallium, Ga, atomic number 31. Melting point 303K. It is a soft silvery metal at human room temperature, but melts in the human hand. it is used as a key component in semiconductors, and in lasers."
+    "description": "Gallium, Ga, atomic number 31. Melting point 303K. It is a soft silvery metal at human room temperature, but melts in the human hand. It is used as a key component in semiconductors and in lasers."
   },
   "geawendancedust": {
     "id": "128667677",

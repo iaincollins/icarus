@@ -229,6 +229,9 @@ async function codexArticles () {
       .replace(/\n([a-z]{2}):(.*?)$/img, '\n')
       .trim()
 
+    // Experiment at extracting information about promiment systems
+    //if (rawText.includes('| power      = ')) console.log(title.trim(), '-', text.split("\n")?.[0]?.replace(/[ ]{2,}/img, ' ')?.trim())
+
     response.push({
       id,
       title,
