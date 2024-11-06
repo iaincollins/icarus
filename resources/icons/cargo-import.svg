@@ -4,7 +4,7 @@
    preserveAspectRatio="xMidYMid meet"
    version="1.1"
    id="svg4"
-   sodipodi:docname="cargo-import-alt.svg"
+   sodipodi:docname="cargo-import.svg"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -22,14 +22,14 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.33803678"
-     inkscape:cx="-959.95471"
-     inkscape:cy="-72.47732"
+     inkscape:cx="-1146.325"
+     inkscape:cy="-69.519062"
      inkscape:window-width="2146"
      inkscape:window-height="1480"
      inkscape:window-x="868"
      inkscape:window-y="583"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g920"
+     inkscape:current-layer="g710"
      inkscape:snap-global="false"
      showguides="false"
      inkscape:showpageshadow="2"
@@ -65,7 +65,7 @@
         <path
            id="path1836"
            style="fill-rule:evenodd;stroke-width:20.7788;paint-order:fill markers stroke"
-           d="m 344.85777,491.87896 75.56077,65.016 -104.58197,46.90022 174.5365,-22.16011 132.63626,-115.59278 -104.58196,46.90023 1.70779,-99.6674 z"
+           d="m 359.2931,485.40537 61.12544,71.48959 -104.58197,46.90022 174.5365,-22.16011 132.63626,-115.59278 -104.58196,46.90023 -12.72754,-93.19381 z"
            sodipodi:nodetypes="cccccccc" />
         <g
            id="g447" />

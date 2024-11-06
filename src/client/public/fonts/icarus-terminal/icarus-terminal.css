@@ -1,11 +1,11 @@
 @font-face {
   font-family: "icarus-terminal";
-  src: url('icarus-terminal.eot?t=1730912525680'); /* IE9*/
-  src: url('icarus-terminal.eot?t=1730912525680#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("icarus-terminal.woff2?t=1730912525680") format("woff2"),
-  url("icarus-terminal.woff?t=1730912525680") format("woff"),
-  url('icarus-terminal.ttf?t=1730912525680') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('icarus-terminal.svg?t=1730912525680#icarus-terminal') format('svg'); /* iOS 4.1- */
+  src: url('icarus-terminal.eot?t=1730934476347'); /* IE9*/
+  src: url('icarus-terminal.eot?t=1730934476347#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("icarus-terminal.woff2?t=1730934476347") format("woff2"),
+  url("icarus-terminal.woff?t=1730934476347") format("woff"),
+  url('icarus-terminal.ttf?t=1730934476347') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('icarus-terminal.svg?t=1730934476347#icarus-terminal') format('svg'); /* iOS 4.1- */
 }
 
 [class^="icarus-terminal-"], [class*=" icarus-terminal-"] {
@@ -114,9 +114,12 @@
 .icarus-terminal-table-index:before { content: "\ea5f"; }
 .icarus-terminal-table-inspector:before { content: "\ea60"; }
 .icarus-terminal-table-rows:before { content: "\ea61"; }
-.icarus-terminal-trending-down:before { content: "\ea62"; }
-.icarus-terminal-trending-steady:before { content: "\ea63"; }
-.icarus-terminal-trending-up:before { content: "\ea64"; }
-.icarus-terminal-triangle-up:before { content: "\ea65"; }
-.icarus-terminal-warning:before { content: "\ea66"; }
-.icarus-terminal-wrench:before { content: "\ea67"; }
+.icarus-terminal-trending-down-chart:before { content: "\ea62"; }
+.icarus-terminal-trending-down:before { content: "\ea63"; }
+.icarus-terminal-trending-steady-chart:before { content: "\ea64"; }
+.icarus-terminal-trending-steady:before { content: "\ea65"; }
+.icarus-terminal-trending-up-chart:before { content: "\ea66"; }
+.icarus-terminal-trending-up:before { content: "\ea67"; }
+.icarus-terminal-triangle-up:before { content: "\ea68"; }
+.icarus-terminal-warning:before { content: "\ea69"; }
+.icarus-terminal-wrench:before { content: "\ea6a"; }

@@ -5,7 +5,7 @@
    version="1.1"
    id="svg8"
    sodipodi:docname="planetary-port.svg"
-   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -22,16 +22,19 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.873"
-     inkscape:cx="494.27262"
-     inkscape:cy="501.14548"
+     inkscape:cx="422.68041"
+     inkscape:cy="501.71821"
      inkscape:window-width="2045"
      inkscape:window-height="1177"
      inkscape:window-x="820"
      inkscape:window-y="561"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg8" />
+     inkscape:current-layer="svg8"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
   <path
      id="path4957"
      style="stroke-width:13.2354;paint-order:fill markers stroke"
-     d="M 160.48925,77.792879 V 695.73316 H 36.511025 V 870.1252 H 2.6695246 v 68.58186 H 996.94115 V 870.1252 H 962.77782 V 547.22162 H 628.8771 V 77.792879 H 215.15767 Z m 54.66842,54.668401 H 574.20868 V 547.22162 H 435.23393 V 695.73316 H 215.15767 V 370.84767 h 274.44284 v -55.9712 H 215.15767 V 253.51434 H 489.60051 V 197.54535 H 215.15767 Z m 276.45805,474.84855 h 414.7781 v 68.62624 H 611.12407 v 55.97118 H 906.39382 V 789.199 870.1252 H 491.61572 Z M 92.706377,746.471 H 435.23393 V 869.20415 H 92.706377 Z" />
+     d="M 160.48925,77.792879 V 695.73316 H 36.511025 V 870.1252 H 2.6695246 v 74.58186 H 996.94115 V 870.1252 H 962.77782 V 547.22162 H 628.8771 V 77.792879 H 215.15767 Z m 54.66842,54.668401 H 574.20868 V 547.22162 H 435.23393 V 695.73316 H 215.15767 V 370.84767 h 274.44284 v -55.9712 H 215.15767 V 253.51434 H 489.60051 V 197.54535 H 215.15767 Z m 276.45805,474.84855 h 414.7781 v 68.62624 H 611.12407 v 55.97118 H 906.39382 V 789.199 870.1252 H 491.61572 Z M 92.706377,746.471 H 435.23393 V 869.20415 H 92.706377 Z"
+     sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccc" />
 </svg>
