@@ -1,5 +1,5 @@
 /* global WebSocket, CustomEvent */
-import { createContext, useState, useContext } from 'react'
+import { createContext, useState, useContext, useEffect } from 'react'
 import notification from 'lib/notification'
 
 let socket = null// Store socket connection (defaults to null)
@@ -148,9 +148,11 @@ const SocketContext = createContext()
 function SocketProvider ({ children }) {
   const [socketState, setSocketState] = useState(defaultSocketState)
 
-  if (typeof WebSocket !== 'undefined' && socketState.connected !== true) {
-    connect(socketState, setSocketState)
-  }
+  useEffect(() => {
+    if (typeof WebSocket !== 'undefined' && socketState.connected !== true) {
+      connect(socketState, setSocketState)
+    }
+  });
 
   return (
     <SocketContext.Provider value={socketState}>
