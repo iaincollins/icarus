@@ -11,13 +11,25 @@ const { UNKNOWN_VALUE } = require('../../shared/consts')
 
 const axios = require('axios')
 const retry = require('async-retry')
+const { version } = require('../../../package.json')
 
 const baseUrl = 'https://www.edsm.net/'
+
+// EDSM's Cloudflare config blocks requests with the default `axios/*`
+// User-Agent (presumably after seeing a lot of bot traffic from that UA).
+// Send a self-identifying UA so EDSM can contact the project if needed and
+// so our requests are distinguishable from anonymous library traffic.
+// See: https://github.com/iaincollins/icarus/issues/81
+const http = axios.create({
+  headers: {
+    'User-Agent': `icarus-terminal/${version} (+https://github.com/iaincollins/icarus)`
+  }
+})
 
 class EDSM {
   static async bodies (systemName) {
     return await retry(async bail => {
-      const res = await axios.get(`${baseUrl}api-system-v1/bodies?systemName=${encodeURIComponent(systemName)}`)
+      const res = await http.get(`${baseUrl}api-system-v1/bodies?systemName=${encodeURIComponent(systemName)}`)
       return res.data.bodies
     }, {
       retries: 10
@@ -26,7 +38,7 @@ class EDSM {
 
   static async stations (systemName) {
     return await retry(async bail => {
-      const res = await axios.get(`${baseUrl}api-system-v1/stations?systemName=${encodeURIComponent(systemName)}`)
+      const res = await http.get(`${baseUrl}api-system-v1/stations?systemName=${encodeURIComponent(systemName)}`)
       return res.data.stations
     }, {
       retries: 10
@@ -35,9 +47,9 @@ class EDSM {
 
   static async system (systemName) {
     return await retry(async bail => {
-      const resSystem = await axios.get(`${baseUrl}api-v1/system?systemName=${encodeURIComponent(systemName)}&showInformation=1&showCoordinates=1`)
-      const resBodies = await axios.get(`${baseUrl}api-system-v1/bodies?systemName=${encodeURIComponent(systemName)}`)
-      const resStations = await axios.get(`${baseUrl}api-system-v1/stations?systemName=${encodeURIComponent(systemName)}`)
+      const resSystem = await http.get(`${baseUrl}api-v1/system?systemName=${encodeURIComponent(systemName)}&showInformation=1&showCoordinates=1`)
+      const resBodies = await http.get(`${baseUrl}api-system-v1/bodies?systemName=${encodeURIComponent(systemName)}`)
+      const resStations = await http.get(`${baseUrl}api-system-v1/stations?systemName=${encodeURIComponent(systemName)}`)
       return {
         name: resSystem?.data?.name ?? UNKNOWN_VALUE,
         address: resSystem?.data?.address ?? UNKNOWN_VALUE,
