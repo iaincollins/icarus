@@ -148,7 +148,7 @@ const SocketContext = createContext()
 function SocketProvider ({ children }) {
   const [socketState, setSocketState] = useState(defaultSocketState)
 
-  if (typeof WebSocket !== 'undefined' && socketState.connected !== true) {
+  if (typeof window !== 'undefined' && socketState.connected !== true) {
     connect(socketState, setSocketState)
   }
 
