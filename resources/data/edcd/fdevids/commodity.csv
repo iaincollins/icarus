@@ -232,3 +232,26 @@ id,symbol,category,name
 128924334,AgronomicTreatment,Chemicals,Agronomic Treatment
 128961249,Tritium,Chemicals,Tritium
 128983059,OnionHeadC,Legal Drugs,Onionhead Gamma Strain
+129015433,AncientRelicTG,Salvage,Unclassified Relic
+129019258,ThargoidTissueSampleType5,Salvage,Thargoid Orthrus Tissue Sample
+129019259,ThargoidGeneratorTissueSample,Salvage,Caustic Tissue Sample
+129022087,UnocuppiedEscapePod,Salvage,Unoccupied Escape Pod
+129022395,ThargoidTissueSampleType6,Salvage,Thargoid Glaive Tissue Sample
+129022396,ThargoidTissueSampleType7,Salvage,Thargoid Scythe Tissue Sample
+129022398,ThargoidTissueSampleType9a,Salvage,Titan Deep Tissue Sample
+129022399,ThargoidTissueSampleType9b,Salvage,Titan Tissue Sample
+129022400,ThargoidTissueSampleType9c,Salvage,Titan Partial Tissue Sample
+129022402,ThargoidTissueSampleType10a,Salvage,Titan Maw Deep Tissue Sample
+129022403,ThargoidTissueSampleType10b,Salvage,Titan Maw Tissue Sample
+129022404,ThargoidTissueSampleType10c,Salvage,Titan Maw Partial Tissue Sample
+129022405,UnknownSack,Salvage,Protective Membrane Scrap
+129022406,ThargoidPod,Salvage,Xenobiological Prison Pod
+129022407,CoralSap,Salvage,Coral Sap
+129022408,UnknownMineral,Salvage,Impure Spire Mineral
+129022409,UnknownRefinedMineral,Salvage,Semi-Refined Spire Mineral
+129030459,ThargoidTitanDriveComponent,Salvage,Titan Drive Component
+129030460,ThargoidCystSpecimen,Salvage,Cyst Specimen
+129030461,ThargoidBoneFragments,Salvage,Bone Fragments
+129030462,ThargoidOrganSample,Salvage,Organ Sample
+129031238,Steel,Metals,Steel
+129031327,Haematite,Minerals,Haematite

@@ -1396,5 +1396,143 @@
     "symbol": "OnionHeadC",
     "category": "Legal Drugs",
     "name": "Onionhead Gamma Strain"
+  },
+  {
+    "id": "129015433",
+    "symbol": "AncientRelicTG",
+    "category": "Salvage",
+    "name": "Unclassified Relic"
+  },
+  {
+    "id": "129019258",
+    "symbol": "ThargoidTissueSampleType5",
+    "category": "Salvage",
+    "name": "Thargoid Orthrus Tissue Sample"
+  },
+  {
+    "id": "129019259",
+    "symbol": "ThargoidGeneratorTissueSample",
+    "category": "Salvage",
+    "name": "Caustic Tissue Sample"
+  },
+  {
+    "id": "129022087",
+    "symbol": "UnocuppiedEscapePod",
+    "category": "Salvage",
+    "name": "Unoccupied Escape Pod"
+  },
+  {
+    "id": "129022395",
+    "symbol": "ThargoidTissueSampleType6",
+    "category": "Salvage",
+    "name": "Thargoid Glaive Tissue Sample"
+  },
+  {
+    "id": "129022396",
+    "symbol": "ThargoidTissueSampleType7",
+    "category": "Salvage",
+    "name": "Thargoid Scythe Tissue Sample"
+  },
+  {
+    "id": "129022398",
+    "symbol": "ThargoidTissueSampleType9a",
+    "category": "Salvage",
+    "name": "Titan Deep Tissue Sample"
+  },
+  {
+    "id": "129022399",
+    "symbol": "ThargoidTissueSampleType9b",
+    "category": "Salvage",
+    "name": "Titan Tissue Sample"
+  },
+  {
+    "id": "129022400",
+    "symbol": "ThargoidTissueSampleType9c",
+    "category": "Salvage",
+    "name": "Titan Partial Tissue Sample"
+  },
+  {
+    "id": "129022402",
+    "symbol": "ThargoidTissueSampleType10a",
+    "category": "Salvage",
+    "name": "Titan Maw Deep Tissue Sample"
+  },
+  {
+    "id": "129022403",
+    "symbol": "ThargoidTissueSampleType10b",
+    "category": "Salvage",
+    "name": "Titan Maw Tissue Sample"
+  },
+  {
+    "id": "129022404",
+    "symbol": "ThargoidTissueSampleType10c",
+    "category": "Salvage",
+    "name": "Titan Maw Partial Tissue Sample"
+  },
+  {
+    "id": "129022405",
+    "symbol": "UnknownSack",
+    "category": "Salvage",
+    "name": "Protective Membrane Scrap"
+  },
+  {
+    "id": "129022406",
+    "symbol": "ThargoidPod",
+    "category": "Salvage",
+    "name": "Xenobiological Prison Pod"
+  },
+  {
+    "id": "129022407",
+    "symbol": "CoralSap",
+    "category": "Salvage",
+    "name": "Coral Sap"
+  },
+  {
+    "id": "129022408",
+    "symbol": "UnknownMineral",
+    "category": "Salvage",
+    "name": "Impure Spire Mineral"
+  },
+  {
+    "id": "129022409",
+    "symbol": "UnknownRefinedMineral",
+    "category": "Salvage",
+    "name": "Semi-Refined Spire Mineral"
+  },
+  {
+    "id": "129030459",
+    "symbol": "ThargoidTitanDriveComponent",
+    "category": "Salvage",
+    "name": "Titan Drive Component"
+  },
+  {
+    "id": "129030460",
+    "symbol": "ThargoidCystSpecimen",
+    "category": "Salvage",
+    "name": "Cyst Specimen"
+  },
+  {
+    "id": "129030461",
+    "symbol": "ThargoidBoneFragments",
+    "category": "Salvage",
+    "name": "Bone Fragments"
+  },
+  {
+    "id": "129030462",
+    "symbol": "ThargoidOrganSample",
+    "category": "Salvage",
+    "name": "Organ Sample"
+  },
+  {
+    "id": "129031238",
+    "symbol": "Steel",
+    "category": "Metals",
+    "name": "Steel"
+  },
+  {
+    "id": "129031327",
+    "symbol": "Haematite",
+    "category": "Minerals",
+    "name": "Haematite"
   }
 ]

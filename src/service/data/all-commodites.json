@@ -163,6 +163,12 @@
     "name": "Guardian Relic",
     "description": "An artefact created several million years ago by the Guardians, an extinct nonhuman civilisation."
   },
+  "ancientrelictg": {
+    "id": "129015433",
+    "symbol": "AncientRelicTG",
+    "category": "Salvage",
+    "name": "Unclassified Relic"
+  },
   "ancienttablet": {
     "id": "128732186",
     "symbol": "AncientTablet",
@@ -709,6 +715,12 @@
     "rare": true,
     "description": "Spongiform Victuals have been a staple food of the Imperial military for years. Many have tried to create copies of the nutritious formula, but it seems only to thrive in the vast damp caves of Coquim. The ingredients are a tightly held secret, and some suggest that it contains addictive substances."
   },
+  "coralsap": {
+    "id": "129022407",
+    "symbol": "CoralSap",
+    "category": "Salvage",
+    "name": "Coral Sap"
+  },
   "cropharvesters": {
     "id": "128049222",
     "symbol": "CropHarvesters",
@@ -721,7 +733,7 @@
     "symbol": "Cryolite",
     "category": "Minerals",
     "name": "Cryolite",
-    "description": "Used in a range of applications, including: Insecticides, pesticides, firework and as a solvent for Aluminium oxide."
+    "description": "Used in a range of applications, including insecticides, pesticides, fireworks and as a solvent for aluminium oxide."
   },
   "crystallinespheres": {
     "id": "128672432",
@@ -731,7 +743,7 @@
     "name": "Crystalline Spheres",
     "limit": 12,
     "rare": true,
-    "description": "Transparent spheres crafted from the finest crystal and containing a clear liquid full of snow that swirls when shaken."
+    "description": "Transparent spheres crafted from the finest crystal and containing a clear liquid full of snow that swirls when shaken"
   },
   "damagedescapepod": {
     "id": "128672811",
@@ -1092,6 +1104,12 @@
     "category": "Minerals",
     "name": "Grandidierite",
     "description": "Grandidierite is bluish-green nesosilicate mineral distinguished by the fact that it exhibits different colours when viewed from different angles."
+  },
+  "haematite": {
+    "id": "129031327",
+    "symbol": "Haematite",
+    "category": "Minerals",
+    "name": "Haematite"
   },
   "hafnium178": {
     "id": "128668549",
@@ -2427,6 +2445,12 @@
     "name": "Space Pioneer Relics",
     "description": "Items from mankind's first attempts at space exploration and research."
   },
+  "steel": {
+    "id": "129031238",
+    "symbol": "Steel",
+    "category": "Metals",
+    "name": "Steel"
+  },
   "structuralregulators": {
     "id": "128672311",
     "symbol": "StructuralRegulators",
@@ -2565,12 +2589,42 @@
     "name": "Thallium",
     "description": "Thallium, Tl, atomic number 81. Melting point 577K. is a post-transition metal. It has a number of technological uses including medical imaging, infra-red optics and high temperature super conductivity."
   },
+  "thargoidbonefragments": {
+    "id": "129030461",
+    "symbol": "ThargoidBoneFragments",
+    "category": "Salvage",
+    "name": "Bone Fragments"
+  },
+  "thargoidcystspecimen": {
+    "id": "129030460",
+    "symbol": "ThargoidCystSpecimen",
+    "category": "Salvage",
+    "name": "Cyst Specimen"
+  },
+  "thargoidgeneratortissuesample": {
+    "id": "129019259",
+    "symbol": "ThargoidGeneratorTissueSample",
+    "category": "Salvage",
+    "name": "Caustic Tissue Sample"
+  },
   "thargoidheart": {
     "id": "128793127",
     "symbol": "ThargoidHeart",
     "category": "Salvage",
     "name": "Thargoid Heart",
     "description": "A processing node recovered from a Thargoid ship. These objects are integral to the flight and operational systems of Thargoid vessels."
+  },
+  "thargoidorgansample": {
+    "id": "129030462",
+    "symbol": "ThargoidOrganSample",
+    "category": "Salvage",
+    "name": "Organ Sample"
+  },
+  "thargoidpod": {
+    "id": "129022406",
+    "symbol": "ThargoidPod",
+    "category": "Salvage",
+    "name": "Xenobiological Prison Pod"
   },
   "thargoidscouttissuesample": {
     "id": "128824468",
@@ -2585,6 +2639,24 @@
     "category": "Salvage",
     "name": "Thargoid Cyclops Tissue Sample",
     "description": "A sample of bio-mechanical tissue taken from a Thargoid Interceptor-class vessel. This sample has been taken from a variant known as a Cyclops and contains both biological and mechanical elements. Tissue samples appear to be highly sought after for research purposes despite the fact that they appear to be highly corrosive."
+  },
+  "thargoidtissuesampletype10a": {
+    "id": "129022402",
+    "symbol": "ThargoidTissueSampleType10a",
+    "category": "Salvage",
+    "name": "Titan Maw Deep Tissue Sample"
+  },
+  "thargoidtissuesampletype10b": {
+    "id": "129022403",
+    "symbol": "ThargoidTissueSampleType10b",
+    "category": "Salvage",
+    "name": "Titan Maw Tissue Sample"
+  },
+  "thargoidtissuesampletype10c": {
+    "id": "129022404",
+    "symbol": "ThargoidTissueSampleType10c",
+    "category": "Salvage",
+    "name": "Titan Maw Partial Tissue Sample"
   },
   "thargoidtissuesampletype2": {
     "id": "128793129",
@@ -2606,6 +2678,48 @@
     "category": "Salvage",
     "name": "Thargoid Hydra Tissue Sample",
     "description": "A sample of bio-mechanical tissue from a Thargoid Interceptor-class vessel. This sample is from the Hydra variant, and is therefore more developed than samples from other kinds of Interceptor, with denser biological matter and more intricate technological elements. Such samples are highly sought after by scientists despite being highly corrosive."
+  },
+  "thargoidtissuesampletype5": {
+    "id": "129019258",
+    "symbol": "ThargoidTissueSampleType5",
+    "category": "Salvage",
+    "name": "Thargoid Orthrus Tissue Sample"
+  },
+  "thargoidtissuesampletype6": {
+    "id": "129022395",
+    "symbol": "ThargoidTissueSampleType6",
+    "category": "Salvage",
+    "name": "Thargoid Glaive Tissue Sample"
+  },
+  "thargoidtissuesampletype7": {
+    "id": "129022396",
+    "symbol": "ThargoidTissueSampleType7",
+    "category": "Salvage",
+    "name": "Thargoid Scythe Tissue Sample"
+  },
+  "thargoidtissuesampletype9a": {
+    "id": "129022398",
+    "symbol": "ThargoidTissueSampleType9a",
+    "category": "Salvage",
+    "name": "Titan Deep Tissue Sample"
+  },
+  "thargoidtissuesampletype9b": {
+    "id": "129022399",
+    "symbol": "ThargoidTissueSampleType9b",
+    "category": "Salvage",
+    "name": "Titan Tissue Sample"
+  },
+  "thargoidtissuesampletype9c": {
+    "id": "129022400",
+    "symbol": "ThargoidTissueSampleType9c",
+    "category": "Salvage",
+    "name": "Titan Partial Tissue Sample"
+  },
+  "thargoidtitandrivecomponent": {
+    "id": "129030459",
+    "symbol": "ThargoidTitanDriveComponent",
+    "category": "Salvage",
+    "name": "Titan Drive Component"
   },
   "thehuttonmug": {
     "id": "128672121",
@@ -2751,6 +2865,18 @@
     "name": "Thargoid Biological Matter",
     "description": "A bio-mechanical canister containing Thargoid biological matter. This material plays a part in the construction of Thargoid structures, technology and ships."
   },
+  "unknownmineral": {
+    "id": "129022408",
+    "symbol": "UnknownMineral",
+    "category": "Salvage",
+    "name": "Impure Spire Mineral"
+  },
+  "unknownrefinedmineral": {
+    "id": "129022409",
+    "symbol": "UnknownRefinedMineral",
+    "category": "Salvage",
+    "name": "Semi-Refined Spire Mineral"
+  },
   "unknownresin": {
     "id": "128737287",
     "symbol": "UnknownResin",
@@ -2758,12 +2884,24 @@
     "name": "Thargoid Resin",
     "description": "A bio-mechanical canister containing Thargoid resin. This substance can be used to lubricate the internal systems of Thargoid technology when wet, and to protect and reinforce structures when dry. When converted into a gas it is highly corrosive."
   },
+  "unknownsack": {
+    "id": "129022405",
+    "symbol": "UnknownSack",
+    "category": "Salvage",
+    "name": "Protective Membrane Scrap"
+  },
   "unknowntechnologysamples": {
     "id": "128737289",
     "symbol": "UnknownTechnologySamples",
     "category": "Salvage",
     "name": "Thargoid Technology Samples",
     "description": "A bio-mechanical canister containing Thargoid technological samples. This material plays a part in the construction of Thargoid structures and ships."
+  },
+  "unocuppiedescapepod": {
+    "id": "129022087",
+    "symbol": "UnocuppiedEscapePod",
+    "category": "Salvage",
+    "name": "Unoccupied Escape Pod"
   },
   "unstabledatacore": {
     "id": "128672810",

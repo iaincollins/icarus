@@ -283,14 +283,28 @@ async function codexArticles () {
     if (codexPage.title == 'Galactic Travel Guides') codexPage.title = 'Galactic Travel Guide'
     if (codexPage.title == 'Political Prisoner') codexPage.title = 'Political Prisoners'
     if (codexPage.title == 'Hostage') codexPage.title = 'Hostages'
-    if (codexPage.title == 'Auto Fabricators') codexPage.title = 'Auto-Fabricators'
-
+   
     commodities.map(commodity => {
+      const commoditySymbol = commodity.symbol.toLowerCase()
+      let commodityDescription
+
       if (commodity.name.replace(/ /img, '').toLowerCase() === codexPage.title.replace(/ /img, '').toLowerCase()) {
-        commodity.description = codexPage.quote
-        commodityDescriptions[commodity.symbol.toLowerCase()] = codexPage.quote
+        commodityDescription = codexPage.quote
       }
-      allCommodities[commodity.symbol.toLowerCase()] = commodity
+
+      // Add or override description data from the wiki
+      // Use to fix typos or to extend to include missing data
+      if (commoditySymbol == 'cryolite') commodityDescription = 'Used in a range of applications, including insecticides, pesticides, fireworks and as a solvent for aluminium oxide.'
+      if (commoditySymbol == 'crystallinespheres') commodityDescription = 'Transparent spheres crafted from the finest crystal and containing a clear liquid full of snow that swirls when shaken.'
+      if (commoditySymbol == 'gallium') commodityDescription = 'Gallium, Ga, atomic number 31. Melting point 303K. It is a soft silvery metal at human room temperature, but melts in the human hand. It is used as a key component in semiconductors and in lasers.'
+      if (commoditySymbol == 'autofabricators') commodityDescription = 'High speed, low cost fabricators that can build almost any design out of basic resources.'
+
+      if (commodityDescription) {
+        commodity.description = commodityDescription
+        commodityDescriptions[commoditySymbol] = commodityDescription
+      }
+
+      allCommodities[commoditySymbol] = commodity
     })
 
     rareCommodities.map(rareCommodity => {

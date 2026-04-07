@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1000 1000"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="triangle-up.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.873"
+     inkscape:cx="489.69072"
+     inkscape:cy="534.36426"
+     inkscape:window-width="1801"
+     inkscape:window-height="1338"
+     inkscape:window-x="1440"
+     inkscape:window-y="450"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4"
+     showguides="false"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <path
+     id="path474"
+     style="fill-rule:evenodd;stroke-width:0.962;stroke-linejoin:round;paint-order:fill markers stroke"
+     inkscape:transform-center-y="-152.77166"
+     d="M 285.2231 -46.400706 L -19.828083 481.9636 L 590.27428 481.9636 L 285.2231 -46.400706 z "
+     transform="matrix(1.510684,0,0,1.7348463,71.981312,127.67778)" />
+</svg>
