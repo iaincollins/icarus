@@ -8,7 +8,7 @@ const APP_FILE_VERSION = PRODUCT_VERSION
 const SERVICE_FILE_VERSION = PRODUCT_VERSION
 
 const PATH_TO_SIGNTOOL = '../code-signing/signtool.exe'
-const SIGN_BUILD = process.env?.SIGN_BUILD === 'true'
+const SIGN_BUILD = false // process.env?.SIGN_BUILD === 'true'
 const SIGN_CERT_NAME = process.env?.SIGN_CERT_NAME ?? 'Open Source Developer, Iain Collins'
 const SIGN_TIME_SERVER = process.env?.SIGN_TIME_SERVER ?? 'http://time.certum.pl'
 
