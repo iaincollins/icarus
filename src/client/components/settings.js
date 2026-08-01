@@ -27,6 +27,7 @@ function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPan
         </div>
         {activeSettingsPanel === 'Theme' && <ThemeSettings visible={visible} />}
         {activeSettingsPanel === 'Sounds' && <SoundSettings visible={visible} />}
+        {activeSettingsPanel === 'Controls' && <ControlsSettings visible={visible} />}
         <div className='modal-dialog__footer'>
           <hr style={{ margin: '1rem 0 .5rem 0' }} />
           <button className='float-right' onClick={toggleVisible}>
@@ -35,6 +36,62 @@ function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPan
         </div>
       </div>
     </>
+  )
+}
+
+function ControlsSettings ({ visible }) {
+  const [controlStatus, setControlStatus] = useState()
+
+  const refreshBindings = async () => {
+    setControlStatus(await sendEvent('refreshBindings'))
+    document.activeElement.blur()
+  }
+
+  useEffect(async () => {
+    if (!visible) return
+    setControlStatus(await sendEvent('getControlStatus'))
+  }, [visible])
+
+  useEffect(() => eventListener('syncMessage', async (event) => {
+    if (event.name === 'controlStatus') {
+      setControlStatus(event.message)
+    }
+  }), [])
+
+  return (
+    <div className='modal-dialog__panel modal-dialog__panel--with-navigation scrollable'>
+      <h3 className='text-primary'>Controls</h3>
+      <p>
+        ICARUS can send keyboard input to Elite Dangerous for supported ship
+        switches. Keyboard bindings are read from the active Elite Dangerous
+        bindings file.
+      </p>
+      <h4 className='text-primary'>Elite Dangerous bindings</h4>
+      <p className='text-muted text-no-transform' style={{ wordBreak: 'break-word' }}>
+        {controlStatus?.bindingsFile || 'No active bindings file found'}
+      </p>
+      <table className='table--layout'>
+        <tbody>
+          {Object.entries(controlStatus?.controls || {}).map(([name, control]) => (
+            <tr key={`control_${name}`}>
+              <td className='text-primary text-uppercase'>{formatControlName(name)}</td>
+              <td className={control.key ? 'text-info' : 'text-muted'}>
+                {control.key ? `${control.key} (${control.source})` : 'No keyboard binding'}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className='text-center' style={{ padding: '0.25rem 0' }}>
+        <button disabled={!controlStatus?.enabled} onClick={refreshBindings}>
+          <i className='icon icarus-terminal-sync' /> Refresh bindings
+        </button>
+      </div>
+      <p className='text-muted'>
+        If you change bindings in-game, refresh them here before using tablet
+        ship controls.
+      </p>
+    </div>
   )
 }
 
@@ -80,11 +137,13 @@ function SoundSettings ({ visible }) {
           }
         }}
       >
-        {voices && preferences && <>
-          <option value='None'>None</option>
-          <option disabled>─</option>
-          {voices && voices.map(voice => <option key={`voice_${voice}`}>{voice}</option>)}
-        </>}
+        {voices && preferences && (
+          <>
+            <option value='None'>None</option>
+            <option disabled>─</option>
+            {voices && voices.map(voice => <option key={`voice_${voice}`}>{voice}</option>)}
+          </>
+        )}
       </select>
       <br /><br />
       <h4 className='text-primary'>About voice assistant</h4>
@@ -276,6 +335,10 @@ function ThemeSettings () {
     </div>
   )
 }
+
+const formatControlName = (name) => name
+  .replace(/([A-Z])/g, ' $1')
+  .replace(/^./, firstLetter => firstLetter.toUpperCase())
 
 const hex2rgb = (hex) => {
   const r = parseInt(hex.slice(1, 3), 16)

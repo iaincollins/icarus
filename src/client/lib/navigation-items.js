@@ -113,6 +113,10 @@ function SettingsNavItems (activePanel) {
     {
       name: 'Sounds',
       icon: 'sound'
+    },
+    {
+      name: 'Controls',
+      icon: 'ship'
     }
   ]
   navigationItems.forEach(item => {
