@@ -43,7 +43,7 @@ class Controls {
     }
 
     try {
-      await this.inputBackend.tapKey(binding)
+      await this.inputBackend.tapBinding(binding)
       console.log('CONTROL_SENT', controlName, binding.display, control.eliteBinding)
       return true
     } catch (e) {
@@ -74,8 +74,8 @@ class Controls {
     }
 
     try {
-      if (direction === 'down') await this.inputBackend.keyDown(binding)
-      else await this.inputBackend.keyUp(binding)
+      if (direction === 'down') await this.inputBackend.bindingDown(binding)
+      else await this.inputBackend.bindingUp(binding)
       return true
     } catch (e) {
       console.error('ERROR_SENDING_KEY', direction, controlName, e.toString())
@@ -109,6 +109,7 @@ class Controls {
         stateFlag: control.stateFlag || null,
         requiresConfirmation: control.requiresConfirmation === true,
         key: binding?.display || null,
+        keyDisplay: binding?.display || null,
         binding: binding || null,
         source: binding ? 'bindings' : null
       }

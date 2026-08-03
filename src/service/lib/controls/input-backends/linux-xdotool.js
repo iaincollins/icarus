@@ -1,17 +1,17 @@
 const { execFile } = require('child_process')
 
 class LinuxXdotoolInputBackend {
-  async tapKey (binding) {
-    await this.keyDown(binding)
-    await this.keyUp(binding)
+  async tapBinding (binding) {
+    await this.bindingDown(binding)
+    await this.bindingUp(binding)
     return true
   }
 
-  async keyDown (binding) {
+  async bindingDown (binding) {
     return this.sendKeyCommand('keydown', binding)
   }
 
-  async keyUp (binding) {
+  async bindingUp (binding) {
     return this.sendKeyCommand('keyup', binding)
   }
 
@@ -28,10 +28,6 @@ class LinuxXdotoolInputBackend {
 }
 
 function normalizeXdotoolBinding (binding) {
-  if (typeof binding === 'string') {
-    return validateXdotoolKeys(binding.split('+').map((keyPart) => keyPart.trim()).filter(Boolean), binding)
-  }
-
   const keyParts = [
     ...(binding?.modifiers || []).map(convertEliteKeyToXdotoolKey),
     convertEliteKeyToXdotoolKey(binding?.key)

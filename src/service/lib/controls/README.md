@@ -48,9 +48,9 @@ Add a file under `input-backends/` that implements this interface:
 
 ```js
 class SomeInputBackend {
-  async tapKey (binding) {}
-  async keyDown (binding) {}
-  async keyUp (binding) {}
+  async tapBinding (binding) {}
+  async bindingDown (binding) {}
+  async bindingUp (binding) {}
 }
 ```
 

@@ -1,13 +1,13 @@
 class UnsupportedInputBackend {
-  async tapKey () {
+  async tapBinding () {
     throw new Error(`No input backend implemented for ${process.platform}`)
   }
 
-  async keyDown () {
+  async bindingDown () {
     throw new Error(`No input backend implemented for ${process.platform}`)
   }
 
-  async keyUp () {
+  async bindingUp () {
     throw new Error(`No input backend implemented for ${process.platform}`)
   }
 }
