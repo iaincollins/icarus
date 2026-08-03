@@ -55,24 +55,11 @@ const CONTROL_METADATA = {
   }
 }
 
-// The bindings file also contains continuous movement, steering, and camera
+// The bindings file also contains analog axes, raw inputs, headlook, and camera
 // controls. They are intentionally excluded from dashboard action buttons.
 const STEERING_CONTROL_PATTERNS = [
   /Axis/,
   /Raw$/,
-  /Steer/,
-  /Thrust/,
-  /Throttle/,
-  /DriveSpeed/,
-  /ForwardButton$/,
-  /BackwardButton$/,
-  /LeftButton$/,
-  /RightButton$/,
-  /UpButton$/,
-  /DownButton$/,
-  /Pitch/,
-  /Yaw/,
-  /Roll/,
   /HeadLook/,
   /Headlook/i,
   /Camera/,
