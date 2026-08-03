@@ -3,6 +3,14 @@ import { sendEvent, eventListener } from 'lib/socket'
 import { SettingsNavItems } from 'lib/navigation-items'
 import packageJson from '../../../package.json'
 
+const SHIP_SWITCH_CONTROLS = [
+  'ShipSpotLightToggle',
+  'NightVisionToggle',
+  'ToggleCargoScoop',
+  'LandingGearToggle',
+  'DeployHardpointToggle'
+]
+
 function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPanel = 'Theme' }) {
   const [activeSettingsPanel, setActiveSettingsPanel] = useState(defaultActiveSettingsPanel)
 
@@ -41,6 +49,7 @@ function Settings ({ visible, toggleVisible = () => {}, defaultActiveSettingsPan
 
 function ControlsSettings ({ visible }) {
   const [controlStatus, setControlStatus] = useState()
+  const switchControls = SHIP_SWITCH_CONTROLS.map((name) => [name, controlStatus?.controls?.[name]]).filter(([, control]) => control)
 
   const refreshBindings = async () => {
     setControlStatus(await sendEvent('refreshBindings'))
@@ -72,9 +81,9 @@ function ControlsSettings ({ visible }) {
       </p>
       <table className='table--layout'>
         <tbody>
-          {Object.entries(controlStatus?.controls || {}).map(([name, control]) => (
+          {switchControls.map(([name, control]) => (
             <tr key={`control_${name}`}>
-              <td className='text-primary text-uppercase'>{formatControlName(name)}</td>
+              <td className='text-primary text-uppercase'>{control.label || formatControlName(name)}</td>
               <td className={control.key ? 'text-info' : 'text-muted'}>
                 {control.key ? `${control.key} (${control.source})` : 'No keyboard binding'}
               </td>
