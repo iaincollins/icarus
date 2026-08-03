@@ -1,4 +1,3 @@
-const { CONTROL_REGISTRY } = require('./control-registry')
 const BindingResolver = require('./binding-resolver')
 const { createInputBackend } = require('./input-backends')
 
@@ -11,6 +10,7 @@ class Controls {
     this.bindingResolver = bindingResolver
     this.inputBackend = inputBackend
     this.enabled = enabled
+    this.controlRegistry = {}
     this.bindingCache = {
       bindingsDir: bindingResolver.bindingsDir,
       bindingsFile: null,
@@ -21,36 +21,72 @@ class Controls {
   }
 
   async toggleSwitch ({ switchName }) {
+    return this.tapControl({ controlName: switchName })
+  }
+
+  async tapControl ({ controlName }) {
     if (!this.enabled) {
-      console.warn('CONTROL_REJECTED_DISABLED', switchName)
+      console.warn('CONTROL_REJECTED_DISABLED', controlName)
       return false
     }
 
-    const control = CONTROL_REGISTRY[switchName]
+    const control = this.controlRegistry[controlName]
     if (!control) {
-      console.warn('CONTROL_REJECTED_UNSUPPORTED_SWITCH', switchName)
+      console.warn('CONTROL_REJECTED_UNSUPPORTED_CONTROL', controlName)
       return false
     }
 
-    const key = this.bindingCache.controls[switchName] || process.env[control.keyEnv]
+    const key = this.bindingCache.controls[controlName]
     if (!key) {
-      console.warn('CONTROL_REJECTED_MISSING_KEY', switchName, control.keyEnv)
+      console.warn('CONTROL_REJECTED_MISSING_KEY', controlName)
       return false
     }
 
     try {
-      await this.inputBackend.sendKey(key)
-      console.log('CONTROL_SENT', switchName, key, control.eliteBinding)
+      await this.inputBackend.tapKey(key)
+      console.log('CONTROL_SENT', controlName, key, control.eliteBinding)
       return true
     } catch (e) {
-      console.error('ERROR_SENDING_KEY', switchName, e.toString())
+      console.error('ERROR_SENDING_KEY', controlName, e.toString())
+      return false
+    }
+  }
+
+  async startControl ({ controlName }) {
+    return this.sendControlKey('down', controlName)
+  }
+
+  async stopControl ({ controlName }) {
+    return this.sendControlKey('up', controlName)
+  }
+
+  async sendControlKey (direction, controlName) {
+    if (!this.enabled) {
+      console.warn('CONTROL_REJECTED_DISABLED', controlName)
+      return false
+    }
+
+    const control = this.controlRegistry[controlName]
+    const key = control && this.bindingCache.controls[controlName]
+    if (!control || !key) {
+      console.warn('CONTROL_REJECTED_MISSING_KEY', controlName)
+      return false
+    }
+
+    try {
+      if (direction === 'down') await this.inputBackend.keyDown(key)
+      else await this.inputBackend.keyUp(key)
+      return true
+    } catch (e) {
+      console.error('ERROR_SENDING_KEY', direction, controlName, e.toString())
       return false
     }
   }
 
   async refreshBindings () {
     try {
-      this.bindingCache = await this.bindingResolver.resolveBindings(CONTROL_REGISTRY)
+      this.bindingCache = await this.bindingResolver.resolveBindings()
+      this.controlRegistry = this.bindingCache.registry || {}
       console.log('CONTROL_BINDINGS_REFRESHED', this.bindingCache.bindingsFile || 'no bindings file')
     } catch (e) {
       console.error('ERROR_REFRESHING_CONTROL_BINDINGS', e.toString())
@@ -62,11 +98,17 @@ class Controls {
   getControlStatus () {
     const controls = {}
 
-    for (const [controlName, control] of Object.entries(CONTROL_REGISTRY)) {
+    for (const [controlName, control] of Object.entries(this.controlRegistry)) {
       controls[controlName] = {
+        id: controlName,
+        label: control.label || controlName,
+        context: control.context || 'ship',
         eliteBinding: control.eliteBinding,
-        key: this.bindingCache.controls[controlName] || process.env[control.keyEnv] || null,
-        source: this.bindingCache.controls[controlName] ? 'bindings' : process.env[control.keyEnv] ? 'env' : null
+        inputMode: control.inputMode || 'tap',
+        stateFlag: control.stateFlag || null,
+        requiresConfirmation: control.requiresConfirmation === true,
+        key: this.bindingCache.controls[controlName] || null,
+        source: this.bindingCache.controls[controlName] ? 'bindings' : null
       }
     }
 

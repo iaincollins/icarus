@@ -6,6 +6,14 @@ import Panel from 'components/panel'
 import ShipStatusPanel from 'components/panels/ship/ship-status-panel'
 import ShipModuleInspectorPanel from 'components/panels/ship/ship-module-inspector-panel'
 
+const SWITCH_COMMANDS = {
+  lights: 'ShipSpotLightToggle',
+  nightVision: 'NightVisionToggle',
+  cargoHatch: 'ToggleCargoScoop',
+  landingGear: 'LandingGearToggle',
+  hardpoints: 'DeployHardpointToggle'
+}
+
 export default function ShipStatusPage () {
   const { connected, active, ready } = useSocket()
   const [ship, setShip] = useState()
@@ -34,10 +42,11 @@ export default function ShipStatusPage () {
   }, [connected, ready])
 
   const toggleSwitch = async (switchName) => {
-    if (!controlStatus?.controls?.[switchName]?.key) return
+    const commandId = SWITCH_COMMANDS[switchName]
+    if (!controlStatus?.controls?.[commandId]?.key) return
 
     // Only toggle switch value if the local input backend accepted the command.
-    const switchToggled = await sendEvent('toggleSwitch', { switchName })
+    const switchToggled = await sendEvent('toggleSwitch', { switchName: commandId })
 
     if (switchToggled) {
       setToggleSwitches((previousSwitches) => ({

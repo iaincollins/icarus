@@ -2,6 +2,7 @@ const os = require('os')
 const fs = require('fs')
 const path = require('path')
 const xml2js = require('xml2js')
+const { createDiscoveredControl, isDashboardControl } = require('./control-registry')
 
 class BindingResolver {
   constructor ({ logDir = global.LOG_DIR, bindingsDir = process.env.ICARUS_BINDINGS_DIR } = {}) {
@@ -9,13 +10,14 @@ class BindingResolver {
     this.bindingsDir = bindingsDir || inferBindingsDir(logDir) || defaultBindingsDir()
   }
 
-  async resolveBindings (controlRegistry) {
+  async resolveBindings () {
     const bindingsFile = this.findActiveBindingsFile()
     if (!bindingsFile) {
       return {
         bindingsDir: this.bindingsDir,
         bindingsFile: null,
-        controls: {}
+        controls: {},
+        registry: {}
       }
     }
 
@@ -24,15 +26,23 @@ class BindingResolver {
       explicitArray: false
     })
 
+    const registry = {}
+    for (const [name, bindingNode] of Object.entries(document.Root || {})) {
+      if (isDashboardControl(name, bindingNode)) {
+        registry[name] = createDiscoveredControl(name)
+      }
+    }
+
     const controls = {}
-    for (const [controlName, control] of Object.entries(controlRegistry)) {
+    for (const [controlName, control] of Object.entries(registry)) {
       controls[controlName] = resolveKeyboardBinding(document.Root?.[control.eliteBinding])
     }
 
     return {
       bindingsDir: this.bindingsDir,
       bindingsFile,
-      controls
+      controls,
+      registry
     }
   }
 

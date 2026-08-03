@@ -1,5 +1,13 @@
 import { useEffect, useRef } from 'react'
 
+const SWITCH_COMMANDS = {
+  lights: 'ShipSpotLightToggle',
+  nightVision: 'NightVisionToggle',
+  cargoHatch: 'ToggleCargoScoop',
+  landingGear: 'LandingGearToggle',
+  hardpoints: 'DeployHardpointToggle'
+}
+
 const applyScaling = (scaledWrapper, scaledContent) => {
   try {
     scaledContent.style.transform = 'scale(1, 1)'
@@ -19,7 +27,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
   const scaledContent = useRef()
 
   const panelActive = (ship.onBoard || cmdrStatus?.flags?.inSrv)
-  const canToggleSwitch = (switchName) => ship.onBoard && !!controlStatus?.controls?.[switchName]?.key
+  const canToggleSwitch = (switchName) => ship.onBoard && !!controlStatus?.controls?.[SWITCH_COMMANDS[switchName]]?.key
 
   useEffect(async () => {
     const resizeEventHandler = () => {
