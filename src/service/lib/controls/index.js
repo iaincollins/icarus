@@ -36,15 +36,15 @@ class Controls {
       return false
     }
 
-    const key = this.bindingCache.controls[controlName]
-    if (!key) {
+    const binding = this.bindingCache.controls[controlName]
+    if (!binding) {
       console.warn('CONTROL_REJECTED_MISSING_KEY', controlName)
       return false
     }
 
     try {
-      await this.inputBackend.tapKey(key)
-      console.log('CONTROL_SENT', controlName, key, control.eliteBinding)
+      await this.inputBackend.tapKey(binding)
+      console.log('CONTROL_SENT', controlName, binding.display, control.eliteBinding)
       return true
     } catch (e) {
       console.error('ERROR_SENDING_KEY', controlName, e.toString())
@@ -67,15 +67,15 @@ class Controls {
     }
 
     const control = this.controlRegistry[controlName]
-    const key = control && this.bindingCache.controls[controlName]
-    if (!control || !key) {
+    const binding = control && this.bindingCache.controls[controlName]
+    if (!control || !binding) {
       console.warn('CONTROL_REJECTED_MISSING_KEY', controlName)
       return false
     }
 
     try {
-      if (direction === 'down') await this.inputBackend.keyDown(key)
-      else await this.inputBackend.keyUp(key)
+      if (direction === 'down') await this.inputBackend.keyDown(binding)
+      else await this.inputBackend.keyUp(binding)
       return true
     } catch (e) {
       console.error('ERROR_SENDING_KEY', direction, controlName, e.toString())
@@ -99,6 +99,7 @@ class Controls {
     const controls = {}
 
     for (const [controlName, control] of Object.entries(this.controlRegistry)) {
+      const binding = this.bindingCache.controls[controlName]
       controls[controlName] = {
         id: controlName,
         label: control.label || controlName,
@@ -107,8 +108,9 @@ class Controls {
         inputMode: control.inputMode || 'tap',
         stateFlag: control.stateFlag || null,
         requiresConfirmation: control.requiresConfirmation === true,
-        key: this.bindingCache.controls[controlName] || null,
-        source: this.bindingCache.controls[controlName] ? 'bindings' : null
+        key: binding?.display || null,
+        binding: binding || null,
+        source: binding ? 'bindings' : null
       }
     }
 
