@@ -4,7 +4,7 @@ _This documentation is intended for developers who want to build from source._
 
 ICARUS is a Windows (Win32) application built primarily in JavaScript, using Node.js + WebSockets and Go with a fork of custom [Edge/WebView2 abstraction in C/C++](https://github.com/iaincollins/webview).
 
-The self-contained installer is around 20 MB and has no dependancies. If you are running an older but supported release of Microsoft Windows, any required Microsoft provided DLLs that are not found will be automatically loaded by the bundled Microsoft installer (e.g. the Microsoft Edge common runtime used to render the user interface).
+The self-contained installer is around 20 MB and has no dependencies. If you are running an older but supported release of Microsoft Windows, any required Microsoft provided DLLs that are not found will be automatically loaded by the bundled Microsoft installer (e.g. the Microsoft Edge common runtime used to render the user interface).
 
 There are other (less complicated) ways to build a cross platform app using a technology like WebView (e.g. [Electron](https://www.electronjs.org/), [Photino](https://www.tryphotino.io/)) but the stack used was chosen to meet specific criteria, including the ability to leverage both native Windows features and to re-use existing isomorphic code, in an optimally sized and fully self-contained installer.
 
@@ -50,7 +50,7 @@ To build the entire application you need to be running Microsoft Windows and hav
 * [Node.js](https://nodejs.org/en/download/)  to build the socket service (ICARUS Service) and React UI
 * [NSIS](https://nsis.sourceforge.io/) to build the Windows installer (can install with `winget install NSIS.NSIS`)
 
-You may also need the following dependancies, depending on the build steps you wish to run (e.g. if you are building assets):
+You may also need the following dependencies, depending on the build steps you wish to run (e.g. if you are building assets):
 
 * [Python 3](https://www.python.org/downloads/) for building assets and binaries
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) or MS Build Tools with "Desktop development with C++" for working with Windows APIs
