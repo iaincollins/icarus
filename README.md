@@ -73,6 +73,21 @@ With that done, anytime you want to start ICARUS Terminal, all you need to do is
 
 This will run in debug mode which is not quite the same as a production build (it's not as optimised) but should work just fine.
 
+### Optional Linux ship controls
+
+When running ICARUS Terminal from source on Linux, ship switches in the remote
+web interface can optionally send keyboard input to Elite Dangerous. This is
+disabled by default and currently uses `xdotool`, so it requires an X11 session
+and `xdotool` installed on the computer running Elite Dangerous.
+
+To enable it, add this to your `.env` file:
+
+    ICARUS_ENABLE_CONTROLS=true
+
+ICARUS reads the active Elite Dangerous bindings file and enables supported
+switches when they have keyboard bindings. After changing bindings in-game, open
+`Settings -> Controls` in ICARUS and use `Refresh bindings`.
+
 ## Legal
 
 ICARUS Terminal is free, open-source software released under the ISC License.
@@ -122,4 +137,3 @@ You can use Inara to [find out which system the Ardent Pioneer is currently in](
 Before you visit you might want to [check out what commodities are currently 
 being traded](https://inara.cz/elite/station-market/490914/). You might also 
 want to chat to the bartender to see what they are looking for!
-

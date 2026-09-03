@@ -6,11 +6,20 @@ import Panel from 'components/panel'
 import ShipStatusPanel from 'components/panels/ship/ship-status-panel'
 import ShipModuleInspectorPanel from 'components/panels/ship/ship-module-inspector-panel'
 
+const SWITCH_COMMANDS = {
+  lights: 'ShipSpotLightToggle',
+  nightVision: 'NightVisionToggle',
+  cargoHatch: 'ToggleCargoScoop',
+  landingGear: 'LandingGearToggle',
+  hardpoints: 'DeployHardpointToggle'
+}
+
 export default function ShipStatusPage () {
   const { connected, active, ready } = useSocket()
   const [ship, setShip] = useState()
   const [selectedModule, setSelectedModule] = useState()
   const [cmdrStatus, setCmdrStatus] = useState()
+  const [controlStatus, setControlStatus] = useState()
 
   // Using state for toggle switches like this allow us to have the UI
   // respond immediately to the input from the user, even if it takes the game
@@ -29,19 +38,22 @@ export default function ShipStatusPage () {
     if (!connected) return
     setShip(await sendEvent('getShipStatus'))
     setCmdrStatus(await sendEvent('getCmdrStatus'))
+    setControlStatus(await sendEvent('getControlStatus'))
   }, [connected, ready])
 
   const toggleSwitch = async (switchName) => {
+    const commandId = SWITCH_COMMANDS[switchName]
+    if (!controlStatus?.controls?.[commandId]?.key) return
 
-    /*
-    // Only toggle switch value if we think it was successful
-    const switchToggled = await sendEvent('toggleSwitch', { switchName })
+    // Only toggle switch value if the local input backend accepted the command.
+    const switchToggled = await sendEvent('toggleSwitch', { switchName: commandId })
 
-    setToggleSwitches({
-      ...toggleSwitches,
-      [switchName]: switchToggled ? !toggleSwitches[switchName] : toggleSwitches[switchName]
-    })
-    */
+    if (switchToggled) {
+      setToggleSwitches((previousSwitches) => ({
+        ...previousSwitches,
+        [switchName]: !previousSwitches[switchName]
+      }))
+    }
   }
 
   useEffect(async () => {
@@ -66,6 +78,12 @@ export default function ShipStatusPage () {
     }
   }), [])
 
+  useEffect(() => eventListener('syncMessage', async (event) => {
+    if (event.name === 'controlStatus') {
+      setControlStatus(event.message)
+    }
+  }), [])
+
   return (
     <Layout connected={connected} active={active} ready={ready} className='ship-panel'>
       <Panel navigation={ShipPanelNavItems('Status')} scrollable>
@@ -74,6 +92,7 @@ export default function ShipStatusPage () {
           cmdrStatus={cmdrStatus}
           toggleSwitches={toggleSwitches}
           toggleSwitch={toggleSwitch}
+          controlStatus={controlStatus}
           selectedModule={selectedModule}
           setSelectedModule={setSelectedModule}
         />

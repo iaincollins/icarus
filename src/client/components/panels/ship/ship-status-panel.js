@@ -1,7 +1,7 @@
 import { UNKNOWN_VALUE } from '../../../../shared/consts'
 import ShipInstrumentation from 'components/panels/ship/ship-status/ship-instrumentation'
 
-export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModule, cmdrStatus, toggleSwitches, toggleSwitch }) {
+export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModule, cmdrStatus, toggleSwitches, toggleSwitch, controlStatus }) {
   if (!ship) return null
 
   if (ship.type === UNKNOWN_VALUE && ship.name === UNKNOWN_VALUE && ship.ident === UNKNOWN_VALUE) {
@@ -30,8 +30,8 @@ export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModu
             <h5 className='text-right text-info text-uppercase' style={{ position: 'absolute', right: '.5rem', opacity: ship.onBoard ? 1 : 0.5 }}>
               {ship.onBoard ? 'Online' : 'Offline'}
             </h5>
-            <div className={`ship-panel__horizontal-activity ${ship.onBoard ? 'ship-panel__horizontal-activity--online' : ''}`}/>
-            <div className='ship-panel__horizontal-activity-marker'/>
+            <div className={`ship-panel__horizontal-activity ${ship.onBoard ? 'ship-panel__horizontal-activity--online' : ''}`} />
+            <div className='ship-panel__horizontal-activity-marker' />
           </div>
         </div>
         <hr style={{ margin: '0 0 1rem 0' }} />
@@ -40,6 +40,7 @@ export default function ShipStatusPanel ({ ship, selectedModule, setSelectedModu
           cmdrStatus={cmdrStatus}
           toggleSwitches={toggleSwitches}
           toggleSwitch={toggleSwitch}
+          controlStatus={controlStatus}
         />
       </div>
     </>

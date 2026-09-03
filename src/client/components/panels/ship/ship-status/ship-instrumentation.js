@@ -1,5 +1,13 @@
 import { useEffect, useRef } from 'react'
 
+const SWITCH_COMMANDS = {
+  lights: 'ShipSpotLightToggle',
+  nightVision: 'NightVisionToggle',
+  cargoHatch: 'ToggleCargoScoop',
+  landingGear: 'LandingGearToggle',
+  hardpoints: 'DeployHardpointToggle'
+}
+
 const applyScaling = (scaledWrapper, scaledContent) => {
   try {
     scaledContent.style.transform = 'scale(1, 1)'
@@ -14,12 +22,13 @@ const applyScaling = (scaledWrapper, scaledContent) => {
   }
 }
 
-export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches, toggleSwitch }) {
+export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches, toggleSwitch, controlStatus }) {
   const scaledWrapper = useRef()
   const scaledContent = useRef()
 
   const panelActive = (ship.onBoard || cmdrStatus?.flags?.inSrv)
-  
+  const canToggleSwitch = (switchName) => ship.onBoard && !!controlStatus?.controls?.[SWITCH_COMMANDS[switchName]]?.key
+
   useEffect(async () => {
     const resizeEventHandler = () => {
       if (scaledWrapper.current && scaledContent.current) {
@@ -53,7 +62,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
           opacity: 0
         }}
       >
-          <table className={`ship-panel__switches table--layout ${!ship.onBoard ? 'text-muted' : ''}`}>
+          <table className={`ship-panel__switches table--layout ${!ship.onBoard ? 'text-muted' : ''}`} style={{ pointerEvents: 'auto' }}>
           <tbody>
             <tr>
               <td>
@@ -65,7 +74,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                     type='checkbox'
                     checked={ship.onBoard && toggleSwitches?.lights}
                     onChange={() => toggleSwitch('lights')}
-                    disabled
+                    disabled={!canToggleSwitch('lights')}
                   />
                   <span className='checkbox__control' />
                 </label>
@@ -79,7 +88,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                     type='checkbox'
                     checked={ship.onBoard && toggleSwitches?.nightVision}
                     onChange={() => toggleSwitch('nightVision')}
-                    disabled
+                    disabled={!canToggleSwitch('nightVision')}
                   />
                   <span className='checkbox__control' />
                 </label>
@@ -93,7 +102,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                     type='checkbox'
                     checked={ship.onBoard && toggleSwitches?.cargoHatch}
                     onChange={() => toggleSwitch('cargoHatch')}
-                    disabled
+                    disabled={!canToggleSwitch('cargoHatch')}
                   />
                   <span className='checkbox__control' />
                 </label>
@@ -107,7 +116,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                     type='checkbox'
                     checked={ship.onBoard && toggleSwitches?.landingGear}
                     onChange={() => toggleSwitch('landingGear')}
-                    disabled
+                    disabled={!canToggleSwitch('landingGear')}
                   />
                   <span className='checkbox__control' />
                 </label>
@@ -121,7 +130,7 @@ export default function ShipInstrumentation ({ ship, cmdrStatus, toggleSwitches,
                     type='checkbox'
                     checked={ship.onBoard && cmdrStatus?.flags?.supercruise === false && toggleSwitches?.hardpoints}
                     onChange={() => toggleSwitch('hardpoints')}
-                    disabled
+                    disabled={!canToggleSwitch('hardpoints') || cmdrStatus?.flags?.supercruise}
                   />
                   <span className='checkbox__control' />
                 </label>
