@@ -1,0 +1,11 @@
+table tbody tr td.Active {
+  color: var(--color-primary);
+}
+
+table tbody tr td.Failed {
+  color: var(--color-danger);
+}
+
+table tbody tr td.Complete {
+  color: var(--color-info);
+}

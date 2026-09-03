@@ -23,6 +23,11 @@ const NAV_BUTTONS = [
     path: '/eng'
   },
   {
+    name: 'Missions',
+    abbr: 'Mis',
+    path: '/mis'
+  },
+  {
     name: 'Log',
     abbr: 'Log',
     path: '/log'

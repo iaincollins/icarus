@@ -2,6 +2,7 @@ build/
 dist/
 node_modules/
 temp/
+data/
 .DS_Store
 .env
 .next

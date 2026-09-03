@@ -23,6 +23,7 @@
 @import "panels/navigation-panel.css";
 @import "panels/ship-panel.css";
 @import "panels/engineering-panel.css";
+@import "panels/missions-panel.css";
 
 @import "overrides/safari.css";
 @import "overrides/firefox.css";

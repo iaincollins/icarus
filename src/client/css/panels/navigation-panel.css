@@ -361,3 +361,9 @@ table.navigation-panel__route-plan tbody tr.table__row--highlight-primary-hover:
   color: var(--color-primary-dark) !important;
   text-shadow: none;
 }
+
+span.text-superscript {
+  vertical-align: super;
+  font-size: 14px;
+  font-family: "Jura", sans-serif;
+}

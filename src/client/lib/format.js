@@ -1,3 +1,5 @@
+const ADD_YEARS_IN_FUTURE = 1286
+
 function formatBytes (bytes) {
   if (bytes >= 1073741824) {
     bytes = (bytes / 1073741824).toFixed(2) + ' GB'
@@ -17,7 +19,7 @@ function formatBytes (bytes) {
 
 function eliteDateTime (timestamp = Date.now()) {
   const date = new Date(timestamp)
-  date.setFullYear(date.getFullYear() + 1286) // We are living in the future
+  date.setFullYear(date.getFullYear() + ADD_YEARS_IN_FUTURE) // We are living in the future
   const dateTimeString = date.toUTCString()
     .replace(' GMT', '') // Time in the Elite universe is always in UTC
     .replace(/(.*), /, '') // Strip day of week
@@ -30,7 +32,8 @@ function eliteDateTime (timestamp = Date.now()) {
     time: dateTimeString.split(/^(.*)? (\d\d:\d\d)/)[2],
     day: date.getDate(),
     month: date.toLocaleString('en-us',{month:'short'}),
-    year: date.getFullYear()
+    year: date.getFullYear(),
+    jsDate: date
   }
 
   return dateTimeObject
@@ -55,6 +58,8 @@ function objectToHtml (obj, depth = 0, type = null, previousPropertyName) {
     if (propertyName === 'timestamp') {
       propertyName = 'Time'
       propertyValue = eliteDateTime(propertyValue).dateTime
+    } else if (propertyName == 'Expires') {
+      propertyValue = secondsToStr(propertyValue)
     }
 
     let propertyLabel
@@ -99,8 +104,40 @@ function objectToHtml (obj, depth = 0, type = null, previousPropertyName) {
   return str
 }
 
+function secondsToStr (seconds = 0) {
+  function numberEnding (number) {
+    return (number > 1) ? 's' : '';
+  }
+
+  var years = Math.floor(seconds / 31536000);
+  if (years) {
+      return years + ' year' + numberEnding(years);
+  }
+  //TODO: Months! Maybe weeks? 
+  var days = Math.floor((seconds %= 31536000) / 86400);
+  if (days) {
+      return days + ' day' + numberEnding(days);
+  }
+  var hours = Math.floor((seconds %= 86400) / 3600);
+  if (hours) {
+      return hours + ' hour' + numberEnding(hours);
+  }
+  var minutes = Math.floor((seconds %= 3600) / 60);
+  if (minutes) {
+      return minutes + ' minute' + numberEnding(minutes);
+  }
+  
+  if (seconds) {
+      return seconds + ' second' + numberEnding(seconds);
+  }
+
+  return 'never';
+}
+
 module.exports = {
   formatBytes,
   eliteDateTime,
-  objectToHtml
+  secondsToStr,
+  objectToHtml,
+  ADD_YEARS_IN_FUTURE
 }
